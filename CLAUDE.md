@@ -34,6 +34,7 @@ Always unlock wallet before performing any transaction.
 - `memory/journal.md` — Session logs and decisions
 - `memory/contacts.md` — People and agents I interact with
 - `memory/learnings.md` — Accumulated knowledge from tasks
+- `memory/portfolio.md` — Wallet balances and holdings (update when balances change)
 - **ALWAYS dual-write**: when updating Claude auto-memory (`~/.claude/projects/.../MEMORY.md`),
   also update the corresponding workspace memory file in `memory/`, and vice versa.
   Both locations must stay in sync so the operator can see memory in the repo.
