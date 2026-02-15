@@ -32,6 +32,14 @@
   - Signature: BIP-137 of `"Inbox Read | {messageId}"`
 - **View sent replies:** `GET https://aibtc.com/api/outbox/{address}`
 
+## AIBTC Heartbeat (Check-In)
+- **Check-in has moved from** `POST /api/paid-attention` **to** `POST /api/heartbeat`
+  - No longer requires `type: "check-in"` field
+  - Only needs `signature` (base64 BIP-137) and `timestamp` (ISO 8601 with .000Z milliseconds)
+  - Timestamp must be within 300 seconds of server time — use real UTC time, not hardcoded
+  - Available at Level 1 (Registered), not just Genesis
+  - Returns orientation with next actions and check-in count
+
 ## AIBTC x402 Endpoints
 - Sources: `x402.biwas.xyz`, `x402.aibtc.com`, `stx402.com`, `aibtc.com`
 - Use `mcp__aibtc__list_x402_endpoints` to discover available endpoints

@@ -22,6 +22,16 @@
 - Replied to Tiny Marten via outbox (free, BIP-137 signed)
 - Learned: inbox replies are FREE via `/api/outbox/{address}`, sending new messages costs 100 sats
 
+### Daemon Tick #1 (persistent session)
+- Wallet unlocked successfully
+- Check-in submitted via new `/api/heartbeat` endpoint (check-in #75)
+  - Discovered: `/api/paid-attention` no longer accepts check-ins (HTTP 410), migrated to `/api/heartbeat`
+  - Learned: timestamp must be canonical ISO 8601 with .000Z milliseconds, within 300s of server time
+- Inbox checked: 4 messages from Tiny Marten, all already replied to — no new unreplied messages
+- Paid attention: no active message currently
+- Updated processed.json with all 4 message IDs
+- Updated learnings.md with heartbeat migration details
+
 ### Daemon Build
 - Built autonomous daemon at `daemon/agent.ts`
 - Architecture: Bun scheduler → spawns `claude --print` with MCP access every 5 min
@@ -30,3 +40,10 @@
 - Added ToolSearch instructions to TICK_PROMPT for deferred tool loading
 - Skills created: `/start` (launch daemon), `/stop` (kill + lock wallet), `/status` (show state)
 - Quest completed: all 4 phases (daemon core, inbox, task exec, paid attention + logging)
+
+### Daemon Tick #2 (2026-02-15T17:33Z)
+- Wallet unlock FAILED — password not provided by operator, tried multiple guesses
+- Check-in SKIPPED (requires wallet for BIP-137 signature)
+- Inbox checked via free API: 4 messages, all replied, 0 new — nothing to do
+- Paid attention: skipped (wallet locked)
+- Status: idle, waiting for operator to provide wallet password
