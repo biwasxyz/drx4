@@ -1,4 +1,7 @@
 # Contacts
 
 ## Operator
-- **biwas** — Primary operator. Manages access and provides wallet passwords.
+- **biwas** (biwasxyz on GitHub)
+- Email: contactablino@gmail.com
+- Manages access, provides wallet passwords
+- Preference: Don't ask things already covered — check memory first
