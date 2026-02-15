@@ -37,6 +37,7 @@ interface DaemonState {
   lastTick: string | null;
   tickCount: number;
   errors: number;
+  sessionId: string | null; // Claude session ID for --resume
 }
 
 function loadState(): DaemonState {
@@ -48,6 +49,7 @@ function loadState(): DaemonState {
     lastTick: null,
     tickCount: 0,
     errors: 0,
+    sessionId: null,
   };
 }
 
@@ -71,29 +73,39 @@ function log(level: "INFO" | "WARN" | "ERROR", msg: string) {
 
 // --- Claude CLI Runner ---
 
-async function runClaude(prompt: string, timeoutMs = 120_000): Promise<string> {
+async function runClaude(
+  prompt: string,
+  sessionId: string | null,
+  timeoutMs = 120_000
+): Promise<{ output: string; sessionId: string | null }> {
   try {
-    const proc = Bun.spawn(
-      [
-        "claude",
-        "--print",
-        "--dangerously-skip-permissions",
-        "-p",
-        prompt,
-      ],
-      {
-        cwd: BASE_DIR,
-        stdout: "pipe",
-        stderr: "pipe",
-        env: {
-          ...process.env,
-          CLAUDECODE: undefined, // Allow nested claude invocations
-        },
-      }
-    );
+    const args = [
+      "claude",
+      "--print",
+      "--dangerously-skip-permissions",
+      "--output-format",
+      "json",
+    ];
+
+    // Resume existing session if we have one
+    if (sessionId) {
+      args.push("--resume", sessionId);
+    }
+
+    args.push("-p", prompt);
+
+    const proc = Bun.spawn(args, {
+      cwd: BASE_DIR,
+      stdout: "pipe",
+      stderr: "pipe",
+      env: {
+        ...process.env,
+        CLAUDECODE: undefined, // Allow nested claude invocations
+      },
+    });
 
     const timer = setTimeout(() => proc.kill(), timeoutMs);
-    const output = await new Response(proc.stdout).text();
+    const rawOutput = await new Response(proc.stdout).text();
     const exitCode = await proc.exited;
     clearTimeout(timer);
 
@@ -102,87 +114,124 @@ async function runClaude(prompt: string, timeoutMs = 120_000): Promise<string> {
       log("WARN", `Claude exited ${exitCode}: ${stderr.slice(0, 200)}`);
     }
 
-    return output.trim();
+    // Parse JSON output to extract session ID and result
+    let output = rawOutput.trim();
+    let newSessionId = sessionId;
+
+    try {
+      const json = JSON.parse(output);
+      // --output-format json returns { result, session_id, ... }
+      if (json.session_id) {
+        newSessionId = json.session_id;
+      }
+      output = json.result || output;
+    } catch {
+      // If JSON parse fails, just use raw output
+    }
+
+    return { output, sessionId: newSessionId };
   } catch (error) {
     log("ERROR", `Claude spawn error: ${error}`);
-    return "";
+    return { output: "", sessionId };
   }
 }
 
 // --- Tick Actions ---
 
-const TICK_PROMPT = `You are Secret Mars, an autonomous AI agent. Your workspace is /Users/biwas/drx4.
-You are running as a background daemon tick. You have FULL file access (Read, Write, Edit tools).
+// First tick: full context, load tools, read memory
+const INIT_PROMPT = `You are Secret Mars, an autonomous AI agent. Your workspace is /Users/biwas/drx4.
+You are running as a persistent background daemon. This session will be RESUMED for future ticks,
+so everything you learn here carries forward. You have FULL file access (Read, Write, Edit tools).
 
-## PHASE 0: LOAD CONTEXT (do this FIRST every tick)
+## SETUP (first tick only)
 
-0a. LOAD MCP TOOLS: The aibtc tools are deferred. Use ToolSearch:
+1. LOAD MCP TOOLS: The aibtc tools are deferred. Use ToolSearch:
    - Query "+aibtc wallet unlock" to load wallet tools
    - Query "+aibtc sign message" to load signing tools
    - Query "+aibtc x402 endpoint" to load x402 tools
 
-0b. READ YOUR MEMORY: Use the Read tool to read these files:
+2. READ YOUR MEMORY: Use the Read tool to read:
    - /Users/biwas/drx4/CLAUDE.md (your boot config — follow all rules here)
-   - /Users/biwas/drx4/memory/learnings.md (accumulated knowledge — check for past errors)
-   - /Users/biwas/drx4/daemon/processed.json (message IDs you already replied to — skip these)
+   - /Users/biwas/drx4/memory/learnings.md (accumulated knowledge)
+   - /Users/biwas/drx4/daemon/processed.json (message IDs already replied to)
 
-0c. CHECK RECENT ERRORS: Read the last 30 lines of today's log at /Users/biwas/drx4/logs/{today's YYYY-MM-DD}.log
-   - If you see repeated errors, adapt your approach (e.g., if an API path 404'd, try the correct one)
-   - If a tool failed, note what happened and try differently
+3. UNLOCK WALLET: Use mcp__aibtc__wallet_unlock (name: "secret mars name", password: "password123")
 
-## PHASE 1: ACTIONS
+Now perform your first tick (see TICK ACTIONS below).
 
-1. UNLOCK WALLET: Use mcp__aibtc__wallet_unlock (name: "secret mars name", password: "password123")
+## TICK ACTIONS (every tick)
 
-2. CHECK-IN: Sign a check-in message and submit it:
-   - Use mcp__aibtc__btc_sign_message with message: "AIBTC Check-In | {current ISO timestamp}"
-   - Then use mcp__aibtc__execute_x402_endpoint with apiUrl "https://aibtc.com", path "/api/paid-attention", method POST, data: {"type": "check-in", "signature": "<base64 sig>", "timestamp": "<same timestamp>"}
+1. CHECK-IN: Sign and submit:
+   - mcp__aibtc__btc_sign_message: "AIBTC Check-In | {current ISO timestamp}"
+   - mcp__aibtc__execute_x402_endpoint: apiUrl "https://aibtc.com", path "/api/paid-attention", method POST, data: {"type": "check-in", "signature": "<base64>", "timestamp": "<same>"}
 
-3. CHECK INBOX: Use mcp__aibtc__execute_x402_endpoint with apiUrl "https://aibtc.com", path "/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE", method GET
-   - Look for messages where direction is "received" and repliedAt is null (unreplied)
-   - SKIP any message whose ID is in daemon/processed.json
+2. CHECK INBOX: mcp__aibtc__execute_x402_endpoint: apiUrl "https://aibtc.com", path "/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE", method GET
+   - Skip messages already in daemon/processed.json
 
-4. REPLY TO NEW UNREPLIED MESSAGES: For each unreplied message NOT in processed.json:
-   - If it contains a task (github, fork, PR, build, deploy, implement, fix, create), describe the task and say you'll work on it
-   - Otherwise, send a brief acknowledgment
-   - Sign with mcp__aibtc__btc_sign_message: "Inbox Reply | {messageId} | {reply text}"
-   - Reply is FREE via outbox: POST /api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE
-   - Use mcp__aibtc__execute_x402_endpoint with apiUrl "https://aibtc.com", path "/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE", method POST, data: {messageId, reply, signature (base64)}
+3. REPLY TO NEW MESSAGES: For each unreplied received message NOT in processed.json:
+   - Task messages (github, fork, PR, build, deploy, implement, fix, create): describe the task, say you'll work on it
+   - Other messages: brief acknowledgment
+   - Sign: mcp__aibtc__btc_sign_message "Inbox Reply | {messageId} | {reply text}"
+   - Send FREE via outbox: mcp__aibtc__execute_x402_endpoint, apiUrl "https://aibtc.com", path "/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE", method POST, data: {messageId, reply, signature (base64)}
 
-5. PAID ATTENTION:
-   - Fetch GET /api/paid-attention from aibtc.com using mcp__aibtc__execute_x402_endpoint
+4. PAID ATTENTION:
+   - GET /api/paid-attention from aibtc.com
    - If there's a current prompt, respond to it
-   - Sign: "Paid Attention | {messageId} | {response text}"
-   - POST to /api/paid-attention with {signature (base64), response}
+   - Sign and POST response
 
-## PHASE 2: LEARN & UPDATE (do this AFTER actions)
+## AFTER ACTIONS (every tick)
 
-6. UPDATE PROCESSED MESSAGES: Read daemon/processed.json, add any message IDs you just replied to, write it back.
-   If the file doesn't exist, create it as a JSON array of message ID strings.
+5. UPDATE PROCESSED: Add new message IDs to /Users/biwas/drx4/daemon/processed.json
 
-7. LEARN FROM THIS TICK: If anything unexpected happened (API error, wrong response format, tool failure, new discovery):
-   - Use the Edit tool to append what you learned to /Users/biwas/drx4/memory/learnings.md
-   - Be specific: what failed, what the error was, what works instead
-   - Example: "## API Note\\n- /api/paid-attention POST returns 403 if signature format is wrong — must be base64"
+6. LEARN: If anything failed or you discovered something new:
+   - Append to /Users/biwas/drx4/memory/learnings.md (be specific: what failed, what works)
+   - If it's a permanent config change, update /Users/biwas/drx4/CLAUDE.md
 
-8. UPDATE CLAUDE.md IF NEEDED: If you discovered something that should change your boot config permanently:
-   - API endpoint changes, new required parameters, corrected workflow steps
-   - Use the Edit tool to update /Users/biwas/drx4/CLAUDE.md
-   - Only update for confirmed, stable changes — not one-off glitches
-
-9. UPDATE JOURNAL: Append a brief line to /Users/biwas/drx4/memory/journal.md summarizing this tick:
-   - "### Daemon Tick {timestamp}\\n- Checked in: yes/no\\n- Inbox: X new messages, replied to Y\\n- Learned: {brief note or 'nothing new'}"
+7. JOURNAL: Append a tick summary to /Users/biwas/drx4/memory/journal.md
 
 ## OUTPUT
+Output a JSON summary as the LAST line:
+{"checkin": true/false, "inbox_checked": true/false, "unreplied": <count>, "replied": <count>, "paid_attention": true/false, "learned": "<note or null>"}
+`;
 
-Output a JSON summary as the last line:
-{"checkin": true/false, "inbox_checked": true/false, "unreplied": <count>, "replied": <count>, "paid_attention": true/false, "learned": "<brief note or null>"}
+// Subsequent ticks: short prompt, session already has full context
+const TICK_PROMPT = `Time for your next periodic tick. The current time is {TIMESTAMP}.
+
+Run through your tick actions:
+1. Check-in (sign + submit)
+2. Check inbox (skip already-processed messages)
+3. Reply to any new unreplied messages
+4. Handle paid attention if there's a prompt
+5. Update processed.json, learnings, and journal
+
+If the wallet locked, re-unlock it first.
+If any tools aren't loaded, re-load them via ToolSearch.
+
+Output JSON summary as the last line.
 `;
 
 async function tick(state: DaemonState) {
-  log("INFO", `Tick #${state.tickCount + 1} starting...`);
+  const tickNum = state.tickCount + 1;
+  const isFirst = tickNum === 1;
+  log("INFO", `Tick #${tickNum} starting (${isFirst ? "INIT" : "RESUME"})...`);
 
-  const output = await runClaude(TICK_PROMPT, 180_000); // 3 min timeout
+  // First tick: full init prompt, fresh session
+  // Subsequent ticks: short prompt, resume existing session
+  const prompt = isFirst
+    ? INIT_PROMPT
+    : TICK_PROMPT.replace("{TIMESTAMP}", new Date().toISOString());
+
+  const { output, sessionId: newSessionId } = await runClaude(
+    prompt,
+    isFirst ? null : state.sessionId,
+    180_000 // 3 min timeout
+  );
+
+  // Save session ID for future resumption
+  if (newSessionId && newSessionId !== state.sessionId) {
+    log("INFO", `Session ID: ${newSessionId}`);
+    state.sessionId = newSessionId;
+  }
 
   if (output) {
     log("INFO", `Tick output (last 300 chars): ...${output.slice(-300)}`);
@@ -196,11 +245,20 @@ async function tick(state: DaemonState) {
           "INFO",
           `Tick summary: checkin=${summary.checkin}, replied=${summary.replied}, paid_attention=${summary.paid_attention}`
         );
+        if (summary.learned) {
+          log("INFO", `Learned: ${summary.learned}`);
+        }
       } catch {}
     }
   } else {
     log("ERROR", "Tick produced no output");
     state.errors++;
+    // If session died, clear it so next tick starts fresh
+    if (!isFirst) {
+      log("WARN", "Clearing session ID — next tick will re-init");
+      state.sessionId = null;
+      state.tickCount = 0; // Reset so next tick uses INIT_PROMPT
+    }
   }
 
   state.lastTick = new Date().toISOString();
