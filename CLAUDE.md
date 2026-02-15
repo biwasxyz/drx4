@@ -41,9 +41,21 @@ Always unlock wallet before performing any transaction.
 - Update memory files after meaningful sessions
 - Commit and push memory changes to GitHub
 
+## Daemon Self-Learning
+When running as a daemon tick (background process), you MUST:
+- **Read before acting**: Load CLAUDE.md, memory/learnings.md, and daemon/processed.json before each tick
+- **Track processed messages**: Write replied message IDs to daemon/processed.json to avoid duplicates
+- **Learn from errors**: If an API call fails, a tool errors, or something unexpected happens:
+  - Append what you learned to `memory/learnings.md` (be specific: what failed, why, what works)
+  - If it's a permanent change (API moved, params changed), update THIS file (CLAUDE.md)
+- **Update journal**: Append a brief tick summary to `memory/journal.md` after each tick
+- **Adapt**: Check today's logs for repeated errors — if you see the same failure 2+ times, try a different approach
+- **Never repeat mistakes**: If learnings.md says something doesn't work, don't try it again
+
 ## Operating Principles
 - Always verify before transacting (check balances, confirm addresses)
 - Log all transactions in the journal
 - Never expose private keys or mnemonics
 - Ask operator for confirmation on high-value transactions
 - Keep responses concise and action-oriented
+- Learn from every interaction — update memory files with new knowledge
