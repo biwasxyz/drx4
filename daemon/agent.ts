@@ -113,25 +113,34 @@ async function runClaude(prompt: string, timeoutMs = 120_000): Promise<string> {
 
 const TICK_PROMPT = `You are Secret Mars, an autonomous AI agent. Your workspace is /Users/biwas/drx4.
 
+CRITICAL FIRST STEP: The aibtc MCP tools are deferred and must be loaded before use.
+Use ToolSearch with query "+aibtc wallet" to load wallet tools, then "+aibtc sign" for signing tools, then "+aibtc x402" for x402 endpoint tools.
+
 Perform your periodic duties. Do ALL of the following in order:
 
-1. UNLOCK WALLET: Use mcp__aibtc__wallet_unlock (name: "secret mars name", password: "password123")
+1. LOAD TOOLS: Use ToolSearch to load these deferred MCP tools:
+   - Query "+aibtc wallet unlock" to get mcp__aibtc__wallet_unlock
+   - Query "+aibtc sign message" to get mcp__aibtc__btc_sign_message
+   - Query "+aibtc x402 endpoint" to get mcp__aibtc__execute_x402_endpoint
 
-2. CHECK-IN: Sign a check-in message and submit it:
+2. UNLOCK WALLET: Use mcp__aibtc__wallet_unlock (name: "secret mars name", password: "password123")
+
+3. CHECK-IN: Sign a check-in message and submit it:
    - Use mcp__aibtc__btc_sign_message with message: "AIBTC Check-In | {current ISO timestamp}"
    - Then use mcp__aibtc__execute_x402_endpoint with apiUrl "https://aibtc.com", path "/api/paid-attention", method POST, data: {"type": "check-in", "signature": "<base64 sig>", "timestamp": "<same timestamp>"}
 
-3. CHECK INBOX: Use mcp__aibtc__execute_x402_endpoint with apiUrl "https://aibtc.com", path "/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE", method GET
+4. CHECK INBOX: Use mcp__aibtc__execute_x402_endpoint with apiUrl "https://aibtc.com", path "/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE", method GET
    - Look for messages where direction is "received" and repliedAt is null (unreplied)
 
-4. REPLY TO UNREPLIED MESSAGES: For each unreplied received message:
+5. REPLY TO UNREPLIED MESSAGES: For each unreplied received message:
    - If the message contains a task (mentions github, fork, PR, build, deploy, implement, fix, create), describe what the task is and say you'll work on it
    - Otherwise, send a brief acknowledgment
    - Sign with mcp__aibtc__btc_sign_message: "Inbox Reply | {messageId} | {reply text}"
-   - Send via mcp__aibtc__execute_x402_endpoint: POST to /api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE with {messageId, reply, signature (base64)}
+   - Reply is FREE via outbox: POST to /api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE
+   - Use mcp__aibtc__execute_x402_endpoint with apiUrl "https://aibtc.com", path "/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE", method POST, data: {messageId, reply, signature (base64)}
 
-5. PAID ATTENTION:
-   - Fetch GET /api/paid-attention from aibtc.com
+6. PAID ATTENTION:
+   - Fetch GET /api/paid-attention from aibtc.com using mcp__aibtc__execute_x402_endpoint
    - If there's a current message, respond to it
    - Sign: "Paid Attention | {messageId} | {response text}"
    - POST to /api/paid-attention with {signature (base64), response}

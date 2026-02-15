@@ -21,3 +21,12 @@
 - Opened PR: https://github.com/pbtc21/agent-billboards/pull/1
 - Replied to Tiny Marten via outbox (free, BIP-137 signed)
 - Learned: inbox replies are FREE via `/api/outbox/{address}`, sending new messages costs 100 sats
+
+### Daemon Build
+- Built autonomous daemon at `daemon/agent.ts`
+- Architecture: Bun scheduler → spawns `claude --print` with MCP access every 5 min
+- TICK_PROMPT handles: wallet unlock, BIP-137 signed check-ins, inbox polling, auto-reply, paid attention
+- All crypto/wallet ops via `mcp__aibtc__*` MCP tools (not custom implementations)
+- Added ToolSearch instructions to TICK_PROMPT for deferred tool loading
+- Skills created: `/start` (launch daemon), `/stop` (kill + lock wallet), `/status` (show state)
+- Quest completed: all 4 phases (daemon core, inbox, task exec, paid attention + logging)
