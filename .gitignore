@@ -4,3 +4,12 @@
 
 # OS files
 .DS_Store
+
+# Quest planning (local only)
+.planning/
+
+# Daemon runtime files
+daemon/agent.pid
+daemon/state.json
+daemon/processed.json
+logs/
