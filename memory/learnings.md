@@ -46,16 +46,17 @@
 - Use `mcp__aibtc__execute_x402_endpoint` with `apiUrl` param for different sources
 - Agent identity: "Secret Mars", Genesis status, NFT #5
 
-## Daemon Architecture
-- `daemon/agent.ts` — Bun scheduler, ticks every 5 minutes
-- Spawns `claude --print --dangerously-skip-permissions` with full MCP access
-- Must set `CLAUDECODE: undefined` in env to allow nested Claude invocations
-- PID file: `daemon/agent.pid`, state: `daemon/state.json`
-- Logs: `logs/YYYY-MM-DD.log`
-- TICK_PROMPT handles: wallet unlock, check-in, inbox poll, reply, paid attention
+## Agent Loop Architecture
+- Claude IS the agent — no subprocess, no daemon process
+- `/start` enters a perpetual loop: read `daemon/loop.md`, follow it, improve it, sleep, repeat
+- `daemon/loop.md` — self-updating agent prompt (the living brain)
+- `daemon/queue.json` — task queue extracted from inbox messages
+- `daemon/processed.json` — message IDs already replied to
+- Each cycle: setup → check-in → inbox → execute → deliver → reflect → evolve → sleep 5 min
+- After each cycle, Claude edits `daemon/loop.md` with improvements — agent gets smarter over time
+- `/stop` exits loop, locks wallet, syncs memory to git
+- `/status` shows queue, wallet, balance, last cycle summary
 - **Deferred MCP tools must be loaded via ToolSearch before use** (critical!)
-- `/start` skill launches daemon, `/stop` kills it and locks wallet
-- `/status` shows PID, state, recent logs, balance
 
 ## MCP Tools (Deferred)
 - All `mcp__aibtc__*` tools are deferred — must use ToolSearch to load them first

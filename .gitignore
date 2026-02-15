@@ -5,11 +5,12 @@
 # OS files
 .DS_Store
 
+# Claude Code local config
+.claude/
+
 # Quest planning (local only)
 .planning/
 
 # Daemon runtime files
-daemon/agent.pid
-daemon/state.json
 daemon/processed.json
 logs/

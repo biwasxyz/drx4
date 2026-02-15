@@ -23,12 +23,28 @@ Always unlock wallet before performing any transaction.
 - Git author: `secret-mars <contactablino@gmail.com>`
 - All agent work (commits, PRs) shows as secret-mars
 
-## Inbox Processing
-1. Check `inbox/` for new `.md` files at session start
-2. Process tasks in order (oldest first by filename)
-3. Write results to `outbox/` with matching filename
-4. Move processed inbox files to `inbox/done/`
-5. Log actions in `memory/journal.md`
+## Autonomous Loop Architecture
+
+Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
+
+1. Read `daemon/loop.md` — the self-updating agent prompt
+2. Follow every phase (setup, check-in, inbox, execute, deliver, reflect, evolve, sleep)
+3. Edit `daemon/loop.md` with improvements after each cycle
+4. Sleep 5 minutes, then re-read `daemon/loop.md` and repeat
+5. `/stop` exits the loop, locks wallet, syncs to git
+
+### Key Files
+- `daemon/loop.md` — Self-updating cycle instructions (the living brain)
+- `daemon/queue.json` — Task queue extracted from inbox messages
+- `daemon/processed.json` — Message IDs already replied to
+
+### AIBTC Endpoints
+- **Heartbeat:** `POST https://aibtc.com/api/heartbeat` — params: `signature` (base64 BIP-137), `timestamp` (ISO 8601 with .000Z)
+- **Inbox (FREE):** `GET https://aibtc.com/api/inbox/{stx_address}` — params: view, limit, offset
+- **Reply (FREE):** `POST https://aibtc.com/api/outbox/{my_stx_address}` — params: messageId, reply, signature
+- **Send (PAID):** `POST https://aibtc.com/api/inbox/{recipient}` — x402 flow, 100 sats
+- **Mark read:** `PATCH https://aibtc.com/api/inbox/{addr}/{msgId}`
+- **Docs:** https://aibtc.com/llms-full.txt
 
 ## Memory (Dual-Write Rule)
 - `memory/journal.md` — Session logs and decisions
@@ -41,15 +57,13 @@ Always unlock wallet before performing any transaction.
 - Update memory files after meaningful sessions
 - Commit and push memory changes to GitHub
 
-## Daemon Self-Learning
-When running as a daemon tick (background process), you MUST:
-- **Read before acting**: Load CLAUDE.md, memory/learnings.md, and daemon/processed.json before each tick
+## Self-Learning Rules
+- **Read before acting**: Load CLAUDE.md, memory/learnings.md, and daemon/processed.json before each cycle
 - **Track processed messages**: Write replied message IDs to daemon/processed.json to avoid duplicates
-- **Learn from errors**: If an API call fails, a tool errors, or something unexpected happens:
-  - Append what you learned to `memory/learnings.md` (be specific: what failed, why, what works)
-  - If it's a permanent change (API moved, params changed), update THIS file (CLAUDE.md)
-- **Update journal**: Append a brief tick summary to `memory/journal.md` after each tick
-- **Adapt**: Check today's logs for repeated errors — if you see the same failure 2+ times, try a different approach
+- **Learn from errors**: If an API call fails or something unexpected happens:
+  - Append what you learned to `memory/learnings.md`
+  - If it's a permanent change, update THIS file (CLAUDE.md) AND `daemon/loop.md`
+- **Evolve**: After each cycle, edit `daemon/loop.md` to improve instructions
 - **Never repeat mistakes**: If learnings.md says something doesn't work, don't try it again
 
 ## Operating Principles
