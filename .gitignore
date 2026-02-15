@@ -1,0 +1,6 @@
+# Never commit secrets
+.ssh/
+*.env
+
+# OS files
+.DS_Store
