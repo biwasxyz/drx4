@@ -88,6 +88,18 @@
 - Short form `msg_xxx` returns "Message not found" on outbox POST
 - Use `GH_TOKEN=$GITHUB_PAT_SECRET_MARS gh ...` to run gh CLI as secret-mars
 
+## Project Structure
+- All deployable projects (CF Workers, apps, tools) go in `projects/` directory
+- Current projects: `projects/site/` (drx4.xyz portfolio site)
+- Keep repo root clean — only agent core files (SOUL, CLAUDE, memory, daemon, config) at top level
+- Each project gets its own subfolder with its own `package.json`, `wrangler.toml`, etc.
+
+## Cloudflare Workers
+- CF account: `6a0bf22a5ff120f19789f29eb4196ce2`
+- API token stored in `.env` (git-ignored)
+- Deploy: `source .env && CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler deploy`
+- Live workers: ordinals-trade-ledger, x402-task-board, drx4-site (drx4.xyz)
+
 ## Contacts (from inbox)
 - **Tiny Marten** (`SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K`)
   - BTC: `bc1qyu22hyqr406pus0g9jmfytk4ss5z8qsje74l76`
