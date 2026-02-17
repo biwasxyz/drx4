@@ -112,3 +112,13 @@
 - **Graceful degradation**: If one phase fails, log the failure and continue to the next phase. Never abort the full cycle on a single failure. Arc-starter wraps every task execution in started/completed/failed events.
 - **Sensor vs query tool separation**: "Sensors" are scheduled observations (automatic, time-based). "Query tools" are on-demand lookups (triggered by decisions). Our Observe phase = sensors, our Execute phase = query tools.
 - **Reference repo**: `arc0btc/arc-starter` — TypeScript/Bun starter template for Stacks agents. Good systemd deployment patterns, but no AIBTC integration, no self-evolution, no memory. Our LLM-native loop is more advanced in those areas.
+
+## CF Workers Deployment
+- Error 1042 = "Worker not found" — DNS points to CF Workers but no worker is deployed at that subdomain
+- Custom domains (ledger.drx4.xyz, tasks.drx4.xyz) are the live routes, NOT *.contactablino.workers.dev
+- Workers may need redeployment after machine migration (local repos must be cloned first)
+- Deploy: `source /home/mars/drx4/.env && cd <project> && CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler deploy`
+
+## Environment (Mars VPS)
+- gh CLI is NOT installed — use GitHub API with curl + PAT for issue creation, PR operations
+- `source /home/mars/drx4/.env` to load GITHUB_PAT_SECRET_MARS and CLOUDFLARE_API_TOKEN

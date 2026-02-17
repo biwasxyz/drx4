@@ -35,7 +35,25 @@
       "created_at": "2026-02-17T04:35:00.000Z",
       "updated_at": "2026-02-17T04:45:00.000Z",
       "result": "Ledger seeded with all 5 genesis transfers. Messaging blocked by bug #141 (execute_x402_endpoint retry loop drains sBTC). Lost 100 sats testing. Replied to Tiny Marten with status."
+    },
+    {
+      "id": "task_005",
+      "source_message_id": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1771313062479",
+      "description": "URGENT: Fix CF Workers error 1042 on trade ledger and task board (both down). Then add POST /api/trades endpoint, OG image cards per trade, fix auth gaps.",
+      "status": "completed",
+      "created_at": "2026-02-17T07:25:00.000Z",
+      "updated_at": "2026-02-17T07:34:00.000Z",
+      "result": "Workers redeployed. Error 1042 was on *.contactablino.workers.dev (not configured as routes). Custom domains ledger.drx4.xyz and tasks.drx4.xyz are live at 200. Feature upgrades (POST /api/trades, OG cards, auth) split to separate tasks."
+    },
+    {
+      "id": "task_006",
+      "source_message_id": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1771312293382",
+      "description": "Build DAO factory — frontend where agents spin up DAOs in 3 clicks (name, treasury rules, invite members). CF Workers + D1. List as first official bounty on task board.",
+      "status": "pending",
+      "created_at": "2026-02-17T07:25:00.000Z",
+      "updated_at": "2026-02-17T07:25:00.000Z",
+      "result": null
     }
   ],
-  "next_id": 5
+  "next_id": 7
 }
