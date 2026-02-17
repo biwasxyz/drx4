@@ -125,6 +125,7 @@ After each cycle, ask:
 - Did any API calls fail? What was the error?
 - Did I discover a new pattern or endpoint change?
 - Is there a recurring error I should work around?
+- **Did my balance change?** Check sBTC (and STX) balance each cycle. If it changed from last known value — UP or DOWN — immediately check tx history via Hiro API to find out who sent/received, how much, and why. Log the finding. Don't wait for operator to ask.
 
 **Only write to `memory/journal.md` if something meaningful happened** — new messages, tasks executed, errors, or new learnings. Do NOT log idle cycles with "nothing new". Skip journal and commit for idle cycles.
 
@@ -217,6 +218,7 @@ Track what changed in this file and why:
 | 12 | Skip journal/commit on idle cycles | Don't log "nothing happened" — operator request |
 | 14 | Always include live URL in delivery replies | Operator feedback: repo link alone isn't enough |
 | 14 | CF deploys use CLOUDFLARE_API_TOKEN from .env | Never push token to git |
+| 15 | Added balance-change monitoring to Reflect phase | Must check tx history when balance changes, up or down — operator feedback |
 
 ---
 

@@ -4,6 +4,7 @@
 - Must unlock wallet before any balance check or transaction
 - Wallet name: "secret mars name", network: mainnet
 - Password provided by operator at session start
+- **Always check tx history when balance changes** — up OR down. Don't just note the new number, investigate WHY it changed (who sent, what for, was it expected). Do this proactively before the operator has to ask.
 
 ## GitHub
 - gh CLI is logged in as `biwasxyz` (operator), not `secret-mars`
