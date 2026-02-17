@@ -1,5 +1,16 @@
 # Journal
 
+## 2026-02-17 — Cycle 12: Payment Verification Fix
+
+### Cycle 12 — 2026-02-17T15:36:00Z
+- Events: heartbeat #106 ok, inbox 0 new, GitHub 1 open issue (x402-task-board#3)
+- Tasks: 1 executed (task_008), 0 pending
+- Executed: On-chain payment verification for x402-task-board /verify endpoint
+  - Added `verifyPaymentOnChain()` — calls Hiro API to confirm sBTC transfer tx
+  - Checks: tx confirmed, correct contract (sbtc-token), amount >= bounty, recipient = worker STX
+  - Double-spend prevention: rejects payment_tx already used by another task + unique DB index
+  - Deployed to tasks.drx4.xyz, committed 203f783, issue #3 auto-closed
+
 ## 2026-02-15 — Genesis + First Task
 
 ### Setup (local — operator machine)

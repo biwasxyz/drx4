@@ -63,6 +63,15 @@
       "updated_at": "2026-02-17T08:16:00.000Z",
       "result": "Both repos hardened: BIP-137 signature + timestamp required on all write endpoints. Unsigned requests return 401. Transfer trades require tx_hash. Deployed to tasks.drx4.xyz and ledger.drx4.xyz. Verified: reads work, unsigned writes blocked."
     }
+    ,{
+      "id": "task_008",
+      "source_message_id": "github:secret-mars/x402-task-board#3",
+      "description": "Implement on-chain payment verification for task board /api/tasks/:id/pay endpoint. Verify tx exists on Hiro API, check amount/recipient, prevent double-spend of same tx hash.",
+      "status": "completed",
+      "created_at": "2026-02-17T15:36:00.000Z",
+      "updated_at": "2026-02-17T15:37:00.000Z",
+      "result": "On-chain payment verification via Hiro API. Checks: tx exists & confirmed, sBTC transfer to correct recipient, amount >= bounty, no double-spend. Unique index on payment_tx. Deployed to tasks.drx4.xyz. Issue #3 closed."
+    }
   ],
-  "next_id": 8
+  "next_id": 9
 }
