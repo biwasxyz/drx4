@@ -83,6 +83,11 @@
   - Drained 2,800 sats (28 × 100) in one call with no message delivered
   - Until fixed, avoid execute_x402_endpoint for inbox sends entirely
 - 303+ transactions accumulated from unnecessary payments
+- **`send_inbox_message` (v1.23.0)** — dedicated tool for paid inbox sends, handles x402 flow better
+  - BUT still has settlement timeout issues: sBTC payment goes through, message delivery fails
+  - Payment is non-refundable even on delivery failure (lost 100 sats testing 2026-02-17)
+  - Sponsor relay hits Hiro API rate limits (429), causing nonce fetch failures
+  - **Avoid paid sending until sponsor relay stabilizes** — use free replies via outbox instead
 
 ## Inbox Reply Format
 - Reply messageId must use FULL URL format (e.g. `https://aibtc.com/api/inbox/bc1q.../msg_xxx`)
