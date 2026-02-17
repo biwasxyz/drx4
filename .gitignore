@@ -12,6 +12,12 @@
 # Quest planning (local only)
 .planning/
 
+# Node / MCP
+node_modules/
+package.json
+package-lock.json
+.mcp.json
+
 # Daemon runtime files
 daemon/processed.json
 logs/
