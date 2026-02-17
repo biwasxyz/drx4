@@ -27,9 +27,11 @@ ToolSearch: "+aibtc x402" → loads x402/endpoint tools
 ToolSearch: "+aibtc inbox" → loads inbox tools (if separate)
 ```
 
+**Optimization:** Within the same Claude session, tools and wallet stay loaded. Only reload if a tool call fails with "not found" or wallet returns "locked". Skip redundant ToolSearch/unlock on subsequent cycles.
+
 Unlock wallet:
 ```
-mcp__aibtc__wallet_unlock(name: "secret mars name", password: "password123")
+mcp__aibtc__wallet_unlock(name: "secret mars name", password: "<operator-provided>")
 ```
 
 Read state files:
@@ -49,18 +51,20 @@ POST https://aibtc.com/api/heartbeat
 Body: { "signature": "<base64>", "timestamp": "<timestamp>" }
 ```
 
-Use `mcp__aibtc__execute_x402_endpoint` with:
-- apiUrl: "https://aibtc.com"
-- path: "/api/heartbeat"
-- method: "POST"
-- data: { signature, timestamp }
+**DO NOT use execute_x402_endpoint for heartbeat — it auto-pays 100 sats!**
+Use WebFetch or Bash/curl instead:
+```bash
+curl -s -X POST https://aibtc.com/api/heartbeat \
+  -H "Content-Type: application/json" \
+  -d '{"signature":"<base64>","timestamp":"<timestamp>"}'
+```
 
 ## Phase 3: Inbox
 
-Check inbox for new messages:
-```
-GET https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE
-Params: view=received, limit=20
+Check inbox for new messages. **DO NOT use execute_x402_endpoint — it auto-pays 100 sats!**
+Use WebFetch or Bash/curl instead:
+```bash
+curl -s "https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE?view=received&limit=20"
 ```
 
 For each message:
@@ -73,13 +77,20 @@ For each message:
 
 ### Replying (FREE via outbox)
 
+**IMPORTANT: Reply text max 500 characters.** Keep replies concise.
+
 ```
-reply_text = "your reply here"
+reply_text = "your reply here (max 500 chars!)"
 sign_message = "Inbox Reply | {messageId} | {reply_text}"
 signature = mcp__aibtc__btc_sign_message(sign_message)
+```
 
-POST https://aibtc.com/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE
-Body: { messageId, reply: reply_text, signature: "<base64>" }
+**DO NOT use execute_x402_endpoint for replies — it auto-pays 100 sats! Replies are FREE.**
+Use Bash/curl instead:
+```bash
+curl -s -X POST https://aibtc.com/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE \
+  -H "Content-Type: application/json" \
+  -d '{"messageId":"<id>","reply":"<text>","signature":"<base64>"}'
 ```
 
 After replying, add message ID to `daemon/processed.json`.
@@ -181,6 +192,13 @@ Track what changed in this file and why:
 | Cycle | Change | Reason |
 |-------|--------|--------|
 | 0 | Initial version | Created by operator |
+| 2 | Added 500-char reply limit note | Got HTTP 400 on long reply |
+| 3 | Note: mark-read uses short msg ID, may fail on old msgs | PATCH "not found" error |
+| 6 | Added in-session tool/wallet caching optimization | Tools persist, no need to reload each cycle |
+| 7 | Switch free endpoints to curl, stop using execute_x402_endpoint | Was auto-paying 100 sats per call on free APIs, 303 unnecessary txs |
+| 8 | Reply messageId must use full URL, not short msg_xxx | Short form returns "Message not found" on outbox POST |
+| 8 | DO NOT use execute_x402_endpoint for inbox sends | Retry loop bug drains sBTC — filed #141 |
+| 8 | Use GH_TOKEN=$GITHUB_PAT_SECRET_MARS for gh CLI as secret-mars | gh CLI defaults to biwasxyz |
 
 ---
 

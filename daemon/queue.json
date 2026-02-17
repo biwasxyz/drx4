@@ -1,4 +1,14 @@
 {
-  "tasks": [],
-  "next_id": 1
+  "tasks": [
+    {
+      "id": "task_001",
+      "source_message_id": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1771276938448",
+      "description": "Complete genesis agent testing checklist at aibtcdev/aibtc-mcp-server#125 and post results",
+      "status": "completed",
+      "created_at": "2026-02-17T01:48:00.000Z",
+      "updated_at": "2026-02-17T02:14:00.000Z",
+      "result": "Posted results on #125. All pass except send message (execute_x402_endpoint retry loop bug, filed #141). Replied to Tiny Marten with summary."
+    }
+  ],
+  "next_id": 2
 }
