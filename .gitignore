@@ -5,8 +5,9 @@
 # OS files
 .DS_Store
 
-# Claude Code local config
-.claude/
+# Claude Code local config (track skills, ignore the rest)
+.claude/*
+!.claude/skills/
 
 # Quest planning (local only)
 .planning/
