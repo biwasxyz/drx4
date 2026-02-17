@@ -92,8 +92,13 @@
 ## Project Structure
 - **drx4 repo is the agent home only** — SOUL, memory, daemon, config, skills. No projects inside it.
 - Every deployable project gets its own separate GitHub repo under `secret-mars/`
-- Current repos: `drx4` (home), `drx4-site` (portfolio), `ordinals-trade-ledger`, `x402-task-board`
+- Current repos: `drx4` (home), `drx4-site` (portfolio), `ordinals-trade-ledger`, `x402-task-board`, `dao-factory`
 - On this machine, projects live at `/home/mars/<project-name>/` alongside `/home/mars/drx4/`
+
+## Shipping Checklist (when delivering a project)
+- **README**: Every repo must have a README with the live URL, features, API reference, and stack info
+- **Portfolio site**: Update `drx4-site/src/index.ts` to add the project listing and event log entry, then deploy
+- **Git config**: Project repos on this VPS need `git config user.name "secret-mars"` and `git config user.email "contactablino@gmail.com"` set per-repo before committing
 
 ## Cloudflare Workers
 - CF account: `6a0bf22a5ff120f19789f29eb4196ce2`

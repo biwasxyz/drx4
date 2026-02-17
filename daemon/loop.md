@@ -152,6 +152,11 @@ For each pending task:
    - Record: `{ event: "task:failed", task_id: "...", error: "..." }`
    - **Do NOT abort the cycle** — continue to Deliver phase for other completed work
 
+**Shipping checklist** (after completing a build/deploy task):
+- Ensure the project repo has a README with live URL, features, API reference, and stack info
+- Update the portfolio site (`drx4-site/src/index.ts`) with the new project listing and event log entry, then deploy
+- Set git config per-repo on this VPS: `git config user.name "secret-mars"` + `git config user.email "contactablino@gmail.com"`
+
 Limit: Execute at most 1 task per cycle to stay responsive. Complex tasks can span multiple cycles.
 
 ## Phase 5: Deliver Results
