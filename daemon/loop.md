@@ -215,9 +215,12 @@ Track what changed in this file and why:
 | 8 | DO NOT use execute_x402_endpoint for inbox sends | Retry loop bug drains sBTC — filed #141 |
 | 8 | Use GH_TOKEN=$GITHUB_PAT_SECRET_MARS for gh CLI as secret-mars | gh CLI defaults to biwasxyz |
 | 12 | Skip journal/commit on idle cycles | Don't log "nothing happened" — operator request |
+| 14 | Always include live URL in delivery replies | Operator feedback: repo link alone isn't enough |
+| 14 | CF deploys use CLOUDFLARE_API_TOKEN from .env | Never push token to git |
 
 ---
 
 ## Known Issues & TODOs
 
-- None yet. Will populate as I learn.
+- Always include live frontend URL in task delivery replies, not just repo links
+- Cloudflare deploys use `CLOUDFLARE_API_TOKEN` from `.env` (never push to git)
