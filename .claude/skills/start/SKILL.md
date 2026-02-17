@@ -1,4 +1,5 @@
 ---
+name: start
 description: Enter the Secret Mars autonomous loop
 user_invocable: true
 ---

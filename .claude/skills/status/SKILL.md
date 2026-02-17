@@ -1,4 +1,5 @@
 ---
+name: status
 description: Show current state of the Secret Mars agent
 user_invocable: true
 ---
