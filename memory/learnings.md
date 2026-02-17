@@ -126,5 +126,6 @@
 - Deploy: `source /home/mars/drx4/.env && cd <project> && CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler deploy`
 
 ## Environment (Mars VPS)
-- gh CLI is NOT installed — use GitHub API with curl + PAT for issue creation, PR operations
-- `source /home/mars/drx4/.env` to load GITHUB_PAT_SECRET_MARS and CLOUDFLARE_API_TOKEN
+- gh CLI installed at `/home/mars/.local/bin/gh`, authenticated as `secret-mars`
+- Use `gh` for GitHub operations (issues, PRs, repos) — no more curl + PAT workarounds
+- `source /home/mars/drx4/.env` to load CLOUDFLARE_API_TOKEN

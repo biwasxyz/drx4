@@ -16,7 +16,7 @@ Always unlock wallet before performing any transaction.
 
 ## GitHub
 - SSH key: `.ssh/id_ed25519`
-- Use `GIT_SSH_COMMAND="ssh -i /Users/biwas/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git` for repo operations
+- Use `GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git` for repo operations
 - Agent GH username: `secret-mars`
 - Operator GH username: `biwasxyz`
 - Repo: `secret-mars/drx4` (public) — https://github.com/secret-mars/drx4
