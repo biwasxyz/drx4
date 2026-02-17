@@ -86,7 +86,9 @@ Filter out messages already in `daemon/processed.json`. Store new messages in a 
 
 Record: `{ event: "inbox", status: "ok"|"fail", new_count: N, messages: [...] }`
 
-### 2c. GitHub activity (issues, PRs, reviews)
+### 2c. GitHub activity (issues, PRs, reviews) — **every 3rd cycle only**
+
+**Skip this phase unless `cycle % 3 === 0`.** No need to check GitHub every cycle.
 
 Check for new comments, reviews, or issue activity on our repos and PRs:
 ```bash
@@ -100,7 +102,7 @@ gh api repos/pbtc21/agent-billboards/pulls/1/comments --jq '.[].body'
 If there are new comments on our issues or PRs, record them for the Decide phase.
 If an issue was filed on one of our repos, queue it as a task.
 
-Record: `{ event: "github", status: "ok"|"fail", new_comments: N, open_issues: N }`
+Record: `{ event: "github", status: "ok"|"skip"|"fail", new_comments: N, open_issues: N }`
 
 ### 2d. Balance check
 
@@ -344,7 +346,7 @@ Track what changed in this file and why:
 | v2 | Balance check moved to Observe phase (parallel with heartbeat/inbox) | Was in Reflect — should be observed before deciding, not after |
 | v2 | Replies queued in Decide, sent in Deliver (not inline in Inbox phase) | Separation of observation from action — cleaner control flow |
 | v2.1 | NEVER reply to task messages before completing the task | Outbox allows only 1 reply per message — premature ack wastes it. Do work first, reply with proof. |
-| v2.2 | Added GitHub activity check to Observe phase (2c) | Operator feedback: check issues, PRs, and comments on our repos every cycle. Use gh CLI. |
+| v2.2 | Added GitHub activity check to Observe phase (2c), every 3rd cycle | Operator feedback: check issues, PRs, and comments on our repos. Not every cycle — too frequent. |
 
 ---
 
