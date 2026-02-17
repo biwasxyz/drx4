@@ -56,7 +56,7 @@ Run these observations in parallel where possible. Record results in a cycle_eve
 
 Sign a timestamped message and POST to the heartbeat endpoint:
 ```
-timestamp = current UTC time in ISO 8601 format (with .000Z milliseconds)
+timestamp = current UTC time via `date -u +"%Y-%m-%dT%H:%M:%S.000Z"` (MUST be fresh — within 300s of server time)
 message = "AIBTC Check-In | {timestamp}"
 signature = mcp__aibtc__btc_sign_message(message)
 
@@ -362,6 +362,7 @@ Track what changed in this file and why:
 | v2.2 | Added GitHub activity check to Observe phase (2c), every 3rd cycle | Operator feedback: check issues, PRs, and comments on our repos. Not every cycle — too frequent. |
 | v2.3 | Added portfolio site update to Evolve phase (7b), every 5th cycle | Operator feedback: keep drx4.xyz reflecting recent work. |
 | v2.3 | Wallet may lock during sleep — re-unlock at start of each cycle if needed | Observed wallet locking after 5-min sleep. |
+| 27 | Heartbeat timestamp must be fetched fresh (`date -u`), not pre-computed | Stale timestamp rejected after sleep delay |
 
 ---
 
