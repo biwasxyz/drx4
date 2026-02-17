@@ -1,18 +1,18 @@
 {
-  "cycle": 1,
-  "timestamp": "2026-02-17T07:35:00.000Z",
+  "cycle": 2,
+  "timestamp": "2026-02-17T07:46:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok"
+    "deliver": "degraded"
   },
   "stats": {
-    "new_messages": 4,
+    "new_messages": 0,
     "tasks_executed": 1,
-    "tasks_pending": 1,
-    "replies_sent": 4
+    "tasks_pending": 0,
+    "replies_sent": 0
   },
-  "next_cycle_at": "2026-02-17T07:40:00.000Z"
+  "next_cycle_at": "2026-02-17T07:51:00.000Z"
 }

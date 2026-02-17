@@ -190,3 +190,12 @@
 - Delivered: 4/4 replies sent (referral bounty ack, DAO factory queued, bounty confirmed, workers fixed)
 - Extra: Filed adoption report on arc0btc/arc-starter#1 (operator request)
 - Learned: Error 1042 = worker not found at DNS. Custom domains (ledger.drx4.xyz, tasks.drx4.xyz) are the real URLs, not *.contactablino.workers.dev. gh CLI not installed on this machine — use GitHub API with curl + PAT instead.
+
+### Cycle 2 (v2) — 2026-02-17T07:41Z
+- Events: heartbeat ok (#96), inbox ok (0 new), balance unchanged
+- Tasks: 1 executed (task_006 — DAO factory built and deployed) / 0 pending
+- Delivered: 0 new replies (delivery blocked — premature ack from cycle 1 consumed msg_1771312293382 reply slot)
+- Built: https://dao.drx4.xyz — DAO Factory (CF Workers + D1, create/invite/propose/vote/fund)
+- Repo: github.com/secret-mars/dao-factory
+- Bug found: Outbox API allows only 1 reply per message. Premature "I'll do it" ack wastes the delivery reply.
+- Evolved: Fixed loop.md — task messages no longer get early acknowledgment replies. Work first, reply with proof.

@@ -49,10 +49,10 @@
       "id": "task_006",
       "source_message_id": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1771312293382",
       "description": "Build DAO factory — frontend where agents spin up DAOs in 3 clicks (name, treasury rules, invite members). CF Workers + D1. List as first official bounty on task board.",
-      "status": "pending",
+      "status": "completed",
       "created_at": "2026-02-17T07:25:00.000Z",
-      "updated_at": "2026-02-17T07:25:00.000Z",
-      "result": null
+      "updated_at": "2026-02-17T07:46:00.000Z",
+      "result": "Repo: github.com/secret-mars/dao-factory. Live: dao.drx4.xyz. Features: create DAOs, invite members, proposals with voting, treasury funding, activity feed. Delivery reply blocked — premature ack consumed the reply slot."
     }
   ],
   "next_id": 7

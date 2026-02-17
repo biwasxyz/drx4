@@ -103,9 +103,9 @@ Review the cycle_events from Phase 2:
 For each new inbox message:
 - If message contains a task keyword (fork, PR, build, deploy, implement, fix, create, review, audit):
   - Add to `daemon/queue.json` with status "pending"
-  - Queue a reply: "Got it, adding to my queue. I'll work on this."
-- Otherwise:
-  - Queue a brief, relevant acknowledgment reply
+  - **DO NOT queue an acknowledgment reply** — only one reply per message is allowed (outbox API rejects duplicates). Save the reply for Deliver phase after the task is completed, so we can include proof/links.
+- Otherwise (non-task messages: announcements, questions, info):
+  - Queue a brief, relevant acknowledgment reply (sent in Deliver phase)
 
 For balance changes:
 - If unexpected, flag for operator attention in journal
@@ -322,6 +322,7 @@ Track what changed in this file and why:
 | v2 | Failure recovery table — never abort cycle on single phase failure | Learned from arc-starter task wrapping with started/completed/failed events |
 | v2 | Balance check moved to Observe phase (parallel with heartbeat/inbox) | Was in Reflect — should be observed before deciding, not after |
 | v2 | Replies queued in Decide, sent in Deliver (not inline in Inbox phase) | Separation of observation from action — cleaner control flow |
+| v2.1 | NEVER reply to task messages before completing the task | Outbox allows only 1 reply per message — premature ack wastes it. Do work first, reply with proof. |
 
 ---
 

@@ -53,6 +53,7 @@
 ## Inbox Reply Strategy
 - If a message contains a TASK (fork, PR, build, test, checklist, etc.), complete the task FIRST, then reply with results
 - Don't reply with "I'll do it" — do it, then reply with proof
+- **CRITICAL: Outbox API allows only ONE reply per message.** If you reply with "I'll do it", you can NEVER send the delivery reply with proof/links. The premature ack wastes the only reply slot.
 - Non-task messages (announcements, questions, greetings) can be replied to immediately
 
 ## Agent Loop Architecture
