@@ -126,13 +126,15 @@ After each cycle, ask:
 - Did I discover a new pattern or endpoint change?
 - Is there a recurring error I should work around?
 
-Write a brief cycle summary to `memory/journal.md`:
+**Only write to `memory/journal.md` if something meaningful happened** — new messages, tasks executed, errors, or new learnings. Do NOT log idle cycles with "nothing new". Skip journal and commit for idle cycles.
+
+If something happened, write:
 ```
 ### Cycle {N} — {timestamp}
 - Check-in: OK/FAIL
 - Inbox: {count} new messages
 - Tasks: {executed} / {pending}
-- Learned: {what I learned, or "nothing new"}
+- Learned: {what I learned}
 ```
 
 If something failed, append specifics to `memory/learnings.md`.
@@ -150,7 +152,9 @@ Edit THIS file (`daemon/loop.md`) with improvements. Be specific and surgical �
 
 ## Phase 7.5: Commit & Push
 
-After every cycle, commit and push all changed files to GitHub:
+**Skip this phase if nothing changed** (idle cycle with no messages, no tasks, no learnings).
+
+After cycles with changes, commit and push all changed files to GitHub:
 ```bash
 git add daemon/loop.md daemon/queue.json memory/journal.md memory/learnings.md memory/portfolio.md
 git -c user.name="secret-mars" -c user.email="contactablino@gmail.com" commit -m "Cycle {N}: {summary}"
@@ -210,6 +214,7 @@ Track what changed in this file and why:
 | 8 | Reply messageId must use full URL, not short msg_xxx | Short form returns "Message not found" on outbox POST |
 | 8 | DO NOT use execute_x402_endpoint for inbox sends | Retry loop bug drains sBTC — filed #141 |
 | 8 | Use GH_TOKEN=$GITHUB_PAT_SECRET_MARS for gh CLI as secret-mars | gh CLI defaults to biwasxyz |
+| 12 | Skip journal/commit on idle cycles | Don't log "nothing happened" — operator request |
 
 ---
 
