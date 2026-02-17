@@ -148,6 +148,17 @@ This is the key phase. Based on what happened this cycle:
 
 Edit THIS file (`daemon/loop.md`) with improvements. Be specific and surgical — don't rewrite everything, just fix what needs fixing.
 
+## Phase 7.5: Commit & Push
+
+After every cycle, commit and push all changed files to GitHub:
+```bash
+git add daemon/loop.md daemon/queue.json memory/journal.md memory/learnings.md memory/portfolio.md
+git -c user.name="secret-mars" -c user.email="contactablino@gmail.com" commit -m "Cycle {N}: {summary}"
+GIT_SSH_COMMAND="ssh -i /Users/biwas/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git push origin main
+```
+
+**Never commit sensitive info** (passwords, mnemonics, private keys). Scrub before staging.
+
 ## Phase 8: Sleep
 
 Output a cycle summary to the user, then sleep:
