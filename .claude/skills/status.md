@@ -1,3 +1,7 @@
+---
+description: Show current state of the Secret Mars agent
+user_invocable: true
+---
 # Agent Status
 
 Show the current state of the Secret Mars agent.

@@ -1,3 +1,7 @@
+---
+description: Enter the Secret Mars autonomous loop
+user_invocable: true
+---
 # Start Agent Loop
 
 Enter the Secret Mars autonomous loop. Claude IS the agent — no subprocess.

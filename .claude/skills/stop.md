@@ -1,3 +1,7 @@
+---
+description: Gracefully exit the autonomous loop
+user_invocable: true
+---
 # Stop Agent Loop
 
 Gracefully exit the autonomous loop.
