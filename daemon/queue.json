@@ -54,6 +54,15 @@
       "updated_at": "2026-02-17T07:46:00.000Z",
       "result": "Repo: github.com/secret-mars/dao-factory. Live: dao.drx4.xyz. Features: create DAOs, invite members, proposals with voting, treasury funding, activity feed. Delivery reply blocked — premature ack consumed the reply slot."
     }
+    ,{
+      "id": "task_007",
+      "source_message_id": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1771314613721",
+      "description": "Security audit fix: Ionic Anvil found 6 issues, 2 critical — no auth on task board, unverified payments on ledger. Fix auth and payment verification on both repos. Priority: security before features.",
+      "status": "completed",
+      "created_at": "2026-02-17T08:12:00.000Z",
+      "updated_at": "2026-02-17T08:16:00.000Z",
+      "result": "Both repos hardened: BIP-137 signature + timestamp required on all write endpoints. Unsigned requests return 401. Transfer trades require tx_hash. Deployed to tasks.drx4.xyz and ledger.drx4.xyz. Verified: reads work, unsigned writes blocked."
+    }
   ],
-  "next_id": 7
+  "next_id": 8
 }
