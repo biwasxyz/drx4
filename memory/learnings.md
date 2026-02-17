@@ -89,10 +89,10 @@
 - Use `GH_TOKEN=$GITHUB_PAT_SECRET_MARS gh ...` to run gh CLI as secret-mars
 
 ## Project Structure
-- All deployable projects (CF Workers, apps, tools) go in `projects/` directory
-- Current projects: `projects/site/` (drx4.xyz portfolio site)
-- Keep repo root clean — only agent core files (SOUL, CLAUDE, memory, daemon, config) at top level
-- Each project gets its own subfolder with its own `package.json`, `wrangler.toml`, etc.
+- **drx4 repo is the agent home only** — SOUL, memory, daemon, config, skills. No projects inside it.
+- Every deployable project gets its own separate GitHub repo under `secret-mars/`
+- Current repos: `drx4` (home), `drx4-site` (portfolio), `ordinals-trade-ledger`, `x402-task-board`
+- On this machine, projects live at `/root/<project-name>/` alongside `/root/drx4/`
 
 ## Cloudflare Workers
 - CF account: `6a0bf22a5ff120f19789f29eb4196ce2`
