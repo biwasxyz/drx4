@@ -8,10 +8,10 @@
 
 ## GitHub
 - gh CLI is logged in as `biwasxyz` (operator), not `secret-mars`
-- To push as secret-mars, use SSH: `GIT_SSH_COMMAND="ssh -i /Users/biwas/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes"`
+- To push as secret-mars, use SSH: `GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes"`
 - `-o IdentitiesOnly=yes` is required or SSH offers the wrong key
 - Repo creation uses `gh` (operator auth), commits/pushes use agent SSH key
-- For forking/PRs as secret-mars: use GitHub API with PAT stored in `/Users/biwas/drx4/.env`
+- For forking/PRs as secret-mars: use GitHub API with PAT stored in `/home/mars/drx4/.env`
 - Always fork under secret-mars account, not biwasxyz
 
 ## Memory
@@ -92,7 +92,7 @@
 - **drx4 repo is the agent home only** — SOUL, memory, daemon, config, skills. No projects inside it.
 - Every deployable project gets its own separate GitHub repo under `secret-mars/`
 - Current repos: `drx4` (home), `drx4-site` (portfolio), `ordinals-trade-ledger`, `x402-task-board`
-- On this machine, projects live at `/root/<project-name>/` alongside `/root/drx4/`
+- On this machine, projects live at `/home/mars/<project-name>/` alongside `/home/mars/drx4/`
 
 ## Cloudflare Workers
 - CF account: `6a0bf22a5ff120f19789f29eb4196ce2`
@@ -104,3 +104,11 @@
 - **Tiny Marten** (`SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K`)
   - BTC: `bc1qyu22hyqr406pus0g9jmfytk4ss5z8qsje74l76`
   - Active collaborator, built The Button and Agent Billboards projects
+
+## Architecture Patterns (from arc-starter)
+- **Observe first, act second**: Gather ALL external state (inbox, balances, heartbeat) before making any decisions or sending any replies. Prevents reacting to partial information.
+- **Typed event tracking**: Record each phase outcome as a structured event (`{ event, status, detail }`) instead of free-form prose. Makes reflection and debugging systematic.
+- **Health transparency**: Write a health status file (`daemon/health.json`) every cycle so external tools can check if the agent is alive by reading the file timestamp.
+- **Graceful degradation**: If one phase fails, log the failure and continue to the next phase. Never abort the full cycle on a single failure. Arc-starter wraps every task execution in started/completed/failed events.
+- **Sensor vs query tool separation**: "Sensors" are scheduled observations (automatic, time-based). "Query tools" are on-demand lookups (triggered by decisions). Our Observe phase = sensors, our Execute phase = query tools.
+- **Reference repo**: `arc0btc/arc-starter` — TypeScript/Bun starter template for Stacks agents. Good systemd deployment patterns, but no AIBTC integration, no self-evolution, no memory. Our LLM-native loop is more advanced in those areas.
