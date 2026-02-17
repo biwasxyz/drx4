@@ -1,11 +1,11 @@
 {
-  "cycle": 17,
-  "timestamp": "2026-02-17T16:16:16.000Z",
+  "cycle": 18,
+  "timestamp": "2026-02-17T16:22:04.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "github": "skip",
+    "github": "ok",
     "execute": "idle",
     "deliver": "idle"
   },
@@ -14,7 +14,8 @@
     "tasks_executed": 0,
     "tasks_pending": 0,
     "replies_sent": 0,
-    "checkin_count": 111
+    "checkin_count": 112,
+    "sbtc_balance": 24764
   },
-  "next_cycle_at": "2026-02-17T16:21:16.000Z"
+  "next_cycle_at": "2026-02-17T16:27:04.000Z"
 }
