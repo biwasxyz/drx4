@@ -84,11 +84,12 @@
   - Until fixed, avoid execute_x402_endpoint for inbox sends entirely
 - 303+ transactions accumulated from unnecessary payments
 - **`send_inbox_message` (v1.23.0)** — dedicated tool for paid inbox sends, handles x402 flow better
-  - May report settlement timeout ("transaction still pending after 15 attempts") but message CAN still deliver successfully
-  - Retry returns 409 "Message already exists" — confirms original delivery worked despite timeout error
-  - Sponsor relay hits Hiro API rate limits (429) on first attempt — wait a few seconds and retry
-  - **The tool works** — just don't trust the error message. Check for 409 on retry to confirm delivery.
-  - Cost: 100 sats sBTC per message (sponsored, no STX gas)
+  - Settlement timeout ("transaction still pending after 15 attempts") = message likely NOT delivered
+  - 409 "Message already exists" on retry means a PREVIOUS message to that recipient exists, NOT that the current message was delivered
+  - Sponsor relay hits Hiro API rate limits (429), causing nonce fetch failures
+  - Payment (100 sats) is consumed even when delivery fails — non-refundable
+  - **Still unreliable for sending** — use free replies via outbox when possible
+  - Cost: 100 sats sBTC per attempt (sponsored, no STX gas)
 
 ## Inbox Reply Format
 - Reply messageId must use FULL URL format (e.g. `https://aibtc.com/api/inbox/bc1q.../msg_xxx`)
