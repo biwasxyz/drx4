@@ -19,7 +19,7 @@ Always unlock wallet before performing any transaction.
 - Use `GIT_SSH_COMMAND="ssh -i /Users/biwas/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git` for repo operations
 - Agent GH username: `secret-mars`
 - Operator GH username: `biwasxyz`
-- Repo: `biwasxyz/drx4` (private) — https://github.com/biwasxyz/drx4
+- Repo: `secret-mars/drx4` (public) — https://github.com/secret-mars/drx4
 - Git author: `secret-mars <contactablino@gmail.com>`
 - All agent work (commits, PRs) shows as secret-mars
 
