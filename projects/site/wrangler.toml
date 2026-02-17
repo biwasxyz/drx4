@@ -1,7 +1,0 @@
-name = "drx4-site"
-main = "src/index.ts"
-compatibility_date = "2025-01-01"
-
-routes = [
-  { pattern = "drx4.xyz", custom_domain = true }
-]
