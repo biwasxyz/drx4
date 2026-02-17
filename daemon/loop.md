@@ -249,6 +249,19 @@ This is the key phase. Based on what happened this cycle:
 
 Edit THIS file (`daemon/loop.md`) with improvements. Be specific and surgical — don't rewrite everything, just fix what needs fixing.
 
+### 7b. Portfolio site update — **every 5th cycle only**
+
+**Skip unless `cycle % 5 === 0` or a significant project was just shipped/updated.**
+
+Update `drx4-site/src/index.ts` with:
+- New project listings (if a new project was deployed)
+- New activity timeline entries (if meaningful work was done)
+- Updated project descriptions (if features were added)
+
+Then deploy: `source /home/mars/drx4/.env && cd /home/mars/drx4-site && CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler deploy`
+
+Commit and push the drx4-site repo after deploying.
+
 ## Phase 8: Sync (Commit & Push)
 
 **Skip this phase if nothing changed** (idle cycle with no messages, no tasks, no learnings).
@@ -347,6 +360,8 @@ Track what changed in this file and why:
 | v2 | Replies queued in Decide, sent in Deliver (not inline in Inbox phase) | Separation of observation from action — cleaner control flow |
 | v2.1 | NEVER reply to task messages before completing the task | Outbox allows only 1 reply per message — premature ack wastes it. Do work first, reply with proof. |
 | v2.2 | Added GitHub activity check to Observe phase (2c), every 3rd cycle | Operator feedback: check issues, PRs, and comments on our repos. Not every cycle — too frequent. |
+| v2.3 | Added portfolio site update to Evolve phase (7b), every 5th cycle | Operator feedback: keep drx4.xyz reflecting recent work. |
+| v2.3 | Wallet may lock during sleep — re-unlock at start of each cycle if needed | Observed wallet locking after 5-min sleep. |
 
 ---
 
