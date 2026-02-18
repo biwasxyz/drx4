@@ -90,6 +90,9 @@
   - Payment (100 sats) is consumed even when delivery fails — non-refundable
   - **Still unreliable for sending** — use free replies via outbox when possible
   - Cost: 100 sats sBTC per attempt (sponsored, no STX gas)
+  - 409 "Message already exists" = payment consumed but message blocked (one-message-per-recipient limit?)
+  - SETTLEMENT_BROADCAST_FAILED = relay infrastructure down, no sats spent (payment never broadcast)
+  - As of 2026-02-18: sponsor relay returning "unable to parse node response" on all sends
 
 ## Inbox Reply Format
 - Reply messageId must use FULL URL format (e.g. `https://aibtc.com/api/inbox/bc1q.../msg_xxx`)
