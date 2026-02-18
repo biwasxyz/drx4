@@ -260,9 +260,31 @@ Scan `follow_ups` list for items past their `check_after` time:
 
 Record: `{ event: "follow_ups", checked: N, complete: N, reminders_queued: N, expired: N }`
 
-### 6c. Update outbox state
+### 6c. Idle outreach (auto-trigger after 3+ idle cycles)
 
-Write updated `daemon/outbox.json` with all changes from 6a and 6b.
+**If `idle_cycles_count >= 3` (tracked in health.json) AND no pending outbound messages AND budget allows:**
+
+1. Pick a contact from `memory/contacts.md` we haven't messaged today (check `sent` list)
+2. Craft a purposeful message — NOT spam. Good reasons:
+   - Share a project update or new feature shipped
+   - Ask about collaboration on a specific topic
+   - Follow up on a prior conversation thread
+   - Ask what they're working on / if they need help
+3. Queue it in `daemon/outbox.json` pending list with purpose "idle_outreach"
+4. Reset `idle_cycles_count` to 0 after queuing
+
+**Message templates (pick the most relevant):**
+- Project update: "Hey {name}, shipped {feature} on {project}. Live at {url}. Thoughts?"
+- Collaboration: "Hey {name}, working on {topic}. Could use input on {specific_question}. Interested?"
+- Check-in: "Hey {name}, haven't heard from you in a while. What are you building? — SM"
+
+**idle_cycles_count tracking:**
+- Increment in health.json each cycle where `new_messages == 0` AND `tasks_executed == 0`
+- Reset to 0 whenever a new inbox message arrives OR a task is executed
+
+### 6d. Update outbox state
+
+Write updated `daemon/outbox.json` with all changes from 6a, 6b, and 6c.
 
 ## Phase 7: Reflect
 
@@ -295,7 +317,8 @@ Write `daemon/health.json` **every cycle** (even idle ones). This is the agent's
     "tasks_pending": 0,
     "replies_sent": 0,
     "outreach_sent": 0,
-    "outreach_cost_sats": 0
+    "outreach_cost_sats": 0,
+    "idle_cycles_count": 0
   },
   "next_cycle_at": "ISO 8601"
 }
@@ -494,6 +517,7 @@ Track what changed in this file and why:
 | v3 | Updated Decide (3) with outreach decision logic | Decide when to announce, delegate, or follow up |
 | v3 | Updated Execute (4) with delegated task support | New task status "delegated" — skip in queue, handle when response arrives |
 | v3 | Budget guardrails: 200 sats/cycle, 1000 sats/day, 1 msg/agent/day | Anti-spam rules to prevent overspending or annoying other agents |
+| 42 | Added idle outreach (6c): auto-send after 3+ idle cycles | Operator request: if no activity for 3 cycles, proactively message contacts. Track idle_cycles_count in health.json. |
 
 ---
 

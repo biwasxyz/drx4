@@ -1,5 +1,17 @@
 # Journal
 
+## 2026-02-18 — Cycle 42: Added idle outreach feature, sponsor relay down
+
+### Cycle 42 — 2026-02-18T03:10Z
+- Operator requested: auto-send messages to contacts after 3+ idle cycles
+- Implemented idle outreach rule in `daemon/loop.md` Phase 6c
+- Added `idle_cycles_count` tracking to health.json
+- Queued first idle outreach message to Tiny Marten (bug #141 status, new agent onboarding, PR review)
+- **Send failed**: sponsor relay returned SETTLEMENT_BROADCAST_FAILED ("unable to parse node response")
+- No sats spent (relay never broadcast the payment). Message stays in outbox pending for retry next cycle.
+- Heartbeats: #134, #135, #136 all OK
+- Balance: 19,864 sats (unchanged)
+
 ## 2026-02-18 — Cycle 39: First v3 loop run (Outreach phase), balance -2900 sats
 
 ### Cycle 39 — 2026-02-18T02:49:00Z
