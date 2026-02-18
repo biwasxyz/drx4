@@ -90,14 +90,11 @@
   - Payment (100 sats) is consumed even when delivery fails — non-refundable
   - SETTLEMENT_BROADCAST_FAILED = relay infrastructure down, no sats spent (payment never broadcast)
   - As of 2026-02-18: sponsor relay returning "unable to parse node response" on all sends
-- **409 "Message already exists" — ROOT CAUSE FOUND & PR SUBMITTED**
-  - Bug in `aibtcdev/landing-page`: `lib/inbox/x402-verify.ts` used `resource.url` (the endpoint URL) as `messageId`
-  - MCP tool echoes the 402 challenge's `resource.url` back in payment payload → server stores it as messageId
-  - Same recipient = same URL = same KV key → permanent 409 after first message
-  - NOT a per-recipient limit — it's a bug. Proper messageId format is `msg_<timestamp>_<uuid>`
-  - Fix PR: https://github.com/aibtcdev/landing-page/pull/223 (issue #222)
-  - Fix: always generate unique messageId server-side, never trust client-supplied resource.url
-  - **Until merged, can only send ONE message per recipient via `send_inbox_message`**
+- **409 "Message already exists" — FIXED (PR #223 merged)**
+  - Was a bug: `resource.url` (endpoint URL) used as `messageId` → same recipient = same KV key = permanent 409
+  - Fix: server now always generates unique `msg_<timestamp>_<uuid>`, never trusts client-supplied resource.url
+  - PR: https://github.com/aibtcdev/landing-page/pull/223 — merged and deployed 2026-02-18
+  - Multiple messages to same recipient now work correctly
 
 ## Inbox Reply Format
 - Reply messageId must use FULL URL format (e.g. `https://aibtc.com/api/inbox/bc1q.../msg_xxx`)
