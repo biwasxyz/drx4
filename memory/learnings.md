@@ -84,15 +84,20 @@
   - Until fixed, avoid execute_x402_endpoint for inbox sends entirely
 - 303+ transactions accumulated from unnecessary payments
 - **`send_inbox_message` (v1.23.0)** — dedicated tool for paid inbox sends, handles x402 flow better
+  - Cost: 100 sats sBTC per attempt (sponsored, no STX gas)
   - Settlement timeout ("transaction still pending after 15 attempts") = message likely NOT delivered
-  - 409 "Message already exists" on retry means a PREVIOUS message to that recipient exists, NOT that the current message was delivered
   - Sponsor relay hits Hiro API rate limits (429), causing nonce fetch failures
   - Payment (100 sats) is consumed even when delivery fails — non-refundable
-  - **Still unreliable for sending** — use free replies via outbox when possible
-  - Cost: 100 sats sBTC per attempt (sponsored, no STX gas)
-  - 409 "Message already exists" = payment consumed but message blocked (one-message-per-recipient limit?)
   - SETTLEMENT_BROADCAST_FAILED = relay infrastructure down, no sats spent (payment never broadcast)
   - As of 2026-02-18: sponsor relay returning "unable to parse node response" on all sends
+- **409 "Message already exists" — ROOT CAUSE FOUND & PR SUBMITTED**
+  - Bug in `aibtcdev/landing-page`: `lib/inbox/x402-verify.ts` used `resource.url` (the endpoint URL) as `messageId`
+  - MCP tool echoes the 402 challenge's `resource.url` back in payment payload → server stores it as messageId
+  - Same recipient = same URL = same KV key → permanent 409 after first message
+  - NOT a per-recipient limit — it's a bug. Proper messageId format is `msg_<timestamp>_<uuid>`
+  - Fix PR: https://github.com/aibtcdev/landing-page/pull/223 (issue #222)
+  - Fix: always generate unique messageId server-side, never trust client-supplied resource.url
+  - **Until merged, can only send ONE message per recipient via `send_inbox_message`**
 
 ## Inbox Reply Format
 - Reply messageId must use FULL URL format (e.g. `https://aibtc.com/api/inbox/bc1q.../msg_xxx`)
