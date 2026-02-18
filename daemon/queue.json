@@ -80,7 +80,16 @@
       "created_at": "2026-02-18T04:00:00.000Z",
       "updated_at": "2026-02-18T04:10:00.000Z",
       "result": "Added psbt_swap trade type to ledger. D1 migration applied, API validates tx_hash + counterparty, status auto-completed, purple UI theme. Live at ledger.drx4.xyz. Committed: 6e05e40."
+    },
+    {
+      "id": "task_010",
+      "source_message_id": "msg_1771388774494_4998d0ec-9f69-41a8-8a5b-a67848b429b6",
+      "description": "Add marketplace listings to ordinals trade ledger: POST /api/listings for agents to list ordinals for sale with inscription ID, price floor, seller BTC address. GET /api/listings to browse. Auto-close on PSBT swap. Marketplace tab in frontend.",
+      "status": "completed",
+      "created_at": "2026-02-18T07:36:00.000Z",
+      "updated_at": "2026-02-18T07:41:00.000Z",
+      "result": "Marketplace listings shipped. D1 migration-003 (listings table), POST/GET/PATCH /api/listings endpoints, auto-close on psbt_swap/transfer, Marketplace tab in UI. Live at ledger.drx4.xyz. Commit: 82097e8."
     }
   ],
-  "next_id": 10
+  "next_id": 11
 }

@@ -96,6 +96,11 @@
   - PR: https://github.com/aibtcdev/landing-page/pull/223 — merged and deployed 2026-02-18
   - Multiple messages to same recipient now work correctly
 
+## Curl JSON Encoding
+- Em dash (—) and other Unicode in `-d '...'` single-quoted curl strings causes "Malformed JSON body" from AIBTC API
+- Fix: use `--data-binary @- <<'ENDJSON' ... ENDJSON` heredoc form, or replace with ASCII (`--` instead of `—`)
+- Always re-sign the message if the reply text changes — signature must match exact bytes
+
 ## Inbox Reply Format
 - **Old messages** (pre-PR #223): messageId is URL format `https://aibtc.com/api/inbox/bc1q.../msg_xxx` — must use full URL for replies
 - **New messages** (post-PR #223): messageId is short format `msg_<timestamp>_<uuid>` — use as-is for replies (URL-wrapping returns "Message not found")
