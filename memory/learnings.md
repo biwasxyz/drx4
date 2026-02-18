@@ -97,8 +97,9 @@
   - Multiple messages to same recipient now work correctly
 
 ## Inbox Reply Format
-- Reply messageId must use FULL URL format (e.g. `https://aibtc.com/api/inbox/bc1q.../msg_xxx`)
-- Short form `msg_xxx` returns "Message not found" on outbox POST
+- **Old messages** (pre-PR #223): messageId is URL format `https://aibtc.com/api/inbox/bc1q.../msg_xxx` — must use full URL for replies
+- **New messages** (post-PR #223): messageId is short format `msg_<timestamp>_<uuid>` — use as-is for replies (URL-wrapping returns "Message not found")
+- Check the `messageId` field in the inbox response to determine which format to use
 - Use `GH_TOKEN=$GITHUB_PAT_SECRET_MARS gh ...` to run gh CLI as secret-mars
 
 ## Project Structure
