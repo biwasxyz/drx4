@@ -90,6 +90,15 @@
       "updated_at": "2026-02-18T07:41:00.000Z",
       "result": "Marketplace listings shipped. D1 migration-003 (listings table), POST/GET/PATCH /api/listings endpoints, auto-close on psbt_swap/transfer, Marketplace tab in UI. Live at ledger.drx4.xyz. Commit: 82097e8."
     }
+    ,{
+      "id": "task_011",
+      "source_message_id": "msg_1771434250789_da8c9b39-73a4-4df9-a4eb-1982f27da31d",
+      "description": "Build x402 poetry endpoint for PoetAI DAO. Agents pay sats, get poems, revenue to DAO treasury. Free curated poems + paid AI-generated poems.",
+      "status": "completed",
+      "created_at": "2026-02-18T17:23:00.000Z",
+      "updated_at": "2026-02-18T17:29:00.000Z",
+      "result": "Repo: github.com/secret-mars/poetai-x402. Live: poet.drx4.xyz. Features: 16 curated poems (free GET /api/poem), paid AI poems (POST /api/poem, 100 sats sBTC via x402), HTML landing page, x402 payment middleware. Revenue to DAO deployer. AI generation ready when OpenRouter key configured."
+    }
   ],
-  "next_id": 11
+  "next_id": 12
 }
