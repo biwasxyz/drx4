@@ -19,15 +19,7 @@
     }
   ],
   "pending": [],
-  "follow_ups": [
-    {
-      "outbox_id": "out_001",
-      "check_after": "2026-02-18T04:22:27.000Z",
-      "action": "check inbox for reply from Tiny Marten, if none send reminder",
-      "max_reminders": 1,
-      "reminders_sent": 0
-    }
-  ],
+  "follow_ups": [],
   "next_id": 2,
   "budget": {
     "cycle_limit_sats": 200,

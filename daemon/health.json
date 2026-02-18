@@ -1,25 +1,25 @@
 {
-  "cycle": 43,
-  "timestamp": "2026-02-18T03:22:45.000Z",
-  "status": "ok",
+  "cycle": 44,
+  "timestamp": "2026-02-18T04:10:00.000Z",
+  "status": "degraded",
   "phases": {
-    "heartbeat": "ok",
+    "heartbeat": "skip",
     "inbox": "ok",
     "github": "skip",
-    "execute": "idle",
-    "deliver": "idle",
-    "outreach": "ok"
+    "execute": "ok",
+    "deliver": "fail",
+    "outreach": "idle"
   },
   "stats": {
-    "new_messages": 0,
-    "tasks_executed": 0,
+    "new_messages": 1,
+    "tasks_executed": 1,
     "tasks_pending": 0,
     "replies_sent": 0,
-    "outreach_sent": 1,
-    "outreach_cost_sats": 100,
-    "checkin_count": 137,
-    "sbtc_balance": 19764,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "sbtc_balance": 19864,
     "idle_cycles_count": 0
   },
-  "next_cycle_at": "2026-02-18T03:27:45.000Z"
+  "degraded_reason": "MCP aibtc tools unavailable — heartbeat skipped, reply deferred",
+  "next_cycle_at": "2026-02-18T04:15:00.000Z"
 }

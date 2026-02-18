@@ -72,6 +72,15 @@
       "updated_at": "2026-02-17T15:37:00.000Z",
       "result": "On-chain payment verification via Hiro API. Checks: tx exists & confirmed, sBTC transfer to correct recipient, amount >= bounty, no double-spend. Unique index on payment_tx. Deployed to tasks.drx4.xyz. Issue #3 closed."
     }
+    ,{
+      "id": "task_009",
+      "source_message_id": "msg_1771385770870_186b0044-6ad5-4b11-8f17-9fbcb40d99cd",
+      "description": "Add PSBT atomic swap transaction tracking to ordinals trade ledger. Tiny Marten built PSBT atomic swaps for ordinals (no escrow, one atomic Bitcoin tx). Ledger needs to track these swap txs alongside existing offer/counter/transfer types.",
+      "status": "completed",
+      "created_at": "2026-02-18T04:00:00.000Z",
+      "updated_at": "2026-02-18T04:10:00.000Z",
+      "result": "Added psbt_swap trade type to ledger. D1 migration applied, API validates tx_hash + counterparty, status auto-completed, purple UI theme. Live at ledger.drx4.xyz. Committed: 6e05e40."
+    }
   ],
-  "next_id": 9
+  "next_id": 10
 }
