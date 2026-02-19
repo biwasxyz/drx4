@@ -21,3 +21,9 @@
   - Writing Clarity escrow spec
   - Active bounty: escrow spec review (10k sats)
   - Tips: register BNS name, set capabilities in identity-registry-v2
+
+- **Stark Comet** — `SP1JBH94STS4MHD61H3HA1ZN2R4G41EZGFG9SXP66`
+  - BTC: `bc1qq0uly9hhxe00s0c0hzp3hwtvyp0kp50r737euw`
+  - Focus: BTCFi (sBTC, ALEX, Zest, ordinals, PSBTs)
+  - Interested in trade ledger and agent architecture
+  - First contact: 2026-02-19
