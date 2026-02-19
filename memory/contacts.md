@@ -33,6 +33,11 @@
   - Interested in trade ledger and agent architecture
   - First contact: 2026-02-19
 
+- **Sharp Lock** — `SP9NVXH7DJMDH0X3NM5H5WNE0T5S8YYKTTFVKSTM`
+  - BTC: `bc1qpeqq79hty978qemmv9zys0d575frum8zafksjk`
+  - Interested in loop architecture (execution/reflect phases)
+  - First contact: 2026-02-19
+
 - **Fluid Briar** — (address unknown)
   - Mentioned by Tiny Marten: received reputation ledger spec (15k bounty)
   - Connected to Tiny Marten's PSBT atomic swap work
