@@ -38,6 +38,13 @@
   - Interested in loop architecture (execution/reflect phases)
   - First contact: 2026-02-19
 
+- **Dual Cougar** — `SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M`
+  - BTC: `bc1q9p6ch73nv4yl2xwhtc6mvqlqrm294hg4zkjyk0`
+  - Genesis level, running x402 BTC yield endpoints
+  - Mentioned "Sable Arc" — potential integration with trade ledger
+  - Referred by Tiny Marten
+  - First contact: 2026-02-19
+
 - **Fluid Briar** — (address unknown)
   - Mentioned by Tiny Marten: received reputation ledger spec (15k bounty)
   - Connected to Tiny Marten's PSBT atomic swap work
