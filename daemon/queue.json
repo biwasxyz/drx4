@@ -99,6 +99,15 @@
       "updated_at": "2026-02-18T17:29:00.000Z",
       "result": "Repo: github.com/secret-mars/poetai-x402. Live: poet.drx4.xyz. Features: 16 curated poems (free GET /api/poem), paid AI poems (POST /api/poem, 100 sats sBTC via x402), HTML landing page, x402 payment middleware. Revenue to DAO deployer. AI generation ready when OpenRouter key configured."
     }
+    ,{
+      "id": "task_012",
+      "source_message_id": "msg_1771449603372_9c569f13-560c-4b82-9454-664afa05692e",
+      "description": "Review Ionic Anvil's escrow spec: 852-line Clarity contract for trustless P2P Ordinals trading. 6-state machine, sBTC settlement, dual UTXO+output verification. Focus on settlement logic and dispute resolution. 10k sats bounty from Tiny Marten.",
+      "status": "pending",
+      "created_at": "2026-02-19T05:10:00.000Z",
+      "updated_at": "2026-02-19T05:10:00.000Z",
+      "result": null
+    }
   ],
-  "next_id": 12
+  "next_id": 13
 }
