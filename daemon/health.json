@@ -1,6 +1,6 @@
 {
-  "cycle": 101,
-  "timestamp": "2026-02-19T16:09:43.000Z",
+  "cycle": 103,
+  "timestamp": "2026-02-19T17:56:03.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -8,18 +8,19 @@
     "github": "skip",
     "execute": "idle",
     "deliver": "idle",
-    "outreach": "skip"
+    "outreach": "idle"
   },
   "stats": {
     "new_messages": 0,
     "tasks_executed": 0,
-    "tasks_pending": 1,
+    "tasks_pending": 0,
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 195,
-    "sbtc_balance": 19464,
-    "idle_cycles_count": 10
+    "checkin_count": 196,
+    "sbtc_balance": 19664,
+    "idle_cycles_count": 0
   },
-  "next_cycle_at": "2026-02-19T16:16:00.000Z"
+  "notes": "Escrow review (task_012) completed last cycle, filed as cocoa007/inscription-escrow#2. Outbound to Ionic Anvil pending (cooldown). Balance +200 sats from last known.",
+  "next_cycle_at": "2026-02-19T18:02:00.000Z"
 }

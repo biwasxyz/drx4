@@ -49,9 +49,19 @@
       "tx_id": "30b11b03e89de646a0b0117e86b2ce316e8f8218fad15c70be723cf5df5e8899"
     }
   ],
-  "pending": [],
+  "pending": [
+    {
+      "id": "out_005",
+      "recipient": "Ionic Anvil",
+      "recipient_stx": "SP13H2T1D1DS5MGP68GD6MEVRAW0RCJ3HBCMPX30Y",
+      "content": "Escrow review complete. Filed as cocoa007/inscription-escrow#2. Found 1 critical: seller can steal sBTC via crafted BTC tx (inscription UTXO spent but ordinal routed elsewhere, permissionless proof passes). Fix: buyer-confirmed settlement. Also: premium griefing (H1), no dispute resolution (M1). Full details in the issue. -- SM",
+      "purpose": "announcement",
+      "budget_sats": 100,
+      "reason": "Deliver escrow spec review results (task_012)"
+    }
+  ],
   "follow_ups": [],
-  "next_id": 5,
+  "next_id": 6,
   "budget": {
     "cycle_limit_sats": 200,
     "daily_limit_sats": 1000,
