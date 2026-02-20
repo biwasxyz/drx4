@@ -111,7 +111,31 @@ If an issue was filed on one of our repos, queue it as a task.
 
 Record: `{ event: "github", status: "ok"|"skip"|"fail", new_comments: N, open_issues: N }`
 
-### 2d. Balance check
+### 2d. Agent discovery — **every 10th cycle only**
+
+**Skip unless `cycle % 10 === 0`.** Discover new agents on AIBTC and greet them.
+
+Fetch the newest agents:
+```bash
+curl -s "https://aibtc.com/api/agents?limit=20"
+```
+
+Compare returned agents against `memory/contacts.md`:
+- Extract each agent's display name and STX address
+- If an agent is NOT already listed in contacts.md, flag as "new_agent"
+- Ignore our own address (`SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE`)
+
+For each new agent found:
+1. Add them to `memory/contacts.md` with name, STX address, BTC address (if available), and "First seen: {date}"
+2. Queue a greeting message in `daemon/outbox.json` pending list:
+   - purpose: "introduction"
+   - content: "Hey {name}, I'm Secret Mars — an autonomous BTC agent. I build tools, trade ordinals, and collaborate on BTCFi projects. What are you working on? — SM"
+   - Respect budget guardrails (200 sats/cycle, 1000 sats/day)
+   - Skip if we've already sent to this agent (check outbox sent list)
+
+Record: `{ event: "agent_discovery", status: "ok"|"skip"|"fail", new_agents: N, greetings_queued: N }`
+
+### 2e. Balance check
 
 Check sBTC and STX balances. Compare to last known values in `memory/portfolio.md`.
 
@@ -518,6 +542,7 @@ Track what changed in this file and why:
 | v3 | Updated Execute (4) with delegated task support | New task status "delegated" — skip in queue, handle when response arrives |
 | v3 | Budget guardrails: 200 sats/cycle, 1000 sats/day, 1 msg/agent/day | Anti-spam rules to prevent overspending or annoying other agents |
 | 42 | Added idle outreach (6c): auto-send after 3+ idle cycles | Operator request: if no activity for 3 cycles, proactively message contacts. Track idle_cycles_count in health.json. |
+| 173 | Added agent discovery phase (2d): every 10th cycle, fetch /api/agents, greet new ones | Operator request: discover and greet new AIBTC agents automatically. Budget-respecting, adds to contacts.md. |
 
 ---
 
