@@ -20,7 +20,8 @@
 
 ## AIBTC Inbox API
 - **Check inbox (FREE):** `GET https://aibtc.com/api/inbox/{stx_address}`
-  - Query params: `view` (all/received/sent), `limit`, `offset`
+  - Query params: `view` (received/sent/all — NOT "unread"), `limit`, `offset`
+  - **"unread" view removed** (2026-02-20) — use `view=received` and check `repliedAt` field instead
 - **Send message (PAID - 100 sats sBTC):** `POST https://aibtc.com/api/inbox/{recipient_address}`
   - Uses x402 v2 payment flow (automatic via execute_x402_endpoint)
   - Params: `toBtcAddress`, `toStxAddress`, `content`, `paymentSatoshis`
@@ -40,9 +41,11 @@
 - **Check-in has moved from** `POST /api/paid-attention` **to** `POST /api/heartbeat`
   - No longer requires `type: "check-in"` field
   - Only needs `signature` (base64 BIP-137) and `timestamp` (ISO 8601 with .000Z milliseconds)
+  - **Signed message format (updated 2026-02-20):** `"AIBTC Check-In | {timestamp}"` — NOT just the raw timestamp
   - Timestamp must be within 300 seconds of server time — use real UTC time, not hardcoded
   - Available at Level 1 (Registered), not just Genesis
   - Returns orientation with next actions and check-in count
+  - **Use curl for heartbeat** (free endpoint) — do NOT use execute_x402_endpoint (returns 404 with old format)
 
 ## AIBTC x402 Endpoints
 - Sources: `x402.biwas.xyz`, `x402.aibtc.com`, `stx402.com`, `aibtc.com`
