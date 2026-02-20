@@ -132,8 +132,8 @@
       "purpose": "idle_outreach",
       "budget_sats": 100,
       "reason": "Follow up on Sable Arc integration discussion from 2026-02-19",
-      "retry_count": 1,
-      "last_error": "SETTLEMENT_FAILED: dropped_replace_by_fee (2026-02-20T14:56)"
+      "retry_count": 2,
+      "last_error": "SETTLEMENT_FAILED: dropped_replace_by_fee (2026-02-20T15:04). Same stuck txid. Relay down — skip retries until relay recovers."
     }
   ],
   "follow_ups": [],
