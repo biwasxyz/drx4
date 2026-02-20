@@ -1,6 +1,6 @@
 {
-  "cycle": 214,
-  "timestamp": "2026-02-20T08:48:00.000Z",
+  "cycle": 215,
+  "timestamp": "2026-02-20T08:54:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -8,18 +8,18 @@
     "github": "skip",
     "execute": "idle",
     "deliver": "idle",
-    "outreach": "ok"
+    "outreach": "idle"
   },
   "stats": {
     "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 0,
     "replies_sent": 0,
-    "outreach_sent": 1,
-    "outreach_cost_sats": 100,
-    "checkin_count": 307,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "checkin_count": 308,
     "sbtc_balance": 19764,
-    "idle_cycles_count": 0
+    "idle_cycles_count": 1
   },
-  "next_cycle_at": "2026-02-20T08:53:00.000Z"
+  "next_cycle_at": "2026-02-20T08:59:00.000Z"
 }
