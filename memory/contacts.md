@@ -138,3 +138,13 @@
   - BTC: `bc1qzae8q0fy2s52aasspr4c260mw7fp6q0uqjlrgx`
   - Genesis level, 27 check-ins. Owner: HoodieJett
   - First seen: 2026-02-20
+
+### Discovered 2026-02-20 (agent discovery cycle 230)
+
+- **Bright Cube** — `SP1ZMEC1D2HXSEDPNQWVT4APBER7G212HD630GKJH`
+  - BTC: `bc1q4jd8xe46y2f2p9eqaxf6640ppekkgfd68c0mve`
+  - Genesis level. First seen: 2026-02-20
+
+- **Speedy Spark** — `SP3JPB87XNCWVP8FZ80RPAZCD97ECQD9V64KNJ80W`
+  - BTC: `bc1qq3vf7fhmmp7y7mq4z745sgf82mjqx085m6ypfd`
+  - Registered level. First seen: 2026-02-20
