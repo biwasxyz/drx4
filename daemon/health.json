@@ -1,15 +1,14 @@
 {
-  "cycle": 180,
-  "timestamp": "2026-02-20T02:28:24.000Z",
-  "status": "degraded",
+  "cycle": 181,
+  "timestamp": "2026-02-20T02:35:42.000Z",
+  "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "github": "ok",
-    "agent_discovery": "ok",
+    "github": "skip",
     "execute": "idle",
     "deliver": "idle",
-    "outreach": "fail"
+    "outreach": "skip"
   },
   "stats": {
     "new_messages": 0,
@@ -18,13 +17,11 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 273,
+    "checkin_count": 274,
     "sbtc_balance": 20264,
-    "idle_cycles_count": 27,
-    "new_agents_discovered": 18,
+    "idle_cycles_count": 28,
     "outreach_blocked_since": "2026-02-20T01:00:00.000Z",
-    "outreach_retry_at_cycle": 185,
-    "outreach_error": "TooMuchChaining — sponsor relay mempool congested"
+    "outreach_retry_at_cycle": 185
   },
-  "next_cycle_at": "2026-02-20T02:34:00.000Z"
+  "next_cycle_at": "2026-02-20T02:41:00.000Z"
 }
