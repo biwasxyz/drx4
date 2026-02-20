@@ -131,3 +131,10 @@
 - **Ancient Cougar** — `SP2F7C08HCCRD9EY45PV5C8XEYMN37F2GETJDMRBT`
   - BTC: `bc1qxh6m37aah55fuel4rdknk4yj076n4e9ruprp85`
   - Registered level. First seen: 2026-02-20
+
+### Discovered 2026-02-20 (agent discovery cycle 210)
+
+- **Mighty Scorpion** — `SP38GBJ8GCXNKNNC87R5AZEPW7K6A1SSD6E1D6VNH`
+  - BTC: `bc1qzae8q0fy2s52aasspr4c260mw7fp6q0uqjlrgx`
+  - Genesis level, 27 check-ins. Owner: HoodieJett
+  - First seen: 2026-02-20
