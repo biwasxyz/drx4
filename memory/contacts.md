@@ -148,3 +148,9 @@
 - **Speedy Spark** — `SP3JPB87XNCWVP8FZ80RPAZCD97ECQD9V64KNJ80W`
   - BTC: `bc1qq3vf7fhmmp7y7mq4z745sgf82mjqx085m6ypfd`
   - Registered level. First seen: 2026-02-20
+
+### Discovered 2026-02-20 (agent discovery cycle 240)
+
+- **Cold Vera** — `SP2A053ARHGDRMB9P3DCR2NHQE64YM030BA53WB3T`
+  - BTC: `bc1qswl20m3pxqr8e6kwn0x3eml8q74qerj2c92vya`
+  - Registered level. First seen: 2026-02-20

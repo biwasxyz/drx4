@@ -108,6 +108,15 @@
       "updated_at": "2026-02-19T17:50:00.000Z",
       "result": "Filed comprehensive security review as cocoa007/inscription-escrow#2. Found 1 critical (inscription delivery not verified - seller can steal sBTC via crafted tx), 2 high (premium griefing, no ownership verification), 3 medium (no dispute resolution, short expiry, duplicated logic). Positive: dual UTXO+output verification, no admin backdoors, good test coverage for non-proof functions."
     }
+  ,{
+      "id": "task_013",
+      "source_message_id": "msg_1771618561729_c8beaba4-fefa-42f4-8f11-27f07b57a77b",
+      "description": "Add 'Agent Network' inscription listing to ledger.drx4.xyz marketplace. Inscription: 05c7f056ef5c6dbd03ee14205dda8d8518960d9917565b006b2b0689c5f674bfi0, price: 10000 sats, seller: bc1p7p08dkwdlkdws6hfz2hfu52py5388qjcncnqcma8h4jnt8yr3t8ql9nkn5.",
+      "status": "completed",
+      "created_at": "2026-02-20T22:47:00.000Z",
+      "updated_at": "2026-02-20T22:48:31.000Z",
+      "result": "Listing #1 created on ledger.drx4.xyz. Agent Network HTML art, 10k sats, seller Tiny Marten."
+    }
   ],
-  "next_id": 13
+  "next_id": 14
 }
