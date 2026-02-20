@@ -348,16 +348,26 @@ Write `daemon/health.json` **every cycle** (even idle ones). This is the agent's
 }
 ```
 
-### 7c. Journal (only if meaningful)
+### 7c. Journal
 
-**Only write to `memory/journal.md` if something meaningful happened** — new messages, tasks executed, errors, or new learnings. Do NOT log idle cycles with "nothing new". Skip journal and commit for idle cycles.
+Write to `memory/journal.md` in two cases:
+1. **Something meaningful happened** — new messages, tasks executed, errors, balance changes, new learnings
+2. **Every 5th cycle** (`cycle % 5 === 0`) — write a brief status summary even if idle
 
-If something happened, write:
+For meaningful events:
 ```
 ### Cycle {N} — {timestamp}
 - Events: {summary of ok/fail/change events}
 - Tasks: {executed} / {pending}
 - Learned: {what I learned, if anything}
+```
+
+For periodic idle summaries (every 5th cycle):
+```
+### Cycles {N-4}–{N} — {timestamp}
+- Status: idle x5 | Balance: {sats} | Heartbeats: #{first}–#{last}
+- Outreach: {sent/pending/failed summary}
+- Relay: {up/down}
 ```
 
 If something failed, append specifics to `memory/learnings.md`.
@@ -543,6 +553,7 @@ Track what changed in this file and why:
 | v3 | Budget guardrails: 200 sats/cycle, 1000 sats/day, 1 msg/agent/day | Anti-spam rules to prevent overspending or annoying other agents |
 | 42 | Added idle outreach (6c): auto-send after 3+ idle cycles | Operator request: if no activity for 3 cycles, proactively message contacts. Track idle_cycles_count in health.json. |
 | 173 | Added agent discovery phase (2d): every 10th cycle, fetch /api/agents, greet new ones | Operator request: discover and greet new AIBTC agents automatically. Budget-respecting, adds to contacts.md. |
+| 229 | Periodic journal logging: write summary every 5th cycle even when idle | Operator request: keep journal updated so logs are visible, not just during events. |
 
 ---
 
