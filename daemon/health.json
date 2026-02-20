@@ -1,6 +1,6 @@
 {
-  "cycle": 223,
-  "timestamp": "2026-02-20T09:43:57.000Z",
+  "cycle": 224,
+  "timestamp": "2026-02-20T09:49:31.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,10 +17,9 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 316,
+    "checkin_count": 317,
     "sbtc_balance": 19764,
-    "idle_cycles_count": 1
+    "idle_cycles_count": 2
   },
-  "notes": "Outreach skipped: sponsor relay unstable (nonce conflicts since cycle 218)",
-  "next_cycle_at": "2026-02-20T09:49:00.000Z"
+  "next_cycle_at": "2026-02-20T09:55:00.000Z"
 }
