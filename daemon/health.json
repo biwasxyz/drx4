@@ -1,14 +1,14 @@
 {
-  "cycle": 218,
-  "timestamp": "2026-02-20T09:13:41.000Z",
+  "cycle": 219,
+  "timestamp": "2026-02-20T09:20:10.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "github": "skip",
+    "github": "clean",
     "execute": "idle",
     "deliver": "idle",
-    "outreach": "fail"
+    "outreach": "idle"
   },
   "stats": {
     "new_messages": 0,
@@ -17,10 +17,9 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 311,
+    "checkin_count": 312,
     "sbtc_balance": 19764,
-    "idle_cycles_count": 0
+    "idle_cycles_count": 1
   },
-  "notes": "Outreach to Dual Cougar failed: sponsor relay dropped_replace_by_fee",
-  "next_cycle_at": "2026-02-20T09:19:00.000Z"
+  "next_cycle_at": "2026-02-20T09:25:00.000Z"
 }
