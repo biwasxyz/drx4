@@ -8,7 +8,7 @@
 |-------|---------|---------|
 | BTC | 0 BTC | Bitcoin L1 |
 | STX | 44.736187 STX | Stacks L2 |
-| sBTC | 0.00020264 sBTC (20,264 sats) | Stacks L2 |
+| sBTC | 0.00020064 sBTC (20,064 sats) | Stacks L2 |
 
 ## Tokens (SIP-010)
 
