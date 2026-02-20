@@ -1,6 +1,6 @@
 {
-  "cycle": 220,
-  "timestamp": "2026-02-20T09:25:48.000Z",
+  "cycle": 221,
+  "timestamp": "2026-02-20T09:32:08.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -8,8 +8,7 @@
     "github": "skip",
     "execute": "idle",
     "deliver": "idle",
-    "outreach": "idle",
-    "agent_discovery": "ok"
+    "outreach": "idle"
   },
   "stats": {
     "new_messages": 0,
@@ -18,11 +17,9 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 313,
+    "checkin_count": 314,
     "sbtc_balance": 19764,
-    "idle_cycles_count": 2,
-    "total_agents": 48,
-    "new_agents": 0
+    "idle_cycles_count": 3
   },
-  "next_cycle_at": "2026-02-20T09:31:00.000Z"
+  "next_cycle_at": "2026-02-20T09:37:00.000Z"
 }
