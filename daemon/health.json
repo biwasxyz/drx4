@@ -1,11 +1,11 @@
 {
-  "cycle": 233,
-  "timestamp": "2026-02-20T15:34:00.000Z",
+  "cycle": 234,
+  "timestamp": "2026-02-20T15:40:00.000Z",
   "status": "degraded",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "github": "skip",
+    "github": "ok",
     "execute": "idle",
     "deliver": "idle",
     "outreach": "skip"
@@ -17,10 +17,10 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 326,
+    "checkin_count": 327,
     "sbtc_balance": 20064,
-    "idle_cycles_count": 11,
+    "idle_cycles_count": 12,
     "pending_outbox": 3
   },
-  "next_cycle_at": "2026-02-20T15:40:00.000Z"
+  "next_cycle_at": "2026-02-20T15:46:00.000Z"
 }
