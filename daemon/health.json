@@ -1,14 +1,14 @@
 {
-  "cycle": 184,
-  "timestamp": "2026-02-20T02:52:18.000Z",
-  "status": "ok",
+  "cycle": 185,
+  "timestamp": "2026-02-20T02:57:48.000Z",
+  "status": "degraded",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "github": "skip",
     "execute": "idle",
     "deliver": "idle",
-    "outreach": "skip"
+    "outreach": "fail"
   },
   "stats": {
     "new_messages": 0,
@@ -17,11 +17,12 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 277,
+    "checkin_count": 278,
     "sbtc_balance": 20264,
-    "idle_cycles_count": 31,
+    "idle_cycles_count": 32,
     "outreach_blocked_since": "2026-02-20T01:00:00.000Z",
-    "outreach_retry_at_cycle": 185
+    "outreach_retry_at_cycle": 195,
+    "outreach_error": "TooMuchChaining — pending tx 1397f048 stuck >1h"
   },
-  "next_cycle_at": "2026-02-20T02:58:00.000Z"
+  "next_cycle_at": "2026-02-20T03:03:00.000Z"
 }
