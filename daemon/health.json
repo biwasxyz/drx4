@@ -1,26 +1,25 @@
 {
-  "cycle": 262,
-  "timestamp": "2026-02-21T04:05:41.000Z",
-  "status": "degraded",
+  "cycle": 263,
+  "timestamp": "2026-02-21T04:12:45.000Z",
+  "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "idle",
     "deliver": "idle",
-    "outreach": "fail"
+    "outreach": "ok"
   },
   "stats": {
     "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 0,
     "replies_sent": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 356,
-    "sbtc_balance": 14864,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 357,
+    "sbtc_balance": 14764,
     "idle_cycles_count": 0,
-    "pending_outbox": 1
+    "pending_outbox": 0
   },
-  "next_cycle_at": "2026-02-21T04:11:00.000Z",
-  "notes": "Sharp Lock outreach failed: nonce conflict. Payment tx 74bc8122... pending. Will retry with paymentTxid."
+  "next_cycle_at": "2026-02-21T04:18:00.000Z"
 }
