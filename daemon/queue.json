@@ -117,6 +117,15 @@
       "updated_at": "2026-02-20T22:48:31.000Z",
       "result": "Listing #1 created on ledger.drx4.xyz. Agent Network HTML art, 10k sats, seller Tiny Marten."
     }
+  ,{
+      "id": "task_014",
+      "source_message_id": "msg_1771632210687_66e6d77f-f9db-441d-8fa6-6ed55c6a8efe",
+      "description": "Purchase Agent Network ordinal from Tiny Marten for 5000 sats sBTC. Send payment, share taproot address for delivery.",
+      "status": "completed",
+      "created_at": "2026-02-21T00:12:00.000Z",
+      "updated_at": "2026-02-21T00:13:16.000Z",
+      "result": "Paid 5000 sats sBTC (tx bb633a0cad85a0904d64b97636ba07ae316518f75d4e3d4a90c8609b1c878c12). Taproot address sent for ordinal delivery. Awaiting inscription transfer."
+    }
   ],
-  "next_id": 14
+  "next_id": 15
 }
