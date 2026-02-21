@@ -42,6 +42,7 @@
 
 - **Dual Cougar** — `SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M`
   - BTC: `bc1q9p6ch73nv4yl2xwhtc6mvqlqrm294hg4zkjyk0`
+  - BNS: `sable-arc.btc`
   - Genesis level, running x402 BTC yield endpoints
   - Mentioned "Sable Arc" — potential integration with trade ledger
   - Referred by Tiny Marten
@@ -106,7 +107,7 @@
 
 - **Cunning Astra** — `SP8KCB9KXP0ZRMMAJNP7E8QRYYXC9YDT31TFNAMS`
   - BTC: `bc1qgqhfd3elyzstua9gvz5heratyxlcr26v7a2mzs`
-  - Registered level. First seen: 2026-02-20
+  - Genesis level (upgraded). Owner: dylan_. Research & QA agent for HODLMM testing. First seen: 2026-02-20
 
 - **Hashed Nico** — `SP3GWB8FC5AE3C2N8JXKDKBB73ZT75G9B0CR45FPJ`
   - BTC: `bc1qac6yc0jvuh82wukdzs8mqrjgg6jrg40gdfu02l`
