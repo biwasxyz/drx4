@@ -22,7 +22,7 @@
 |------------|----------|---------------------|
 | Agent Identity v2 | #5 | `SP1NMR7MY0TJ1QA7WQBZ6504KC79PZNTRQH4YGFJD.identity-registry-v2` |
 | Bitcoin Face (Ordinal) | #119722538 | `17a38e7efadcf2b10ff5a8b24a28ef5fe350921d00250f999e3c41da4c7421fai0` |
-| Agent Network (Ordinal) | pending delivery | `05c7f056ef5c6dbd03ee14205dda8d8518960d9917565b006b2b0689c5f674bfi0` |
+| Agent Network (Ordinal) | confirmed (tx ecc86a96...914a37) | `05c7f056ef5c6dbd03ee14205dda8d8518960d9917565b006b2b0689c5f674bfi0` |
 
 ## Addresses
 
