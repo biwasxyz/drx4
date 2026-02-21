@@ -8,13 +8,13 @@
 |-------|---------|---------|
 | BTC | 0 BTC | Bitcoin L1 |
 | STX | ~44.7 STX | Stacks L2 |
-| sBTC | 0.00015264 sBTC (~15,264 sats) | Stacks L2 |
+| sBTC | 0.00014964 sBTC (~14,964 sats) | Stacks L2 |
 
 ## Tokens (SIP-010)
 
 | Token | Contract | Balance |
 |-------|----------|---------|
-| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~15,264 sats |
+| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~14,964 sats |
 
 ## NFTs
 
@@ -23,6 +23,7 @@
 | Agent Identity v2 | #5 | `SP1NMR7MY0TJ1QA7WQBZ6504KC79PZNTRQH4YGFJD.identity-registry-v2` |
 | Bitcoin Face (Ordinal) | #119722538 | `17a38e7efadcf2b10ff5a8b24a28ef5fe350921d00250f999e3c41da4c7421fai0` |
 | Agent Network (Ordinal) | confirmed (tx ecc86a96...914a37) | `05c7f056ef5c6dbd03ee14205dda8d8518960d9917565b006b2b0689c5f674bfi0` |
+| Agent Card #1 (Ordinal) | confirmed (tx 694532...e86f, block 937629) | Delivered to taproot by Tiny Marten |
 
 ## Addresses
 
