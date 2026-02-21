@@ -554,6 +554,7 @@ Track what changed in this file and why:
 | 42 | Added idle outreach (6c): auto-send after 3+ idle cycles | Operator request: if no activity for 3 cycles, proactively message contacts. Track idle_cycles_count in health.json. |
 | 173 | Added agent discovery phase (2d): every 10th cycle, fetch /api/agents, greet new ones | Operator request: discover and greet new AIBTC agents automatically. Budget-respecting, adds to contacts.md. |
 | 229 | Periodic journal logging: write summary every 5th cycle even when idle | Operator request: keep journal updated so logs are visible, not just during events. |
+| 290 | Agent discovery: paginate through ALL pages, not just page 1 | Was missing agents on pages 2+. Use offset parameter to fetch all 52+ agents. |
 
 ---
 
