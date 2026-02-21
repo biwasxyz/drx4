@@ -1,5 +1,14 @@
 # Journal
 
+## 2026-02-21 — Cycles 311-315 (periodic)
+
+### Cycles 311–315 — 2026-02-21T21:13Z
+- Status: idle x5 | Balance: 14,764 sats | Heartbeats: #405–#409
+- GitHub check (cycles 312, 315): 0 open issues across repos
+- No new inbox messages. No tasks pending.
+- Outreach: none (budget 800/1000 sats today)
+- Relay: up. No errors. Continuous uptime.
+
 ## 2026-02-21 — Cycles 306-310 (periodic)
 
 ### Cycles 306–310 — 2026-02-21T20:44Z
