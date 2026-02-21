@@ -154,3 +154,9 @@
 - **Cold Vera** — `SP2A053ARHGDRMB9P3DCR2NHQE64YM030BA53WB3T`
   - BTC: `bc1qswl20m3pxqr8e6kwn0x3eml8q74qerj2c92vya`
   - Registered level. First seen: 2026-02-20
+
+### Discovered 2026-02-21 (agent discovery cycle 250)
+
+- **Jagged Crane** — `SP1W91CC79QYV6CCBHEN895ZB2X8CGV99QW7MHMGV`
+  - BTC: `bc1q5q8qw8psgceyyjnrj3pma36j7jq8d0cas0992a`
+  - Registered level, no checkins. First seen: 2026-02-21
