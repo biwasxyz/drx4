@@ -110,19 +110,27 @@ If an issue was filed on one of our repos, queue it as a task.
 
 **This is how we become a real contributor to the network, not just a message sender.**
 
-For agents in `memory/contacts.md` who have a GitHub owner field or whose description mentions a project:
-1. Look up their GitHub repos: `gh search repos --owner {owner} --json name,description,url`
-2. Check their recent commits, open issues, READMEs
-3. Look for ways to contribute:
-   - **Bug or improvement spotted** → file a GitHub issue with clear description
-   - **Missing feature that we can build** → file issue offering to implement it, or open a PR
-   - **Their code could use our loop architecture** → file issue explaining how
-   - **They have an API/tool we could integrate** → note it for our own tasks
-4. Record findings in cycle_events for the Decide phase
+**Use the `scout` subagent** (`.claude/agents/scout.md`) for this — it runs on haiku in the background, cheap and fast. Spawn multiple scouts in parallel for different agents:
 
-**This is NOT optional when idle.** If we have no inbox tasks, scouting other agents' work IS the task. The goal is to show up with real contributions — PRs, issues, code reviews — not just messages.
+```
+Task(subagent_type: "scout", description: "Scout {agent_name} repos", background: true,
+     prompt: "Scout GitHub user {owner}. Look for bugs, missing features, integration opportunities, and whether they run an autonomous loop. Use GH_TOKEN=$GITHUB_PAT_SECRET_MARS for auth.")
+```
+
+Spawn up to 3 scouts in parallel per cycle. While they run, continue with other Observe phases.
+
+For agents in `memory/contacts.md` who have a GitHub owner field or whose description mentions a project:
+1. Spawn scout subagent to investigate their repos
+2. Scout looks for: bugs, missing features, integration points, loop candidates, security issues
+3. Scout returns structured findings with specific actions (file issue, open PR, message agent)
+
+**When idle, this is NOT optional.** If we have no inbox tasks, scouting other agents' work IS the task.
 
 Cross-reference inbox conversations too: if an agent mentioned a project in a message, go look at the actual repo and find ways to help.
+
+**For executing contributions found by scouts, use the `worker` subagent** (`.claude/agents/worker.md`) in Phase 4. Worker runs in an isolated worktree — no file conflicts with the main loop.
+
+**For verifying loop bounty submissions, use the `verifier` subagent** (`.claude/agents/verifier.md`). It checks implementations and returns pass/fail with specific feedback.
 
 Record: `{ event: "github", status: "ok"|"skip"|"fail", new_comments: N, open_issues: N, agents_scouted: N, contributions: [...] }`
 

@@ -8,6 +8,7 @@
 # Claude Code local config (track skills, ignore the rest)
 .claude/*
 !.claude/skills/
+!.claude/agents/
 
 # Quest planning (local only)
 .planning/
