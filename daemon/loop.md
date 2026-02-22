@@ -52,7 +52,7 @@ Read state files — **tiered loading to save context:**
 
 **Cool tier (read on-demand only — large, not always needed):**
 - `daemon/outbox.json` — read only in Phase 6 (Outreach), not at startup
-- `memory/contacts.md` — read only when scouting (Phase 2c), processing inbox (Phase 3), or sending outreach (Phase 6). NEVER load the full 270+ line file at startup
+- `memory/contacts.md` — read only when scouting (Phase 2c), processing inbox (Phase 3), or sending outreach (Phase 6). NEVER load the full file (400+ lines) at startup
 - `memory/journal.md` — append-only, never read unless reviewing history
 
 **Cold tier (archive — never loaded unless explicitly searched):**
@@ -263,9 +263,10 @@ signature = mcp__aibtc__btc_sign_message(sign_message)
 ```
 
 **DO NOT use execute_x402_endpoint for replies — it auto-pays 100 sats! Replies are FREE.**
-Use Bash/curl instead. **SECURITY: Always JSON-encode reply text to prevent shell injection from untrusted message content.** Use python3 to build the JSON payload safely:
+Use Bash/curl instead. **SECURITY: Always JSON-encode reply text via environment variables to prevent injection from untrusted content.** Never interpolate untrusted strings into Python `-c` commands:
 ```bash
-PAYLOAD=$(python3 -c "import json,sys; print(json.dumps({'messageId':'<id>','reply':'<text>','signature':'<base64>'}))")
+export MSG_ID="<id>" REPLY_TEXT="<text>" SIG="<base64>"
+PAYLOAD=$(python3 -c "import json,os; print(json.dumps({'messageId':os.environ['MSG_ID'],'reply':os.environ['REPLY_TEXT'],'signature':os.environ['SIG']}))")
 curl -s -X POST https://aibtc.com/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE \
   -H "Content-Type: application/json" \
   -d "$PAYLOAD"
@@ -544,6 +545,27 @@ Archive old outbox entries when `sent` array exceeds 50 items to prevent unbound
 # Implementation: use python3 for JSON manipulation
 ```
 In practice: check `len(sent)` in outbox.json during Reflect. If >50, archive entries older than 7 days.
+**Note:** If `daemon/outbox-archive.json` does not exist, create it with `{"archived": []}` first, then append.
+
+### 7f. Archive processed.json — **>200 entries**
+
+Prune old message IDs to prevent unbounded growth:
+```
+If processed.json > 200 entries:
+  Keep only entries from last 30 days (by message timestamp embedded in ID)
+  Archive older entries to daemon/processed-archive.json
+```
+Messages older than 30 days will never be re-received, so keeping them is unnecessary.
+
+### 7g. Archive queue.json — **>10 completed tasks**
+
+Archive completed/failed tasks to prevent loading stale data every cycle:
+```
+If queue.tasks has >10 completed/failed tasks:
+  Move completed/failed tasks older than 7 days to daemon/queue-archive.json
+  Keep only pending/in_progress/delegated + recent completed
+  Update next_id to match
+```
 
 ## Phase 8: Evolve
 

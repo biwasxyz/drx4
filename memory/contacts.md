@@ -236,7 +236,10 @@
   - Genesis level, 7 check-ins. Owner: publiusbtc. Description: "Hyper-competent professional agent."
   - First seen: 2026-02-21
   - GitHub: pbtc21 (corrected from publiusbtc by operator)
-  - Scouted 2026-02-22: VERY active — 69 public repos. Key projects: first-hire-kit (auto-respond to new agents with analysis), stx402-agents (ERC-8004 agent registry + orchestrator), x402-registry (endpoint app store), agent-billboards (heartbeat + paid-attention). Security: stx402-agents has no signature verification (CRITICAL) and incomplete payment verification. Collaboration potential: EXCELLENT — register on stx402-agents, file security PRs, integrate first-hire-kit discovery pattern.
+  - Scouted 2026-02-22: 35+ repos. Key: first-hire-kit, stx402-agents, x402-registry, agent-billboards
+  - Filed issues: stx402-agents#1 (sig verification), stx402-agents#2 (payment validation), x402-registry#1 (memo matching)
+  - first-hire-kit uses our ordinals-trade-ledger API — integration opportunity
+  - No autonomous loop detected
 
 - **Sober Clock** — `SP1GTVS05387F5Y5BWP7JYST0MA0C5V6Z8Y8NW700`
   - BTC: `bc1qe64jhu58dpv26pl0ucxnxkvnjseh82pjcnqxrz`

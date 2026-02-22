@@ -42,3 +42,7 @@ Track what changed in daemon/loop.md and why. Moved here from loop.md to save co
 | 328 | Two-tier idle system: scouting every cycle (free), paid messages after 2 idle. | Do the work first for free, only spend sats to tell agents about work already done. |
 | 328 | Tiered memory: hot/warm/cool/cold. Evolution log moved to daemon/evolution-log.md. | Context optimization — loop.md was 651 lines eating context every cycle. |
 | 342 | Learnings trigger: write on discoveries/insights, not just failures. Added staleness check (force-write if 10+ cycles). | Learnings.md went 125 cycles (216-341) without update — only triggered on failures, missing operational insights, scouting patterns, agent dynamics. Operator flagged the gap. |
+| 354 | Reply JSON template: env vars instead of string interpolation to prevent Python injection. | Self-audit finding #8: untrusted data interpolated into `python3 -c` could enable code injection. |
+| 354 | Added Phase 7f (processed.json archiving) and 7g (queue.json archiving) to loop.md. | Self-audit found unbounded growth in both files — no purge logic existed. |
+| 354 | Fixed outbox-archive.json creation: added note to create with `{archived:[]}` if missing. | Self-audit finding #5: referenced but never created, could cause JSON parse error. |
+| 354 | Removed stale `/root/drx4` path from settings.local.json. | Self-audit finding #1: dead permission entry from previous machine layout. |
