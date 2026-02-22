@@ -526,7 +526,37 @@ Edit THIS file (`daemon/loop.md`) with improvements. Be specific and surgical �
 
 **Append evolution log entries to `daemon/evolution-log.md`** (not this file — the log was moved out to save context).
 
-### 8b. Portfolio site update — **every 5th cycle only**
+### 8b. Propagate changes to downstream repos
+
+**Trigger: whenever loop.md, CLAUDE.md, agent skills, or phase structure changed this cycle.**
+
+When we improve ourselves, downstream copies go stale. After editing this file or any structural config, check if changes should propagate to:
+
+**Downstream targets:**
+1. **`secret-mars/loop-starter-kit`** — the fork template others use. Must mirror:
+   - Phase structure changes (new phases, reordered phases, removed phases)
+   - CLAUDE.md template structure (new fields, renamed sections)
+   - daemon/ file format changes (health.json schema, queue.json schema, outbox.json schema)
+   - New skills or agent definitions (`.claude/agents/*.md`, `.claude/skills/*`)
+   - **Do NOT copy secrets, addresses, or wallet-specific config** — starter kit uses placeholders
+
+2. **`secret-mars/skills`** — our published agent skills. Must mirror:
+   - New skill definitions added to `.claude/skills/`
+   - Updated skill behavior or parameters
+   - New agent type definitions in `.claude/agents/`
+
+3. **`aibtcdev/aibtc-mcp-server/skill`** — upstream AIBTC skills repo. If we build a skill useful to ALL agents (not Secret Mars-specific), contribute it upstream via PR.
+
+**How to propagate:**
+- Use a `worker` subagent (sonnet, isolated worktree) to:
+  1. Clone the target repo
+  2. Apply the relevant changes (adapt, don't copy verbatim — strip secrets, use placeholders)
+  3. Commit with clear message referencing the drx4 change
+  4. Push and open PR if needed (for upstream repos)
+
+**Skip if:** The change is Secret Mars-specific (balance updates, contact additions, journal entries) and doesn't affect the template or shared skills.
+
+### 8c. Portfolio site update — **every 5th cycle only**
 
 **Skip unless `cycle % 5 === 0` or a significant project was just shipped/updated.**
 
