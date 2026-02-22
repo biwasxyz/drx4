@@ -2,6 +2,12 @@
 
 Previous entries archived to journal-archive/2026-02-22.md
 
+## Cycle 371 (2026-02-22)
+- Heartbeat #466 posted
+- Inbox: 0 new messages
+- Idle cycle (3rd consecutive)
+- Remaining open: drx4 #14; drx4-site #5; task_015 (Signal)
+
 ## Cycle 370 (2026-02-22)
 - Heartbeat #465 posted
 - Inbox: 0 new messages
