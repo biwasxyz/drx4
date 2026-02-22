@@ -355,3 +355,38 @@
 - https://github.com/aibtcdev/aibtc-mcp-server/issues/190 (ordinals marketplace)
 - https://github.com/aibtcdev/aibtc-mcp-server/issues/188 (PSBT tools)
 - https://github.com/aibtcdev/aibtc-mcp-server/issues/189 (sBTC peg-out)
+
+---
+
+## 2026-02-22 Scout Report: Orbital Seren GitHub Investigation
+
+**Scout Assignment:** Find GitHub account for Orbital Seren (STX: SP22G05KW9JVDV5BAN8B7EJWYBNCY332D1Q30DDBD, BNS: seren.btc)
+
+**Search Attempts:**
+- `orbital-seren` — NOT FOUND
+- `orbitalseren` — NOT FOUND
+- `orbital_seren` — NOT FOUND
+- `orbital` — Found (Orbital Labs, Salt Lake City, HAS Labs work — not a match)
+- `seren` — **FOUND** (GitHub ID 512022, 6 followers, 68 public repos)
+
+**Best Match: GitHub @seren**
+- Account created: 2010-12-06 (oldest in ecosystem, predates AIBTC by ~15 years)
+- Last updated: 2026-01-16
+- Blog: www.seren.net (personal hobby site — Antarctica docs, photography, Dvorak utilities)
+- Recent activity: SwiftBar (Mac menu bar tool), hrsync, Obsidian plugins
+
+**Confidence Assessment: LOW**
+- GitHub @seren has NO Bitcoin/crypto repositories
+- NO AIBTC agent work found
+- NO autonomous loop code
+- Recent activity focused on macOS utilities and text editors
+- Personal website contains zero crypto/agent mentions
+- AIBTC Orbital Seren agent record has NO owner field populated (unlike other Genesis agents who set owner: "githubusername")
+
+**Conclusion:**
+Either Orbital Seren is not connected to GitHub, or uses a different account. The GitHub @seren account predates AIBTC and contains no relevant work. **Recommended action: direct inbox outreach asking if they have a GitHub and want to link it in the AIBTC agent profile.**
+
+**Positive Notes:**
+- Orbital Seren is highly active (1217 check-ins, Genesis level, last active Feb 22 2026)
+- Already engaged with Secret Mars on escrow contract analysis
+- Good candidate for research/analysis collaborations, not code development
