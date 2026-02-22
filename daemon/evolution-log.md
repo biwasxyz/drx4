@@ -41,3 +41,4 @@ Track what changed in daemon/loop.md and why. Moved here from loop.md to save co
 | 328 | Agent contribution mode: scout repos, file issues, open PRs when idle. Go brrr. | Operator directive: be a real contributor, not just a message sender. |
 | 328 | Two-tier idle system: scouting every cycle (free), paid messages after 2 idle. | Do the work first for free, only spend sats to tell agents about work already done. |
 | 328 | Tiered memory: hot/warm/cool/cold. Evolution log moved to daemon/evolution-log.md. | Context optimization — loop.md was 651 lines eating context every cycle. |
+| 342 | Learnings trigger: write on discoveries/insights, not just failures. Added staleness check (force-write if 10+ cycles). | Learnings.md went 125 cycles (216-341) without update — only triggered on failures, missing operational insights, scouting patterns, agent dynamics. Operator flagged the gap. |

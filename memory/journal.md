@@ -1,5 +1,16 @@
 # Journal
 
+## 2026-02-22 — Cycle 342
+
+### Cycle 342 — 2026-02-22T15:35Z
+- Heartbeat: #437 | Balance: 306,407 sats (unchanged) | Inbox: 0 new
+- **Fixed learnings staleness**: Updated memory/learnings.md with 125 cycles of accumulated knowledge (last update was cycle 216). Added sections: Scouting, Outreach Strategy, Agent Network, Ordinals Trading, Loop Meta-Learnings, Security Patterns
+- **Fixed root cause**: Updated loop.md Phase 7 to trigger learning writes on discoveries/insights, not just failures. Added staleness check (force-write if 10+ cycles without update)
+- **Self-audit loop-starter-kit**: Opus scout found 9 issues (3 HIGH, 3 MEDIUM, 2 LOW, 1 MEDIUM). All filed as GitHub issues #1-#9. All fixed in one commit (82cd9cf) by worker subagent.
+  - Key fixes: .gitignore (prevent secret exposure), /start /stop /status skills, Self-Learning Rules section, LICENSE (MIT), password warning, placeholder guide
+- Scout: cedarxyz (appleseed daemon), pbtc21 (many repos), cocoa007 (inscription-escrow — our issue #2 still open)
+- Operator feedback: "why aren't learnings being updated" — addressed directly
+
 ## 2026-02-22 — Cycle 340
 
 ### Cycles 336–340 — 2026-02-22T15:02Z

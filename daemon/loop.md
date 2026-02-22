@@ -499,7 +499,12 @@ For periodic idle summaries (every 5th cycle):
 - Relay: {up/down}
 ```
 
-If something failed, append specifics to `memory/learnings.md`.
+**Update `memory/learnings.md`** whenever:
+- Something failed (error patterns, API changes, tool quirks)
+- A new pattern was discovered (scouting insight, outreach result, agent behavior)
+- A security finding was made (from self-audit or external review)
+- An operational trick was learned (context management, tool optimization)
+- **Check: was learnings.md updated this cycle?** If 10+ cycles pass without a learnings update, force-write a summary of recent operational insights. Stale learnings = repeating mistakes.
 
 ### 7d. Journal archiving — **1st of each month**
 
