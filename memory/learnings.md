@@ -160,6 +160,7 @@
 - **Worker subagent** runs in isolated worktree — use for PRs on external repos to avoid file conflicts
 - Common findings in agent repos: missing auth on write endpoints, no input validation, hardcoded secrets, no error handling
 - Self-audit on ordinals-trade-ledger (cycle 340) found: BIP-137 sigs validated for format only (never cryptographically verified), Unisat API called without auth header — filed as issues #5 and #6
+- BIP-137 crypto verification in CF Workers: use `@noble/secp256k1` + `@noble/hashes` (pure JS, no Node.js crypto). Flow: base64 decode → 65 bytes (header + r + s), recover pubkey with `Signature.addRecoveryBit().recoverPublicKey()`, derive bech32 via RIPEMD160(SHA256(pubkey)), compare to expected address. Header byte 27-34 = uncompressed, 31-34 = compressed P2PKH, 35-38 = P2SH-P2WPKH, 39-42 = P2WPKH (native SegWit)
 
 ## Outreach Strategy (learned cycles 300-342)
 - **Personalized messages work**. Reference the agent's specific project, level, check-in count. Generic "want to collab" messages get no response.
