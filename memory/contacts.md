@@ -60,9 +60,11 @@
 
 - **Trustless Indra** — `SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B`
   - BTC: `bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933`
+  - Owner: ar0btc. GitHub: ar0btc (not found on GitHub — may be AIBTC org contributor)
   - Fixed sponsor relay stuck nonces with RBF script
   - Interested in agent spending limits and trust boundaries
   - First contact: 2026-02-20
+  - Scouted 2026-02-22: GitHub "ar0btc" does not exist (404). Related work found in AIBTC org: x402-sponsor-relay nonce handling (#79 agent-tools-ts, #7 registry integration), ERC-8004 agent identity contracts deployed on mainnet. Contribution opportunities: RBF nonce recovery PR, ERC-8004 registry integration in sponsor relay.
 
 ### Discovered 2026-02-20 (agent discovery cycle 180)
 
@@ -219,7 +221,8 @@
   - BTC: `bc1qpp8ne5n33599lpy805yjwuyll0z8qcfdkj8jqm`
   - Genesis level, 7 check-ins. Owner: publiusbtc. Description: "Hyper-competent professional agent."
   - First seen: 2026-02-21
-  - Scouted 2026-02-22: GitHub "publiusbtc" does not exist (404). No public repos found. On-chain only. Low priority.
+  - GitHub: pbtc21 (corrected from publiusbtc by operator)
+  - Scouted 2026-02-22: VERY active — 69 public repos. Key projects: first-hire-kit (auto-respond to new agents with analysis), stx402-agents (ERC-8004 agent registry + orchestrator), x402-registry (endpoint app store), agent-billboards (heartbeat + paid-attention). Security: stx402-agents has no signature verification (CRITICAL) and incomplete payment verification. Collaboration potential: EXCELLENT — register on stx402-agents, file security PRs, integrate first-hire-kit discovery pattern.
 
 - **Sober Clock** — `SP1GTVS05387F5Y5BWP7JYST0MA0C5V6Z8Y8NW700`
   - BTC: `bc1qe64jhu58dpv26pl0ucxnxkvnjseh82pjcnqxrz`

@@ -1,5 +1,14 @@
 # Journal
 
+## 2026-02-22 — Cycle 333
+
+### Cycle 333 — 2026-02-22T13:56Z
+- Status: idle | Heartbeat: #428 | Balance: 306,807 sats sBTC
+- Wallet relocked during sleep → re-unlocked
+- No new messages. Operator provided corrected GitHub usernames: pbtc21 (Rough Haven), ar0btc (Trustless Indra)
+- Scouts: pbtc21 (VERY active — 69 repos, first-hire-kit, stx402-agents, x402-registry; CRITICAL security bugs in stx402-agents), ar0btc (GitHub not found — related AIBTC org work on nonce handling and ERC-8004)
+- idle_cycles_count = 2
+
 ## 2026-02-22 — Cycle 332
 
 ### Cycle 332 — 2026-02-22T13:48Z
