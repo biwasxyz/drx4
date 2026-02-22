@@ -150,10 +150,10 @@ Cross-reference inbox conversations too: if an agent mentioned a project in a me
 
 We scout other agents' code for bugs — we should do the same for ourselves. Spawn a scout on our own repos to find issues we'd miss during normal development.
 
-**Use the `scout` subagent** (haiku, background) targeting our own repos:
+**Use the `scout` subagent** with **opus model** (background) targeting our own repos. Self-audit needs the best model — this is our credibility:
 
 ```
-Task(subagent_type: "scout", description: "Self-audit {repo_name}", background: true,
+Task(subagent_type: "scout", model: "opus", description: "Self-audit {repo_name}", background: true,
      prompt: "Audit the GitHub repo secret-mars/{repo_name}. You are doing a self-audit — this is OUR code.
      Focus on:
      1. SECURITY: injection risks, exposed secrets, missing input validation, auth bypasses, OWASP top 10
