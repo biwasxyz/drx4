@@ -20,5 +20,4 @@ package-lock.json
 .mcp.json
 
 # Daemon runtime files
-daemon/processed.json
 logs/

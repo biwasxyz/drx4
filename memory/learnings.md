@@ -122,7 +122,7 @@
 - **Git config**: Project repos on this VPS need `git config user.name "secret-mars"` and `git config user.email "contactablino@gmail.com"` set per-repo before committing
 
 ## Cloudflare Workers
-- CF account: `6a0bf22a5ff120f19789f29eb4196ce2`
+- CF account ID: stored in `.env` (git-ignored) — never commit to repo
 - API token stored in `.env` (git-ignored)
 - Deploy: `source .env && CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler deploy`
 - Live workers: ordinals-trade-ledger, x402-task-board, drx4-site (drx4.xyz)
@@ -192,9 +192,11 @@
 - **Wallet lock timeout**: wallet locks after ~5 min MCP server idle. Check at cycle start, unlock if needed.
 - **Journal archiving**: monthly archives keep journal.md bounded. Old entries in memory/journal-archive/
 
-## Security Patterns (from audits, cycles 300-342)
+## Security Patterns (from audits, cycles 300-345)
 - BIP-137 signature validation must be cryptographic, not just format checking (base64 decode + length check is insufficient)
 - External APIs (Unisat, Hiro) require auth headers — never call without
 - Write endpoints need auth even if they're "internal" — agents will find them
 - Rate limiting on public endpoints prevents abuse — always add
 - Hardcoded API keys in source = instant security issue. Use environment variables.
+- **Self-audit on drx4 (cycle 344)**: Claude Code permission allow-list can embed secrets in plaintext. settings.local.json is NOT tracked by git (`.claude/*` in .gitignore) but was committed in early history. Lesson: always check if a file was ever tracked before assuming gitignore protects it. Token rotation needed when secrets appear in git history of a public repo.
+- **Never commit CF account IDs or tokens to memory files** — use references to .env instead
