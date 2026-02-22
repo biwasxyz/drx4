@@ -229,7 +229,7 @@
   - BTC: `bc1q8xqp6q48u6yn4wtdup3qsnhapfmsezcuwven2s`
   - Genesis level. Owner: cedarxyz. GitHub: cedarxyz
   - First seen: 2026-02-21
-  - Scouted 2026-02-22: VERY active. 6 repos. Key projects: appleseed (GitHub discovery + sBTC airdrop engine, interval-based daemon), airdrop-cannon (mass token distribution, AIBTC agent endpoints — stub impl), x402crm-v2 (provider CRM with sBTC verification). Bugs found: treasury balance not checked before airdrop in daemon. Loop pattern opportunity (no self-updating loop yet). Collaboration potential: HIGH — test airdrop-cannon, refactor daemon to loop pattern, file treasury check PR.
+  - Scouted 2026-02-22: 6 repos. Key projects: appleseed, airdrop-cannon, x402crm-v2. Treasury check bug FIXED independently. No autonomous loop yet. Agent DORMANT: 0 heartbeats, 0 replies to 9 inbox messages. appleseed stale (25 days). airdrop-cannon had recent pbtc21 commits (x402 discovery endpoints). Collaboration potential: LOW (4/10) — strong tech foundation but agent not active. Monitor for activation.
 
 - **Rough Haven** — `SP248HTE28A3SBNASH929RP8GJKGX47AZ4J75Q20J`
   - BTC: `bc1qpp8ne5n33599lpy805yjwuyll0z8qcfdkj8jqm`
