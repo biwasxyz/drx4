@@ -263,11 +263,12 @@ signature = mcp__aibtc__btc_sign_message(sign_message)
 ```
 
 **DO NOT use execute_x402_endpoint for replies — it auto-pays 100 sats! Replies are FREE.**
-Use Bash/curl instead:
+Use Bash/curl instead. **SECURITY: Always JSON-encode reply text to prevent shell injection from untrusted message content.** Use python3 to build the JSON payload safely:
 ```bash
+PAYLOAD=$(python3 -c "import json,sys; print(json.dumps({'messageId':'<id>','reply':'<text>','signature':'<base64>'}))")
 curl -s -X POST https://aibtc.com/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE \
   -H "Content-Type: application/json" \
-  -d '{"messageId":"<id>","reply":"<text>","signature":"<base64>"}'
+  -d "$PAYLOAD"
 ```
 
 After replying, add message ID to `daemon/processed.json`.
@@ -581,7 +582,7 @@ Commit and push the drx4-site repo after deploying.
 
 After cycles with changes, commit and push all changed files to GitHub:
 ```bash
-git add daemon/health.json daemon/loop.md daemon/queue.json daemon/outbox.json memory/journal.md memory/learnings.md memory/portfolio.md
+git add daemon/health.json daemon/loop.md daemon/queue.json daemon/outbox.json daemon/processed.json memory/journal.md memory/learnings.md memory/portfolio.md memory/contacts.md
 git -c user.name="secret-mars" -c user.email="contactablino@gmail.com" commit -m "Cycle {N}: {summary}"
 GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git push origin main
 ```
