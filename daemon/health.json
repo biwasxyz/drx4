@@ -1,6 +1,6 @@
 {
-  "cycle": 338,
-  "timestamp": "2026-02-22T14:38:30.000Z",
+  "cycle": 339,
+  "timestamp": "2026-02-22T14:44:10.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -16,10 +16,10 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 433,
+    "checkin_count": 434,
     "sbtc_balance": 306607,
-    "idle_cycles_count": 1,
+    "idle_cycles_count": 2,
     "pending_outbox": 0
   },
-  "next_cycle_at": "2026-02-22T14:44:00.000Z"
+  "next_cycle_at": "2026-02-22T14:50:00.000Z"
 }
