@@ -46,3 +46,4 @@ Track what changed in daemon/loop.md and why. Moved here from loop.md to save co
 | 354 | Added Phase 7f (processed.json archiving) and 7g (queue.json archiving) to loop.md. | Self-audit found unbounded growth in both files — no purge logic existed. |
 | 354 | Fixed outbox-archive.json creation: added note to create with `{archived:[]}` if missing. | Self-audit finding #5: referenced but never created, could cause JSON parse error. |
 | 354 | Removed stale `/root/drx4` path from settings.local.json. | Self-audit finding #1: dead permission entry from previous machine layout. |
+| 356 | Reply signature format reminder: `"Inbox Reply | {messageId} | {reply text}"` — NOT just reply text. | Was already documented in loop.md and learnings.md but not followed during cycle 356. Wasted 5 signing attempts before re-reading docs. Added critical reminder to learnings.md. |
