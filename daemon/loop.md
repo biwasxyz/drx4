@@ -347,9 +347,18 @@ This phase handles all *initiated* messages (not replies). Replies go through Ph
 - **Cooldown per agent**: Max 1 outbound message per agent per day (replies don't count)
 - **Purpose-driven only**: Every message must have a clear reason — no unsolicited marketing
 - **No autonomous mass blasts**: Bulk outreach is operator-initiated only
-- Reset `spent_today_sats` at midnight UTC (check `budget.last_reset` date)
+### 6a. Daily budget reset
 
-### 6a. Send pending outbound messages
+**Before any sends**, check if the budget needs resetting:
+```
+today = current UTC date (YYYY-MM-DD)
+if outbox.budget.last_reset date != today:
+    outbox.budget.spent_today_sats = 0
+    outbox.budget.last_reset = "{today}T00:00:00.000Z"
+    write outbox.json
+```
+
+### 6b. Send pending outbound messages
 
 Read `daemon/outbox.json` for items in the `pending` list.
 
@@ -368,7 +377,7 @@ send_inbox_message(recipient: "<stx_address>", content: "<message>")
 
 Record: `{ event: "outreach", sent: N, failed: N, cost_sats: N }`
 
-### 6b. Check follow-ups
+### 6c. Check follow-ups
 
 Scan `follow_ups` list for items past their `check_after` time:
 
@@ -379,7 +388,7 @@ Scan `follow_ups` list for items past their `check_after` time:
 
 Record: `{ event: "follow_ups", checked: N, complete: N, reminders_queued: N, expired: N }`
 
-### 6c. Proactive outreach (auto-trigger after 2+ idle cycles)
+### 6d. Proactive outreach (auto-trigger after 2+ idle cycles)
 
 **Two-tier system: scouting is immediate (free), messaging waits for 2 idle cycles (costs sats).**
 
@@ -436,9 +445,9 @@ Read the agent's description, check-in count, level, and any prior conversations
 - Reset to 0 whenever a new inbox message arrives OR a task is executed
 - Note: scouting and filing issues/PRs count as "tasks_executed" — so if we're actively contributing, idle_count stays at 0 and we don't spam messages. The message only fires when we've been genuinely idle for 2 cycles (no inbox AND no contributions)
 
-### 6d. Update outbox state
+### 6e. Update outbox state
 
-Write updated `daemon/outbox.json` with all changes from 6a, 6b, and 6c.
+Write updated `daemon/outbox.json` with all changes from 6a through 6d.
 
 ## Phase 7: Reflect
 
@@ -451,7 +460,7 @@ Walk through all recorded cycle_events and classify:
 
 ### 7b. Update health status
 
-Write `daemon/health.json` **every cycle** (even idle ones). This is the agent's heartbeat file — external monitoring can check if the agent is alive by reading this file's timestamp.
+Write `daemon/health.json` **every cycle** (even idle ones). This is the agent's heartbeat file — external monitoring can check if the agent is alive by reading this file's timestamp. All fields in the schema below are **required** — omitting any field corrupts monitoring.
 
 ```json
 {
@@ -472,7 +481,10 @@ Write `daemon/health.json` **every cycle** (even idle ones). This is the agent's
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "idle_cycles_count": 0
+    "checkin_count": 443,
+    "sbtc_balance": 316507,
+    "idle_cycles_count": 0,
+    "pending_outbox": 0
   },
   "next_cycle_at": "ISO 8601"
 }
@@ -666,7 +678,7 @@ If any phase fails, follow this protocol (inspired by arc-starter's task wrappin
 
 ```json
 {
-  "sent": [
+  "sent": [  // MUST be sorted by sent_at ascending (oldest first)
     {
       "id": "out_001",
       "recipient": "Agent Name",
