@@ -93,38 +93,39 @@ Record: `{ event: "inbox", status: "ok"|"fail", new_count: N, messages: [...] }`
 { event: "delegation_response", from: "agent_name", outbox_id: "out_001", message_id: "..." }
 ```
 
-### 2c. GitHub activity (issues, PRs, reviews) — **every 3rd cycle only**
+### 2c. GitHub activity — **two tiers: own repos every 3rd cycle, scouting EVERY cycle**
 
-**Skip this phase unless `cycle % 3 === 0`.** No need to check GitHub every cycle.
+#### 2c-i. Check our own repos — **every 3rd cycle**
 
-**Two parts: OUR repos + OTHER agents' repos.**
+**Skip unless `cycle % 3 === 0`.**
 
-#### 2c-i. Check our own repos
 ```bash
 gh search issues --owner secret-mars --state open --json repository,title,number,updatedAt
 ```
 If there are new comments on our issues or PRs, record them for the Decide phase.
 If an issue was filed on one of our repos, queue it as a task.
 
-#### 2c-ii. Scout other agents' repos (the key growth driver)
+#### 2c-ii. Scout other agents' repos — **EVERY cycle (free, no idle gate)**
 
-**This is how we become a real contributor to the network, not just a message sender.**
+**Scouting is free. Don't wait. If there's no inbox task, scout immediately.**
 
-**Use the `scout` subagent** (`.claude/agents/scout.md`) for this — it runs on haiku in the background, cheap and fast. Spawn multiple scouts in parallel for different agents:
+This is how we become a real contributor to the network. Scouting costs zero sats — it's just reading repos, finding bugs, filing issues, opening PRs. The paid x402 message about what we contributed comes later in Outreach (after 2 idle cycles). But the actual work starts NOW.
+
+**Use the `scout` subagent** (`.claude/agents/scout.md`) — haiku, background, cheap and fast. Spawn up to 3 in parallel:
 
 ```
 Task(subagent_type: "scout", description: "Scout {agent_name} repos", background: true,
      prompt: "Scout GitHub user {owner}. Look for bugs, missing features, integration opportunities, and whether they run an autonomous loop. Use GH_TOKEN=$GITHUB_PAT_SECRET_MARS for auth.")
 ```
 
-Spawn up to 3 scouts in parallel per cycle. While they run, continue with other Observe phases.
+While scouts run, continue with other Observe phases (heartbeat, inbox, balance).
 
 For agents in `memory/contacts.md` who have a GitHub owner field or whose description mentions a project:
 1. Spawn scout subagent to investigate their repos
 2. Scout looks for: bugs, missing features, integration points, loop candidates, security issues
 3. Scout returns structured findings with specific actions (file issue, open PR, message agent)
 
-**When idle, this is NOT optional.** If we have no inbox tasks, scouting other agents' work IS the task.
+**Prioritize agents we haven't scouted recently.** Track last scouted date in `memory/contacts.md` to rotate through the network systematically.
 
 Cross-reference inbox conversations too: if an agent mentioned a project in a message, go look at the actual repo and find ways to help.
 
@@ -330,18 +331,30 @@ Record: `{ event: "follow_ups", checked: N, complete: N, reminders_queued: N, ex
 
 ### 6c. Proactive outreach (auto-trigger after 2+ idle cycles)
 
-**If `idle_cycles_count >= 2` (tracked in health.json) AND no pending outbound messages AND budget allows:**
+**Two-tier system: scouting is immediate (free), messaging waits for 2 idle cycles (costs sats).**
 
-The goal is to GROW THE AGENT NETWORK. Don't just sit idle — reach out and pull other agents into building together. Every outreach should propose concrete collaboration, not just say hi.
+The flow:
+```
+Cycle N:   inbox empty → scout Agent A's repo → find bug → file issue (FREE) → no message yet
+Cycle N+1: inbox empty → scout Agent B's repo → open PR (FREE) → idle_count = 2
+Cycle N+2: idle_count hits 2 → NOW message both agents about what we already shipped (100 sats each)
+```
+
+Contributions (issues, PRs) happen in Phase 4 Execute every cycle when idle — they cost nothing.
+Paid x402 messages about those contributions happen HERE, only after `idle_cycles_count >= 2`.
+
+**If `idle_cycles_count >= 2` AND we have contributions to announce AND budget allows:**
+
+1. Pick agents we've recently contributed to (filed issues, opened PRs) but haven't messaged yet
+2. Craft a message referencing the SPECIFIC contribution we already made
+3. Queue it in `daemon/outbox.json` pending list with purpose "contribution_announcement"
+4. Reset `idle_cycles_count` to 0 after queuing
+
+**If no recent contributions to announce, fall back to loop bounty outreach:**
 
 1. Pick a contact from `memory/contacts.md` we haven't messaged today (check `sent` list)
-2. Craft a **collaboration-focused** message. The message MUST propose building something together or invite the agent to contribute. Good approaches:
-   - Propose a joint project or feature: "I'm building X, want to handle the Y part?"
-   - Offer your skills to their project: "Saw you're working on X — I can build the frontend/API/integration"
-   - Invite them to test/review something you shipped
-   - Ask what they're building and how you can help — then FOLLOW UP with actual help
-3. Queue it in `daemon/outbox.json` pending list with purpose "collaboration_outreach"
-4. Reset `idle_cycles_count` to 0 after queuing
+2. Craft a personalized bounty offer (see below)
+3. Queue with purpose "loop_bounty_offer"
 
 **Outreach philosophy: Be personal, not generic. You KNOW these agents.**
 
@@ -371,6 +384,7 @@ Read the agent's description, check-in count, level, and any prior conversations
 **idle_cycles_count tracking:**
 - Increment in health.json each cycle where `new_messages == 0` AND `tasks_executed == 0`
 - Reset to 0 whenever a new inbox message arrives OR a task is executed
+- Note: scouting and filing issues/PRs count as "tasks_executed" — so if we're actively contributing, idle_count stays at 0 and we don't spam messages. The message only fires when we've been genuinely idle for 2 cycles (no inbox AND no contributions)
 
 ### 6d. Update outbox state
 
@@ -624,6 +638,7 @@ Track what changed in this file and why:
 | 328 | Idle outreach threshold: 3 cycles → 2 cycles. Reframed as collaboration-focused outreach | Operator directive: grow the network by pulling agents into building together. High-frequency useful contributions > idle sitting. Every message should propose concrete collaboration, not just check-ins. |
 | 328 | Loop bounty program: 1k sats for proper loop-starter-kit implementation. Personalized outreach only — read each agent's profile, reference their work, explain why the loop helps THEM. No generic templates ever. | Operator directive: onboard as many agents as possible onto the loop. Act independently, craft personal messages. Generic = lazy. |
 | 328 | Agent contribution mode: when idle, scout other agents' repos, file issues, open PRs, fix bugs. Don't just message — show up with code. Then message about what you shipped. Go brrr. | Operator directive: be a real contributor. Research what agents build, help them implement, create GH issues. Idle = find work to do on other agents' projects. |
+| 328 | Two-tier idle system: scouting every cycle (free), paid messages after 2 idle (costs sats). Scout 2c-ii runs every cycle not every 3rd. Contributions happen immediately in Execute, x402 pings about them wait for idle_count >= 2. | Operator approved: do the work first for free, only spend sats to tell agents about work already done. |
 
 ---
 
