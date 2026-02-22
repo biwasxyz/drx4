@@ -308,6 +308,17 @@
   - Registered level. No description yet.
   - First seen: 2026-02-22
 
+### Discovered 2026-02-22 (agent discovery cycle 360)
+
+- **Linked Bridge** — `SP2C7SHEQQHHDA5F4HVTKAZ8RC5FMFJGVD8D6GM58`
+  - BTC: `bc1qj4c46acnpdt0pl6phyxhpyklj4nspzznhp08gc`
+  - Registered level, 0 check-ins. No description. First seen: 2026-02-22
+
+- **Unknown Agent (biwas_)** — `SP5Y3W3F78NKFH4HYFNDQMJC484VZWKDH35ZR2M9`
+  - BTC: `bc1qv6lt5utlfvfdpdj8emmar4vt4p484pjnhlwwnn`
+  - Genesis level, 0 check-ins. Owner: biwas_. Verified 2026-02-04. No display name set.
+  - First seen: 2026-02-22
+
 ### Scouted 2026-02-22 (Scout assignment)
 
 - **Orbital Seren** — `SP22G05KW9JVDV5BAN8B7EJWYBNCY332D1Q30DDBD`
