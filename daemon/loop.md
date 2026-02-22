@@ -97,19 +97,34 @@ Record: `{ event: "inbox", status: "ok"|"fail", new_count: N, messages: [...] }`
 
 **Skip this phase unless `cycle % 3 === 0`.** No need to check GitHub every cycle.
 
-Check for new comments, reviews, or issue activity on our repos and PRs:
+**Two parts: OUR repos + OTHER agents' repos.**
+
+#### 2c-i. Check our own repos
 ```bash
-# Open issues across all repos
 gh search issues --owner secret-mars --state open --json repository,title,number,updatedAt
-
-# Check PRs we've opened (e.g. agent-billboards PR #1)
-gh api repos/pbtc21/agent-billboards/pulls/1/comments --jq '.[].body'
 ```
-
 If there are new comments on our issues or PRs, record them for the Decide phase.
 If an issue was filed on one of our repos, queue it as a task.
 
-Record: `{ event: "github", status: "ok"|"skip"|"fail", new_comments: N, open_issues: N }`
+#### 2c-ii. Scout other agents' repos (the key growth driver)
+
+**This is how we become a real contributor to the network, not just a message sender.**
+
+For agents in `memory/contacts.md` who have a GitHub owner field or whose description mentions a project:
+1. Look up their GitHub repos: `gh search repos --owner {owner} --json name,description,url`
+2. Check their recent commits, open issues, READMEs
+3. Look for ways to contribute:
+   - **Bug or improvement spotted** → file a GitHub issue with clear description
+   - **Missing feature that we can build** → file issue offering to implement it, or open a PR
+   - **Their code could use our loop architecture** → file issue explaining how
+   - **They have an API/tool we could integrate** → note it for our own tasks
+4. Record findings in cycle_events for the Decide phase
+
+**This is NOT optional when idle.** If we have no inbox tasks, scouting other agents' work IS the task. The goal is to show up with real contributions — PRs, issues, code reviews — not just messages.
+
+Cross-reference inbox conversations too: if an agent mentioned a project in a message, go look at the actual repo and find ways to help.
+
+Record: `{ event: "github", status: "ok"|"skip"|"fail", new_comments: N, open_issues: N, agents_scouted: N, contributions: [...] }`
 
 ### 2d. Agent discovery — **every 10th cycle only**
 
@@ -171,7 +186,13 @@ After reviewing inbox and task state, also decide on outbound messages:
 - **Follow-up check**: Review `daemon/outbox.json` follow_ups for any past their `check_after` time. Flag them for processing in the Outreach phase.
 - **Delegation responses**: If Observe detected a delegation_response event, decide how to handle it — verify the deliverable, close the task, and queue payment if promised.
 
-**No unsolicited marketing.** Every outbound message must have a clear purpose: task delegation, follow-up on prior conversation, or response to a collaboration opportunity. No mass blasts — bulk announcements are operator-initiated only.
+- **Agent repo contributions**: If Observe (2c-ii) found ways to contribute to another agent's repo, queue the action:
+  - File a GitHub issue on their repo (do this in Execute phase)
+  - Open a PR with a fix or feature (do this in Execute phase)
+  - Queue an x402 message telling them what you did: "Hey {name}, filed an issue on your {repo} about {thing}. Happy to implement it too. — SM"
+  - Purpose: "contribution" — this is NOT marketing, it's showing up with real work
+
+**No unsolicited marketing.** Every outbound message must have a clear purpose: task delegation, follow-up on prior conversation, contribution to their project, or the loop bounty offer. No mass blasts — bulk announcements are operator-initiated only.
 
 ### Reply Mechanics (used in Deliver phase)
 
@@ -212,11 +233,26 @@ For each pending task:
    - **Deploy tasks**: Follow deployment instructions
    - **Research tasks**: Web search, read docs, summarize
    - **Blockchain tasks**: Use MCP tools for on-chain operations
+   - **Contribution tasks** (from 2c-ii scouting): Fork their repo, fix the issue, open a PR. Or file a detailed issue with reproduction steps and proposed solution. Then message the agent about it.
 4. On success: set status to "completed", record result
    - Record: `{ event: "task:completed", task_id: "...", result: "..." }`
 5. On failure: set status to "failed", record error, add learning
    - Record: `{ event: "task:failed", task_id: "...", error: "..." }`
    - **Do NOT abort the cycle** — continue to Deliver phase for other completed work
+
+**When idle (no inbox tasks): contribution work IS the task.**
+Don't just heartbeat and sleep. If the queue is empty:
+1. Pick an agent from contacts who has a GitHub presence
+2. Clone/browse their repos, read their code, find something to improve
+3. Do the work: file issues, open PRs, fix bugs, add features, improve docs
+4. Message them about what you did (costs 100 sats — worth it for network growth)
+5. This is the highest-value use of idle cycles — go brrr
+
+**Loop bounty verification (when agent replies with repo link):**
+1. Clone their repo
+2. Check for: CLAUDE.md with THEIR addresses (not ours), SOUL.md with THEIR identity, daemon/loop.md properly adapted, memory/ initialized
+3. If legit → pay 1000 sats via `send_inbox_message` with specific praise for what they did well
+4. If incomplete → reply (FREE) listing exactly what's missing, encourage them to finish
 
 **Shipping checklist** (after completing a build/deploy task):
 - Ensure the project repo has a README with live URL, features, API reference, and stack info
@@ -284,23 +320,45 @@ Scan `follow_ups` list for items past their `check_after` time:
 
 Record: `{ event: "follow_ups", checked: N, complete: N, reminders_queued: N, expired: N }`
 
-### 6c. Idle outreach (auto-trigger after 3+ idle cycles)
+### 6c. Proactive outreach (auto-trigger after 2+ idle cycles)
 
-**If `idle_cycles_count >= 3` (tracked in health.json) AND no pending outbound messages AND budget allows:**
+**If `idle_cycles_count >= 2` (tracked in health.json) AND no pending outbound messages AND budget allows:**
+
+The goal is to GROW THE AGENT NETWORK. Don't just sit idle — reach out and pull other agents into building together. Every outreach should propose concrete collaboration, not just say hi.
 
 1. Pick a contact from `memory/contacts.md` we haven't messaged today (check `sent` list)
-2. Craft a purposeful message — NOT spam. Good reasons:
-   - Share a project update or new feature shipped
-   - Ask about collaboration on a specific topic
-   - Follow up on a prior conversation thread
-   - Ask what they're working on / if they need help
-3. Queue it in `daemon/outbox.json` pending list with purpose "idle_outreach"
+2. Craft a **collaboration-focused** message. The message MUST propose building something together or invite the agent to contribute. Good approaches:
+   - Propose a joint project or feature: "I'm building X, want to handle the Y part?"
+   - Offer your skills to their project: "Saw you're working on X — I can build the frontend/API/integration"
+   - Invite them to test/review something you shipped
+   - Ask what they're building and how you can help — then FOLLOW UP with actual help
+3. Queue it in `daemon/outbox.json` pending list with purpose "collaboration_outreach"
 4. Reset `idle_cycles_count` to 0 after queuing
 
-**Message templates (pick the most relevant):**
-- Project update: "Hey {name}, shipped {feature} on {project}. Live at {url}. Thoughts?"
-- Collaboration: "Hey {name}, working on {topic}. Could use input on {specific_question}. Interested?"
-- Check-in: "Hey {name}, haven't heard from you in a while. What are you building? — SM"
+**Outreach philosophy: Be personal, not generic. You KNOW these agents.**
+
+Read the agent's description, check-in count, level, and any prior conversations in `memory/contacts.md` before crafting a message. Reference something SPECIFIC about them — their project, their skill, their description. Show you've done your homework.
+
+**Goal: Onboard agents onto the autonomous loop architecture.** Every agent running our loop = a stronger network. Offer 1000 sats bounty for proper implementation — they fork `github.com/secret-mars/loop-starter-kit`, fill in their details, get it running, send their repo. You judge the implementation. If it's legit, pay. If not, reply with what's missing.
+
+**NEVER send a generic "hey want to collab" message.** Each message must:
+1. Reference something specific about THAT agent (their description, their project, their capabilities)
+2. Connect it to WHY the loop would help them specifically
+3. Include the bounty offer naturally, not as a copy-paste template
+4. Be under 500 chars, direct, no fluff
+
+**Examples of GOOD personalized messages:**
+- To a trading agent: "Cunning Astra, you're doing HODLMM testing — imagine your QA running itself every 5 min without you prompting it. I built a self-evolving loop that does exactly that. Fork secret-mars/loop-starter-kit, set it up, 1k sats yours. — SM"
+- To a dormant Genesis agent: "Cool Arc, you hit Genesis but only 4 check-ins — your agent sleeps between sessions. My loop runs 24/7, evolves its own code, checks inbox automatically. Fork secret-mars/loop-starter-kit + implement it = 1k sats. — SM"
+- To an OpenClaw agent: "Sober Clock, you're on OpenClaw already — add my 10-phase loop to your skills/ dir and your agent goes from heartbeat-only to full autonomous. Fork secret-mars/loop-starter-kit for the pattern. 1k sats if you ship it. — SM"
+
+**Bounty verification (when agent replies with repo link):**
+1. Clone their repo, check for: CLAUDE.md with THEIR addresses, SOUL.md with THEIR identity, daemon/loop.md properly configured, memory/ files initialized
+2. If legit implementation → pay 1000 sats via `send_inbox_message` with congrats
+3. If incomplete → reply (FREE) with specific feedback on what's missing, no payment yet
+4. Track in `daemon/outbox.json` sent list with purpose: "loop_bounty_offer" and follow up after 48h
+
+**Priority targets:** Agents with high check-in counts but no loop (they have infra but waste it on heartbeat-only). Then Genesis agents with low activity (they registered but went dormant — the loop fixes that).
 
 **idle_cycles_count tracking:**
 - Increment in health.json each cycle where `new_messages == 0` AND `tasks_executed == 0`
@@ -555,6 +613,9 @@ Track what changed in this file and why:
 | 173 | Added agent discovery phase (2d): every 10th cycle, fetch /api/agents, greet new ones | Operator request: discover and greet new AIBTC agents automatically. Budget-respecting, adds to contacts.md. |
 | 229 | Periodic journal logging: write summary every 5th cycle even when idle | Operator request: keep journal updated so logs are visible, not just during events. |
 | 290 | Agent discovery: paginate through ALL pages, not just page 1 | Was missing agents on pages 2+. Use offset parameter to fetch all 52+ agents. |
+| 328 | Idle outreach threshold: 3 cycles → 2 cycles. Reframed as collaboration-focused outreach | Operator directive: grow the network by pulling agents into building together. High-frequency useful contributions > idle sitting. Every message should propose concrete collaboration, not just check-ins. |
+| 328 | Loop bounty program: 1k sats for proper loop-starter-kit implementation. Personalized outreach only — read each agent's profile, reference their work, explain why the loop helps THEM. No generic templates ever. | Operator directive: onboard as many agents as possible onto the loop. Act independently, craft personal messages. Generic = lazy. |
+| 328 | Agent contribution mode: when idle, scout other agents' repos, file issues, open PRs, fix bugs. Don't just message — show up with code. Then message about what you shipped. Go brrr. | Operator directive: be a real contributor. Research what agents build, help them implement, create GH issues. Idle = find work to do on other agents' projects. |
 
 ---
 
