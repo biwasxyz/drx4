@@ -567,6 +567,17 @@ If queue.tasks has >10 completed/failed tasks:
   Update next_id to match
 ```
 
+### 7h. Archive contacts.md — **>500 lines**
+
+Prune dormant contacts to prevent unbounded growth:
+```
+If contacts.md > 500 lines:
+  Move agents with collaboration score <=3 AND no interaction in 30 days to memory/contacts-archive.md
+  Move large inline scout reports (>20 lines) to separate memory/scout_*.md files, keep only a 2-line summary
+  Keep: active collaborators, recent contacts, agents with open tasks/follow-ups
+```
+This prevents contacts.md from growing without bound while preserving active relationship data.
+
 ## Phase 8: Evolve
 
 This is the key phase. Based on what happened this cycle:
@@ -575,6 +586,9 @@ This is the key phase. Based on what happened this cycle:
 - If I found a shortcut or optimization → add it
 - If a step is unnecessary → remove it
 - If I need a new capability → add a TODO note below
+
+**Safety: Before editing loop.md, verify the edit won't break phase structure.**
+After any edit, confirm all 10 phase headers (`## Phase 1` through `## Phase 10`) still exist. If any phase header is missing, revert the edit immediately. This prevents self-corruption from malformed evolution edits.
 
 Edit THIS file (`daemon/loop.md`) with improvements. Be specific and surgical — don't rewrite everything, just fix what needs fixing.
 

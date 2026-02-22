@@ -47,3 +47,6 @@ Track what changed in daemon/loop.md and why. Moved here from loop.md to save co
 | 354 | Fixed outbox-archive.json creation: added note to create with `{archived:[]}` if missing. | Self-audit finding #5: referenced but never created, could cause JSON parse error. |
 | 354 | Removed stale `/root/drx4` path from settings.local.json. | Self-audit finding #1: dead permission entry from previous machine layout. |
 | 356 | Reply signature format reminder: `"Inbox Reply | {messageId} | {reply text}"` — NOT just reply text. | Was already documented in loop.md and learnings.md but not followed during cycle 356. Wasted 5 signing attempts before re-reading docs. Added critical reminder to learnings.md. |
+| 374 | Added Phase 7h: contacts.md archiving (>500 lines → prune dormant agents to contacts-archive.md). | Self-audit found contacts.md at 536 lines with no archiving strategy — only state file without pruning logic. |
+| 374 | Added Phase 8 safety check: verify all 10 phase headers exist after loop.md self-edit. | Self-audit found no integrity safeguard on self-modification — corrupted edit could break all subsequent cycles. |
+| 374 | Pre-created daemon/outbox-archive.json with `{"archived":[]}`. | Self-audit found file would be needed when outbox reaches 50 sent entries but didn't exist — prevents JSON parse crash. |
