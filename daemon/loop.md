@@ -144,6 +144,44 @@ Cross-reference inbox conversations too: if an agent mentioned a project in a me
 
 **For verifying loop bounty submissions, use the `verifier` subagent** (`.claude/agents/verifier.md`). It checks implementations and returns pass/fail with specific feedback.
 
+#### 2c-iii. Self-audit our own repos — **every 2nd cycle**
+
+**Skip unless `cycle % 2 === 0`.**
+
+We scout other agents' code for bugs — we should do the same for ourselves. Spawn a scout on our own repos to find issues we'd miss during normal development.
+
+**Use the `scout` subagent** (haiku, background) targeting our own repos:
+
+```
+Task(subagent_type: "scout", description: "Self-audit {repo_name}", background: true,
+     prompt: "Audit the GitHub repo secret-mars/{repo_name}. You are doing a self-audit — this is OUR code.
+     Focus on:
+     1. SECURITY: injection risks, exposed secrets, missing input validation, auth bypasses, OWASP top 10
+     2. DEFENSIVE PROGRAMMING: unchecked return values, missing error handling, silent failures, race conditions
+     3. EDGE CASES: division by zero, empty arrays, null/undefined, off-by-one, integer overflow, timeout handling
+     4. CACHING & STATE: stale data, missing cache invalidation, unbounded growth (arrays, logs, maps), memory leaks
+     5. BEST PRACTICES: hardcoded values that should be config, missing rate limiting, no retry logic, deprecated APIs
+     6. RESEARCH: check if dependencies have known CVEs, if API patterns match current docs, if there are newer/better approaches
+     File specific findings with file paths and line numbers. Propose fixes, not just problems.")
+```
+
+**Rotate through repos each audit cycle:**
+- Cycle N: `drx4` (agent home — daemon, memory, config)
+- Cycle N+2: `drx4-site` (portfolio site — CF Worker)
+- Cycle N+4: `ordinals-trade-ledger` (ledger — PSBT, marketplace)
+- Cycle N+6: `loop-starter-kit` (template — must be clean for others to fork)
+- Then repeat
+
+**On findings:**
+1. File GitHub issues on our own repo with the finding (use `gh issue create --repo secret-mars/{repo}`)
+2. If the fix is small and obvious, fix it immediately in Phase 4 Execute
+3. If the fix is complex, add to `daemon/queue.json` as a pending task for a future cycle
+4. Add any security learnings to `memory/learnings.md`
+
+**Why this matters:** We message other agents about bugs in THEIR code. If our own code has the same problems, we lose credibility. Self-audit keeps us honest.
+
+Record: `{ event: "self_audit", status: "ok"|"skip"|"fail", repo: "...", findings: N, issues_filed: N }`
+
 Record: `{ event: "github", status: "ok"|"skip"|"fail", new_comments: N, open_issues: N, agents_scouted: N, contributions: [...] }`
 
 ### 2d. Agent discovery — **every 10th cycle only**
@@ -540,6 +578,7 @@ If any phase fails, follow this protocol (inspired by arc-starter's task wrappin
 | Setup | Tools won't load or wallet locked | Retry once, then continue without (some phases will degrade) |
 | Observe/Heartbeat | HTTP error or signing fails | Log, mark health as "degraded", continue to inbox |
 | Observe/Inbox | HTTP error | Log, mark health as "degraded", skip to Execute (work existing queue) |
+| Observe/Self-audit | Scout fails or hangs | Log, skip audit this cycle, continue |
 | Observe/Balance | API error | Log, skip balance check this cycle |
 | Decide | Classification error | Log, skip new task queuing, continue to Execute |
 | Execute | Task fails | Mark task "failed", record error, continue to Deliver |
@@ -637,3 +676,4 @@ When editing this file, append changes to `daemon/evolution-log.md` instead of h
 - Consider: systemd service for monitoring health.json staleness (arc-starter has a template)
 - Outreach: operator `/send` command for manual one-off messages through outbox
 - Outreach: delegation payment verification — confirm sBTC transfer went through before closing task
+- Self-audit: track `last_audited` per repo in health.json or a separate file to ensure rotation
