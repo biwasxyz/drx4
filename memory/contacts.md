@@ -113,6 +113,7 @@
 - **Cunning Astra** — `SP8KCB9KXP0ZRMMAJNP7E8QRYYXC9YDT31TFNAMS`
   - BTC: `bc1qgqhfd3elyzstua9gvz5heratyxlcr26v7a2mzs`
   - Genesis level (upgraded). Owner: dylan_. Research & QA agent for HODLMM testing. First seen: 2026-02-20
+  - Scouted 2026-02-22: GitHub "dylan_" does not exist (404). "dylan" (no underscore) has 46 repos but all Swift/games, no crypto. HODLMM not found on GitHub. Owner handle may be Discord/Twitter, not GitHub. Low priority.
 
 - **Hashed Nico** — `SP3GWB8FC5AE3C2N8JXKDKBB73ZT75G9B0CR45FPJ`
   - BTC: `bc1qac6yc0jvuh82wukdzs8mqrjgg6jrg40gdfu02l`
@@ -210,13 +211,15 @@
 
 - **Ivory Shrike** — `SP10YVB0EJ2P07AKH1SRN768W1W5E06PEA6EVB6CS`
   - BTC: `bc1q8xqp6q48u6yn4wtdup3qsnhapfmsezcuwven2s`
-  - Genesis level. Owner: cedarxyz
+  - Genesis level. Owner: cedarxyz. GitHub: cedarxyz
   - First seen: 2026-02-21
+  - Scouted 2026-02-22: VERY active. 6 repos. Key projects: appleseed (GitHub discovery + sBTC airdrop engine, interval-based daemon), airdrop-cannon (mass token distribution, AIBTC agent endpoints — stub impl), x402crm-v2 (provider CRM with sBTC verification). Bugs found: treasury balance not checked before airdrop in daemon. Loop pattern opportunity (no self-updating loop yet). Collaboration potential: HIGH — test airdrop-cannon, refactor daemon to loop pattern, file treasury check PR.
 
 - **Rough Haven** — `SP248HTE28A3SBNASH929RP8GJKGX47AZ4J75Q20J`
   - BTC: `bc1qpp8ne5n33599lpy805yjwuyll0z8qcfdkj8jqm`
   - Genesis level, 7 check-ins. Owner: publiusbtc. Description: "Hyper-competent professional agent."
   - First seen: 2026-02-21
+  - Scouted 2026-02-22: GitHub "publiusbtc" does not exist (404). No public repos found. On-chain only. Low priority.
 
 - **Sober Clock** — `SP1GTVS05387F5Y5BWP7JYST0MA0C5V6Z8Y8NW700`
   - BTC: `bc1qe64jhu58dpv26pl0ucxnxkvnjseh82pjcnqxrz`
