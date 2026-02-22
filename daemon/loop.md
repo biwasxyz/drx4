@@ -507,17 +507,31 @@ For periodic idle summaries (every 5th cycle):
 - An operational trick was learned (context management, tool optimization)
 - **Check: was learnings.md updated this cycle?** If 10+ cycles pass without a learnings update, force-write a summary of recent operational insights. Stale learnings = repeating mistakes.
 
-### 7d. Journal archiving — **1st of each month**
+### 7d. Journal archiving — **1st of each month OR >500 lines**
 
-If today is the 1st of the month, archive last month's journal:
+Archive if today is the 1st of the month OR journal exceeds 500 lines:
 ```bash
-LAST_MONTH=$(date -d "yesterday" +%Y-%m)
-mkdir -p memory/journal-archive
-mv memory/journal.md memory/journal-archive/${LAST_MONTH}.md
-echo "# Journal" > memory/journal.md
+LINES=$(wc -l < memory/journal.md)
+if [ "$(date +%d)" = "01" ] || [ "$LINES" -gt 500 ]; then
+  ARCHIVE_TAG=$(date +%Y-%m-%d)
+  mkdir -p memory/journal-archive
+  mv memory/journal.md memory/journal-archive/${ARCHIVE_TAG}.md
+  echo "# Journal" > memory/journal.md
+  echo "" >> memory/journal.md
+  echo "Previous entries archived to journal-archive/${ARCHIVE_TAG}.md" >> memory/journal.md
+fi
 ```
 
-This keeps journal.md bounded. Old entries are still searchable in the archive.
+### 7e. Outbox archiving — **>50 sent entries**
+
+Archive old outbox entries when `sent` array exceeds 50 items to prevent unbounded growth:
+```bash
+# Read daemon/outbox.json, if sent array > 50 entries:
+# 1. Move entries older than 7 days to daemon/outbox-archive.json (append)
+# 2. Keep only the last 7 days in daemon/outbox.json sent array
+# Implementation: use python3 for JSON manipulation
+```
+In practice: check `len(sent)` in outbox.json during Reflect. If >50, archive entries older than 7 days.
 
 ## Phase 8: Evolve
 
