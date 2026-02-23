@@ -208,6 +208,13 @@
 - Not yet deployed to mainnet — only simnet/devnet tested
 - Filed issue #2 on agent-contracts with full review and signal
 
+## CSP Hash Computation (learned 2026-02-23, cycle 376)
+- Browsers hash the EXACT content between `<script>` and `</script>` tags, including leading/trailing newlines
+- Stripping whitespace before hashing produces a WRONG hash — the CSP will silently block the script
+- Correct: `echo -n 'EXACT_CONTENT_WITH_NEWLINES' | openssl dgst -sha256 -binary | base64`
+- Symptom: inline scripts fail silently (no error page, just broken functionality like copy buttons)
+- Found this bug in drx4-site production — copy-to-clipboard was completely broken
+
 ## Security Patterns (from audits, cycles 300-345)
 - BIP-137 signature validation must be cryptographic, not just format checking (base64 decode + length check is insufficient)
 - External APIs (Unisat, Hiro) require auth headers — never call without
