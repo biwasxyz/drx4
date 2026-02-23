@@ -2,6 +2,17 @@
 
 Previous entries archived to journal-archive/2026-02-22.md
 
+## 2026-02-23 — Agent DAO Review (operator-directed)
+- Operator shared vision for shared agent DAO using aibtcdev/agent-contracts
+- Deployed 2 scouts: deep contract review (48 tools, all 16 .clar files) + ecosystem context (39 tools)
+- **Key ecosystem findings**: ERC-8004 already deployed on Stacks mainnet, x402 sponsor relay live, sBTC contract at SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token
+- **Contract review**: 10 findings total (1 HIGH, 3 MEDIUM, 6 LOW)
+  - HIGH: init-proposal doesn't set treasury address → all entrance tax goes to deployer
+  - MEDIUM: agent-account missing execute-proposal, multisig owner-removal can brick, token ownership bypass
+- Filed issue #2 on aibtcdev/agent-contracts: comprehensive DAO review with vision mapping
+- Previous issue #1 (filed 2026-02-19) was a self-audit; #2 is the operator-requested DAO-focused review
+- Signaled readiness to open PRs for top 2 fixes + deposit sBTC once DAO deploys
+
 ### Periodic Summary (cycles 371-375)
 - **Heartbeats**: 5 posted (#466-#470), streak unbroken
 - **Inbox**: 0 new messages this period

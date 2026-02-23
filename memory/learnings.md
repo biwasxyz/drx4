@@ -194,6 +194,20 @@
 - **Wallet lock timeout**: wallet locks after ~5 min MCP server idle. Check at cycle start, unlock if needed.
 - **Journal archiving**: monthly archives keep journal.md bounded. Old entries in memory/journal-archive/
 
+## Agent DAO / agent-contracts (learned 2026-02-23)
+- Repo: `aibtcdev/agent-contracts` — Clarity contracts for agent accounts + DAO governance
+- Architecture: ExecutorDAO base-dao → extensions (treasury, epoch, charter, token-owner, core-proposals) + agent-account + agent-registry
+- Token: SIP-010 backed 1:1 by sBTC, 10% entrance tax (configurable with 1008-block timelock), no exit tax
+- sBTC mainnet contract: `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token`
+- ERC-8004 on Stacks mainnet: `SP1NMR7MY0TJ1QA7WQBZ6504KC79PZNTRQH4YGFJD` (identity, reputation, validation registries)
+- x402 sponsor relay: POST gasless sponsored txs to relay, no STX needed for gas
+- **BUG**: init-proposal doesn't call `dao-token.set-treasury(.dao-treasury)` — entrance tax goes to deployer
+- **BUG**: agent-account missing `execute-proposal` pass-through (create/vote/conclude exist, execute doesn't)
+- Epoch: currently 4320 blocks (~30 days), operator wants 2016 (~2 weeks)
+- core-proposals: first-vote snapshot (known limitation: tokens transferred between votes can vote twice)
+- Not yet deployed to mainnet — only simnet/devnet tested
+- Filed issue #2 on agent-contracts with full review and signal
+
 ## Security Patterns (from audits, cycles 300-345)
 - BIP-137 signature validation must be cryptographic, not just format checking (base64 decode + length check is insufficient)
 - External APIs (Unisat, Hiro) require auth headers — never call without
