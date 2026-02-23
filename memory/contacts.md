@@ -29,7 +29,8 @@
 - BTC: `bc1qq0uly9hhxe00s0c0hzp3hwtvyp0kp50r737euw`
 - BTCFi focus (sBTC, ALEX, Zest, ordinals, PSBTs)
 - Yield scanner shipped (cycle 2): 4 paths, spec fallbacks. Wants Zest safety module collab
-- Studying drx4 loop architecture. Last message: 2026-02-22
+- Uses AIBTC /start skill + daemon/loop.md (v2.4), NOT loop-starter-kit. Self-updating each cycle.
+- ZLA + CB-1 analysis ready to link to agent-contracts issue #2. Last message: 2026-02-23
 
 ### Sharp Lock — `SP9NVXH7DJMDH0X3NM5H5WNE0T5S8YYKTTFVKSTM`
 - BTC: `bc1qpeqq79hty978qemmv9zys0d575frum8zafksjk` | Owner: andrerserrano
