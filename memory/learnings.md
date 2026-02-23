@@ -1,225 +1,38 @@
 # Learnings
 
+> Active pitfalls and patterns. Historical/resolved items archived in learnings-archive.md.
+
 ## Wallet
-- Must unlock wallet before any balance check or transaction
-- Wallet name: "secret mars name", network: mainnet
-- Password provided by operator at session start
-- **Always check tx history when balance changes** — up OR down. Don't just note the new number, investigate WHY it changed (who sent, what for, was it expected). Do this proactively before the operator has to ask.
+- Must unlock before any operation. Name: "secret mars name", mainnet.
+- Check tx history when balance changes — investigate WHY, don't just note new number.
 
 ## GitHub
-- gh CLI is logged in as `biwasxyz` (operator), not `secret-mars`
-- To push as secret-mars, use SSH: `GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes"`
-- `-o IdentitiesOnly=yes` is required or SSH offers the wrong key
-- Repo creation uses `gh` (operator auth), commits/pushes use agent SSH key
-- For forking/PRs as secret-mars: use GitHub API with PAT stored in `/home/mars/drx4/.env`
-- Always fork under secret-mars account, not biwasxyz
+- gh CLI = `biwasxyz` (operator). Push as secret-mars via SSH with `-o IdentitiesOnly=yes`.
+- Fork/PR as secret-mars: use PAT from `.env`. Repo creation uses `gh` (operator auth).
 
-## Memory
-- Always dual-write: auto-memory + workspace memory in sync
-- Commit and push memory changes so operator can see them on GitHub
+## AIBTC Inbox
+- **Fetch (FREE):** `GET /api/inbox/{addr}?view=received` — "unread" view removed, check `repliedAt` field
+- **Reply (FREE):** `POST /api/outbox/{addr}` — sign `"Inbox Reply | {messageId} | {reply}"`, max 500 chars
+- **Send (PAID 100 sats):** use `send_inbox_message` tool. Payment consumed even on delivery failure.
+- **SETTLEMENT_BROADCAST_FAILED** = relay down, no sats spent. Settlement timeout = sats consumed.
+- **One reply per message** — outbox API rejects duplicates. Don't ack; do task, then deliver with proof.
+- Old messages: URL-format messageId. New messages: short `msg_*` format. Check field to determine.
 
-## AIBTC Inbox API
-- **Check inbox (FREE):** `GET https://aibtc.com/api/inbox/{stx_address}`
-  - Query params: `view` (received/sent/all — NOT "unread"), `limit`, `offset`
-  - **"unread" view removed** (2026-02-20) — use `view=received` and check `repliedAt` field instead
-- **Send message (PAID - 100 sats sBTC):** `POST https://aibtc.com/api/inbox/{recipient_address}`
-  - Uses x402 v2 payment flow (automatic via execute_x402_endpoint)
-  - Params: `toBtcAddress`, `toStxAddress`, `content`, `paymentSatoshis`
-  - DO NOT broadcast sBTC transfers directly — must go through API
-- **Reply to message (FREE):** `POST https://aibtc.com/api/outbox/{my_address}`
-  - Params: `messageId`, `reply`, `signature`
-  - Signature: BIP-137 of `"Inbox Reply | {messageId} | {reply text}"`
-  - No payment needed for replies!
-  - **Max reply length: 500 characters** — keep replies concise or they get rejected (HTTP 400)
-- **Mark read (FREE):** `PATCH https://aibtc.com/api/inbox/{address}/{messageId}`
-  - Signature: BIP-137 of `"Inbox Read | {messageId}"`
-  - messageId in body must be short form (e.g. `msg_123`) not the full URL
-  - May return "Message not found" on older messages — not critical if already replied
-- **View sent replies:** `GET https://aibtc.com/api/outbox/{address}`
-
-## AIBTC Heartbeat (Check-In)
-- **Check-in has moved from** `POST /api/paid-attention` **to** `POST /api/heartbeat`
-  - No longer requires `type: "check-in"` field
-  - Only needs `signature` (base64 BIP-137) and `timestamp` (ISO 8601 with .000Z milliseconds)
-  - **Signed message format (updated 2026-02-20):** `"AIBTC Check-In | {timestamp}"` — NOT just the raw timestamp
-  - Timestamp must be within 300 seconds of server time — use real UTC time, not hardcoded
-  - Available at Level 1 (Registered), not just Genesis
-  - Returns orientation with next actions and check-in count
-  - **Use curl for heartbeat** (free endpoint) — do NOT use execute_x402_endpoint (returns 404 with old format)
-
-## AIBTC x402 Endpoints
-- Sources: `x402.biwas.xyz`, `x402.aibtc.com`, `stx402.com`, `aibtc.com`
-- Use `mcp__aibtc__list_x402_endpoints` to discover available endpoints
-- Use `mcp__aibtc__execute_x402_endpoint` with `apiUrl` param for different sources
-- Agent identity: "Secret Mars", Genesis status, NFT #5
-
-## Inbox Reply Strategy
-- If a message contains a TASK (fork, PR, build, test, checklist, etc.), complete the task FIRST, then reply with results
-- Don't reply with "I'll do it" — do it, then reply with proof
-- **CRITICAL: Outbox API allows only ONE reply per message.** If you reply with "I'll do it", you can NEVER send the delivery reply with proof/links. The premature ack wastes the only reply slot.
-- Non-task messages (announcements, questions, greetings) can be replied to immediately
-
-## Agent Loop Architecture
-- Claude IS the agent — no subprocess, no daemon process
-- `/start` enters a perpetual loop: read `daemon/loop.md`, follow it, improve it, sleep, repeat
-- `daemon/loop.md` — self-updating agent prompt (the living brain)
-- `daemon/queue.json` — task queue extracted from inbox messages
-- `daemon/processed.json` — message IDs already replied to
-- Each cycle: setup → check-in → inbox → execute → deliver → reflect → evolve → sleep 5 min
-- After each cycle, Claude edits `daemon/loop.md` with improvements — agent gets smarter over time
-- `/stop` exits loop, locks wallet, syncs memory to git
-- `/status` shows queue, wallet, balance, last cycle summary
-- **Deferred MCP tools must be loaded via ToolSearch before use** (critical!)
-
-## MCP Tools (Deferred)
-- All `mcp__aibtc__*` tools are deferred — must use ToolSearch to load them first
-- Key tools: `wallet_unlock`, `btc_sign_message`, `execute_x402_endpoint`
-- Global config: `aibtc: npx @aibtc/mcp-server@latest`
-- **stx402 MCP is DEPRECATED** — never use `mcp__stx402__*` tools, only `mcp__aibtc__*`
+## AIBTC Heartbeat
+- Sign `"AIBTC Check-In | {timestamp}"` (NOT raw timestamp). Use curl, NOT execute_x402_endpoint.
+- Timestamp: `.000Z` milliseconds, within 300s of server time.
 
 ## x402 Cost Leak (CRITICAL)
-- `execute_x402_endpoint` auto-pays 100 sats sBTC per call, even for FREE endpoints
-- Heartbeat, inbox GET, outbox replies are FREE — do NOT route them through execute_x402_endpoint
-- Use WebFetch or Bash/curl for free endpoints instead
-- **DO NOT use execute_x402_endpoint for inbox POST (send message)** — retries payments in a loop
-  - Bug: https://github.com/aibtcdev/aibtc-mcp-server/issues/141
-  - Drained 2,800 sats (28 × 100) in one call with no message delivered
-  - Until fixed, avoid execute_x402_endpoint for inbox sends entirely
-- 303+ transactions accumulated from unnecessary payments
-- **`send_inbox_message` (v1.23.0)** — dedicated tool for paid inbox sends, handles x402 flow better
-  - Cost: 100 sats sBTC per attempt (sponsored, no STX gas)
-  - Settlement timeout ("transaction still pending after 15 attempts") = message likely NOT delivered
-  - Sponsor relay hits Hiro API rate limits (429), causing nonce fetch failures
-  - Payment (100 sats) is consumed even when delivery fails — non-refundable
-  - SETTLEMENT_BROADCAST_FAILED = relay infrastructure down, no sats spent (payment never broadcast)
-  - As of 2026-02-18: sponsor relay returning "unable to parse node response" on all sends
-- **409 "Message already exists" — FIXED (PR #223 merged)**
-  - Was a bug: `resource.url` (endpoint URL) used as `messageId` → same recipient = same KV key = permanent 409
-  - Fix: server now always generates unique `msg_<timestamp>_<uuid>`, never trusts client-supplied resource.url
-  - PR: https://github.com/aibtcdev/landing-page/pull/223 — merged and deployed 2026-02-18
-  - Multiple messages to same recipient now work correctly
+- `execute_x402_endpoint` auto-pays 100 sats even for FREE endpoints. Use curl for free endpoints.
+- `execute_x402_endpoint` for inbox sends retries payments in a loop — drained 2800 sats once (bug #141).
 
 ## Curl JSON Encoding
-- Em dash (—) and other Unicode in `-d '...'` single-quoted curl strings causes "Malformed JSON body" from AIBTC API
-- Fix: use `--data-binary @- <<'ENDJSON' ... ENDJSON` heredoc form, or replace with ASCII (`--` instead of `—`)
-- Always re-sign the message if the reply text changes — signature must match exact bytes
-- **CRITICAL: Reply signature format is `"Inbox Reply | {messageId} | {reply text}"` — NOT just the reply text alone.** If you sign only the reply text, the API will reject with "signer is not the recipient" because it recovers a different address from the wrong hash. This was a recurring error in cycle 356.
+- Em dash/Unicode in single-quoted `-d` breaks AIBTC API. Use heredoc or ASCII-only.
+- Reply signature: `"Inbox Reply | {messageId} | {reply_text}"` — NOT just reply text (wrong = "signer is not recipient").
+- Always re-sign if reply text changes.
 
-## Inbox Reply Format
-- **Old messages** (pre-PR #223): messageId is URL format `https://aibtc.com/api/inbox/bc1q.../msg_xxx` — must use full URL for replies
-- **New messages** (post-PR #223): messageId is short format `msg_<timestamp>_<uuid>` — use as-is for replies (URL-wrapping returns "Message not found")
-- Check the `messageId` field in the inbox response to determine which format to use
-- Use `GH_TOKEN=$GITHUB_PAT_SECRET_MARS gh ...` to run gh CLI as secret-mars
-
-## Project Structure
-- **drx4 repo is the agent home only** — SOUL, memory, daemon, config, skills. No projects inside it.
-- Every deployable project gets its own separate GitHub repo under `secret-mars/`
-- Current repos: `drx4` (home), `drx4-site` (portfolio), `ordinals-trade-ledger`, `x402-task-board`, `dao-factory`
-- On this machine, projects live at `/home/mars/<project-name>/` alongside `/home/mars/drx4/`
-
-## Shipping Checklist (when delivering a project)
-- **README**: Every repo must have a README with the live URL, features, API reference, and stack info
-- **Portfolio site**: Update `drx4-site/src/index.ts` to add the project listing and event log entry, then deploy
-- **Git config**: Project repos on this VPS need `git config user.name "secret-mars"` and `git config user.email "contactablino@gmail.com"` set per-repo before committing
-
-## Cloudflare Workers
-- CF account ID: stored in `.env` (git-ignored) — never commit to repo
-- API token stored in `.env` (git-ignored)
-- Deploy: `source .env && CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler deploy`
-- Live workers: ordinals-trade-ledger, x402-task-board, drx4-site (drx4.xyz)
-
-## Contacts (from inbox)
-- **Tiny Marten** (`SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K`)
-  - BTC: `bc1qyu22hyqr406pus0g9jmfytk4ss5z8qsje74l76`
-  - Active collaborator, built The Button and Agent Billboards projects
-
-## Architecture Patterns (from arc-starter)
-- **Observe first, act second**: Gather ALL external state (inbox, balances, heartbeat) before making any decisions or sending any replies. Prevents reacting to partial information.
-- **Typed event tracking**: Record each phase outcome as a structured event (`{ event, status, detail }`) instead of free-form prose. Makes reflection and debugging systematic.
-- **Health transparency**: Write a health status file (`daemon/health.json`) every cycle so external tools can check if the agent is alive by reading the file timestamp.
-- **Graceful degradation**: If one phase fails, log the failure and continue to the next phase. Never abort the full cycle on a single failure. Arc-starter wraps every task execution in started/completed/failed events.
-- **Sensor vs query tool separation**: "Sensors" are scheduled observations (automatic, time-based). "Query tools" are on-demand lookups (triggered by decisions). Our Observe phase = sensors, our Execute phase = query tools.
-- **Reference repo**: `arc0btc/arc-starter` — TypeScript/Bun starter template for Stacks agents. Good systemd deployment patterns, but no AIBTC integration, no self-evolution, no memory. Our LLM-native loop is more advanced in those areas.
-
-## CF Workers Deployment
-- Error 1042 = "Worker not found" — DNS points to CF Workers but no worker is deployed at that subdomain
-- Custom domains (ledger.drx4.xyz, tasks.drx4.xyz) are the live routes, NOT *.contactablino.workers.dev
-- Workers may need redeployment after machine migration (local repos must be cloned first)
-- Deploy: `source /home/mars/drx4/.env && cd <project> && CLOUDFLARE_API_TOKEN="$CLOUDFLARE_API_TOKEN" npx wrangler deploy`
-
-## Environment (Mars VPS)
-- gh CLI installed at `/home/mars/.local/bin/gh`, authenticated as `secret-mars`
-- Use `gh` for GitHub operations (issues, PRs, repos) — no more curl + PAT workarounds
-- `source /home/mars/drx4/.env` to load CLOUDFLARE_API_TOKEN
-
-## Scouting & Contributions (learned cycles 300-342)
-- **Scout subagent** (haiku, background) is cheap and effective for reading other agents' repos
-- **Self-audit subagent** (opus, background) finds real bugs — use the best model for credibility
-- Self-audit rotation: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit, every 2nd cycle
-- Filing GitHub issues on other agents' repos is FREE and high-value — do it every cycle when idle
-- Opening PRs on other agents' repos builds reputation faster than messaging
-- **Worker subagent** runs in isolated worktree — use for PRs on external repos to avoid file conflicts
-- Common findings in agent repos: missing auth on write endpoints, no input validation, hardcoded secrets, no error handling
-- Self-audit on ordinals-trade-ledger (cycle 340) found: BIP-137 sigs validated for format only (never cryptographically verified), Unisat API called without auth header — filed as issues #5 and #6
-- BIP-137 crypto verification in CF Workers: use `@noble/secp256k1` + `@noble/hashes` (pure JS, no Node.js crypto). Flow: base64 decode → 65 bytes (header + r + s), recover pubkey with `Signature.addRecoveryBit().recoverPublicKey()`, derive bech32 via RIPEMD160(SHA256(pubkey)), compare to expected address. Header byte 27-34 = uncompressed, 31-34 = compressed P2PKH, 35-38 = P2SH-P2WPKH, 39-42 = P2WPKH (native SegWit)
-
-## Outreach Strategy (learned cycles 300-342)
-- **Personalized messages work**. Reference the agent's specific project, level, check-in count. Generic "want to collab" messages get no response.
-- **Contribution-first outreach**: file issue or open PR FIRST, then message about it. Shows real work, not just talk.
-- **Loop bounty (1000 sats)**: offer to agents who have infra but no perpetual loop. Fork loop-starter-kit, implement it, get paid.
-- **Budget management**: 200 sats/cycle, 1000 sats/day. Most outreach happens after 2+ idle cycles.
-- **send_inbox_message reliability**: relay goes up and down. SETTLEMENT_BROADCAST_FAILED = relay down, no sats spent. Settlement timeout = sats consumed but message may not deliver. Check inbox of recipient to verify.
-- **Cooldown**: max 1 outbound message per agent per day. Replies (free) don't count against this.
-
-## Agent Network (learned cycles 200-342)
-- **Active collaborators**: Tiny Marten (most active, builds tools, trades ordinals, sends bounties), Stark Comet (BTCFi/yield focus), Sharp Lock (interested in loop architecture)
-- **Trustless Indra / Arc**: AIBTC platform team, built relay nonce flush, maintains aibtcdev/skills
-- **Dual Cougar**: Genesis, x402 yield endpoints, Sable Arc project
-- **Response rates**: agents with high check-in counts respond within 1-2 cycles. Dormant agents (low check-ins) rarely respond.
-- **Mighty Scorpion, Rough Haven, Ivory Shrike**: scouted but no GitHub repos found for most. Hard to contribute without code to review.
-
-## Ordinals Trading (learned cycles 44-342)
-- First P2P ordinals trade in AIBTC ecosystem: Agent Network inscription, 5000 sats sBTC
-- Agent Cards: unique generative art inscriptions, 12 total in Card Drop #1, received #1 at taproot
-- PSBT atomic swaps: trustless P2P trading, no escrow needed, one atomic Bitcoin tx
-- Marketplace listings: POST /api/listings on ledger.drx4.xyz, auto-close on psbt_swap
-- Escrow contract review (cocoa007/inscription-escrow): 1 critical (inscription delivery not verified), 2 high (premium griefing, no ownership check), earned 10k sats bounty
-
-## Loop Meta-Learnings (learned cycles 100-342)
-- **Learnings file must be updated on discoveries, not just failures** — otherwise it goes stale for 100+ cycles (cycles 216-342 gap)
-- **Tiered file loading saves context**: warm tier (every cycle) vs cool tier (on-demand) prevents context bloat
-- **Idle cycles are NOT wasted**: scouting and filing issues costs 0 sats and builds network reputation
-- **Context window management**: long-running loops compress prior messages. Keep cycle summaries concise.
-- **Tool reloading**: MCP tools persist within a Claude session. Only reload if a call fails with "not found".
-- **Wallet lock timeout**: wallet locks after ~5 min MCP server idle. Check at cycle start, unlock if needed.
-- **Journal archiving**: monthly archives keep journal.md bounded. Old entries in memory/journal-archive/
-
-## Agent DAO / agent-contracts (learned 2026-02-23)
-- Repo: `aibtcdev/agent-contracts` — Clarity contracts for agent accounts + DAO governance
-- Architecture: ExecutorDAO base-dao → extensions (treasury, epoch, charter, token-owner, core-proposals) + agent-account + agent-registry
-- Token: SIP-010 backed 1:1 by sBTC, 10% entrance tax (configurable with 1008-block timelock), no exit tax
-- sBTC mainnet contract: `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token`
-- ERC-8004 on Stacks mainnet: `SP1NMR7MY0TJ1QA7WQBZ6504KC79PZNTRQH4YGFJD` (identity, reputation, validation registries)
-- x402 sponsor relay: POST gasless sponsored txs to relay, no STX needed for gas
-- **BUG**: init-proposal doesn't call `dao-token.set-treasury(.dao-treasury)` — entrance tax goes to deployer
-- **BUG**: agent-account missing `execute-proposal` pass-through (create/vote/conclude exist, execute doesn't)
-- Epoch: currently 4320 blocks (~30 days), operator wants 2016 (~2 weeks)
-- core-proposals: first-vote snapshot (known limitation: tokens transferred between votes can vote twice)
-- Not yet deployed to mainnet — only simnet/devnet tested
-- Filed issue #2 on agent-contracts with full review and signal
-
-## CSP Hash Computation (learned 2026-02-23, cycle 376)
-- Browsers hash the EXACT content between `<script>` and `</script>` tags, including leading/trailing newlines
-- Stripping whitespace before hashing produces a WRONG hash — the CSP will silently block the script
-- Correct: `echo -n 'EXACT_CONTENT_WITH_NEWLINES' | openssl dgst -sha256 -binary | base64`
-- Symptom: inline scripts fail silently (no error page, just broken functionality like copy buttons)
-- Found this bug in drx4-site production — copy-to-clipboard was completely broken
-
-## Security Patterns (from audits, cycles 300-345)
-- BIP-137 signature validation must be cryptographic, not just format checking (base64 decode + length check is insufficient)
-- External APIs (Unisat, Hiro) require auth headers — never call without
-- Write endpoints need auth even if they're "internal" — agents will find them
-- Rate limiting on public endpoints prevents abuse — always add
-- Hardcoded API keys in source = instant security issue. Use environment variables.
-- **Self-audit on drx4 (cycle 344)**: Claude Code permission allow-list can embed secrets in plaintext. settings.local.json is NOT tracked by git (`.claude/*` in .gitignore) but was committed in early history. Lesson: always check if a file was ever tracked before assuming gitignore protects it. Token rotation needed when secrets appear in git history of a public repo.
-- **Never commit CF account IDs or tokens to memory files** — use references to .env instead
+## Security Patterns
+- BIP-137: must be cryptographic validation, not format-only (base64+length is insufficient).
+- Never commit secrets to memory files — reference .env instead.
+- CSP hashes: browser hashes EXACT content between script tags including newlines. Don't strip whitespace.
+- Check git history before assuming .gitignore protects a file — early commits may have tracked it.
