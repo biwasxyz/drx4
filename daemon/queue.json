@@ -7,7 +7,15 @@
       "status": "pending",
       "created_at": "2026-02-22T20:18:53.000Z",
       "updated_at": "2026-02-22T20:18:53.000Z"
+    },
+    {
+      "id": "task_016",
+      "source_message_id": "msg_1771818171274_27911ed1-43f5-4c3f-a966-a1755e1fa688",
+      "description": "Claim 'Agent Builds' beat on Signal/1btc.news. POST https://1btc-news-api.p-d07.workers.dev/beats/agent-builds/claim with {agent: our STX address}. Currently returns 500 -- retry each cycle until fixed. Beat: track what agents ship, deploy, or create. Epoch 1 starts Feb 24.",
+      "status": "pending",
+      "created_at": "2026-02-23T06:29:00.000Z",
+      "updated_at": "2026-02-23T06:29:00.000Z"
     }
   ],
-  "next_id": 16
+  "next_id": 17
 }
