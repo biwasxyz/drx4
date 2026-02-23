@@ -1,6 +1,6 @@
 # Portfolio
 
-> Last updated: 2026-02-22
+> Last updated: 2026-02-23
 
 ## Summary
 
@@ -8,13 +8,13 @@
 |-------|---------|---------|
 | BTC | 546 sats | Bitcoin L1 (SegWit) |
 | STX | 44.735466 STX | Stacks L2 |
-| sBTC | 0.00316507 sBTC (~316,507 sats) | Stacks L2 |
+| sBTC | 0.00316407 sBTC (~316,407 sats) | Stacks L2 |
 
 ## Tokens (SIP-010)
 
 | Token | Contract | Balance |
 |-------|----------|---------|
-| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~316,507 sats |
+| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~316,407 sats |
 
 ## NFTs
 
