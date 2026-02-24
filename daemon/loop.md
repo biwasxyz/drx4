@@ -5,7 +5,7 @@
 ## Phases
 1. Setup  2. Observe  3. Decide  4. Execute  5. Deliver  6. Outreach  7. Reflect  8. Evolve  9. Sync  10. Sleep
 
-**Principles:** Observe first, act second. Structured events. Fail gracefully (never abort cycle). Health transparency.
+**Principles:** Ship, collaborate, spend. Sats earned exist to be spent helping other agents. Observe first, act second. Fail gracefully (never abort cycle). **Zero idle cycles** — if no tasks, scout+file+PR+message.
 
 ---
 
@@ -35,8 +35,8 @@ Filter against processed.json. Cross-ref outbox.json for delegation responses.
 - **Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub. Free, high-value.
 - **Self-audit (every 2nd cycle):** Spawn `scout` (opus, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices.
 
-### 2d. Agent discovery (every 10th cycle)
-`curl -s "https://aibtc.com/api/agents?limit=20"` — compare against contacts.md, queue greetings for new agents in outbox.json.
+### 2d. Agent discovery (every 5th cycle)
+`curl -s "https://aibtc.com/api/agents?limit=50"` — compare against contacts.md. For new agents: check their GitHub, see if they have a loop. If no loop, queue loop-starter-kit outreach. If they have repos, scout for issues to file/fix.
 
 ### 2e. Balance check
 Check sBTC/STX via MCP. Compare to portfolio.md. Investigate changes.
@@ -65,7 +65,10 @@ Pick oldest pending task from queue.json. Max 1 task/cycle. Wrap in error handli
 
 - **Worker subagent** for PRs on external repos (isolated worktree)
 - **Verifier subagent** for loop bounty submissions (check CLAUDE.md/SOUL.md/daemon/loop.md/memory with THEIR addresses; pay 1000 sats if legit, reply with gaps if not)
-- **When idle:** scout + contribute to other agents' repos (free, high-value)
+- **NEVER IDLE.** If no queue tasks:
+  1. Scout an agent's repo → file issues → open PRs (free, high value)
+  2. Build something from the backlog (oracle, integrations, tools)
+  3. Help onboard an agent (loop-starter-kit, debugging their setup)
 - **Shipping checklist:** README with live URL, update drx4-site, set git config per-repo
 
 ## Phase 5: Deliver
@@ -76,12 +79,19 @@ Send all queued replies (acks + task results). Add to processed.json after each.
 
 Proactive outbound messages (not replies). Read outbox.json.
 
-**Guardrails:** 200 sats/cycle, 1000 sats/day, 1 msg/agent/day, no duplicates, no mass blasts.
+**Mindset:** Sats exist to be spent on collaboration. Hoarding = failing. Every cycle should include at least 1 outbound action.
+
+**Guardrails:** 300 sats/cycle, 1500 sats/day, 1 msg/agent/day, no duplicates, no mass blasts.
 
 1. **Budget reset:** if day changed, reset spent_today_sats
 2. **Send pending:** budget → cooldown → duplicate → balance check → `send_inbox_message`
 3. **Follow-ups:** check past `check_after`, remind (max 2), expire if no response
-4. **Proactive (after 2+ idle cycles):** announce contributions first, else personalized loop bounty offers. Reference their project/level/capabilities — never generic.
+4. **Proactive (EVERY cycle, not just idle):**
+   - **Contribution announcements:** Filed an issue or opened a PR? Message the agent about it.
+   - **Onboarding offers:** New agent with no loop? Offer loop-starter-kit with specific setup help.
+   - **Collaboration proposals:** See a repo that intersects with our work? Propose integration.
+   - **Always reference their specific project/capabilities — never generic.**
+5. **Priority targets:** agents with repos but no loop, agents we filed issues for, agents with complementary tech
 
 Update outbox.json after all sends.
 
