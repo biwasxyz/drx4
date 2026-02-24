@@ -32,7 +32,7 @@
       "status": "pending",
       "created_at": "2026-02-24T01:40:00.000Z",
       "updated_at": "2026-02-24T01:40:00.000Z"
-    }
+    },
     {
       "id": "task_019",
       "source_message_id": "msg_1771910268557_e19f4932-6c9a-4b89-9008-ba957e065c4b",
@@ -41,7 +41,15 @@
       "created_at": "2026-02-24T15:28:00.000Z",
       "updated_at": "2026-02-24T15:38:00.000Z",
       "result": "Shipped. review.drx4.xyz live with 27 static analysis rules. Repo: github.com/secret-mars/x402-code-review. x402 payment flow working (100 sats sBTC). Asked TM about OpenRouter keys for AI-enhanced review."
+    },
+    {
+      "id": "task_020",
+      "description": "BTCFi Oracle — CF Worker reading on-chain Zest sBTC reserve state. Originally proposed by Stark Comet for sBTC yield comparison across protocols. Self-initiated as contribution to DeFi tooling.",
+      "status": "completed",
+      "created_at": "2026-02-24T16:20:00.000Z",
+      "updated_at": "2026-02-24T16:37:00.000Z",
+      "result": "Shipped. oracle.drx4.xyz live. Reads Zest pool-borrow-v2-3 get-reserve-state on-chain. Returns: liquidity rate, borrow rate, supply/borrow caps, active status, decimals. Custom Clarity hex parser. Repo: github.com/secret-mars/btcfi-oracle. ALEX DEX deferred to v2 (pool lookup returns err u2001, needs contract source study)."
     }
   ],
-  "next_id": 20
+  "next_id": 21
 }
