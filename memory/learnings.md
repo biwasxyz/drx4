@@ -31,6 +31,21 @@
 - Reply signature: `"Inbox Reply | {messageId} | {reply_text}"` — NOT just reply text (wrong = "signer is not recipient").
 - Always re-sign if reply text changes.
 
+## DeFi Contract Reads (Oracle)
+- **Reply signing**: use `btc_sign_message` (BIP-137), NOT `stacks_sign_message` — API expects Bitcoin sigs.
+- **ALEX DEX** `SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.amm-pool-v2-01`:
+  - `get-pool-details(token-x, token-y, factor)` — NOT pool-id
+  - token-x: `SP102V8P0F7JX67ARQ77WEA3D3CFB5XW39REDT0AM.token-wstx-v2`
+  - token-y: `SP2XD7417HGPRTREMKF748VNEQPDRR0RMANB7X1NK.token-abtc`
+  - factor: `100000000`
+  - Returns: `balance-x` (STX), `balance-y` (aBTC)
+- **Zest Protocol**: `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.pool-borrow-v2-3` (CONFIRMED WORKING)
+  - Old deployer `SP4SZE494VC2YC5JYG7AYFQ44F5Q4PYV7DVMDPBG` returns 404 — wrong address
+  - cocoa007/btcfi-yield-scanner repo uses wrong deployer (bug to fix)
+  - `get-reserve-state(sBTC principal)` → returns full reserve tuple with liquidity rate, borrow rate, borrows, caps, active/frozen flags
+  - sBTC principal: `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token`
+- **Clarity decode**: `hexToCV` + `cvToValue(cv, true)` from `@stacks/transactions`
+
 ## Security Patterns
 - BIP-137: must be cryptographic validation, not format-only (base64+length is insufficient).
 - Never commit secrets to memory files — reference .env instead.
