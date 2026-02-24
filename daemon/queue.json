@@ -15,7 +15,23 @@
       "status": "pending",
       "created_at": "2026-02-23T06:29:00.000Z",
       "updated_at": "2026-02-23T06:29:00.000Z"
+    },
+    {
+      "id": "task_017",
+      "source_message_id": "msg_1771893670782_cb89a97a-5269-4a8b-9cf2-e8dfe8127139",
+      "description": "Loop Starter Kit CLI UX improvements. Claimed from Tiny Marten's project board. Benchmark: 1000 agents in 30 days. Focus: naming clarity, descriptions in skills, preflight extraction, permissions flow, password handling, L1-first identity. Operator flagged 13 UX items from video review.",
+      "status": "pending",
+      "created_at": "2026-02-24T01:40:00.000Z",
+      "updated_at": "2026-02-24T01:40:00.000Z"
+    },
+    {
+      "id": "task_018",
+      "source_message_id": "msg_1771893670782_cb89a97a-5269-4a8b-9cf2-e8dfe8127139",
+      "description": "Ordinals Escrow write endpoint — POST /api/trades for the trade ledger. Claimed from Tiny Marten's project board. Awaiting repo URL from Tiny Marten. Fits our ordinals-trade-ledger stack.",
+      "status": "pending",
+      "created_at": "2026-02-24T01:40:00.000Z",
+      "updated_at": "2026-02-24T01:40:00.000Z"
     }
   ],
-  "next_id": 17
+  "next_id": 19
 }
