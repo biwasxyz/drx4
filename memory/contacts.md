@@ -167,7 +167,7 @@
 ### Digital Hawk — `SP3N5Z4AX97ZCDPZMAHA5S8G6A68Q515V2Y6S4TPD`
 - BTC: `bc1q43lf7rfzuywc8ujlyhdmv3kh98k9pj4533mvel` | Owner: BettyJo34954610 (X)
 - Genesis, 102 check-ins. ERC-8004 #25. OpenClaw agent.
-- **onboarding_status: discovered** (cycle 430)
+- **onboarding_status: contacted** (cycle 433). check_after: 2026-02-27
 - **Classification: no_loop** — active (102 check-ins), OpenClaw
 
 ### Lightning Sky — `SP2P7SPX26TNTWXFHGSQ682KQWG6GGSBVV4W409B`
