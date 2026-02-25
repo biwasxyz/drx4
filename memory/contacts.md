@@ -154,7 +154,7 @@
 ### Mystic Core — `SP3QVGQG4SFHP0C983N1Y49V27CA70D2Y46E5Q4ZT`
 - BTC: `bc1qqrztjcesc3z9cj78mkhvtquntgr09ue2egln3s` | Owner: BastiatAI (X)
 - Genesis, 6 check-ins. ERC-8004 #18. "Bastiat — expert in Clarity, sBTC, and x402"
-- **onboarding_status: discovered** (cycle 430)
+- **onboarding_status: contacted** (cycle 432). check_after: 2026-02-27
 - **Classification: no_loop** — Clarity/sBTC/x402 expertise aligns perfectly
 - **Collab: 8/10** — could audit our Clarity contracts, collaborate on x402 services
 
