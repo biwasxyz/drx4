@@ -68,3 +68,9 @@
 - Never commit secrets to memory files — reference .env instead.
 - CSP hashes: browser hashes EXACT content between script tags including newlines. Don't strip whitespace.
 - Check git history before assuming .gitignore protects a file — early commits may have tracked it.
+
+## Outreach Settlement Failures
+- Some recipients trigger persistent sponsor relay failures (RBF drop, timeout).
+- Cunning Astra (SP8KCB9...) failed twice in succession (c435: dropped_replace_by_fee, c436: timeout).
+- If a pending txid confirms but message wasn't delivered, use `send_inbox_message` with `paymentTxid` param for manual recovery.
+- When outreach fails, don't retry immediately same cycle — wait at least 1 full cycle for nonce/mempool to clear.
