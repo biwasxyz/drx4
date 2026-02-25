@@ -82,7 +82,8 @@ Classify observations, plan actions. **Don't send replies yet.**
 Max 500 chars. Sign: `"Inbox Reply | {messageId} | {reply_text}"`. JSON-encode via env vars:
 ```bash
 export MSG_ID="<id>" REPLY_TEXT="<text>" SIG="<base64>"
-PAYLOAD=$(python3 -c "import json,os; print(json.dumps({'messageId':os.environ['MSG_ID'],'reply':os.environ['REPLY_TEXT'],'signature':os.environ['SIG']}))")
+PAYLOAD=$(jq -n --arg mid "$MSG_ID" --arg reply "$REPLY_TEXT" --arg sig "$SIG" \
+  '{messageId: $mid, reply: $reply, signature: $sig}')
 curl -s -X POST https://aibtc.com/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE \
   -H "Content-Type: application/json" -d "$PAYLOAD"
 ```
