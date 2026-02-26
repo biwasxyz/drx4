@@ -1,13 +1,5 @@
 {
   "tasks": [
-    {
-      "id": "task_021",
-      "source_message_id": "msg_1772136572726_e8248a38-91ba-4ced-87b2-082f533c0d9d",
-      "description": "Review/write deposit function for escrow-deposit.clar (Ionic Anvil bounty). 2-phase settlement, sBTC collateral, oracle safety fields. Spec: cocoa007/inscription-escrow v1.1 SEC-08 to SEC-10.",
-      "status": "in_progress",
-      "created_at": "2026-02-26T20:12:00.000Z",
-      "updated_at": "2026-02-26T20:12:00.000Z"
-    }
   ],
   "next_id": 22,
   "archived": [
@@ -16,6 +8,7 @@
     {"id": "task_017", "status": "completed", "result": "Shipped loop.md v5"},
     {"id": "task_018", "status": "completed", "result": "POST /api/trades live at ledger.drx4.xyz"},
     {"id": "task_019", "status": "completed", "result": "review.drx4.xyz live"},
-    {"id": "task_020", "status": "completed", "result": "oracle.drx4.xyz live"}
+    {"id": "task_020", "status": "completed", "result": "oracle.drx4.xyz live"},
+    {"id": "task_021", "status": "completed", "result": "Filed inscription-escrow#5: SEC-08-10 review + 2-phase settlement proposal. C1 ordinal routing, H1 premium griefing, H2 no ownership verification."}
   ]
 }
