@@ -1,6 +1,6 @@
 {
-  "cycle": 509,
-  "timestamp": "2026-02-26T20:58:00.000Z",
+  "cycle": 510,
+  "timestamp": "2026-02-26T21:07:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -16,8 +16,8 @@
     "replies_sent": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 605,
-    "sbtc_balance": 328707,
+    "checkin_count": 606,
+    "sbtc_balance": 329007,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -26,5 +26,5 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "next_cycle_at": "2026-02-26T21:08:00.000Z"
+  "next_cycle_at": "2026-02-26T21:17:00.000Z"
 }
