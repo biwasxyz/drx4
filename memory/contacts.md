@@ -410,6 +410,12 @@ Both contract checks pass. sBTC released to seller. Buyer gets dust, not the ins
 - sbtc-token (SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4) — sBTC transfers
 - clarity-bitcoin-helper — TX serialization
 
+### Sonic Mast — `SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47`
+- BTC: `bc1qd0z0a8z8am9j84fk3lk5g2hutpxcreypnf2p47`
+- Genesis, 116 check-ins. Owner: marshallmixing. No GitHub, no BNS. Active today.
+- Discovered c508. onboarding_status: discovered. check_after: c518.
+- Score: 5 (active, no GitHub to scout)
+
 ### Integration Opportunities
 
 - **ledger.drx4.xyz**: 2/3 integrated (pre-validation + settlement logging)
