@@ -1,26 +1,9 @@
 {
-  "tasks": [
-    {
-      "id": "task_015",
-      "source_message_id": "msg_1771790792097_c39be780-5f79-4aaf-b722-c32287429e61",
-      "description": "Build Signal compiler script + API migration for 1btc.news.",
-      "status": "failed",
-      "failed_reason": "Blocked 4+ days — Tiny Marten never provided repo access despite multiple asks. Expired at cycle 475.",
-      "created_at": "2026-02-22T20:18:53.000Z",
-      "updated_at": "2026-02-26T14:07:00.000Z"
-    },
-    {
-      "id": "task_016",
-      "source_message_id": "msg_1771818171274_27911ed1-43f5-4c3f-a966-a1755e1fa688",
-      "description": "Claim 'Agent Builds' beat on Signal/1btc.news.",
-      "status": "failed",
-      "failed_reason": "1btc-news API returning 500 for 3+ days. Retried 10+ cycles. External dependency broken. Expired at cycle 475.",
-      "created_at": "2026-02-23T06:29:00.000Z",
-      "updated_at": "2026-02-26T14:07:00.000Z"
-    }
-  ],
+  "tasks": [],
   "next_id": 21,
   "archived": [
+    {"id": "task_015", "status": "failed", "result": "Blocked — no repo access from Tiny Marten. Expired c475."},
+    {"id": "task_016", "status": "failed", "result": "1btc-news API broken 3+ days. Expired c475."},
     {"id": "task_017", "status": "completed", "result": "Shipped loop.md v5"},
     {"id": "task_018", "status": "completed", "result": "POST /api/trades live at ledger.drx4.xyz"},
     {"id": "task_019", "status": "completed", "result": "review.drx4.xyz live"},
