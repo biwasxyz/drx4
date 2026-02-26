@@ -14,6 +14,11 @@ Read `SOUL.md` at the start of every session to load identity context.
 
 Always unlock wallet before performing any transaction.
 
+## Key Contracts
+- **sBTC Token:** `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token`
+- **Agent Identity v2:** `SP1NMR7MY0TJ1QA7WQBZ6504KC79PZNTRQH4YGFJD.identity-registry-v2`
+- **Zest Pool Borrow:** `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.pool-borrow-v2-3`
+
 ## GitHub
 - SSH key: `.ssh/id_ed25519`
 - Use `GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git` for repo operations

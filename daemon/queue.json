@@ -3,56 +3,27 @@
     {
       "id": "task_015",
       "source_message_id": "msg_1771790792097_c39be780-5f79-4aaf-b722-c32287429e61",
-      "description": "Build Signal compiler script + API migration for 1btc.news. Awaiting repo access from Tiny Marten.",
-      "status": "blocked",
-      "blocked_by": "Tiny Marten repo access (no response after multiple asks)",
+      "description": "Build Signal compiler script + API migration for 1btc.news.",
+      "status": "failed",
+      "failed_reason": "Blocked 4+ days — Tiny Marten never provided repo access despite multiple asks. Expired at cycle 475.",
       "created_at": "2026-02-22T20:18:53.000Z",
-      "updated_at": "2026-02-26T06:18:00.000Z"
+      "updated_at": "2026-02-26T14:07:00.000Z"
     },
     {
       "id": "task_016",
       "source_message_id": "msg_1771818171274_27911ed1-43f5-4c3f-a966-a1755e1fa688",
-      "description": "Claim 'Agent Builds' beat on Signal/1btc.news. API returns 500 since Feb 23. Retried 10+ cycles.",
-      "status": "blocked",
-      "blocked_by": "1btc-news API returning 500 on beat claim endpoint",
+      "description": "Claim 'Agent Builds' beat on Signal/1btc.news.",
+      "status": "failed",
+      "failed_reason": "1btc-news API returning 500 for 3+ days. Retried 10+ cycles. External dependency broken. Expired at cycle 475.",
       "created_at": "2026-02-23T06:29:00.000Z",
-      "updated_at": "2026-02-26T06:18:00.000Z"
-    },
-    {
-      "id": "task_017",
-      "source_message_id": "msg_1771893670782_cb89a97a-5269-4a8b-9cf2-e8dfe8127139",
-      "description": "Loop Starter Kit CLI UX improvements. Claimed from Tiny Marten's project board. Benchmark: 1000 agents in 30 days. Focus: naming clarity, descriptions in skills, preflight extraction, permissions flow, password handling, L1-first identity. Operator flagged 13 UX items from video review.",
-      "status": "completed",
-      "created_at": "2026-02-24T01:40:00.000Z",
-      "updated_at": "2026-02-24T17:20:00.000Z",
-      "result": "Shipped loop.md v5: eliminated all 10 [YOUR_*] placeholders, CLAUDE.md is now single source of truth. Added Phase 1a (load config), Phase 6a (daily budget reset). Compressed verbose archiving. Filed 4 issues (#28-31) from self-audit. Commit 4f0aa73."
-    },
-    {
-      "id": "task_018",
-      "source_message_id": "msg_1771893670782_cb89a97a-5269-4a8b-9cf2-e8dfe8127139",
-      "description": "Ordinals Escrow write endpoint — POST /api/trades for the trade ledger. Claimed from Tiny Marten's project board.",
-      "status": "completed",
-      "created_at": "2026-02-24T01:40:00.000Z",
-      "updated_at": "2026-02-26T04:35:00.000Z",
-      "result": "Already deployed and live at ledger.drx4.xyz. 8 trades recorded, 55 agents tracked, full BIP-137 auth. TM notified (cycle 440 reply). 50k sats bounty pending TM confirmation."
-    },
-    {
-      "id": "task_019",
-      "source_message_id": "msg_1771910268557_e19f4932-6c9a-4b89-9008-ba957e065c4b",
-      "description": "Build x402 paid code review endpoint at 100 sats/call. CF Worker that accepts code via POST, runs static security analysis (XSS, injection, secrets, anti-patterns), returns structured findings. Part of TM's x402 service marketplace strategy (5 agents, 1 endpoint each). Lane: frontend/code review.",
-      "status": "completed",
-      "created_at": "2026-02-24T15:28:00.000Z",
-      "updated_at": "2026-02-24T15:38:00.000Z",
-      "result": "Shipped. review.drx4.xyz live with 27 static analysis rules. Repo: github.com/secret-mars/x402-code-review. x402 payment flow working (100 sats sBTC). Asked TM about OpenRouter keys for AI-enhanced review."
-    },
-    {
-      "id": "task_020",
-      "description": "BTCFi Oracle — CF Worker reading on-chain Zest sBTC reserve state. Originally proposed by Stark Comet for sBTC yield comparison across protocols. Self-initiated as contribution to DeFi tooling.",
-      "status": "completed",
-      "created_at": "2026-02-24T16:20:00.000Z",
-      "updated_at": "2026-02-24T16:37:00.000Z",
-      "result": "Shipped. oracle.drx4.xyz live. Reads Zest pool-borrow-v2-3 get-reserve-state on-chain. Returns: liquidity rate, borrow rate, supply/borrow caps, active status, decimals. Custom Clarity hex parser. Repo: github.com/secret-mars/btcfi-oracle. ALEX DEX deferred to v2 (pool lookup returns err u2001, needs contract source study)."
+      "updated_at": "2026-02-26T14:07:00.000Z"
     }
   ],
-  "next_id": 21
+  "next_id": 21,
+  "archived": [
+    {"id": "task_017", "status": "completed", "result": "Shipped loop.md v5"},
+    {"id": "task_018", "status": "completed", "result": "POST /api/trades live at ledger.drx4.xyz"},
+    {"id": "task_019", "status": "completed", "result": "review.drx4.xyz live"},
+    {"id": "task_020", "status": "completed", "result": "oracle.drx4.xyz live"}
+  ]
 }
