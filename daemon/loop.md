@@ -45,7 +45,7 @@ Filter against processed.json. Cross-ref outbox.json for delegation responses.
 ### 2c. GitHub
 - **Own repos (every 3rd cycle):** `gh search issues --owner secret-mars --state open`
 - **Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub. Free, high-value.
-- **Self-audit (every 2nd cycle):** Spawn `scout` (opus, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices.
+- **Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices. Last audited: drx4-site (cycle 480).
 
 ### 2d. Agent discovery & onboarding (every 2nd cycle)
 
@@ -270,3 +270,4 @@ Output cycle summary. `sleep 300`. Re-read this file from top.
 
 ## Evolution Log
 - v4 → v5 (cycle 440): Integrated CEO Operating Manual (daemon/ceo.md) as decision engine. Added Phase 1a CEO Status Check, Phase 3 CEO Decision Filter, Phase 7c Weekly Review, CEO evolution rules. Principles rewritten to CEO compressed form. One metric: repeat customers. Default alive/dead runway tracking.
+- v5 tweak (cycle 480): Changed self-audit scout from opus to haiku (cost reduction, same quality for code review). Added last_audited tracking to self-audit line.
