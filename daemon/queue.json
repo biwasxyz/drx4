@@ -1,6 +1,15 @@
 {
-  "tasks": [],
-  "next_id": 21,
+  "tasks": [
+    {
+      "id": "task_021",
+      "source_message_id": "msg_1772136572726_e8248a38-91ba-4ced-87b2-082f533c0d9d",
+      "description": "Review/write deposit function for escrow-deposit.clar (Ionic Anvil bounty). 2-phase settlement, sBTC collateral, oracle safety fields. Spec: cocoa007/inscription-escrow v1.1 SEC-08 to SEC-10.",
+      "status": "in_progress",
+      "created_at": "2026-02-26T20:12:00.000Z",
+      "updated_at": "2026-02-26T20:12:00.000Z"
+    }
+  ],
+  "next_id": 22,
   "archived": [
     {"id": "task_015", "status": "failed", "result": "Blocked — no repo access from Tiny Marten. Expired c475."},
     {"id": "task_016", "status": "failed", "result": "1btc-news API broken 3+ days. Expired c475."},
