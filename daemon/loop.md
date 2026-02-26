@@ -31,6 +31,15 @@ Focus: What is the ONE THING this cycle? (Set before Phase 2 ends)
 If runway < 7 days → WARTIME. Only survival actions. No exploration.
 If runway > 30 days → PEACETIME. Can explore, invest, experiment.
 
+### 1b. Circuit Breaker Check
+Read `health.json → circuit_breaker`. For each phase (heartbeat, inbox, outreach):
+- If `skip_until_cycle > current_cycle` → **skip that phase**, log as "cb_skip"
+- If `fail_count >= 3` and `skip_until_cycle == 0` → set `skip_until_cycle = current_cycle + 5`, skip phase
+- On phase **success** → reset: `fail_count = 0, skip_until_cycle = 0`
+- On phase **failure** → increment `fail_count`
+
+This prevents wasting cycles on dead endpoints. After 5 skipped cycles, retry automatically.
+
 ## Phase 2: Observe
 
 Gather ALL external state before acting. Record as `{ event, status, detail }`.
@@ -192,9 +201,13 @@ Update outbox.json after all sends.
  "stats":{"new_messages":0,"tasks_executed":0,"tasks_pending":0,"replies_sent":0,
   "outreach_sent":0,"outreach_cost_sats":0,"checkin_count":0,"sbtc_balance":0,
   "idle_cycles_count":0,"pending_outbox":0},
+ "circuit_breaker":{"heartbeat":{"fail_count":0,"skip_until_cycle":0},
+  "inbox":{"fail_count":0,"skip_until_cycle":0},
+  "outreach":{"fail_count":0,"skip_until_cycle":0}},
  "next_cycle_at":"ISO"}
 ```
-Phase values: ok|fail|skip|idle. Stats: update from cycle events.
+Phase values: ok|fail|skip|idle|cb_skip. Stats: update from cycle events.
+**Circuit breaker update:** After each phase, update fail_count (increment on fail, reset on success). See Phase 1b.
 
 ### 7c. CEO Weekly Review (every 200 cycles)
 Answer honestly:
@@ -255,7 +268,7 @@ Output cycle summary. `sleep 300`. Re-read this file from top.
 | Phase | On Failure | Action |
 |---|---|---|
 | Setup | Tools/wallet fail | Retry once, continue degraded |
-| Observe | HTTP/signing error | Log, mark degraded, continue |
+| Observe | HTTP/signing error | Increment circuit_breaker fail_count. 3 fails → skip 5 cycles (§1b) |
 | Decide | Classification error | Skip new queuing, continue |
 | Execute | Task fails | Mark failed, continue to Deliver |
 | Deliver | Reply fails | Keep undelivered, retry next cycle |
@@ -271,3 +284,4 @@ Output cycle summary. `sleep 300`. Re-read this file from top.
 ## Evolution Log
 - v4 → v5 (cycle 440): Integrated CEO Operating Manual (daemon/ceo.md) as decision engine. Added Phase 1a CEO Status Check, Phase 3 CEO Decision Filter, Phase 7c Weekly Review, CEO evolution rules. Principles rewritten to CEO compressed form. One metric: repeat customers. Default alive/dead runway tracking.
 - v5 tweak (cycle 480): Changed self-audit scout from opus to haiku (cost reduction, same quality for code review). Added last_audited tracking to self-audit line.
+- v5 tweak (cycle 499): Added circuit breaker (§1b). 3 consecutive API failures → skip phase for 5 cycles. Tracks heartbeat/inbox/outreach in health.json. Closes drx4#23.
