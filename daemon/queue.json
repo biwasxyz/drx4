@@ -1,7 +1,7 @@
 {
   "tasks": [
   ],
-  "next_id": 22,
+  "next_id": 23,
   "archived": [
     {"id": "task_015", "status": "failed", "result": "Blocked — no repo access from Tiny Marten. Expired c475."},
     {"id": "task_016", "status": "failed", "result": "1btc-news API broken 3+ days. Expired c475."},
@@ -9,6 +9,7 @@
     {"id": "task_018", "status": "completed", "result": "POST /api/trades live at ledger.drx4.xyz"},
     {"id": "task_019", "status": "completed", "result": "review.drx4.xyz live"},
     {"id": "task_020", "status": "completed", "result": "oracle.drx4.xyz live"},
-    {"id": "task_021", "status": "completed", "result": "Filed inscription-escrow#5: SEC-08-10 review + 2-phase settlement proposal. C1 ordinal routing, H1 premium griefing, H2 no ownership verification."}
+    {"id": "task_021", "status": "completed", "result": "Filed inscription-escrow#5: SEC-08-10 review + 2-phase settlement proposal. C1 ordinal routing, H1 premium griefing, H2 no ownership verification."},
+    {"id": "task_022", "status": "completed", "result": "PR #6 on inscription-escrow: 2-phase settlement with commit-listing, seller collateral, escrowed premium, print events, get-out-value read-only. 31 tests passing."}
   ]
 }
