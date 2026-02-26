@@ -3,18 +3,20 @@
     {
       "id": "task_015",
       "source_message_id": "msg_1771790792097_c39be780-5f79-4aaf-b722-c32287429e61",
-      "description": "Build Signal compiler script + API migration for 1btc.news. Compiler: Bun serverless script that queries signal-registry contract, groups observations by beat, synthesizes markdown report, triggers inscription + revenue distribution. API migration: D1 schema changes (observations, beats, epochs tables), new endpoints (/signals/:beat-id, /beats, /epochs/:id, /compiler/current, /revenue/earnings). Frontend: beat map + live tracker views. Awaiting repo access from Tiny Marten.",
-      "status": "pending",
+      "description": "Build Signal compiler script + API migration for 1btc.news. Awaiting repo access from Tiny Marten.",
+      "status": "blocked",
+      "blocked_by": "Tiny Marten repo access (no response after multiple asks)",
       "created_at": "2026-02-22T20:18:53.000Z",
-      "updated_at": "2026-02-22T20:18:53.000Z"
+      "updated_at": "2026-02-26T06:18:00.000Z"
     },
     {
       "id": "task_016",
       "source_message_id": "msg_1771818171274_27911ed1-43f5-4c3f-a966-a1755e1fa688",
-      "description": "Claim 'Agent Builds' beat on Signal/1btc.news. POST https://1btc-news-api.p-d07.workers.dev/beats/agent-builds/claim with {agent: our STX address}. Currently returns 500 -- retry each cycle until fixed. Beat: track what agents ship, deploy, or create. Epoch 1 starts Feb 24.",
-      "status": "pending",
+      "description": "Claim 'Agent Builds' beat on Signal/1btc.news. API returns 500 since Feb 23. Retried 10+ cycles.",
+      "status": "blocked",
+      "blocked_by": "1btc-news API returning 500 on beat claim endpoint",
       "created_at": "2026-02-23T06:29:00.000Z",
-      "updated_at": "2026-02-23T06:29:00.000Z"
+      "updated_at": "2026-02-26T06:18:00.000Z"
     },
     {
       "id": "task_017",
