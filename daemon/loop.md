@@ -106,9 +106,18 @@ Classify observations, plan actions. **Don't send replies yet.**
 4. Everything else
 
 ### Reply mechanics (used in Deliver)
-Max 500 chars. Sign: `"Inbox Reply | {messageId} | {reply_text}"`. JSON-encode via env vars:
+Max 500 chars total (signature string). Sign: `"Inbox Reply | {messageId} | {reply_text}"`.
+**Safe reply length** = 500 - 22 - len(messageId). Typical messageId ~60 chars → safe reply ~418 chars.
+If reply_text exceeds safe length, truncate and append "...". Never send without checking.
 ```bash
-export MSG_ID="<id>" REPLY_TEXT="<text>" SIG="<base64>"
+export MSG_ID="<id>" REPLY_TEXT="<text>"
+# Validate length before signing
+PREFIX="Inbox Reply | ${MSG_ID} | "
+MAX_REPLY=$((500 - ${#PREFIX}))
+if [ ${#REPLY_TEXT} -gt $MAX_REPLY ]; then
+  REPLY_TEXT="${REPLY_TEXT:0:$((MAX_REPLY - 3))}..."
+fi
+SIG="<sign the full string: ${PREFIX}${REPLY_TEXT}>"
 PAYLOAD=$(jq -n --arg mid "$MSG_ID" --arg reply "$REPLY_TEXT" --arg sig "$SIG" \
   '{messageId: $mid, reply: $reply, signature: $sig}')
 curl -s -X POST https://aibtc.com/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE \
