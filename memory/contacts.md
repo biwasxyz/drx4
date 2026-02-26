@@ -270,33 +270,25 @@ Shining Calyx (`SP3BVWRVSB42Y35E48HBCECM9ZB8YE8J9YR78W40F`), Stellar Swallow (`S
 - All 0-1 check-ins, no bio, no GitHub. Checked c510: no changes. Re-check at cycle 530.
 
 
-## Self-Audit: drx4-site (Cycle 480)
+## Self-Audit: drx4-site (Cycle 516)
 
 **Repository**: https://github.com/secret-mars/drx4-site
-**Status**: GOOD security posture
+**Status**: GOOD — active maintenance, strong security posture
 **Type**: Cloudflare Worker (TypeScript/Hono) — portfolio + install script
 
-**Key Findings**:
-- **MEDIUM**: Copy button `data-addr` lacks wallet address validation (src/index.ts:609-617)
-- **MEDIUM**: Google Fonts stylesheet missing SRI hash (src/index.ts:156-158)
-- **MEDIUM**: CSP font-src too broad — allows any gstatic.com resource (src/index.ts:11)
-- **MEDIUM**: Issue #5 still open — 480 lines hardcoded HTML (maintainability, not security)
-- **MEDIUM**: Issue #28 still open — wallet addresses DOM-exposed without validation
+**Key Findings (c516)**:
+- **CRITICAL**: Address regex accepted invalid lengths → **Fixed PR#30 (merged)**
+- **HIGH**: Install script hardcodes onboarding buddy (by design, configurable later)
+- **MEDIUM**: Install script lacks symlink check on .claude/ destination
+- **MEDIUM**: Wallet addresses duplicated across repos (sync risk)
+- **MEDIUM**: Hardcoded HTML (issue #5 still open)
+- **LOW**: Missing SRI on Google Fonts, CSP missing img-src, tasks.drx4.xyz link missing
 
-**Positives**:
-- CSP nonce-based defense is strong (commit b89c2fc)
-- Install script hardened: mktemp, trap cleanup, remote URL verify, MCP pinned to v1.28.1
-- All external URLs current (explorer.stacks.co, mempool.space, fonts.googleapis.com verified)
-- No exposed secrets or credentials
-- HSTS enforced, X-Frame-Options DENY, permissions-policy locked down
+**Tracking**: Issue #31 filed with all findings.
 
-**Recommended Actions** (Priority):
-1. Add wallet address regex validation before clipboard.writeText() — 30 min
-2. Add SRI hash to Google Fonts stylesheet — 20 min
-3. Refactor HTML into data.ts + render.ts (Issue #5) — 2-4 hours
-4. Research CSP font-src narrowing with Cloudflare — 1 hour investigation
+**Positives**: CSP nonce-based, secure headers, 28+ closed issues, shell quoting proper.
 
-**Maintenance Status**: Excellent. 63 commits, 28 closed issues, 2 open. Recent security focus (CSP nonce, glob fixes, MCP pinning).
+**Previous audit (c480)**: Address validation added (PR#29), SRI still pending.
 
 
 ## Scout Report: inscription-escrow (Cycle 479)
