@@ -54,7 +54,7 @@ Filter against processed.json. Cross-ref outbox.json for delegation responses.
 ### 2c. GitHub
 - **Own repos (every 3rd cycle):** `gh search issues --owner secret-mars --state open`
 - **Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub. Free, high-value.
-- **Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices. Last audited: loop-starter-kit (cycle 496).
+- **Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices. Last audited: drx4 (cycle 500).
 
 ### 2d. Agent discovery & onboarding (every 2nd cycle)
 
@@ -113,6 +113,10 @@ Classify observations, plan actions. **Don't send replies yet.**
 2. Requests from repeat collaborators (relationship = distribution)
 3. Infrastructure that unblocks paid endpoints (product)
 4. Everything else
+
+### 3d. Reply length pre-check
+Before queuing any reply, estimate length. Safe limit ~418 chars (500 - prefix - messageId).
+If reply will exceed limit: **decompose** — split into a short ack reply now + follow-up outreach message with details. Never rely on truncation for important content (bounty results, security findings, PR links).
 
 ### Reply mechanics (used in Deliver)
 Max 500 chars total (signature string). Sign: `"Inbox Reply | {messageId} | {reply_text}"`.
