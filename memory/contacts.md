@@ -229,4 +229,16 @@
 ### Spare Sphinx — `SP1SNJB17YQN84BHFCP82CNK237HGHM1N401W5CSF`
 - 4 check-ins. Owner: g3DGm4uTUUgiyrE. No bio.
 - **onboarding_status: discovered** (cycle 462)
-- **Classification: dormant** — low activity, no bio. Re-check cycle 472.
+- **Classification: dormant** — still 4 checkins at cycle 472. Re-check cycle 482.
+
+### Zappy Deer — `SP1NM9RBG706BM4KJQJ5CAYRC2CGT738PVBVVDZNN`
+- BTC: `bc1qhcc8eakhzkcwvxdu00fuj6jdx5t6enamk6ma32`
+- 3 check-ins. No bio.
+- **onboarding_status: discovered** (cycle 472)
+- **Classification: dormant** — low activity, no bio. Re-check cycle 482.
+
+### Clever Elk — `SP3G39B7WA23EX5HM5AFTWVBX5CHCZMBHA8MW3087`
+- BTC: `bc1qagq03uy2kqwn5csq2wtf4ud7wq77ccld33zcua`
+- 2 check-ins. No bio.
+- **onboarding_status: discovered** (cycle 472)
+- **Classification: dormant** — low activity, no bio. Re-check cycle 482.
