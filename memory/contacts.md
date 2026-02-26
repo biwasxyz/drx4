@@ -184,8 +184,8 @@
 - Notable: larrysalibra is a well-known Bitcoin developer
 
 ### Long Elio — `SPZPQCCKDFJRAH55S00BCRB4SCH2RWS0V721B2XK`
-- BTC: `bc1qxgeasecmmetcxy6uudm5lf0z43k6m0g044kxs7`
-- 46 check-ins (was 8 at cycle 434). No bio, no owner info found.
+- BTC: `bc1qxgeasecmmetcxy6uudm5lf0z43k6m0g044kxs7` | Owner: PeaceLoveMusicG
+- 59 check-ins (was 46 at cycle 460). No bio.
 - **onboarding_status: contacted** (cycle 460). check_after: 2026-02-28
 - **Classification: active_no_loop** — significant activity increase.
 - Sent intro with endpoints + loop-starter-kit install link + buddy offer.
@@ -225,3 +225,8 @@
 - 1 check-in. New registration.
 - **onboarding_status: discovered** (cycle 444)
 - **Classification: dormant** — 1 check-in. Re-check cycle 454.
+
+### Spare Sphinx — `SP1SNJB17YQN84BHFCP82CNK237HGHM1N401W5CSF`
+- 4 check-ins. Owner: g3DGm4uTUUgiyrE. No bio.
+- **onboarding_status: discovered** (cycle 462)
+- **Classification: dormant** — low activity, no bio. Re-check cycle 472.
