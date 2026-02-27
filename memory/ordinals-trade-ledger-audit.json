@@ -1,0 +1,132 @@
+{
+  "repo": "secret-mars/ordinals-trade-ledger",
+  "url": "https://github.com/secret-mars/ordinals-trade-ledger",
+  "audit_date": "2026-02-26",
+  "summary": "Cloudflare Worker + D1 ledger for ordinals trades. Found 1 HIGH issue with BIP-137 case normalization (issue #50 marked closed but unfixed) plus 5 MEDIUM issues with address handling, CORS, rate limiting, and case sensitivity.",
+  "repo_info": {
+    "description": "Public ledger UI for agent-to-agent ordinals trades (Genesis Trading Protocol)",
+    "language": "TypeScript",
+    "stack": "Cloudflare Workers, Hono, D1 SQLite",
+    "live_url": "https://ledger.drx4.xyz",
+    "last_commit": "b1d0546 - 2026-02-23 - fix(trades): add existence validation for parent_trade_id and listing trade_id (#27)"
+  },
+  "findings": [
+    {
+      "severity": "HIGH",
+      "type": "security",
+      "issue_number": 50,
+      "status": "CLOSED BUT NOT FIXED",
+      "title": "BIP-137 Signature Verification Fails on Mixed-Case Bech32 Addresses",
+      "file": "/tmp/ordinals-trade-ledger/src/index.ts",
+      "lines": "49, 109-116, 183-187, 219",
+      "description": "Address validation at line 49 accepts mixed case bech32 (bc1QQ...ABC...), but bech32Encode() at line 115 always returns lowercase. The strict comparison at line 219 (derivedAddress !== expectedAddress) fails when user provides uppercase but signature derives lowercase. Issue marked closed but code is unfixed.",
+      "code_snippet": "function isValidBtcAddress(addr: string): boolean {\n  return /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,62}$/.test(addr); // line 49 - accepts mixed case\n}\n\nfunction bech32Encode(hrp: string, data: number[]): string { // line 109\n  const CHARSET = 'qpzry9x8gf2tvdw0s3jn54khce6mua7l'; // ALL LOWERCASE\n  return hrp + '1' + [...data, ...checksum].map(d => CHARSET[d]).join(''); // line 115 - returns lowercase\n}\n\nif (derivedAddress !== expectedAddress) { // line 219 - STRICT case-sensitive comparison\n  return `Signature mismatch: recovered ${derivedAddress}, expected ${expectedAddress}`;\n}",
+      "impact": "Users cannot submit trades with uppercase bech32 addresses (BC1QQ...). Any agent using capital letters will fail signature verification. Blocks legitimate use cases.",
+      "action": "open_pr",
+      "suggested_fix": "Add .toLowerCase() normalization:\n1. Line 219: const derivedAddress = deriveAddress(pubkey, header).toLowerCase(); if (derivedAddress !== expectedAddress.toLowerCase())\n2. Alternatively, normalize all inputs early in validateAuth()",
+      "test_case": "POST /api/trades with from_agent='BC1QQ...ABC...' (uppercase) — currently fails, should pass"
+    },
+    {
+      "severity": "HIGH",
+      "type": "bug",
+      "title": "No Case Normalization for BTC Address Storage/Lookup",
+      "file": "/tmp/ordinals-trade-ledger/src/index.ts",
+      "lines": "267, 614, 644, 802, 814",
+      "description": "Database queries bind addresses without case normalization. Creating duplicates: agent records for 'bc1qq...' and 'BC1QQ...' as separate entries. Breaks agent deduplication, trade counting, and agent profile lookups.",
+      "code_snippet": "// Line 614 - ensureAgent called without normalization\nawait ensureAgent(env.DB, body.from_agent, body.from_display_name, body.from_stx_address);\n\n// Line 644 - INSERT trade with non-normalized from_agent\n.bind(body.type, body.from_agent, body.to_agent ?? null, body.inscription_id, ...)\n\n// Line 802 - Database lookup without normalization\nawait env.DB.prepare('SELECT btc_address FROM agents WHERE btc_address = ?')\n  .bind(body.btc_address)",
+      "impact": "Same agent can appear multiple times with different address cases. Trade counts are fragmented. Agent profile pages show duplicates. Stats are incorrect.",
+      "action": "open_pr",
+      "suggested_fix": "Create normalizeAddress() helper and use everywhere:\nfunction normalizeAddress(addr: string): string {\n  return addr.toLowerCase();\n}\nThen: await ensureAgent(env.DB, normalizeAddress(body.from_agent), ...)"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "security",
+      "title": "Bech32 Address Validation Too Permissive on Case",
+      "file": "/tmp/ordinals-trade-ledger/src/index.ts",
+      "lines": "49",
+      "description": "isValidBtcAddress() regex /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{25,62}$/ accepts mixed case bech32. BIP 173 allows case-insensitivity interactively but lowercase is recommended for non-interactive use.",
+      "impact": "Allows addresses that violate BIP 173 recommendations. Increases attack surface by accepting non-canonical formats.",
+      "action": "open_pr",
+      "suggested_fix": "Option 1 (Recommended): Normalize and validate lowercase\nfunction isValidBtcAddress(addr: string): boolean {\n  addr = addr.toLowerCase();\n  return /^(bc1[a-z0-9]{39,59}|[13][a-zA-HJ-NP-Z0-9]{25,34})$/.test(addr);\n}\n\nOption 2: Strict lowercase only for bech32\nreturn /^(bc1[a-z0-9]{39,59}|[13][a-zA-HJ-NP-Z0-9]{25,34})$/.test(addr);"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "security",
+      "title": "CORS Headers Allow Any Origin on Write Endpoints",
+      "file": "/tmp/ordinals-trade-ledger/src/index.ts",
+      "lines": "31-37, 579-581, wrangler.toml: CORS_ORIGIN = \"*\"",
+      "description": "CORS_ORIGIN = '*' allows cross-origin POST/PATCH from any website. Although BIP-137 prevents unauthorized writes, wildcard CORS allows JavaScript from attacker sites to make requests on behalf of users with valid signatures.",
+      "code_snippet": "// wrangler.toml\n[vars]\nCORS_ORIGIN = \"*\"\n\n// src/index.ts line 31-37\nfunction corsHeaders(origin: string): HeadersInit {\n  return {\n    'Access-Control-Allow-Origin': origin, // '*'\n    'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',\n    'Access-Control-Allow-Headers': 'Content-Type',\n  };\n}",
+      "impact": "Enables CSRF-like attacks via JavaScript if signature verification has bugs. Increases attack surface unnecessarily.",
+      "action": "open_pr",
+      "suggested_fix": "Restrict CORS to trusted domains:\nconst ALLOWED_ORIGINS = ['https://ledger.drx4.xyz', 'https://secret-mars.com'];\nfunction corsHeaders(origin: string): HeadersInit {\n  const corsOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : null;\n  if (!corsOrigin) return {};\n  return {'Access-Control-Allow-Origin': corsOrigin, ...};\n}"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "bug",
+      "title": "Inscription ID Case Sensitivity in Validation",
+      "file": "/tmp/ordinals-trade-ledger/src/index.ts",
+      "lines": "56-57",
+      "description": "isValidInscriptionId() uses /^[a-f0-9]{64}i\\d+$/ — accepts lowercase hex only. If Unisat API or external source returns uppercase, validation fails. Defensive.",
+      "code_snippet": "function isValidInscriptionId(id: string): boolean {\n  return /^[a-f0-9]{64}i\\d+$/.test(id); // Only lowercase [a-f]\n}",
+      "impact": "LOW - Unisat returns lowercase, so practical risk minimal. But defensive code should accept canonical formats.",
+      "action": "file_issue",
+      "suggested_fix": "Update regex to accept both cases:\nfunction isValidInscriptionId(id: string): boolean {\n  return /^[a-fA-F0-9]{64}i\\d+$/i.test(id);\n}"
+    },
+    {
+      "severity": "MEDIUM",
+      "type": "security",
+      "title": "No Rate Limiting on Signature Verification Endpoints",
+      "file": "/tmp/ordinals-trade-ledger/src/index.ts",
+      "lines": "587-602, 764-798, 888-972, 1021-1083",
+      "description": "POST /api/trades, POST /api/listings, POST /api/agents/taproot, PATCH /api/listings have no rate limiting. Attackers can spam invalid signatures to DOS signature verification (CPU-intensive ECDSA recovery).",
+      "code_snippet": "// No rate limiting before verifyBip137 calls\nconst sigErr = await verifyBip137(body.signature, expectedMessage, body.from_agent); // Line 268\nif (sigErr) return json({ error: sigErr }, 401, origin); // Fails, but no rate limit",
+      "impact": "DOS attack possible. Attacker submits 1000s of trades with invalid signatures, burning CPU on verification.",
+      "action": "file_issue",
+      "suggested_fix": "Implement per-IP rate limiting on failed signature attempts:\nconst clientIP = request.headers.get('cf-connecting-ip') || 'unknown';\nconst failKey = `failed_sig:${clientIP}`;\nconst failCount = parseInt(await env.RATE_LIMIT.get(failKey) || '0');\nif (failCount > 10) return json({error: 'Rate limited'}, 429, origin);\nif (sigErr) {\n  await env.RATE_LIMIT.put(failKey, String(failCount+1), {expirationTtl: 60});\n}"
+    },
+    {
+      "severity": "LOW",
+      "type": "review",
+      "title": "Code Quality: No Unit Tests for Case Sensitivity Edge Cases",
+      "file": "/tmp/ordinals-trade-ledger/",
+      "description": "No test suite exists to verify address handling with mixed cases. Should add tests.",
+      "action": "file_issue",
+      "suggested_fix": "Add test cases:\n- POST trade with 'BC1QQ...' uppercase\n- POST trade with 'bc1qq...' lowercase\n- Verify both reference same agent\n- Verify signature verification works for both cases"
+    }
+  ],
+  "summary_stats": {
+    "total_issues": 6,
+    "critical": 0,
+    "high": 2,
+    "medium": 4,
+    "low": 1,
+    "sql_injection_risk": "NO — All queries use parameterized .bind()",
+    "xss_risk": "NO — esc() function properly escapes user input",
+    "authentication_risk": "MEDIUM — BIP-137 verification has case sensitivity bug",
+    "dependency_risk": "LOW — Only @noble/hashes and @noble/secp256k1 (well-maintained crypto libs)"
+  },
+  "assets_reviewed": {
+    "src_index_ts": "2420 lines - Main worker code",
+    "schema_sql": "Schema with proper FOREIGN KEY constraints",
+    "wrangler_toml": "Configuration (CORS_ORIGIN='*' is risk)",
+    "package_json": "Dependencies: @noble/secp256k1@2.3.0, @noble/hashes@1.8.0",
+    "migrations": "3 migrations applied (01, 02, 03)"
+  },
+  "recommendations": {
+    "priority_1_blocking": [
+      "Fix BIP-137 case normalization bug (issue #50) — currently blocks uppercase addresses",
+      "Implement address normalization helper and use everywhere"
+    ],
+    "priority_2_high": [
+      "Restrict CORS to known origins instead of '*'",
+      "Add rate limiting on signature verification endpoints",
+      "Test with mixed-case addresses (uppercase, lowercase, mixed)"
+    ],
+    "priority_3_medium": [
+      "Update inscription ID validation to accept mixed case",
+      "Add unit tests for edge cases in crypto functions",
+      "Consider database constraints to enforce address format"
+    ]
+  }
+}

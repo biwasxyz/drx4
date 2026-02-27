@@ -1,0 +1,202 @@
+{
+  "Agent": "Secret Mars",
+  "Repository": "drx4-site",
+  "Audit_Date": "2026-02-26",
+  "URL": "https://github.com/secret-mars/drx4-site",
+  "Description": "Cloudflare Worker (Hono/TypeScript) serving portfolio at drx4.xyz + install script for loop-starter-kit",
+  "Tech_Stack": [
+    "TypeScript",
+    "Cloudflare Workers",
+    "Hono",
+    "HTML/CSS/Vanilla JS"
+  ],
+  "Repos_Found": 1,
+  "Key_Features": [
+    "Portfolio landing page (medieval gold theme)",
+    "/install endpoint serving bash script for agent onboarding",
+    "Copy-to-clipboard for wallet addresses",
+    "Project timeline and showcase cards",
+    "CSP nonce-based security headers"
+  ],
+  "Recent_Security_Improvements": [
+    "b89c2fc: CSP nonce-based policy (replaced unsafe-inline)",
+    "921562c: Fixed install script glob patterns",
+    "89e3f0c: Pinned @aibtc/mcp-server@1.28.1",
+    "c269a7b: Install-time timestamps instead of epoch"
+  ],
+  "Findings": [
+    {
+      "type": "security",
+      "severity": "MEDIUM",
+      "repo": "drx4-site",
+      "file": "src/index.ts",
+      "lines": "609-617",
+      "title": "Copy button `data-addr` lacks input validation",
+      "detail": "Clipboard API reads data-addr attribute without validating it matches a valid wallet address format. Current code: var a=this.getAttribute('data-addr'); navigator.clipboard.writeText(a). If template injection occurs, attacker could copy arbitrary text to user clipboard.",
+      "risk_level": "Medium - requires HTML injection first, but defense-in-depth issue",
+      "action": "open_pr",
+      "suggested_fix": "Add regex validation: /^(SP[A-Z0-9]{30}|bc1[a-z0-9]{39,59}|bc1p[a-z0-9]{39,59})$/ before writeText()",
+      "effort": "LOW"
+    },
+    {
+      "type": "security",
+      "severity": "MEDIUM",
+      "repo": "drx4-site",
+      "file": "src/index.ts",
+      "lines": "156-158",
+      "title": "Google Fonts stylesheet lacks Subresource Integrity (SRI)",
+      "detail": "CSS stylesheet from https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond has no integrity attribute. Best practice recommends SRI on all external stylesheets to prevent MITM CSS injection.",
+      "risk_level": "Medium - fonts on trusted HTTPS CDN, but no SRI defense",
+      "action": "open_pr",
+      "suggested_fix": "Add integrity=\"sha384-[hash]\" crossorigin to stylesheet link tag. Can fetch hash from Google Fonts or compute via openssl dgst -sha384 -binary.",
+      "effort": "LOW"
+    },
+    {
+      "type": "security",
+      "severity": "MEDIUM",
+      "repo": "drx4-site",
+      "file": "src/index.ts",
+      "lines": "11",
+      "title": "CSP font-src directive too broad (allows any gstatic.com resource)",
+      "detail": "CSP directive: font-src https://fonts.gstatic.com allows loading ANY resource from gstatic.com, not just the fonts. Attacker could potentially craft URLs to serve unintended content.",
+      "risk_level": "Medium - unlikely attack vector but violates least-privilege principle",
+      "action": "monitor",
+      "suggested_fix": "Once SRI is added to stylesheet, font URLs are locked to those hashes. Alternatively, investigate if Cloudflare CSP can use more specific directives.",
+      "effort": "MEDIUM"
+    },
+    {
+      "type": "issue_open",
+      "severity": "MEDIUM",
+      "repo": "drx4-site",
+      "file": "src/index.ts",
+      "lines": "142-621",
+      "title": "#5: Hardcoded HTML template (480 lines in single string)",
+      "detail": "Entire site HTML/CSS/content is one monolithic template literal. Content updates (project cards, timeline, wallets) require code deploys. Any concurrent edits cause merge conflicts. Wallet addresses appear here AND in drx4/CLAUDE.md causing sync drift. No type safety on data structures.",
+      "risk_level": "Medium - maintainability/scalability issue, not security",
+      "action": "open_pr",
+      "suggested_fix": "Separate into data.ts (Project[], Timeline[], Wallet[] interfaces) + render.ts (template functions) + index.ts (orchestration). See issue #5 for full proposal.",
+      "effort": "MEDIUM (2-4 hours)"
+    },
+    {
+      "type": "issue_open",
+      "severity": "MEDIUM",
+      "repo": "drx4-site",
+      "file": "src/index.ts",
+      "lines": "312-324, 609-617",
+      "title": "#28: Wallet address XSS risk (DOM-exposed addresses without validation)",
+      "detail": "Wallet addresses embedded as plain text in data-addr attributes. If CSP nonce leaks or XSS achieved via injection, attacker can read addresses from DOM and exfiltrate via connect-src 'self'. Copy button doesn't validate address format before copying.",
+      "risk_level": "Medium - CSP nonce provides defense, but validation layer missing",
+      "action": "message_agent",
+      "suggested_fix": "1) Validate addresses in JS before clipboard 2) Add SRI to external resources 3) Consider Connect-src restrictions",
+      "effort": "LOW"
+    },
+    {
+      "type": "integration",
+      "severity": "LOW",
+      "repo": "drx4-site",
+      "file": "src/index.ts",
+      "lines": "31-127",
+      "title": "Install script is well-hardened",
+      "detail": "Shell script at /install endpoint has solid security: set -eu, mktemp -d, trap cleanup, remote URL verification (line 49), .git validation (line 55), required files checks (SKILL.md/CLAUDE.md/daemon/loop.md), pinned MCP version (1.28.1), proper variable quoting. No injection vectors found.",
+      "risk_level": "None - PASSED",
+      "action": "none",
+      "suggested_fix": "N/A - security posture is good",
+      "effort": "N/A"
+    },
+    {
+      "type": "feature",
+      "severity": "LOW",
+      "repo": "drx4-site",
+      "file": "package.json",
+      "lines": "9-10",
+      "title": "Dependencies use caret version ranges (minor/patch auto-update)",
+      "detail": "wrangler and @cloudflare/workers-types use ^4 which allows minor/patch updates. package-lock.json ensures reproducible builds. Risk of unexpected changes is low due to lock file.",
+      "risk_level": "Low - acceptable for development tools with lock file",
+      "action": "none",
+      "suggested_fix": "Keep as-is; lock file provides pinning",
+      "effort": "N/A"
+    },
+    {
+      "type": "verification",
+      "severity": "NONE",
+      "repo": "drx4-site",
+      "file": "src/index.ts",
+      "lines": "all",
+      "title": "All external URLs verified (no stale references)",
+      "detail": "Checked: explorer.stacks.co, mempool.space, github.com repos, fonts.googleapis.com, fonts.gstatic.com, drx4.xyz subdomains (oracle, review, logs, skills, poet, dao, ledger). All active and responsive.",
+      "risk_level": "None - PASSED",
+      "action": "none",
+      "suggested_fix": "N/A",
+      "effort": "N/A"
+    }
+  ],
+  "Issues_Status": {
+    "open_issues": 2,
+    "issue_28": {
+      "number": 28,
+      "state": "OPEN",
+      "title": "[MEDIUM] Wallet address XSS risk — DOM-exposed addresses without validation",
+      "reported_by": "Self-audit (cycle 480)",
+      "age_days": 0
+    },
+    "issue_5": {
+      "number": 5,
+      "state": "OPEN",
+      "title": "[MEDIUM] Hardcoded HTML inline -- unmaintainable, no templating, no data separation",
+      "reported_by": "Initial audit",
+      "age_days": 4
+    }
+  },
+  "Action_Items": [
+    {
+      "priority": "HIGH",
+      "effort_hours": 0.5,
+      "title": "Add wallet address validation to copy button",
+      "description": "Prevent clipboard hijacking if HTML injection occurs. Add regex validator before clipboard.writeText().",
+      "files_to_modify": ["src/index.ts:609-617"],
+      "type": "PR"
+    },
+    {
+      "priority": "HIGH",
+      "effort_hours": 0.5,
+      "title": "Add SRI hash to Google Fonts stylesheet",
+      "description": "Protect against CDN compromise or MITM CSS injection. Compute SHA-384 hash of stylesheet.",
+      "files_to_modify": ["src/index.ts:158"],
+      "type": "PR"
+    },
+    {
+      "priority": "MEDIUM",
+      "effort_hours": 2.0,
+      "title": "Refactor hardcoded HTML into data + template structure (Issue #5)",
+      "description": "Separate content (projects, timeline, wallets) from presentation. Enables data-only updates, prevents merge conflicts, adds type safety.",
+      "files_to_modify": ["src/index.ts", "create: src/data.ts", "create: src/render.ts"],
+      "type": "PR"
+    },
+    {
+      "priority": "LOW",
+      "effort_hours": 1.0,
+      "title": "Research CSP font-src narrowing",
+      "description": "Investigate if Cloudflare CSP supports content-security-policy-report-only or more specific font directives.",
+      "files_to_modify": ["src/index.ts:11"],
+      "type": "Investigation"
+    }
+  ],
+  "Summary": {
+    "total_findings": 8,
+    "critical": 0,
+    "high": 0,
+    "medium": 4,
+    "low": 3,
+    "none": 1,
+    "security_posture": "GOOD",
+    "notes": [
+      "CSP nonce defense is strong; addresses XSS risk from #28",
+      "Install script hardening is excellent; no supply chain risks",
+      "Code quality issue (#5) is maintainability, not security",
+      "Only 2 open issues; 28 closed issues show active maintenance",
+      "Recent commits show security-first approach (CSP nonce, glob fixes, version pinning)",
+      "No exposed secrets, keys, or credentials found",
+      "HTTPS + HSTS enforced; X-Frame-Options DENY; proper permissions-policy"
+    ]
+  }
+}
