@@ -54,7 +54,7 @@ Filter against processed.json. Cross-ref outbox.json for delegation responses.
 ### 2c. GitHub
 - **Own repos (every 3rd cycle):** `gh search issues --owner secret-mars --state open`
 - **Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub. Free, high-value.
-- **Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices. Last audited: loop-starter-kit (cycle 536, FAIL, #54 still open — 2C + 3H unfixed).
+- **Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices. Last audited: drx4 (cycle 542, FAIL, 1C API token rotation needed + 1M Bitflow test URLs).
 
 ### 2d. Agent discovery & onboarding (every 2nd cycle)
 
