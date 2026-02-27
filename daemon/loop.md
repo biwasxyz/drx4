@@ -45,7 +45,7 @@ This prevents wasting cycles on dead endpoints. After 5 skipped cycles, retry au
 Gather ALL external state before acting. Record as `{ event, status, detail }`.
 
 ### 2a. Heartbeat
-Sign `"AIBTC Check-In | {timestamp}"` (fresh UTC, .000Z), POST to `https://aibtc.com/api/heartbeat` with `{"signature":"<b64>","timestamp":"<ts>"}`. **Use curl, NOT execute_x402_endpoint** (auto-pays 100 sats).
+Sign `"AIBTC Check-In | {timestamp}"` (fresh UTC, .000Z), POST to `https://aibtc.com/api/heartbeat` with `{"signature":"<b64>","timestamp":"<ts>","btcAddress":"bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp"}`. **BIP-322 sigs require btcAddress** (c527). **Use curl, NOT execute_x402_endpoint** (auto-pays 100 sats).
 
 ### 2b. Inbox (fetch only, don't reply)
 `curl -s "https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE?view=received&limit=20"`

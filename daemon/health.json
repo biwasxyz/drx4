@@ -1,24 +1,24 @@
 {
-  "cycle": 526,
-  "timestamp": "2026-02-26T23:00:11.000Z",
+  "cycle": 527,
+  "timestamp": "2026-02-27T12:07:30.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "idle",
-    "deliver": "skip",
+    "execute": "ok",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 6,
     "tasks_executed": 0,
     "tasks_pending": 0,
-    "replies_sent": 0,
+    "replies_sent": 2,
     "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 622,
-    "sbtc_balance": 329007,
-    "idle_cycles_count": 2,
+    "outreach_cost_sats": 200,
+    "checkin_count": 623,
+    "sbtc_balance": 328807,
+    "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
@@ -26,5 +26,5 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "next_cycle_at": "2026-02-26T23:10:11.000Z"
+  "next_cycle_at": "2026-02-27T12:12:30.000Z"
 }
