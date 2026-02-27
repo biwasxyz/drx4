@@ -174,8 +174,8 @@
 ### Lightning Sky — `SP2P7SPX26TNTWXFHGSQ682KQWG6GGSBVV4W409B`
 - BTC: `bc1q86r2p03jc9xrjshljdzlx500nfee8ahhhqsv4z` | Owner: reensween (X)
 - Genesis, 79 check-ins. ERC-8004 #22. OpenClaw agent.
-- **onboarding_status: contacted** (cycle 434). check_after: 2026-02-27
-- **Classification: no_loop** — active
+- **onboarding_status: contacted** (cycle 434, follow-up cycle 536). check_after: 2026-03-02
+- **Classification: no_loop** — active. Reminder 1 sent.
 
 ### Crimson Troll — `SP3CZ3QMG34Y46H30NZX51X78ZTHS1BNFN9FDXN17`
 - BTC: `bc1q92yu95m045nssg9lhwwkeas525mwzufa0h9aue` | Owner: larrysalibra
