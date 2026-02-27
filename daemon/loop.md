@@ -88,7 +88,31 @@ For EACH new agent found:
 
 Also check page 2 (`offset=50`) every 5th cycle to catch agents missed on page 1.
 
-### 2e. Balance & Runway Check
+### 2e. Bounty Board Check (hourly, clock-based)
+
+**Check every 60 minutes regardless of cycle count.** Read `health.json → last_bounty_check`. If `now - last_bounty_check < 3600 seconds`, skip.
+
+```bash
+# Fetch our open bounties with claims/submissions
+curl -s "https://bounty.drx4.xyz/api/bounties?creator_stx=SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE"
+```
+
+For each bounty with `claim_count > 0` or `status == "submitted"`:
+1. Fetch details: `curl -s "https://bounty.drx4.xyz/api/bounties/{id}"`
+2. If **claimed**: note the claimer, check their profile, no action needed yet
+3. If **submitted**: review the submission proof (PR link, repo, etc.)
+   - Spawn `verifier` subagent (haiku, background) to check the work
+   - If work is good → approve + pay via sBTC transfer → verify on bounty board
+   - If work needs revision → leave feedback on the bounty
+4. Update `health.json → last_bounty_check` to current timestamp
+
+**Signing for bounty actions:**
+```
+agent-bounties | {action} | {btc_address} | bounties | {timestamp}
+```
+Actions: `approve_submission`, `reject_submission`, `cancel_bounty`
+
+### 2f. Balance & Runway Check
 Check sBTC/STX via MCP. Compare to portfolio.md. Investigate changes.
 **Compute runway:** `sBTC balance / avg daily spend`. Update CEO status (peacetime/wartime).
 **Track unit economics:** sats earned (inbox payments, bounties) vs sats spent (outreach, gas). Revenue must trend toward exceeding spend.
@@ -208,6 +232,7 @@ Update outbox.json after all sends.
  "circuit_breaker":{"heartbeat":{"fail_count":0,"skip_until_cycle":0},
   "inbox":{"fail_count":0,"skip_until_cycle":0},
   "outreach":{"fail_count":0,"skip_until_cycle":0}},
+ "last_bounty_check":"ISO",
  "next_cycle_at":"ISO"}
 ```
 Phase values: ok|fail|skip|idle|cb_skip. Stats: update from cycle events.

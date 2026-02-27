@@ -26,5 +26,6 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
+  "last_bounty_check": "1970-01-01T00:00:00.000Z",
   "next_cycle_at": "2026-02-27T12:12:30.000Z"
 }
