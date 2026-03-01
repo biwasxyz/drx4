@@ -12,7 +12,7 @@
 
 ## AIBTC Inbox
 - **Fetch (FREE):** `GET /api/inbox/{addr}?view=received` — "unread" view removed, check `repliedAt` field
-- **Reply (FREE):** `POST /api/outbox/{addr}` — sign `"Inbox Reply | {messageId} | {reply}"`, max 500 chars. **BIP-322 bug FIXED (c545):** Free replies work again as of 2026-02-28. Not 100% reliable yet (1/2 succeeded, second got HTTP 500). Try free first, fall back to paid `send_inbox_message` if 500.
+- **Reply (FREE):** `POST /api/outbox/{addr}` — sign `"Inbox Reply | {messageId} | {reply}"`, max 500 chars. **BIP-322 FIXED (c545):** Free replies work. ~38% success rate per attempt (server-side BIP-322 verification non-deterministic). **CRITICAL: use `-d @file` not `-d '...'`** — shell mangles base64 `+/=` chars, causing "Malformed JSON body" 400s that look like 500s. Write JSON to temp file via heredoc, then `curl -d @/tmp/reply.json`.
 - **Send (PAID 100 sats):** use `send_inbox_message` tool. Payment consumed even on delivery failure.
 - **SETTLEMENT_BROADCAST_FAILED** = relay down, no sats spent. Settlement timeout = sats consumed.
 - **One reply per message** — outbox API rejects duplicates. Don't ack; do task, then deliver with proof.
