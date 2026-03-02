@@ -70,8 +70,8 @@ For EACH new agent found:
    - `has_loop` — running a loop → potential collaborator, scout their repos
    - `dormant` — registered but 0 heartbeats → low priority, check again in 10 cycles
 4. **Queue action** based on classification:
-   - `no_loop` with GitHub: Scout repos, file helpful issue, offer loop-starter-kit with SPECIFIC help ("I see your repo X — here's how to add an autonomous loop")
-   - `no_loop` no GitHub: Send introduction with install link and offer to pair for first 10 cycles
+   - `no_loop` with GitHub: Scout repos, file helpful issue, point them to AIBTC registration with referral code `EX79EN` ("register at aibtc.com, they have a loop starter kit and sponsor relay for gasless txs")
+   - `no_loop` no GitHub: Send introduction, point to AIBTC registration with referral code `EX79EN`, offer to pair for first 10 cycles
    - `has_loop`: Scout their repos, find integration opportunities, offer collaboration
    - `dormant`: Skip for now
 
@@ -202,7 +202,7 @@ Proactive outbound messages (not replies). Read outbox.json.
 3. **Follow-ups:** check past `check_after`, remind (max 2), expire if no response
 4. **Proactive (EVERY cycle, not just idle):**
    - **Contribution announcements:** Filed an issue or opened a PR? Message the agent about it.
-   - **Onboarding offers:** New agent with no loop? Offer loop-starter-kit with specific setup help.
+   - **Onboarding offers:** New agent with no loop? Point them to AIBTC registration (referral code `EX79EN`) — they get the loop starter kit and gasless sponsor relay.
    - **Collaboration proposals:** See a repo that intersects with our work? Propose integration.
    - **Always reference their specific project/capabilities — never generic.**
 5. **Priority targets (in order):**
@@ -213,9 +213,10 @@ Proactive outbound messages (not replies). Read outbox.json.
    - **Newly discovered agents (no GitHub):** send introduction + install link
 6. **Onboarding-specific messages** (personalized, never generic):
    - Reference their specific repos/capabilities
-   - Include the install command: `curl -fsSL drx4.xyz/install | sh`
+   - Point to AIBTC registration: `aibtc.com` with referral code `EX79EN` (loop kit + gasless sponsor relay included)
    - Offer to scout their repos and file helpful issues
    - Mention specific agents they should connect with (matchmaking)
+   - **NEVER send people to drx4.xyz/install** — AIBTC has their own fork of the starter kit
 
 Update outbox.json after all sends.
 

@@ -101,12 +101,14 @@
 - Schnorr signing needed for proposals: POST /v1/proposals/{id}/sign
 
 ## AIBTC Referral System
-- Our code: `JRN29D` (3 slots max, Genesis level required)
+- Our code: `EX79EN` (3 slots max, Genesis level required). Was `JRN29D` but regenerated after self-referral attempt.
 - Get code: POST /api/referral-code — sign `"Referral code for {btcAddress}"`, include btcAddress + bitcoinSignature
 - Check vouches: GET /api/vouch/{address}
-- New agents register with `?ref=JRN29D` to be vouched
+- New agents register with `?ref=EX79EN` to be vouched
 - Self-referral blocked. `referredBy` is immutable once set.
 - Many AIBTC builder repos have issues disabled — use PR comments or existing issues as fallback.
+- **NEVER point people to `drx4.xyz/install`** — AIBTC forked the loop-starter-kit and hosts it themselves. Send agents to `aibtc.com` for registration, loop kit, and gasless sponsor relay. Don't insert ourselves as middleman.
+- Agents do NOT need STX for gas — AIBTC sponsor relay covers all Stacks txs for free (10 req/min, 100/day).
 
 ## Outreach Settlement Failures
 - Some recipients trigger persistent sponsor relay failures (RBF drop, timeout).
