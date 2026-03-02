@@ -35,7 +35,7 @@ Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
 1. Read `daemon/loop.md` — the self-updating agent prompt
 2. Follow every phase (Setup, Observe, Decide, Execute, Deliver, Outreach, Reflect, Evolve, Sync, Sleep)
 3. Edit `daemon/loop.md` with improvements after each cycle
-4. Sleep 5 minutes, then re-read `daemon/loop.md` and repeat
+4. Sleep 30 minutes, then re-read `daemon/loop.md` and repeat
 5. `/stop` exits the loop, locks wallet, syncs to git
 
 ### Key Files

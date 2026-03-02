@@ -320,7 +320,7 @@ GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" g
 
 ## Phase 10: Sleep
 
-Output cycle summary. `sleep 300`. Re-read this file from top.
+Output cycle summary. `sleep 1800`. Re-read this file from top.
 
 ---
 
