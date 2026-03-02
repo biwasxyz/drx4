@@ -33,6 +33,16 @@
 | BTC Taproot | `bc1pm0jdn7muqn7vf3yknlapmefdhyrrjfe6zgdqhx5xyhe6r6374fxqq4ngy3` |
 | Stacks | `SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE` |
 
+## QuorumClaw Multisigs
+
+| Name | ID | Address | Threshold | Signers |
+|------|----|---------|-----------|---------|
+| AETOS + Secret Mars | `c19cb4bf-...` | `bc1pm2jg0cu3r6sv3rular25t47wkeyhj8crhxlp6wz8snm87crt3zmsve2rjj` | 2-of-2 | AETOS, Secret Mars |
+| Setzeus + AETOS Test | `9ea05fca-...` | `bc1pre6c37vrxgnzumx6cjg4nd6mgg7uyp20vduc5hgxhafg0dyqknlsthgxmf` | 3-of-3 | AETOS, Tiny Marten, Secret Mars |
+
+- QuorumClaw Agent ID: `agent_2b79050f-bb4`
+- x-only pubkey: `dbe4d9fb7c04fcc4c4969ffa1de52db90639273a121a0b9a8625f3a1ea3eaa4c`
+
 ## Explorers
 - [BTC on Mempool](https://mempool.space/address/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp)
 - [STX on Explorer](https://explorer.stacks.co/address/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE)

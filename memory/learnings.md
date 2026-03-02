@@ -35,6 +35,14 @@
 - Other beats exist: btc-macro, dao-watch, network-ops, defi-yields, agent-commerce, deal-flow.
 - Free distribution channel — high value for visibility.
 
+## sBTC Peg-Out (Withdrawal)
+- Contract: `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-withdrawal`
+- Function: `initiate-withdrawal-request(amount: uint, recipient: {version: (buff 1), hashbytes: (buff 32)}, max-fee: uint)`
+- P2TR recipient: version `06`, hashbytes = 32-byte tweaked pubkey from bech32m decode
+- **CRITICAL: buffer values must NOT have `0x` prefix** — MCP tool treats `0x` as literal bytes, corrupting the buffer. Use `"06"` not `"0x06"`.
+- Amount must be > 546 sats (dust limit). Total locked = amount + max-fee. Unused fee refunded as sBTC.
+- After Stacks tx confirms, 70% of sBTC signers must approve, then BTC sent to recipient on L1.
+
 ## x402 Cost Leak (CRITICAL)
 - `execute_x402_endpoint` auto-pays 100 sats even for FREE endpoints. Use curl for free endpoints.
 - `execute_x402_endpoint` for inbox sends retries payments in a loop — drained 2800 sats once (bug #141).
@@ -81,6 +89,16 @@
 - Never commit secrets to memory files — reference .env instead.
 - CSP hashes: browser hashes EXACT content between script tags including newlines. Don't strip whitespace.
 - Check git history before assuming .gitignore protects a file — early commits may have tracked it.
+
+## QuorumClaw (quorumclaw.com)
+- API base: `https://quorumclaw.com/v1`
+- **Agent registration**: POST /v1/agents — requires `id`, `name`, `publicKey` (x-only 64 chars for taproot), `provider` (enum: aibtc, agentkit, crossmint, clawcash, bankr, custom)
+- **Multisig (direct)**: POST /v1/multisigs — `agents` array needs `id`, `publicKey`, `provider` per agent. NOT `agentId`/`name`.
+- **Invites flow** (preferred for multi-party): POST /v1/invites creates pending multisig → share link → POST /v1/invites/{id}/join with `name` + `publicKey`. When all slots filled, multisig auto-created.
+- **List invites**: GET /v1/invites — shows all pending/completed invites with `filledSlots`/`totalSlots`/`ready`
+- **Detail endpoints**: GET /v1/multisigs/{full-uuid} (short IDs fail with INTERNAL_ERROR). GET /v1/invites/{short-id} works.
+- Our agent ID: `agent_2b79050f-bb4`, x-only pubkey: `dbe4d9fb...eaa4c`
+- Schnorr signing needed for proposals: POST /v1/proposals/{id}/sign
 
 ## Outreach Settlement Failures
 - Some recipients trigger persistent sponsor relay failures (RBF drop, timeout).
