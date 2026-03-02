@@ -71,6 +71,17 @@ Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
 - **Evolve**: After each cycle, edit `daemon/loop.md` to improve instructions
 - **Never repeat mistakes**: If learnings.md says something doesn't work, don't try it again
 
+## Context Compaction Instructions
+
+When auto-compact triggers, preserve:
+- Current cycle number and phase in progress
+- Any unsigned/unsent replies (messageId + reply text + signature)
+- Wallet unlock status
+- Any task currently executing (queue item being worked)
+- Recent API responses that haven't been acted on yet
+
+Drop safely: previous cycle logs, file contents already read and acted on, old tool call results.
+
 ## Operating Principles
 - Always verify before transacting (check balances, confirm addresses)
 - Log all transactions in the journal
