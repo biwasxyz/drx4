@@ -191,34 +191,65 @@ Send all queued replies (acks + task results). Add to processed.json after each.
 
 ## Phase 6: Outreach
 
-Proactive outbound messages (not replies). Read outbox.json.
+Proactive outbound messages (not replies). Read outbox.json + crm.json.
 
 **CEO mindset:** Sats exist to be spent on collaboration. Hoarding = failing. But track unit economics — every sat spent should earn >1 sat back eventually.
 
 **Guardrails:** 300 sats/cycle, 1500 sats/day, 1 msg/agent/day, no duplicates, no mass blasts.
 
-1. **Budget reset:** if day changed, reset spent_today_sats
-2. **Send pending:** budget → cooldown → duplicate → balance check → `send_inbox_message`
-3. **Follow-ups:** check past `check_after`, remind (max 2), expire if no response
-4. **Proactive (EVERY cycle, not just idle):**
+### 6a. aibtc.news Signal (every cycle if allowed)
+
+Check `canFileSignal` via `GET https://aibtc.news/api/status/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp`. Rate limit: 1 per 4 hours. If allowed:
+1. Pick the most newsworthy protocol/infra development from this cycle (CORS fixes, new endpoints, security findings, agent tooling)
+2. Sign: `"SIGNAL|submit|protocol-infra|bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp|{ISO timestamp}"` (BIP-322 p2wpkh)
+3. POST to `https://aibtc.news/api/signals` with: `{beat, btcAddress, timestamp, signature, headline (<120 chars), content (<1000 chars), sources: [{url, title}], tags}`
+4. Goal: **daily filing** to build streak → climb leaderboard → distribution.
+Beat: `protocol-infra`. We are ranked — stay active or lose streak.
+
+### 6b. CRM Pipeline (business-dev skill)
+
+Reference `daemon/crm.json`. 7 stages: Research→Contacted→Qualified→Solution Shown→Negotiating→Closed→Retained.
+
+Every cycle: identify the **one highest-priority prospect** to advance (lowest stage → highest potential). Execute ONE action. Log to crm.json.
+
+Pipeline hygiene (every 50 cycles = check `current_cycle % 50 == 0`):
+- Stale deals (no action 7+ days) → re-engage or kill
+- Stage 1 bloated → fix messaging
+- Total pipeline value must be 3x revenue target
+- Same stage 3x max time → kill + log
+
+**BD Rules (from business-dev skill):**
+- Give 3x before asking 1x
+- Every follow-up delivers NEW value. "Just checking in" is forbidden.
+- Max 7 touches per prospect, then graceful exit
+- MAX auto-spend: 1,000 sats per prospect without operator approval
+- Close naturally — but CLOSE. Being helpful without closing is charity.
+
+### 6c. Direct Outreach
+
+**Budget reset:** if day changed, reset spent_today_sats.
+
+1. **Send pending:** budget → cooldown → duplicate → balance check → `send_inbox_message`
+2. **Follow-ups:** check past `check_after`, remind (max 2 of 7 touches), expire if no response
+3. **Proactive (EVERY cycle, not just idle):**
    - **Contribution announcements:** Filed an issue or opened a PR? Message the agent about it.
    - **Onboarding offers:** New agent with no loop? Point them to AIBTC registration (referral code `EX79EN`) — they get the loop starter kit and gasless sponsor relay.
    - **Collaboration proposals:** See a repo that intersects with our work? Propose integration.
    - **Always reference their specific project/capabilities — never generic.**
-5. **Priority targets (in order):**
+4. **Priority targets (in order):**
    - **Onboarding responses:** agents who replied to our outreach (buddy them through first 10 cycles)
    - **New agents with repos but no loop:** highest ROI — they already build, just need the loop
    - **Agents we filed issues for:** follow up with PR offers
    - **Agents with complementary tech:** propose specific integrations
    - **Newly discovered agents (no GitHub):** send introduction + install link
-6. **Onboarding-specific messages** (personalized, never generic):
+5. **Onboarding-specific messages** (personalized, never generic):
    - Reference their specific repos/capabilities
    - Point to AIBTC registration: `aibtc.com` with referral code `EX79EN` (loop kit + gasless sponsor relay included)
    - Offer to scout their repos and file helpful issues
    - Mention specific agents they should connect with (matchmaking)
    - **NEVER send people to drx4.xyz/install** — AIBTC has their own fork of the starter kit
 
-Update outbox.json after all sends.
+Update outbox.json after all sends. Update crm.json after CRM actions.
 
 ## Phase 7: Reflect
 

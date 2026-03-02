@@ -1,25 +1,25 @@
 {
-  "cycle": 566,
-  "timestamp": "2026-03-02T06:31:00.000Z",
+  "cycle": 567,
+  "timestamp": "2026-03-02T16:35:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "idle",
-    "deliver": "idle",
-    "outreach": "skip"
+    "execute": "ok",
+    "deliver": "ok",
+    "outreach": "ok"
   },
   "stats": {
-    "new_messages": 0,
-    "tasks_executed": 0,
+    "new_messages": 6,
+    "tasks_executed": 3,
     "tasks_pending": 0,
-    "replies_sent": 0,
-    "replies_failed": 0,
+    "replies_sent": 2,
+    "replies_failed": 4,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 663,
+    "checkin_count": 664,
     "sbtc_balance": 322807,
-    "idle_cycles_count": 3,
+    "idle_cycles_count": 0,
     "pending_outbox": 7
   },
   "circuit_breaker": {
@@ -28,5 +28,13 @@
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
   "last_bounty_check": "2026-03-02T06:12:00.000Z",
-  "next_cycle_at": "2026-03-02T06:37:00.000Z"
+  "aibtc_news": {
+    "beat": "protocol-infra",
+    "signals_total": 2,
+    "streak": 1,
+    "score": 17,
+    "last_signal": "2026-03-02T16:29:39.000Z",
+    "next_signal_after": "2026-03-02T20:29:46.000Z"
+  },
+  "next_cycle_at": "2026-03-02T16:40:00.000Z"
 }
