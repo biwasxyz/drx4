@@ -256,6 +256,10 @@ Write on meaningful events OR every 5th cycle (periodic summary). Update learnin
 - processed.json > 200 → keep last 30 days
 - queue.json > 10 completed → archive completed/failed > 7 days
 - contacts.md > 500 lines → archive score <=3 + no interaction 30 days
+- Run automation each cycle (safe no-op when under thresholds):
+```bash
+bash daemon/archive_maintenance.sh
+```
 
 ## Phase 8: Evolve
 

@@ -50,3 +50,4 @@ Track what changed in daemon/loop.md and why. Moved here from loop.md to save co
 | 374 | Added Phase 7h: contacts.md archiving (>500 lines → prune dormant agents to contacts-archive.md). | Self-audit found contacts.md at 536 lines with no archiving strategy — only state file without pruning logic. |
 | 374 | Added Phase 8 safety check: verify all 10 phase headers exist after loop.md self-edit. | Self-audit found no integrity safeguard on self-modification — corrupted edit could break all subsequent cycles. |
 | 374 | Pre-created daemon/outbox-archive.json with `{"archived":[]}`. | Self-audit found file would be needed when outbox reaches 50 sent entries but didn't exist — prevents JSON parse crash. |
+| 511 | Added `daemon/archive_maintenance.sh` and wired it into Phase 7e. | Self-audit #24 required concrete archival enforcement for outbox/processed growth, not doc-only thresholds. |
