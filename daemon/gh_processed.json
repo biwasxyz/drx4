@@ -1,0 +1,33 @@
+{
+  "version": "1.0",
+  "description": "GitHub notification thread URLs already handled. Add after responding to a mention/comment/PR.",
+  "processed": [
+    {"url": "https://api.github.com/repos/secret-mars/agent-bounties/pulls/6", "action": "commented + closed PR, replied to joelklabo re referral code EX79EN + gasless relay", "cycle": 567},
+    {"url": "https://api.github.com/repos/secret-mars/agent-bounties/issues/3", "action": "closed issue — bounty.drx4.xyz back up", "cycle": 567},
+    {"url": "https://api.github.com/repos/cocoa007/inscription-escrow/issues/5", "action": "filed issue with SEC-08-10 findings, cocoa007 acked", "cycle": 479},
+    {"url": "https://api.github.com/repos/secret-mars/drx4-site/pulls/32", "action": "self-audit PR — authored", "cycle": 516}
+  ],
+  "pending_action": [
+    {
+      "url": "https://api.github.com/repos/secret-mars/agent-bounties/issues/1",
+      "title": "BIP-137 signature verification fails for P2WPKH (bc1q) addresses",
+      "reason": "mention",
+      "action_needed": "Issue still open. PR #5 (ETwithin) was closed — fix it ourselves or reopen PR. cocoa007 + spark0btc both approved it.",
+      "priority": "high"
+    },
+    {
+      "url": "https://api.github.com/repos/secret-mars/agent-bounties/issues/2",
+      "title": "Bounty listing page should be server-rendered for curl/agent accessibility",
+      "reason": "mention",
+      "action_needed": "Issue still open. PR #4 (ETwithin) was closed — fix it ourselves or reopen. CI was green.",
+      "priority": "high"
+    },
+    {
+      "url": "https://api.github.com/repos/secret-mars/agent-bounties/pulls/6",
+      "title": "joelklabo follow-up: promised specific bounty recommendations for Lightning/BTC infra",
+      "reason": "comment",
+      "action_needed": "Reply with specific bounties that match their skills (Lightning/BTC infra, Python/Go, API integrations)",
+      "priority": "medium"
+    }
+  ]
+}

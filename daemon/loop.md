@@ -61,10 +61,43 @@ Sign `"AIBTC Check-In | {timestamp}"` (fresh UTC, .000Z), POST to `https://aibtc
 `curl -s "https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE?view=received&limit=20"`
 Filter against processed.json. Cross-ref outbox.json for delegation responses.
 
-### 2c. GitHub
-- **Own repos (every 3rd cycle):** `gh search issues --owner secret-mars --state open`
-- **Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub. Free, high-value.
-- **Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. File issues for findings. Focus: security, defensive programming, edge cases, stale data, best practices. Last audited: loop-starter-kit (cycle 548, FAIL, 3C 4H 3M — PR #55 unmerged, issues #60/#62/#64/#65 new).
+### 2c. GitHub Notifications (every cycle — treat like inbox)
+
+```bash
+gh api /notifications?all=false | python3 -c "
+import json,sys
+data=json.loads(sys.stdin.read())
+for n in data:
+    print(n['reason'], n['repository']['full_name'], n['subject']['url'], n['subject']['title'][:60])
+"
+```
+
+Filter against `daemon/gh_processed.json` (keyed by notification thread URL). For each unprocessed notification:
+
+**Triage by reason:**
+- `mention` — we were @mentioned. **Must respond.** Queue for Phase 5.
+- `comment` on our repo — someone replied on our PR/issue. Read thread, respond if needed.
+- `review_requested` — someone wants our review. Add to Phase 4 execute queue.
+- `state_change` — issue/PR opened/closed. Note only, usually no action.
+
+**For contributor PRs on our repos:**
+1. Fetch PR details: `gh pr view {number} --repo {repo} --json title,body,state,reviews,comments`
+2. Check: CI status, review status (approved?), issue it closes
+3. Classify:
+   - `needs_review` — no review yet → add to Phase 4 queue (worker subagent for code review)
+   - `approved_ready` — CI green + reviewed → merge + pay bounty if applicable
+   - `needs_changes` — leave feedback
+   - `abandoned` — no activity 7+ days → close with note
+4. **Never close a valid PR without explanation.** If declining, explain why and offer alternatives.
+5. **If bounty was posted for the issue the PR closes → pay on merge.** Don't merge and ghost.
+
+**After handling each notification:**
+- Add thread URL to `daemon/gh_processed.json`
+- Log action taken
+
+**Own repos check (every 3rd cycle):** `gh search issues --owner secret-mars --state open`
+**Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub.
+**Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. Last audited: loop-starter-kit (cycle 548).
 
 ### 2d. Agent discovery & onboarding (every 2nd cycle)
 
@@ -196,8 +229,18 @@ Pick the ONE highest-impact task. Max 1 task/cycle. Wrap in error handling — f
 
 ## Phase 5: Deliver
 
-Send all queued replies (acks + task results). Add to processed.json after each.
-**Always reply to inbox.** Someone paid 100 sats to reach you. Respect that. (CEO §12)
+Send all queued replies. Update processed trackers after each.
+
+**AIBTC inbox replies** — add to processed.json after sending.
+**GitHub responses** — reply to mentions/comments via `gh issue comment` or `gh pr comment`. Add thread URL to gh_processed.json after responding.
+
+**Always reply.** AIBTC inbox: someone paid 100 sats. GitHub: someone spent time filing an issue or opening a PR. Both deserve a response. (CEO §12)
+
+```bash
+# Reply to a GitHub issue/PR comment
+gh issue comment {number} --repo {repo} --body "..."
+gh pr comment {number} --repo {repo} --body "..."
+```
 
 ## Phase 6: Outreach
 
