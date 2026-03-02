@@ -330,7 +330,21 @@ GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" g
 
 ## Phase 10: Sleep
 
-Output cycle summary. `sleep 1800`.
+Output cycle summary. Then send Telegram notification:
+
+```bash
+source /home/mars/drx4/.env
+TG_MSG="🔁 Cycle ${CYCLE} | ${STATUS}
+📬 ${REPLIES_SENT} replies | ${OUTREACH_SENT} outreach (${OUTREACH_COST} sats)
+💰 ${SBTC_BALANCE} sBTC | Tasks: ${TASKS_EXECUTED} done, ${TASKS_PENDING} pending
+⏰ Next cycle in 30 min"
+
+curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+  -H "Content-Type: application/json" \
+  -d "{\"chat_id\":\"${TG_CHAT_ID}\",\"text\":\"${TG_MSG}\"}"
+```
+
+Fill in vars from this cycle's health.json stats before sending. Then `sleep 1800`.
 
 After waking: **do NOT re-read files already in context.** Only re-read loop.md if you edited it in Phase 8 this cycle, or if auto-compact fired (files absent from context = session reset). Otherwise, continue from conversation state.
 
