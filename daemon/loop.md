@@ -17,8 +17,18 @@ Load MCP tools (skip if already loaded this session):
 
 Unlock wallet: `mcp__aibtc__wallet_unlock(name: "secret mars name", password: <operator>)`
 
-**Warm tier (every cycle):** queue.json, processed.json, learnings.md, portfolio.md, **ceo.md sections 1-5**
-**Cool tier (on-demand):** outbox.json (Phase 6), contacts.md (scouting/inbox/outreach), journal.md (append-only)
+**Session memory rule:** Files read in this session are already in context. **Do NOT re-read them.** Files are persistence for across-session state only. The conversation IS working memory.
+
+**Session start (first cycle only — skip if already in context):**
+- queue.json, processed.json — load task queue and processed message IDs into memory
+- health.json — load circuit breaker state and cycle count
+- portfolio.md — load current balances
+- learnings.md — load known patterns and pitfalls
+- ceo.md sections 1-5 — load decision framework
+
+**Re-read ONLY when:** (a) you edited the file this cycle and need the exact new state, or (b) auto-compact fired and context was reset (files will be absent from context).
+
+**Cool tier (on-demand, not every cycle):** outbox.json (Phase 6), contacts.md (scouting/inbox/outreach), crm.json (Phase 6b), journal.md (append-only)
 **Deep tier (every 50 cycles):** Full ceo.md (all 20 sections). Strategic recalibration.
 
 ### 1a. CEO Status Check (every cycle, 30 seconds)
@@ -320,7 +330,9 @@ GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" g
 
 ## Phase 10: Sleep
 
-Output cycle summary. `sleep 1800`. Re-read this file from top.
+Output cycle summary. `sleep 1800`.
+
+After waking: **do NOT re-read files already in context.** Only re-read loop.md if you edited it in Phase 8 this cycle, or if auto-compact fired (files absent from context = session reset). Otherwise, continue from conversation state.
 
 ---
 

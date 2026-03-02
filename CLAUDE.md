@@ -63,7 +63,8 @@ Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
 - Commit and push memory changes to GitHub
 
 ## Self-Learning Rules
-- **Read before acting**: Load CLAUDE.md, memory/learnings.md, and daemon/processed.json before each cycle
+- **Session memory rule**: Files read in this session are in context — do NOT re-read them. Files are persistence for across-session state. Re-read ONLY if: (a) you edited the file and need the exact new state, or (b) auto-compact fired and context was reset.
+- **Session start only**: Read queue.json, processed.json, health.json, learnings.md, portfolio.md once at the top of the first cycle. After that, track state in conversation memory.
 - **Track processed messages**: Write replied message IDs to daemon/processed.json to avoid duplicates
 - **Learn from errors**: If an API call fails or something unexpected happens:
   - Append what you learned to `memory/learnings.md`
