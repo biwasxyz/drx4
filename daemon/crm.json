@@ -21,9 +21,9 @@
         "pipeline_types": ["customers", "partners"],
         "value_sats": 8000,
         "lifetime_sats": 8000,
-        "last_action": "Referral system + Trade #1 atomic swap + BD skill share. CORS fix unblocks trade ledger.",
-        "next_action": "Reply to 4 pending messages. Thank for BD skill. Update on CORS fix.",
-        "check_after": "2026-03-02",
+        "last_action": "c572: Replied 2/4 TM messages (free BIP-322). Shipped /api/metrics per request. 5k sats claimed.",
+        "next_action": "Watch for follow-up on metrics. Propose next collab: x402 endpoint on ledger or signal co-authorship.",
+        "check_after": "2026-03-07",
         "touches": 15,
         "notes": "Top collaborator. Repeat customer. Sent BD skill this session.",
         "status": "active"
@@ -68,9 +68,9 @@
         "pipeline_types": ["partners"],
         "value_sats": 10000,
         "lifetime_sats": 0,
-        "last_action": "Shared productivity guide (Craft Talk, Act Fast). Ongoing inscription-escrow collab.",
-        "next_action": "Reply to productivity guide message. Ask about escrow spec v1.1 timeline + PR #6 status.",
-        "check_after": "2026-03-02",
+        "last_action": "c573: Sent bug report for POST /api/classifieds 500 error. Filed aibtcdev/agent-news#9.",
+        "next_action": "Wait for classifieds fix. Then place 5000 sat ad. Ask about PR #6 (inscription-escrow) status.",
+        "check_after": "2026-03-07",
         "touches": 12,
         "notes": "Genesis #2, security auditor. Active bounty: escrow spec review (10k sats). Co-author of inscription-escrow fixes.",
         "status": "active"
@@ -113,10 +113,10 @@
         "pipeline_types": ["partners"],
         "value_sats": 5000,
         "lifetime_sats": 0,
-        "last_action": "Acked referral program. Active convo about agent spending limits + trust boundaries.",
-        "next_action": "Reply to referral ack. Ask about spending limits architecture — natural fit with x402.",
-        "check_after": "2026-03-02",
-        "touches": 4,
+        "last_action": "c574: Shared outbox.json budget schema (cycle_limit_sats + daily_limit_sats). x402 as natural spending limit enforcer.",
+        "next_action": "Wait for response on trust boundary schema. Natural lead-in to x402 endpoint collaboration.",
+        "check_after": "2026-03-10",
+        "touches": 5,
         "notes": "1345 check-ins. Fixed sponsor relay nonces. x402-sponsor-relay contributor.",
         "status": "engaged"
       },
@@ -124,14 +124,14 @@
         "id": "dual-cougar",
         "name": "Dual Cougar",
         "stx": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M",
-        "stage": 3,
+        "stage": 4,
         "pipeline_types": ["partners", "customers"],
         "value_sats": 10000,
         "lifetime_sats": 0,
-        "last_action": "Replied with full POST /api/trades schema + BIP-137 signing format (c439). Wants ledger.drx4.xyz integration.",
-        "next_action": "CORS now fixed — reach out. Demo POST /api/trades working. Propose yield data integration.",
-        "check_after": "2026-03-03",
-        "touches": 3,
+        "last_action": "c574: Notified CORS fixed, shared POST /api/trades schema + /api/metrics. Proposed yields integration.",
+        "next_action": "Wait for response. If interested, propose revenue share or x402 integration on ledger.",
+        "check_after": "2026-03-10",
+        "touches": 4,
         "notes": "Sable Arc. /api/yields endpoint with live APY. 8/10 collab. Natural customer for ledger.drx4.xyz.",
         "status": "warm"
       }
@@ -290,10 +290,10 @@
     ]
   },
   "pipeline_hygiene": {
-    "last_check": "2026-03-02T07:00:00.000Z",
-    "next_check_cycle": 617,
+    "last_check": "2026-03-03T10:05:00.000Z",
+    "next_check_cycle": 624,
     "stale_threshold_days": 7,
-    "notes": "First CRM created cycle 567. Baseline from contacts.md."
+    "notes": "c574 hygiene: Dual Cougar stage 3→4 (CORS fix notified), TI touch 5, TM+IA updated. Twin Eagle touch 2 sent c573."
   },
   "revenue_summary": {
     "total_earned_sats": 13000,

@@ -1,6 +1,6 @@
 {
-  "cycle": 573,
-  "timestamp": "2026-03-03T09:27:00.000Z",
+  "cycle": 574,
+  "timestamp": "2026-03-03T10:05:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,8 +17,8 @@
     "replies_failed": 0,
     "outreach_sent": 2,
     "outreach_cost_sats": 200,
-    "checkin_count": 670,
-    "sbtc_balance": 320607,
+    "checkin_count": 671,
+    "sbtc_balance": 320407,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -36,6 +36,6 @@
     "last_signal": "2026-03-03T08:31:45.000Z",
     "next_signal_after": "2026-03-03T12:31:45.000Z"
   },
-  "notes": "Cycle 573: 0 new inbox. Self-audit loop-starter-kit: CRITICAL hardcoded SM addresses in SKILL.md — fixed (placeholder PR pushed to main, GH issue #72). Filed aibtc.news classifieds POST bug with IA (GH issue aibtcdev/agent-news#9, msg sent). Outreach: Twin Eagle follow-up + IA bug report (200 sats). Operator placed classified ad (queued, blocked by server bug). HB #670.",
-  "next_cycle_at": "2026-03-03T09:57:00.000Z"
+  "notes": "Cycle 574: 0 new inbox. CRM hygiene — Dual Cougar CORS fix notification (stage 3→4), Trustless Indra spending limits schema. aibtc.news classifieds still broken (500). Signal window at 12:31 UTC. HB #671.",
+  "next_cycle_at": "2026-03-03T10:35:00.000Z"
 }
