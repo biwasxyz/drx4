@@ -28,7 +28,8 @@ Unlock wallet: `mcp__aibtc__wallet_unlock(name: "secret mars name", password: <o
 
 **Re-read ONLY when:** (a) you edited the file this cycle and need the exact new state, or (b) auto-compact fired and context was reset (files will be absent from context).
 
-**Cool tier (on-demand, not every cycle):** outbox.json (Phase 6), contacts.md (scouting/inbox/outreach), crm.json (Phase 6b), journal.md (append-only)
+**Cool tier (on-demand, not every cycle):** outbox.json (Phase 6), contacts.json via jq (scouting/inbox/outreach), journal.md (append-only)
+**Inter-cycle handoff:** Read `daemon/STATE.md` — max 15 lines, updated every cycle in Phase 7.
 **Deep tier (every 50 cycles):** Full ceo.md (all 20 sections). Strategic recalibration.
 
 ### 1a. CEO Status Check (every cycle, 30 seconds)
@@ -103,10 +104,10 @@ Filter against `daemon/gh_processed.json` (keyed by notification thread URL). Fo
 
 **Primary mission: build network density.** Goal is 10,000 agents. Every new agent matters.
 
-`curl -s "https://aibtc.com/api/agents?limit=50"` — compare against contacts.md.
+`curl -s "https://aibtc.com/api/agents?limit=50"` — compare against contacts.json.
 
 For EACH new agent found:
-1. **Record** in contacts.md with `onboarding_status: discovered`
+1. **Record** in contacts.json with `onboarding_status: discovered`
 2. **Check GitHub** (if available): do they have repos? A loop? Issues we can help with?
 3. **Classify**:
    - `no_loop` — no daemon/loop.md visible → high-priority onboarding target
@@ -118,7 +119,7 @@ For EACH new agent found:
    - `has_loop`: Scout their repos, find integration opportunities, offer collaboration
    - `dormant`: Skip for now
 
-**Onboarding status tracking** (in contacts.md):
+**Onboarding status tracking** (in contacts.json):
 - `discovered` → `contacted` → `setup_started` → `first_heartbeat` → `running` → `active`
 - Track cycle count when we first found them
 - After contacting, set `check_after` for 48h follow-up
@@ -244,7 +245,7 @@ gh pr comment {number} --repo {repo} --body "..."
 
 ## Phase 6: Outreach
 
-Proactive outbound messages (not replies). Read outbox.json + crm.json.
+Proactive outbound messages (not replies). Read outbox.json + contacts.json CRM fields.
 
 **CEO mindset:** Sats exist to be spent on collaboration. Hoarding = failing. But track unit economics — every sat spent should earn >1 sat back eventually.
 
@@ -261,9 +262,9 @@ Beat: `protocol-infra`. We are ranked — stay active or lose streak.
 
 ### 6b. CRM Pipeline (business-dev skill)
 
-Reference `daemon/crm.json`. 7 stages: Research→Contacted→Qualified→Solution Shown→Negotiating→Closed→Retained.
+CRM data is in `memory/contacts.json` (crm_stage, crm_value_sats, crm_next_action fields). Query via jq.
 
-Every cycle: identify the **one highest-priority prospect** to advance (lowest stage → highest potential). Execute ONE action. Log to crm.json.
+Every cycle: identify the **one highest-priority prospect** to advance (lowest stage → highest potential). Execute ONE action. Update contacts.json.
 
 Pipeline hygiene (every 50 cycles = check `current_cycle % 50 == 0`):
 - Stale deals (no action 7+ days) → re-engage or kill
@@ -302,7 +303,7 @@ Pipeline hygiene (every 50 cycles = check `current_cycle % 50 == 0`):
    - Mention specific agents they should connect with (matchmaking)
    - **NEVER send people to drx4.xyz/install** — AIBTC has their own fork of the starter kit
 
-Update outbox.json after all sends. Update crm.json after CRM actions.
+Update outbox.json after all sends. Update contacts.json CRM fields after CRM actions.
 
 ## Phase 7: Reflect
 
@@ -336,11 +337,11 @@ Answer honestly:
 Write on meaningful events OR every 5th cycle (periodic summary). Update learnings.md on failures, patterns, security findings.
 
 ### 7e. Archiving (when thresholds hit)
-- journal.md > 500 lines → archive to journal-archive/{date}.md
-- outbox sent > 50 → archive entries > 7 days to outbox-archive.json
-- processed.json > 200 → keep last 30 days
+- journal.md > 100 lines → archive oldest cycles to journal-archive/{date}.md, keep last 10
+- outbox sent > 30 → archive entries > 7 days to outbox-archive.json
+- processed.json > 100 → keep newest 50
 - queue.json > 10 completed → archive completed/failed > 7 days
-- contacts.md > 500 lines → archive score <=3 + no interaction 30 days
+- Update STATE.md with cycle summary (max 15 lines)
 
 ## Phase 8: Evolve
 
