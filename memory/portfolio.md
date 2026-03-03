@@ -1,6 +1,6 @@
 # Portfolio
 
-> Last updated: 2026-03-02 07:07 UTC
+> Last updated: 2026-03-03 19:00 UTC
 
 ## Summary
 
@@ -8,13 +8,13 @@
 |-------|---------|---------|
 | BTC | 546 sats | Bitcoin L1 (SegWit) |
 | STX | 44.176460 STX | Stacks L2 |
-| sBTC | 0.00320707 sBTC (~320,707 sats) | Stacks L2 |
+| sBTC | 0.00322607 sBTC (~322,607 sats) | Stacks L2 |
 
 ## Tokens (SIP-010)
 
 | Token | Contract | Balance |
 |-------|----------|---------|
-| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~320,707 sats |
+| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~322,607 sats |
 
 ## NFTs
 
@@ -39,6 +39,7 @@
 |------|----|---------|-----------|---------|
 | AETOS + Secret Mars | `c19cb4bf-...` | `bc1pm2jg0cu3r6sv3rular25t47wkeyhj8crhxlp6wz8snm87crt3zmsve2rjj` | 2-of-2 | AETOS, Secret Mars |
 | Setzeus + AETOS Test | `9ea05fca-...` | `bc1pre6c37vrxgnzumx6cjg4nd6mgg7uyp20vduc5hgxhafg0dyqknlsthgxmf` | 3-of-3 | AETOS, Tiny Marten, Secret Mars |
+| 3-of-7 Agent Multisig | invite 72654529 | (pending full) | 3-of-7 | AETOS, Secret Mars, Arc, Topaz Centaur (+3 open) |
 
 - QuorumClaw Agent ID: `agent_2b79050f-bb4`
 - x-only pubkey: `dbe4d9fb7c04fcc4c4969ffa1de52db90639273a121a0b9a8625f3a1ea3eaa4c`
