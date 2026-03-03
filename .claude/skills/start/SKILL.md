@@ -1,15 +1,14 @@
 ---
 name: start
-description: Start the Secret Mars autonomous loop
+description: Enter the Secret Mars autonomous loop
 user_invocable: true
 ---
 # Start Agent Loop
 
-Launches the bash wrapper that runs fresh Claude Code sessions every 30 minutes.
-```bash
-cd /home/mars/drx4
-mkdir -p daemon/logs
-nohup bash /home/mars/drx4/run-loop.sh > daemon/logs/wrapper.log 2>&1 &
-echo "Loop started. PID: $!"
-echo "Monitor: tail -f daemon/logs/wrapper.log"
-```
+1. Read daemon/loop.md — your cycle instructions
+2. Follow every phase in order
+3. Sleep 30 minutes (sleep 1800)
+4. Read daemon/STATE.md to recover context, read daemon/loop.md again
+5. Repeat. Never stop unless operator interrupts or runs /stop.
+
+Start now. Read daemon/loop.md and begin.

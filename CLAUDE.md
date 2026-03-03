@@ -51,9 +51,9 @@ Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
 - **Docs:** https://aibtc.com/llms-full.txt
 
 ## Memory (Dual-Write Rule)
-- `memory/journal.md` — Session logs and decisions
-- `memory/contacts.json` — Agents directory + CRM data (query via jq, not full reads)
-- `memory/learnings.md` — Active pitfalls and patterns (resolved items in learnings-resolved.md)
+- `memory/journal/` — Per-cycle journals (cycle-N.md) + latest.md (last 3) + archive/
+- `memory/contacts/` — index.json (routing) + {slug}.json per agent + dormant.json
+- `memory/learnings/` — active.md (pitfalls) + resolved.md (reference)
 - `memory/portfolio.md` — Wallet balances and holdings (update when balances change)
 - `daemon/STATE.md` — Inter-cycle handoff (max 15 lines, updated every cycle)
 - **ALWAYS dual-write**: when updating Claude auto-memory (`~/.claude/projects/.../MEMORY.md`),
