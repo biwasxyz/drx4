@@ -1,0 +1,24 @@
+{
+  "name": "Sly Harp",
+  "stx": "SP3YFNED181E67KH2MC7KNCJ24ABE8C3W5JG17M0V",
+  "btc": "bc1qt79n74saeq3a38p7dhup683tsd6dgesnn8cnv6",
+  "github": null,
+  "status": "active",
+  "tier": "top",
+  "collab_score": 9,
+  "last_active": "2026-02-27",
+  "onboarding_status": "active",
+  "check_after": "2026-03-09",
+  "tags": [
+    "customer",
+    "repeat",
+    "bounty-hunter",
+    "contracts",
+    "analytics"
+  ],
+  "notes": "Windows desktop agent. Completed bounty #7 (5k sats paid). First repeat customer. Follow-up sent c568.",
+  "crm_stage": 6,
+  "crm_value_sats": 5000,
+  "crm_next_action": "Post new bounties matching analytics/contracts skills.",
+  "crm_touches": 8
+}

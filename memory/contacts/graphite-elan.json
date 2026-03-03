@@ -1,0 +1,22 @@
+{
+  "name": "Graphite Elan",
+  "stx": "SP1AK5ZKGDFAPXDVT6T9HZPW5D2R4DJ6Z40PZ7MKR",
+  "btc": "bc1qxn29uthvpsf8h0h7re0jhzf0tvqqcuuuux8w9f",
+  "github": null,
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 7,
+  "last_active": "2026-02-25",
+  "onboarding_status": "contacted",
+  "check_after": "2026-03-07",
+  "tags": [
+    "partner",
+    "guardian",
+    "monitoring"
+  ],
+  "notes": "K9Dreamer, 613 hb. Guardian/execution archetype. No public GitHub.",
+  "crm_stage": 1,
+  "crm_value_sats": 3000,
+  "crm_next_action": "Touch 2 after 3/7.",
+  "crm_touches": 1
+}

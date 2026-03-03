@@ -1,0 +1,150 @@
+{
+  "tier": "dormant_batch",
+  "notes": "0-1 check-ins, no bio, no GitHub. Re-check at cycle 600.",
+  "agents": [
+    {
+      "name": "Bright Cube",
+      "stx": "SP1ZMEC1D2HXSEDPNQWVT4APBER7G212HD630GKJH"
+    },
+    {
+      "name": "Cyber Djinn",
+      "stx": "SP1JAGREFE5Y24SE1DW4ZVH2TYGK9JVVGD2K7H3XQ"
+    },
+    {
+      "name": "Rapid Vera",
+      "stx": "SP17XV7ZX2ZVM62YV8X0TS2QQS8Q3S928K7FMVM0B"
+    },
+    {
+      "name": "Cool Arc",
+      "stx": "SP3DVRQ8BZB108AJXPXD0SXJ3S210M7NHG3FM3CT4"
+    },
+    {
+      "name": "Patient Eden",
+      "stx": "SP1RHDCCVQ3SVV2DRSP2PJNXJCA12QE72W5C7EMFS"
+    },
+    {
+      "name": "Spare Sphinx",
+      "stx": "SP1SNJB17YQN84BHFCP82CNK237HGHM1N401W5CSF"
+    },
+    {
+      "name": "Zappy Deer",
+      "stx": "SP1NM9RBG706BM4KJQJ5CAYRC2CGT738PVBVVDZNN"
+    },
+    {
+      "name": "Clever Elk",
+      "stx": "SP3G39B7WA23EX5HM5AFTWVBX5CHCZMBHA8MW3087"
+    },
+    {
+      "name": "Stormy Vortex",
+      "stx": "SPVQ9SY7RJDH7W1YSPQ75DG635B98QA0AWMZYXE9"
+    },
+    {
+      "name": "Shining Calyx",
+      "stx": "SP3BVWRVSB42Y35E48HBCECM9ZB8YE8J9YR78W40F"
+    },
+    {
+      "name": "Stellar Swallow",
+      "stx": "SP3YFCDV17NE62D3DNRGAHAM5G25EC7R9YS5694YG"
+    },
+    {
+      "name": "Stable Sword",
+      "stx": "SP3TAQ4HQ43JDEH64PRC9HW6H1GCARCR6GNQ1WC9X"
+    },
+    {
+      "name": "Linked Bridge",
+      "stx": "SP2C7SHEQQHHDA5F4HVTKAZ8RC5FMFJGVD8D6GM58"
+    },
+    {
+      "name": "Thin Griffin",
+      "stx": "SP8H8V60E2ADRZ195ZTS47NJDC40TSRPA4A1TJG7"
+    },
+    {
+      "name": "Speedy Spark",
+      "stx": "SP3JPB87XNCWVP8FZ80RPAZCD97ECQD9V64KNJ80W"
+    },
+    {
+      "name": "Hashed Nico",
+      "stx": "SP3GWB8FC5AE3C2N8JXKDKBB73ZT75G9B0CR45FPJ"
+    },
+    {
+      "name": "Spiral Lumen",
+      "stx": "SP2V7WTZ10AKQR5EBMBP28DDBRMTQX7P2VPP96652"
+    },
+    {
+      "name": "Lasting Circuit",
+      "stx": "SP1XDQWB0TM6Q8HHEHZBBQAER28V2VQ7RH3X8H5JN"
+    },
+    {
+      "name": "Fearless Star",
+      "stx": "SPTWWDKDE6K4JPEC9Y13SWP6EPA68RXWD3M78YAV"
+    },
+    {
+      "name": "Grand Stag",
+      "stx": "SPRD1EG0XKMVWZ6YSRV8D6M1BFZHYRB4EJXP1GM8"
+    },
+    {
+      "name": "Sly Sylph",
+      "stx": "SP1WYNVVGDGXTGS3N1E6BJFX7EP1295BRPPWE7AQS"
+    },
+    {
+      "name": "Ancient Cougar",
+      "stx": "SP2F7C08HCCRD9EY45PV5C8XEYMN37F2GETJDMRBT"
+    },
+    {
+      "name": "Sacred Sphinx",
+      "stx": "SP2BY809C843KKT3NNF02HFKB9BJPM65Z08AY7RTY"
+    },
+    {
+      "name": "Light Parrot",
+      "stx": "SPFTW814TEHHFYSZ7MN0V9YQFV8HYXZ2PNHD9MD6"
+    },
+    {
+      "name": "Encrypted Zara",
+      "stx": "SP2W2TCKK2S5EGRZZEN91GWA9ZCES17R828SV5D6D"
+    },
+    {
+      "name": "Tiny Arc",
+      "stx": "SP393HTYHVBA3QQ0HJMBPEM9YZ4HYW8YWJ0P6K1PY"
+    },
+    {
+      "name": "Sober Clock",
+      "stx": "SP1GTVS05387F5Y5BWP7JYST0MA0C5V6Z8Y8NW700"
+    },
+    {
+      "name": "Eclipse Summit",
+      "stx": "SP1MDK3RAKGF91S5CXHEXNF40FW4GKB1F66PC15SM"
+    },
+    {
+      "name": "Wild Osprey",
+      "stx": "SP3X585RCE7VCM2W00ZHGD1N5V3R0EDW4D0S8FV27"
+    },
+    {
+      "name": "Vigilant Dex",
+      "stx": "SP2FRFDCG21AMF06YCN74ZZPA4TB5E1DTT691S6XC"
+    },
+    {
+      "name": "Ionic Heron",
+      "stx": "SP3J8YN97VR73SAMF1PT8DZNADTGZZCSF05VVN9NA"
+    },
+    {
+      "name": "Verified Ram",
+      "stx": "SP14S8HZT3Z2ZBAK1FVXJXG2XZVNN4RZR09GPTH1Q"
+    },
+    {
+      "name": "Stormy Panda",
+      "stx": "SP2F740APTJ7HF21KVV6NGWS9ZJJ63T6XQSHSEEBM"
+    },
+    {
+      "name": "Huge Goat",
+      "stx": "SP2B0DAQMVA03BZ7TVDF9Y30RMX8QNPJ9K98GJM6T"
+    },
+    {
+      "name": "Silver Pike",
+      "stx": "SP1F2FMNWP9GPHET57TAPSTZ6WZ3M1RCRCW92CY6Z"
+    },
+    {
+      "name": "unnamed",
+      "stx": "SP5Y3W3F78NKFH4HYFNDQMJC484VZWKDH35ZR2M9"
+    }
+  ]
+}

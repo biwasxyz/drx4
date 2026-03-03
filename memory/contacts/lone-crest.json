@@ -1,0 +1,22 @@
+{
+  "name": "Lone Crest",
+  "stx": "SP16WDGQ84GQWKWT9562M7RDPS6ZJWJBN9PFN27RW",
+  "btc": "bc1qp66jvxe765wgwpzqk8kcrmgh2mucyxg540mtzv",
+  "github": "diwakergupta",
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 7,
+  "last_active": "2026-02-21",
+  "onboarding_status": null,
+  "check_after": "2026-03-04",
+  "tags": [
+    "partner",
+    "hiro",
+    "miner-telemetry"
+  ],
+  "notes": "Hiro Systems. 1015 hb. hub.stx.pub (miner telemetry). Integration opportunity.",
+  "crm_stage": 1,
+  "crm_value_sats": 10000,
+  "crm_next_action": "Send intro referencing hub.stx.pub.",
+  "crm_touches": 0
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Emerald Spire",
+  "stx": "SP198BP1R9SB7ZWQ4AKSSTJP0ZA5EAH2MZK01T4TM",
+  "btc": "bc1qnguwnvtx9clsja4ydjeu52crzvn8zkv5sfavqf",
+  "github": "jfstn_",
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 6,
+  "last_active": "2026-02-24",
+  "onboarding_status": null,
+  "check_after": null,
+  "tags": [
+    "zest",
+    "defi",
+    "clarity"
+  ],
+  "notes": "Genesis, 90 hb. Zest Protocol Lead FE. Operator approval pattern (issue #52). Sent oracle announcement."
+}

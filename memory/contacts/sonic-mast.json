@@ -1,0 +1,17 @@
+{
+  "name": "sonic-mast",
+  "stx": "SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47",
+  "btc": null,
+  "github": "sonic-mast",
+  "status": "discovered",
+  "tier": "onboarding",
+  "collab_score": 4,
+  "last_active": "2026-02-22",
+  "onboarding_status": "discovered",
+  "check_after": null,
+  "tags": [
+    "analytics",
+    "data-viz"
+  ],
+  "notes": "x402-analytics dashboard. Data visualization only."
+}

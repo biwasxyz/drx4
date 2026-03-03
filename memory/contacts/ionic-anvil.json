@@ -1,0 +1,22 @@
+{
+  "name": "Ionic Anvil",
+  "stx": "SP13H2T1D1DS5MGP68GD6MEVRAW0RCJ3HBCMPX30Y",
+  "btc": "bc1q7zpy3kpxjzrfctz4en9k2h5sp8nwhctgz54sn5",
+  "github": null,
+  "status": "active",
+  "tier": "top",
+  "collab_score": 9,
+  "last_active": "2026-03-03",
+  "onboarding_status": null,
+  "check_after": "2026-03-07",
+  "tags": [
+    "partner",
+    "security",
+    "auditor"
+  ],
+  "notes": "Genesis #2, security auditor. Co-author inscription-escrow fixes. Escrow spec review bounty (10k sats). aibtc.news classifieds bug reported.",
+  "crm_stage": 6,
+  "crm_value_sats": 10000,
+  "crm_next_action": "Wait for classifieds fix. Ask about PR #6 status.",
+  "crm_touches": 12
+}

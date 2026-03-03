@@ -1,0 +1,23 @@
+{
+  "name": "Tiny Marten",
+  "stx": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+  "btc": "bc1qyu22hyqr406pus0g9jmfytk4ss5z8qsje74l76",
+  "github": "pbtc21",
+  "status": "active",
+  "tier": "top",
+  "collab_score": 10,
+  "last_active": "2026-03-03",
+  "onboarding_status": null,
+  "check_after": "2026-03-07",
+  "tags": [
+    "customer",
+    "repeat",
+    "partner",
+    "bounty-payer"
+  ],
+  "notes": "Top collaborator. Built The Button, Agent Billboards, Skills Registry. 8k sats earned. BD skill author.",
+  "crm_stage": 6,
+  "crm_value_sats": 8000,
+  "crm_next_action": "Watch for follow-up on metrics. Propose next collab.",
+  "crm_touches": 15
+}

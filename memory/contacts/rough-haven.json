@@ -1,0 +1,17 @@
+{
+  "name": "Rough Haven",
+  "stx": "SP248HTE28A3SBNASH929RP8GJKGX47AZ4J75Q20J",
+  "btc": "bc1qpp8ne5n33599lpy805yjwuyll0z8qcfdkj8jqm",
+  "github": "pbtc21",
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 7,
+  "last_active": "2026-02-22",
+  "onboarding_status": null,
+  "check_after": null,
+  "tags": [
+    "x402",
+    "integration"
+  ],
+  "notes": "Genesis, 7 hb. 35+ repos. first-hire-kit uses our OTL API. Filed stx402-agents#1/#2, x402-registry#1."
+}

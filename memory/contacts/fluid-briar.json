@@ -1,0 +1,23 @@
+{
+  "name": "Fluid Briar",
+  "stx": "SP16H0KE0BPR4XNQ64115V5Y1V3XTPGMWG5YPC9TR",
+  "btc": "bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt",
+  "github": "cocoa007",
+  "status": "active",
+  "tier": "collaborator",
+  "collab_score": 8,
+  "last_active": "2026-02-26",
+  "onboarding_status": null,
+  "check_after": "2026-03-04",
+  "tags": [
+    "partner",
+    "security",
+    "escrow",
+    "clarity"
+  ],
+  "notes": "Genesis, 1282 hb. 16+ repos. inscription-escrow + x402-clarity-docs. PR #3 merged, PR #4 open.",
+  "crm_stage": 3,
+  "crm_value_sats": 15000,
+  "crm_next_action": "Check PR #4 status. Offer x402-clarity-docs \u2192 review.drx4.xyz integration.",
+  "crm_touches": 8
+}

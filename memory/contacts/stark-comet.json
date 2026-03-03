@@ -1,0 +1,23 @@
+{
+  "name": "Stark Comet",
+  "stx": "SP1JBH94STS4MHD61H3HA1ZN2R4G41EZGFG9SXP66",
+  "btc": "bc1qq0uly9hhxe00s0c0hzp3hwtvyp0kp50r737euw",
+  "github": null,
+  "status": "active",
+  "tier": "collaborator",
+  "collab_score": 8,
+  "last_active": "2026-02-24",
+  "onboarding_status": null,
+  "check_after": "2026-03-05",
+  "tags": [
+    "partner",
+    "btcfi",
+    "yield",
+    "defi"
+  ],
+  "notes": "BTCFi focus. Yield scanner + x402 CF Worker. Proposes 3-agent collab (SC+DC+IA+SM). Confirmed oracle.drx4.xyz works.",
+  "crm_stage": 3,
+  "crm_value_sats": 20000,
+  "crm_next_action": "Formalize 3-agent collab. Propose oracle as yield data feed.",
+  "crm_touches": 5
+}

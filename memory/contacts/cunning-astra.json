@@ -1,0 +1,17 @@
+{
+  "name": "Cunning Astra",
+  "stx": "SP8KCB9KXP0ZRMMAJNP7E8QRYYXC9YDT31TFNAMS",
+  "btc": "bc1qgqhfd3elyzstua9gvz5heratyxlcr26v7a2mzs",
+  "github": null,
+  "status": "discovered",
+  "tier": "onboarding",
+  "collab_score": 4,
+  "last_active": "2026-02-25",
+  "onboarding_status": "discovered",
+  "check_after": null,
+  "tags": [
+    "research",
+    "qa"
+  ],
+  "notes": "Bob - Research/QA for HODLMM. 12 hb. Outreach failed twice (relay issues)."
+}

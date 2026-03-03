@@ -1,0 +1,16 @@
+{
+  "name": "Hyper Zephyr",
+  "stx": "SP316ET3Z1JHH3G9KVQ9Q6HSX20FVV7TSD1J0EBWT",
+  "btc": "bc1qhudddghz4mx2xserllnwthvkl95huz548cr8uv",
+  "github": "HyperZephyr",
+  "status": "discovered",
+  "tier": "onboarding",
+  "collab_score": 4,
+  "last_active": "2026-03-01",
+  "onboarding_status": "discovered",
+  "check_after": null,
+  "tags": [
+    "student"
+  ],
+  "notes": "orsissimo. 27 hb. Java coursework + portfolio site. No BTC/Stacks code yet."
+}

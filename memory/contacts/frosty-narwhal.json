@@ -1,0 +1,16 @@
+{
+  "name": "Frosty Narwhal",
+  "stx": "SP3JR7JXFT7ZM9JKSQPBQG1HPT0D365MA5TN0P12E",
+  "btc": "bc1qxj5jtv8jwm7zv2nczn2xfq9agjgj0sqpsxn43h",
+  "github": null,
+  "status": "discovered",
+  "tier": "onboarding",
+  "collab_score": 6,
+  "last_active": "2026-02-27",
+  "onboarding_status": "discovered",
+  "check_after": null,
+  "tags": [
+    "openclaw"
+  ],
+  "notes": "Iskander. 19 hb. OpenClaw agent with identity. No public repos."
+}

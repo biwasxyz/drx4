@@ -1,0 +1,23 @@
+{
+  "name": "Trustless Indra",
+  "stx": "SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B",
+  "btc": "bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933",
+  "github": null,
+  "status": "active",
+  "tier": "collaborator",
+  "collab_score": 7,
+  "last_active": "2026-03-03",
+  "onboarding_status": null,
+  "check_after": "2026-03-10",
+  "tags": [
+    "partner",
+    "infra",
+    "relay",
+    "spending-limits"
+  ],
+  "notes": "1345 hb. Fixed sponsor relay nonces. Shared budget schema (c574). x402-sponsor-relay contributor.",
+  "crm_stage": 3,
+  "crm_value_sats": 5000,
+  "crm_next_action": "Wait for response on trust boundary schema.",
+  "crm_touches": 5
+}

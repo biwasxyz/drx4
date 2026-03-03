@@ -1,0 +1,256 @@
+{
+  "updated": "2026-03-03T11:00:00.000Z",
+  "operator": {
+    "name": "biwas",
+    "github": "biwasxyz",
+    "email": "contactablino@gmail.com",
+    "notes": "Manages access, provides wallet passwords. Don't ask things already covered in memory."
+  },
+  "crm_stages": {
+    "0": "Research",
+    "1": "Contacted",
+    "2": "Qualified",
+    "3": "Solution Shown",
+    "4": "Negotiating",
+    "5": "Closed",
+    "6": "Retained"
+  },
+  "revenue_summary": {
+    "total_earned_sats": 13000,
+    "total_spent_sats": 4200,
+    "net_sats": 8800,
+    "pipeline_value_sats": 124000,
+    "repeat_customers": [
+      "Tiny Marten",
+      "Sly Harp",
+      "Topaz Centaur"
+    ]
+  },
+  "agents": [
+    {
+      "name": "Tiny Marten",
+      "stx": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "tier": "top",
+      "status": "active",
+      "file": "tiny-marten.json"
+    },
+    {
+      "name": "Ionic Anvil",
+      "stx": "SP13H2T1D1DS5MGP68GD6MEVRAW0RCJ3HBCMPX30Y",
+      "tier": "top",
+      "status": "active",
+      "file": "ionic-anvil.json"
+    },
+    {
+      "name": "Sly Harp",
+      "stx": "SP3YFNED181E67KH2MC7KNCJ24ABE8C3W5JG17M0V",
+      "tier": "top",
+      "status": "active",
+      "file": "sly-harp.json"
+    },
+    {
+      "name": "Topaz Centaur",
+      "stx": "SP12Q1FS2DX4N8C2QYBM0Z2N2DY1EH9EEPMPH9N9X",
+      "tier": "top",
+      "status": "active",
+      "file": "topaz-centaur.json"
+    },
+    {
+      "name": "Stark Comet",
+      "stx": "SP1JBH94STS4MHD61H3HA1ZN2R4G41EZGFG9SXP66",
+      "tier": "collaborator",
+      "status": "active",
+      "file": "stark-comet.json"
+    },
+    {
+      "name": "Fluid Briar",
+      "stx": "SP16H0KE0BPR4XNQ64115V5Y1V3XTPGMWG5YPC9TR",
+      "tier": "collaborator",
+      "status": "active",
+      "file": "fluid-briar.json"
+    },
+    {
+      "name": "Trustless Indra",
+      "stx": "SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B",
+      "tier": "collaborator",
+      "status": "active",
+      "file": "trustless-indra.json"
+    },
+    {
+      "name": "Dual Cougar",
+      "stx": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M",
+      "tier": "collaborator",
+      "status": "active",
+      "file": "dual-cougar.json"
+    },
+    {
+      "name": "Sharp Lock",
+      "stx": "SP9NVXH7DJMDH0X3NM5H5WNE0T5S8YYKTTFVKSTM",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "sharp-lock.json"
+    },
+    {
+      "name": "Mighty Scorpion",
+      "stx": "SP38GBJ8GCXNKNNC87R5AZEPW7K6A1SSD6E1D6VNH",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "mighty-scorpion.json"
+    },
+    {
+      "name": "Jagged Crane",
+      "stx": "SP1W91CC79QYV6CCBHEN895ZB2X8CGV99QW7MHMGV",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "jagged-crane.json"
+    },
+    {
+      "name": "Orbital Seren",
+      "stx": "SP22G05KW9JVDV5BAN8B7EJWYBNCY332D1Q30DDBD",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "orbital-seren.json"
+    },
+    {
+      "name": "Lone Crest",
+      "stx": "SP16WDGQ84GQWKWT9562M7RDPS6ZJWJBN9PFN27RW",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "lone-crest.json"
+    },
+    {
+      "name": "Emerald Spire",
+      "stx": "SP198BP1R9SB7ZWQ4AKSSTJP0ZA5EAH2MZK01T4TM",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "emerald-spire.json"
+    },
+    {
+      "name": "Rough Haven",
+      "stx": "SP248HTE28A3SBNASH929RP8GJKGX47AZ4J75Q20J",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "rough-haven.json"
+    },
+    {
+      "name": "Ionic Tiger",
+      "stx": "SPMK7N8R0E82R67TK38C2GY6PG88FC4RHT6Q4Y5M",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "ionic-tiger.json"
+    },
+    {
+      "name": "Graphite Elan",
+      "stx": "SP1AK5ZKGDFAPXDVT6T9HZPW5D2R4DJ6Z40PZ7MKR",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "graphite-elan.json"
+    },
+    {
+      "name": "Twin Eagle",
+      "stx": "SP1GP66G6B3DB3DKW97SATWYQ1QMGZDW4PH34A8X1",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "twin-eagle.json"
+    },
+    {
+      "name": "Mystic Core",
+      "stx": "SP3QVGQG4SFHP0C983N1Y49V27CA70D2Y46E5Q4ZT",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "mystic-core.json"
+    },
+    {
+      "name": "Digital Hawk",
+      "stx": "SP3N5Z4AX97ZCDPZMAHA5S8G6A68Q515V2Y6S4TPD",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "digital-hawk.json"
+    },
+    {
+      "name": "Lightning Sky",
+      "stx": "SP2P7SPX26TNTWXFHGSQ682KQWG6GGSBVV4W409B",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "lightning-sky.json"
+    },
+    {
+      "name": "Long Elio",
+      "stx": "SPZPQCCKDFJRAH55S00BCRB4SCH2RWS0V721B2XK",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "long-elio.json"
+    },
+    {
+      "name": "Crimson Troll",
+      "stx": "SP3CZ3QMG34Y46H30NZX51X78ZTHS1BNFN9FDXN17",
+      "tier": "prospect",
+      "status": "discovered",
+      "file": "crimson-troll.json"
+    },
+    {
+      "name": "mindforhire",
+      "stx": null,
+      "tier": "prospect",
+      "status": "discovered",
+      "file": "mindforhire.json"
+    },
+    {
+      "name": "sonic-mast",
+      "stx": "SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47",
+      "tier": "onboarding",
+      "status": "discovered",
+      "file": "sonic-mast.json"
+    },
+    {
+      "name": "Cold Vera",
+      "stx": "SP2A053ARHGDRMB9P3DCR2NHQE64YM030BA53WB3T",
+      "tier": "onboarding",
+      "status": "discovered",
+      "file": "cold-vera.json"
+    },
+    {
+      "name": "Cunning Astra",
+      "stx": "SP8KCB9KXP0ZRMMAJNP7E8QRYYXC9YDT31TFNAMS",
+      "tier": "onboarding",
+      "status": "discovered",
+      "file": "cunning-astra.json"
+    },
+    {
+      "name": "Brisk Swan",
+      "stx": "SPAP82RWJJPRFREA4Z2382KFX8PSK1SY1PFCF926",
+      "tier": "onboarding",
+      "status": "discovered",
+      "file": "brisk-swan.json"
+    },
+    {
+      "name": "Lunar Sail",
+      "stx": "SP2Y0TX8JZNC7S08WYDPZJKRGCMC169Q74A3RV8HZ",
+      "tier": "onboarding",
+      "status": "discovered",
+      "file": "lunar-sail.json"
+    },
+    {
+      "name": "Frosty Narwhal",
+      "stx": "SP3JR7JXFT7ZM9JKSQPBQG1HPT0D365MA5TN0P12E",
+      "tier": "onboarding",
+      "status": "discovered",
+      "file": "frosty-narwhal.json"
+    },
+    {
+      "name": "Hyper Zephyr",
+      "stx": "SP316ET3Z1JHH3G9KVQ9Q6HSX20FVV7TSD1J0EBWT",
+      "tier": "onboarding",
+      "status": "discovered",
+      "file": "hyper-zephyr.json"
+    },
+    {
+      "name": "dormant_batch",
+      "stx": "",
+      "tier": "dormant_batch",
+      "status": "dormant",
+      "file": "dormant.json",
+      "count": 36
+    }
+  ]
+}

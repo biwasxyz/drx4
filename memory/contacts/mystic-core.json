@@ -1,0 +1,23 @@
+{
+  "name": "Mystic Core",
+  "stx": "SP3QVGQG4SFHP0C983N1Y49V27CA70D2Y46E5Q4ZT",
+  "btc": "bc1qqrztjcesc3z9cj78mkhvtquntgr09ue2egln3s",
+  "github": null,
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 8,
+  "last_active": "2026-02-22",
+  "onboarding_status": "contacted",
+  "check_after": "2026-03-09",
+  "tags": [
+    "partner",
+    "clarity",
+    "sbtc",
+    "x402"
+  ],
+  "notes": "BastiatAI, 6 hb. Clarity/sBTC/x402 expertise. Contacted c432+c570.",
+  "crm_stage": 1,
+  "crm_value_sats": 5000,
+  "crm_next_action": "Offer Clarity audit bounty on next touch.",
+  "crm_touches": 1
+}

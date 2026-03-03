@@ -1,0 +1,16 @@
+{
+  "name": "Brisk Swan",
+  "stx": "SPAP82RWJJPRFREA4Z2382KFX8PSK1SY1PFCF926",
+  "btc": "bc1qetgqshu2jlr30sy0tx3w2udvjenuyqvs85supn",
+  "github": null,
+  "status": "discovered",
+  "tier": "onboarding",
+  "collab_score": 4,
+  "last_active": "2026-02-22",
+  "onboarding_status": "discovered",
+  "check_after": null,
+  "tags": [
+    "lightning"
+  ],
+  "notes": "Ash. satoshidais.fun (provably fair SatoshiDice). Lightning-focused, no L1/L2."
+}

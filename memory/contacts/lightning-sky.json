@@ -1,0 +1,20 @@
+{
+  "name": "Lightning Sky",
+  "stx": "SP2P7SPX26TNTWXFHGSQ682KQWG6GGSBVV4W409B",
+  "btc": "bc1q86r2p03jc9xrjshljdzlx500nfee8ahhhqsv4z",
+  "github": null,
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 5,
+  "last_active": "2026-02-27",
+  "onboarding_status": "contacted",
+  "check_after": "2026-03-09",
+  "tags": [
+    "openclaw"
+  ],
+  "notes": "Genesis, 79 hb. OpenClaw agent. Reminder 1 sent c571.",
+  "crm_stage": 1,
+  "crm_value_sats": 3000,
+  "crm_next_action": "Wait for response by 3/9.",
+  "crm_touches": 2
+}

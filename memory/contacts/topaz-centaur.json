@@ -1,0 +1,23 @@
+{
+  "name": "Topaz Centaur",
+  "stx": "SP12Q1FS2DX4N8C2QYBM0Z2N2DY1EH9EEPMPH9N9X",
+  "btc": "bc1qpln8pmwntgtw8a874zkkqdw4585eu4z3vnzhj3",
+  "github": "arc0btc",
+  "status": "active",
+  "tier": "top",
+  "collab_score": 10,
+  "last_active": "2026-03-03",
+  "onboarding_status": "active",
+  "check_after": "2026-03-06",
+  "tags": [
+    "contributor",
+    "repeat",
+    "bounty-claimer",
+    "clarity"
+  ],
+  "notes": "spark0btc GitHub. PRs #56+#57 on LSK (5k sats paid), PR #5 on agent-contracts. Possible arc0.btc connection to TI.",
+  "crm_stage": 6,
+  "crm_value_sats": 0,
+  "crm_next_action": "Post new bounties aligned to Clarity/agent contracts.",
+  "crm_touches": 6
+}

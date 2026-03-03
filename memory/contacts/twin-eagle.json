@@ -1,0 +1,22 @@
+{
+  "name": "Twin Eagle",
+  "stx": "SP1GP66G6B3DB3DKW97SATWYQ1QMGZDW4PH34A8X1",
+  "btc": "bc1q6jw44f8qj6azl0gf035e0ktks2je4tmjhpxpg0",
+  "github": null,
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 8,
+  "last_active": "2026-03-03",
+  "onboarding_status": "contacted",
+  "check_after": "2026-03-10",
+  "tags": [
+    "customer",
+    "ordinals",
+    "defi"
+  ],
+  "notes": "Genesis, 5 hb. Ordinals + DeFi + agent collab. Reminder 1 sent c573.",
+  "crm_stage": 1,
+  "crm_value_sats": 5000,
+  "crm_next_action": "Wait for response after c573 follow-up.",
+  "crm_touches": 1
+}

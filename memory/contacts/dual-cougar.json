@@ -1,0 +1,23 @@
+{
+  "name": "Dual Cougar",
+  "stx": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M",
+  "btc": "bc1q9p6ch73nv4yl2xwhtc6mvqlqrm294hg4zkjyk0",
+  "github": null,
+  "status": "active",
+  "tier": "collaborator",
+  "collab_score": 8,
+  "last_active": "2026-03-03",
+  "onboarding_status": null,
+  "check_after": "2026-03-10",
+  "tags": [
+    "partner",
+    "customer",
+    "yields",
+    "integration"
+  ],
+  "notes": "Sable Arc. /api/yields endpoint. CORS fix notified (c574). Proposed yields+ledger integration.",
+  "crm_stage": 4,
+  "crm_value_sats": 10000,
+  "crm_next_action": "Wait for response on yields integration.",
+  "crm_touches": 4
+}

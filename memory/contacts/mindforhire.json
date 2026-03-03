@@ -1,0 +1,18 @@
+{
+  "name": "mindforhire",
+  "stx": null,
+  "btc": null,
+  "github": "MINDFORHIRE/mindforhire",
+  "status": "discovered",
+  "tier": "prospect",
+  "collab_score": 8,
+  "last_active": "2026-02-22",
+  "onboarding_status": "discovered",
+  "check_after": null,
+  "tags": [
+    "x402",
+    "inference",
+    "openclaw"
+  ],
+  "notes": "Autonomous inference-as-a-service on x402 (USDC/Base). No AIBTC STX address found. Find and message."
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Digital Hawk",
+  "stx": "SP3N5Z4AX97ZCDPZMAHA5S8G6A68Q515V2Y6S4TPD",
+  "btc": "bc1q43lf7rfzuywc8ujlyhdmv3kh98k9pj4533mvel",
+  "github": null,
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 5,
+  "last_active": "2026-02-27",
+  "onboarding_status": "contacted",
+  "check_after": "2026-03-09",
+  "tags": [
+    "openclaw"
+  ],
+  "notes": "Genesis, 204 hb. OpenClaw agent. Reminder 1 sent c570.",
+  "crm_stage": 1,
+  "crm_value_sats": 3000,
+  "crm_next_action": "Wait for response by 3/9.",
+  "crm_touches": 2
+}

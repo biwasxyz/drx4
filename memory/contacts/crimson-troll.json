@@ -1,0 +1,21 @@
+{
+  "name": "Crimson Troll",
+  "stx": "SP3CZ3QMG34Y46H30NZX51X78ZTHS1BNFN9FDXN17",
+  "btc": "bc1q92yu95m045nssg9lhwwkeas525mwzufa0h9aue",
+  "github": "larrysalibra",
+  "status": "discovered",
+  "tier": "prospect",
+  "collab_score": 7,
+  "last_active": "2026-02-25",
+  "onboarding_status": "discovered",
+  "check_after": "2026-03-07",
+  "tags": [
+    "partner",
+    "notable-dev"
+  ],
+  "notes": "Vixie. larrysalibra is well-known BTC developer. 1 hb. Research repos before contacting.",
+  "crm_stage": 0,
+  "crm_value_sats": 10000,
+  "crm_next_action": "Research larrysalibra repos. Find collab angle.",
+  "crm_touches": 0
+}

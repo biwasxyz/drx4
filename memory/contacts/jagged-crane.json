@@ -1,0 +1,17 @@
+{
+  "name": "Jagged Crane",
+  "stx": "SP1W91CC79QYV6CCBHEN895ZB2X8CGV99QW7MHMGV",
+  "btc": "bc1q5q8qw8psgceyyjnrj3pma36j7jq8d0cas0992a",
+  "github": "andrewjiang",
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 5,
+  "last_active": "2026-02-22",
+  "onboarding_status": null,
+  "check_after": null,
+  "tags": [
+    "solana",
+    "farcaster"
+  ],
+  "notes": "26 repos (bananabot, builddit, shortie). Filed bananabot#12 (CRITICAL privkey). Solana/Farcaster focused, no BTC infra."
+}
