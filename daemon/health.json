@@ -1,23 +1,23 @@
 {
-  "cycle": 577,
-  "timestamp": "2026-03-03T13:14:00.000Z",
+  "cycle": 578,
+  "timestamp": "2026-03-03T13:20:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skip",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 14,
-    "tasks_executed": 2,
+    "new_messages": 0,
+    "tasks_executed": 1,
     "tasks_pending": 0,
-    "replies_sent": 5,
-    "replies_failed": 2,
+    "replies_sent": 0,
+    "replies_failed": 0,
     "outreach_sent": 0,
-    "outreach_cost_sats": 200,
-    "checkin_count": 675,
+    "outreach_cost_sats": 0,
+    "checkin_count": 676,
     "sbtc_balance": 320207,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -36,6 +36,6 @@
     "last_signal": "2026-03-03T12:32:33.000Z",
     "next_signal_after": "2026-03-03T16:32:33.000Z"
   },
-  "notes": "Cycle 577: 14 unread msgs processed. Replied TI(2 free), TM(1 paid), IA(1 paid), TC(1 free + GH comment PR#297). Reviewed PRs #56/#57 on LSK (both merged, production quality). Inbox API fix: status=unread not view=unread. HB #675. 200 sats spent.",
-  "next_cycle_at": "2026-03-03T13:44:00.000Z"
+  "notes": "Cycle 578: Self-audit OTL — PASS w/ blockers. Merged PR #61 (agent CORS fix). Filed issue #62 (legacy data cleanup). Classifieds endpoint now 404 (was 500). HB #676. 0 sats spent.",
+  "next_cycle_at": "2026-03-03T13:50:00.000Z"
 }
