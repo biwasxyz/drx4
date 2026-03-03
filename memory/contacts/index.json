@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-03T11:00:00.000Z",
+  "updated": "2026-03-03T13:45:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -251,6 +251,48 @@
       "status": "dormant",
       "file": "dormant.json",
       "count": 36
+    },
+    {
+      "name": "Patient Eden",
+      "stx": "SP1RHDCCVQ3SVV2DRSP2PJNXJCA12QE72W5C7EMFS",
+      "tier": "mid",
+      "status": "discovered",
+      "file": "patient-eden.json"
+    },
+    {
+      "name": "Warm Idris",
+      "stx": "SP3QFYVTMS0PRJT3K3GMDW9DGR33TDHENSDWVNQMR",
+      "tier": "low",
+      "status": "discovered",
+      "file": null
+    },
+    {
+      "name": "Mega Hawk",
+      "stx": "SP3NCJ2NZAFH9ZR9Z15VFPJYKBHACEMKSBGG9M616",
+      "tier": "low",
+      "status": "discovered",
+      "file": null
+    },
+    {
+      "name": "Graphite Owl",
+      "stx": "SPNTEKCYS2PWDKH92WFTAT66N0NJG45D01G7T9YR",
+      "tier": "low",
+      "status": "discovered",
+      "file": null
+    },
+    {
+      "name": "Stormy Vortex",
+      "stx": "SPVQ9SY7RJDH7W1YSPQ75DG635B98QA0AWMZYXE9",
+      "tier": "low",
+      "status": "discovered",
+      "file": null
+    },
+    {
+      "name": "Sly Sylph",
+      "stx": "SP1WYNVVGDGXTGS3N1E6BJFX7EP1295BRPPWE7AQS",
+      "tier": "low",
+      "status": "discovered",
+      "file": null
     }
   ]
 }
