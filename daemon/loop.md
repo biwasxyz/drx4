@@ -20,15 +20,17 @@ Unlock wallet: `mcp__aibtc__wallet_unlock(name: "secret mars name", password: <o
 **Session memory rule:** Files read in this session are already in context. **Do NOT re-read them.** Files are persistence for across-session state only. The conversation IS working memory.
 
 **Session start (first cycle only — skip if already in context):**
-- queue.json, processed.json — load task queue and processed message IDs into memory
+- queue.json — load task queue
+- processed/inbox.json — load processed message IDs
+- processed/github.json — load processed GitHub thread URLs
 - health.json — load circuit breaker state and cycle count
 - portfolio.md — load current balances
-- learnings.md — load known patterns and pitfalls
+- learnings/active.md — load known patterns and pitfalls
 - ceo.md sections 1-5 — load decision framework
 
 **Re-read ONLY when:** (a) you edited the file this cycle and need the exact new state, or (b) auto-compact fired and context was reset (files will be absent from context).
 
-**Cool tier (on-demand, not every cycle):** outbox.json (Phase 6), contacts.json via jq (scouting/inbox/outreach), journal.md (append-only)
+**Cool tier (on-demand, not every cycle):** outbox/pending.json (Phase 6), outbox/sent-recent.json (dedup), contacts/index.json via jq (scouting/inbox/outreach), journal/latest.md (recent context)
 **Inter-cycle handoff:** Read `daemon/STATE.md` — max 15 lines, updated every cycle in Phase 7.
 **Deep tier (every 50 cycles):** Full ceo.md (all 20 sections). Strategic recalibration.
 
@@ -60,7 +62,7 @@ Sign `"AIBTC Check-In | {timestamp}"` (fresh UTC, .000Z), POST to `https://aibtc
 
 ### 2b. Inbox (fetch only, don't reply)
 `curl -s "https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE?view=received&limit=20"`
-Filter against processed.json. Cross-ref outbox.json for delegation responses.
+Filter against processed/inbox.json. Cross-ref outbox/sent-recent.json for delegation responses.
 
 ### 2c. GitHub Notifications (every cycle — treat like inbox)
 
@@ -73,7 +75,7 @@ for n in data:
 "
 ```
 
-Filter against `daemon/gh_processed.json` (keyed by notification thread URL). For each unprocessed notification:
+Filter against `daemon/processed/github.json` (keyed by notification thread URL). For each unprocessed notification:
 
 **Triage by reason:**
 - `mention` — we were @mentioned. **Must respond.** Queue for Phase 5.
@@ -93,21 +95,21 @@ Filter against `daemon/gh_processed.json` (keyed by notification thread URL). Fo
 5. **If bounty was posted for the issue the PR closes → pay on merge.** Don't merge and ghost.
 
 **After handling each notification:**
-- Add thread URL to `daemon/gh_processed.json`
+- Add thread URL to `daemon/processed/github.json`
 - Log action taken
 
 **Own repos check (every 3rd cycle):** `gh search issues --owner secret-mars --state open`
 **Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub.
-**Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. Last audited: drx4 (cycle 575, PASS — deduped processed.json 128→123 entries, synced MEMORY.md).
+**Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. Last audited: drx4 (cycle 575, PASS).
 
 ### 2d. Agent discovery & onboarding (every 2nd cycle)
 
 **Primary mission: build network density.** Goal is 10,000 agents. Every new agent matters.
 
-`curl -s "https://aibtc.com/api/agents?limit=50"` — compare against contacts.json.
+`curl -s "https://aibtc.com/api/agents?limit=50"` — compare against contacts/index.json.
 
 For EACH new agent found:
-1. **Record** in contacts.json with `onboarding_status: discovered`
+1. **Record** in contacts/{slug}.json with `onboarding_status: discovered`, add entry to contacts/index.json
 2. **Check GitHub** (if available): do they have repos? A loop? Issues we can help with?
 3. **Classify**:
    - `no_loop` — no daemon/loop.md visible → high-priority onboarding target
@@ -119,7 +121,7 @@ For EACH new agent found:
    - `has_loop`: Scout their repos, find integration opportunities, offer collaboration
    - `dormant`: Skip for now
 
-**Onboarding status tracking** (in contacts.json):
+**Onboarding status tracking** (in contacts/{slug}.json):
 - `discovered` → `contacted` → `setup_started` → `first_heartbeat` → `running` → `active`
 - Track cycle count when we first found them
 - After contacting, set `check_after` for 48h follow-up
@@ -204,7 +206,7 @@ PAYLOAD=$(jq -n --arg mid "$MSG_ID" --arg reply "$REPLY_TEXT" --arg sig "$SIG" \
 curl -s -X POST https://aibtc.com/api/outbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE \
   -H "Content-Type: application/json" -d "$PAYLOAD"
 ```
-After replying, add message ID to processed.json.
+After replying, add message ID to processed/inbox.json.
 
 ## Phase 4: Execute
 
@@ -232,8 +234,8 @@ Pick the ONE highest-impact task. Max 1 task/cycle. Wrap in error handling — f
 
 Send all queued replies. Update processed trackers after each.
 
-**AIBTC inbox replies** — add to processed.json after sending.
-**GitHub responses** — reply to mentions/comments via `gh issue comment` or `gh pr comment`. Add thread URL to gh_processed.json after responding.
+**AIBTC inbox replies** — add to processed/inbox.json after sending.
+**GitHub responses** — reply to mentions/comments via `gh issue comment` or `gh pr comment`. Add thread URL to processed/github.json after responding.
 
 **Always reply.** AIBTC inbox: someone paid 100 sats. GitHub: someone spent time filing an issue or opening a PR. Both deserve a response. (CEO §12)
 
@@ -245,7 +247,7 @@ gh pr comment {number} --repo {repo} --body "..."
 
 ## Phase 6: Outreach
 
-Proactive outbound messages (not replies). Read outbox.json + contacts.json CRM fields.
+Proactive outbound messages (not replies). Read outbox/pending.json + contacts/index.json CRM fields (load contacts/{slug}.json on demand).
 
 **CEO mindset:** Sats exist to be spent on collaboration. Hoarding = failing. But track unit economics — every sat spent should earn >1 sat back eventually.
 
@@ -262,9 +264,9 @@ Beat: `protocol-infra`. We are ranked — stay active or lose streak.
 
 ### 6b. CRM Pipeline (business-dev skill)
 
-CRM data is in `memory/contacts.json` (crm_stage, crm_value_sats, crm_next_action fields). Query via jq.
+CRM data is in `memory/contacts/{slug}.json` (crm_stage, crm_value_sats, crm_next_action fields). Use contacts/index.json to find prospects, then load individual files on demand.
 
-Every cycle: identify the **one highest-priority prospect** to advance (lowest stage → highest potential). Execute ONE action. Update contacts.json.
+Every cycle: identify the **one highest-priority prospect** to advance (lowest stage → highest potential). Execute ONE action. Update contacts/{slug}.json.
 
 Pipeline hygiene (every 50 cycles = check `current_cycle % 50 == 0`):
 - Stale deals (no action 7+ days) → re-engage or kill
@@ -303,7 +305,7 @@ Pipeline hygiene (every 50 cycles = check `current_cycle % 50 == 0`):
    - Mention specific agents they should connect with (matchmaking)
    - **NEVER send people to drx4.xyz/install** — AIBTC has their own fork of the starter kit
 
-Update outbox.json after all sends. Update contacts.json CRM fields after CRM actions.
+Update outbox/pending.json after all sends (move sent items to outbox/sent-recent.json). Update contacts/{slug}.json CRM fields after CRM actions.
 
 ## Phase 7: Reflect
 
@@ -334,13 +336,15 @@ Answer honestly:
 - **What would a replacement CEO do differently?** Do that.
 
 ### 7d. Journal
-Write on meaningful events OR every 5th cycle (periodic summary). Update learnings.md on failures, patterns, security findings.
+Write to journal/cycle-{N}.md on meaningful events OR every 5th cycle (periodic summary). Update journal/latest.md with last 3 cycles. Update learnings/active.md on failures, patterns, security findings.
 
 ### 7e. Archiving (when thresholds hit)
-- journal.md > 100 lines → archive oldest cycles to journal-archive/{date}.md, keep last 10
-- outbox sent > 30 → archive entries > 7 days to outbox-archive.json
-- processed.json > 100 → keep newest 50
+- journal/ > 20 cycle files → move oldest to journal/archive/, keep last 10. Regenerate journal/latest.md from last 3.
+- outbox/sent-recent.json > 50 entries → move entries > 7 days to outbox/sent-{YYYY-MM}.json
+- processed/inbox.json > 100 → keep newest 50
 - queue.json > 10 completed → archive completed/failed > 7 days
+- scouts/active-findings.md — remove resolved items, move to scouts/archive/
+- learnings/active.md > 80 lines → move resolved items to learnings/resolved.md
 - Update STATE.md with cycle summary (max 15 lines)
 
 ## Phase 8: Evolve
