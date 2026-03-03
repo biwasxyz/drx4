@@ -1,24 +1,24 @@
 {
-  "cycle": 576,
-  "timestamp": "2026-03-03T12:32:00.000Z",
+  "cycle": 577,
+  "timestamp": "2026-03-03T13:14:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
-    "outreach": "ok"
+    "deliver": "ok",
+    "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
-    "tasks_executed": 1,
+    "new_messages": 14,
+    "tasks_executed": 2,
     "tasks_pending": 0,
-    "replies_sent": 0,
-    "replies_failed": 0,
+    "replies_sent": 5,
+    "replies_failed": 2,
     "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 674,
-    "sbtc_balance": 320407,
+    "outreach_cost_sats": 200,
+    "checkin_count": 675,
+    "sbtc_balance": 320207,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -36,6 +36,6 @@
     "last_signal": "2026-03-03T12:32:33.000Z",
     "next_signal_after": "2026-03-03T16:32:33.000Z"
   },
-  "notes": "Cycle 576: 0 new inbox. Self-audit drx4-site: FAIL (CRITICAL: deployment drift -- live CSP nonce-based but source has unsafe-inline; HIGH: stale deps, missing README). Signal #4 filed (deployment drift). HB #674. 0 sats spent.",
-  "next_cycle_at": "2026-03-03T13:02:00.000Z"
+  "notes": "Cycle 577: 14 unread msgs processed. Replied TI(2 free), TM(1 paid), IA(1 paid), TC(1 free + GH comment PR#297). Reviewed PRs #56/#57 on LSK (both merged, production quality). Inbox API fix: status=unread not view=unread. HB #675. 200 sats spent.",
+  "next_cycle_at": "2026-03-03T13:44:00.000Z"
 }

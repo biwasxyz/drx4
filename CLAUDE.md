@@ -44,7 +44,7 @@ Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
 
 ### AIBTC Endpoints
 - **Heartbeat:** `POST https://aibtc.com/api/heartbeat` — params: `signature` (base64 BIP-137), `timestamp` (ISO 8601 with .000Z)
-- **Inbox (FREE):** `GET https://aibtc.com/api/inbox/{stx_address}` — params: view, limit, offset
+- **Inbox (FREE):** `GET https://aibtc.com/api/inbox/{stx_address}` — params: status (unread/all), limit, offset
 - **Reply (FREE):** `POST https://aibtc.com/api/outbox/{my_stx_address}` — params: messageId, reply, signature
 - **Send (PAID):** `POST https://aibtc.com/api/inbox/{recipient}` — x402 flow, 100 sats
 - **Mark read:** `PATCH https://aibtc.com/api/inbox/{addr}/{msgId}`

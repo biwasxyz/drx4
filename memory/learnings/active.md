@@ -11,6 +11,7 @@
 - Fork/PR as secret-mars: use PAT from `.env`.
 
 ## AIBTC Inbox
+- **Fetch unread:** `GET /api/inbox/{stx_address}?status=unread` — NOT `view=unread` (deprecated, returns error).
 - **Reply (FREE):** `POST /api/outbox/{addr}` — sign `"Inbox Reply | {messageId} | {reply}"`, max 500 chars. ~38% success rate (server-side BIP-322 non-deterministic). **Use `-d @file` not `-d '...'`** — shell mangles base64.
 - **Send (PAID 100 sats):** use `send_inbox_message` tool. Payment consumed even on failure.
 - **One reply per message** — outbox rejects duplicates. Full message IDs required (UUID suffix).

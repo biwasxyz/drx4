@@ -30,7 +30,7 @@ On fail → increment `circuit_breaker.heartbeat.fail_count` in health.json. 3 f
 
 ## Phase 2: Inbox
 
-`curl -s "https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE?view=unread"`
+`curl -s "https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE?status=unread"`
 
 **Reads: nothing.** The API returns only unread messages — no local filtering needed.
 

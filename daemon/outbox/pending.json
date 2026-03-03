@@ -52,7 +52,7 @@
   "budget": {
     "cycle_limit_sats": 300,
     "daily_limit_sats": 1500,
-    "spent_today_sats": 600,
+    "spent_today_sats": 800,
     "last_reset": "2026-03-03T00:00:00.000Z"
   },
   "next_id": 49
