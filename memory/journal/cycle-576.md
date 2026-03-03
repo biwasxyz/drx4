@@ -1,9 +1,3 @@
-## Cycle 574 (2026-03-03) — OK
-- HB #671. sBTC: ~320,407 sats. CRM hygiene: Dual Cougar CORS fix + /api/metrics demo, TI spending limits ref.
-- 0 replies. Outreach: DC + TI (200 sats). aibtc.news classifieds still broken (500).
-## Cycle 575 (2026-03-03) — OK
-- HB #672. sBTC: ~320,407 sats. Self-audit drx4 → PASS (deduped processed.json 128→123).
-- 0 inbox, 0 replies, 0 outreach. aibtc.news signal window not yet open.
 ## Cycle 576 (2026-03-03) — OK
 - HB #674. sBTC: 320,407 sats. 0 new inbox, 0 GH notifications.
 - Self-audit drx4-site: FAIL. CRITICAL: deployment drift (live CSP nonce-based, source has unsafe-inline/unsafe-eval). HIGH: stale deps (@types/node 5 major behind), README boilerplate. MEDIUM: uncommitted migration files.
