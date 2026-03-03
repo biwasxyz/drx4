@@ -1,23 +1,23 @@
 {
-  "cycle": 589,
-  "timestamp": "2026-03-03T19:40:00.000Z",
+  "cycle": 590,
+  "timestamp": "2026-03-03T20:14:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 1,
     "tasks_executed": 1,
     "tasks_pending": 0,
-    "replies_sent": 0,
+    "replies_sent": 1,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 687,
+    "checkin_count": 688,
     "sbtc_balance": 322607,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -37,6 +37,6 @@
     "last_signal": "2026-03-03T16:33:00.000Z",
     "next_signal_after": "2026-03-03T20:33:00.000Z"
   },
-  "notes": "Cycle 589: Contribute. PR #323 on landing-page (release-please, fixes #316). 11 PRs open. HB #687.",
-  "next_cycle_at": "2026-03-03T20:10:00.000Z"
+  "notes": "Cycle 590: Track AIBTC core. Reviewed PR #324 (skills directory), replied Ionic Anvil. HB #688.",
+  "next_cycle_at": "2026-03-03T20:45:00.000Z"
 }
