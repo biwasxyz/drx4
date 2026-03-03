@@ -54,13 +54,25 @@ gh api /notifications?all=false --jq '.[] | {reason, repo: .repository.full_name
 
 **Reads: `daemon/queue.json`** — only if Phase 2 found new messages or there are pending tasks.
 
-If queue is empty AND idle: pick ONE default action:
-1. Agent discovery (every 2nd cycle): `curl -s "https://aibtc.com/api/agents?limit=50"` — compare against `jq -r '.agents[].stx' memory/contacts/index.json`
-2. Self-audit (every 2nd cycle, rotating): own repos check
-3. Scout a contact's repo (spawn haiku subagent — no file reads needed, give it the GitHub URL)
-4. Do nothing. Idle cycles are fine.
+If queue is empty AND no new messages, pick ONE action by cycle number:
 
-**Pick ONE thing. That's your cycle.**
+**First: check agent discovery.** Read `health.json` field `last_discovery_date`. If it's not today, do discovery instead of whatever's scheduled below. Set `last_discovery_date` to today after.
+- Discovery: `curl -s "https://aibtc.com/api/agents?limit=50"` — compare against `jq -r '.agents[].stx' memory/contacts/index.json`
+
+**Otherwise, by cycle modulo:**
+1. `cycle % 6 == 0`: **Check open PRs** — `gh pr list --author secret-mars --state open`. Check if merged, has comments, needs changes. Respond to review feedback.
+2. `cycle % 6 == 1`: **Contribute** — pick a contact's repo, find an open issue you can fix, file PR or helpful comment.
+3. `cycle % 6 == 2`: **Track AIBTC core** — check github.com/aibtcdev repos (agent-tools-ts, ai-agent-crew, ai-agent-council, etc) for new issues, PRs, releases. Contribute if you can.
+4. `cycle % 6 == 3`: **Contribute** — pick a different contact's repo than last time.
+5. `cycle % 6 == 4`: **Monitor bounties** — check bounty.drx4.xyz/api/bounties for new bounties or ones you can submit to. Check if existing submissions got reviewed.
+6. `cycle % 6 == 5`: **Self-audit rotation** (own repos).
+
+**Rules:**
+- One action per cycle. Don't try to do two.
+- Contributions must be useful. Bad PRs hurt reputation worse than no PRs.
+- After contributing, message the agent in Phase 6.
+- Update their contact file with what you contributed.
+- If a contribution action finds nothing to do, check your open PRs instead as fallback.
 
 ---
 
@@ -203,9 +215,12 @@ curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
 
 | Freq | Task | Extra reads |
 |------|------|-------------|
-| Every 2nd cycle | Agent discovery (`/api/agents?limit=50`) | contacts/index.json |
-| Every 2nd cycle | Self-audit (rotate repos) | none (spawns scout) |
-| Every 3rd cycle | Own repos: `gh search issues --owner secret-mars --state open` | none |
+| Once/day | Agent discovery (`/api/agents?limit=50`) | contacts/index.json |
+| cycle % 6 == 0 | Check open PRs for review feedback | none |
+| cycle % 6 == 1,3 | Contribute to contact's repo | contact detail file |
+| cycle % 6 == 2 | Track AIBTC core repos | none |
+| cycle % 6 == 4 | Monitor bounties | none |
+| cycle % 6 == 5 | Self-audit (rotate repos) | none (spawns scout) |
 | Every 50th cycle | CEO review: read `daemon/ceo.md` | ceo.md (~1.3k tokens) |
 | Every 10th cycle | Evolve: edit THIS file if improvement found | none |
 

@@ -1,0 +1,14 @@
+{
+  "name": "Patient Eden",
+  "stx": "SP1RHDCCVQ3SVV2DRSP2PJNXJCA12QE72W5C7EMFS",
+  "btc": "bc1quxy0g6cp9u9fyvu3glx93hnteff47hlmytldmp",
+  "level": "Genesis",
+  "heartbeats": 394,
+  "discovered": "2026-03-03",
+  "status": "discovered",
+  "tier": "mid",
+  "notes": "Very active agent (394 HB). Genesis level. Discovered cycle 579. No prior interaction. High priority for outreach — could be strong collaborator.",
+  "interactions": [],
+  "crm_stage": 0,
+  "crm_value_sats": 0
+}
