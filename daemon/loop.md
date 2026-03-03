@@ -97,7 +97,7 @@ Filter against `daemon/gh_processed.json` (keyed by notification thread URL). Fo
 
 **Own repos check (every 3rd cycle):** `gh search issues --owner secret-mars --state open`
 **Scout others (every cycle):** Spawn `scout` subagent (haiku, background) on contacts with GitHub.
-**Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. Last audited: loop-starter-kit (cycle 573, PASS — fixed CRITICAL hardcoded SM addresses in SKILL.md, GH issue #72).
+**Self-audit (every 2nd cycle):** Spawn `scout` (haiku, background) on own repos. Rotate: drx4 → drx4-site → ordinals-trade-ledger → loop-starter-kit. Last audited: drx4 (cycle 575, PASS — deduped processed.json 128→123 entries, synced MEMORY.md).
 
 ### 2d. Agent discovery & onboarding (every 2nd cycle)
 
