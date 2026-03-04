@@ -1,23 +1,23 @@
 {
-  "cycle": 617,
-  "timestamp": "2026-03-04T20:16:00.000Z",
+  "cycle": 618,
+  "timestamp": "2026-03-04T20:48:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
-    "deliver": "ok",
+    "execute": "skipped",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 3,
+    "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 0,
-    "replies_sent": 2,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 717,
+    "checkin_count": 718,
     "sbtc_balance": 321707,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-04T18:37:00.000Z",
+  "last_bounty_check": "2026-03-04T20:48:00.000Z",
   "last_discovery_date": "2026-03-04",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -42,6 +42,6 @@
     "last_action": null,
     "txid": null
   },
-  "notes": "Cycle 617: Replied TM re BIP-110 + thumbs-up on bitcoinknots#238. Declined GE social quest. Ordinals blocked.",
-  "next_cycle_at": "2026-03-04T20:46:00.000Z"
+  "notes": "Cycle 618: News rate-limited. Bounties: no claims. Light cycle — signal ready next cycle.",
+  "next_cycle_at": "2026-03-04T21:18:00.000Z"
 }
