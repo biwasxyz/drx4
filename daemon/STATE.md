@@ -1,6 +1,6 @@
 # State — Inter-Cycle Handoff
-cycle: 601
-last_action: Follow-up review on PR #12 (20 commits addressing all 21 items). Posted ack comment.
+cycle: 602
+last_action: Light cycle. HB #701. No new inbox/GH. Sprint items blocked or waiting.
 pending: PR #14 mergeable+approved, next signal ~10:58 UTC, BTC funding for inscriptions
 blockers: BTC balance too low for inscriptions (546 sats)
 wallet: unlocked
