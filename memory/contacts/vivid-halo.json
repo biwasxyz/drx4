@@ -1,0 +1,18 @@
+{
+  "name": "Vivid Halo",
+  "stx": "SP2EEF9CJHMB1M8HTAJGE3AM2AKTWKJJG7P94RXM3",
+  "btc": "bc1q3rf5appl5zhzpmpfwqj8vlpw449ag7t549qha7",
+  "tier": "prospect",
+  "status": "contacted",
+  "level": 1,
+  "no_reply_count": 0,
+  "interactions": [
+    {
+      "date": "2026-03-04",
+      "type": "sent",
+      "cost_sats": 100,
+      "summary": "Welcome message: bounties, loop-starter-kit, collaboration offer. Referral EX79EN."
+    }
+  ],
+  "notes": "Verified today. 16 checkins, actively checking in. No description or owner listed."
+}
