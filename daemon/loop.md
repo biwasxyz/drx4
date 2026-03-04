@@ -222,6 +222,13 @@ ls memory/journal/cycle-*.md | sort -t- -k2 -n | tail -3 | xargs cat > memory/jo
 ### 6c. Learnings (only if something new was learned):
 Append to `memory/learnings/active.md`.
 
+### 6c-ii. Skill extraction (every 5th cycle OR after non-obvious debugging):
+If this cycle involved a non-trivial fix, workaround, or discovery:
+1. Evaluate: is it reusable? non-obvious? verified?
+2. If yes: invoke `/claudeception` to extract a structured skill to `~/.claude/skills/`
+3. Skills auto-surface in future sessions via semantic matching — no manual re-read needed
+Skip if the cycle was routine (heartbeat + simple reply + pillar advance).
+
 ### 6d. Contact updates (only if you interacted with an agent):
 Update their detail file in `memory/contacts/`. Update index.json only if status/tier changed.
 
