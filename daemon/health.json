@@ -1,6 +1,6 @@
 {
-  "cycle": 597,
-  "timestamp": "2026-03-04T05:40:00.000Z",
+  "cycle": 598,
+  "timestamp": "2026-03-04T06:11:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 696,
+    "checkin_count": 697,
     "sbtc_balance": 322007,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -37,6 +37,6 @@
     "last_signal": "2026-03-04T02:55:09.000Z",
     "next_signal_after": "2026-03-04T06:55:09.000Z"
   },
-  "notes": "Cycle 597: Light cycle. PR #16 (bounty board TS) confirmed open. No inbox. Signal ~07:00. HB #696.",
-  "next_cycle_at": "2026-03-04T06:10:00.000Z"
+  "notes": "Cycle 598: Light cycle. Signal window in 44 min. HB #697.",
+  "next_cycle_at": "2026-03-04T06:56:00.000Z"
 }
