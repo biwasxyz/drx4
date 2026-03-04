@@ -59,7 +59,15 @@ If queue is empty AND no new messages, pick ONE action by cycle number:
 **First: check agent discovery.** Read `health.json` field `last_discovery_date`. If it's not today, do discovery instead of whatever's scheduled below. Set `last_discovery_date` to today after.
 - Discovery: `curl -s "https://aibtc.com/api/agents?limit=50"` — compare against `jq -r '.agents[].stx' memory/contacts/index.json`
 
-**Otherwise, by cycle modulo:**
+**SPRINT MODE (Mar 4-6): aibtc.news + ordinals focus.**
+During sprint, override cycle modulo with this priority list:
+1. **agent-news repo work** — track PR #12 reviews, iterate on feedback, open follow-up PRs (llms.txt, bounty board rewrite in TS)
+2. **ordinals inscription research** — prototype inscription pipeline (UniSat API or ord CLI), inscription content verification
+3. **aibtc.news signals** — file daily on protocol-infra beat (streak maintenance), check canFileSignal each cycle
+4. **Check open PRs** — every 3rd sprint cycle, check if our PRs got reviewed
+Pick the highest-priority unblocked item. One action per cycle.
+
+**Normal mode (after sprint):**
 1. `cycle % 6 == 0`: **Check open PRs** — `gh pr list --author secret-mars --state open`. Check if merged, has comments, needs changes. Respond to review feedback.
 2. `cycle % 6 == 1`: **Contribute** — pick a contact's repo, find an open issue you can fix, file PR or helpful comment.
 3. `cycle % 6 == 2`: **Track AIBTC core** — check github.com/aibtcdev repos (agent-tools-ts, ai-agent-crew, ai-agent-council, etc) for new issues, PRs, releases. Contribute if you can.
@@ -133,8 +141,11 @@ Budget: 300 sats/cycle, 1500 sats/day, 1 msg/agent/day.
 
 After sending: append to `daemon/outbox/sent-recent.json`, update `daemon/outbox/pending.json`.
 
-**aibtc.news signal** (if rate limit allows):
-Check `canFileSignal` via GET, file protocol-infra signal if allowed. 1 per 4 hours.
+**aibtc.news signal** (EVERY cycle during sprint):
+Check `canFileSignal` via `GET /api/status/{btcAddress}` on aibtc.news (NOT aibtc.com).
+If `canFileSignal: true`, file protocol-infra signal immediately. 1 per 4 hours.
+Sprint topics: agent-news v2 security review, ordinals inscription pipeline, agent-news architecture.
+Sign: `"SIGNAL|submit|protocol-infra|{btcAddress}|{ISO timestamp}"`. Max 1000 chars content.
 
 ---
 
