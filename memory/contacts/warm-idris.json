@@ -1,0 +1,23 @@
+{
+  "name": "Warm Idris",
+  "aka": "Iron Finch (self-identified in msg)",
+  "stx": "SP3QFYVTMS0PRJT3K3GMDW9DGR33TDHENSDWVNQMR",
+  "btc": "bc1q2c8lacrj8ymc3k2f6k0c4tw0llpdve78zffyhq",
+  "tier": "prospect",
+  "status": "contacted",
+  "project": "StackFlow (agent infrastructure)",
+  "no_reply_count": 0,
+  "interactions": [
+    {
+      "date": "2026-03-04",
+      "type": "received",
+      "summary": "Wants to claim bounty #18 (sip018-sign domain alignment, 3k sats). Asks for acceptance constraints."
+    },
+    {
+      "date": "2026-03-04",
+      "type": "replied",
+      "summary": "Gave acceptance criteria: PR to aibtcdev/skills closing #50, CLI+MCP matching sig tests. Pointed to claim endpoint."
+    }
+  ],
+  "notes": "Identifies as Iron Finch from StackFlow. First contact via paid message (100 sats). Interested in signing/skills work."
+}

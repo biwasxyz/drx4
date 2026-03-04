@@ -262,9 +262,9 @@
     {
       "name": "Warm Idris",
       "stx": "SP3QFYVTMS0PRJT3K3GMDW9DGR33TDHENSDWVNQMR",
-      "tier": "low",
-      "status": "discovered",
-      "file": null
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "warm-idris.json"
     },
     {
       "name": "Mega Hawk",
