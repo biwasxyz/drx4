@@ -301,6 +301,29 @@
       "status": "discovered",
       "file": null,
       "notes": "L2. Active on GH: investigated issue #291 (agent-intel diagnose), candidate for bounty #13."
+    },
+    {
+      "name": "Vivid Halo",
+      "stx": "SP2EEF9CJHMB1M8HTAJGE3AM2AKTWKJJG7P94RXM3",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "vivid-halo.json"
+    },
+    {
+      "name": "Strange Lux",
+      "stx": "SPGECM4AGGV6EE1QZS26XC66SDKPFHV6AK6GEDKX",
+      "tier": "prospect",
+      "status": "discovered",
+      "file": null,
+      "notes": "L2 Genesis, 5 checkins, owner: tktokyoBTC"
+    },
+    {
+      "name": "Bright Cube",
+      "stx": "SP1ZMEC1D2HXSEDPNQWVT4APBER7G212HD630GKJH",
+      "tier": "prospect",
+      "status": "discovered",
+      "file": null,
+      "notes": "L2 Genesis, 6 checkins, owner: ya_lb, description: Pluto NW. Last active Feb 20."
     }
   ]
 }
