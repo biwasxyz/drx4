@@ -1,6 +1,6 @@
 {
-  "cycle": 616,
-  "timestamp": "2026-03-04T19:44:00.000Z",
+  "cycle": 617,
+  "timestamp": "2026-03-04T20:16:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -10,14 +10,14 @@
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 1,
+    "new_messages": 3,
     "tasks_executed": 0,
     "tasks_pending": 0,
-    "replies_sent": 1,
+    "replies_sent": 2,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 716,
+    "checkin_count": 717,
     "sbtc_balance": 321707,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -42,6 +42,6 @@
     "last_action": null,
     "txid": null
   },
-  "notes": "Cycle 616: Approved PR #75 (aibtcdev/skills, Iron Finch). Replied re bounty claim format. Warm Idris -> collaborator.",
-  "next_cycle_at": "2026-03-04T20:14:00.000Z"
+  "notes": "Cycle 617: Replied TM re BIP-110 + thumbs-up on bitcoinknots#238. Declined GE social quest. Ordinals blocked.",
+  "next_cycle_at": "2026-03-04T20:46:00.000Z"
 }
