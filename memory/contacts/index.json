@@ -256,7 +256,7 @@
       "name": "Patient Eden",
       "stx": "SP1RHDCCVQ3SVV2DRSP2PJNXJCA12QE72W5C7EMFS",
       "tier": "mid",
-      "status": "discovered",
+      "status": "contacted",
       "file": "patient-eden.json"
     },
     {
