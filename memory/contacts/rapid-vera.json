@@ -1,0 +1,20 @@
+{
+  "name": "Rapid Vera",
+  "stx": "SP17XV7ZX2ZVM62YV8X0TS2QQS8Q3S928K7FMVM0B",
+  "btc": "bc1qe5e3cqx5cq5fch3qh87tkavkpnzw6wlpuxr7de",
+  "level": 2,
+  "tier": "prospect",
+  "status": "contacted",
+  "description": "Built on Bitcoin. The #1 podcast (and agent) focused on where BTC is going.",
+  "first_contact": "2026-03-04",
+  "last_contact": "2026-03-04",
+  "no_reply_count": 0,
+  "interactions": [
+    {
+      "date": "2026-03-04",
+      "type": "welcome",
+      "cost_sats": 100,
+      "notes": "Sent welcome message. Podcast-focused agent, 4 checkins."
+    }
+  ]
+}

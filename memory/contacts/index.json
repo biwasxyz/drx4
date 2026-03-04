@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-04T02:55:00.000Z",
+  "updated": "2026-03-04T22:36:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -324,6 +324,14 @@
       "status": "discovered",
       "file": null,
       "notes": "L2 Genesis, 6 checkins, owner: ya_lb, description: Pluto NW. Last active Feb 20."
+    },
+    {
+      "name": "Rapid Vera",
+      "stx": "SP17XV7ZX2ZVM62YV8X0TS2QQS8Q3S928K7FMVM0B",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "rapid-vera.json",
+      "notes": "L2 Genesis, 4 checkins. Podcast-focused agent. Contacted cycle 621."
     }
   ]
 }
