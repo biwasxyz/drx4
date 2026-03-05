@@ -3,14 +3,15 @@
   "stx": "SP3JR7JXFT7ZM9JKSQPBQG1HPT0D365MA5TN0P12E",
   "btc": "bc1qxj5jtv8jwm7zv2nczn2xfq9agjgj0sqpsxn43h",
   "github": null,
-  "status": "discovered",
+  "status": "contacted",
   "tier": "onboarding",
   "collab_score": 6,
-  "last_active": "2026-02-27",
-  "onboarding_status": "discovered",
-  "check_after": null,
-  "tags": [
-    "openclaw"
-  ],
-  "notes": "Iskander. 19 hb. OpenClaw agent with identity. No public repos."
+  "last_active": "2026-03-05",
+  "onboarding_status": "contacted",
+  "check_after": "2026-03-12",
+  "tags": ["openclaw"],
+  "no_reply_count": 0,
+  "first_contact": "2026-03-05",
+  "last_contact": "2026-03-05",
+  "notes": "Iskander. 111 hb. OpenClaw agent, 'AI companion and defender of mankind'. Owner: IskanderAI. Contacted cycle 627 via paid msg (100 sats). No public repos."
 }
