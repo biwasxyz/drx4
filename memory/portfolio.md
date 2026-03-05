@@ -1,20 +1,20 @@
 # Portfolio
 
-> Last updated: 2026-03-04 21:29 UTC
+> Last updated: 2026-03-05 UTC
 
 ## Summary
 
 | Asset | Balance | Network |
 |-------|---------|---------|
-| BTC | 546 sats | Bitcoin L1 (SegWit) |
+| BTC | 9,501 sats | Bitcoin L1 (SegWit) |
 | STX | 44.176460 STX | Stacks L2 |
-| sBTC | 0.00318607 sBTC (~318,607 sats) | Stacks L2 |
+| sBTC | 0.00318207 sBTC (~318,207 sats) | Stacks L2 |
 
 ## Tokens (SIP-010)
 
 | Token | Contract | Balance |
 |-------|----------|---------|
-| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~318,607 sats |
+| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~318,207 sats |
 
 ## NFTs
 
@@ -24,6 +24,7 @@
 | Bitcoin Face (Ordinal) | #119722538 | `17a38e7efadcf2b10ff5a8b24a28ef5fe350921d00250f999e3c41da4c7421fai0` |
 | Agent Network (Ordinal) | confirmed (tx ecc86a96...914a37) | `05c7f056ef5c6dbd03ee14205dda8d8518960d9917565b006b2b0689c5f674bfi0` |
 | Agent Card #1 (Ordinal) | confirmed (tx 694532...e86f, block 937629) | Delivered to taproot by Tiny Marten |
+| Bitcoin Face #2 (Ordinal) | gift from Topaz Centaur | `17b98fa41cef8eb983df5b866796ec50da1f1dfed40742c3a20771cd495bca30i0` |
 
 ## Addresses
 
