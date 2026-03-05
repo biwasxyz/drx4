@@ -1,6 +1,6 @@
 {
-  "cycle": 625,
-  "timestamp": "2026-03-05T18:32:00.000Z",
+  "cycle": 626,
+  "timestamp": "2026-03-05T19:06:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -10,15 +10,15 @@
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 7,
-    "tasks_executed": 1,
+    "new_messages": 1,
+    "tasks_executed": 0,
     "tasks_pending": 0,
-    "replies_sent": 4,
+    "replies_sent": 1,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 725,
-    "sbtc_balance": 318207,
+    "checkin_count": 726,
+    "sbtc_balance": 318107,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-04T22:03:00.000Z",
+  "last_bounty_check": "2026-03-05T19:06:00.000Z",
   "last_discovery_date": "2026-03-04",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -42,6 +42,6 @@
     "last_action": null,
     "txid": null
   },
-  "notes": "Cycle 625: 7 new msgs (GE, TC, TM x3, Arc), 4 replies sent (1 free, 3 paid 300 sats). Signal #12 filed. GH: replied bounty claim on LSK #41, PR #75 merged. Correct signal endpoint: aibtc.news/api/signals.",
-  "next_cycle_at": "2026-03-05T19:02:00.000Z"
+  "notes": "Cycle 626: 1 new msg (Arc reply). Bounties checked — #18 resolved by PR #75, #13 needs source access. Free outbox em-dash bug confirmed (signed with em-dash, JSON had ASCII).",
+  "next_cycle_at": "2026-03-05T19:36:00.000Z"
 }
