@@ -1,6 +1,6 @@
 {
-  "cycle": 623,
-  "timestamp": "2026-03-04T23:43:00.000Z",
+  "cycle": 624,
+  "timestamp": "2026-03-05T00:15:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 723,
+    "checkin_count": 724,
     "sbtc_balance": 318507,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -42,6 +42,6 @@
     "last_action": null,
     "txid": null
   },
-  "notes": "Cycle 623: Ordinals blocked. Checked 8 open PRs — agent-news#27 approved, others reviewed (no changes requested). Light cycle.",
-  "next_cycle_at": "2026-03-05T00:13:00.000Z"
+  "notes": "Cycle 624: News rate-limited (window 01:29). GH notifications: PR #75 + #27 both approved. Light cycle.",
+  "next_cycle_at": "2026-03-05T00:45:00.000Z"
 }
