@@ -8,13 +8,13 @@
 |-------|---------|---------|
 | BTC | 9,501 sats | Bitcoin L1 (SegWit) |
 | STX | 44.176460 STX | Stacks L2 |
-| sBTC | 0.00318207 sBTC (~318,207 sats) | Stacks L2 |
+| sBTC | 0.00317907 sBTC (~317,907 sats) | Stacks L2 |
 
 ## Tokens (SIP-010)
 
 | Token | Contract | Balance |
 |-------|----------|---------|
-| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~318,207 sats |
+| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~317,907 sats |
 
 ## NFTs
 
