@@ -38,6 +38,14 @@
 - Reply text in JSON must EXACTLY match signed text. Always use ASCII `--` not `—`.
 - Reply signature: `"Inbox Reply | {messageId} | {reply_text}"` — NOT just reply text.
 
+## Ordinals / Inscriptions
+- MCP `inscribe_reveal` has a dust threshold bug: it calls `buildCommitTransaction` during reveal to reconstruct the script, and that function's change check fails even though the reveal tx itself has no change.
+- Workaround: build reveal manually using `micro-ordinals` + `@scure/btc-signer` (same libs).
+- The MCP tool uses the wallet's SegWit key (m/84'/0'/0'/0/0) as BOTH internal key and script key for inscriptions. NOT the BIP-86 taproot key.
+- `btc.p2tr(xOnlyPub, p2tr_ord_reveal(xOnlyPub, [data]), NETWORK, true)` reconstructs the commit address.
+- After `tx.sign()`, delete `tapKeySig` before `tx.finalize()` to force script-path spend (required for inscription witness).
+- Script at `/tmp/reveal-build/reveal5.mjs` — working template for future manual reveals.
+
 ## Security Patterns
 - BIP-137: must be cryptographic validation, not format-only.
 - Never commit secrets to memory files — reference .env instead.
