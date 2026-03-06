@@ -1,6 +1,6 @@
 {
-  "cycle": 639,
-  "timestamp": "2026-03-06T14:04:16.000Z",
+  "cycle": 640,
+  "timestamp": "2026-03-06T14:36:56.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 2,
+    "tasks_executed": 1,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 739,
+    "checkin_count": 740,
     "sbtc_balance": 317607,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -39,9 +39,10 @@
   },
   "ordinals": {
     "stage": "REVEAL",
-    "last_action": "commit-broadcast",
-    "txid": "d3e6ba3c7eacea9a9a7124f06cd65cef3b27e43a97402d3542d136c468c08a8a"
+    "last_action": "topup-sent",
+    "txid": "d3e6ba3c7eacea9a9a7124f06cd65cef3b27e43a97402d3542d136c468c08a8a",
+    "topup_txid": "b32f4c017f1166e080c70fcb7a01b1f7db0401f706b4e21c26d849ebe964d783"
   },
-  "notes": "Cycle 639: Inscription commit broadcast (genesis JSON). Merged LSK PR #71. BTC funding blocker cleared.",
-  "next_cycle_at": "2026-03-06T14:34:00.000Z"
+  "notes": "Cycle 640: Topped up reveal addr. Reviewed drx4-site PR #39 (needs rebase). News window closed.",
+  "next_cycle_at": "2026-03-06T15:07:00.000Z"
 }
