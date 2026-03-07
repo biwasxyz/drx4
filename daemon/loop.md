@@ -22,7 +22,7 @@ Quick checks BEFORE pillars. No trades here — just update `health.json` bitcoi
 3. `get_btc_balance` → update btc_balance (only every 3rd cycle to save calls)
 
 **Trigger rules (act immediately, any pillar):**
-- If new sBTC/BTC revenue detected (balance increased from earnings) → auto-funnel ALL earned amount to Pillar/Zest yield immediately. Every sat counts.
+- If new sBTC/BTC revenue detected (balance increased from earnings) → auto-funnel ALL earned amount to Zest yield via `zest_supply`. Every sat counts.
 - If `fee_medium < 5 sat/vB` → note in health.json as `bitcoin.low_fee_window: true` (useful context for future L1 ops).
 - If `btc_l1 < 3000` → flag `bitcoin.needs_l1_funding: true`. Consider sBTC→BTC swap next bitcoin pillar.
 
@@ -94,25 +94,26 @@ This pillar has 4 sub-phases. Each cycle, pick the highest-priority actionable s
 
 #### Sub-phase: Yield (highest priority)
 
-Manage Pillar smart wallet + Zest lending for BTC yield via dual stacking.
+Supply sBTC directly to Zest Protocol lending pool. Earn yield from borrowers + wSTX incentive rewards.
 
-**Pillar wallet:** `pillar_direct_*` tools (agent-signed, gasless, no browser).
+**Tools:** `zest_supply`, `zest_withdraw`, `zest_claim_rewards`, `zest_list_assets`, `zest_get_position`
 
 **Capital allocation:**
-- **Yield stack (Pillar/Zest):** 100k+ sats sBTC — supply to Zest for dual stacking yield
+- **Yield stack (Zest):** 100k+ sats sBTC — supplied to Zest lending pool
 - **Liquid reserve:** ~200k sats sBTC — inscriptions, trading, ops
 - **Operating buffer:** ~17k sats — message costs, fees
 
-**Revenue auto-funnel rule:** ANY sBTC/BTC earned (bounties, inbox payments, services, trades) — no matter how small — gets transferred to Pillar and supplied to Zest for dual stacking yield. Even 100 sats. The liquid reserve (~200k) is funded from existing balance, not from new revenue. New revenue always goes to yield.
+**Revenue auto-funnel rule:** ANY sBTC/BTC earned (bounties, inbox payments, services, trades) — no matter how small — gets supplied to Zest. Even 100 sats. The liquid reserve (~200k) is funded from existing balance, not from new revenue. New revenue always goes to yield.
 
 **Actions (check each cycle this pillar is active):**
-1. If no Pillar wallet exists → `pillar_direct_create_wallet` (one-time setup)
-2. Check position: `pillar_direct_stacking_status` or `pillar_direct_position`
-3. If sBTC balance > 200k liquid reserve → supply excess to Zest via `pillar_direct_supply`
-4. If auto-compound available → `pillar_direct_auto_compound`
-5. If STX balance grows significantly (>100 STX) → consider `pillar_direct_stack_stx` with `fast-pool` or `stacking-dao`
+1. Check position: `zest_get_position` for sBTC
+2. If sBTC balance > 200k liquid reserve → supply excess via `zest_supply`
+3. Periodically claim rewards: `zest_claim_rewards` (wSTX incentives)
+4. If STX balance grows significantly (>100 STX) → consider stacking via fast-pool
 
-**Do NOT boost (leverage) without operator approval.** Supply-only is safe (no liquidation risk).
+**Supply-only. Do NOT borrow without operator approval** (interest costs, liquidation risk).
+
+**Note:** Gas costs are negligible (~50k uSTX per tx). Pyth oracle fee is ~2 uSTX. No need for Pillar smart wallet — direct Zest is simpler and transparent.
 
 #### Sub-phase: Publish (public content on drx4.xyz)
 
@@ -149,7 +150,7 @@ Monitor and execute trades on Bitflow/ALEX DEX when favorable.
 Extended L1 checks beyond the boot sensors (which run every cycle). Do this when bitcoin pillar is active.
 
 1. `get_ordinal_utxos` + `get_cardinal_utxos` → UTXO health (don't accidentally spend our ordinals)
-2. `pillar_direct_position` → check Zest supply APY, collateral health
+2. `zest_get_position` for sBTC → check supply amount, accrued interest
 3. `bitflow_get_quote` for sBTC/STX pair → log current rate for trade timing
 4. `sbtc_get_peg_info` → verify sBTC peg is healthy
 
@@ -284,9 +285,8 @@ This phase is WRITE-ONLY. No reads.
     "fee_medium": 0,
     "fee_slow": 0,
     "sbtc_balance": 0,
-    "pillar_wallet": null,
-    "pillar_supplied": 0,
-    "stacking_enrolled": false,
+    "zest_supplied": 0,
+    "zest_rewards_pending": false,
     "last_sensor_check": "ISO"
   },
   "next_cycle_at": "ISO"
@@ -329,7 +329,7 @@ inbox_unread: [count after processing]
 pending_contacts: [discovered agents not yet contacted]
 bitcoin_sub: [yield|publish|trade|monitor|idle]
 blockers: [name:fail_count or none]
-sbtc: [sats] (liquid) / [sats] (yielding in Pillar)
+sbtc: [sats] (liquid) / [sats] (yielding in Zest)
 btc_l1: [sats]
 revenue_today: [earned] earned / [spent] spent
 signal_after: [ISO or ready]
