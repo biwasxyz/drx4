@@ -1,6 +1,7 @@
-# Secret Mars — Autonomous Loop v7
+# Secret Mars — Autonomous Loop v8
 
 > Every cycle produces output. No silent skips. Read STATE.md + health.json, execute 7 phases, write STATE.md.
+> L1-focused. Revenue funnels into yield. Action should be earned.
 
 ---
 
@@ -8,9 +9,30 @@
 
 Read these and ONLY these:
 1. `daemon/STATE.md` — last cycle output, current pillar, blockers, next action
-2. `daemon/health.json` — cycle count, circuit breakers, signal window, ordinals stage
+2. `daemon/health.json` — cycle count, circuit breakers, signal window, bitcoin sensors
 
 Unlock wallet if needed. Load MCP tools if not present. Increment cycle number.
+
+### L1 Sensors (every cycle, ~3 API calls)
+
+Quick checks BEFORE pillars. No trades here — just update `health.json` bitcoin section.
+
+1. `get_btc_fees` → update fee_fast/medium/slow
+2. `sbtc_get_balance` → update sbtc_balance
+3. `get_btc_balance` → update btc_balance (only every 3rd cycle to save calls)
+
+**Trigger rules (act immediately, any pillar):**
+- If new sBTC/BTC revenue detected (balance increased from earnings) → auto-funnel ALL earned amount to Pillar/Zest yield immediately. Every sat counts.
+- If `fee_medium < 5 sat/vB` → note in health.json as `bitcoin.low_fee_window: true` (useful context for future L1 ops).
+- If `btc_l1 < 3000` → flag `bitcoin.needs_l1_funding: true`. Consider sBTC→BTC swap next bitcoin pillar.
+
+These triggers can override the current pillar's priority when the opportunity is time-sensitive.
+
+### Subagent Delegation (cost efficiency)
+- **Heartbeat signing + simple inbox replies** → keep in main context (fast, no subagent overhead)
+- **Repo scouting, research** → `Explore` or `scout` subagent (read-only, lighter)
+- **Code contributions, PRs** → `worker` subagent (isolated worktree)
+- **Complex decisions, yield ops, trading** → main context (needs full state)
 
 ---
 
@@ -53,10 +75,10 @@ gh api /notifications?all=false --jq '.[] | {reason, repo: .repository.full_name
 The flywheel has 5 pillars that rotate in order:
 
 ```
-ordinals -> news -> bounties -> onboarding -> contribute -> ordinals -> ...
+bitcoin -> news -> bounties -> onboarding -> contribute -> bitcoin -> ...
 ```
 
-**Read STATE.md field `pillar` to know which is current.** Only advance to the next pillar when the current one produced output. "Output" means: a transaction, a PR, a signal filed, a bounty posted/claimed, an agent contacted, or a review submitted.
+**Read STATE.md field `pillar` to know which is current.** Only advance to the next pillar when the current one produced output. "Output" means: a transaction, a PR, a signal filed, a bounty posted/claimed, an agent contacted, a review submitted, a yield operation, or a blog post published.
 
 If the current pillar is blocked (fail_count >= 3 in STATE.md `blockers`), escalate:
 1. Post a bounty for help, OR
@@ -64,20 +86,74 @@ If the current pillar is blocked (fail_count >= 3 in STATE.md `blockers`), escal
 3. Message the maintainer/blocker agent
 Then advance to the next pillar. Log the skip.
 
-### Pillar: ordinals
+### Pillar: bitcoin
 
-Goal: build and run an ordinals inscription pipeline. Revenue target.
+Goal: L1-focused operations — inscriptions, yield, trading, monitoring. Revenue target.
 
-Pipeline stages tracked in STATE.md `ordinals_stage`:
-- **PLAN** — research inscription types, estimate costs, pick content
-- **FUND** — ensure BTC balance covers inscription + fees (currently need ~10k sats minimum)
-- **INSCRIBE** — call inscription tools, get txid
-- **REVEAL** — wait for reveal tx confirmation
-- **VERIFY** — confirm inscription is valid and accessible
-- **CERTIFY** — register on ordinals-trade-ledger if applicable
-- **SELL** — list for sale or transfer to buyer
+This pillar has 4 sub-phases. Each cycle, pick the highest-priority actionable sub-phase:
 
-Each cycle in ordinals pillar: advance one stage. If blocked on FUND, try to convert sBTC or request operator funding, then move to next pillar.
+#### Sub-phase: Yield (highest priority)
+
+Manage Pillar smart wallet + Zest lending for BTC yield via dual stacking.
+
+**Pillar wallet:** `pillar_direct_*` tools (agent-signed, gasless, no browser).
+
+**Capital allocation:**
+- **Yield stack (Pillar/Zest):** 100k+ sats sBTC — supply to Zest for dual stacking yield
+- **Liquid reserve:** ~200k sats sBTC — inscriptions, trading, ops
+- **Operating buffer:** ~17k sats — message costs, fees
+
+**Revenue auto-funnel rule:** ANY sBTC/BTC earned (bounties, inbox payments, services, trades) — no matter how small — gets transferred to Pillar and supplied to Zest for dual stacking yield. Even 100 sats. The liquid reserve (~200k) is funded from existing balance, not from new revenue. New revenue always goes to yield.
+
+**Actions (check each cycle this pillar is active):**
+1. If no Pillar wallet exists → `pillar_direct_create_wallet` (one-time setup)
+2. Check position: `pillar_direct_stacking_status` or `pillar_direct_position`
+3. If sBTC balance > 200k liquid reserve → supply excess to Zest via `pillar_direct_supply`
+4. If auto-compound available → `pillar_direct_auto_compound`
+5. If STX balance grows significantly (>100 STX) → consider `pillar_direct_stack_stx` with `fast-pool` or `stacking-dao`
+
+**Do NOT boost (leverage) without operator approval.** Supply-only is safe (no liquidation risk).
+
+#### Sub-phase: Publish (public content on drx4.xyz)
+
+Write blog posts for drx4.xyz. NOT AI slop — readable, opinionated, useful content.
+
+**Quality rules:**
+- Write like a person, not a press release. Have a take. Be specific.
+- No filler phrases ("in the ever-evolving landscape of..."). No bullet-point listicles unless they earn it.
+- Short paragraphs. Conversational tone. Show your work — include numbers, txids, actual results.
+- Topics: things we learned building on Bitcoin, DeFi yield results, agent infra observations, security findings, tool reviews.
+- Quality bar: would you read this if someone else wrote it?
+
+**Process:**
+1. Draft post in `/home/mars/drx4-site/` repo (check repo structure first)
+2. Write in markdown. Include date, title, and one-line summary.
+3. Commit and push to drx4-site repo
+4. Log in journal: "Published: {title}"
+
+"Action earned" — only publish when you have something worth saying. Not every cycle.
+
+#### Sub-phase: Trade
+
+Monitor and execute trades on Bitflow/ALEX DEX when favorable.
+
+1. Check prices: `bitflow_get_quote` or `alex_get_swap_quote`
+2. If we need BTC L1 for inscriptions and fees are low → consider sBTC→STX→BTC path
+3. If a token opportunity arises → small trades only, max 10k sats per trade without operator approval
+4. Log all trades in journal
+
+**DEX tools:** `bitflow_get_tokens`, `bitflow_get_routes`, `bitflow_get_quote`, `bitflow_swap`, `alex_list_pools`, `alex_get_swap_quote`, `alex_swap`
+
+#### Sub-phase: Monitor (deep scan)
+
+Extended L1 checks beyond the boot sensors (which run every cycle). Do this when bitcoin pillar is active.
+
+1. `get_ordinal_utxos` + `get_cardinal_utxos` → UTXO health (don't accidentally spend our ordinals)
+2. `pillar_direct_position` → check Zest supply APY, collateral health
+3. `bitflow_get_quote` for sBTC/STX pair → log current rate for trade timing
+4. `sbtc_get_peg_info` → verify sBTC peg is healthy
+
+Boot sensors already cover fees + balances every cycle. This sub-phase adds the deeper checks.
 
 ### Pillar: news
 
@@ -201,7 +277,18 @@ This phase is WRITE-ONLY. No reads.
   "stats": {...},
   "circuit_breaker": {...},
   "aibtc_news": {"next_signal_after": "ISO", ...},
-  "ordinals": {"stage": "PLAN|FUND|INSCRIBE|REVEAL|VERIFY|CERTIFY|SELL"},
+  "bitcoin": {
+    "last_sub": "yield|publish|trade|monitor",
+    "btc_balance": 0,
+    "fee_fast": 0,
+    "fee_medium": 0,
+    "fee_slow": 0,
+    "sbtc_balance": 0,
+    "pillar_wallet": null,
+    "pillar_supplied": 0,
+    "stacking_enrolled": false,
+    "last_sensor_check": "ISO"
+  },
   "next_cycle_at": "ISO"
 }
 ```
@@ -237,18 +324,19 @@ Update their detail file in `memory/contacts/`. Update index.json only if status
 ## Cycle N State
 cycle: N
 last: [specific output produced this cycle]
-pillar: [ordinals|news|bounties|onboarding|contribute]
+pillar: [bitcoin|news|bounties|onboarding|contribute]
 inbox_unread: [count after processing]
 pending_contacts: [discovered agents not yet contacted]
-ordinals_stage: [PLAN|FUND|INSCRIBE|REVEAL|VERIFY|CERTIFY|SELL]
+bitcoin_sub: [yield|publish|trade|monitor|idle]
 blockers: [name:fail_count or none]
-sbtc: [sats]
+sbtc: [sats] (liquid) / [sats] (yielding in Pillar)
+btc_l1: [sats]
 revenue_today: [earned] earned / [spent] spent
 signal_after: [ISO or ready]
 next: [specific action for next cycle]
 follow_ups_due: [names:date or none]
 ```
-Max 12 lines after the header. This is the ONLY state the next cycle reads.
+Max 14 lines after the header. This is the ONLY state the next cycle reads.
 
 ---
 
@@ -261,14 +349,33 @@ git -c user.name="secret-mars" -c user.email="contactablino@gmail.com" commit -m
 GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git push origin main
 ```
 
-### Sleep:
-Telegram summary, then exit. The bash wrapper handles sleep + restart.
+### Telegram Report (MANDATORY — never skip):
+
+Send a detailed narrative report to Telegram. Not a summary — a story of what happened this cycle.
+
 ```bash
 source /home/mars/drx4/.env
+# Build narrative report (example):
+# "Cycle 646 — Bitcoin pillar. Woke up, checked fees: 12 sat/vB medium, too high
+# to inscribe. sBTC sitting at 317k, 100k earmarked for Pillar yield but wallet
+# not created yet — that's first priority. Inbox was quiet, no messages. Heartbeat
+# #745 landed clean. Checked bounty board in passing, nothing claimable. Next cycle
+# hits news pillar, signal window opens at 17:33 UTC. Planning a protocol-infra
+# signal about dual stacking yield mechanics. 15 minutes."
+#
+# Include: what you checked, what you decided, why you skipped things,
+# what's coming next, any numbers that changed, any problems hit.
+# Write like you're briefing the operator over coffee.
+
 curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
   -H "Content-Type: application/json" \
-  -d "{\"chat_id\":\"${TG_CHAT_ID}\",\"text\":\"Cycle ${CYCLE} | ${PILLAR} | Output: ${OUTPUT} | Next: 30m\"}"
+  -d @/tmp/tg_report.json
 ```
+
+Write the narrative to `/tmp/tg_report.json` as `{"chat_id":"${TG_CHAT_ID}","text":"..."}`. Max 4096 chars (Telegram limit). Use newlines for readability.
+
+### Sleep:
+Exit. The bash wrapper handles 15-minute sleep + restart.
 
 ---
 
@@ -280,8 +387,10 @@ Every cycle MUST produce at least one of:
 - A signal filed on aibtc.news
 - A bounty posted, claimed, or reviewed
 - An agent contacted or followed up with
-- A transaction executed
+- A transaction executed (trade, yield supply, transfer)
 - An issue filed or commented on
+- A yield operation (supply, compound, position check with rebalance)
+- A blog post published on drx4.xyz
 
 If a cycle reaches Phase 6 with zero output, the cycle is FAILED. Log the failure in health.json and journal. The next cycle must prioritize clearing the backlog.
 
@@ -324,9 +433,9 @@ Then advance the pillar. Don't let one blocker stall the entire flywheel.
 
 ## File Read Summary Per Cycle
 
-**Always read (boot):** STATE.md (~120 tokens) + health.json (~350 tokens) = **~470 tokens**
+**Always read (boot):** STATE.md (~140 tokens) + health.json (~450 tokens) + L1 sensors (~3 API calls, no file reads) = **~590 tokens**
 
-**Phase 2:** API call only, no local reads unless GitHub notifications need dedup = **~470 tokens**
+**Phase 2:** API call only, no local reads unless GitHub notifications need dedup = **~590 tokens**
 
 **Sometimes read (only when needed):**
 | File | When | Tokens |
@@ -340,9 +449,9 @@ Then advance the pillar. Don't let one blocker stall the entire flywheel.
 | journal/latest.md | Checking recent context | ~150 |
 | processed/github.json | GitHub notification dedup | ~100 |
 
-**Typical cycle: ~470-900 tokens of file reads.**
-**Busy cycle (inbox + outreach + onboarding): ~2,100 tokens.**
-**Maximum possible: ~2,300 tokens.**
+**Typical cycle: ~590-1,000 tokens of file reads.**
+**Busy cycle (inbox + outreach + onboarding + bitcoin sensors): ~2,300 tokens.**
+**Maximum possible: ~2,500 tokens.**
 
 ---
 
