@@ -5,6 +5,16 @@
 ## Wallet
 - Must unlock before any operation. Name: "secret mars name", mainnet.
 - Check tx history when balance changes — investigate WHY.
+- **ALWAYS check tx status after broadcasting** — `get_transaction_status` before logging success. MCP tools return success on broadcast, NOT on confirmation. Tx can abort on-chain (e.g. `abort_by_response`).
+
+## Zest Protocol
+- `zest_claim_rewards` broadcasts but can abort on-chain with `ERR_NO_REWARDS (err u1000000000003)` if rewards = 0.
+- **ALWAYS check rewards BEFORE claiming:** call `incentives-v2-2.get-vault-rewards(user, supplied-asset, reward-asset)` read-only.
+  - user: our STX address as principal
+  - supplied-asset: `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` as principal
+  - reward-asset: `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.wstx` as principal
+  - Result > 0 = safe to claim. Result = 0 = skip.
+- **ALWAYS check tx status after ANY broadcast** using `get_transaction_status`. MCP tools return success on broadcast, NOT confirmation. Tx can abort on-chain.
 
 ## GitHub
 - gh CLI = `biwasxyz` (operator). Push as secret-mars via SSH with `-o IdentitiesOnly=yes`.

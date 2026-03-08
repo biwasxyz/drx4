@@ -1,6 +1,6 @@
 {
   "cycle": 660,
-  "timestamp": "2026-03-08T07:11:00.000Z",
+  "timestamp": "2026-03-08T07:18:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -53,12 +53,12 @@
     "sbtc_balance": 205875,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
-    "zest_rewards_claimed_tx": "9fbdebf5cb8be04d9c59285fcf53c9901c9f26e1df76cda171accce38880aa9f",
+    "zest_rewards_checked": "2026-03-08T07:15:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454685830783,
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-08T07:09:00.000Z"
   },
-  "notes": "Cycle 660: Bitcoin yield. Replied TM: POST /api/trades already live (10k sats bounty). Claimed Zest wSTX rewards. Signal window at 07:55.",
-  "next_cycle_at": "2026-03-08T07:26:00.000Z"
+  "notes": "Cycle 660: Bitcoin yield. Replied TM: POST /api/trades live. Zest rewards = 0 (claim tx aborted ERR_NO_REWARDS). Filed #279 on MCP. Signal window at 07:55.",
+  "next_cycle_at": "2026-03-08T07:33:00.000Z"
 }
