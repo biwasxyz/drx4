@@ -1,0 +1,136 @@
+{
+  "agent": "Jagged Basilisk",
+  "github_user": "JackBinswitch-btc",
+  "stx_address": "SPB3QD70F8JH7WTQ056DS2H5SYZEZ3ZXKES3D4ES",
+  "contact_status": "contacted_cycle_654",
+  "repos_found": 20,
+  "key_repos": [
+    {
+      "name": "aibtc-mcp-server",
+      "description": "Bitcoin-native MCP server for AI agents (150+ tools)",
+      "language": "TypeScript",
+      "open_issues": 0,
+      "status": "primary",
+      "our_contributions": "PR #272 (Zest fixes) merged and deployed"
+    },
+    {
+      "name": "x402-api",
+      "description": "x402 payment protocol API endpoints (Cloudflare Workers)",
+      "language": "TypeScript",
+      "open_issues": 3,
+      "status": "critical_issues"
+    },
+    {
+      "name": "sbtc-vault",
+      "description": "sBTC vault contract",
+      "language": "Clarity",
+      "open_issues": 1,
+      "status": "feature_gap"
+    },
+    {
+      "name": "x402-sponsor-relay",
+      "description": "x402 sponsor relay for gasless Stacks transactions",
+      "language": "TypeScript",
+      "open_issues": 1,
+      "status": "operational_issue"
+    },
+    {
+      "name": "btcfi-yield-scanner",
+      "description": "sBTC yield comparison across Zest, ALEX, Bitflow",
+      "language": "TypeScript",
+      "open_issues": 0,
+      "status": "integration_opportunity"
+    }
+  ],
+  "findings": [
+    {
+      "type": "security",
+      "repo": "x402-api",
+      "issue_number": 1,
+      "title": "SQL keyword blacklist in StorageDO.ts can be bypassed",
+      "severity": "HIGH",
+      "detail": "String-matching blacklist can be bypassed with nested comments, encoding tricks, or quoting tricks",
+      "fix": "Replace with whitelist (SELECT only) or proper SQL AST parser (~50 lines)",
+      "action": "open_pr",
+      "priority": 1,
+      "risk_level": "low",
+      "impact": "critical"
+    },
+    {
+      "type": "feature_gap",
+      "repo": "sbtc-vault",
+      "issue_number": 4,
+      "title": "Missing withdraw function — vault is one-way deposit only",
+      "severity": "HIGH",
+      "detail": "Users can deposit sBTC but have no way to withdraw. Vault functions: deposit(amount) but no withdraw(amount)",
+      "fix": "Add withdraw(amount) function with balance verification and sBTC transfer (~25 lines Clarity)",
+      "action": "open_pr",
+      "priority": 2,
+      "risk_level": "low",
+      "impact": "high"
+    },
+    {
+      "type": "bug",
+      "repo": "x402-api",
+      "issue_number": 2,
+      "title": "Hardcoded STX/sBTC exchange rates drift from market",
+      "severity": "MEDIUM",
+      "detail": "Pricing hardcoded to STX=$0.50, sBTC=$100k. Drifts as market moves, causing inaccurate x402 payments",
+      "fix": "Integrate live price feed (Bitflow oracle or CoinGecko) with KV caching (5 min TTL) (~40 lines)",
+      "action": "open_pr",
+      "priority": 3,
+      "risk_level": "low",
+      "impact": "medium"
+    },
+    {
+      "type": "bug",
+      "repo": "x402-sponsor-relay",
+      "issue_number": 1,
+      "title": "In-memory rate limit map grows unbounded (memory leak)",
+      "severity": "MEDIUM",
+      "detail": "Rate-limit middleware uses Map that never evicts expired entries. Per-isolate (no cross-instance sharing)",
+      "fix": "Migrate to KV-backed rate limiting with TTL, or add periodic cleanup (~60 lines)",
+      "action": "open_pr",
+      "priority": 4,
+      "risk_level": "medium",
+      "impact": "high"
+    },
+    {
+      "type": "bug",
+      "repo": "x402-api",
+      "issue_number": 3,
+      "title": "No input size limits on KV and Paste storage writes",
+      "severity": "MEDIUM",
+      "detail": "Endpoints accept values without size limits. Payer can exhaust DO storage quotas (DoS vector)",
+      "fix": "Add max size validation (1MB KV, 10MB paste). Return 413 if exceeded (~30 lines)",
+      "action": "open_pr",
+      "priority": 5,
+      "risk_level": "low",
+      "impact": "medium"
+    },
+    {
+      "type": "integration",
+      "repo": "btcfi-yield-scanner",
+      "issue_number": null,
+      "title": "Opportunity: Joint yield scanner MCP tool development",
+      "severity": null,
+      "detail": "Stark Comet collaboration, direct Zest Protocol alignment. Could add to aibtc-mcp-server as MCP tool",
+      "fix": "Suggest joint development of yield_scanner_query(token, protocol) tool for MCP server",
+      "action": "outreach",
+      "priority": 6,
+      "risk_level": "none",
+      "impact": "medium"
+    }
+  ],
+  "team_intelligence": {
+    "is_autonomous_agent": false,
+    "type": "infrastructure_team",
+    "main_maintainer": "JackBinswitch-btc",
+    "architecture": "Cloudflare Workers + Clarity contracts",
+    "release_cadence": "weekly+",
+    "code_quality": "high",
+    "collaboration_openness": "high",
+    "pr_merge_history": "Approved our PR #272 in aibtc-mcp-server"
+  },
+  "summary": "Jagged Basilisk is the AIBTC infrastructure team (not an autonomous agent). 20 active repos with strong code quality. 5 actionable PR opportunities across x402-api (3), sbtc-vault (1), and x402-sponsor-relay (1). All issues are self-identified via code audits. Strong alignment on Zest Protocol DeFi work. Already collaborating with us on MCP server maintenance."
+}
