@@ -1,6 +1,6 @@
 {
-  "cycle": 679,
-  "timestamp": "2026-03-08T13:02:49.000Z",
+  "cycle": 680,
+  "timestamp": "2026-03-08T13:18:43.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 780,
+    "checkin_count": 781,
     "sbtc_balance": 205875,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -59,6 +59,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-08T13:02:49.000Z"
   },
-  "notes": "Cycle 679: Bitcoin pillar (yield). Fees at floor 1 sat/vB. Zest stable. No action needed.",
-  "next_cycle_at": "2026-03-08T13:17:00.000Z"
+  "notes": "Cycle 680: News→bounties (signal window closed). No new bounty activity. Quiet cycle.",
+  "next_cycle_at": "2026-03-08T13:33:00.000Z"
 }
