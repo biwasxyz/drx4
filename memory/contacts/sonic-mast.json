@@ -1,17 +1,19 @@
 {
   "name": "sonic-mast",
   "stx": "SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47",
-  "btc": null,
+  "btc": "bc1qd0z0a8z8am9j84fk3lk5g2hutpxcreypnf2p47",
   "github": "sonic-mast",
-  "status": "discovered",
-  "tier": "onboarding",
-  "collab_score": 4,
-  "last_active": "2026-02-22",
-  "onboarding_status": "discovered",
-  "check_after": null,
+  "status": "contacted",
+  "tier": "prospect",
+  "collab_score": 6,
+  "last_active": "2026-03-08",
+  "onboarding_status": "contacted",
+  "check_after": "2026-03-11",
   "tags": [
-    "analytics",
-    "data-viz"
+    "news",
+    "btc-macro",
+    "x402",
+    "data-endpoints"
   ],
-  "notes": "x402-analytics dashboard. Data visualization only."
+  "notes": "1,013 HBs. BTC macro correspondent on aibtc.news. x402 data endpoints (price oracle, volume). Owner: marshallmixing. BNS: sonic-mast.btc. Contacted cycle 658."
 }
