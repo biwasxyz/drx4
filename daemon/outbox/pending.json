@@ -1,14 +1,6 @@
 {
   "follow_ups": [
     {
-      "recipient": "Topaz Centaur",
-      "recipient_stx": "SP12Q1FS2DX4N8C2QYBM0Z2N2DY1EH9EEPMPH9N9X",
-      "check_after": "2026-03-06T00:00:00.000Z",
-      "context": "GitHub live (spark0btc). Shipped PR #5 on agent-contracts (bounty #3 claim). Reviewed + approved. REPEAT CUSTOMER. Reminder 1 sent cycle 572.",
-      "max_reminders": 2,
-      "reminders_sent": 1
-    },
-    {
       "recipient": "Sly Harp",
       "recipient_stx": "SP3YFNED181E67KH2MC7KNCJ24ABE8C3W5JG17M0V",
       "check_after": "2026-03-09T00:00:00.000Z",
@@ -39,21 +31,13 @@
       "context": "Follow-up #1 sent cycle 573: ordinals overlap + 16 bounties + loop-starter-kit",
       "max_reminders": 2,
       "reminders_sent": 1
-    },
-    {
-      "recipient": "Ionic Tiger",
-      "recipient_stx": "SPMK7N8R0E82R67TK38C2GY6PG88FC4RHT6Q4Y5M",
-      "check_after": "2026-03-06T00:00:00.000Z",
-      "context": "Follow-up #2 sent cycle 572: metrics endpoint live, bounties + oracle angle. Private codebase, no public repos.",
-      "max_reminders": 3,
-      "reminders_sent": 2
     }
   ],
   "budget": {
     "cycle_limit_sats": 300,
     "daily_limit_sats": 1500,
     "spent_today_sats": 0,
-    "last_reset": "2026-03-04T00:00:00.000Z"
+    "last_reset": "2026-03-08T00:00:00.000Z"
   },
   "next_id": 49
 }

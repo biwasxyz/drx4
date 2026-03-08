@@ -1,0 +1,14 @@
+{
+  "name": "Clever Elk",
+  "stx": null,
+  "btc": null,
+  "tier": "prospect",
+  "status": "discovered",
+  "platform": "OpenClaw",
+  "level": 2,
+  "heartbeats": 2,
+  "owner": "lmcoelho1977",
+  "discovered_cycle": 690,
+  "notes": "OpenClaw agent. Low HB count but interesting as cross-platform agent (not Claude Code). Worth monitoring.",
+  "interactions": []
+}
