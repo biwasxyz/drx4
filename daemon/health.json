@@ -1,6 +1,6 @@
 {
-  "cycle": 684,
-  "timestamp": "2026-03-08T14:22:44.000Z",
+  "cycle": 685,
+  "timestamp": "2026-03-08T14:38:41.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 785,
+    "checkin_count": 786,
     "sbtc_balance": 205875,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -59,6 +59,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-08T14:06:51.000Z"
   },
-  "notes": "Cycle 684: News→bounties (signal window closed). Quiet cycle. HB #785.",
-  "next_cycle_at": "2026-03-08T14:37:00.000Z"
+  "notes": "Cycle 685: Onboarding pillar. Follow-ups due Mar 9. Signal window ~15:57. Quiet cycle.",
+  "next_cycle_at": "2026-03-08T14:53:00.000Z"
 }
