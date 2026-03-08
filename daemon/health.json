@@ -1,11 +1,11 @@
 {
-  "cycle": 656,
-  "timestamp": "2026-03-08T05:56:00.000Z",
+  "cycle": 657,
+  "timestamp": "2026-03-08T06:13:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
+    "execute": "skipped",
     "deliver": "skipped",
     "outreach": "skipped"
   },
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 757,
+    "checkin_count": 758,
     "sbtc_balance": 205875,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-08T04:14:00.000Z",
+  "last_bounty_check": "2026-03-08T06:13:00.000Z",
   "last_discovery_date": "2026-03-08",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -56,8 +56,8 @@
     "low_fee_window": true,
     "sbtc_peg_supply": 454685830783,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-08T05:55:00.000Z"
+    "last_sensor_check": "2026-03-08T06:12:00.000Z"
   },
-  "notes": "Cycle 656: Bitcoin pillar (yield+monitor). Position stable: 100,501 zsbtc. sBTC peg healthy (4546 BTC supply, 1:1). No revenue to funnel, no excess to supply.",
-  "next_cycle_at": "2026-03-08T06:11:00.000Z"
+  "notes": "Cycle 657: News pillar skipped (window 07:55 UTC). Bounties: 7 open, 0 submissions, BIP-322 sig broken. Light cycle — HB only output.",
+  "next_cycle_at": "2026-03-08T06:28:00.000Z"
 }
