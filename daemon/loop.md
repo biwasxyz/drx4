@@ -13,13 +13,31 @@ Read these and ONLY these:
 
 Unlock wallet if needed. Load MCP tools if not present. Increment cycle number.
 
-### L1 Sensors (every cycle, ~3 API calls)
+### L1 Sensors (every cycle, 1-2 API calls)
 
 Quick checks BEFORE pillars. No trades here — just update `health.json` bitcoin section.
 
+**Primary: stxer batch read (1 call for all balances + position + rewards):**
+```bash
+curl -s -X POST "https://api.stxer.xyz/sidecar/v2/batch" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "stx": ["SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE"],
+    "nonces": ["SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE"],
+    "ft_balance": [
+      ["SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token", "sbtc-token", "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE"]
+    ],
+    "readonly": [
+      ["SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.zsbtc-v2-0", "get-balance", "051608deedcc099f935f07c2e70e7fd29ebb66203c22"],
+      ["SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.incentives-v2-2", "get-vault-rewards", "051608deedcc099f935f07c2e70e7fd29ebb66203c22", "0614f6decc7cfff2a413bd7cd4f53c25ad7fd1899acc0a736274632d746f6b656e", "061605b65e5089ed1b09b299fe0d910a82e37570781f0477737478"]
+    ]
+  }'
+```
+Returns: `stx[0]` = STX balance (hex→int = uSTX), `nonces[0]` = current nonce, `ft_balance[0]` = sBTC sats (decimal), `readonly[0]` = zsbtc LP (Clarity hex, decode with deserializeCV), `readonly[1]` = vault rewards (uint, 0 = no rewards).
+
+**Secondary: BTC fees (separate call, stxer doesn't have this):**
 1. `get_btc_fees` → update fee_fast/medium/slow
-2. `sbtc_get_balance` → update sbtc_balance
-3. `get_btc_balance` → update btc_balance (only every 3rd cycle to save calls)
+2. `get_btc_balance` → update btc_balance (only every 3rd cycle to save calls)
 
 **Trigger rules (act immediately, any pillar):**
 - If new sBTC/BTC revenue detected (balance increased from earnings) → auto-funnel ALL earned amount to Zest yield via `zest_supply`. Every sat counts.
@@ -27,6 +45,40 @@ Quick checks BEFORE pillars. No trades here — just update `health.json` bitcoi
 - If `btc_l1 < 3000` → flag `bitcoin.needs_l1_funding: true`. Consider sBTC→BTC swap next bitcoin pillar.
 
 These triggers can override the current pillar's priority when the opportunity is time-sensitive.
+
+### Pre-Broadcast Guard (MANDATORY for all contract calls)
+
+Before broadcasting ANY Stacks contract call, dry-run it via stxer simulation:
+
+```bash
+# 1. Create session
+SIM_ID=$(curl -s -X POST "https://api.stxer.xyz/devtools/v2/simulations" \
+  -H "Content-Type: application/json" -d '{"skip_tracing":true}' | python3 -c "import sys,json;print(json.load(sys.stdin)['id'])")
+
+# 2. Simulate the call (Eval = [sender, sponsor, contract, code])
+curl -s -X POST "https://api.stxer.xyz/devtools/v2/simulations/$SIM_ID" \
+  -H "Content-Type: application/json" -H "Accept: application/json" \
+  -d '{"steps":[{"Eval":["SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE","","<CONTRACT>","(<function> <args>)"]}]}'
+
+# 3. Check result: {"steps":[{"Eval":{"Ok":"hex"}}]} = safe to broadcast
+#    {"steps":[{"Eval":{"Err":"msg"}}]} = DO NOT broadcast, log the error
+```
+
+**Rules:**
+- If simulation returns `Err` → do NOT broadcast. Log error in journal, skip the operation.
+- If simulation returns `Ok` → proceed with MCP tool broadcast, then verify with `get_transaction_status`.
+- For Reads-only checks (balances, rewards) use `/sidecar/v2/batch` instead (no session needed).
+- Decode Clarity hex results: `deserializeCV(hex)` from `@stacks/transactions` or parse manually.
+
+### Tx Debugging (post-mortem on failures)
+
+When a tx aborts on-chain, get the full execution trace:
+```bash
+# Get block info from Hiro
+curl -sL "https://api.hiro.so/extended/v1/tx/0x{txid}" | jq '{block_height, block_hash}'
+# Get execution trace from stxer (zstd-compressed binary)
+curl -s "https://api.stxer.xyz/inspect/{block_height}/{block_hash}/{txid}" | zstd -d 2>/dev/null | grep -aoP '[A-Za-z][A-Za-z0-9_.:() \-]{8,}'
+```
 
 ### Subagent Delegation (cost efficiency)
 - **Heartbeat signing + simple inbox replies** → keep in main context (fast, no subagent overhead)
