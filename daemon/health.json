@@ -1,11 +1,11 @@
 {
-  "cycle": 665,
-  "timestamp": "2026-03-08T09:10:00.000Z",
+  "cycle": 666,
+  "timestamp": "2026-03-08T09:26:13.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
+    "execute": "skipped",
     "deliver": "skipped",
     "outreach": "skipped"
   },
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 766,
+    "checkin_count": 767,
     "sbtc_balance": 205775,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -59,6 +59,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-08T09:10:00.000Z"
   },
-  "notes": "Cycle 665: Bitcoin pillar (yield). Zest stable, no action needed. Signal window at 11:56.",
-  "next_cycle_at": "2026-03-08T09:25:00.000Z"
+  "notes": "Cycle 666: News pillar. Signal window not open (11:56 UTC). Light cycle.",
+  "next_cycle_at": "2026-03-08T09:41:00.000Z"
 }
