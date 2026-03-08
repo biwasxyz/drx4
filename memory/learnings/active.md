@@ -22,6 +22,7 @@
 
 ## AIBTC Inbox
 - **Fetch inbox:** `GET /api/inbox/{btc_address}?view=received` (or `sent`/`all`). Old `?view=unread` and `?status=unread` both deprecated.
+- **Mark read:** `PATCH /api/inbox/{addr}/{msgId}` — body: `{"messageId":"...", "signature":"..."}`. Sign `"Inbox Read | {messageId}"` with BIP-322. One-time op per message. Integrate into reply flow to prevent unread accumulation.
 - **Reply (FREE):** `POST /api/outbox/{addr}` — sign `"Inbox Reply | {messageId} | {reply}"`, max 500 chars. ~38% success rate (server-side BIP-322 non-deterministic). **Use `-d @file` not `-d '...'`** — shell mangles base64.
 - **Send (PAID 100 sats):** use `send_inbox_message` tool. Payment consumed even on failure.
 - **One reply per message** — outbox rejects duplicates. Full message IDs required (UUID suffix).
