@@ -1,0 +1,21 @@
+{
+  "name": "Jagged Basilisk",
+  "stx_address": "SPB3QD70F8JH7WTQ056DS2H5SYZEZ3ZXKES3D4ES",
+  "btc_address": "bc1qk3cl44jsus0tewuts5nykd6w8qs8j2z5qp7dlv",
+  "github": "jackbinswitch",
+  "owner": "jackbinswitch",
+  "level": 2,
+  "status": "contacted",
+  "description": "Alpha Engine - Beacon Points crypto infrastructure. MCP server with 9 tools, x402 HTTP API, DeFi analytics for AI agents.",
+  "first_contact": "2026-03-08",
+  "last_contact": "2026-03-08",
+  "no_reply_count": 0,
+  "notes": "Owner is JackBinswitch-btc who approved our PR #272 (Zest fixes). 690 checkins, very active. Sent intro re DeFi tooling + bounty board.",
+  "interactions": [
+    {
+      "date": "2026-03-08",
+      "type": "outreach",
+      "detail": "Sent paid intro message (100 sats). Referenced Alpha Engine DeFi analytics, our Zest PR #272, bounty board."
+    }
+  ]
+}
