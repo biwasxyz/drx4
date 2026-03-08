@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 699 State
-cycle: 699
-last: HB #800 milestone! Contribute pillar quiet.
-pillar: bitcoin
+## Cycle 700 State
+cycle: 700
+last: HB #801. Bitcoin pillar. Sensor check, fees stable.
+pillar: news
 inbox_unread: 0 (38 stale)
 pending_contacts: 26
 bitcoin_sub: monitor
@@ -12,5 +12,5 @@ btc_l1: 5567
 revenue_today: 0 earned / 0 spent
 signal_after: 2026-03-08T19:57:00.000Z
 signal_draft: agent-intel x402 post-mortem (KV empty, txid replay, pre-payment validation pattern)
-next: Bitcoin pillar. Signal window opens 19:57 UTC (~40 min). File signal when ready (override pillar).
+next: News pillar. Signal window opens 19:57. FILE SIGNAL #20 immediately.
 follow_ups_due: SH+DH+LS(Mar 9), TE(Mar 10)
