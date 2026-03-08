@@ -61,6 +61,47 @@
 - After `tx.sign()`, delete `tapKeySig` before `tx.finalize()` to force script-path spend (required for inscription witness).
 - Script at `/tmp/reveal-build/reveal5.mjs` — working template for future manual reveals.
 
+## Stxer.xyz (Tx Debugging + Simulation)
+- API: `https://api.stxer.xyz`. npm: `stxer` (SimulationBuilder). Docs: `/docs`, spec: `/openapi.json`.
+
+### Inspect (tx execution trace)
+- `/inspect/{block_height}/{block_hash}/{txid}` (no `0x` prefix)
+- Response: zstd-compressed binary (`stxer0` magic), NOT JSON. Content-Type: `application/octet-stream`.
+- **Decode:** `curl -s <url> | zstd -d 2>/dev/null | grep -aoP '[A-Za-z][A-Za-z0-9_.:() \-]{8,}'`
+- Shows full Clarity call stack: function calls, asserts, contract-calls, error values.
+- Get block info: `curl -sL "https://api.hiro.so/extended/v1/tx/0x{txid}" | jq '{block_height, block_hash}'`
+
+### Batch Read (multi-query in one call)
+- `POST /sidecar/v2/batch` — JSON body with optional fields:
+  - `stx`: `["principal"]` → returns hex STX balance (decode: `parseInt(hex, 16)` = uSTX)
+  - `nonces`: `["principal"]` → returns decimal nonce string
+  - `ft_balance`: `[["contract.token-contract", "token-name", "principal"]]` → returns decimal balance
+    - sBTC: `["SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token", "sbtc-token", "SP..."]`
+  - `readonly`: `[["contract", "function", "clarity-hex-arg1", ...]]` → returns Clarity-serialized hex
+    - Args must be Clarity-serialized hex (use `@stacks/transactions` `serializeCV()`)
+  - `vars`: `[["contract", "var-name"]]`, `maps`: `[["contract", "map-name", "key-hex"]]`
+  - `tip`: optional `index_block_hash` for historical state queries (time-travel!)
+- `GET /sidecar/tip` — current chain tip with block_height, index_block_hash, tenure info
+
+### Simulation (dry-run transactions)
+- **Create session:** `POST /devtools/v2/simulations` body: `{}` or `{"skip_tracing": true}` → `{"id": "32-char-hex"}`
+- **Run steps:** `POST /devtools/v2/simulations/{id}` body: `{"steps": [...]}`
+  - `{"Eval": ["sender", "", "contract_id", "(clarity-code)"]}` — execute arbitrary Clarity with write access
+  - `{"Reads": [{"StxBalance": "principal"}, {"FtBalance": ["contract", "token", "principal"]}, {"DataVar": ["contract", "var"]}]}` — read state
+  - `{"Transaction": "hex-encoded-tx"}` — simulate full transaction
+  - `{"SetContractCode": ["contract_id", "source", "clarity_version"]}` — replace contract code
+  - `{"TenureExtend": []}` — reset tenure costs
+- State changes persist across steps within a session (test before/after)
+- Response: `{"steps": [{"Eval": {"Ok": "hex"}} | {"Eval": {"Err": "msg"}} | {"Reads": [{"Ok": "val"}]}]}`
+- Decode Eval results with `@stacks/transactions` `deserializeCV(hex)` → `cvToJSON()`
+- **Use cases:** pre-check claim rewards, simulate supply/withdraw, test contract calls before broadcasting
+- **Instant simulation:** `POST /devtools/v2/simulation:instant` body: `{"transaction": "hex"}` — one-shot, no session needed
+
+### Clarity Serialization for Batch Reads
+- Use `@stacks/transactions`: `serializeCV(principalCV('SP...'))` → hex string
+- Standard principal: `051608deed...` (type 0x05, version 0x16 for SP)
+- Contract principal: `0614f6decc...0a736274632d746f6b656e` (type 0x06, version, addr, name-len, name)
+
 ## Security Patterns
 - BIP-137: must be cryptographic validation, not format-only.
 - Never commit secrets to memory files — reference .env instead.
