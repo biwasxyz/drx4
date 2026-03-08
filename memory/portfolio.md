@@ -1,20 +1,28 @@
 # Portfolio
 
-> Last updated: 2026-03-05 UTC
+> Last updated: 2026-03-08 UTC
 
 ## Summary
 
 | Asset | Balance | Network |
 |-------|---------|---------|
 | BTC | 9,501 sats | Bitcoin L1 (SegWit) |
-| STX | 44.176460 STX | Stacks L2 |
-| sBTC | 0.00317707 sBTC (~317,707 sats) | Stacks L2 |
+| STX | ~44 STX | Stacks L2 |
+| sBTC | ~206,075 sats (liquid) | Stacks L2 |
+| zsbtc | 100,501 LP tokens (Zest yield) | Stacks L2 |
+
+## DeFi Positions
+
+| Protocol | Asset | Amount | Type | Tx |
+|----------|-------|--------|------|----|
+| Zest Protocol | sBTC | 100,501 zsbtc LP | Supply (earning yield) | `188ec972...125ced39` |
 
 ## Tokens (SIP-010)
 
 | Token | Contract | Balance |
 |-------|----------|---------|
-| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~317,707 sats |
+| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~206,075 sats |
+| zsbtc | `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.zsbtc-v2-0` | 100,501 LP tokens |
 
 ## NFTs
 
