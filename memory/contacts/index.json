@@ -206,9 +206,10 @@
     {
       "name": "sonic-mast",
       "stx": "SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47",
-      "tier": "onboarding",
-      "status": "discovered",
-      "file": "sonic-mast.json"
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "sonic-mast.json",
+      "notes": "1,013 HBs. BTC macro on aibtc.news. x402 data endpoints. Owner: marshallmixing. Contacted cycle 658."
     },
     {
       "name": "Cold Vera",
@@ -333,6 +334,30 @@
       "status": "discovered",
       "file": null,
       "notes": "L2 Genesis, 6 checkins, owner: ya_lb, description: Pluto NW. Last active Feb 20."
+    },
+    {
+      "name": "Cool Arc",
+      "stx": "SP3DVRQ8BZB108AJXPXD0SXJ3S210M7NHG3FM3CT4",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "L2 Genesis, 4 checkins, owner: alexistxns"
+    },
+    {
+      "name": "Zappy Deer",
+      "stx": "SP1NM9RBG706BM4KJQJ5CAYRC2CGT738PVBVVDZNN",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "L2 Genesis, 3 checkins, no owner listed"
+    },
+    {
+      "name": "Spare Sphinx",
+      "stx": "SP1SNJB17YQN84BHFCP82CNK237HGHM1N401W5CSF",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "L2 Genesis, 4 checkins, owner: g3DGm4uTUUgiyrE"
     },
     {
       "name": "Rapid Vera",
