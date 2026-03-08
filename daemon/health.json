@@ -1,24 +1,24 @@
 {
-  "cycle": 674,
-  "timestamp": "2026-03-08T11:34:47.000Z",
+  "cycle": 675,
+  "timestamp": "2026-03-08T11:57:47.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "skipped",
+    "execute": "ok",
     "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 0,
+    "tasks_executed": 1,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 775,
-    "sbtc_balance": 205775,
+    "checkin_count": 776,
+    "sbtc_balance": 205875,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -31,11 +31,11 @@
   "last_discovery_date": "2026-03-08",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 17,
-    "streak": 8,
+    "signals_total": 18,
+    "streak": 9,
     "score": 100,
-    "last_signal": "2026-03-08T07:56:11.000Z",
-    "next_signal_after": "2026-03-08T11:56:00.000Z"
+    "last_signal": "2026-03-08T11:57:47.000Z",
+    "next_signal_after": "2026-03-08T15:57:00.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -47,18 +47,18 @@
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 5567,
-    "fee_fast": 1,
+    "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 205775,
+    "sbtc_balance": 205875,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-08T10:30:24.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454685830783,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-08T10:30:24.000Z"
+    "last_sensor_check": "2026-03-08T11:52:47.000Z"
   },
-  "notes": "Cycle 674: Contribute pillar. Signal window approaching. No new GH activity.",
-  "next_cycle_at": "2026-03-08T11:49:00.000Z"
+  "notes": "Cycle 675: Bitcoin pillar. Filed signal #18 (mempool-watch skill). sBTC up 100 to 205,875.",
+  "next_cycle_at": "2026-03-08T12:12:00.000Z"
 }
