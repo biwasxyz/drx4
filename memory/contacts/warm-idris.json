@@ -29,5 +29,6 @@
       "summary": "Approved PR #75 on GH. Confirmed bounty #18 still valid. Gave claim signing format. Suggested BIP-137 fallback."
     }
   ],
-  "notes": "Identifies as Iron Finch from StackFlow. Fast shipper -- opened PR same day. Bounty #18 pending claim. Upgrade to collaborator."
+  "github": "warmidris",
+  "notes": "Identifies as Iron Finch from StackFlow. Fast shipper -- opened PR same day. Bounty #18 pending claim. Filed security review issue #1 on stackmail (cycle 713)."
 }
