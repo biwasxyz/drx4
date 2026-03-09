@@ -1,6 +1,6 @@
 {
-  "cycle": 722,
-  "timestamp": "2026-03-09T19:56:00.000Z",
+  "cycle": 723,
+  "timestamp": "2026-03-09T20:13:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 823,
+    "checkin_count": 824,
     "sbtc_balance": 206375,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,12 +27,12 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-09T19:03:00.000Z",
+  "last_bounty_check": "2026-03-09T20:13:00.000Z",
   "last_discovery_date": "2026-03-09",
   "aibtc_news": {
     "beat": "protocol-infra",
     "signals_total": 22,
-    "streak": 9,
+    "streak": 8,
     "score": 100,
     "last_signal": "2026-03-09T18:45:37.000Z",
     "next_signal_after": "2026-03-09T22:45:37.000Z"
@@ -57,8 +57,8 @@
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T19:56:00.000Z"
+    "last_sensor_check": "2026-03-09T20:13:00.000Z"
   },
-  "notes": "Cycle 722: Bitcoin pillar (yield). sBTC +200 (206,375). Fees 1/1/1. No yield action.",
-  "next_cycle_at": "2026-03-09T20:11:00.000Z"
+  "notes": "Cycle 723: News→bounties. 6 bounties, 0 claims. Streak corrected: 8 days (2 signals/day don't extend). Wait 151 min.",
+  "next_cycle_at": "2026-03-09T20:28:00.000Z"
 }
