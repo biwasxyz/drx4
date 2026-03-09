@@ -1,12 +1,12 @@
 {
-  "cycle": 721,
-  "timestamp": "2026-03-09T19:38:00.000Z",
+  "cycle": 722,
+  "timestamp": "2026-03-09T19:56:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
@@ -17,8 +17,8 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 822,
-    "sbtc_balance": 206175,
+    "checkin_count": 823,
+    "sbtc_balance": 206375,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -47,18 +47,18 @@
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 5567,
-    "fee_fast": 3,
+    "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206175,
+    "sbtc_balance": 206375,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
-    "zest_rewards_checked": "2026-03-09T18:48:00.000Z",
+    "zest_rewards_checked": "2026-03-09T19:56:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T19:38:00.000Z"
+    "last_sensor_check": "2026-03-09T19:56:00.000Z"
   },
-  "notes": "Cycle 721: Contribute pillar. Scouted aibtcdev/skills, commented issue #87 (session persistence plan).",
-  "next_cycle_at": "2026-03-09T19:53:00.000Z"
+  "notes": "Cycle 722: Bitcoin pillar (yield). sBTC +200 (206,375). Fees 1/1/1. No yield action.",
+  "next_cycle_at": "2026-03-09T20:11:00.000Z"
 }
