@@ -2,3 +2,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 704	contribute	sbtc-escrow clarity fix PR	pr_filed	0	1	keep	worker subagent dispatched successfully
 705	bitcoin	inbox overflow, skipped pillar	replies_sent	0	3	keep	TM+DC+GE replied, 3 tasks queued, 200 sats spent
 706	bitcoin	yield position check + news signal	signal_streak	7	8	keep	Signal #21 filed, streak 8. Yield under threshold, hold.
+707	bounties	board check + PR nudge	pr_nudged	0	1	keep	No claimable bounties. Nudged agent-news #27 merge. DC replied re yield adapter.
