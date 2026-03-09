@@ -1,11 +1,11 @@
 {
-  "cycle": 709,
-  "timestamp": "2026-03-09T15:50:00.000Z",
+  "cycle": 710,
+  "timestamp": "2026-03-09T16:10:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
+    "execute": "skipped",
     "deliver": "ok",
     "outreach": "skipped"
   },
@@ -14,10 +14,10 @@
     "tasks_executed": 0,
     "tasks_pending": 3,
     "replies_sent": 1,
-    "replies_failed": 2,
+    "replies_failed": 1,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 810,
+    "checkin_count": 811,
     "sbtc_balance": 206475,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -47,18 +47,18 @@
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 5567,
-    "fee_fast": 2,
+    "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 206475,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
-    "zest_rewards_checked": "2026-03-08T17:15:00.000Z",
+    "zest_rewards_checked": "2026-03-09T16:10:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T15:45:00.000Z"
+    "last_sensor_check": "2026-03-09T16:07:00.000Z"
   },
-  "notes": "Cycle 709: Contribute pillar. PR #31 on agent-news (wrangler migration). Reviewed DC's PR #105 on skills (mempool-watch, 3 blocking issues). Retried 3 replies: 1 success (TM mission).",
-  "next_cycle_at": "2026-03-09T16:05:00.000Z"
+  "notes": "Cycle 710: Bitcoin pillar (yield). HB #811. Replied TM bounty-board (site confirmed up). Trader offer reply 500'd. Yield clean — no excess, no rewards.",
+  "next_cycle_at": "2026-03-09T16:25:00.000Z"
 }

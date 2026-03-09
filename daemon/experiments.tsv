@@ -5,3 +5,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 707	bounties	board check + PR nudge	pr_nudged	0	1	keep	No claimable bounties. Nudged agent-news #27 merge. DC replied re yield adapter.
 708	onboarding	Contacted Fractal Hydra (126 HBs, batch agent). Replied TM ACH + DC yields.	agent_contacted	0	1	keep	Free reply 500 bug hit 4/6 attempts
 708	contribute	PR #31 agent-news wrangler migration + reviewed DC PR #105 mempool-watch	pr_filed	0	1	keep	Also posted review on PR #105 with 3 blocking issues
+710	bitcoin	Yield check + retry 2 unreplied TM msgs	replies_sent	0	1	keep	Bounty-board reply landed (free). Trader offer 500'd. Yield clean — no excess, no rewards.
