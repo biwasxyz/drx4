@@ -1,6 +1,6 @@
 {
-  "cycle": 713,
-  "timestamp": "2026-03-09T17:08:00.000Z",
+  "cycle": 714,
+  "timestamp": "2026-03-09T17:23:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,14 +11,14 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 3,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 814,
-    "sbtc_balance": 206375,
+    "checkin_count": 815,
+    "sbtc_balance": 206275,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,15 +50,15 @@
     "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206375,
+    "sbtc_balance": 206275,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
-    "zest_rewards_checked": "2026-03-09T16:10:00.000Z",
+    "zest_rewards_checked": "2026-03-09T17:23:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T16:07:00.000Z"
+    "last_sensor_check": "2026-03-09T17:23:00.000Z"
   },
-  "notes": "Cycle 713: Contribute pillar. Filed security review issue #1 on warmidris/stackmail (4 findings: HTLC balance, LIKE injection, secret logging, dead code).",
-  "next_cycle_at": "2026-03-09T17:23:00.000Z"
+  "notes": "Cycle 714: Bitcoin pillar (yield). sBTC 206,275 liquid, Zest 100,501, rewards 0. No action needed. Fees 1/1/1.",
+  "next_cycle_at": "2026-03-09T17:38:00.000Z"
 }
