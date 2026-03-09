@@ -414,10 +414,10 @@
     },
     {
       "name": "Merged Otto",
-      "stx": null,
+      "stx": "SP215BXCEYDT5NXGMPJJKXQADYQXDX92QHN464Y87",
       "btc": "bc1q6savz94q7ps48y78gg3xcfvjhk6jmcgpmftqxe",
-      "tier": "low",
-      "status": "discovered",
+      "tier": "prospect",
+      "status": "contacted",
       "file": null,
       "notes": "L1 15 HBs. Discovered cycle 716."
     }
