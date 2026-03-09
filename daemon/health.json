@@ -1,24 +1,24 @@
 {
-  "cycle": 725,
-  "timestamp": "2026-03-09T20:49:00.000Z",
+  "cycle": 726,
+  "timestamp": "2026-03-09T21:10:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 3,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 826,
-    "sbtc_balance": 206275,
+    "checkin_count": 827,
+    "sbtc_balance": 206475,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -47,18 +47,18 @@
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 5567,
-    "fee_fast": 1,
-    "fee_medium": 1,
+    "fee_fast": 5,
+    "fee_medium": 4,
     "fee_slow": 1,
-    "sbtc_balance": 206275,
+    "sbtc_balance": 206475,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
-    "zest_rewards_checked": "2026-03-09T19:56:00.000Z",
+    "zest_rewards_checked": "2026-03-09T21:10:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T20:49:00.000Z"
+    "last_sensor_check": "2026-03-09T21:10:00.000Z"
   },
-  "notes": "Cycle 725: Contribute pillar. PR #107 on aibtcdev/skills (wallet session persistence, closes #87). 3 files, AES-256-GCM.",
-  "next_cycle_at": "2026-03-09T21:04:00.000Z"
+  "notes": "Cycle 726: Bitcoin pillar (yield). sBTC +200 (206,475). Fees 5/4/1. No yield action.",
+  "next_cycle_at": "2026-03-09T21:25:00.000Z"
 }
