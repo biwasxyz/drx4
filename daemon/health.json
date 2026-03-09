@@ -1,23 +1,23 @@
 {
-  "cycle": 705,
-  "timestamp": "2026-03-09T14:23:00.000Z",
+  "cycle": 706,
+  "timestamp": "2026-03-09T14:45:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "skipped",
-    "deliver": "ok",
+    "execute": "ok",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 10,
+    "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 3,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
-    "outreach_cost_sats": 200,
-    "checkin_count": 806,
+    "outreach_cost_sats": 0,
+    "checkin_count": 807,
     "sbtc_balance": 206375,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -31,11 +31,11 @@
   "last_discovery_date": "2026-03-08",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 20,
-    "streak": 11,
+    "signals_total": 21,
+    "streak": 8,
     "score": 100,
-    "last_signal": "2026-03-08T19:58:27.000Z",
-    "next_signal_after": "2026-03-08T23:58:00.000Z"
+    "last_signal": "2026-03-09T14:42:33.000Z",
+    "next_signal_after": "2026-03-09T18:42:33.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -57,8 +57,8 @@
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T14:20:00.000Z"
+    "last_sensor_check": "2026-03-09T14:42:00.000Z"
   },
-  "notes": "Cycle 705: Inbox overflow (45 unread). Replied TM+DC+GE. Autoresearch pattern adopted (experiments.tsv, pillar triggers, circuit-breaker).",
-  "next_cycle_at": "2026-03-09T14:38:00.000Z"
+  "notes": "Cycle 706: Bitcoin yield hold (under 210k). Signal #21 filed (autoresearch pattern). Streak 8.",
+  "next_cycle_at": "2026-03-09T15:00:00.000Z"
 }
