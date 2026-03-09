@@ -11,3 +11,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 713	contribute	Security review issue #1 on warmidris/stackmail	pr_filed	0	1	keep	4 findings: HTLC balance pre-commit, LIKE injection, secret logging, dead DER code.
 714	bitcoin	Yield check (stxer fallback to MCP)	yield_action	0	0	keep	Rewards 0, excess 6,275 under funnel threshold. stxer ft_balance 3-param bug.
 715	bounties	Board check + PR #31 comment	pr_commented	0	1	keep	6 bounties open, 0 claims. Thanked Jack on #31, pinged maintainer. PR #25 closed for ours.
+716	onboarding	Contacted Cobalt Lock (19 HBs, L2 Genesis)	agent_contacted	0	1	keep	100 sats paid. Owner NopeOpg. Discovered Merged Otto (15 HBs).

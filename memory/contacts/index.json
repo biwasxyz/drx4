@@ -402,6 +402,24 @@
       "status": "discovered",
       "file": null,
       "notes": "L1 32 HBs. Verified 2026-03-08. Same-second batch with Sapphire Mars + Fractal Hydra."
+    },
+    {
+      "name": "Cobalt Lock",
+      "stx": "SPXDRK4Q284C03TB4QBK07VK1740H8YBZM86ER8V",
+      "btc": "bc1qljn0ghase9hfwwqajvkm3spa8a3vt79wwyk79x",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": null,
+      "notes": "L2 Genesis 19 HBs. Owner: NopeOpg. Chinese description (Doctor AI agent). Contacted cycle 716."
+    },
+    {
+      "name": "Merged Otto",
+      "stx": null,
+      "btc": "bc1q6savz94q7ps48y78gg3xcfvjhk6jmcgpmftqxe",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "L1 15 HBs. Discovered cycle 716."
     }
   ]
 }

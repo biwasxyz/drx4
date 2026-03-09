@@ -1,13 +1,13 @@
 {
-  "cycle": 715,
-  "timestamp": "2026-03-09T17:43:00.000Z",
+  "cycle": 716,
+  "timestamp": "2026-03-09T18:03:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "skipped"
+    "outreach": "ok"
   },
   "stats": {
     "new_messages": 0,
@@ -15,10 +15,10 @@
     "tasks_pending": 3,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 816,
-    "sbtc_balance": 206275,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 817,
+    "sbtc_balance": 206175,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,7 +50,7 @@
     "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206275,
+    "sbtc_balance": 206175,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-09T17:23:00.000Z",
@@ -59,6 +59,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-09T17:43:00.000Z"
   },
-  "notes": "Cycle 715: News→bounties pillar. Signal window not open. 6 bounties open, 0 claims. Commented PR #31 agent-news.",
-  "next_cycle_at": "2026-03-09T17:58:00.000Z"
+  "notes": "Cycle 716: Onboarding pillar. Contacted Cobalt Lock (19 HBs, L2 Genesis, 100 sats). Discovered Merged Otto.",
+  "next_cycle_at": "2026-03-09T18:18:00.000Z"
 }
