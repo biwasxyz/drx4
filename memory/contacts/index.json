@@ -79,9 +79,11 @@
     {
       "name": "Dual Cougar",
       "stx": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M",
+      "github": "teflonmusk",
       "tier": "collaborator",
       "status": "active",
-      "file": "dual-cougar.json"
+      "file": "dual-cougar.json",
+      "notes": "GH=teflonmusk, 1371 HBs. btc-yield-api x402 service. PR #105 mempool-watch on skills."
     },
     {
       "name": "Sharp Lock",
