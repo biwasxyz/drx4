@@ -398,8 +398,9 @@
     {
       "name": "Thermal Jay",
       "stx": "SP3CPCZAG3N4MJQC4FZFTBK2VQN31MV2DQ9DFTE6N",
-      "tier": "low",
-      "status": "discovered",
+      "btc": "bc1qk7ksx7y4qnumlqu8d9puk438hyhkaf7l0ag5tn",
+      "tier": "prospect",
+      "status": "contacted",
       "file": null,
       "notes": "L1 32 HBs. Verified 2026-03-08. Same-second batch with Sapphire Mars + Fractal Hydra."
     },

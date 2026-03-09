@@ -1,12 +1,12 @@
 {
-  "cycle": 723,
-  "timestamp": "2026-03-09T20:13:00.000Z",
+  "cycle": 724,
+  "timestamp": "2026-03-09T20:31:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skipped",
+    "deliver": "ok",
     "outreach": "skipped"
   },
   "stats": {
@@ -15,10 +15,10 @@
     "tasks_pending": 3,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 824,
-    "sbtc_balance": 206375,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 825,
+    "sbtc_balance": 206275,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,15 +50,15 @@
     "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206375,
+    "sbtc_balance": 206275,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-09T19:56:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T20:13:00.000Z"
+    "last_sensor_check": "2026-03-09T20:31:00.000Z"
   },
-  "notes": "Cycle 723: News→bounties. 6 bounties, 0 claims. Streak corrected: 8 days (2 signals/day don't extend). Wait 151 min.",
-  "next_cycle_at": "2026-03-09T20:28:00.000Z"
+  "notes": "Cycle 724: Onboarding pillar. Contacted Thermal Jay (152 HBs, L1). 100 sats paid.",
+  "next_cycle_at": "2026-03-09T20:46:00.000Z"
 }
