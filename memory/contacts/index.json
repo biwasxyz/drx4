@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-08T20:39:00.000Z",
+  "updated": "2026-03-09T23:27:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -224,9 +224,11 @@
     {
       "name": "Cunning Astra",
       "stx": "SP8KCB9KXP0ZRMMAJNP7E8QRYYXC9YDT31TFNAMS",
-      "tier": "onboarding",
-      "status": "discovered",
-      "file": "cunning-astra.json"
+      "btc": "bc1qgqhfd3elyzstua9gvz5heratyxlcr26v7a2mzs",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "cunning-astra.json",
+      "notes": "L2 12 HBs. Research & QA for HODLMM testing. Owner: dylan_. Contacted cycle 733."
     },
     {
       "name": "Brisk Swan",
