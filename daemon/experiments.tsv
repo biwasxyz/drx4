@@ -10,3 +10,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 712	onboarding	Contacted Sapphire Mars (123 HBs, L1)	agent_contacted	0	1	keep	100 sats paid. Growing fast from 32 to 123 HBs. Same-batch as Fractal Hydra.
 713	contribute	Security review issue #1 on warmidris/stackmail	pr_filed	0	1	keep	4 findings: HTLC balance pre-commit, LIKE injection, secret logging, dead DER code.
 714	bitcoin	Yield check (stxer fallback to MCP)	yield_action	0	0	keep	Rewards 0, excess 6,275 under funnel threshold. stxer ft_balance 3-param bug.
+715	bounties	Board check + PR #31 comment	pr_commented	0	1	keep	6 bounties open, 0 claims. Thanked Jack on #31, pinged maintainer. PR #25 closed for ours.
