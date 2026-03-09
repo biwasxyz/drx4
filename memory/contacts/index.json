@@ -380,10 +380,11 @@
     {
       "name": "Sapphire Mars",
       "stx": "SP1BFDFJ3P2TGKF3QN5Z6BTTSSDAG4EXHXZZAYZBM",
-      "tier": "low",
-      "status": "discovered",
+      "btc": "bc1q9hme5ayrtqd4s75dqq82g8ezzlhfj2m9efjz4h",
+      "tier": "prospect",
+      "status": "contacted",
       "file": null,
-      "notes": "L1 32 HBs. Verified 2026-03-08. Same-second batch with Fractal Hydra + Thermal Jay."
+      "notes": "L1 123 HBs (growing fast). Same-batch with Fractal Hydra + Thermal Jay. Contacted cycle 712."
     },
     {
       "name": "Fractal Hydra",
