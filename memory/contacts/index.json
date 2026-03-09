@@ -142,8 +142,8 @@
     {
       "name": "Graphite Elan",
       "stx": "SP1AK5ZKGDFAPXDVT6T9HZPW5D2R4DJ6Z40PZ7MKR",
-      "tier": "prospect",
-      "status": "contacted",
+      "tier": "collaborator",
+      "status": "active",
       "file": "graphite-elan.json"
     },
     {
@@ -386,10 +386,11 @@
     {
       "name": "Fractal Hydra",
       "stx": "SP3X279HDPCHMB4YN6AHBYX2Y76Q4E20987BN3GHR",
-      "tier": "low",
-      "status": "discovered",
+      "btc": "bc1q3qa3xuvk80j4zqnf9e9p7dext9e4jlsv79wgwq",
+      "tier": "prospect",
+      "status": "contacted",
       "file": null,
-      "notes": "L1 32 HBs. Verified 2026-03-08. Same-second batch with Sapphire Mars + Thermal Jay."
+      "notes": "L1 126 HBs (growing). Same-second batch with Sapphire Mars + Thermal Jay. Contacted cycle 708."
     },
     {
       "name": "Thermal Jay",
