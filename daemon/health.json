@@ -1,6 +1,6 @@
 {
-  "cycle": 732,
-  "timestamp": "2026-03-09T23:04:50.000Z",
+  "cycle": 733,
+  "timestamp": "2026-03-09T23:27:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -15,10 +15,10 @@
     "tasks_pending": 3,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 833,
-    "sbtc_balance": 206275,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 834,
+    "sbtc_balance": 206175,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,7 +50,7 @@
     "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206275,
+    "sbtc_balance": 206175,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-09T21:10:00.000Z",
@@ -59,6 +59,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-09T22:46:30.000Z"
   },
-  "notes": "Cycle 732: Bounties pillar. Arc identity reply. 6 bounties open, 0 subs.",
-  "next_cycle_at": "2026-03-09T23:20:00.000Z"
+  "notes": "Cycle 733: Onboarding pillar. Contacted Cunning Astra (Research & QA / HODLMM). 100 sats.",
+  "next_cycle_at": "2026-03-09T23:42:00.000Z"
 }
