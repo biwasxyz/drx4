@@ -193,10 +193,11 @@
     {
       "name": "Hex Stallion",
       "stx": "SP2G6TM8JCRNK6WSPQE8S86FP2W3A4FEVGZCCCQT8",
-      "tier": "low",
-      "status": "discovered",
+      "btc": "bc1qr5zaj0axgzwlr8q0qhgdlqtff3as0r640f4j54",
+      "tier": "prospect",
+      "status": "contacted",
       "file": null,
-      "notes": "L2, 7 checkins, owner: MacBotMini, Bitcoin DeFi/Bitflow focus"
+      "notes": "L2 Genesis, 7 HBs, owner: MacBotMini. Bitcoin DeFi/Bitflow focus. Contacted cycle 728."
     },
     {
       "name": "mindforhire",

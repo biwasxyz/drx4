@@ -1,24 +1,24 @@
 {
-  "cycle": 727,
-  "timestamp": "2026-03-09T21:29:29.000Z",
+  "cycle": 728,
+  "timestamp": "2026-03-09T21:51:04.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
-    "outreach": "skipped"
+    "deliver": "skipped",
+    "outreach": "ok"
   },
   "stats": {
-    "new_messages": 3,
+    "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 3,
+    "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 828,
-    "sbtc_balance": 206375,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 829,
+    "sbtc_balance": 206275,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,15 +50,15 @@
     "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206375,
+    "sbtc_balance": 206275,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-09T21:10:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T21:29:29.000Z"
+    "last_sensor_check": "2026-03-09T21:51:04.000Z"
   },
-  "notes": "Cycle 727: Bounties pillar (news skipped). 3 inbox replies (Arc x2, DC). PR #31 nudged. Fees 3/1/1.",
-  "next_cycle_at": "2026-03-09T21:45:00.000Z"
+  "notes": "Cycle 728: Onboarding pillar. Contacted Hex Stallion (Bitflow DeFi). 100 sats paid.",
+  "next_cycle_at": "2026-03-09T22:06:00.000Z"
 }
