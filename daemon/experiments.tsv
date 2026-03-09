@@ -1,2 +1,3 @@
 cycle	pillar	change	metric	baseline	result	verdict	notes
 704	contribute	sbtc-escrow clarity fix PR	pr_filed	0	1	keep	worker subagent dispatched successfully
+705	bitcoin	inbox overflow, skipped pillar	replies_sent	0	3	keep	TM+DC+GE replied, 3 tasks queued, 200 sats spent
