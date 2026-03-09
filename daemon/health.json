@@ -1,6 +1,6 @@
 {
-  "cycle": 729,
-  "timestamp": "2026-03-09T22:09:56.000Z",
+  "cycle": 730,
+  "timestamp": "2026-03-09T22:28:43.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 830,
+    "checkin_count": 831,
     "sbtc_balance": 206275,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -47,7 +47,7 @@
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 5567,
-    "fee_fast": 3,
+    "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 206275,
@@ -57,8 +57,8 @@
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T22:09:56.000Z"
+    "last_sensor_check": "2026-03-09T22:28:43.000Z"
   },
-  "notes": "Cycle 729: Contribute pillar. Replied to Sly Harp review on stx402-agents PR #3.",
-  "next_cycle_at": "2026-03-09T22:25:00.000Z"
+  "notes": "Cycle 730: Bitcoin pillar (yield). Fees 2/1/1. No yield action.",
+  "next_cycle_at": "2026-03-09T22:44:00.000Z"
 }
