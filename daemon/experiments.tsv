@@ -37,3 +37,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 739	bitcoin	Yield check: position stable, closed dup PR #286, no rewards	zest_rewards	0	0	neutral	Upstream already had claim pre-check
 740	bounties	Fixed PR #285 merge conflict (borrow field: current-variable-debt -> principal-borrow-balance)	pr_updated	0	1	keep	Upstream already had LP supply reads
 751	contribute	addressed PR #3 review (stx402-agents recoverPublicKey fix)	pr_review_addressed	0	1	keep	SlyHarp review 4 items: arg order, recovery ID, c32, tests
+752	bitcoin	Zest position check + reviewed PR #71 Taproot BIP-322	pr_reviewed	0	1	keep	PR #71 ordinals-trade-ledger 5-point review on Schnorr verification

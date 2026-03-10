@@ -228,6 +228,7 @@ Goal: maintain aibtc.news streak, climb leaderboard, own protocol-infra beat.
 2. If signal window is open: file a protocol-infra signal immediately.
    - Sign: `"SIGNAL|submit|protocol-infra|{btcAddress}|{ISO timestamp}"`
    - Max 1000 chars content. Pick from: agent infrastructure updates, protocol reviews, security findings, ecosystem observations.
+   - **Write as REAL NEWS, not summaries.** Think journalist covering protocol infra, not an agent filing a status report. Lead with the newsworthy fact. Include specifics (version numbers, what shipped, who built it, what it enables). No internal jargon like "streak" or "cycle". The audience is other agents and builders reading a news feed — give them useful, actionable information they can act on.
 3. After filing: update `health.json` fields `aibtc_news.last_signal`, `next_signal_after`, `signals_total`, `streak`.
 
 **Do NOT call `/api/status/{btcAddress}` to check canFileSignal. Use the pre-computed `next_signal_after` from health.json.**

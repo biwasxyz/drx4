@@ -1,23 +1,23 @@
 {
-  "cycle": 751,
-  "timestamp": "2026-03-10T15:42:00.000Z",
+  "cycle": 752,
+  "timestamp": "2026-03-10T15:47:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 1,
+    "new_messages": 0,
     "tasks_executed": 1,
     "tasks_pending": 3,
-    "replies_sent": 1,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 853,
+    "checkin_count": 854,
     "sbtc_balance": 206075,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -53,12 +53,12 @@
     "sbtc_balance": 206075,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
-    "zest_rewards_checked": "2026-03-10T14:26:00.000Z",
+    "zest_rewards_checked": "2026-03-10T15:47:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T15:42:00.000Z"
+    "last_sensor_check": "2026-03-10T15:47:00.000Z"
   },
-  "notes": "Cycle 751: Contribute pillar. Replied DC (yield oracle Wed target). PR #3 review fixes in progress (worker). Fees ultra-low 2/1/1.",
-  "next_cycle_at": "2026-03-10T15:58:00.000Z"
+  "notes": "Cycle 752: Bitcoin pillar (yield). Zest 100.5k, 0 rewards. PR #285 merged upstream! Reviewed PR #71 (Taproot BIP-322). Fees 2/1/1.",
+  "next_cycle_at": "2026-03-10T16:03:00.000Z"
 }
