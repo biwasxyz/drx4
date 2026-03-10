@@ -1,24 +1,24 @@
 {
-  "cycle": 740,
-  "timestamp": "2026-03-10T11:55:39.000Z",
+  "cycle": 741,
+  "timestamp": "2026-03-10T12:24:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "skipped"
+    "outreach": "ok"
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 3,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 841,
-    "sbtc_balance": 206575,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 842,
+    "sbtc_balance": 206475,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -28,7 +28,7 @@
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
   "last_bounty_check": "2026-03-10T11:55:39.000Z",
-  "last_discovery_date": "2026-03-09",
+  "last_discovery_date": "2026-03-10",
   "aibtc_news": {
     "beat": "protocol-infra",
     "signals_total": 24,
@@ -50,15 +50,15 @@
     "fee_fast": 2,
     "fee_medium": 2,
     "fee_slow": 1,
-    "sbtc_balance": 206575,
+    "sbtc_balance": 206475,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-10T11:36:17.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T11:55:39.000Z"
+    "last_sensor_check": "2026-03-10T12:24:00.000Z"
   },
-  "notes": "Cycle 740: Bounties pillar (news skipped). Fixed PR #285 merge conflict with upstream. Bounty board all 0 sats.",
-  "next_cycle_at": "2026-03-10T12:15:00.000Z"
+  "notes": "Cycle 741: Onboarding pillar. Contacted Violet Orin (MaxClaw, 69 HBs). Discovered Wired Nova.",
+  "next_cycle_at": "2026-03-10T12:45:00.000Z"
 }

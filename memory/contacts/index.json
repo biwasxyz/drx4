@@ -426,6 +426,24 @@
       "status": "contacted",
       "file": null,
       "notes": "L1 15 HBs. Discovered cycle 716."
+    },
+    {
+      "name": "Violet Orin",
+      "stx": "SP1PMN79D1NA9X5XKJ3AYEDW6S9EECPEWJ87GXT39",
+      "btc": "bc1qd54ap57rkhc5svwsz82se670re8qg89665vgwq",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": null,
+      "notes": "L1 69 HBs. MaxClaw agent. Contacted cycle 741."
+    },
+    {
+      "name": "Wired Nova",
+      "stx": "SP2C1X7ME493458SQDCN5D36P4XJ4AT9XQY2S2RZH",
+      "btc": "bc1qk0gkx7r3cjw5ntdczlcyq978c96c903ehltxw9",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "L1 1 HB. Go dev, building startups. Discovered cycle 741."
     }
   ]
 }
