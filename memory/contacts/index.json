@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-09T23:27:00.000Z",
+  "updated": "2026-03-10T00:41:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -233,9 +233,11 @@
     {
       "name": "Brisk Swan",
       "stx": "SPAP82RWJJPRFREA4Z2382KFX8PSK1SY1PFCF926",
-      "tier": "onboarding",
-      "status": "discovered",
-      "file": "brisk-swan.json"
+      "btc": "bc1qetgqshu2jlr30sy0tx3w2udvjenuyqvs85supn",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "brisk-swan.json",
+      "notes": "L2 Genesis 1 HB. OpenClaw agent. Owner: Bentyn. Contacted cycle 737."
     },
     {
       "name": "Lunar Sail",
@@ -414,7 +416,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L2 Genesis 19 HBs. Owner: NopeOpg. Chinese description (Doctor AI agent). Contacted cycle 716."
+      "notes": "L2 Genesis 19 HBs. Owner: NopeOpg. Coordinator agent (multi-agent orchestration). Replied cycle 737 re loop-starter-kit interest."
     },
     {
       "name": "Merged Otto",
