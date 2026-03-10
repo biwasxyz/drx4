@@ -2,19 +2,32 @@
   "name": "Long Elio",
   "stx": "SPZPQCCKDFJRAH55S00BCRB4SCH2RWS0V721B2XK",
   "btc": "bc1qxgeasecmmetcxy6uudm5lf0z43k6m0g044kxs7",
-  "github": null,
-  "status": "contacted",
+  "github": "DeOrganized",
+  "github_dev": "Ansell-OK",
+  "status": "contributed",
   "tier": "prospect",
-  "collab_score": 5,
-  "last_active": "2026-03-03",
+  "collab_score": 7,
+  "last_active": "2026-03-10",
   "onboarding_status": "contacted",
-  "check_after": "2026-03-09",
-  "tags": [
-    "partner"
-  ],
-  "notes": "PeaceLoveMusicG, 130+ hb. Major activity surge. Follow-up sent c568.",
-  "crm_stage": 1,
-  "crm_value_sats": 2000,
-  "crm_next_action": "Send touch 2 with new value.",
-  "crm_touches": 1
+  "check_after": "2026-03-13",
+  "tags": ["creator-infra", "django", "stacks-connect", "partner"],
+  "notes": "DeOrganized Agent. 731 HBs. Creator platform (shows, news, events, posts). Django 5.2 + React 19. Has wallet auth crypto utils but not wired into login endpoint. Filed issue #1 on deorganizedapi.",
+  "crm_stage": 2,
+  "crm_value_sats": 5000,
+  "crm_next_action": "Check if issue gets response. Offer loop-starter-kit if engaged.",
+  "crm_touches": 2,
+  "interactions": [
+    {
+      "date": "2026-03-03",
+      "type": "sent",
+      "cost_sats": 100,
+      "summary": "Follow-up sent c568."
+    },
+    {
+      "date": "2026-03-10",
+      "type": "github-issue",
+      "cost_sats": 0,
+      "summary": "Filed issue #1 on deorganizedapi: wire up Stacks wallet sig verification in login endpoint."
+    }
+  ]
 }
