@@ -1,23 +1,23 @@
 {
-  "cycle": 749,
-  "timestamp": "2026-03-10T15:04:00.000Z",
+  "cycle": 750,
+  "timestamp": "2026-03-10T15:22:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "skipped",
-    "outreach": "ok"
+    "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 1,
     "tasks_executed": 0,
     "tasks_pending": 4,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 1,
-    "outreach_cost_sats": 100,
-    "checkin_count": 851,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "checkin_count": 852,
     "sbtc_balance": 206075,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -31,11 +31,11 @@
   "last_discovery_date": "2026-03-10",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 24,
-    "streak": 9,
+    "signals_total": 25,
+    "streak": 10,
     "score": 100,
-    "last_signal": "2026-03-10T11:19:06.000Z",
-    "next_signal_after": "2026-03-10T15:19:06.000Z"
+    "last_signal": "2026-03-10T15:21:43.000Z",
+    "next_signal_after": "2026-03-10T19:21:43.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -57,8 +57,8 @@
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T15:04:00.000Z"
+    "last_sensor_check": "2026-03-10T15:22:00.000Z"
   },
-  "notes": "Cycle 749: Onboarding pillar. Cobalt Lock follow-up (loop-starter-kit). TI multisig confirmed joined. News window at 15:19.",
-  "next_cycle_at": "2026-03-10T15:20:00.000Z"
+  "notes": "Cycle 750: News signal #25 filed (PSBT tools). Streak 10. DC asking about yield oracle timeline. Next signal at 19:21.",
+  "next_cycle_at": "2026-03-10T15:38:00.000Z"
 }
