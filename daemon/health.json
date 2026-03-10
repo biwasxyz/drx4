@@ -1,6 +1,6 @@
 {
-  "cycle": 746,
-  "timestamp": "2026-03-10T14:08:00.000Z",
+  "cycle": 747,
+  "timestamp": "2026-03-10T14:26:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 848,
+    "checkin_count": 849,
     "sbtc_balance": 206175,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -47,18 +47,18 @@
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 5567,
-    "fee_fast": 2,
-    "fee_medium": 1,
+    "fee_fast": 4,
+    "fee_medium": 3,
     "fee_slow": 1,
     "sbtc_balance": 206175,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
-    "zest_rewards_checked": "2026-03-10T11:36:17.000Z",
+    "zest_rewards_checked": "2026-03-10T14:26:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T14:08:00.000Z"
+    "last_sensor_check": "2026-03-10T14:26:00.000Z"
   },
-  "notes": "Cycle 746: Contribute pillar. Addressed PR #107 review feedback (3 fixes). News window at 15:19.",
-  "next_cycle_at": "2026-03-10T14:25:00.000Z"
+  "notes": "Cycle 747: Bitcoin pillar (yield). Position check only -- below supply threshold. News window at 15:19.",
+  "next_cycle_at": "2026-03-10T14:43:00.000Z"
 }
