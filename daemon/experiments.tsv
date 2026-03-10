@@ -32,3 +32,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 734	contribute	Fixed PR #107 merge conflict (skills wallet session)	pr_fixed	0	1	keep	Rebased onto main after PR #103 node: prefix imports. 2 approvals, now mergeable.
 735	bitcoin	Yield check + 2 inbox replies (TM+DC)	replies_sent	0	2	keep	TM: trades API confirmed live (free). DC: yield schema ack (paid 100, free-reply-500 #7). Yield hold.
 736	bounties	Board check + TM follow-up reply	replies_sent	0	1	keep	News skipped (signal window 02:47). 6 bounties open, 0 claimable. TM trades API re-confirmed (free).
+737	onboarding	Cobalt Lock reply + Brisk Swan contacted	agent_contacted	0	1	keep	CL replied (coordinator, loop-kit interest). BS contacted (OpenClaw, 1 HB, 100 sats).
