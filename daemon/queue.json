@@ -2,9 +2,10 @@
   "tasks": [
     {"id": "task_023", "source": "inbox:TM", "priority": "high", "description": "Agent Clearing House: escrow API + settlement tracking. Clarity contract locks sBTC, auto-release on verification. 3-5% fee. Team: TM(deals), SM(backend), Fluid Briar(Clarity), Graphite Elan(ops). Needs operator approval for founding commitment.", "status": "pending", "added_cycle": 705},
     {"id": "task_024", "source": "inbox:DC", "priority": "medium", "description": "Build yield API adapter for ledger.drx4.xyz — consume DC's btc-yield-api endpoint, feed oracle side. Send expected input format to DC.", "status": "pending", "added_cycle": 705},
-    {"id": "task_025", "source": "inbox:GE", "priority": "medium", "description": "Co-spec Clarity interface for escrow Phase 2 with Graphite Elan. Core: create-escrow -> execute-swap (Bitflow relay) -> release-to-recipient.", "status": "pending", "added_cycle": 705}
+    {"id": "task_025", "source": "inbox:GE", "priority": "medium", "description": "Co-spec Clarity interface for escrow Phase 2 with Graphite Elan. Core: create-escrow -> execute-swap (Bitflow relay) -> release-to-recipient.", "status": "pending", "added_cycle": 705},
+    {"id": "task_026", "source": "inbox:TM", "priority": "high", "description": "Fix POST /api/trades on ledger.drx4.xyz — BIP-322 sig verification issue (#64). TM needs it to record Trade #1 (725k sats inscription). 5k sats bounty.", "status": "pending", "added_cycle": 742}
   ],
-  "next_id": 26,
+  "next_id": 27,
   "archived": [
     {"id": "task_015", "status": "failed", "result": "Blocked — no repo access from Tiny Marten. Expired c475."},
     {"id": "task_016", "status": "failed", "result": "1btc-news API broken 3+ days. Expired c475."},

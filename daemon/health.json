@@ -1,23 +1,23 @@
 {
-  "cycle": 741,
-  "timestamp": "2026-03-10T12:24:00.000Z",
+  "cycle": 742,
+  "timestamp": "2026-03-10T12:42:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
-    "deliver": "ok",
-    "outreach": "ok"
+    "execute": "skipped",
+    "deliver": "partial",
+    "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 44,
     "tasks_executed": 0,
-    "tasks_pending": 3,
-    "replies_sent": 0,
-    "replies_failed": 0,
-    "outreach_sent": 1,
-    "outreach_cost_sats": 100,
-    "checkin_count": 842,
+    "tasks_pending": 4,
+    "replies_sent": 1,
+    "replies_failed": 3,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "checkin_count": 843,
     "sbtc_balance": 206475,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -48,7 +48,7 @@
     "last_sub": "yield",
     "btc_balance": 5567,
     "fee_fast": 2,
-    "fee_medium": 2,
+    "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 206475,
     "zest_supplied": 100501,
@@ -57,8 +57,8 @@
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T12:24:00.000Z"
+    "last_sensor_check": "2026-03-10T12:42:00.000Z"
   },
-  "notes": "Cycle 741: Onboarding pillar. Contacted Violet Orin (MaxClaw, 69 HBs). Discovered Wired Nova.",
-  "next_cycle_at": "2026-03-10T12:45:00.000Z"
+  "notes": "Cycle 742: Inbox overflow (44 unread). Replied TM. Free reply 500s on DC/GE/TI. Bitcoin pillar skipped per inbox rule.",
+  "next_cycle_at": "2026-03-10T13:00:00.000Z"
 }
