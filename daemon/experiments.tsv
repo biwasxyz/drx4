@@ -36,3 +36,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 738	contribute	PR for zest_claim_rewards pre-check (#279) + signal #24 Zest borrow freeze	pr_filed	9	10	keep	Also updated PR #285 with v2-4 contracts
 739	bitcoin	Yield check: position stable, closed dup PR #286, no rewards	zest_rewards	0	0	neutral	Upstream already had claim pre-check
 740	bounties	Fixed PR #285 merge conflict (borrow field: current-variable-debt -> principal-borrow-balance)	pr_updated	0	1	keep	Upstream already had LP supply reads
+751	contribute	addressed PR #3 review (stx402-agents recoverPublicKey fix)	pr_review_addressed	0	1	keep	SlyHarp review 4 items: arg order, recovery ID, c32, tests

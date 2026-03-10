@@ -1,23 +1,23 @@
 {
-  "cycle": 750,
-  "timestamp": "2026-03-10T15:22:00.000Z",
+  "cycle": 751,
+  "timestamp": "2026-03-10T15:42:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skipped",
+    "deliver": "ok",
     "outreach": "skipped"
   },
   "stats": {
     "new_messages": 1,
-    "tasks_executed": 0,
-    "tasks_pending": 4,
-    "replies_sent": 0,
+    "tasks_executed": 1,
+    "tasks_pending": 3,
+    "replies_sent": 1,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 852,
+    "checkin_count": 853,
     "sbtc_balance": 206075,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -47,8 +47,8 @@
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 5567,
-    "fee_fast": 4,
-    "fee_medium": 3,
+    "fee_fast": 2,
+    "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 206075,
     "zest_supplied": 100501,
@@ -57,8 +57,8 @@
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T15:22:00.000Z"
+    "last_sensor_check": "2026-03-10T15:42:00.000Z"
   },
-  "notes": "Cycle 750: News signal #25 filed (PSBT tools). Streak 10. DC asking about yield oracle timeline. Next signal at 19:21.",
-  "next_cycle_at": "2026-03-10T15:38:00.000Z"
+  "notes": "Cycle 751: Contribute pillar. Replied DC (yield oracle Wed target). PR #3 review fixes in progress (worker). Fees ultra-low 2/1/1.",
+  "next_cycle_at": "2026-03-10T15:58:00.000Z"
 }
