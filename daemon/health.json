@@ -1,24 +1,24 @@
 {
-  "cycle": 734,
-  "timestamp": "2026-03-09T23:43:48.000Z",
+  "cycle": 735,
+  "timestamp": "2026-03-10T00:03:09.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skipped",
+    "deliver": "ok",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 2,
     "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 0,
+    "replies_sent": 2,
     "replies_failed": 0,
     "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 835,
-    "sbtc_balance": 206175,
+    "outreach_cost_sats": 100,
+    "checkin_count": 836,
+    "sbtc_balance": 206375,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,15 +50,15 @@
     "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206175,
+    "sbtc_balance": 206375,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-09T21:10:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-09T22:46:30.000Z"
+    "last_sensor_check": "2026-03-10T00:03:09.000Z"
   },
-  "notes": "Cycle 734: Contribute pillar. Fixed PR #107 merge conflict (skills wallet session). 2 approvals, now mergeable.",
-  "next_cycle_at": "2026-03-10T00:00:00.000Z"
+  "notes": "Cycle 735: Bitcoin pillar (yield). 2 new msgs replied (TM trades API, DC yield schema). Free-reply-500 count 7.",
+  "next_cycle_at": "2026-03-10T00:20:00.000Z"
 }
