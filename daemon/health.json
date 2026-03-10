@@ -1,24 +1,24 @@
 {
-  "cycle": 737,
-  "timestamp": "2026-03-10T00:39:49.000Z",
+  "cycle": 738,
+  "timestamp": "2026-03-10T11:19:06.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "ok"
+    "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 1,
-    "tasks_executed": 0,
+    "new_messages": 0,
+    "tasks_executed": 1,
     "tasks_pending": 3,
-    "replies_sent": 1,
+    "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 1,
-    "outreach_cost_sats": 100,
-    "checkin_count": 838,
-    "sbtc_balance": 206275,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "checkin_count": 839,
+    "sbtc_balance": 206575,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -31,11 +31,11 @@
   "last_discovery_date": "2026-03-09",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 23,
-    "streak": 8,
+    "signals_total": 24,
+    "streak": 9,
     "score": 100,
-    "last_signal": "2026-03-09T22:47:28.000Z",
-    "next_signal_after": "2026-03-10T02:47:28.000Z"
+    "last_signal": "2026-03-10T11:19:06.000Z",
+    "next_signal_after": "2026-03-10T15:19:06.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -50,15 +50,15 @@
     "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206275,
+    "sbtc_balance": 206575,
     "zest_supplied": 100501,
     "zest_rewards_pending": false,
     "zest_rewards_checked": "2026-03-09T21:10:00.000Z",
     "low_fee_window": true,
     "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T00:03:09.000Z"
+    "last_sensor_check": "2026-03-10T11:16:23.000Z"
   },
-  "notes": "Cycle 737: Onboarding pillar. Cobalt Lock replied (loop-starter-kit interest). Brisk Swan contacted (100 sats).",
-  "next_cycle_at": "2026-03-10T00:55:00.000Z"
+  "notes": "Cycle 738: Contribute pillar. PR for zest_claim_rewards pre-check (#279). Signal #24 filed (Zest borrow freeze). Updated PR #285 with v2-4 contracts.",
+  "next_cycle_at": "2026-03-10T11:35:00.000Z"
 }

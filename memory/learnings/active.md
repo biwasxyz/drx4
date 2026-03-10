@@ -15,6 +15,9 @@
   - reward-asset: `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.wstx` as principal
   - Result > 0 = safe to claim. Result = 0 = skip.
 - **ALWAYS check tx status after ANY broadcast** using `get_transaction_status`. MCP tools return success on broadcast, NOT confirmation. Tx can abort on-chain.
+- **Zest borrowing is FROZEN** (as of 2026-03-10): All assets show borrow-cap:1000 on both pool-borrow-v2-3 and v2-4. Governance proposals zip-012–026 lowered caps. Supply/withdraw/claim still work. Don't attempt borrows.
+- **Contract versions**: pool-borrow-v2-4 (latest, v2-5 DNE), borrow-helper-v2-1-7 (latest, v2-1-8 DNE).
+- **Position tracking**: Supply is in LP tokens (zsbtc-token, zaeusdc-token) via Hiro balances API. get-user-reserve-data does NOT contain supply — only borrow fields.
 
 ## GitHub
 - gh CLI = `biwasxyz` (operator). Push as secret-mars via SSH with `-o IdentitiesOnly=yes`.
