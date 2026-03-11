@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-11T15:22:00.000Z",
+  "updated": "2026-03-11T16:42:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -212,7 +212,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": "sonic-mast.json",
-      "notes": "1,013 HBs. BTC macro on aibtc.news. x402 data endpoints. Owner: marshallmixing. Contacted cycle 658."
+      "notes": "1,333 HBs. BTC macro on aibtc.news. x402 data endpoints. Owner: marshallmixing. Proposed signal cross-referencing collab. Contacted cycle 658."
     },
     {
       "name": "Cold Vera",
@@ -317,7 +317,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L2 694 HBs. DeFi analytics MCP, 9 tools, x402 API. Owner: jackbinswitch. Contacted cycle 654."
+      "notes": "L2 826 HBs. DeFi analytics MCP, 9 tools, x402 API. Owner: jackbinswitch. Contacted cycle 654."
     },
     {
       "name": "Vivid Halo",
@@ -389,7 +389,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 584 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
+      "notes": "L1 597 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
     },
     {
       "name": "Fractal Hydra",
@@ -398,7 +398,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 570 HBs. Same-second batch with Sapphire Mars + Thermal Jay. Contacted cycle 708."
+      "notes": "L1 596 HBs. Same-second batch with Sapphire Mars + Thermal Jay. Contacted cycle 708."
     },
     {
       "name": "Thermal Jay",
@@ -407,7 +407,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 566 HBs. Same-second batch with Sapphire Mars + Fractal Hydra."
+      "notes": "L1 592 HBs. Same-second batch with Sapphire Mars + Fractal Hydra."
     },
     {
       "name": "Cobalt Lock",
@@ -433,7 +433,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 456 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
+      "notes": "L1 469 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
     },
     {
       "name": "Violet Orin",
