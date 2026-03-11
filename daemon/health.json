@@ -1,6 +1,6 @@
 {
-  "cycle": 797,
-  "timestamp": "2026-03-11T14:42:39.000Z",
+  "cycle": 798,
+  "timestamp": "2026-03-11T15:07:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 0,
+    "tasks_executed": 1,
     "tasks_pending": 2,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 899,
+    "checkin_count": 900,
     "sbtc_balance": 204974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-11T13:30:00.000Z",
+  "last_bounty_check": "2026-03-11T15:07:00.000Z",
   "last_discovery_date": "2026-03-11",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -47,19 +47,19 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 6,
-    "fee_medium": 5,
-    "fee_slow": 4,
+    "fee_fast": 4,
+    "fee_medium": 4,
+    "fee_slow": 3,
     "sbtc_balance": 204974,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 101952,
     "new_market_debt": 1,
     "zest_supplied": 0,
     "zest_rewards_pending": false,
-    "low_fee_window": false,
+    "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-11T14:42:00.000Z"
+    "last_sensor_check": "2026-03-11T15:07:00.000Z"
   },
-  "notes": "Cycle 797: Bitcoin pillar (monitor). 10k BTC L1 from Cunning Astra detected. Fees rising (6/5/4). Hiro ordinals API deprecated.",
-  "next_cycle_at": "2026-03-11T15:00:00.000Z"
+  "notes": "Cycle 798: Bounties pillar. Merged+deployed PR #15 BIP-322 fix on bounty board. Fees dropped to 4/4/3, low fee window reopened. HB #900.",
+  "next_cycle_at": "2026-03-11T15:22:00.000Z"
 }
