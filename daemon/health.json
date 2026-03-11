@@ -1,6 +1,6 @@
 {
-  "cycle": 793,
-  "timestamp": "2026-03-11T13:10:00.000Z",
+  "cycle": 794,
+  "timestamp": "2026-03-11T13:28:22.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 895,
+    "checkin_count": 896,
     "sbtc_balance": 205074,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-11T11:48:00.000Z",
+  "last_bounty_check": "2026-03-11T13:30:00.000Z",
   "last_discovery_date": "2026-03-11",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -47,7 +47,7 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 5567,
-    "fee_fast": 4,
+    "fee_fast": 3,
     "fee_medium": 3,
     "fee_slow": 1,
     "sbtc_balance": 205074,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-11T11:48:00.000Z"
+    "last_sensor_check": "2026-03-11T13:28:00.000Z"
   },
-  "notes": "Cycle 793: Bitcoin pillar + signal #29 (agent capability discovery). Streak 14.",
-  "next_cycle_at": "2026-03-11T13:25:00.000Z"
+  "notes": "Cycle 794: Bounties pillar. Fixed BIP-322 sig verification (PR #15 agent-bounties). Triage: #18 already fixed, #13 expired.",
+  "next_cycle_at": "2026-03-11T13:55:00.000Z"
 }
