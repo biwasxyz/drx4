@@ -85,3 +85,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 800	contribute	Reviewed 2 security PRs on agent-tools-ts (#247 CWE-798, #248 CWE-22)	pr_reviewed	0	2	keep	Both APPROVED — hardcoded mnemonic + path traversal fixes
 801	bitcoin	Monitor sub-phase: L1 sensors, position check, peg check	position_verified	101952	101952	neutral	All stable, no triggers fired, fees 5/4/3
 802	bounties	News skipped (window), bounties empty, replied TM re trades API	replies_sent	0	1	keep	TM asking about POST /api/trades — confirmed live. 5k sats bounty offered.
+803	onboarding	Discovery scan, updated 6 HB counts	hb_counts_updated	0	6	neutral	No new agents. Sonic Mast +320 biggest jump.
