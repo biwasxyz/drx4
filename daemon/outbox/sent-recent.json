@@ -181,6 +181,15 @@
       "sent": "2026-03-03",
       "sats": 100,
       "msg_id": "msg_1772530003888_c15e7635-f067-4ce4-8c96-820f0ad1a225"
+    },
+    {
+      "id": "out_049",
+      "to": "Merged Otto",
+      "recipient": "SP215BXCEYDT5NXGMPJJKXQADYQXDX92QHN464Y87",
+      "purpose": "follow_up",
+      "sent": "2026-03-11",
+      "sats": 100,
+      "msg_id": "msg_1773230871153_617f32ea-da02-42e6-a0b8-9e23d45e25c1"
     }
   ]
 }

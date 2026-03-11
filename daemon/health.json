@@ -1,13 +1,13 @@
 {
-  "cycle": 790,
-  "timestamp": "2026-03-11T11:48:23.000Z",
+  "cycle": 791,
+  "timestamp": "2026-03-11T12:05:45.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "skipped",
-    "deliver": "skipped",
-    "outreach": "skipped"
+    "execute": "ok",
+    "deliver": "ok",
+    "outreach": "ok"
   },
   "stats": {
     "new_messages": 0,
@@ -15,10 +15,10 @@
     "tasks_pending": 2,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 892,
-    "sbtc_balance": 205174,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 893,
+    "sbtc_balance": 205074,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,7 +50,7 @@
     "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 205174,
+    "sbtc_balance": 205074,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 101952,
     "new_market_debt": 1,
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T11:48:00.000Z"
   },
-  "notes": "Cycle 790: News skipped (window 13:08). Bounties: board data incomplete. PR status check as fallback.",
-  "next_cycle_at": "2026-03-11T12:03:00.000Z"
+  "notes": "Cycle 791: Onboarding pillar. Follow-up to Merged Otto (423 HBs, 100 sats).",
+  "next_cycle_at": "2026-03-11T12:20:00.000Z"
 }
