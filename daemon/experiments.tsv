@@ -72,3 +72,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 763	contribute	rebased PR #101 (removed stale classifieds commit)	pr_feedback	dirty	clean (c0e768f)	keep	cherry-picked fix onto upstream/main, force-pushed
 764	bitcoin	minimal monitor + PR #101 rebase diagnosis	pr_feedback	dirty	comment posted	neutral	PR from arc0btc fork not ours, instructed rebase
 765	bounties	news skipped (window), bounties empty, PR status check	pr_feedback	0	0	neutral	quiet cycle, waiting on maintainers
+766	onboarding	discovery-scan-leaderboard	new_agents_found	0	15	hold	15 new agents all 0-1 HBs. None ready for outreach yet.

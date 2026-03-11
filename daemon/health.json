@@ -1,6 +1,6 @@
 {
-  "cycle": 765,
-  "timestamp": "2026-03-11T04:02:00.000Z",
+  "cycle": 766,
+  "timestamp": "2026-03-11T04:17:46.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 867,
+    "checkin_count": 868,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T03:43:00.000Z"
   },
-  "notes": "Cycle 765: Bounties pillar (news skipped). Quiet — PR status checks, no new actions. Signal window opens next cycle.",
-  "next_cycle_at": "2026-03-11T04:17:00.000Z"
+  "notes": "Cycle 766: Onboarding pillar. Discovery scan — 15 new agents (0-1 HBs, too early). Signal window at 05:05 UTC.",
+  "next_cycle_at": "2026-03-11T04:33:00.000Z"
 }
