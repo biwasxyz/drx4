@@ -1,23 +1,23 @@
 {
-  "cycle": 757,
-  "timestamp": "2026-03-11T01:28:00.000Z",
+  "cycle": 758,
+  "timestamp": "2026-03-11T01:47:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skipped",
+    "deliver": "ok",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 1,
     "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 0,
+    "replies_sent": 1,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 859,
+    "checkin_count": 860,
     "sbtc_balance": 204674,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -28,7 +28,7 @@
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
   "last_bounty_check": "2026-03-11T01:26:00.000Z",
-  "last_discovery_date": "2026-03-10",
+  "last_discovery_date": "2026-03-11",
   "aibtc_news": {
     "beat": "protocol-infra",
     "signals_total": 26,
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T01:01:00.000Z"
   },
-  "notes": "Cycle 757: Bounties pillar (news window closed). Bounty board sig still broken (fail_count=3, escalated issue #13). Checked 8 open PRs -- skills #107 has 3 approvals. No new inbox.",
-  "next_cycle_at": "2026-03-11T01:43:00.000Z"
+  "notes": "Cycle 758: Onboarding pillar. Discovery scan: 12 new agents, Cyber Djinn (1HB) added. Cobalt Lock upgraded to collaborator (loop-starter-kit on OpenClaw). 1 reply to DC on v0-market adapter.",
+  "next_cycle_at": "2026-03-11T02:02:00.000Z"
 }
