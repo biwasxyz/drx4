@@ -7,17 +7,13 @@
 - Check tx history when balance changes — investigate WHY.
 - **ALWAYS check tx status after broadcasting** — `get_transaction_status` before logging success. MCP tools return success on broadcast, NOT on confirmation. Tx can abort on-chain (e.g. `abort_by_response`).
 
-## Zest Protocol
-- `zest_claim_rewards` broadcasts but can abort on-chain with `ERR_NO_REWARDS (err u1000000000003)` if rewards = 0.
-- **ALWAYS check rewards BEFORE claiming:** call `incentives-v2-2.get-vault-rewards(user, supplied-asset, reward-asset)` read-only.
-  - user: our STX address as principal
-  - supplied-asset: `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` as principal
-  - reward-asset: `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.wstx` as principal
-  - Result > 0 = safe to claim. Result = 0 = skip.
-- **ALWAYS check tx status after ANY broadcast** using `get_transaction_status`. MCP tools return success on broadcast, NOT confirmation. Tx can abort on-chain.
-- **Zest borrowing is FROZEN** (as of 2026-03-10): All assets show borrow-cap:1000 on both pool-borrow-v2-3 and v2-4. Governance proposals zip-012–026 lowered caps. Supply/withdraw/claim still work. Don't attempt borrows.
-- **Contract versions**: pool-borrow-v2-4 (latest, v2-5 DNE), borrow-helper-v2-1-7 (latest, v2-1-8 DNE).
-- **Position tracking**: Supply is in LP tokens (zsbtc-token, zaeusdc-token) via Hiro balances API. get-user-reserve-data does NOT contain supply — only borrow fields.
+## Zest Protocol (LEGACY — position migrated)
+- **Position migrated to v0-4-market** (cycle 756): Zest v1 position withdrawn (100,501 sBTC), re-supplied to `SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market` via `supply-collateral-add`.
+- New protocol uses hub+vault architecture. Position tracked internally in `v0-market-vault` contract.
+- Read position: `v0-market-vault.get-position(principal, enabled-mask)` — returns collateral and debt maps.
+- sBTC = asset 2, zsBTC = asset 3 in the new market's asset registry.
+- Zest MCP tools (`zest_get_position`, `zest_supply`, etc.) no longer reflect our actual position — use stxer batch reads against v0-market-vault.
+- Old Zest learnings kept for reference: `zest_claim_rewards` aborts if rewards=0, borrowing frozen, borrow-helper-v2-1-7 latest.
 
 ## GitHub
 - gh CLI = `biwasxyz` (operator). Push as secret-mars via SSH with `-o IdentitiesOnly=yes`.

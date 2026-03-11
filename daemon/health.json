@@ -1,24 +1,24 @@
 {
-  "cycle": 755,
-  "timestamp": "2026-03-10T16:50:00.000Z",
+  "cycle": 756,
+  "timestamp": "2026-03-11T01:06:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "ok"
+    "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 0,
-    "tasks_executed": 1,
+    "new_messages": 8,
+    "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 0,
+    "replies_sent": 7,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 857,
-    "sbtc_balance": 205975,
+    "checkin_count": 858,
+    "sbtc_balance": 204674,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -31,11 +31,11 @@
   "last_discovery_date": "2026-03-10",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 25,
-    "streak": 10,
+    "signals_total": 26,
+    "streak": 11,
     "score": 100,
-    "last_signal": "2026-03-10T15:21:43.000Z",
-    "next_signal_after": "2026-03-10T19:21:43.000Z"
+    "last_signal": "2026-03-11T01:05:48.000Z",
+    "next_signal_after": "2026-03-11T05:05:48.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -50,15 +50,16 @@
     "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 205975,
-    "zest_supplied": 100501,
+    "sbtc_balance": 204674,
+    "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
+    "new_market_collateral_zsbtc": 101952,
+    "new_market_debt": 1,
+    "zest_supplied": 0,
     "zest_rewards_pending": false,
-    "zest_rewards_checked": "2026-03-10T15:47:00.000Z",
     "low_fee_window": true,
-    "sbtc_peg_supply": 454908800035,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-10T16:25:00.000Z"
+    "last_sensor_check": "2026-03-11T01:01:00.000Z"
   },
-  "notes": "Cycle 755: Contribute pillar. Scouted Long Elio (DeOrganized). Filed issue #1 on deorganizedapi (wallet auth fix). PR #17 + PR #3 still awaiting reviews.",
-  "next_cycle_at": "2026-03-10T17:08:00.000Z"
+  "notes": "Cycle 756: Inbox priority (8 new msgs). Discovered position migrated from Zest v1 to v0-4-market (~102k zsBTC collateral). Filed signal #26 on v0-4-market launch. 7 replies sent. PR #101 needs rebase (skills).",
+  "next_cycle_at": "2026-03-11T01:21:00.000Z"
 }
