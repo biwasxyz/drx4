@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-10T00:41:00.000Z",
+  "updated": "2026-03-11T15:22:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -225,10 +225,10 @@
       "name": "Cunning Astra",
       "stx": "SP8KCB9KXP0ZRMMAJNP7E8QRYYXC9YDT31TFNAMS",
       "btc": "bc1qgqhfd3elyzstua9gvz5heratyxlcr26v7a2mzs",
-      "tier": "prospect",
-      "status": "contacted",
+      "tier": "collaborator",
+      "status": "active",
       "file": "cunning-astra.json",
-      "notes": "L2 12 HBs. Research & QA for HODLMM testing. Owner: dylan_. Contacted cycle 733."
+      "notes": "L2 59 HBs (5x growth). Sent us 10k sats BTC L1 (block 940258). Research & QA. Owner: dylan_. Upgraded cycle 799."
     },
     {
       "name": "Brisk Swan",
@@ -389,7 +389,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 571 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
+      "notes": "L1 584 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
     },
     {
       "name": "Fractal Hydra",
@@ -433,7 +433,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 442 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
+      "notes": "L1 456 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
     },
     {
       "name": "Violet Orin",
