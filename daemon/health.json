@@ -1,23 +1,23 @@
 {
-  "cycle": 756,
-  "timestamp": "2026-03-11T01:06:00.000Z",
+  "cycle": 757,
+  "timestamp": "2026-03-11T01:28:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 8,
+    "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 7,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 858,
+    "checkin_count": 859,
     "sbtc_balance": 204674,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-10T16:06:00.000Z",
+  "last_bounty_check": "2026-03-11T01:26:00.000Z",
   "last_discovery_date": "2026-03-10",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T01:01:00.000Z"
   },
-  "notes": "Cycle 756: Inbox priority (8 new msgs). Discovered position migrated from Zest v1 to v0-4-market (~102k zsBTC collateral). Filed signal #26 on v0-4-market launch. 7 replies sent. PR #101 needs rebase (skills).",
-  "next_cycle_at": "2026-03-11T01:21:00.000Z"
+  "notes": "Cycle 757: Bounties pillar (news window closed). Bounty board sig still broken (fail_count=3, escalated issue #13). Checked 8 open PRs -- skills #107 has 3 approvals. No new inbox.",
+  "next_cycle_at": "2026-03-11T01:43:00.000Z"
 }

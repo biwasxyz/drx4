@@ -42,3 +42,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 754	onboarding	followed up Sharp Lock (marketplace demo)	agent_contacted	0	1	keep	Sharp Lock CRM stage 2, 532 HBs, platform team
 755	contribute	scout+issue DeOrganized	issues_filed	0	1	keep	wallet auth fix issue on deorganizedapi, new contact Long Elio
 756	bitcoin	Inbox priority mode: 7 replies + signal #26. Discovered Zest->v0-4-market migration.	replies_sent	0	7	keep	Position migration found via tx trace. Streak 11.
+757	bounties	Bounty board sig escalation (issue #13 comment). Checked 8 PRs.	bounty_posted	0	0	neutral	Sig verification broken for BIP-322 on bounty board. fail_count=3.
