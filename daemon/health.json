@@ -1,6 +1,6 @@
 {
-  "cycle": 795,
-  "timestamp": "2026-03-11T14:02:44.000Z",
+  "cycle": 796,
+  "timestamp": "2026-03-11T14:22:05.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 2,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 1,
-    "outreach_cost_sats": 100,
-    "checkin_count": 897,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "checkin_count": 898,
     "sbtc_balance": 204974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -48,8 +48,8 @@
     "last_sub": "monitor",
     "btc_balance": 5567,
     "fee_fast": 4,
-    "fee_medium": 3,
-    "fee_slow": 1,
+    "fee_medium": 4,
+    "fee_slow": 3,
     "sbtc_balance": 204974,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 101952,
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T13:28:00.000Z"
   },
-  "notes": "Cycle 795: Onboarding pillar. Followed up Sapphire Mars (571 HBs). Updated batch trio HB counts.",
-  "next_cycle_at": "2026-03-11T14:20:00.000Z"
+  "notes": "Cycle 796: Contribute pillar. Security review on agent-contracts PR #8 (pegged DAO v2). H2 dissenter refund bug found.",
+  "next_cycle_at": "2026-03-11T14:40:00.000Z"
 }
