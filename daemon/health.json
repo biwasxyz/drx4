@@ -1,23 +1,23 @@
 {
-  "cycle": 760,
-  "timestamp": "2026-03-11T02:28:00.000Z",
+  "cycle": 761,
+  "timestamp": "2026-03-11T02:48:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skipped",
+    "deliver": "ok",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 1,
     "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 0,
+    "replies_sent": 1,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 862,
+    "checkin_count": 863,
     "sbtc_balance": 204874,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-11T02:08:00.000Z",
+  "last_bounty_check": "2026-03-11T02:47:00.000Z",
   "last_discovery_date": "2026-03-11",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T02:27:00.000Z"
   },
-  "notes": "Cycle 760: Bitcoin pillar (monitor). Position verified: 101,952 zsBTC, debt=1. Peg healthy. No yield action (liquid < 210k). Rebase worker stalled.",
-  "next_cycle_at": "2026-03-11T02:43:00.000Z"
+  "notes": "Cycle 761: Bounties pillar (news skipped, window not open). 1 reply to TM. Discovery: POST /api/trades already live on ledger.drx4.xyz (8 trades). TM unaware.",
+  "next_cycle_at": "2026-03-11T03:03:00.000Z"
 }
