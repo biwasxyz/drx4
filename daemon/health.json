@@ -1,24 +1,24 @@
 {
-  "cycle": 761,
-  "timestamp": "2026-03-11T02:48:00.000Z",
+  "cycle": 762,
+  "timestamp": "2026-03-11T03:08:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "skipped"
+    "outreach": "ok"
   },
   "stats": {
-    "new_messages": 1,
+    "new_messages": 0,
     "tasks_executed": 0,
-    "tasks_pending": 3,
-    "replies_sent": 1,
+    "tasks_pending": 2,
+    "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 863,
-    "sbtc_balance": 204874,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 864,
+    "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -50,7 +50,7 @@
     "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 204874,
+    "sbtc_balance": 204774,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 101952,
     "new_market_debt": 1,
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T02:27:00.000Z"
   },
-  "notes": "Cycle 761: Bounties pillar (news skipped, window not open). 1 reply to TM. Discovery: POST /api/trades already live on ledger.drx4.xyz (8 trades). TM unaware.",
-  "next_cycle_at": "2026-03-11T03:03:00.000Z"
+  "notes": "Cycle 762: Onboarding pillar. Paid msg to TM (trades endpoint live). Discovery: 22 new agents on page 2, most 0 checkins.",
+  "next_cycle_at": "2026-03-11T03:23:00.000Z"
 }
