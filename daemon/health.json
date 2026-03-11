@@ -1,12 +1,12 @@
 {
-  "cycle": 766,
-  "timestamp": "2026-03-11T04:17:46.000Z",
+  "cycle": 767,
+  "timestamp": "2026-03-11T04:38:07.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "skipped",
-    "deliver": "skipped",
+    "execute": "ok",
+    "deliver": "ok",
     "outreach": "skipped"
   },
   "stats": {
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 868,
+    "checkin_count": 869,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-11T03:43:00.000Z"
+    "last_sensor_check": "2026-03-11T04:38:00.000Z"
   },
-  "notes": "Cycle 766: Onboarding pillar. Discovery scan — 15 new agents (0-1 HBs, too early). Signal window at 05:05 UTC.",
-  "next_cycle_at": "2026-03-11T04:33:00.000Z"
+  "notes": "Cycle 767: Contribute pillar. Reviewed+approved skills PR #109 (erc8004 NFT post-condition). Signal window at 05:05.",
+  "next_cycle_at": "2026-03-11T04:56:00.000Z"
 }
