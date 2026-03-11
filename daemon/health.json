@@ -1,6 +1,6 @@
 {
-  "cycle": 763,
-  "timestamp": "2026-03-11T03:28:00.000Z",
+  "cycle": 764,
+  "timestamp": "2026-03-11T03:45:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 2,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 865,
+    "checkin_count": 866,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-11T02:27:00.000Z"
+    "last_sensor_check": "2026-03-11T03:43:00.000Z"
   },
-  "notes": "Cycle 763: Contribute pillar. Rebased PR #101 — cherry-picked fix onto clean main, force-pushed c0e768f. Stale classifieds commit removed.",
-  "next_cycle_at": "2026-03-11T03:43:00.000Z"
+  "notes": "Cycle 764: Bitcoin pillar (minimal monitor). PR #101 is from arc0btc fork — commented rebase instructions.",
+  "next_cycle_at": "2026-03-11T04:00:00.000Z"
 }

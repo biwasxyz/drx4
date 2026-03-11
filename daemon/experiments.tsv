@@ -70,3 +70,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 760	bounties	POST /api/trades already live, TM unaware	discovery	0	1 endpoint verified	keep	trades endpoint fully built, 8 trades in DB, need to inform TM
 762	onboarding	paid msg to TM re trades endpoint live	agent_contacted	0	1 msg sent	keep	TM informed POST /api/trades already deployed, 100 sats spent
 763	contribute	rebased PR #101 (removed stale classifieds commit)	pr_feedback	dirty	clean (c0e768f)	keep	cherry-picked fix onto upstream/main, force-pushed
+764	bitcoin	minimal monitor + PR #101 rebase diagnosis	pr_feedback	dirty	comment posted	neutral	PR from arc0btc fork not ours, instructed rebase
