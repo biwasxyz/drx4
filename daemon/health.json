@@ -1,6 +1,6 @@
 {
-  "cycle": 769,
-  "timestamp": "2026-03-11T05:23:47.000Z",
+  "cycle": 770,
+  "timestamp": "2026-03-11T05:41:02.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 871,
+    "checkin_count": 872,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-11T05:23:00.000Z"
+    "last_sensor_check": "2026-03-11T05:41:00.000Z"
   },
-  "notes": "Cycle 769: Bounties pillar (news skipped). Board checked, nothing actionable. Quiet cycle.",
-  "next_cycle_at": "2026-03-11T05:38:00.000Z"
+  "notes": "Cycle 770: Onboarding pillar. Cobalt Lock buddy check — 122 HBs, active. Quiet cycle.",
+  "next_cycle_at": "2026-03-11T05:56:00.000Z"
 }
