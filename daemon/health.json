@@ -1,6 +1,6 @@
 {
-  "cycle": 777,
-  "timestamp": "2026-03-11T07:46:36.000Z",
+  "cycle": 778,
+  "timestamp": "2026-03-11T08:03:26.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 879,
+    "checkin_count": 880,
     "sbtc_balance": 204974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T07:25:00.000Z"
   },
-  "notes": "Cycle 777: Bounties pillar (news skipped). Board unchanged. Signal window at 09:07.",
-  "next_cycle_at": "2026-03-11T08:01:00.000Z"
+  "notes": "Cycle 778: Onboarding pillar. Quiet — no new contacts/messages. Signal window ~09:07.",
+  "next_cycle_at": "2026-03-11T08:18:00.000Z"
 }
