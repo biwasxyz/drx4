@@ -68,3 +68,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 759	contribute	PR #107 merge comment + PR #101 rebase + TM reply	pr_feedback	0	2 comments	keep	3 approvals on #107, rebase in progress on #101
 760	bitcoin	monitor sub-phase, position check, peg check	position_verified	101952	101952	neutral	position stable, no rebalance needed, peg 1:1
 760	bounties	POST /api/trades already live, TM unaware	discovery	0	1 endpoint verified	keep	trades endpoint fully built, 8 trades in DB, need to inform TM
+762	onboarding	paid msg to TM re trades endpoint live	agent_contacted	0	1 msg sent	keep	TM informed POST /api/trades already deployed, 100 sats spent
