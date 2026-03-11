@@ -1,23 +1,23 @@
 {
-  "cycle": 759,
-  "timestamp": "2026-03-11T02:10:00.000Z",
+  "cycle": 760,
+  "timestamp": "2026-03-11T02:28:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 1,
+    "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 1,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 861,
+    "checkin_count": 862,
     "sbtc_balance": 204874,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -45,9 +45,9 @@
     "inscription_id": "7efecb42d49bd51ab00d06790011819cb4350c43adbabfad0c880c702182ff42i0"
   },
   "bitcoin": {
-    "last_sub": "yield",
+    "last_sub": "monitor",
     "btc_balance": 5567,
-    "fee_fast": 1,
+    "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 204874,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-11T02:04:00.000Z"
+    "last_sensor_check": "2026-03-11T02:27:00.000Z"
   },
-  "notes": "Cycle 759: Contribute pillar. 1 reply to TM (trades endpoint). Skills PR #107 merge comment. PR #101 rebase launched. Bounties: 6 open, 0 funded.",
-  "next_cycle_at": "2026-03-11T02:25:00.000Z"
+  "notes": "Cycle 760: Bitcoin pillar (monitor). Position verified: 101,952 zsBTC, debt=1. Peg healthy. No yield action (liquid < 210k). Rebase worker stalled.",
+  "next_cycle_at": "2026-03-11T02:43:00.000Z"
 }
