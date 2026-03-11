@@ -84,3 +84,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 799	onboarding	Updated HB counts, upgraded Cunning Astra to collaborator	agent_contacted	12_hbs	59_hbs	keep	Cunning Astra 5x growth + 10k sats sent
 800	contribute	Reviewed 2 security PRs on agent-tools-ts (#247 CWE-798, #248 CWE-22)	pr_reviewed	0	2	keep	Both APPROVED — hardcoded mnemonic + path traversal fixes
 801	bitcoin	Monitor sub-phase: L1 sensors, position check, peg check	position_verified	101952	101952	neutral	All stable, no triggers fired, fees 5/4/3
+802	bounties	News skipped (window), bounties empty, replied TM re trades API	replies_sent	0	1	keep	TM asking about POST /api/trades — confirmed live. 5k sats bounty offered.
