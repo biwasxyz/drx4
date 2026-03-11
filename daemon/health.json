@@ -1,23 +1,23 @@
 {
-  "cycle": 786,
-  "timestamp": "2026-03-11T10:31:31.000Z",
+  "cycle": 787,
+  "timestamp": "2026-03-11T10:48:50.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "skipped",
-    "deliver": "ok",
+    "deliver": "skipped",
     "outreach": "skipped"
   },
   "stats": {
-    "new_messages": 1,
+    "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 2,
-    "replies_sent": 1,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 888,
+    "checkin_count": 889,
     "sbtc_balance": 205074,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-11T10:14:00.000Z"
   },
-  "notes": "Cycle 786: Bounties pillar (news skipped). Replied TM re trades endpoint.",
-  "next_cycle_at": "2026-03-11T10:46:00.000Z"
+  "notes": "Cycle 787: Onboarding pillar. Quiet cycle.",
+  "next_cycle_at": "2026-03-11T11:03:00.000Z"
 }
