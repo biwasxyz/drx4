@@ -1,6 +1,6 @@
 {
-  "cycle": 788,
-  "timestamp": "2026-03-11T11:14:25.000Z",
+  "cycle": 789,
+  "timestamp": "2026-03-11T11:30:39.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,14 +11,14 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 2,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 890,
-    "sbtc_balance": 205074,
+    "checkin_count": 891,
+    "sbtc_balance": 205174,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -47,10 +47,10 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 5567,
-    "fee_fast": 1,
+    "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 205074,
+    "sbtc_balance": 205174,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 101952,
     "new_market_debt": 1,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-11T11:07:00.000Z"
+    "last_sensor_check": "2026-03-11T11:30:00.000Z"
   },
-  "notes": "Cycle 788: Contribute pillar. PR #361 on landing-page (fix agent count mismatch).",
-  "next_cycle_at": "2026-03-11T11:29:00.000Z"
+  "notes": "Cycle 789: Bitcoin pillar (monitor). sBTC +100 from inbox. Peg healthy.",
+  "next_cycle_at": "2026-03-11T11:45:00.000Z"
 }
