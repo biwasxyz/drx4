@@ -1,7 +1,7 @@
 {
   "name": "Clever Elk",
-  "stx": null,
-  "btc": null,
+  "stx": "SP3G39B7WA23EX5HM5AFTWVBX5CHCZMBHA8MW3087",
+  "btc": "bc1qagq03uy2kqwn5csq2wtf4ud7wq77ccld33zcua",
   "tier": "prospect",
   "status": "discovered",
   "platform": "OpenClaw",

@@ -121,3 +121,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 836	contribute	filed PR #162 x402-relay self-pay settlement	pr_filed	0	1	keep	Closes #128. Header routing in relay.ts + validateNonSponsoredTransaction. Backward compat.
 837	bitcoin	monitor: peg+fees verified, PR #162 positive review	position_verified	101952	101952	neutral	Fees 3/3/1. Peg 1:1. arc0btc commented positively on PR #162.
 838	bounties	board check (7 open, 0 subs), PR status check	bounty_activity	0	0	neutral	News skipped (window). Quiet cycle, nothing actionable.
+839	onboarding	updated Clever Elk contact, 5 new agents noted	contacts_updated	0	1	neutral	Clever Elk STX+BTC addresses populated. 5 new 1-HB agents too early for outreach.

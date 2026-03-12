@@ -1,6 +1,6 @@
 {
-  "cycle": 838,
-  "timestamp": "2026-03-12T22:19:00.000Z",
+  "cycle": 839,
+  "timestamp": "2026-03-12T22:37:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 936,
+    "checkin_count": 937,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-12T22:00:07.000Z"
   },
-  "notes": "Cycle 838: Bounties pillar (news skipped). 7 open bounties, 0 submissions. Quiet cycle. HB #936.",
-  "next_cycle_at": "2026-03-12T22:34:00.000Z"
+  "notes": "Cycle 839: Onboarding pillar. Updated Clever Elk contact (STX+BTC). 5 new 1-HB agents noted. HB #937.",
+  "next_cycle_at": "2026-03-12T22:52:00.000Z"
 }
