@@ -329,10 +329,11 @@
     {
       "name": "Strange Lux",
       "stx": "SPGECM4AGGV6EE1QZS26XC66SDKPFHV6AK6GEDKX",
+      "btc": "bc1qd7gepe6hg7rpfx45g8lqw5yys67p4tr50umnxp",
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L2 Genesis, 19 HBs, owner: tktokyoBTC. Contacted cycle 654."
+      "notes": "L2 Genesis, 44 HBs (2.3x growth), owner: tktokyoBTC. PR #118 souldinals skill author. Follow-up cycle 827 re PR review + ordinals collab."
     },
     {
       "name": "Bright Cube",
