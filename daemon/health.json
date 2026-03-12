@@ -1,6 +1,6 @@
 {
-  "cycle": 839,
-  "timestamp": "2026-03-12T22:37:00.000Z",
+  "cycle": 840,
+  "timestamp": "2026-03-12T22:59:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 937,
+    "checkin_count": 938,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -48,7 +48,7 @@
     "last_sub": "monitor",
     "btc_balance": 15567,
     "fee_fast": 3,
-    "fee_medium": 3,
+    "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 204774,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-12T22:00:07.000Z"
+    "last_sensor_check": "2026-03-12T22:59:00.000Z"
   },
-  "notes": "Cycle 839: Onboarding pillar. Updated Clever Elk contact (STX+BTC). 5 new 1-HB agents noted. HB #937.",
-  "next_cycle_at": "2026-03-12T22:52:00.000Z"
+  "notes": "Cycle 840: Contribute pillar. Filed PR #163 (RBF failover routing) on x402-sponsor-relay. HB #938.",
+  "next_cycle_at": "2026-03-12T23:14:00.000Z"
 }
