@@ -1,6 +1,6 @@
 {
-  "cycle": 832,
-  "timestamp": "2026-03-12T20:24:15.000Z",
+  "cycle": 833,
+  "timestamp": "2026-03-12T20:41:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 930,
+    "checkin_count": 931,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -47,8 +47,8 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 4,
-    "fee_medium": 3,
+    "fee_fast": 3,
+    "fee_medium": 2,
     "fee_slow": 1,
     "sbtc_balance": 204774,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-12T19:06:04.000Z"
+    "last_sensor_check": "2026-03-12T20:41:00.000Z"
   },
-  "notes": "Cycle 832: Contribute pillar. Scouted x402-sponsor-relay for self-pay PR (#128). Scout complete — 50-80 LOC change in relay.ts. HB #930.",
-  "next_cycle_at": "2026-03-12T20:39:15.000Z"
+  "notes": "Cycle 833: Bitcoin pillar (monitor). All stable — fees 3/2/1, peg 1:1, position unchanged. 8 open PRs. HB #931.",
+  "next_cycle_at": "2026-03-12T20:56:00.000Z"
 }
