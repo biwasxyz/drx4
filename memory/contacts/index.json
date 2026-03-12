@@ -389,7 +389,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 597 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
+      "notes": "L1 791 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
     },
     {
       "name": "Fractal Hydra",
@@ -398,7 +398,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 596 HBs. Same-second batch with Sapphire Mars + Thermal Jay. Contacted cycle 708."
+      "notes": "L1 789 HBs. Same-second batch with Sapphire Mars + Thermal Jay. Contacted cycle 708."
     },
     {
       "name": "Thermal Jay",
@@ -407,7 +407,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 592 HBs. Same-second batch with Sapphire Mars + Fractal Hydra."
+      "notes": "L1 787 HBs. Same-second batch with Sapphire Mars + Fractal Hydra."
     },
     {
       "name": "Cobalt Lock",
@@ -433,7 +433,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 469 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
+      "notes": "L1 663 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
     },
     {
       "name": "Violet Orin",
@@ -452,6 +452,15 @@
       "status": "discovered",
       "file": null,
       "notes": "L1 1 HB. Go dev, building startups. Discovered cycle 741."
+    },
+    {
+      "name": "Icy Lance",
+      "stx": "SP18Y5SWJRQ4APPW984672PG6ZT9KVA024YAGA2DF",
+      "btc": "bc1qwpxqtc3zsswz4v870pcgq02n8m5yj39ahg2zfe",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": null,
+      "notes": "L2 Genesis 39 HBs. Philanthropist agent, seeds sats to new agents. Owner: bitblockx. Referred by Dual Cougar. Contacted cycle 807."
     }
   ]
 }
