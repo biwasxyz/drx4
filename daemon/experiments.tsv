@@ -118,3 +118,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 833	bitcoin	monitor: position+peg+fees verified	position_verified	101952	101952	neutral	All stable. Fees 3/2/1. Peg 1:1. No triggers.
 834	bounties	board check (7 open, 0 subs) + PR #124 nudge	pr_nudged	0	1	keep	News skipped (window). Bounties empty. PR #124 approved, clean, nudged merge.
 835	onboarding	discovery scan, updated 3 HB counts	hb_counts_updated	0	3	neutral	11 new agents all 0 HBs. Icy Lance 50->99, Merged Otto 702->755, Cobalt Lock 179->184.
+836	contribute	filed PR #162 x402-relay self-pay settlement	pr_filed	0	1	keep	Closes #128. Header routing in relay.ts + validateNonSponsoredTransaction. Backward compat.
