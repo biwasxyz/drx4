@@ -1,6 +1,6 @@
 {
-  "cycle": 840,
-  "timestamp": "2026-03-12T22:59:00.000Z",
+  "cycle": 841,
+  "timestamp": "2026-03-12T23:25:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 938,
+    "checkin_count": 939,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-12T22:59:00.000Z"
+    "last_sensor_check": "2026-03-12T23:25:00.000Z"
   },
-  "notes": "Cycle 840: Contribute pillar. Filed PR #163 (RBF failover routing) on x402-sponsor-relay. HB #938.",
-  "next_cycle_at": "2026-03-12T23:14:00.000Z"
+  "notes": "Cycle 841: Bitcoin pillar (monitor). Peg healthy, BTC L1 15567 sats, 3 UTXOs. Signal window NOW OPEN. HB #939.",
+  "next_cycle_at": "2026-03-12T23:40:00.000Z"
 }
