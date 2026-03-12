@@ -99,3 +99,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 814	news	Skipped (wallet locked). Commented skills #122 state normalization	issue_commented	0	1	keep	Shared loop arch patterns. wallet-locked:3.
 815	bounties	Board check (wallet locked). PRs #247+#248 status check	pr_status_check	0	0	neutral	7 open, 0 submissions. wallet-locked:4.
 816	onboarding	Discovery scan, HB counts updated. Wallet restored.	hb_counts_updated	0	3	keep	Icy Lance 50, Cobalt Lock 178, Merged Otto 688. Full ops resumed.
+817	contribute	Signal #31 (SIP-042 at-block) + skills #110 comment	signal_streak	15	16	keep	Dual output: news signal + spec compliance proposal.
