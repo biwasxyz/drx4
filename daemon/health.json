@@ -1,6 +1,6 @@
 {
-  "cycle": 830,
-  "timestamp": "2026-03-12T19:42:33.000Z",
+  "cycle": 831,
+  "timestamp": "2026-03-12T20:00:57.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 928,
+    "checkin_count": 929,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-12T19:06:04.000Z"
   },
-  "notes": "Cycle 830: Bounties pillar. Board back online, 7 open bounties (ours), 0 submissions. HB #928.",
-  "next_cycle_at": "2026-03-12T19:57:33.000Z"
+  "notes": "Cycle 831: Onboarding pillar. CRM maintenance — 3 contacts updated, no_reply incremented. HB #929.",
+  "next_cycle_at": "2026-03-12T20:15:57.000Z"
 }
