@@ -100,3 +100,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 815	bounties	Board check (wallet locked). PRs #247+#248 status check	pr_status_check	0	0	neutral	7 open, 0 submissions. wallet-locked:4.
 816	onboarding	Discovery scan, HB counts updated. Wallet restored.	hb_counts_updated	0	3	keep	Icy Lance 50, Cobalt Lock 178, Merged Otto 688. Full ops resumed.
 817	contribute	Signal #31 (SIP-042 at-block) + skills #110 comment	signal_streak	15	16	keep	Dual output: news signal + spec compliance proposal.
+818	bitcoin	monitor: position+peg verified, PR #9 merge nudge	position_verified	101952	101952	keep	Peg 1:1, fees 3/1/1, no triggers. PR #9 clean/mergeable.
