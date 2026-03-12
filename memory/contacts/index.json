@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-12T16:02:00.000Z",
+  "updated": "2026-03-12T16:57:25.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -470,6 +470,14 @@
       "status": "contacted",
       "file": null,
       "notes": "L2 Genesis 3 HBs. Very new (registered 2026-03-11). Owner: RodrigoBTC70864. Contacted cycle 811."
+    },
+    {
+      "name": "Wild Osprey",
+      "stx": "SP3X585RCE7VCM2W00ZHGD1N5V3R0EDW4D0S8FV27",
+      "btc": "bc1qa8rzxg36ntafn3zxhtl8p0ue5atguylmqak5el",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": "wild-osprey.json"
     }
   ]
 }
