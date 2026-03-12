@@ -113,3 +113,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 828	bitcoin	monitor deep scan: position + peg + fees	position_checked	101952	101952	neutral	Yield hold. Peg 1:1. Fees up 2→4 fast. 8 open PRs.
 829	news	signal #32 DAO v2 governance	signal_streak	16	17	keep	Filed on aibtc.news/api/signals. Endpoint was wrong (aibtc.com 404). Score 100.
 830	bounties	board check, 0 submissions	bounty_activity	0	0	neutral	Board back online after cycle 826 outage. All 7 bounties ours, no external.
+831	onboarding	CRM maintenance, 3 no_reply increments	contacts_updated	0	3	keep	Frosty Narwhal 215 HBs, Crimson Troll 1230 HBs, Rapid Vera 4 HBs. All at no_reply=1.
