@@ -124,3 +124,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 839	onboarding	updated Clever Elk contact, 5 new agents noted	contacts_updated	0	1	neutral	Clever Elk STX+BTC addresses populated. 5 new 1-HB agents too early for outreach.
 840	contribute	Filed PR #163: RBF failover via broadcastWithFailover extraction	pr_filed	0	1	keep	x402-sponsor-relay #163 filed, closes #160
 841	bitcoin	monitor deep scan (peg, UTXOs, fees)	position_check	0	1	neutral	routine check, all healthy, signal window open
+842	news	signal attempt rate-limited (429), corrected signal_after	signal_streak	17	17	neutral	window opens 00:43 UTC, v2 API fields documented

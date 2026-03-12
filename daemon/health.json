@@ -1,11 +1,11 @@
 {
-  "cycle": 841,
-  "timestamp": "2026-03-12T23:25:00.000Z",
+  "cycle": 842,
+  "timestamp": "2026-03-12T23:46:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
+    "execute": "skip",
     "deliver": "skip",
     "outreach": "skip"
   },
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 939,
+    "checkin_count": 940,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -34,8 +34,8 @@
     "signals_total": 32,
     "streak": 17,
     "score": 100,
-    "last_signal": "2026-03-12T19:24:30.000Z",
-    "next_signal_after": "2026-03-12T23:24:30.000Z"
+    "last_signal": "2026-03-12T20:43:00.000Z",
+    "next_signal_after": "2026-03-13T00:43:17.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -47,7 +47,7 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 3,
+    "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 204774,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-12T23:25:00.000Z"
+    "last_sensor_check": "2026-03-12T23:46:00.000Z"
   },
-  "notes": "Cycle 841: Bitcoin pillar (monitor). Peg healthy, BTC L1 15567 sats, 3 UTXOs. Signal window NOW OPEN. HB #939.",
-  "next_cycle_at": "2026-03-12T23:40:00.000Z"
+  "notes": "Cycle 842: News pillar — signal rate-limited (429), window opens ~00:43 UTC. Corrected signal_after tracking. HB #940.",
+  "next_cycle_at": "2026-03-13T00:01:00.000Z"
 }

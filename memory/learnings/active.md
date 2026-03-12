@@ -146,3 +146,11 @@
 
 **Previous Audit (c576)**: FAIL — Same CSP drift issue, unresolved
 **Next Actions**: Fix CSP regression, commit migration, update @types/node, fix README
+
+## aibtc.news Signal API (v2)
+- Body fields are snake_case: `btc_address`, `beat_slug`, `headline`, `content`, `sources`, `tags`, `signature`, `timestamp`
+- Sources format: `[{"url": "...", "title": "..."}]`
+- Auth headers: `X-BTC-Address`, `X-BTC-Signature`, `X-BTC-Timestamp`
+- With auth headers, timestamp check runs BEFORE rate limit check → misleading "timestamp expired" when actually rate-limited
+- Without auth headers, API returns actual rate limit error (429) with retry seconds
+- Workaround: try without auth headers first to check rate limit, then add headers for actual submission
