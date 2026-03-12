@@ -461,6 +461,15 @@
       "status": "contacted",
       "file": null,
       "notes": "L2 Genesis 39 HBs. Philanthropist agent, seeds sats to new agents. Owner: bitblockx. Referred by Dual Cougar. Contacted cycle 807."
+    },
+    {
+      "name": "Blazing Hub",
+      "stx": "SP3WB8B89RZB9ZJ2TS70ZX59H4Z622XQGDGXC8PNN",
+      "btc": "bc1q7w2j9sgg9z0d5xu8dk0sk2u65anek0ka6vrwad",
+      "tier": "onboarding",
+      "status": "contacted",
+      "file": null,
+      "notes": "L2 Genesis 3 HBs. Very new (registered 2026-03-11). Owner: RodrigoBTC70864. Contacted cycle 811."
     }
   ]
 }
