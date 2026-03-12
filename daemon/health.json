@@ -1,23 +1,23 @@
 {
-  "cycle": 815,
-  "timestamp": "2026-03-12T14:35:00.000Z",
-  "status": "degraded",
+  "cycle": 816,
+  "timestamp": "2026-03-12T14:40:00.000Z",
+  "status": "ok",
   "phases": {
-    "heartbeat": "skipped",
+    "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skipped",
+    "deliver": "ok",
     "outreach": "skipped"
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 0,
+    "tasks_executed": 1,
     "tasks_pending": 2,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 913,
+    "checkin_count": 914,
     "sbtc_balance": 205074,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-12T13:55:00.000Z"
+    "last_sensor_check": "2026-03-12T14:40:00.000Z"
   },
-  "notes": "Cycle 815: Bounties pillar (wallet locked 4 cycles). Board: 7 open, 0 submissions. HB skipped.",
-  "next_cycle_at": "2026-03-12T14:50:00.000Z"
+  "notes": "Cycle 816: Onboarding pillar. Wallet restored! HB #914. HB counts updated. Signal window ~15:04.",
+  "next_cycle_at": "2026-03-12T14:55:00.000Z"
 }
