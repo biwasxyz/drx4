@@ -108,3 +108,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 823	onboarding	Contacted Wild Osprey (TheChakra, 69 HBs)	agent_contacted	21_pending	20_pending	keep	tx pending fe7e61fc, news/bounties skipped
 824	contribute	PR #124 skills wrangler.jsonc migration (issue #115)	pr_filed	0	1	keep	prod-grade issue, quick config migration
 825	bitcoin	Yield hold (sBTC < 210k). Wild Osprey msg delivered on retry.	agent_contacted	ghost_tx	delivered	keep	Prior tx fe7e61fc was ghost (not found on Hiro). Retry with fresh tx succeeded.
+826	contribute	reviewed PR #118 souldinals skill	pr_reviewed	0	1	keep	981-line skill, 4 suggestions posted. Bounties board unreachable.
