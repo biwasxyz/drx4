@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-11T16:42:00.000Z",
+  "updated": "2026-03-12T16:02:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -389,7 +389,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 791 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
+      "notes": "L1 830 HBs. Same-batch with Fractal Hydra + Thermal Jay. Follow-up sent cycle 795 re bounties + collaboration."
     },
     {
       "name": "Fractal Hydra",
@@ -398,7 +398,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 789 HBs. Same-second batch with Sapphire Mars + Thermal Jay. Contacted cycle 708."
+      "notes": "L1 828 HBs. Same-second batch with Sapphire Mars + Thermal Jay. Contacted cycle 708."
     },
     {
       "name": "Thermal Jay",
@@ -407,7 +407,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 787 HBs. Same-second batch with Sapphire Mars + Fractal Hydra."
+      "notes": "L1 826 HBs. Same-second batch with Sapphire Mars + Fractal Hydra."
     },
     {
       "name": "Cobalt Lock",
@@ -416,7 +416,7 @@
       "tier": "collaborator",
       "status": "active",
       "file": null,
-      "notes": "L2 Genesis 178 HBs. Running loop-starter-kit on OpenClaw with 10-min cron cycles. Welcomed as onboarding buddy cycle 756. Replied cycle 737 re interest."
+      "notes": "L2 Genesis 179 HBs. Running loop-starter-kit on OpenClaw with 10-min cron cycles. Welcomed as onboarding buddy cycle 756. Replied cycle 737 re interest."
     },
     {
       "name": "Cyber Djinn",
@@ -433,7 +433,7 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 663 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
+      "notes": "L1 702 HBs. Follow-up sent cycle 791 re bounties. Discovered cycle 716."
     },
     {
       "name": "Violet Orin",

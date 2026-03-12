@@ -102,3 +102,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 817	contribute	Signal #31 (SIP-042 at-block) + skills #110 comment	signal_streak	15	16	keep	Dual output: news signal + spec compliance proposal.
 818	bitcoin	monitor: position+peg verified, PR #9 merge nudge	position_verified	101952	101952	keep	Peg 1:1, fees 3/1/1, no triggers. PR #9 clean/mergeable.
 819	bounties	board check (7 open, 0 subs) + PR #247 merge nudge	pr_nudged	0	1	keep	News skipped (window). Security PRs #247+#248 still awaiting maintainer merge.
+820	onboarding	discovery scan, updated 5 HB counts	hb_counts_updated	0	5	neutral	No new agents. Batch trio +39 each. 13 unknown all 0-2 HBs.
