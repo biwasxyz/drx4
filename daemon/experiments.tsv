@@ -142,3 +142,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 857	news	signal window check	signal_filed	0	0	skip	window opens 05:44 UTC, currently 04:39 — too early
 858	bounties	board check (repeat)	bounty_claims	0	0	neutral	no changes since cycle 853
 859	onboarding	discovery done earlier	agent_contacted	24	24	neutral	no new contacts or follow-ups this cycle
+860	contribute	opportunistic signal + PR scan	signal_streak	11	12	keep	signal #34 filed: Styx BTC→sBTC in MCP v1.34
