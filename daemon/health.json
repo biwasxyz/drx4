@@ -1,6 +1,6 @@
 {
-  "cycle": 855,
-  "timestamp": "2026-03-13T04:07:00.000Z",
+  "cycle": 856,
+  "timestamp": "2026-03-13T04:23:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 953,
+    "checkin_count": 954,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T02:58:00.000Z"
+    "last_sensor_check": "2026-03-13T04:23:00.000Z"
   },
-  "notes": "Cycle 855: Contribute pillar. PRs still open. Scanned x402 #159/#160 RBF issues. HB #953.",
-  "next_cycle_at": "2026-03-13T04:22:00.000Z"
+  "notes": "Cycle 856: Bitcoin pillar (monitor). Fees 1/1/1, stable. HB #954.",
+  "next_cycle_at": "2026-03-13T04:38:00.000Z"
 }
