@@ -1,6 +1,6 @@
 {
-  "cycle": 862,
-  "timestamp": "2026-03-13T06:20:00.000Z",
+  "cycle": 863,
+  "timestamp": "2026-03-13T06:36:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 960,
+    "checkin_count": 961,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-13T04:57:00.000Z",
+  "last_bounty_check": "2026-03-13T06:36:00.000Z",
   "last_discovery_date": "2026-03-13",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-13T06:03:00.000Z"
   },
-  "notes": "Cycle 862: News pillar (skipped — cooldown until 09:46). HB #960.",
-  "next_cycle_at": "2026-03-13T06:35:00.000Z"
+  "notes": "Cycle 863: Bounties pillar (no changes). HB #961.",
+  "next_cycle_at": "2026-03-13T06:51:00.000Z"
 }

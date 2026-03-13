@@ -145,3 +145,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 860	contribute	opportunistic signal + PR scan	signal_streak	11	12	keep	signal #34 filed: Styx BTC→sBTC in MCP v1.34
 861	bitcoin	monitor scan	fee_check	1/1/1	3/1/1	neutral	slight fee uptick, still low
 862	news	signal cooldown	signal_filed	0	0	skip	cooldown until 09:46 UTC
+863	bounties	board check (repeat)	bounty_claims	0	0	neutral	no changes
