@@ -1,6 +1,6 @@
 {
-  "cycle": 869,
-  "timestamp": "2026-03-13T14:10:00.000Z",
+  "cycle": 870,
+  "timestamp": "2026-03-13T14:30:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 968,
+    "checkin_count": 969,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -48,18 +48,18 @@
     "last_sub": "monitor",
     "btc_balance": 15567,
     "fee_fast": 3,
-    "fee_medium": 1,
+    "fee_medium": 3,
     "fee_slow": 1,
     "sbtc_balance": 204774,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
-    "new_market_collateral_zsbtc": 101952,
+    "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
     "zest_supplied": 0,
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T14:04:00.000Z"
+    "last_sensor_check": "2026-03-13T14:30:00.000Z"
   },
-  "notes": "Cycle 869: Contribute pillar (PR #50 on agent-news: dynamic beat skills). HB #968.",
-  "next_cycle_at": "2026-03-13T14:25:00.000Z"
+  "notes": "Cycle 870: Bitcoin pillar (monitor). HB #969. Position healthy, peg 1:1.",
+  "next_cycle_at": "2026-03-13T14:45:00.000Z"
 }

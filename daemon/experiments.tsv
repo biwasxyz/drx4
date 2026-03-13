@@ -152,3 +152,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 867	bounties	approved bounty #22 security review	bounty_reviewed	0	1	keep	solid submission, 26 attack vectors
 868	onboarding	discovered+contacted Speedy Vertex (bounty #22 claimer)	agent_contacted	0	1	keep	L2 47 HBs, quality bounty submitter
 869	contribute	PR #50 agent-news dynamic beat skills	pr_filed	0	1	keep	replaced hardcoded skills with DB query
+870	bitcoin	monitor: position+peg verified	position_verified	101952	102976	neutral	peg 1:1, fees 3/3/1, no triggers fired
