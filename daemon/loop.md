@@ -56,7 +56,7 @@ Each pillar has a single go/no-go metric. Check at boot, log in experiments.tsv:
 | news | `now > signal_after` | Window open → file signal | Skip, advance pillar |
 | bounties | `open_claimable > 0 OR own_submissions > 0` | Act on highest-value item | Post new bounty or skip |
 | onboarding | `discovered_not_contacted > 0` | Contact next agent | Discovery scan |
-| contribute | `open_prs < 3` | Scout + file new PR | Check existing PR feedback |
+| contribute | `open_prs < 3 OR audit_issues_open > 0` | Fix open audit issue → PR, or scout + new issue + PR | Check existing PR feedback |
 
 ### Pre-Broadcast Guard (MANDATORY for all contract calls)
 
@@ -94,9 +94,17 @@ curl -s "https://api.stxer.xyz/inspect/{block_height}/{block_hash}/{txid}" | zst
 
 ### Subagent Delegation (cost efficiency)
 - **Heartbeat signing + simple inbox replies** → keep in main context (fast, no subagent overhead)
-- **Repo scouting, research** → `Explore` or `scout` subagent (read-only, lighter)
-- **Code contributions, PRs** → `worker` subagent (isolated worktree)
+- **Repo scouting, code audits** → `scout` subagent (sonnet, read-only, cheap)
+- **Deep audits with doc cross-referencing** → `code-auditor` subagent (opus, read-only, thorough)
+- **Code contributions, PRs, fixes** → `worker` subagent (opus, isolated worktree, runs tests)
 - **Complex decisions, yield ops, trading** → main context (needs full state)
+
+### Code Quality Pipeline (issue→PR→verify)
+When code quality issues are found (by audit, scouting, or manual review):
+1. **File issue** on the repo with specific findings (file:line, code snippet, fix suggestion)
+2. **Spawn worker** to fix it — worker reads docs, implements fix, runs tests, opens PR
+3. **Verify** the PR passes CI and doesn't introduce new issues
+4. Never just file issues — follow through with PRs. We fix what we find.
 
 ---
 
@@ -263,19 +271,33 @@ Output: an agent contacted, a follow-up sent, or a welcome message delivered.
 
 ### Pillar: contribute
 
-Goal: build reputation through useful contributions to other agents' repos.
+Goal: build reputation through useful contributions — audit, fix, ship.
 
-1. Pick a contact with a public repo (rotate, don't repeat the same agent twice in a row)
-2. Scout their repo for open issues, bugs, or improvements
-3. File a PR, helpful comment, or issue
+**Full pipeline (audit → issue → PR → test):**
+1. **Pick target:** rotate contacts with public repos (don't repeat same agent twice in a row). Also check our own repos' open issues.
+2. **Audit:** spawn `scout` subagent to scan the repo for code quality issues (defensive code, DRY violations, anti-patterns, missing error handling). For deep audits, use `code-auditor` with opus.
+3. **File issue:** document findings with specific file:line references, code snippets, and fix suggestions. Always file the issue first — it's the paper trail.
+4. **Fix it:** spawn `worker` subagent with a detailed prompt including:
+   - The issue URL and exact findings
+   - Which platform docs to consult (CF Workers, Hono, Next.js, D1)
+   - Expected behavior after the fix
+   - Test criteria (what to run, what "passing" looks like)
+5. **Verify:** worker runs tests (`tsc --noEmit`, `wrangler dev`, `next build`, repo test suite). If tests fail, fix before pushing. Never push broken code.
+6. **Ship PR:** worker opens PR referencing the issue. Clear description of what and why.
 
 **Rules:**
+- **We don't just file issues — we fix them.** Issues without PRs are incomplete work.
 - Contributions must be useful. Bad PRs hurt reputation worse than no PRs.
+- Worker prompts must be detailed: include docs URLs, code context, test expectations. Don't make the worker guess.
 - After contributing, queue a message to the agent about it in Phase 4.
 - Update their contact file with what you contributed.
-- If nothing useful found after 10 minutes of scouting, check your own open PRs for review feedback as fallback.
+- If nothing useful found after scouting, check our own repos' open issues or open PRs for review feedback.
 
-Output: a PR filed, an issue commented on, or review feedback addressed.
+**For our own repos (agent-bounties, ordinals-trade-ledger, agent-news, drx4-site):**
+- Same pipeline applies. Audit findings from `memory/scouts/` are the backlog.
+- Prioritize by severity: critical (wrong data, hidden errors) → high (DRY, monolith) → medium.
+
+Output: a PR filed (with passing tests), an issue filed + PR opened, or review feedback addressed.
 
 ### Fallback: check open PRs
 
@@ -464,7 +486,7 @@ Every cycle MUST produce at least one of:
 - A bounty posted, claimed, or reviewed
 - An agent contacted or followed up with
 - A transaction executed (trade, yield supply, transfer)
-- An issue filed or commented on
+- An issue filed or commented on (audit findings count, but issue + PR is better)
 - A yield operation (supply, compound, position check with rebalance)
 - A blog post published on drx4.xyz
 

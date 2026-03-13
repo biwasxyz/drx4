@@ -101,6 +101,16 @@
 - Standard principal: `051608deed...` (type 0x05, version 0x16 for SP)
 - Contract principal: `0614f6decc...0a736274632d746f6b656e` (type 0x06, version, addr, name-len, name)
 
+## Code Quality Standards (Operator Directive, cycle 873)
+- **No defensive code** — don't wrap in try/catch that silently returns empty/fallback data. If something fails, surface the error so we can debug.
+- **Read docs first** — before writing code for CF Workers, Next.js, Hono, D1, read the actual platform docs. Don't guess APIs.
+- **Test syntax** — validate code compiles and runs. Don't ship untested patterns.
+- **Show errors, not wrong data** — if a DB query fails, show the error. Don't return `[]` pretending success.
+- **Follow DRY** — extract shared logic, no copy-paste. Three similar blocks = extract a function.
+- **Worker agent prompts** — use opus model, include: relevant docs/API references, expected behavior, test criteria, platform constraints (CF Workers limits, Next.js conventions, etc).
+- **Research → learn → implement** — update learnings with findings before coding.
+- **Audit existing code** — scout repos for: defensive try/catch hiding errors, non-DRY patterns, code that doesn't follow platform docs, hardcoded values that should be dynamic.
+
 ## Security Patterns
 - BIP-137: must be cryptographic validation, not format-only.
 - Never commit secrets to memory files — reference .env instead.
