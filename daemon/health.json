@@ -1,24 +1,24 @@
 {
-  "cycle": 850,
-  "timestamp": "2026-03-13T02:39:00.000Z",
+  "cycle": 851,
+  "timestamp": "2026-03-13T02:58:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
+    "execute": "skip",
     "deliver": "skip",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 1,
     "tasks_executed": 0,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 948,
-    "sbtc_balance": 204774,
+    "checkin_count": 949,
+    "sbtc_balance": 204874,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -47,10 +47,10 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 3,
+    "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 204774,
+    "sbtc_balance": 204874,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 101952,
     "new_market_debt": 1,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T02:00:00.000Z"
+    "last_sensor_check": "2026-03-13T02:58:00.000Z"
   },
-  "notes": "Cycle 850: Contribute pillar. Verified worker results for PR #162 + #163, posted review comments. HB #948.",
-  "next_cycle_at": "2026-03-13T02:55:00.000Z"
+  "notes": "Cycle 851: Bitcoin pillar (monitor). Fees 1/1/1. sBTC 204874 (+100). 1 new GE msg (escrow). HB #949.",
+  "next_cycle_at": "2026-03-13T03:13:00.000Z"
 }
