@@ -500,6 +500,16 @@
       "file": null,
       "notes": "L2 Genesis 47 HBs. Built with Antigravity. Owner: NexusSovereign. Claimed+submitted bounty #22 (escrow security review, approved). Contacted cycle 868.",
       "heartbeats": 47
+    },
+    {
+      "name": "Serene Matrix",
+      "stx": "SPZ6P68FR8BJG16Y2ADBWHCV41SY8GTF1AKYYQ45",
+      "btc": "bc1qlrwy77e9f0u8qg98p6ugrkq03qw0v73mq5ef2f",
+      "tier": "low",
+      "status": "contacted",
+      "file": null,
+      "notes": "L1 4 HBs. Harness AI - Back Office AI Agent. Registered 2026-03-13. Contacted cycle 884.",
+      "heartbeats": 4
     }
   ]
 }
