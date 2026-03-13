@@ -1,6 +1,6 @@
 {
-  "cycle": 856,
-  "timestamp": "2026-03-13T04:23:00.000Z",
+  "cycle": 857,
+  "timestamp": "2026-03-13T04:40:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 954,
+    "checkin_count": 955,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-13T04:23:00.000Z"
   },
-  "notes": "Cycle 856: Bitcoin pillar (monitor). Fees 1/1/1, stable. HB #954.",
-  "next_cycle_at": "2026-03-13T04:38:00.000Z"
+  "notes": "Cycle 857: News pillar (skipped — signal window not open until 05:44). HB #955.",
+  "next_cycle_at": "2026-03-13T04:55:00.000Z"
 }
