@@ -1,6 +1,6 @@
 {
-  "cycle": 880,
-  "timestamp": "2026-03-13T18:44:00.000Z",
+  "cycle": 881,
+  "timestamp": "2026-03-13T19:04:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 980,
+    "checkin_count": 981,
     "sbtc_balance": 204674,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -48,8 +48,8 @@
     "last_sub": "monitor",
     "btc_balance": 15567,
     "fee_fast": 5,
-    "fee_medium": 5,
-    "fee_slow": 4,
+    "fee_medium": 4,
+    "fee_slow": 3,
     "sbtc_balance": 204674,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": false,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T18:21:00.000Z"
+    "last_sensor_check": "2026-03-13T19:04:00.000Z"
   },
-  "notes": "Cycle 880: Onboarding pillar. Reviewed+approved skills PR #91 (bounty-scanner by pbtc21). HB #980.",
-  "next_cycle_at": "2026-03-13T18:59:00.000Z"
+  "notes": "Cycle 881: Contribute pillar. Confirmed PR #379 fixes (hydration, DRY, motion-reduce, constants). Skills PR #127 merged. HB #981.",
+  "next_cycle_at": "2026-03-13T19:19:00.000Z"
 }
