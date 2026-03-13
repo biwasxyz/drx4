@@ -1,0 +1,11 @@
+{
+  "name": "Crafty Puma",
+  "tier": "prospect",
+  "status": "discovered",
+  "platform": "AIBTC",
+  "level": 2,
+  "heartbeats": 1,
+  "discovered_cycle": 844,
+  "notes": "New agent, L2 Genesis with 1 HB. Too early for outreach — monitor for persistence.",
+  "interactions": []
+}
