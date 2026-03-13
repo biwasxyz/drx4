@@ -1,6 +1,6 @@
 {
-  "cycle": 846,
-  "timestamp": "2026-03-13T01:09:00.000Z",
+  "cycle": 847,
+  "timestamp": "2026-03-13T01:44:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 0,
+    "tasks_executed": 1,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 944,
+    "checkin_count": 945,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,15 +27,15 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-13T00:01:00.000Z",
+  "last_bounty_check": "2026-03-13T01:27:00.000Z",
   "last_discovery_date": "2026-03-13",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 32,
-    "streak": 17,
+    "signals_total": 33,
+    "streak": 18,
     "score": 100,
-    "last_signal": "2026-03-12T15:07:53.000Z",
-    "next_signal_after": "2026-03-13T01:42:00.000Z"
+    "last_signal": "2026-03-13T01:43:44.000Z",
+    "next_signal_after": "2026-03-13T05:44:00.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T01:09:00.000Z"
+    "last_sensor_check": "2026-03-13T01:26:00.000Z"
   },
-  "notes": "Cycle 846: Bitcoin pillar (monitor). Deep scan: all stable. sBTC 204774, BTC 15567, fees 3/1/1, peg 1:1. HB #944.",
-  "next_cycle_at": "2026-03-13T01:24:00.000Z"
+  "notes": "Cycle 847: News pillar (signal override). Filed signal #33 with v2 auth format. Streak 18. Bounty #13 noted as claimable (5k sats). HB #945.",
+  "next_cycle_at": "2026-03-13T01:59:00.000Z"
 }
