@@ -156,3 +156,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 871	bounties	board empty, PR #50 review fix pushed	pr_review_addressed	0	1	keep	arc0btc requested try/catch for listBeats DO call
 872	onboarding	HB count updates, no new contacts	hb_counts_updated	0	7	neutral	Cobalt Lock 240, Icy Lance 209, batch trio 1028-1033
 873	contribute	Addressed arc0btc review on agent-news PR #50 (listBeats try/catch) + replied issue #51	pr_feedback_addressed	0	2	keep	Blocking review resolved, import check confirmed safe
+874	bitcoin	Monitor sub-phase (no-go). Reviewed skills PR #118 (souldinals). Signal cooldown 175m.	pr_reviewed	0	1	keep	Cross-pillar review while bitcoin idle
