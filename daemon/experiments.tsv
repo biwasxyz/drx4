@@ -137,3 +137,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 852	news	signal window check	signal_filed	0	0	skip	window opens 05:44 UTC, currently 03:14 — too early
 853	bounties	board check	bounty_claims	0	0	neutral	2 open (#18, #12), no claims, deadlines 3/15
 854	onboarding	replied GE escrow check-in	replies_sent	0	1	keep	100 sats spent, committed Clarity draft ETA 48h
+855	contribute	PR status check + issue scan	prs_merged	0	0	neutral	all 3 PRs still open, x402 #159/#160 RBF features noted
