@@ -1,11 +1,11 @@
 {
-  "cycle": 860,
-  "timestamp": "2026-03-13T05:46:00.000Z",
+  "cycle": 861,
+  "timestamp": "2026-03-13T06:03:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
+    "execute": "skip",
     "deliver": "skip",
     "outreach": "skip"
   },
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 958,
+    "checkin_count": 959,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -47,7 +47,7 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 1,
+    "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 204774,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T04:23:00.000Z"
+    "last_sensor_check": "2026-03-13T06:03:00.000Z"
   },
-  "notes": "Cycle 860: Contribute pillar + signal #34 filed (Styx BTC→sBTC). HB #958. Streak 12.",
-  "next_cycle_at": "2026-03-13T06:01:00.000Z"
+  "notes": "Cycle 861: Bitcoin pillar (monitor). Fees 3/1/1. HB #959.",
+  "next_cycle_at": "2026-03-13T06:18:00.000Z"
 }
