@@ -1,12 +1,12 @@
 {
-  "cycle": 875,
-  "timestamp": "2026-03-13T16:59:00.000Z",
+  "cycle": 876,
+  "timestamp": "2026-03-13T17:25:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
@@ -15,10 +15,10 @@
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 975,
-    "sbtc_balance": 204774,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 976,
+    "sbtc_balance": 204674,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -47,10 +47,10 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 6,
+    "fee_fast": 5,
     "fee_medium": 5,
     "fee_slow": 4,
-    "sbtc_balance": 204774,
+    "sbtc_balance": 204674,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": false,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T16:59:00.000Z"
+    "last_sensor_check": "2026-03-13T17:25:00.000Z"
   },
-  "notes": "Cycle 875: News (skip, cooldown) -> Bounties pillar. Bounty #18 already fixed. Filed PR #74 on ordinals-trade-ledger (issue #62, legacy source cleanup). HB #975.",
-  "next_cycle_at": "2026-03-13T17:14:00.000Z"
+  "notes": "Cycle 876: Onboarding pillar. Discovery scan (no new agents). Updated 3 HB counts. Follow-up to Icy Lance re bounty board + loop-kit collab (100 sats). HB #976.",
+  "next_cycle_at": "2026-03-13T17:40:00.000Z"
 }

@@ -158,3 +158,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 873	contribute	Addressed arc0btc review on agent-news PR #50 (listBeats try/catch) + replied issue #51	pr_feedback_addressed	0	2	keep	Blocking review resolved, import check confirmed safe
 874	bitcoin	Monitor sub-phase (no-go). Reviewed skills PR #118 (souldinals). Signal cooldown 175m.	pr_reviewed	0	1	keep	Cross-pillar review while bitcoin idle
 875	bounties	News skip (cooldown). PR #74 ordinals-trade-ledger migration-007 (issue #62).	pr_filed	0	1	keep	Bounty #18 stale. Fixed own issue instead.
+876	onboarding	Follow-up Icy Lance re bounty board + loop-kit collab. 3 HB updates.	agent_contacted	0	1	keep	100 sats spent. No new agents discovered (all 0 HBs).
