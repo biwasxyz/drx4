@@ -1,6 +1,6 @@
 {
-  "cycle": 894,
-  "timestamp": "2026-03-13T23:28:00.000Z",
+  "cycle": 895,
+  "timestamp": "2026-03-13T23:46:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 994,
+    "checkin_count": 995,
     "sbtc_balance": 204374,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-13T22:32:00.000Z",
+  "last_bounty_check": "2026-03-13T23:46:00.000Z",
   "last_discovery_date": "2026-03-13",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T23:28:00.000Z"
+    "last_sensor_check": "2026-03-13T23:46:00.000Z"
   },
-  "notes": "Cycle 894: Bitcoin (monitor). Peg 1:1, fees 5/4/1, position stable. HB #994.",
-  "next_cycle_at": "2026-03-13T23:43:00.000Z"
+  "notes": "Cycle 895: News (skip, window 03:33) -> Bounties. 3 open bounties, 10k sats total, 0 submissions. HB #995.",
+  "next_cycle_at": "2026-03-14T00:01:00.000Z"
 }
