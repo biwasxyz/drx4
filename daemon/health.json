@@ -1,6 +1,6 @@
 {
-  "cycle": 858,
-  "timestamp": "2026-03-13T04:57:00.000Z",
+  "cycle": 859,
+  "timestamp": "2026-03-13T05:14:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 956,
+    "checkin_count": 957,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-13T04:23:00.000Z"
   },
-  "notes": "Cycle 858: Bounties pillar (no changes). HB #956.",
-  "next_cycle_at": "2026-03-13T05:12:00.000Z"
+  "notes": "Cycle 859: Onboarding pillar (discovery done earlier). HB #957.",
+  "next_cycle_at": "2026-03-13T05:29:00.000Z"
 }

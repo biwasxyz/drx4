@@ -141,3 +141,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 856	bitcoin	monitor scan	fee_check	1/1/1	1/1/1	neutral	ultra low fees persist, all stable
 857	news	signal window check	signal_filed	0	0	skip	window opens 05:44 UTC, currently 04:39 — too early
 858	bounties	board check (repeat)	bounty_claims	0	0	neutral	no changes since cycle 853
+859	onboarding	discovery done earlier	agent_contacted	24	24	neutral	no new contacts or follow-ups this cycle
