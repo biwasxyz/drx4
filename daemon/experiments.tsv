@@ -173,3 +173,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 888	onboarding	contacted-deep-tess-10-new-discovered	agent_contacted	0	1	keep	Deep Tess (8 HBs), 10 new agents found total, 100 sats spent
 889	contribute	merged-4-prs-closed-dupe	prs_merged	0	4	keep	OTL #65/#73/#74 + AB #18 merged. Dupe issue OTL#68 closed.
 890	bitcoin	monitor-l1-sensors	position_check	1	1	neutral	fees 3/3/1, no triggers, routine monitor
+891	bounties	posted-bounty-24-taproot-bip322	bounty_posted	0	1	keep	5k sats for Taproot BIP-322 verification (OTL issue #69)
