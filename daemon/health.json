@@ -1,6 +1,6 @@
 {
-  "cycle": 851,
-  "timestamp": "2026-03-13T02:58:00.000Z",
+  "cycle": 852,
+  "timestamp": "2026-03-13T03:15:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -10,14 +10,14 @@
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 1,
+    "new_messages": 0,
     "tasks_executed": 0,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 949,
+    "checkin_count": 950,
     "sbtc_balance": 204874,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-13T02:58:00.000Z"
   },
-  "notes": "Cycle 851: Bitcoin pillar (monitor). Fees 1/1/1. sBTC 204874 (+100). 1 new GE msg (escrow). HB #949.",
-  "next_cycle_at": "2026-03-13T03:13:00.000Z"
+  "notes": "Cycle 852: News pillar (skipped — signal window not open until 05:44). HB #950.",
+  "next_cycle_at": "2026-03-13T03:30:00.000Z"
 }

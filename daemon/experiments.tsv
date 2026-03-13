@@ -134,3 +134,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 849	onboarding	discovery scan, 2 contacts added	agent_contacted	22	24	keep	Hex Stallion 8HB, Blazing Hub 3HB
 850	contribute	verified worker PR fixes, posted reviews	prs_reviewed	2_pending	2_reviewed	keep	PR #162 sponsoredTx fix, PR #163 logger dedup — awaiting merge
 851	bitcoin	monitor scan, L1 sensors	fee_check	3/1/1	1/1/1	neutral	ultra low fees, +100 sats sBTC from GE msg, position stable
+852	news	signal window check	signal_filed	0	0	skip	window opens 05:44 UTC, currently 03:14 — too early
