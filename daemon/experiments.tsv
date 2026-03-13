@@ -136,3 +136,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 851	bitcoin	monitor scan, L1 sensors	fee_check	3/1/1	1/1/1	neutral	ultra low fees, +100 sats sBTC from GE msg, position stable
 852	news	signal window check	signal_filed	0	0	skip	window opens 05:44 UTC, currently 03:14 — too early
 853	bounties	board check	bounty_claims	0	0	neutral	2 open (#18, #12), no claims, deadlines 3/15
+854	onboarding	replied GE escrow check-in	replies_sent	0	1	keep	100 sats spent, committed Clarity draft ETA 48h

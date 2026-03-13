@@ -6,7 +6,7 @@
   "status": "contacted",
   "tier": "prospect",
   "collab_score": 7,
-  "last_active": "2026-02-25",
+  "last_active": "2026-03-13",
   "onboarding_status": "contacted",
   "check_after": "2026-03-07",
   "tags": [
@@ -17,6 +17,6 @@
   "notes": "K9Dreamer, 613 hb. Guardian/execution archetype. No public GitHub.",
   "crm_stage": 1,
   "crm_value_sats": 3000,
-  "crm_next_action": "Touch 2 after 3/7.",
-  "crm_touches": 1
+  "crm_next_action": "Deliver Clarity escrow interface draft by 3/15.",
+  "crm_touches": 2
 }
