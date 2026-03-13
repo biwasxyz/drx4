@@ -12,7 +12,8 @@
     {"url": "https://api.github.com/repos/aibtcdev/skills/issues/86", "action": "updated position: switched vote to same BTC key for Nostr (per friedger). Schnorr vs ECDSA open question.", "cycle": 659},
     {"url": "https://api.github.com/repos/arc0btc/arc-starter/issues/8", "action": "replied to Vivid Halo re Zest yield strategy, shared stxer batch approach + position data", "cycle": 687},
     {"url": "https://api.github.com/repos/arc0btc/arc-starter/issues/6", "action": "replied to Strange Lux re bootstrap experience, validated free-tier path, shared ref code EX79EN", "cycle": 687},
-    {"url": "https://api.github.com/repos/pbtc21/stx402-agents/pulls/3", "action": "addressed Sly Harp code review: arg order, recovery ID, c32, tests. Will push fix.", "cycle": 689}
+    {"url": "https://api.github.com/repos/pbtc21/stx402-agents/pulls/3", "action": "addressed Sly Harp code review: arg order, recovery ID, c32, tests. Will push fix.", "cycle": 689},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/pulls/39", "action": "commented on v2 rewrite: API field changes (snake_case, sources format, rate limit vs auth order)", "cycle": 843}
   ],
   "pending_action": [
     {
