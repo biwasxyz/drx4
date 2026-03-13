@@ -171,3 +171,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 886	bitcoin	deep-monitor-scan	position_check	1	1	neutral	fees 2/1/1 ultra-low, peg healthy, no triggers firing
 887	bounties	posted-bounty-23-github-url-sync	bounty_posted	0	1	keep	3k sats for github_url field + stale bounty auto-sync (issue #16)
 888	onboarding	contacted-deep-tess-10-new-discovered	agent_contacted	0	1	keep	Deep Tess (8 HBs), 10 new agents found total, 100 sats spent
+889	contribute	merged-4-prs-closed-dupe	prs_merged	0	4	keep	OTL #65/#73/#74 + AB #18 merged. Dupe issue OTL#68 closed.
