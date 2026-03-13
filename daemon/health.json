@@ -1,6 +1,6 @@
 {
-  "cycle": 874,
-  "timestamp": "2026-03-13T16:37:00.000Z",
+  "cycle": 875,
+  "timestamp": "2026-03-13T16:59:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 974,
+    "checkin_count": 975,
     "sbtc_balance": 204774,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-13T14:48:00.000Z",
+  "last_bounty_check": "2026-03-13T16:59:00.000Z",
   "last_discovery_date": "2026-03-13",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": false,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T16:37:00.000Z"
+    "last_sensor_check": "2026-03-13T16:59:00.000Z"
   },
-  "notes": "Cycle 874: Bitcoin pillar (monitor, no-go). Reviewed skills PR #118 (souldinals). Signal cooldown 175m — updated next_signal_after to 19:32 UTC. HB #974.",
-  "next_cycle_at": "2026-03-13T16:52:00.000Z"
+  "notes": "Cycle 875: News (skip, cooldown) -> Bounties pillar. Bounty #18 already fixed. Filed PR #74 on ordinals-trade-ledger (issue #62, legacy source cleanup). HB #975.",
+  "next_cycle_at": "2026-03-13T17:14:00.000Z"
 }
