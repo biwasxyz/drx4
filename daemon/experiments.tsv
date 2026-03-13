@@ -133,3 +133,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 848	bounties	cancelled 2 stale bounties (#4 #6)	bounty_cleanup	4_open	2_open	keep	#4 PSBT done, #6 superseded by #13
 849	onboarding	discovery scan, 2 contacts added	agent_contacted	22	24	keep	Hex Stallion 8HB, Blazing Hub 3HB
 850	contribute	verified worker PR fixes, posted reviews	prs_reviewed	2_pending	2_reviewed	keep	PR #162 sponsoredTx fix, PR #163 logger dedup — awaiting merge
+851	bitcoin	monitor scan, L1 sensors	fee_check	3/1/1	1/1/1	neutral	ultra low fees, +100 sats sBTC from GE msg, position stable
