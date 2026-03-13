@@ -154,3 +154,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 869	contribute	PR #50 agent-news dynamic beat skills	pr_filed	0	1	keep	replaced hardcoded skills with DB query
 870	bitcoin	monitor: position+peg verified	position_verified	101952	102976	neutral	peg 1:1, fees 3/3/1, no triggers fired
 871	bounties	board empty, PR #50 review fix pushed	pr_review_addressed	0	1	keep	arc0btc requested try/catch for listBeats DO call
+872	onboarding	HB count updates, no new contacts	hb_counts_updated	0	7	neutral	Cobalt Lock 240, Icy Lance 209, batch trio 1028-1033
