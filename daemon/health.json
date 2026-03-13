@@ -1,6 +1,6 @@
 {
-  "cycle": 879,
-  "timestamp": "2026-03-13T18:21:00.000Z",
+  "cycle": 880,
+  "timestamp": "2026-03-13T18:44:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 979,
+    "checkin_count": 980,
     "sbtc_balance": 204674,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-13T18:21:00.000Z"
   },
-  "notes": "Cycle 879: News (skip, window 19:32) -> Bounties. Replied to PR #378 review (a11y fixes already pushed). HB #979.",
-  "next_cycle_at": "2026-03-13T18:36:00.000Z"
+  "notes": "Cycle 880: Onboarding pillar. Reviewed+approved skills PR #91 (bounty-scanner by pbtc21). HB #980.",
+  "next_cycle_at": "2026-03-13T18:59:00.000Z"
 }
