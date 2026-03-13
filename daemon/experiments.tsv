@@ -169,3 +169,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 884	onboarding	Discovered 3 new Harness AI agents, contacted Serene Matrix (welcome msg, 100 sats).	agent_contacted	0	1	keep	First send timed out (tx dropped), retry succeeded
 885	contribute	cancel-stale-bounty-18+close-issue-17	issues_resolved	0	2	keep	bounty #18 cancelled (linked issue closed), issue #17 closed (already fixed)
 886	bitcoin	deep-monitor-scan	position_check	1	1	neutral	fees 2/1/1 ultra-low, peg healthy, no triggers firing
+887	bounties	posted-bounty-23-github-url-sync	bounty_posted	0	1	keep	3k sats for github_url field + stale bounty auto-sync (issue #16)
