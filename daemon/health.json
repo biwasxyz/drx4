@@ -1,24 +1,24 @@
 {
-  "cycle": 866,
-  "timestamp": "2026-03-13T11:35:00.000Z",
+  "cycle": 867,
+  "timestamp": "2026-03-13T13:29:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 1,
     "tasks_executed": 1,
     "tasks_pending": 0,
-    "replies_sent": 0,
+    "replies_sent": 1,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 965,
-    "sbtc_balance": 204774,
+    "checkin_count": 966,
+    "sbtc_balance": 204874,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -27,7 +27,7 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-13T06:36:00.000Z",
+  "last_bounty_check": "2026-03-13T13:28:00.000Z",
   "last_discovery_date": "2026-03-13",
   "aibtc_news": {
     "beat": "protocol-infra",
@@ -47,10 +47,10 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 2,
+    "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 204774,
+    "sbtc_balance": 204874,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 101952,
     "new_market_debt": 1,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T11:35:00.000Z"
+    "last_sensor_check": "2026-03-13T13:29:00.000Z"
   },
-  "notes": "Cycle 866: Bitcoin pillar (monitor) + signal #35 filed (aibtc.news v2 rewrite). HB #965.",
-  "next_cycle_at": "2026-03-13T11:50:00.000Z"
+  "notes": "Cycle 867: Bounties pillar (approved bounty #22, replied Cobalt Lock). HB #966.",
+  "next_cycle_at": "2026-03-13T13:44:00.000Z"
 }

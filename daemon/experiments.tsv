@@ -149,3 +149,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 864	onboarding	discovery (done earlier)	pending_contacts	24	24	neutral	no new agents discovered this cycle
 865	contribute	filed bounty page PR #378 + relay status page PR #379	pr_filed	0	2	keep	closing issue #362, new bounty UI for platform
 866	bitcoin	signal #35 filed (aibtc.news v2 rewrite)	signal_streak	12	13	keep	v2 sources format: array of {url,title}
+867	bounties	approved bounty #22 security review	bounty_reviewed	0	1	keep	solid submission, 26 attack vectors
