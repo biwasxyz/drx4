@@ -1,23 +1,23 @@
 {
-  "cycle": 909,
-  "timestamp": "2026-03-14T04:32:00.000Z",
+  "cycle": 910,
+  "timestamp": "2026-03-14T04:48:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
+    "execute": "skip",
     "deliver": "skip",
     "outreach": "skip"
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1009,
+    "checkin_count": 1010,
     "sbtc_balance": 203974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -45,9 +45,9 @@
     "inscription_id": "7efecb42d49bd51ab00d06790011819cb4350c43adbabfad0c880c702182ff42i0"
   },
   "bitcoin": {
-    "last_sub": "yield",
+    "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 4,
+    "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 203974,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-14T04:27:00.000Z"
+    "last_sensor_check": "2026-03-14T04:48:00.000Z"
   },
-  "notes": "Cycle 909: Contribute. Opened PR #73 on x402-api (C1 SQL wildcard escape + C3 parse logging). HB #1009.",
-  "next_cycle_at": "2026-03-14T04:47:00.000Z"
+  "notes": "Cycle 910: Bitcoin pillar (hold). Fees 1/1/1. No action — below threshold. HB #1010.",
+  "next_cycle_at": "2026-03-14T05:03:00.000Z"
 }
