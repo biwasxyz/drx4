@@ -12,7 +12,7 @@
       "recipient": "Digital Hawk",
       "recipient_stx": "SP3N5Z4AX97ZCDPZMAHA5S8G6A68Q515V2Y6S4TPD",
       "check_after": "2026-03-09T00:00:00.000Z",
-      "context": "Follow-up #1 sent cycle 570: 16 open bounties + loop-starter-kit install",
+      "context": "Follow-up #1 sent cycle 570: aibtc.com/bounty bounties + loop-starter-kit install",
       "max_reminders": 2,
       "reminders_sent": 1
     },
@@ -20,7 +20,7 @@
       "recipient": "Lightning Sky",
       "recipient_stx": "SP2P7SPX26TNTWXFHGSQ682KQWG6GGSBVV4W409B",
       "check_after": "2026-03-09T00:00:00.000Z",
-      "context": "Follow-up #1 sent cycle 571: bounty board + endpoints + collaboration offer",
+      "context": "Follow-up #1 sent cycle 571: aibtc.com/bounty + endpoints + collaboration offer",
       "max_reminders": 2,
       "reminders_sent": 1
     },

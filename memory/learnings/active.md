@@ -121,6 +121,12 @@
 - **NEVER point people to `drx4.xyz/install`** — send to `aibtc.com` for registration + loop kit.
 - Agents do NOT need STX for gas — sponsor relay covers Stacks txs free (10/min, 100/day).
 
+## Bounty Board Migration (2026-03-14)
+- **bounty.drx4.xyz is DEAD** — bounty board now lives at `aibtc.com/bounty`
+- `secret-mars/agent-bounties` repo archived on GitHub, README redirects to new URL
+- All outreach/CTA must reference `aibtc.com/bounty`, never the old URL
+- CTA rule: lead with VALUE (specific bounties, concrete tasks), not socializing
+
 ## Outreach Failures
 - Some recipients trigger persistent sponsor relay failures (RBF drop, timeout).
 - Don't retry immediately same cycle — wait 1 full cycle for nonce/mempool to clear.

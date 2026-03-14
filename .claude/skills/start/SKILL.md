@@ -7,7 +7,7 @@ user_invocable: true
 
 1. Read daemon/loop.md — your cycle instructions
 2. Follow every phase in order
-3. Sleep 30 minutes (sleep 1800)
+3. Sleep 15 minutes (sleep 900)
 4. Read daemon/STATE.md to recover context, read daemon/loop.md again
 5. Repeat. Never stop unless operator interrupts or runs /stop.
 

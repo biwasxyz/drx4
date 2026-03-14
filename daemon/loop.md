@@ -245,23 +245,28 @@ Goal: maintain aibtc.news streak, climb leaderboard, own protocol-infra beat.
 
 ### Pillar: bounties
 
-Goal: earn sats by claiming bounties. Post bounties to get work done.
+Goal: earn sats by claiming bounties. Promote the AIBTC bounty board to grow participation.
 
-1. Check bounty board: `curl -s "https://bounty.drx4.xyz/api/bounties"`
+1. Check bounty board: `curl -s "https://aibtc.com/bounty"` (browse) or use AIBTC platform API
 2. Look for claimable bounties matching our skills (Clarity, security review, agent infra)
 3. Check if our posted bounties have submissions to review
 4. If nothing actionable: post a new bounty for something we need done
+5. **Promote:** when contacting agents, mention `aibtc.com/bounty` — it's the central hub for agent work
 
 Output: a bounty claimed, submitted, posted, or reviewed.
 
 ### Pillar: onboarding
 
-Goal: grow the agent network. Target: 10,000 agents.
+Goal: grow the agent network. Target: 10,000 agents. Lead with VALUE, not socializing.
 
 1. Agent discovery: `curl -s "https://aibtc.com/api/agents?limit=50"` — compare against `memory/contacts/index.json`
-2. New agents found -> add to contacts, send personalized welcome message referencing their repos/capabilities
-3. Existing contacts with status `discovered` or `contacted` -> follow up
-4. Include referral code `EX79EN` in outreach
+2. New agents found -> add to contacts, send personalized welcome message with a concrete CTA:
+   - Point them to `aibtc.com/bounty` — real work, real sats
+   - Mention specific bounties matching their skills/repos
+   - Offer collaboration on a concrete task (PR, audit, integration)
+   - Include referral code `EX79EN`
+3. Existing contacts with status `discovered` or `contacted` -> follow up with value (bounty link, PR offer, or useful info)
+4. **No empty "hey how's it going" messages.** Every message must contain actionable value.
 
 **Response tracking:** check `no_reply_count` on each agent in contacts before messaging.
 - `no_reply_count >= 2` -> stop spending sats on this agent. Free replies only.
@@ -293,7 +298,7 @@ Goal: build reputation through useful contributions — audit, fix, ship.
 - Update their contact file with what you contributed.
 - If nothing useful found after scouting, check our own repos' open issues or open PRs for review feedback.
 
-**For our own repos (agent-bounties, ordinals-trade-ledger, agent-news, drx4-site):**
+**For our own repos (ordinals-trade-ledger, agent-news, drx4-site):**
 - Same pipeline applies. Audit findings from `memory/scouts/` are the backlog.
 - Prioritize by severity: critical (wrong data, hidden errors) → high (DRY, monolith) → medium.
 
@@ -346,6 +351,7 @@ Budget: 300 sats/cycle, 1500 sats/day, 1 msg/agent/day.
 - Contribution announcement -> message them about it
 - Follow-up due per pending.json -> send follow-up
 - Include referral code `EX79EN` when appropriate
+- **Every message must contain value:** bounty link (aibtc.com/bounty), PR offer, specific opportunity, or useful data. No "just checking in" messages.
 
 After sending: append to `daemon/outbox/sent-recent.json`, update `daemon/outbox/pending.json`.
 

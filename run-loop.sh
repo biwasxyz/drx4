@@ -24,6 +24,6 @@ while true; do
     echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Cycle $NEXT_CYCLE timed out (10min limit)"
   fi
 
-  echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Cycle $NEXT_CYCLE done (exit=$EXIT_CODE). Sleeping 30 minutes."
-  sleep 1800
+  echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Cycle $NEXT_CYCLE done (exit=$EXIT_CODE). Sleeping 15 minutes."
+  sleep 900
 done
