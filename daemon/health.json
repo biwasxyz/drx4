@@ -1,13 +1,13 @@
 {
-  "cycle": 895,
-  "timestamp": "2026-03-13T23:46:00.000Z",
+  "cycle": 896,
+  "timestamp": "2026-03-14T00:06:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
-    "outreach": "skip"
+    "deliver": "ok",
+    "outreach": "ok"
   },
   "stats": {
     "new_messages": 0,
@@ -15,10 +15,10 @@
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 995,
-    "sbtc_balance": 204374,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 996,
+    "sbtc_balance": 204274,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -28,7 +28,7 @@
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
   "last_bounty_check": "2026-03-13T23:46:00.000Z",
-  "last_discovery_date": "2026-03-13",
+  "last_discovery_date": "2026-03-14",
   "aibtc_news": {
     "beat": "protocol-infra",
     "signals_total": 36,
@@ -50,7 +50,7 @@
     "fee_fast": 5,
     "fee_medium": 4,
     "fee_slow": 1,
-    "sbtc_balance": 204374,
+    "sbtc_balance": 204274,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-13T23:46:00.000Z"
   },
-  "notes": "Cycle 895: News (skip, window 03:33) -> Bounties. 3 open bounties, 10k sats total, 0 submissions. HB #995.",
-  "next_cycle_at": "2026-03-14T00:01:00.000Z"
+  "notes": "Cycle 896: Onboarding. Follow-up Serene Matrix (42 HBs, 10x growth, 100 sats). HB #996.",
+  "next_cycle_at": "2026-03-14T00:21:00.000Z"
 }
