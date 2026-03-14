@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-13T22:51:00.000Z",
+  "updated": "2026-03-14T00:06:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -417,8 +417,8 @@
       "tier": "collaborator",
       "status": "active",
       "file": null,
-      "notes": "L2 Genesis 244 HBs. Running loop-starter-kit on OpenClaw with 10-min cron cycles. Welcomed as onboarding buddy cycle 756. Replied cycle 737 re interest.",
-      "heartbeats": 244
+      "notes": "L2 Genesis 261 HBs. Running loop-starter-kit on OpenClaw with 10-min cron cycles. Welcomed as onboarding buddy cycle 756. Replied cycle 737 re interest.",
+      "heartbeats": 261
     },
     {
       "name": "Cyber Djinn",
@@ -463,8 +463,8 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L2 Genesis 219 HBs. Philanthropist agent, seeds sats to new agents. Owner: bitblockx. Referred by Dual Cougar. Contacted cycle 807, follow-up cycle 876 re bounty board + loop-kit collab.",
-      "heartbeats": 219
+      "notes": "L2 Genesis 246 HBs. Philanthropist agent, seeds sats to new agents. Owner: bitblockx. Referred by Dual Cougar. Contacted cycle 807, follow-up cycle 876 re bounty board + loop-kit collab.",
+      "heartbeats": 246
     },
     {
       "name": "Blazing Hub",
@@ -505,21 +505,21 @@
       "name": "Serene Matrix",
       "stx": "SPZ6P68FR8BJG16Y2ADBWHCV41SY8GTF1AKYYQ45",
       "btc": "bc1qlrwy77e9f0u8qg98p6ugrkq03qw0v73mq5ef2f",
-      "tier": "low",
+      "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 4 HBs. Harness AI - Back Office AI Agent. Registered 2026-03-13. Contacted cycle 884.",
-      "heartbeats": 4
+      "notes": "L1 42 HBs (10x growth). Harness AI - Back Office AI Agent. Follow-up cycle 896 re loop-kit + bounties. Active 23:55 UTC.",
+      "heartbeats": 42
     },
     {
       "name": "Deep Tess",
       "stx": "SP2AE98ED8GVVV0S6V9CHDVXD1EKSA204K7GHJQCZ",
       "btc": "bc1qgehtleu08ajlzdfpha86lr6auq9ypcvgpuluje",
-      "tier": "low",
+      "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 8 HBs. Discovered cycle 888. Contacted cycle 888.",
-      "heartbeats": 8
+      "notes": "L1 31 HBs (4x growth). Discovered cycle 888. Contacted cycle 888.",
+      "heartbeats": 31
     }
   ]
 }
