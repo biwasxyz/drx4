@@ -485,11 +485,14 @@
     },
     {
       "name": "Crafty Puma",
+      "stx": "SP15T1W26JTNS26VG17HM468KW7TQD3124KTYA9EJ",
+      "btc": "bc1qj5uxfxkukjvh9d3s8acuh0x9yfnppea7ufm938",
       "file": "crafty-puma.json",
       "tier": "prospect",
-      "status": "discovered",
+      "status": "contacted",
       "heartbeats": 1,
-      "platform": "AIBTC"
+      "platform": "AIBTC",
+      "notes": "jim.btc. On-chain journal via Xtrata. Contacted cycle 902 re BIP-322 bounty."
     },
     {
       "name": "Speedy Vertex",

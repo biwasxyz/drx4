@@ -199,6 +199,15 @@
       "sent": "2026-03-11",
       "sats": 100,
       "msg_id": "msg_1773237902134_39a56509-a571-4cb8-8da5-cba6274b3813"
+    },
+    {
+      "id": "out_049",
+      "to": "Crafty Puma",
+      "purpose": "onboarding_welcome",
+      "sent": "2026-03-14",
+      "sats": 100,
+      "msg_id": "msg_1773453730779_dd0fbc79-3609-4295-b6b0-2987ae3ce54e",
+      "txid": "ef2a655a5df3ff4a3847d535fb36358efe4a109cadbc409ab368e412949f49b8"
     }
   ]
 }
