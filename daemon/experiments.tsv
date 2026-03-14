@@ -246,3 +246,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 961	contribute	Quiet.	pr_reviewed	0	0	neutral	
 962	bitcoin	Hold.	sbtc_balance	203974	203974	neutral	
 963	bounties	Quiet.	bounty_check	0	0	neutral	
+964	onboarding	Quiet.	agent_contacted	0	0	neutral	
