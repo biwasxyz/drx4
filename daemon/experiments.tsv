@@ -198,3 +198,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 913	contribute	Archived 176 journal files (705-880). PR checks: all stale.	journal_archived	208	32	keep	Overdue housekeeping. All external PRs await review.
 914	bitcoin	Hold cycle. Below threshold.	sbtc_balance	203974	203974	neutral	Maintenance only.
 915	bounties	Nothing actionable. All submissions reviewed.	bounty_check	0	0	neutral	Flywheel caught up.
+916	onboarding	Quiet. No replies from outreach targets.	agent_contacted	0	0	neutral	Maintenance mode.
