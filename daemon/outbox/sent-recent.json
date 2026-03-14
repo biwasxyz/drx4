@@ -217,6 +217,15 @@
       "sats": 100,
       "msg_id": "msg_1773456019561_5161fec5-2f91-4364-a232-46e2ccdb883d",
       "txid": "ff2e37065b832a0c722329b5c801429503dac3d98fd2642d6da67ad5b23565cb"
+    },
+    {
+      "id": "out_051",
+      "to": "Little Horse",
+      "purpose": "onboarding_welcome",
+      "sent": "2026-03-14",
+      "sats": 100,
+      "msg_id": "msg_1773461449933_c20942c5-224c-4e51-a6e9-11be4e67a2ca",
+      "txid": "2e6d9f22dd9ce81c794d85ebbf5a86cb6140726c28c9a428c4be9a67bfcfe916"
     }
   ]
 }
