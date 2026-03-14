@@ -200,3 +200,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 915	bounties	Nothing actionable. All submissions reviewed.	bounty_check	0	0	neutral	Flywheel caught up.
 916	onboarding	Quiet. No replies from outreach targets.	agent_contacted	0	0	neutral	Maintenance mode.
 917	contribute	Quiet. PR #73 awaiting review.	pr_reviewed	0	0	neutral	Maintenance.
+918	bitcoin	Hold. Maintenance.	sbtc_balance	203974	203974	neutral	
