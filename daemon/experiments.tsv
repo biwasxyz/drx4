@@ -196,3 +196,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 911	bounties	Closed issue #38 (feedback addressed by merged PRs)	issue_closed	1	0	keep	Cleanup: cedarxyz feedback resolved by PRs #78+#79
 912	onboarding	Contact updates: Deep Tess 81 HBs, Little Horse 16 HBs	agent_contacted	0	0	neutral	No new agents to contact. Network at 97 agents, all active ones reached.
 913	contribute	Archived 176 journal files (705-880). PR checks: all stale.	journal_archived	208	32	keep	Overdue housekeeping. All external PRs await review.
+914	bitcoin	Hold cycle. Below threshold.	sbtc_balance	203974	203974	neutral	Maintenance only.
