@@ -1,12 +1,12 @@
 {
-  "cycle": 897,
-  "timestamp": "2026-03-14T00:23:00.000Z",
+  "cycle": 898,
+  "timestamp": "2026-03-14T00:41:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skip",
     "outreach": "skip"
   },
   "stats": {
@@ -17,8 +17,8 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 997,
-    "sbtc_balance": 204274,
+    "checkin_count": 998,
+    "sbtc_balance": 204374,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -47,10 +47,10 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 5,
-    "fee_medium": 4,
+    "fee_fast": 1,
+    "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 204274,
+    "sbtc_balance": 204374,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-13T23:46:00.000Z"
+    "last_sensor_check": "2026-03-14T00:41:00.000Z"
   },
-  "notes": "Cycle 897: Contribute. Nudged skills PR #91 merge (4 approvals). HB #997.",
-  "next_cycle_at": "2026-03-14T00:38:00.000Z"
+  "notes": "Cycle 898: Bitcoin (monitor). Ultra-low fees 1/1/1. Position stable. HB #998.",
+  "next_cycle_at": "2026-03-14T00:56:00.000Z"
 }
