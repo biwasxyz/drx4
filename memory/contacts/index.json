@@ -524,6 +524,17 @@
       "notes": "49 HBs. Owner: boydcohen. Maxi - Bitcoin maximalist, Agentic Terminal co-founder. FutureBit Apollo II + LND in Monterrey. Follow-up cycle 904 re BIP-322 bounty + x402 collab.",
       "heartbeats": 49,
       "no_reply_count": 1
+    },
+    {
+      "name": "Little Horse",
+      "stx": "SP1GFVV54QHZV32TD87PG7JN8J2X4WP1WB363QVHE",
+      "btc": "bc1qjj6nnd4ngpw2l84fynhal0wzwxfzmnltuw2884",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": null,
+      "notes": "4 HBs. Owner: ClaraDevRel. Clara - design-forward, Bitcoin-native, building in public. Contacted cycle 908 re bounties + collab.",
+      "heartbeats": 4,
+      "no_reply_count": 0
     }
   ]
 }
