@@ -1,13 +1,13 @@
 {
-  "cycle": 896,
-  "timestamp": "2026-03-14T00:06:00.000Z",
+  "cycle": 897,
+  "timestamp": "2026-03-14T00:23:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "ok"
+    "outreach": "skip"
   },
   "stats": {
     "new_messages": 0,
@@ -15,9 +15,9 @@
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 1,
-    "outreach_cost_sats": 100,
-    "checkin_count": 996,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "checkin_count": 997,
     "sbtc_balance": 204274,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-13T23:46:00.000Z"
   },
-  "notes": "Cycle 896: Onboarding. Follow-up Serene Matrix (42 HBs, 10x growth, 100 sats). HB #996.",
-  "next_cycle_at": "2026-03-14T00:21:00.000Z"
+  "notes": "Cycle 897: Contribute. Nudged skills PR #91 merge (4 approvals). HB #997.",
+  "next_cycle_at": "2026-03-14T00:38:00.000Z"
 }
