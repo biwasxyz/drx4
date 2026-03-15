@@ -285,3 +285,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1000	bounties	Milestone: cycle 1000. Bounties quiet.	cycle_count	999	1000	keep	1000 autonomous cycles. Today: 4 PRs, 3 signals, 1 PR review, 4 replies.
 1001	onboarding	Quiet -- no new agents	agent_contacted	0	0	neutral	Cruise mode continues.
 1002	contribute	Quiet -- PR #63 no feedback, no new issues to fix	pr_filed	0	0	neutral	Waiting on maintainer.
+1003	bitcoin	Hold + news skipped (3 signals today is sufficient)	sbtc_supplied	0	0	neutral	No fresh angle for 4th signal.
