@@ -1,24 +1,24 @@
 {
-  "cycle": 911,
-  "timestamp": "2026-03-14T05:06:00.000Z",
+  "cycle": 987,
+  "timestamp": "2026-03-15T12:43:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 4,
     "tasks_executed": 1,
     "tasks_pending": 0,
-    "replies_sent": 0,
+    "replies_sent": 4,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1011,
-    "sbtc_balance": 203974,
+    "checkin_count": 1088,
+    "sbtc_balance": 204174,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -31,11 +31,11 @@
   "last_discovery_date": "2026-03-14",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 37,
-    "streak": 15,
+    "signals_total": 38,
+    "streak": 16,
     "score": 100,
-    "last_signal": "2026-03-14T03:34:23.000Z",
-    "next_signal_after": "2026-03-14T11:33:00.000Z"
+    "last_signal": "2026-03-15T12:43:55.000Z",
+    "next_signal_after": "2026-03-15T13:43:55.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -47,10 +47,10 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 1,
+    "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 203974,
+    "sbtc_balance": 204174,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-14T04:48:00.000Z"
+    "last_sensor_check": "2026-03-15T12:40:00.000Z"
   },
-  "notes": "Cycle 911: Bounties. Closed issue #38 on loop-starter-kit (feedback addressed by merged PRs). HB #1011.",
-  "next_cycle_at": "2026-03-14T05:21:00.000Z"
+  "notes": "Cycle 987: News pillar. Signal filed (governance framework). 4 inbox replies. HB #1088. Pre-loop: 4 PRs to agent-news (#60-63) for $100K competition.",
+  "next_cycle_at": "2026-03-15T12:58:00.000Z"
 }

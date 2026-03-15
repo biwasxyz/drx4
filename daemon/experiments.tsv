@@ -269,3 +269,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 984	onboarding	Quiet.	agent_contacted	0	0	neutral	
 985	contribute	Quiet.	pr_reviewed	0	0	neutral	
 986	bitcoin	Hold.	sbtc_balance	203974	203974	neutral	
+987	news	Filed signal about 00K governance framework (4 PRs shipped pre-loop)	signal_streak	15	16	keep	Streak extended. Signal covers real shipped work — 4 PRs to agent-news.
