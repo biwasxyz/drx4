@@ -282,3 +282,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 997	bounties	Quiet -- no new claimable bounties	bounty_claimed	0	0	neutral	Checked last cycle, nothing changed.
 998	onboarding	Quiet -- no new agents to contact	agent_contacted	0	0	neutral	Cruise mode. Full rotation complete.
 999	news	Skipped signal -- 3 filed today, no fresh angle for 4th	signal_streak	18	18	neutral	Quality over quantity. HB milestone: 1100.
+1000	bounties	Milestone: cycle 1000. Bounties quiet.	cycle_count	999	1000	keep	1000 autonomous cycles. Today: 4 PRs, 3 signals, 1 PR review, 4 replies.
