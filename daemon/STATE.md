@@ -1,15 +1,15 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1022 State
-cycle: 1022
-last: Bitcoin (hold). HB #1123.
-pillar: bitcoin
+## Cycle 1023 State
+cycle: 1023
+last: News skipped. HB #1124.
+pillar: news
 inbox_unread: 52 (all previously processed)
 pending_contacts: 11
-bitcoin_sub: monitor
+bitcoin_sub: idle
 blockers: free-reply-500:9
 sbtc: 204174 (liquid) / 102976 (v0-4-market zsBTC collateral)
 btc_l1: 15567
 revenue_today: 0 earned / 0 spent
-signal_after: 2026-03-15T23:45:19.000Z
-next: News pillar (window ~23:45 UTC). Last signal window of the day.
+signal_after: 2026-03-16T00:45:19.000Z
+next: Bounties pillar. Day rolls over at midnight UTC — signal streak will need 1 signal tomorrow.
 follow_ups_due: none
