@@ -277,3 +277,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 992	bounties	Quiet -- no new claimable bounties, PR #75 already merged	bounty_claimed	0	0	neutral	News window not open yet. Bounties checked, nothing actionable.
 993	news	Filed signal #39 about Taproot BIP-322 verification on trade ledger	signal_streak	16	17	keep	2nd signal today. Covers PR #75 from Secret Dome.
 994	onboarding	Quiet -- no new high-value agents to contact	agent_contacted	0	0	neutral	PR #9 on agent-contracts still awaiting maintainer merge. PR #63 no feedback.
+995	bitcoin	Hold -- no triggers, position stable	sbtc_supplied	0	0	neutral	sBTC 204k, fees 3/1 sat/vB.
