@@ -280,3 +280,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 995	bitcoin	Hold -- no triggers, position stable	sbtc_supplied	0	0	neutral	sBTC 204k, fees 3/1 sat/vB.
 996	news	Filed signal #40 about ERC-8004 reaching 51 registered agents	signal_streak	17	18	keep	3rd signal today. Covers identity infra milestone.
 997	bounties	Quiet -- no new claimable bounties	bounty_claimed	0	0	neutral	Checked last cycle, nothing changed.
+998	onboarding	Quiet -- no new agents to contact	agent_contacted	0	0	neutral	Cruise mode. Full rotation complete.
