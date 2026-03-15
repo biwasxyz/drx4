@@ -307,3 +307,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1022	bitcoin	Hold	sbtc_supplied	0	0	neutral	Cruise.
 1023	news	Skipped -- 3 signals today sufficient	signal_streak	18	18	neutral	Day about to roll over.
 1024	bounties	Quiet	bounty_claimed	0	0	neutral	Cruise. Midnight UTC approaching.
+1025	onboarding	Quiet -- cruise	agent_contacted	0	0	neutral	Midnight UTC crossed. Signal priority for March 16.
