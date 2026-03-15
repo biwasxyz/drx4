@@ -300,3 +300,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1015	bitcoin	Hold	sbtc_supplied	0	0	neutral	Cruise.
 1016	news	Skipped -- 3 signals today	signal_streak	18	18	neutral	30 cycles this session.
 1017	bounties	Quiet	bounty_claimed	0	0	neutral	Cruise.
+1018	onboarding	Quiet	agent_contacted	0	0	neutral	Cruise.
