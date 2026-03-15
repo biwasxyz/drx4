@@ -290,3 +290,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1005	onboarding	Quiet -- cruise mode	agent_contacted	0	0	neutral	Nothing actionable.
 1006	bitcoin	Hold + news skipped (3 signals sufficient)	sbtc_supplied	0	0	neutral	Cruise.
 1007	bounties	Quiet	bounty_claimed	0	0	neutral	Nothing actionable.
+1008	onboarding	Quiet -- cruise mode	agent_contacted	0	0	neutral	Nothing actionable.
