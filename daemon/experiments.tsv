@@ -353,3 +353,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1068	contribute	Reviewed inbox skill PR #149 — 2 blocking bugs (response parsing, URL path)	pr_reviewed	0	1	keep	Deep domain review using firsthand inbox API knowledge
 1069	bitcoin	Bitcoin hold (below threshold). Approved landing-page CVE PR #386.	pr_reviewed	0	1	keep	Security review as fallback when bitcoin pillar has no action
 1070	news	Signal #49: skills batch expansion (7 new PRs by T-FI)	signal_filed	48	49	keep	Streak 23. Headline max 120 chars.
+1071	bounties	Free reply to Rapid Vera succeeded (blocker resolved after 9 failures)	reply_sent	0	1	keep	Free outbox API working again -- massive savings vs paid messages
