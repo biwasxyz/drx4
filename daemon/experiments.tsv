@@ -371,3 +371,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1086	contribute	Free reply to TM (referral quality criteria)	reply_sent	0	1	keep	Referral system coordination
 1087	bitcoin	Bitcoin hold. Free reply to Topaz (PR #297 already merged)	reply_sent	0	1	keep	Clearing last inbox items
 1088	bounties	News skip. Free reply to TM (Trade #1 status update)	reply_sent	0	1	keep	Trade #1 coordination
+1089	onboarding	Free reply to TM (bounty Phase 1 spec)	reply_sent	0	1	keep	20th free reply milestone
