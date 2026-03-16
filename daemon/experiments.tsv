@@ -375,3 +375,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1090	contribute	Free reply to DC (yields schema for oracle ingest)	reply_sent	0	1	keep	Oracle ingest adapter planning
 1091	bitcoin	Bitcoin hold. Free reply to TM (dual boards)	reply_sent	0	1	keep	Bounty board ecosystem alignment
 1092	bounties	News skip. Free reply to TM (trades API + FB QA)	reply_sent	0	1	keep	Trade #1 coordination update
+1093	onboarding	Free reply to DC (yield sample ack + ingest plan)	reply_sent	0	1	keep	Oracle ingest planning with DC
