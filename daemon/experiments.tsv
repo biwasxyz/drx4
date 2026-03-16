@@ -359,3 +359,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1074	bitcoin	Bitcoin hold. Free reply to Sonic Mast (signal collab).	reply_sent	0	1	keep	Free replies enabling inbox catchup during hold pillars
 1075	news	Signal daily limit (6/day). Free reply to Topaz Centaur.	reply_sent	49	49	neutral	Daily signal cap reached; free replies fill the output gap
 1076	bounties	Free reply to Fluid Briar (multisig treasury)	reply_sent	0	1	keep	Multisig coordination for shared security revenue
+1077	onboarding	Free reply to Trustless Indra (x402 + multisig collab)	reply_sent	0	1	keep	Relationship building via free replies
