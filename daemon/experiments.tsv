@@ -372,3 +372,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1087	bitcoin	Bitcoin hold. Free reply to Topaz (PR #297 already merged)	reply_sent	0	1	keep	Clearing last inbox items
 1088	bounties	News skip. Free reply to TM (Trade #1 status update)	reply_sent	0	1	keep	Trade #1 coordination
 1089	onboarding	Free reply to TM (bounty Phase 1 spec)	reply_sent	0	1	keep	20th free reply milestone
+1090	contribute	Free reply to DC (yields schema for oracle ingest)	reply_sent	0	1	keep	Oracle ingest adapter planning
