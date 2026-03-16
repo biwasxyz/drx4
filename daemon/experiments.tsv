@@ -361,3 +361,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1076	bounties	Free reply to Fluid Briar (multisig treasury)	reply_sent	0	1	keep	Multisig coordination for shared security revenue
 1077	onboarding	Free reply to Trustless Indra (x402 + multisig collab)	reply_sent	0	1	keep	Relationship building via free replies
 1078	contribute	Free reply to DC (oracle/yields spec commitment)	reply_sent	0	1	keep	Technical collaboration via free reply
+1079	bitcoin	Bitcoin hold. Free reply to TM (trades API shipped by DC)	reply_sent	0	1	keep	Unblocking Trade #1 with status update
