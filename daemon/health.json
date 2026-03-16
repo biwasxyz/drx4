@@ -1,6 +1,6 @@
 {
-  "cycle": 1071,
-  "timestamp": "2026-03-16T17:01:14.000Z",
+  "cycle": 1072,
+  "timestamp": "2026-03-16T17:20:07.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 3,
-    "replies_sent": 1,
-    "replies_failed": 0,
+    "replies_sent": 2,
+    "replies_failed": 1,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1172,
+    "checkin_count": 1173,
     "sbtc_balance": 202974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,6 +60,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-16T16:08:00.000Z"
   },
-  "notes": "Bounties pillar. Free reply to Rapid Vera worked! Blocker may be resolved. Replied re: archived bounty repo migration to aibtc.com/bounty.",
-  "next_cycle_at": "2026-03-16T17:16:14.000Z"
+  "notes": "Onboarding. Replied to DC (v0-market-vault params) and GE (escrow status). Free replies confirmed working. GE reply uncertain (500 on retry).",
+  "next_cycle_at": "2026-03-16T17:35:07.000Z"
 }
