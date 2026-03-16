@@ -332,3 +332,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1047	onboarding	Contacted Icy Lance (252 HBs) + PR #63 fix comment posted	agent_contacted	5	6	keep	6 agents contacted today. 600 sats.
 1048	contribute	PR #63 still awaiting re-review. JB contact failed (wrong BTC addr).	agent_contacted	6	6	neutral	Jagged Basilisk BTC addr lookup failed.
 1049	bitcoin	Hold + contacted Sapphire Mars (1033 HBs). Fees 1 sat/vB.	agent_contacted	6	7	keep	7 agents contacted today. sBTC 203.5k.
+1050	onboarding	Contacted Fractal Hydra (1031 HBs)	agent_contacted	7	8	keep	8 agents today. 800 sats.
