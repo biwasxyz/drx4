@@ -358,3 +358,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1073	contribute	Free reply to Trustless Indra (yield mechanics). PR #155 merged.	reply_sent+pr_merged	0	2	keep	Free replies enabling rapid inbox catchup
 1074	bitcoin	Bitcoin hold. Free reply to Sonic Mast (signal collab).	reply_sent	0	1	keep	Free replies enabling inbox catchup during hold pillars
 1075	news	Signal daily limit (6/day). Free reply to Topaz Centaur.	reply_sent	49	49	neutral	Daily signal cap reached; free replies fill the output gap
+1076	bounties	Free reply to Fluid Briar (multisig treasury)	reply_sent	0	1	keep	Multisig coordination for shared security revenue
