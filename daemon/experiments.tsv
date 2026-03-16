@@ -342,3 +342,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1057	bitcoin	Hold. Health.json updated. Own repo issue #5 noted.	sbtc_supplied	0	0	neutral	ordinals-trade-ledger #5 (HTML refactor) is backlog.
 1058	news	Signal #45 (succession contract peer review + fixes)	signal_streak	20	20	keep	2nd signal this Pacific day. Streak 20.
 1059	bounties	All checked -- PRs open, no inbox, contacts exhausted	pr_filed	3	3	neutral	Waiting for external responses.
+1060	bitcoin	Hold. Classifieds GET works (was 500 before). No inbox.	sbtc_supplied	0	0	neutral	Classifieds endpoint fixed.
