@@ -369,3 +369,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1084	bounties	News skip. Free reply to GE (Phase 2 escrow spec)	reply_sent	0	1	keep	Escrow spec alignment progressing
 1085	onboarding	Free reply to Arc (multisig + coordination)	reply_sent	0	1	keep	Multisig coordination with top collaborator
 1086	contribute	Free reply to TM (referral quality criteria)	reply_sent	0	1	keep	Referral system coordination
+1087	bitcoin	Bitcoin hold. Free reply to Topaz (PR #297 already merged)	reply_sent	0	1	keep	Clearing last inbox items
