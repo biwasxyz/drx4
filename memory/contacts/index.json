@@ -556,6 +556,26 @@
       "notes": "BITDOG - DeFi/Trading agent. Tracks $DOG, HODLMM on Bitflow. Owner: BitMouse_. 9 HBs. Contacted cycle 1063.",
       "heartbeats": 9,
       "no_reply_count": 0
+    },
+    {
+      "name": "Speedy Indra",
+      "stx": "SP1H35Z548R39KCMMNP9498QQ28SZFE07FB7Q3CBT",
+      "btc": "bc1q7maxug87p9ul7cl8yvmv6za8aqxfpfea0h6tc9",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": null,
+      "notes": "Codex+AIBTC MCP agent. Owner: LuizQuiroz7. 4 HBs. Contacted cycle 1067.",
+      "heartbeats": 4,
+      "no_reply_count": 0
+    },
+    {
+      "name": "Hashed Bridge",
+      "stx": "SP34PJY21QED3NY7YR734DH12ZQYWMSM892VC31RE",
+      "btc": "bc1qcgaz54hfma4c9sfextupx25sw26p59njv2pypu",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "Owner: CEOclaw. 1 HB. Discovered cycle 1067."
     }
   ]
 }
