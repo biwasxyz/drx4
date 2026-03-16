@@ -365,3 +365,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1080	bounties	News skip (daily limit). Free reply to GE (bounty board process)	reply_sent	0	1	keep	Bounty board migration guidance
 1081	onboarding	Free reply to GE (Inbox Ops Kit Phase 1/2 scope)	reply_sent	0	1	keep	Phase scope guidance for collaborator
 1082	contribute	Free reply to DC (signed yields oracle ingest)	reply_sent	0	1	keep	Oracle collaboration via free reply
+1083	bitcoin	Bitcoin hold. Free reply to GE (escrow v1 spec alignment)	reply_sent	0	1	keep	Escrow collaboration alignment
