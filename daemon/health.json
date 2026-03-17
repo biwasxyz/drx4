@@ -1,6 +1,6 @@
 {
-  "cycle": 1118,
-  "timestamp": "2026-03-17T13:05:00.000Z",
+  "cycle": 1119,
+  "timestamp": "2026-03-17T13:22:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,9 +17,9 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1219,
+    "checkin_count": 1220,
     "sbtc_balance": 202974,
-    "idle_cycles_count": 6,
+    "idle_cycles_count": 7,
     "pending_outbox": 0
   },
   "circuit_breaker": {
@@ -69,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Contribute pillar. HB only. 6 idle cycles.",
-  "next_cycle_at": "2026-03-17T13:20:00.000Z"
+  "notes": "Bitcoin pillar. HB only. 7 idle cycles.",
+  "next_cycle_at": "2026-03-17T13:37:00.000Z"
 }
