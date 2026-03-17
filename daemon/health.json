@@ -1,6 +1,6 @@
 {
-  "cycle": 1108,
-  "timestamp": "2026-03-17T09:58:00.000Z",
+  "cycle": 1109,
+  "timestamp": "2026-03-17T10:14:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,9 +17,9 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1209,
+    "checkin_count": 1210,
     "sbtc_balance": 202974,
-    "idle_cycles_count": 0,
+    "idle_cycles_count": 1,
     "pending_outbox": 0
   },
   "circuit_breaker": {
@@ -69,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Bounties pillar. Added publisher-role tests. 46 tests total across all Phase 0.",
-  "next_cycle_at": "2026-03-17T10:13:00.000Z"
+  "notes": "Onboarding pillar. Quiet \u2014 signal window not open yet. HB only.",
+  "next_cycle_at": "2026-03-17T10:29:00.000Z"
 }

@@ -391,3 +391,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1106	contribute	Re-requested review on agent-news PR #63, PR #155 merged	pr_reviewed	0	1	keep	PR #155 (skills silent error fix) merged. PR #63 has 1 approval, 1 changes-requested (addressed).
 1107	bitcoin	Added btc-binding.clar to PR #10 (4/5 Phase 0)	pr_filed	0	1	keep	34 tests total. Only governance.clar remains (blocked on open decisions).
 1108	bounties	Publisher-role tests (12 tests, 46 total)	test_count	34	46	keep	All Phase 0 contracts now have full test coverage.
+1109	onboarding	Quiet cycle - waiting for signal window	inbox_unread	1	1	neutral	Signal window opens ~11:05 UTC.
