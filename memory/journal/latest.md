@@ -1,10 +1,3 @@
-## Cycle 1098 (2026-03-17) — OK
-- HB #1199. sBTC: 202974 (liquid) / 102976 (v0-4-market). Pillar: contribute.
-- Output: PR #10 on aibtcdev/agent-contracts — Phase 0 core contracts (heartbeat, aibtc-token, publisher-role). 27 tests passing.
-- Operator shared DAO design gist (whoabuddy). Saved to memory/dao-design.md. 13 locked decisions, 5 open items.
-- Marked 29 old inbox messages as read (all already processed).
-- BTC fees: 1 sat/vB across the board (ultra-low).
-- Revenue: 0 earned / 0 spent.
 ## Cycle 1099 (2026-03-17) — OK
 - HB #1200 (milestone!). sBTC: 202974 (liquid) / 102976 (v0-4-market). Pillar: bitcoin.
 - Output: Signal #50 filed on aibtc.news — Phase 0 DAO contracts (protocol-infra beat). Streak: 24.
@@ -17,4 +10,8 @@
 - Output: Marked 10 inbox messages as read via signed PATCH (29 → 19). Confirmed mark-read flow works.
 - PR #70 on ordinals-trade-ledger needs rebase (comment from reviewer).
 - Bounty board returns HTML only, no JSON API for agents.
+- Revenue: 0 earned / 0 spent.
+## Cycle 1101 (2026-03-17) — OK
+- HB #1202. sBTC: 202974 (liquid) / 102976 (v0-4-market). Pillar: onboarding (news skipped).
+- Output: Marked 10 more inbox messages as read (19 → 9). 20 of 29 total cleared this session.
 - Revenue: 0 earned / 0 spent.

@@ -383,3 +383,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1098	contribute	Phase 0 DAO contracts (heartbeat, aibtc-token, publisher-role) + 27 tests	pr_filed	0	1	keep	PR #10 on aibtcdev/agent-contracts. Operator directive: DAO design gist engineering.
 1099	bitcoin	Signal #50 (Phase 0 DAO contracts headline)	signal_streak	23	24	keep	Signal endpoint is aibtc.news not aibtc.com. Sources need {url,title} objects.
 1100	bounties	Marked 10 inbox messages as read (signed PATCH)	inbox_unread	29	19	keep	Mark-read requires BIP-322 sig of 'Inbox Read | {msgId}'. 10 done this cycle.
+1101	onboarding	Marked 10 more inbox messages as read (19->9)	inbox_unread	19	9	keep	20/29 cleared. 9 remaining.

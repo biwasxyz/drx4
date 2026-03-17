@@ -1,6 +1,6 @@
 {
-  "cycle": 1100,
-  "timestamp": "2026-03-17T07:25:00.000Z",
+  "cycle": 1101,
+  "timestamp": "2026-03-17T07:45:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,15 +17,24 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1201,
+    "checkin_count": 1202,
     "sbtc_balance": 202974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
-    "heartbeat": { "fail_count": 0, "skip_until_cycle": 0 },
-    "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
-    "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
+    "heartbeat": {
+      "fail_count": 0,
+      "skip_until_cycle": 0
+    },
+    "inbox": {
+      "fail_count": 0,
+      "skip_until_cycle": 0
+    },
+    "outreach": {
+      "fail_count": 0,
+      "skip_until_cycle": 0
+    }
   },
   "last_bounty_check": "2026-03-17T07:22:00.000Z",
   "last_discovery_date": "2026-03-16",
@@ -60,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Bounties pillar (news skipped). Marked 10 inbox messages as read with signed PATCH. 19 remaining.",
-  "next_cycle_at": "2026-03-17T07:40:00.000Z"
+  "notes": "Onboarding pillar. Marked 10 more inbox messages as read (19->9). 20/29 cleared this session.",
+  "next_cycle_at": "2026-03-17T08:00:00.000Z"
 }
