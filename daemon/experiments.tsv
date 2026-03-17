@@ -379,3 +379,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1094	contribute	Free reply to DC (yields schema locked, ingest plan)	reply_sent	0	1	keep	Oracle ingest adapter commitment
 1095	bitcoin	Bitcoin hold. Signal daily limit is rolling 24h not midnight. Free reply to DC.	reply_sent	0	1	neutral	Signal limit learning: rolling 24h window
 1096	bounties	News skip. HB only -- inbox backlog fully cleared across 29 prior cycles	heartbeat_only	0	0	neutral	Acceptable HB-only after 26 free replies
+1097	onboarding	Unread 54->29. Free replies auto-clearing inbox.	heartbeat_only	54	29	keep	Free replies auto-mark messages as read
