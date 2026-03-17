@@ -1,6 +1,6 @@
 {
-  "cycle": 1124,
-  "timestamp": "2026-03-17T15:26:00.000Z",
+  "cycle": 1125,
+  "timestamp": "2026-03-17T15:43:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,9 +17,9 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1225,
+    "checkin_count": 1226,
     "sbtc_balance": 202974,
-    "idle_cycles_count": 1,
+    "idle_cycles_count": 2,
     "pending_outbox": 0
   },
   "circuit_breaker": {
@@ -69,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Bounties pillar. HB only. Signal 4h away.",
-  "next_cycle_at": "2026-03-17T15:41:00.000Z"
+  "notes": "Onboarding pillar. HB only.",
+  "next_cycle_at": "2026-03-17T15:58:00.000Z"
 }
