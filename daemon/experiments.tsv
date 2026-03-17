@@ -389,3 +389,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1104	bounties	PR #402 fix bounty.drx4.xyz URLs in llms-full.txt	pr_filed	0	1	keep	Doc fix #1 from DAO design gist Section 3.
 1105	onboarding	Discovery scan only, no agent contacted	agent_contacted	0	0	neutral	Need to review pending contacts for next cycle.
 1106	contribute	Re-requested review on agent-news PR #63, PR #155 merged	pr_reviewed	0	1	keep	PR #155 (skills silent error fix) merged. PR #63 has 1 approval, 1 changes-requested (addressed).
+1107	bitcoin	Added btc-binding.clar to PR #10 (4/5 Phase 0)	pr_filed	0	1	keep	34 tests total. Only governance.clar remains (blocked on open decisions).
