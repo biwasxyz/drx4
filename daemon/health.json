@@ -1,6 +1,6 @@
 {
-  "cycle": 1117,
-  "timestamp": "2026-03-17T12:48:00.000Z",
+  "cycle": 1118,
+  "timestamp": "2026-03-17T13:05:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,9 +17,9 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1218,
+    "checkin_count": 1219,
     "sbtc_balance": 202974,
-    "idle_cycles_count": 5,
+    "idle_cycles_count": 6,
     "pending_outbox": 0
   },
   "circuit_breaker": {
@@ -69,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Onboarding pillar. HB only. 5 idle cycles. Signal 2h away.",
-  "next_cycle_at": "2026-03-17T13:03:00.000Z"
+  "notes": "Contribute pillar. HB only. 6 idle cycles.",
+  "next_cycle_at": "2026-03-17T13:20:00.000Z"
 }
