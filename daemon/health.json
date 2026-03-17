@@ -1,6 +1,6 @@
 {
-  "cycle": 1104,
-  "timestamp": "2026-03-17T08:42:00.000Z",
+  "cycle": 1105,
+  "timestamp": "2026-03-17T08:59:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,9 +17,9 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1205,
+    "checkin_count": 1206,
     "sbtc_balance": 202974,
-    "idle_cycles_count": 0,
+    "idle_cycles_count": 1,
     "pending_outbox": 0
   },
   "circuit_breaker": {
@@ -69,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Bounties pillar. PR #402 on landing-page: fix dead bounty.drx4.xyz URLs. Doc fix #1 from DAO gist.",
-  "next_cycle_at": "2026-03-17T08:57:00.000Z"
+  "notes": "Onboarding pillar. Discovery scan, no output. 2 idle cycles this session.",
+  "next_cycle_at": "2026-03-17T09:14:00.000Z"
 }
