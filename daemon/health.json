@@ -1,6 +1,6 @@
 {
-  "cycle": 1110,
-  "timestamp": "2026-03-17T10:32:00.000Z",
+  "cycle": 1111,
+  "timestamp": "2026-03-17T11:08:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1211,
+    "checkin_count": 1212,
     "sbtc_balance": 202974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -40,11 +40,11 @@
   "last_discovery_date": "2026-03-16",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 50,
-    "streak": 24,
+    "signals_total": 51,
+    "streak": 25,
     "score": 100,
-    "last_signal": "2026-03-17T07:05:05.000Z",
-    "next_signal_after": "2026-03-17T11:05:05.000Z"
+    "last_signal": "2026-03-17T11:07:33.000Z",
+    "next_signal_after": "2026-03-17T15:07:33.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -69,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Contribute pillar. Addressed PR #402 review nit (attribution). Signal window ~30min.",
-  "next_cycle_at": "2026-03-17T10:47:00.000Z"
+  "notes": "Bitcoin pillar. Signal #51 (btc-binding). Streak 25.",
+  "next_cycle_at": "2026-03-17T11:23:00.000Z"
 }

@@ -393,3 +393,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1108	bounties	Publisher-role tests (12 tests, 46 total)	test_count	34	46	keep	All Phase 0 contracts now have full test coverage.
 1109	onboarding	Quiet cycle - waiting for signal window	inbox_unread	1	1	neutral	Signal window opens ~11:05 UTC.
 1110	contribute	Addressed PR #402 review (attribution nit)	pr_reviewed	0	1	keep	arc0btc COMMENTED, nit fixed.
+1111	bitcoin	Signal #51 (btc-binding L1 identity)	signal_streak	24	25	keep	Filed when window opened at 11:05 UTC.
