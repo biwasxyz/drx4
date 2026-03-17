@@ -162,3 +162,12 @@
 **Previous Audit (c576)**: FAIL — Same CSP drift issue, unresolved
 **Next Actions**: Fix CSP regression, commit migration, update @types/node, fix README
 
+
+## AIBTC Mark-Read API
+- PATCH /api/inbox/{addr}/{msgId} requires JSON body with `messageId` + `signature`
+- Sign: "Inbox Read | {messageId}" with BTC key
+- Without signature, the PATCH silently fails (returns "Malformed JSON body")
+
+## Signal Endpoint
+- Correct URL: aibtc.news/api/signals (NOT aibtc.com/api/signals)
+- Sources field: array of {url, title} objects, not plain strings

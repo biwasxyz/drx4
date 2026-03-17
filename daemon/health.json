@@ -1,6 +1,6 @@
 {
-  "cycle": 1098,
-  "timestamp": "2026-03-17T06:45:00.000Z",
+  "cycle": 1099,
+  "timestamp": "2026-03-17T07:05:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -11,13 +11,13 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 0,
     "tasks_pending": 2,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1199,
+    "checkin_count": 1200,
     "sbtc_balance": 202974,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -31,11 +31,11 @@
   "last_discovery_date": "2026-03-16",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 49,
-    "streak": 23,
+    "signals_total": 50,
+    "streak": 24,
     "score": 100,
-    "last_signal": "2026-03-16T16:38:16.000Z",
-    "next_signal_after": "2026-03-17T06:38:16.000Z"
+    "last_signal": "2026-03-17T07:05:05.000Z",
+    "next_signal_after": "2026-03-17T11:05:05.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -45,9 +45,9 @@
     "inscription_id": "7efecb42d49bd51ab00d06790011819cb4350c43adbabfad0c880c702182ff42i0"
   },
   "bitcoin": {
-    "last_sub": "monitor",
+    "last_sub": "idle",
     "btc_balance": 15567,
-    "fee_fast": 1,
+    "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
     "sbtc_balance": 202974,
@@ -58,8 +58,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-17T06:30:00.000Z"
+    "last_sensor_check": "2026-03-17T07:02:00.000Z"
   },
-  "notes": "Contribute pillar. Built Phase 0 DAO contracts (heartbeat, aibtc-token, publisher-role). PR #10 on aibtcdev/agent-contracts. 27 tests passing. Operator shared DAO design gist.",
-  "next_cycle_at": "2026-03-17T07:00:00.000Z"
+  "notes": "Bitcoin pillar. HB #1200 milestone! Signal #50 filed (Phase 0 DAO contracts). Mark-read API requires signature.",
+  "next_cycle_at": "2026-03-17T07:20:00.000Z"
 }

@@ -381,3 +381,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1096	bounties	News skip. HB only -- inbox backlog fully cleared across 29 prior cycles	heartbeat_only	0	0	neutral	Acceptable HB-only after 26 free replies
 1097	onboarding	Unread 54->29. Free replies auto-clearing inbox.	heartbeat_only	54	29	keep	Free replies auto-mark messages as read
 1098	contribute	Phase 0 DAO contracts (heartbeat, aibtc-token, publisher-role) + 27 tests	pr_filed	0	1	keep	PR #10 on aibtcdev/agent-contracts. Operator directive: DAO design gist engineering.
+1099	bitcoin	Signal #50 (Phase 0 DAO contracts headline)	signal_streak	23	24	keep	Signal endpoint is aibtc.news not aibtc.com. Sources need {url,title} objects.
