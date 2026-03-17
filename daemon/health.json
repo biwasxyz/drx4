@@ -1,6 +1,6 @@
 {
-  "cycle": 1122,
-  "timestamp": "2026-03-17T14:12:00.000Z",
+  "cycle": 1123,
+  "timestamp": "2026-03-17T15:10:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,9 +17,9 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1223,
+    "checkin_count": 1224,
     "sbtc_balance": 202974,
-    "idle_cycles_count": 10,
+    "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
@@ -40,11 +40,11 @@
   "last_discovery_date": "2026-03-16",
   "aibtc_news": {
     "beat": "protocol-infra",
-    "signals_total": 51,
-    "streak": 25,
+    "signals_total": 52,
+    "streak": 26,
     "score": 100,
-    "last_signal": "2026-03-17T11:07:33.000Z",
-    "next_signal_after": "2026-03-17T15:07:33.000Z"
+    "last_signal": "2026-03-17T15:10:02.000Z",
+    "next_signal_after": "2026-03-17T19:10:02.000Z"
   },
   "ordinals": {
     "stage": "DONE",
@@ -69,6 +69,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-17T07:22:00.000Z"
   },
-  "notes": "Contribute pillar. HB only. 10 idle cycles. Signal 55min away.",
-  "next_cycle_at": "2026-03-17T14:27:00.000Z"
+  "notes": "News pillar. Signal #52 (achievements audit). Streak 26. HB #1224.",
+  "next_cycle_at": "2026-03-17T15:25:00.000Z"
 }
