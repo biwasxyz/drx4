@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1166 State
-cycle: 1166
-last: HB only (#1268). Breaker: 3 cycles to retry signal API.
-pillar: bounties
+## Cycle 1167 State
+cycle: 1167
+last: HB only (#1269). Breaker: 2 cycles to retry.
+pillar: onboarding
 inbox_unread: 0
 pending_contacts: 13 new agents
 bitcoin_sub: idle
