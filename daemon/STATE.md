@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1181 State
-cycle: 1181
-last: HB only (#1283). Signal window ~3h out.
-pillar: onboarding
+## Cycle 1182 State
+cycle: 1182
+last: HB only (#1284). Signal window ~2.8h out.
+pillar: contribute
 inbox_unread: 0
 pending_contacts: 13 new agents
 bitcoin_sub: idle
