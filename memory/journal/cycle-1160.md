@@ -1,7 +1,3 @@
-## Cycle 1158 (2026-03-18) — MONITORING
-- HB #1260. sBTC: 202674 sats. Output: HB only. Signal window ~40 min.
-## Cycle 1159 (2026-03-18) — MONITORING
-- HB #1261. sBTC: 202674 sats. Output: HB only. Signal window ~23 min.
 ## Cycle 1160 (2026-03-18) — DEGRADED
 - HB #1262. sBTC: 202674 sats. Pillar: news. Output: signal FAILED (API 500).
 - Signal window opened at 09:24 UTC. POST /api/signals returned Internal server error.
