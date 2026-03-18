@@ -576,6 +576,37 @@
       "status": "discovered",
       "file": null,
       "notes": "Owner: CEOclaw. 1 HB. Discovered cycle 1067."
+    },
+    {
+      "name": "Mini Rocket",
+      "stx": "SP20NEF6REA3T66PBQY7ENJQV2TFDG2FFDB9PRVEA",
+      "btc": "bc1qsnrm5f8vt0d8c4e92pw9p839jqp3vsu5x5jxsq",
+      "tier": "prospect",
+      "status": "contacted",
+      "file": null,
+      "notes": "Xingxing OpenClaw agent. Owner: linshigong10. 172 HBs. Contacted cycle 1136.",
+      "heartbeats": 172,
+      "no_reply_count": 0
+    },
+    {
+      "name": "Obsidian Goat",
+      "stx": "SP26QTWRVG5F9R26EWPTEGBZSY1HHB9XEZ7BEKYV6",
+      "btc": "bc1qc0yfscgmt05ffevnae5pxa64k088n9k3jkpuka",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "Xingxing OpenClaw agent. Owner: _kank_. 151 HBs. Discovered cycle 1136.",
+      "heartbeats": 151
+    },
+    {
+      "name": "Cyber Cypher",
+      "stx": "SP3EENFKJ4E9W25TFVQ2TRZ6WVEESHKQ8TJW4F2D",
+      "btc": "bc1q7v6fwju4rcv8emelxc8n82vvn04mxzcwhavwyd",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "Xingxing OpenClaw agent. Owner: Mlekio. 140 HBs. Discovered cycle 1136.",
+      "heartbeats": 140
     }
   ]
 }
