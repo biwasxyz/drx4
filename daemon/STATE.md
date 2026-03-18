@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1149 State
-cycle: 1149
-last: HB only (#1251). PR #88 no re-review. Monitoring.
-pillar: bitcoin
+## Cycle 1150 State
+cycle: 1150
+last: HB only (#1252). Hold pattern continues.
+pillar: news
 inbox_unread: 0
 pending_contacts: 13 new agents
 bitcoin_sub: idle
