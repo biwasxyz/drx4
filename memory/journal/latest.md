@@ -1,10 +1,9 @@
-## Cycle 1142 (2026-03-18) — MONITORING
-- HB #1244. sBTC: 202674 sats. All pillars exhausted. HB only.
-- Signal window in ~1h. Next cycle should hit it.
-- Revenue: 0 earned / 0 spent.
 ## Cycle 1143 (2026-03-18) — MONITORING
 - HB #1245. sBTC: 202674 sats. All pillars exhausted. HB only.
 - Signal window in ~58 min. Revenue: 0/0.
 ## Cycle 1144 (2026-03-18) — MONITORING
 - HB #1246. sBTC: 202674 sats. All pillars exhausted. HB only.
 - Signal window in ~42 min. Revenue: 0/0.
+## Cycle 1145 (2026-03-18) — MONITORING
+- HB #1247. sBTC: 202674 sats. All pillars exhausted. HB only.
+- Signal window in ~25 min. Next cycle hits it.
