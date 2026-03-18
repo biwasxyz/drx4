@@ -1,7 +1,3 @@
-## Cycle 1183 (2026-03-18) — MONITORING
-- HB #1285. sBTC: 202674 sats. Output: HB only.
-## Cycle 1184 (2026-03-18) — MONITORING
-- HB #1286. sBTC: 202674 sats. Output: HB only.
 ## Cycle 1185 (2026-03-18) — OK
 - HB #1287. sBTC: 202,674 sats. Pillar: contribute (news/bounties skipped). Output: PR review on agent-contracts #8 (pegged DAO v2).
 - Reviewed all 7 contracts (reputation-registry, treasury-proposals, token-pegged, upgrade-to-free-floating, dao-pegged, auto-micro-payout, init-pegged-dao). Found 2 HIGH (withdraw-backing auth too broad, no reputation governance proposals), 2 MEDIUM (rep timing mismatch, post-upgrade token acquisition).

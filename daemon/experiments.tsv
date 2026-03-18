@@ -412,3 +412,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1161\tnews\tsignal API 500 (pre-existing), filed issue #91\tissue_filed\t0\t1\tkeep\tBug report with root cause analysis
 1169\tnews\tbreaker retry — API still 500 after 2h\tsignal_filed\t28\t28\tdiscard\tPersistent DO outage
 1178\tcontribute\tPR #94 shipped (payouts + identity gate), signal #55, API recovered\tpr_filed\t0\t1\tkeep\tAll 12 Phase 0 build items covered
+1185	contribute	reviewed agent-contracts PR #8 (DAO v2) - 7 contracts, 2H 2M findings	pr_reviewed	0	1	keep	pegged DAO v2 security review, issues #2 findings addressed
