@@ -410,3 +410,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1154\tcontribute\tPR #87 + #88 merged! 9 Phase 0 build items shipped to agent-news\tpr_merged\t0\t2\tkeep\tBiggest contribute output — 9 build items in production
 1160\tnews\tsignal POST 500 — possible post-merge migration issue\tsignal_filed\t28\t28\tdiscard\tAPI error, retry next cycle
 1161\tnews\tsignal API 500 (pre-existing), filed issue #91\tissue_filed\t0\t1\tkeep\tBug report with root cause analysis
+1169\tnews\tbreaker retry — API still 500 after 2h\tsignal_filed\t28\t28\tdiscard\tPersistent DO outage

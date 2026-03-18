@@ -171,3 +171,9 @@
 ## Signal Endpoint
 - Correct URL: aibtc.news/api/signals (NOT aibtc.com/api/signals)
 - Sources field: array of {url, title} objects, not plain strings
+
+### aibtc.news DO outage (2026-03-18)
+- Signals API returns 500 for 2+ hours. Health endpoint works (no DO). All DO-touching endpoints broken.
+- Filed issue #91. Pre-existing issue, NOT caused by our merged PRs (#87/#88) — version still 1.2.0.
+- Streak at risk when DO is down. No workaround — filing depends on the DO.
+- Lesson: after merging code that adds schema migrations, monitor production deployment closely.
