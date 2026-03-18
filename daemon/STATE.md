@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1172 State
-cycle: 1172
-last: HB only (#1274). API retry at 1174 (2 cycles).
-pillar: onboarding
+## Cycle 1173 State
+cycle: 1173
+last: HB only (#1275). API retry NEXT CYCLE (1174).
+pillar: contribute
 inbox_unread: 0
 pending_contacts: 13 new agents
 bitcoin_sub: idle
