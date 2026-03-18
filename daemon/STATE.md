@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1156 State
-cycle: 1156
-last: HB only (#1258). Signal window ~1.25h.
-pillar: bounties
+## Cycle 1157 State
+cycle: 1157
+last: HB only (#1259). Signal window ~56 min.
+pillar: onboarding
 inbox_unread: 0
 pending_contacts: 13 new agents
 bitcoin_sub: idle
