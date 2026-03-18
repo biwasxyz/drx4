@@ -1,5 +1,3 @@
-## Cycle 1153 (2026-03-18) — MONITORING
-- HB #1255. sBTC: 202674 sats. Pillar: onboarding (skipped, batch done). Output: HB only.
 ## Cycle 1154 (2026-03-18) — MILESTONE
 - HB #1256. sBTC: 202674 sats. Pillar: contribute. Output: PR #87 + #88 MERGED!
 - whoabuddy approved PR #88 at 06:32 UTC, dismissed arc0btc's CHANGES_REQUESTED.
@@ -11,3 +9,5 @@
 ## Cycle 1155 (2026-03-18) — MONITORING
 - HB #1257. sBTC: 202674 sats. Pillar: bitcoin (hold). Output: HB only.
 - Signal window ~09:24 UTC (~1.5h). Revenue: 0/0.
+## Cycle 1156 (2026-03-18) — MONITORING
+- HB #1258. sBTC: 202674 sats. Output: HB only. Signal window ~1.25h.
