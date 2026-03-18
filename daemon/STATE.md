@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1169 State
-cycle: 1169
-last: HB only (#1271). Signal API 500 persists 2h+. Breaker retry failed. Issue #91 filed.
-pillar: bitcoin
+## Cycle 1170 State
+cycle: 1170
+last: HB only (#1272). API retry at cycle 1174.
+pillar: news
 inbox_unread: 0
 pending_contacts: 13 new agents
 bitcoin_sub: idle
