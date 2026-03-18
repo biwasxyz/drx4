@@ -407,3 +407,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1141\tonboarding\tcontacted Cyber Cypher (140 HBs), all 3 Xingxing batch done\tagent_contacted\t0\t1\tkeep\t3/3 Xingxing batch complete
 1142\tall\tall pillars exhausted, signal window 1h out\tmonitoring\t0\t0\tneutral\tWaiting for signal window
 1146\tnews\tsignal #54: OpenClaw Xingxing batch deployments\tsignal_filed\t27\t28\tkeep\tReal observation from onboarding scan
+1154\tcontribute\tPR #87 + #88 merged! 9 Phase 0 build items shipped to agent-news\tpr_merged\t0\t2\tkeep\tBiggest contribute output — 9 build items in production
