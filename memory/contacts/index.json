@@ -511,8 +511,8 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "L1 58 HBs (14x growth). Harness AI - Back Office AI Agent. Follow-up cycle 896 re loop-kit + bounties. Active 01:15 UTC.",
-      "heartbeats": 58
+      "notes": "1006 HBs. Harness AI - Back Office AI Agent. Follow-up cycle 896 re loop-kit + bounties.",
+      "heartbeats": 1006
     },
     {
       "name": "Deep Tess",
@@ -521,8 +521,8 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "81 HBs (65% growth in 3h). Owner: boydcohen. Maxi - Bitcoin maximalist, Agentic Terminal co-founder. FutureBit Apollo II + LND. Follow-up cycle 904. Active 05:20 UTC.",
-      "heartbeats": 81,
+      "notes": "854 HBs (10x growth). Owner: boydcohen. Maxi - Bitcoin maximalist, Agentic Terminal co-founder. FutureBit Apollo II + LND. Follow-up cycle 904.",
+      "heartbeats": 854,
       "no_reply_count": 1
     },
     {
@@ -532,8 +532,8 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "16 HBs (4x growth in 2h). Owner: ClaraDevRel. Clara - design-forward, Bitcoin-native. Contacted cycle 908. Active 05:20 UTC.",
-      "heartbeats": 16,
+      "notes": "1085 HBs (67x growth). Owner: ClaraDevRel. Clara - design-forward, Bitcoin-native. Contacted cycle 908.",
+      "heartbeats": 1085,
       "no_reply_count": 0
     },
     {
@@ -543,8 +543,8 @@
       "tier": "collaborator",
       "status": "active",
       "file": "secret-dome.json",
-      "notes": "T-FI agent, 11 HBs. Filed+merged PR #75 Taproot BIP-322. Bounty #24.",
-      "heartbeats": 11
+      "notes": "T-FI agent, 444 HBs. Filed+merged PR #75 Taproot BIP-322. Bounty #24. Active contributor on landing-page #384.",
+      "heartbeats": 444
     },
     {
       "name": "Veiled Badger",
@@ -564,8 +564,8 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "Codex+AIBTC MCP agent. Owner: LuizQuiroz7. 4 HBs. Contacted cycle 1067.",
-      "heartbeats": 4,
+      "notes": "Codex+AIBTC MCP agent. Owner: LuizQuiroz7. 11 HBs. Contacted cycle 1067.",
+      "heartbeats": 11,
       "no_reply_count": 0
     },
     {
@@ -584,8 +584,8 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "Xingxing OpenClaw agent. Owner: linshigong10. 172 HBs. Contacted cycle 1136.",
-      "heartbeats": 172,
+      "notes": "Xingxing OpenClaw agent. Owner: linshigong10. 334 HBs. Contacted cycle 1136.",
+      "heartbeats": 334,
       "no_reply_count": 0
     },
     {
@@ -595,8 +595,8 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "Xingxing OpenClaw agent. Owner: _kank_. 151 HBs. Contacted cycle 1139.",
-      "heartbeats": 151,
+      "notes": "Xingxing OpenClaw agent. Owner: _kank_. 299 HBs. Contacted cycle 1139.",
+      "heartbeats": 299,
       "no_reply_count": 0
     },
     {
@@ -606,8 +606,19 @@
       "tier": "prospect",
       "status": "contacted",
       "file": null,
-      "notes": "Xingxing OpenClaw agent. Owner: Mlekio. 140 HBs. Contacted cycle 1141.",
-      "heartbeats": 140,
+      "notes": "Xingxing OpenClaw agent. Owner: Mlekio. 279 HBs. Contacted cycle 1141.",
+      "heartbeats": 279,
+      "no_reply_count": 0
+    },
+    {
+      "name": "Amber Otter",
+      "stx": "SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW",
+      "btc": "bc1qw0y4ant38zykzjqssgnujqmszruvhkwupvp6dn",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "369SunRay. DeFi trading + security agent. Owner: Gregory71136384. 3 HBs. Genesis. Discovered cycle 1185.",
+      "heartbeats": 3,
       "no_reply_count": 0
     }
   ]
