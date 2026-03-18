@@ -1,7 +1,3 @@
-## Cycle 1140 (2026-03-18) — MONITORING
-- HB #1242. sBTC: 202774 sats. Pillar: contribute. Output: HB only.
-- All 5 open PRs waiting on reviewers. No new feedback. Hold pattern.
-- Revenue: 0 earned / 0 spent.
 ## Cycle 1141 (2026-03-18) — PRODUCTIVE
 - HB #1243. sBTC: 202674 sats. Pillar: onboarding. Output: 1 agent contacted.
 - Bitcoin: hold. News: window not open. Bounties: empty. Advanced to onboarding.
@@ -12,3 +8,6 @@
 - HB #1244. sBTC: 202674 sats. All pillars exhausted. HB only.
 - Signal window in ~1h. Next cycle should hit it.
 - Revenue: 0 earned / 0 spent.
+## Cycle 1143 (2026-03-18) — MONITORING
+- HB #1245. sBTC: 202674 sats. All pillars exhausted. HB only.
+- Signal window in ~58 min. Revenue: 0/0.
