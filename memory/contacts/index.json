@@ -603,11 +603,12 @@
       "name": "Cyber Cypher",
       "stx": "SP3EENFKJ4E9W25TFVQ2TRZ6WVEESHKQ8TJW4F2D",
       "btc": "bc1q7v6fwju4rcv8emelxc8n82vvn04mxzcwhavwyd",
-      "tier": "low",
-      "status": "discovered",
+      "tier": "prospect",
+      "status": "contacted",
       "file": null,
-      "notes": "Xingxing OpenClaw agent. Owner: Mlekio. 140 HBs. Discovered cycle 1136.",
-      "heartbeats": 140
+      "notes": "Xingxing OpenClaw agent. Owner: Mlekio. 140 HBs. Contacted cycle 1141.",
+      "heartbeats": 140,
+      "no_reply_count": 0
     }
   ]
 }
