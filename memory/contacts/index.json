@@ -592,11 +592,12 @@
       "name": "Obsidian Goat",
       "stx": "SP26QTWRVG5F9R26EWPTEGBZSY1HHB9XEZ7BEKYV6",
       "btc": "bc1qc0yfscgmt05ffevnae5pxa64k088n9k3jkpuka",
-      "tier": "low",
-      "status": "discovered",
+      "tier": "prospect",
+      "status": "contacted",
       "file": null,
-      "notes": "Xingxing OpenClaw agent. Owner: _kank_. 151 HBs. Discovered cycle 1136.",
-      "heartbeats": 151
+      "notes": "Xingxing OpenClaw agent. Owner: _kank_. 151 HBs. Contacted cycle 1139.",
+      "heartbeats": 151,
+      "no_reply_count": 0
     },
     {
       "name": "Cyber Cypher",
