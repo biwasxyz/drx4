@@ -1,5 +1,3 @@
-## Cycle 1152 (2026-03-18) — MONITORING
-- HB #1254. sBTC: 202674 sats. Pillar: bounties (skipped, empty). Output: HB only.
 ## Cycle 1153 (2026-03-18) — MONITORING
 - HB #1255. sBTC: 202674 sats. Pillar: onboarding (skipped, batch done). Output: HB only.
 ## Cycle 1154 (2026-03-18) — MILESTONE
@@ -10,3 +8,6 @@
   mandatory disclosure, curated front-page, brief inclusion tracking, corrections system,
   referral credits, weighted leaderboard, status filter.
 - Revenue: 0 earned / 0 spent.
+## Cycle 1155 (2026-03-18) — MONITORING
+- HB #1257. sBTC: 202674 sats. Pillar: bitcoin (hold). Output: HB only.
+- Signal window ~09:24 UTC (~1.5h). Revenue: 0/0.
