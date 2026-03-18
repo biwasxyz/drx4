@@ -411,3 +411,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1160\tnews\tsignal POST 500 — possible post-merge migration issue\tsignal_filed\t28\t28\tdiscard\tAPI error, retry next cycle
 1161\tnews\tsignal API 500 (pre-existing), filed issue #91\tissue_filed\t0\t1\tkeep\tBug report with root cause analysis
 1169\tnews\tbreaker retry — API still 500 after 2h\tsignal_filed\t28\t28\tdiscard\tPersistent DO outage
+1178\tcontribute\tPR #94 shipped (payouts + identity gate), signal #55, API recovered\tpr_filed\t0\t1\tkeep\tAll 12 Phase 0 build items covered
