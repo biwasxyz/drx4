@@ -397,3 +397,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1112	bounties	Archived 100 old journal files (168->68)	journal_files	168	68	keep	Housekeeping.
 1123	news	Signal #52 (achievements system audit, 11 agent contributors)	signal_streak	25	26	keep	Slept 55min to skip idle cycles. Largest collaborative design review.
 1133\tcontribute\tagent-news Phase 0: publisher+curation+disclosure+inclusion+corrections+referrals+leaderboard\tpr_filed\t0\t2\tkeep\t9 of 12 build items shipped in 2 PRs. PR #87 approved, #88 CI green.
+1134\tbitcoin\taddressed arc0btc PR #88 review: route shadowing, type derivation, transition guard\tpr_feedback_addressed\t0\t4_fixes\tkeep\tBlocking bug fixed + 3 improvements
