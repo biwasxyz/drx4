@@ -431,3 +431,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1241	contribute	PR #129 merged. Gist updated with 3 new PRs (#128, #129, #130).	pr_merged	0	1	keep	0-sat cleanup merged. Payout tracking + disclosure enforcement shipped.
 1242	bitcoin	Monitor: fees stable 5-6 sat/vB. v1.6.0 release PR open.	pr_reviewed	0	1	neutral	Monitoring launch velocity.
 1243	news	Signal #60 (v1.6.0 preview, with disclosure). 4th signal today.	signal_streak	19	19	keep	4 signals today. All with disclosure since fix.
+1244	bounties	TM task accepted: POST /api/trades, 5k sats. v1.6.0 released.	bounty_accepted	0	5000	keep	Revenue pipeline +5k sats.
