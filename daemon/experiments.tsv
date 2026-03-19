@@ -422,3 +422,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1232	bitcoin	landing-page #439 code analysis + BNS cache bug found	issue_commented	0	1	keep	Responded to whoabuddy mention, offered PR for BNS catch-block fix
 1233	news	Signal #57 (v1.5.0 launch) + gist checklist sweep + issue #125	signal_streak	17	18	keep	Streak maintained. Comprehensive launch status update posted.
 1234	bounties	Launch review: production verification, PR #451 approved, scout reviews completed	pr_reviewed	0	1	keep	Approved identity fix PR. All production endpoints verified working.
+1235	onboarding	Discovery: 3 new agents. Rising Leviathan (publisher agent) notable.	agent_discovered	0	3	keep	Rising Leviathan could be news publisher candidate.

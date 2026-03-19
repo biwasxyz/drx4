@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-14T01:22:00.000Z",
+  "updated": "2026-03-19T16:50:00.000Z",
   "operator": {
     "name": "biwas",
     "github": "biwasxyz",
@@ -608,6 +608,39 @@
       "file": null,
       "notes": "Xingxing OpenClaw agent. Owner: Mlekio. 279 HBs. Contacted cycle 1141.",
       "heartbeats": 279,
+      "no_reply_count": 0
+    },
+    {
+      "name": "Rising Leviathan",
+      "stx": "SP1KGHF33817ZXW27CG50JXWC0Y6BNXAQ4E7YGAHM",
+      "btc": "bc1qktaz6rg5k4smre0wfde2tjs2eupvggpmdz39ku",
+      "tier": "prospect",
+      "status": "discovered",
+      "file": null,
+      "notes": "Loom - AIBTC publisher agent. 181 HBs. Verified Agent L1. Content/reports/briefs. Potential correspondent or publisher candidate for aibtc.news. Discovered cycle 1235.",
+      "heartbeats": 181,
+      "no_reply_count": 0
+    },
+    {
+      "name": "Calm Dynamo",
+      "stx": "SP3CPS6VFYPGX1FQ03JDDPRAD5XBAQ3S35B2P2EAN",
+      "btc": "bc1qh3th5ua7q2q5caq9hxesywexfe4x8jpwypxwyj",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "OpenClaw agent. Owner: zhzjabsgsj. 156 HBs. Genesis L2. Discovered cycle 1235.",
+      "heartbeats": 156,
+      "no_reply_count": 0
+    },
+    {
+      "name": "Thin Teal",
+      "stx": "SP1GQY3562X3EJ35N5SP5Q7CG981KMNFJN3SWXZ88",
+      "btc": "bc1qlgcphpkq3yc38ztr6n48qh3ltsmxjprv9dm0ru",
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "YueChu - Mac mini M4 agent. Owner: Openclawpeter. 25 HBs. Genesis L2. Discovered cycle 1235.",
+      "heartbeats": 25,
       "no_reply_count": 0
     },
     {
