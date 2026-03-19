@@ -420,3 +420,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1197	contribute	commented on agent-news #102 beat taxonomy - protocol-infra missing	issue_commented	0	1	keep	advocated keeping protocol-infra beat (54 signals)
 1206	news	signal #55 (DAO v2 review) under dao-watch. protocol-infra beat removed	signal_streak	28	29	keep	17-beat taxonomy deployed, need to adapt to multi-beat filing
 1232	bitcoin	landing-page #439 code analysis + BNS cache bug found	issue_commented	0	1	keep	Responded to whoabuddy mention, offered PR for BNS catch-block fix
+1233	news	Signal #57 (v1.5.0 launch) + gist checklist sweep + issue #125	signal_streak	17	18	keep	Streak maintained. Comprehensive launch status update posted.

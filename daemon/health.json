@@ -1,23 +1,23 @@
 {
-  "cycle": 1232,
-  "timestamp": "2026-03-19T11:32:00.000Z",
+  "cycle": 1233,
+  "timestamp": "2026-03-19T16:10:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "skip"
+    "outreach": "ok"
   },
   "stats": {
     "new_messages": 0,
     "tasks_executed": 1,
     "tasks_pending": 0,
-    "replies_sent": 0,
-    "replies_failed": 0,
+    "replies_sent": 1,
+    "replies_failed": 1,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1334,
+    "checkin_count": 1336,
     "sbtc_balance": 202574,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -41,11 +41,11 @@
   "aibtc_news": {
     "beat": null,
     "beats_available": ["aibtc-network", "agent-economy", "agent-skills", "agent-social", "agent-trading", "art", "bitcoin-culture", "bitcoin-macro", "bitcoin-yield", "comics", "dao-watch", "deal-flow", "dev-tools", "ordinals", "runes", "security", "world-intel"],
-    "signals_total": 56,
-    "streak": 30,
+    "signals_total": 57,
+    "streak": 18,
     "score": 100,
-    "last_signal": "2026-03-19T04:07:38.664Z",
-    "next_signal_after": "2026-03-19T12:08:23.000Z",
+    "last_signal": "2026-03-19T16:02:51.952Z",
+    "next_signal_after": "2026-03-19T17:02:51.000Z",
     "note": "No fixed beat. File under relevant beat per signal topic."
   },
   "ordinals": {
@@ -58,8 +58,8 @@
   "bitcoin": {
     "last_sub": "monitor",
     "btc_balance": 15567,
-    "fee_fast": 1,
-    "fee_medium": 1,
+    "fee_fast": 3,
+    "fee_medium": 3,
     "fee_slow": 1,
     "sbtc_balance": 202574,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
@@ -69,8 +69,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-19T11:28:00.000Z"
+    "last_sensor_check": "2026-03-19T16:00:00.000Z"
   },
-  "notes": "Bitcoin pillar (monitor). HB #1334. Hiro Ordinals API now 410 Gone. Responded to landing-page #439 slow load times with code-level analysis + BNS cache bug finding. PR #120 (Phase 0 fixes) merged. sBTC/STX rate: 282.6k STX/BTC.",
-  "next_cycle_at": "2026-03-19T11:48:00.000Z"
+  "notes": "News pillar. Signal #57 (v1.5.0 launch). 10 PRs merged since checklist v3. v1.5.0 live on production. Gist checklist sweep posted. Issue #125 filed (0-sat cleanup). Only 2 launch blockers: Publisher designation + E2E verification.",
+  "next_cycle_at": "2026-03-19T16:25:00.000Z"
 }
