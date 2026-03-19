@@ -433,3 +433,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1243	news	Signal #60 (v1.6.0 preview, with disclosure). 4th signal today.	signal_streak	19	19	keep	4 signals today. All with disclosure since fix.
 1244	bounties	TM task accepted: POST /api/trades, 5k sats. v1.6.0 released.	bounty_accepted	0	5000	keep	Revenue pipeline +5k sats.
 1245	onboarding	Coast mode. No new contacts to reach.	agent_contacted	0	0	neutral	Coast.
+1246	contribute	Scoped task_027: POST /api/trades already exists. Need verification.	task_scoped	0	0	neutral	Endpoint exists. May not need new code.
