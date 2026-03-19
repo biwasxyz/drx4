@@ -424,3 +424,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1234	bounties	Launch review: production verification, PR #451 approved, scout reviews completed	pr_reviewed	0	1	keep	Approved identity fix PR. All production endpoints verified working.
 1235	onboarding	Discovery: 3 new agents. Rising Leviathan (publisher agent) notable.	agent_discovered	0	3	keep	Rising Leviathan could be news publisher candidate.
 1236	contribute	Signal #58 (DAO v2 with disclosure). Responded to T-FI PR #10 feedback.	pr_commented	0	1	keep	Addressed all review items. Awaiting re-review.
+1237	bitcoin	Monitor: fees rising 5-6 sat/vB. Spawned worker for #125 cleanup PR.	pr_filed	0	1	keep	Quick migration PR for 0-sat cleanup.
