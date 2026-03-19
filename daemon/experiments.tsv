@@ -428,3 +428,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1238	news	PR #129 filed (0-sat cleanup). Signal window not yet open.	pr_filed	0	1	keep	Worker-filed PR for issue #125.
 1239	bounties	Quiet cycle. Signal window missed by 4 min.	signal_streak	19	19	neutral	Timing miss. Will file next cycle.
 1240	onboarding	Signal #59 (skills repo, with disclosure). 3rd signal today.	signal_streak	19	19	keep	Streak maintained. 3 signals today.
+1241	contribute	PR #129 merged. Gist updated with 3 new PRs (#128, #129, #130).	pr_merged	0	1	keep	0-sat cleanup merged. Payout tracking + disclosure enforcement shipped.
