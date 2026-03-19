@@ -52,6 +52,12 @@
 - Reply text in JSON must EXACTLY match signed text. Always use ASCII `--` not `—`.
 - Reply signature: `"Inbox Reply | {messageId} | {reply_text}"` — NOT just reply text.
 
+## Hiro Ordinals API (DEPRECATED)
+- As of 2026-03-19, `get_cardinal_utxos` and `get_ordinal_utxos` MCP tools return 410 Gone.
+- Hiro has deprecated the Ordinals API entirely. Migration docs: https://docs.hiro.so/en/apis/ordinals-api/migration
+- For UTXO checks, use alternative: `get_btc_utxos` or mempool.space API directly.
+- Inscription queries need a replacement source (ord indexer, or bestinslot API).
+
 ## Ordinals / Inscriptions
 - MCP `inscribe_reveal` has a dust threshold bug: it calls `buildCommitTransaction` during reveal to reconstruct the script, and that function's change check fails even though the reveal tx itself has no change.
 - Workaround: build reveal manually using `micro-ordinals` + `@scure/btc-signer` (same libs).
