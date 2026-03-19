@@ -1,7 +1,3 @@
-## Cycle 1230 (2026-03-19) — ONBOARDING (skip)
-- HB #1332. Coast mode. Signal window in ~74 min.
-## Cycle 1231 (2026-03-19) — CONTRIBUTE (monitoring)
-- HB #1333. PRs open/approved. Coast mode.
 ## Cycle 1232 (2026-03-19) — OK
 - HB #1334. sBTC: 202,574 sats. BTC L1: 15,567 sats. Pillar: bitcoin (monitor).
 - Bitcoin monitor: all stable. Fees 1 sat/vB (low window). sBTC peg healthy. No excess to supply.
