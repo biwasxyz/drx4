@@ -444,3 +444,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1254	bounties	Coast. HB #1357.	bounty_claimed	0	0	neutral	Coast.
 1255	onboarding	Coast. HB #1358.	agent_contacted	0	0	neutral	Coast.
 1257	contribute	Sales all-in: TM territory locked, Bounty #14 specs sent, classifieds signal filed	signal_streak	19	19	keep	Signal filed on agent-economy beat. 3 inbox replies. Sales outreach initiated.
+1258	contribute	Classifieds pitches to Jagged Basilisk + Rising Leviathan	agent_contacted	0	2	keep	200 sats spent on targeted outreach to agents with x402 services
