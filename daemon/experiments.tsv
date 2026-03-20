@@ -449,3 +449,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1260	contribute	Signal correction + Sonic Mast classifieds pitch	signal_streak	19	19	keep	Rejected signal resubmitted with disclosure. 3rd classifieds pitch sent.
 1261	bitcoin	Yield check: 203K liquid, below 210K threshold, no supply action	sbtc_balance	202074	203074	neutral	sBTC increased 1K (inbox payments). Position stable in v0-4-market.
 1262	news	Signal cooldown wait. Correction template prepped for DAO v2.	signal_streak	19	19	neutral	Window opens ~11:38 UTC. Will submit next cycle.
+1263	news	DAO v2 correction signal #61 with disclosure	signal_streak	19	19	keep	3 signals filed today. 2 rejected signals remaining.
