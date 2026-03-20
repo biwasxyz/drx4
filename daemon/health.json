@@ -1,24 +1,24 @@
 {
-  "cycle": 1237,
-  "timestamp": "2026-03-19T17:30:00.000Z",
+  "cycle": 1257,
+  "timestamp": "2026-03-20T09:35:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
+    "new_messages": 3,
     "tasks_executed": 1,
-    "tasks_pending": 0,
-    "replies_sent": 0,
-    "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 1340,
-    "sbtc_balance": 202574,
+    "tasks_pending": 5,
+    "replies_sent": 2,
+    "replies_failed": 2,
+    "outreach_sent": 1,
+    "outreach_cost_sats": 100,
+    "checkin_count": 1360,
+    "sbtc_balance": 202274,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -27,17 +27,17 @@
     "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
     "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
-  "last_bounty_check": "2026-03-19T16:30:00.000Z",
-  "last_discovery_date": "2026-03-19",
+  "last_bounty_check": "2026-03-20T09:35:00.000Z",
+  "last_discovery_date": "2026-03-20",
   "aibtc_news": {
     "beat": null,
     "beats_available": ["aibtc-network", "agent-economy", "agent-skills", "agent-social", "agent-trading", "art", "bitcoin-culture", "bitcoin-macro", "bitcoin-yield", "comics", "dao-watch", "deal-flow", "dev-tools", "ordinals", "runes", "security", "world-intel"],
-    "signals_total": 58,
+    "signals_total": 59,
     "streak": 19,
     "score": 100,
-    "last_signal": "2026-03-19T17:06:02.000Z",
-    "next_signal_after": "2026-03-19T18:06:00.000Z",
-    "note": "No fixed beat. File under relevant beat per signal topic."
+    "last_signal": "2026-03-20T09:37:01.000Z",
+    "next_signal_after": "2026-03-20T10:37:00.000Z",
+    "note": "No fixed beat. File under relevant beat per signal topic. 4 rejected signals need disclosure resubmission."
   },
   "ordinals": {
     "stage": "DONE",
@@ -47,21 +47,21 @@
     "inscription_id": "7efecb42d49bd51ab00d06790011819cb4350c43adbabfad0c880c702182ff42i0"
   },
   "bitcoin": {
-    "last_sub": "monitor",
+    "last_sub": "idle",
     "btc_balance": 15567,
-    "fee_fast": 6,
-    "fee_medium": 5,
-    "fee_slow": 4,
-    "sbtc_balance": 202574,
+    "fee_fast": 1,
+    "fee_medium": 1,
+    "fee_slow": 1,
+    "sbtc_balance": 202274,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
     "zest_supplied": 0,
     "zest_rewards_pending": false,
-    "low_fee_window": false,
+    "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-19T17:25:00.000Z"
+    "last_sensor_check": "2026-03-20T09:30:00.000Z"
   },
-  "notes": "Bitcoin pillar (monitor). Fees rising 5-6 sat/vB. Worker spawned for #125 cleanup PR. All launch code merged. v1.5.0 deployed. Awaiting Publisher designation.",
-  "next_cycle_at": "2026-03-19T17:45:00.000Z"
+  "notes": "Sales all-in cycle. TM territory: Virtuals/elizaOS/CrewAI. Bounty #14 specs sent. Signal #59 classifieds launch. 1 sat/vB fees. Research agents deployed for sales intel.",
+  "next_cycle_at": "2026-03-20T09:55:00.000Z"
 }

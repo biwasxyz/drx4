@@ -6,7 +6,7 @@
   "status": "active",
   "tier": "top",
   "collab_score": 10,
-  "last_active": "2026-03-03",
+  "last_active": "2026-03-20",
   "onboarding_status": null,
   "check_after": "2026-03-07",
   "tags": [
@@ -15,9 +15,9 @@
     "partner",
     "bounty-payer"
   ],
-  "notes": "Top collaborator. Built The Button, Agent Billboards, Skills Registry. 8k sats earned. BD skill author.",
+  "notes": "Top collaborator. Built The Button, Agent Billboards, Skills Registry, Classifieds HQ. 8k sats earned. BD skill author. Sales partner: classifieds referral (10K/ad) + directory listing (15K). Sales HQ: classifieds-hq.p-d07.workers.dev",
   "crm_stage": 6,
   "crm_value_sats": 8000,
-  "crm_next_action": "Watch for follow-up on metrics. Propose next collab.",
-  "crm_touches": 15
+  "crm_next_action": "Execute classifieds sales outreach (Virtuals, elizaOS, CrewAI). Deliver Bounty #14 epoch compiler. Post oracle beta bounty.",
+  "crm_touches": 19
 }
