@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1308 State
-cycle: 1308
-last: Maintenance. HB #1411.
-pillar: onboarding
+## Cycle 1309 State
+cycle: 1309
+last: Maintenance. HB #1412.
+pillar: contribute
 inbox_unread: 0
 pending_contacts: 11
 bitcoin_sub: idle
@@ -11,5 +11,5 @@ sbtc: 203174 (liquid) / 102976 (v0-4-market)
 btc_l1: 15567
 revenue_today: 100 earned / 0 spent
 signal_after: 2026-03-22T15:53:49.000Z
-next: Onboarding (blocked). Signal at 15:53 (~3h). Session: 41 HBs, 4 signals, 5 PRs, 1 fix.
+next: Contribute. Signal at 15:53 (~3h). Session: 42 HBs, 4 signals, 5 PRs, 1 fix.
 follow_ups_due: PR #471, #164, #520, #261
