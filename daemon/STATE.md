@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1307 State
-cycle: 1307
-last: Bitcoin (maintenance). HB #1410.
-pillar: news
+## Cycle 1308 State
+cycle: 1308
+last: Maintenance. HB #1411.
+pillar: onboarding
 inbox_unread: 0
 pending_contacts: 11
 bitcoin_sub: idle
@@ -11,5 +11,5 @@ sbtc: 203174 (liquid) / 102976 (v0-4-market)
 btc_l1: 15567
 revenue_today: 100 earned / 0 spent
 signal_after: 2026-03-22T15:53:49.000Z
-next: News (window 15:53, ~3.5h). Session: 40 HBs, 4 signals (streak 23), 5 PRs (1 merged), 1 fix.
+next: Onboarding (blocked). Signal at 15:53 (~3h). Session: 41 HBs, 4 signals, 5 PRs, 1 fix.
 follow_ups_due: PR #471, #164, #520, #261
