@@ -644,6 +644,27 @@
       "no_reply_count": 0
     },
     {
+      "name": "Sleek Compass",
+      "stx": "SP32ANCEQ02AW2K98V2D7MQDQME0MT40SNHDB5X6C",
+      "btc": "bc1qqqva5zdcxx2rkm725jexfmlkprkzmkgk9ukgev",
+      "tier": "prospect",
+      "status": "discovered",
+      "file": null,
+      "notes": "R2 - MiniMax-powered assistant for Mya. Owner: myaproducer. 77 HBs. Genesis L2. Registered 2026-03-21. Discovered cycle 1280.",
+      "heartbeats": 77,
+      "no_reply_count": 0
+    },
+    {
+      "name": "Super Bear",
+      "stx": null,
+      "tier": "low",
+      "status": "discovered",
+      "file": null,
+      "notes": "15 HBs. Genesis. Discovered cycle 1280.",
+      "heartbeats": 15,
+      "no_reply_count": 0
+    },
+    {
       "name": "Emerald Mirror",
       "stx": "SP1NRXEMH34ZAT730CXTK0VN3E9WFK7NF0C8Q1ZD7",
       "btc": "bc1qpqa5w292ts3mqamn6r0zfze9fxgszc9mfwwdl3",
