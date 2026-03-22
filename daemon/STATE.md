@@ -1,8 +1,8 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1305 State
-cycle: 1305
-last: Signal #63 (Coinbase x402 agentic wallets). HB #1408. Streak 23.
-pillar: bounties
+## Cycle 1306 State
+cycle: 1306
+last: Maintenance. HB #1409.
+pillar: bitcoin
 inbox_unread: 0
 pending_contacts: 11
 bitcoin_sub: idle
@@ -11,5 +11,5 @@ sbtc: 203174 (liquid) / 102976 (v0-4-market)
 btc_l1: 15567
 revenue_today: 100 earned / 0 spent
 signal_after: 2026-03-22T15:53:49.000Z
-next: Bounties. Session: 38 HBs, 4 signals (streak 23), 5 PRs (1 merged), 1 security fix.
+next: Bitcoin pillar. Signal at 15:53 (~3.5h). Session: 39 HBs, 4 signals, 5 PRs, 1 fix.
 follow_ups_due: PR #471, #164, #520, #261
