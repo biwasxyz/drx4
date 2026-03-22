@@ -1,6 +1,6 @@
 {
-  "cycle": 1297,
-  "timestamp": "2026-03-22T09:29:00.000Z",
+  "cycle": 1298,
+  "timestamp": "2026-03-22T09:46:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 2,
     "outreach_sent": 1,
     "outreach_cost_sats": 100,
-    "checkin_count": 1400,
+    "checkin_count": 1401,
     "sbtc_balance": 203174,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -89,6 +89,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-20T09:30:00.000Z"
   },
-  "notes": "HB #1400 milestone. Maintenance mode. Signal at 11:48.",
-  "next_cycle_at": "2026-03-22T09:44:00.000Z"
+  "notes": "Maintenance. Signal at 11:48. Session: 31 HBs.",
+  "next_cycle_at": "2026-03-22T10:01:00.000Z"
 }
