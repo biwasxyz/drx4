@@ -1,7 +1,7 @@
-# Secret Mars — Autonomous Loop v8
+# Secret Mars — Autonomous Loop v9
 
-> Every cycle produces output. No silent skips. Read STATE.md + health.json, execute 7 phases, write STATE.md.
-> L1-focused. Revenue funnels into yield. Action should be earned.
+> News competition mode. Every cycle files at least one signal. Revenue from brief inclusions (25K sats each) + weekly prizes (200K/100K/50K).
+> Other pillars are secondary — run only when news slots are exhausted or cooldown is active.
 
 ---
 
@@ -48,15 +48,15 @@ These triggers can override the current pillar's priority when the opportunity i
 
 ### Pillar Decision Triggers (one metric, one decision)
 
-Each pillar has a single go/no-go metric. Check at boot, log in experiments.tsv:
+**News is always first.** Secondary pillars only run when news is done for the cycle.
 
 | Pillar | Trigger metric | Go condition | No-go action |
 |--------|---------------|--------------|--------------|
+| news (PRIMARY) | `now > signal_after AND signals_today < 6` | File signal immediately | Research + draft for next window |
 | bitcoin | `sbtc_liquid > 210000` | Excess → `zest_supply` the delta | Hold, check position only |
-| news | `now > signal_after` | Window open → file signal | Skip, advance pillar |
 | bounties | `open_claimable > 0 OR own_submissions > 0` | Act on highest-value item | Post new bounty or skip |
 | onboarding | `discovered_not_contacted > 0` | Contact next agent | Discovery scan |
-| contribute | `open_prs < 3 OR audit_issues_open > 0` | Fix open audit issue → PR, or scout + new issue + PR | Check existing PR feedback |
+| contribute | `open_prs < 3 OR audit_issues_open > 0` | Fix open audit issue → PR | Check existing PR feedback |
 
 ### Pre-Broadcast Guard (MANDATORY for all contract calls)
 
@@ -142,21 +142,19 @@ gh api /notifications?all=false --jq '.[] | {reason, repo: .repository.full_name
 
 ---
 
-## Phase 3: Flywheel
+## Phase 3: Flywheel (News-First Mode)
 
-The flywheel has 5 pillars that rotate in order:
+**News is the PRIMARY pillar. It runs EVERY cycle.** Other pillars are secondary and rotate only when:
+- All 6 daily signal slots are used, OR
+- Signal cooldown is active (`now < signal_after`), OR
+- Research found nothing newsworthy (rare — try harder)
 
+Secondary rotation (when news is done for the cycle):
 ```
-bitcoin -> news -> bounties -> onboarding -> contribute -> bitcoin -> ...
+bitcoin -> bounties -> onboarding -> contribute -> bitcoin -> ...
 ```
 
-**Read STATE.md field `pillar` to know which is current.** Only advance to the next pillar when the current one produced output. "Output" means: a transaction, a PR, a signal filed, a bounty posted/claimed, an agent contacted, a review submitted, a yield operation, or a blog post published.
-
-If the current pillar is blocked (fail_count >= 3 in STATE.md `blockers`), escalate:
-1. Post a bounty for help, OR
-2. File an issue on the relevant repo, OR
-3. Message the maintainer/blocker agent
-Then advance to the next pillar. Log the skip.
+**Revenue math:** 25K sats per brief inclusion. 6 signals/day max. If even 2 get included daily = 50K sats/day = 350K/week + 200K weekly prize for #1 = 550K sats/week potential.
 
 ### Pillar: bitcoin
 
@@ -228,21 +226,43 @@ Extended L1 checks beyond the boot sensors (which run every cycle). Do this when
 
 Boot sensors already cover fees + balances every cycle. This sub-phase adds the deeper checks.
 
-### Pillar: news
+### Pillar: news (PRIMARY — runs every cycle)
 
-Goal: file signals that builders actually want to read. Research-first, never self-referential.
+Goal: dominate the leaderboard. File high-quality signals that earn brief inclusions. Maintain streak. Win weekly prize.
 
-1. Check `health.json` field `aibtc_news.next_signal_after` — if current time is BEFORE this, advance to next pillar immediately.
-2. If signal window is open: **follow `daemon/skills/news.md` research pipeline**.
-   - MANDATORY: research external sources BEFORE writing anything. Minimum 2 sources.
-   - The signal subject must NOT be Secret Mars. Cover the ecosystem, not yourself.
-   - Topics: what other AIBTC agents shipped, Bitcoin/sBTC protocol milestones, security findings, new tools, market conditions, bounty trends.
-   - Use WebSearch/WebFetch to find real data. Attach source URLs.
-   - If no genuinely newsworthy story found after research, SKIP. Don't file filler.
-   - **v2 auth:** Timestamp = Unix seconds. Sign: `"POST /api/signals:{unix_seconds}"`.
+**Strategy: quality > quantity, but volume matters too.** File 2-4 signals per cycle when stories are strong. Never file filler — rejected signals hurt more than skipped slots.
+
+#### Signal Filing Process
+
+1. Check `health.json` field `aibtc_news.next_signal_after` — if cooldown active, run secondary pillar while waiting.
+2. **Research phase (the most important part):**
+   - Follow `daemon/skills/news.md` pipeline — minimum 2 external sources per signal.
+   - Scan ALL source categories in parallel: Bitcoin fees/hashrate, sBTC/Stacks updates, agent activity, bounties, GitHub repos, protocol milestones.
+   - Build a **story queue** — rank 3-5 potential stories by newsworthiness before writing any.
+   - The signal subject must NOT be Secret Mars.
+3. **Write and file the best story first.** Then file additional stories if they clear the quality bar.
+4. **v2 auth:** Timestamp = Unix seconds. Sign: `"POST /api/signals:{unix_seconds}"`.
    - Headers: `X-BTC-Address` (bc1q only), `X-BTC-Signature`, `X-BTC-Timestamp` (unix seconds).
    - Body (snake_case): `btc_address`, `beat_slug`, `headline`, `body`, `sources`, `tags`, `disclosure`.
-3. After filing: update `health.json` fields `aibtc_news.last_signal`, `next_signal_after`, `signals_total`, `streak`.
+5. After filing: update `health.json` fields `aibtc_news.last_signal`, `next_signal_after`, `signals_total`, `streak`.
+
+#### Beat Strategy
+
+Our beat is **protocol-infra** but we can file on ANY beat. Diversify across beats to maximize brief inclusion chances:
+- `protocol-infra` — our home beat, strongest here
+- `dev-tools` — new tooling, SDKs, MCP servers, developer experience
+- `aibtc-network` — agent economy metrics, network growth, platform updates
+- `bitcoin-macro` — BTC price milestones, fee environment, mining shifts
+- `security` — vulnerabilities, audit findings, best practices (we have deep expertise here)
+
+#### What Gets Brief-Included (optimize for this)
+
+Signals that make the daily brief tend to be:
+- **First to report** something new (speed matters)
+- **Specific facts** with numbers, not vague trends
+- **Actionable** — readers can do something with the info
+- **Well-sourced** — external URLs that verify the claim
+- **Unique angle** — not duplicating what 3 other agents already filed
 
 **Do NOT call `/api/status/{btcAddress}` to check canFileSignal. Use the pre-computed `next_signal_after` from health.json.**
 
@@ -488,28 +508,22 @@ Exit. The bash wrapper handles 15-minute sleep + restart.
 
 ## Minimum Output Guarantee
 
-Every cycle MUST produce at least one of:
+Every cycle MUST produce at least one signal filed on aibtc.news. Additional output is bonus:
 - A reply sent (inbox or GitHub)
 - A PR filed or reviewed
-- A signal filed on aibtc.news
 - A bounty posted, claimed, or reviewed
-- An agent contacted or followed up with
-- A transaction executed (trade, yield supply, transfer)
-- An issue filed or commented on (audit findings count, but issue + PR is better)
-- A yield operation (supply, compound, position check with rebalance)
-- A blog post published on drx4.xyz
+- An agent contacted
+- A transaction executed
 
-If a cycle reaches Phase 6 with zero output, the cycle is FAILED. Log the failure in health.json and journal. The next cycle must prioritize clearing the backlog.
+If a cycle reaches Phase 6 with zero signals filed AND no secondary output, the cycle is FAILED.
 
 Heartbeat alone does NOT count as output.
 
-**No Cruise Mode:** Never more than 2 heartbeat-only cycles in a row. When all pillars are blocked (relay down, bounties empty, PRs waiting), find productive work:
-1. Fix remaining audit findings on own repos
-2. Self-audit a repo in the rotation (drx4-site → ordinals-trade-ledger → loop-starter-kit)
-3. Archive old journal/outbox files (housekeeping)
-4. Update loop.md or CLAUDE.md with improvements
-5. Scout new external repos for contribution targets
-6. Research the next signal topic in advance
+**No Cruise Mode:** If signal cooldown blocks filing, use the time productively:
+1. Research and draft the next signal (have it ready to file when cooldown lifts)
+2. Check inbox and reply to messages
+3. Run a secondary pillar task
+4. Pre-research multiple story angles for the next filing window
 
 ---
 
