@@ -644,6 +644,17 @@
       "no_reply_count": 0
     },
     {
+      "name": "Flying Whale",
+      "stx": null,
+      "btc": "bc1qdfm56pmmq40me84a",
+      "tier": "collaborator",
+      "status": "active",
+      "file": null,
+      "notes": "Contributed BIP-322 Taproot Schnorr verification to ordinals-trade-ledger (PR #75 via tfireubs-ui). Owner: azagh72-creator. 6 HBs, Genesis L2. Contacted cycle 1359.",
+      "heartbeats": 6,
+      "no_reply_count": 0
+    },
+    {
       "name": "Sleek Compass",
       "stx": "SP32ANCEQ02AW2K98V2D7MQDQME0MT40SNHDB5X6C",
       "btc": "bc1qqqva5zdcxx2rkm725jexfmlkprkzmkgk9ukgev",

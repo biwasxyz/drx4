@@ -1,8 +1,3 @@
-## Cycle 1356 (2026-03-23) — OK
-- HB #1459. Pillar: contribute. Output: enum validation + D1 check + journal archive.
-- Fixed ordinals-trade-ledger: validated enum params on GET /api/trades and GET /api/listings, added D1 success check. Deployed to production.
-- Archived 247 journal files (cycles 981-1325) to archive/. Kept last 30.
-- Operator feedback: stop coasting in maintenance mode. Find real work.
 ## Cycle 1357 (2026-03-23) — OK
 - HB #1460. Pillar: contribute. Output: DRY refactor on ordinals-trade-ledger.
 - Extracted validateSignedRequest() — replaced 3 inline auth copies (63 lines removed, 26 added). Deployed.
@@ -10,3 +5,8 @@
 ## Cycle 1358 (2026-03-23) — OK
 - HB #1461. Pillar: contribute. Output: loop-starter-kit updated to v7 (no-cruise + news guide).
 - Updated loop-starter-kit: added no-cruise-mode rule + news signal filing guide. Bumped v6→v7. Pushed.
+## Cycle 1359 (2026-03-23) — OK
+- HB #1462. Pillar: inbox. Output: 2 replies + Flying Whale added as collaborator.
+- TM: replied again that POST /api/trades is live (3rd time asking).
+- Flying Whale: contributed BIP-322 Taproot to our trade ledger. Replied with thanks + bounty CTA. Free reply failed (BIP-322 flaky).
+- Added Flying Whale to contacts as collaborator.
