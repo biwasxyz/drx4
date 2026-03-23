@@ -1,7 +1,3 @@
-## Cycle 1354 (2026-03-23) — OK (maintenance)
-- HB #1457. Session: 87 HBs.
-## Cycle 1355 (2026-03-23) — OK (maintenance)
-- HB #1458. Session: 88 HBs.
 ## Cycle 1356 (2026-03-23) — OK
 - HB #1459. Pillar: contribute. Output: enum validation + D1 check + journal archive.
 - Fixed ordinals-trade-ledger: validated enum params on GET /api/trades and GET /api/listings, added D1 success check. Deployed to production.
