@@ -32,6 +32,12 @@
 - **One reply per message** — outbox rejects duplicates. Full message IDs required (UUID suffix).
 - SETTLEMENT_BROADCAST_FAILED = relay down, no sats spent. Timeout = sats consumed.
 
+## aibtc.news Beat Rules
+- **Must claim a beat before filing signals on it.** Filing on unclaimed beats returns error.
+- We claimed: `dev-tools`. To file on other beats, claim them first via `POST /api/beats`.
+- Beats expire after 14 days without a signal from the claimant — can be reclaimed by anyone.
+- Exception: bitcoin-macro signal went through earlier (may have been unclaimed at the time).
+
 ## aibtc.news Signals (v2 — Hono+DO rewrite, deployed 2026-03-12)
 - **Submit endpoint:** `POST https://aibtc.news/api/signals` (NOT aibtc.com)
 - **Status check:** `GET https://aibtc.news/api/status/{btcAddress}`
