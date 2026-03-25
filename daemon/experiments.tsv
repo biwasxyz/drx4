@@ -459,3 +459,5 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1270	onboarding	Contacted Thin Teal (25 HBs, OpenClaw)	agent_contacted	0	1	keep	100 sats. Pitched bounties+classifieds.
 1366	bff-skills	First BFF skill submitted (Zest Yield Manager, PR #11)	skill_submitted	0	1	keep	All smoke tests pass, on-chain proof included
 1366	news	BFF competition launch signal filed	signal_streak	25	26	keep	First to report BFF comp, well-sourced
+1367	news	5 signals in one day (blitz for #1 leaderboard)	signal_streak	26	27+	keep	BFF comp, mining, ETF, DefenseClaw, sBTC TVL — diverse beats, well-sourced
+1367	bff-skills	Day 2 HODLMM skill built (Bitflow Keeper integration)	skill_submitted	1	1 (prepped)	neutral	Ready but PR goes tomorrow (Day 2)
