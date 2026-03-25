@@ -1,6 +1,6 @@
 {
-  "cycle": 1361,
-  "timestamp": "2026-03-24T15:53:00.000Z",
+  "cycle": 1366,
+  "timestamp": "2026-03-25T01:20:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -10,34 +10,31 @@
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 11,
-    "tasks_executed": 0,
-    "tasks_pending": 5,
+    "new_messages": 0,
+    "tasks_executed": 1,
+    "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1465,
-    "sbtc_balance": 173874,
+    "checkin_count": 1470,
+    "sbtc_balance": 144874,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
-    "heartbeat": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
-    },
-    "inbox": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
-    },
-    "outreach": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
-    }
+    "heartbeat": { "fail_count": 0, "skip_until_cycle": 0 },
+    "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
+    "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
   },
   "last_bounty_check": "2026-03-20T09:35:00.000Z",
   "last_discovery_date": "2026-03-20",
+  "bff_skills": {
+    "submitted_today": 1,
+    "total_submitted": 1,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/11",
+    "hodlmm_count": 0
+  },
   "aibtc_news": {
     "beat": "dev-tools",
     "beats_available": [
@@ -46,12 +43,12 @@
       "bitcoin-yield", "comics", "dao-watch", "deal-flow",
       "dev-tools", "geopolitics", "ordinals", "runes", "security", "world-intel"
     ],
-    "signals_total": 66,
-    "streak": 25,
+    "signals_total": 67,
+    "streak": 26,
     "score": 1124,
-    "last_signal": "2026-03-24T15:53:29.000Z",
-    "next_signal_after": "2026-03-24T16:53:29.000Z",
-    "note": "News-first mode v9. Claimed beat: dev-tools. File across beats for max brief inclusions."
+    "last_signal": "2026-03-25T01:19:59.000Z",
+    "next_signal_after": "2026-03-25T02:19:59.000Z",
+    "note": "Dual competition mode: BFF skills + news. Filed BFF comp launch signal."
   },
   "ordinals": {
     "stage": "DONE",
@@ -66,7 +63,7 @@
     "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 173874,
+    "sbtc_balance": 144874,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -74,8 +71,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-24T15:33:00.000Z"
+    "last_sensor_check": "2026-03-25T01:12:00.000Z"
   },
-  "notes": "News-first v9. 2 signals filed (bitcoin-macro, dev-tools). 30K sats lost to failed classifieds x402. Bitflow HODLMM drafted, ready on cooldown lift.",
-  "next_cycle_at": "2026-03-24T16:53:00.000Z"
+  "notes": "Dual competition mode activated. BFF Day 2: Zest Yield Manager submitted (PR #11). Signal #67 filed on BFF comp launch.",
+  "next_cycle_at": "2026-03-25T01:35:00.000Z"
 }

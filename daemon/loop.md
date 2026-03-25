@@ -1,7 +1,9 @@
 # Secret Mars — Autonomous Loop v9
 
-> News competition mode. Every cycle files at least one signal. Revenue from brief inclusions (25K sats each) + weekly prizes (200K/100K/50K).
-> Other pillars are secondary — run only when news slots are exhausted or cooldown is active.
+> **Dual competition mode (30 days from 2026-03-25).** Two co-primary goals:
+> 1. **BFF Skills Comp** — submit 1 quality DeFi skill/day to BitflowFinance/bff-skills ($100/day + HODLMM bonus)
+> 2. **aibtc.news** — file quality signals daily (brief inclusions + weekly prizes)
+> Other pillars are secondary — run only when both primaries are done or blocked.
 
 ---
 
@@ -48,10 +50,11 @@ These triggers can override the current pillar's priority when the opportunity i
 
 ### Pillar Decision Triggers (one metric, one decision)
 
-**News is always first.** Secondary pillars only run when news is done for the cycle.
+**BFF skills + news are co-primary.** Skills first (deadline 11:59 PM PDT), then news. Secondary pillars only when both are done.
 
 | Pillar | Trigger metric | Go condition | No-go action |
 |--------|---------------|--------------|--------------|
+| bff-skills (PRIMARY) | `skills_submitted_today < 1` | Build + submit skill PR | Polish yesterday's or prep tomorrow's |
 | news (PRIMARY) | `now > signal_after AND signals_today < 6` | File signal immediately | Research + draft for next window |
 | bitcoin | `sbtc_liquid > 210000` | Excess → `zest_supply` the delta | Hold, check position only |
 | bounties | `open_claimable > 0 OR own_submissions > 0` | Act on highest-value item | Post new bounty or skip |
@@ -142,19 +145,72 @@ gh api /notifications?all=false --jq '.[] | {reason, repo: .repository.full_name
 
 ---
 
-## Phase 3: Flywheel (News-First Mode)
+## Phase 3: Flywheel (Dual Competition Mode)
 
-**News is the PRIMARY pillar. It runs EVERY cycle.** Other pillars are secondary and rotate only when:
-- All 6 daily signal slots are used, OR
-- Signal cooldown is active (`now < signal_after`), OR
-- Research found nothing newsworthy (rare — try harder)
+**Two co-primary pillars: BFF skills + news.** Both run every cycle. Secondary pillars rotate only when both primaries are done or blocked.
 
-Secondary rotation (when news is done for the cycle):
-```
-bitcoin -> bounties -> onboarding -> contribute -> bitcoin -> ...
-```
+**Priority order each cycle:**
+1. BFF skill submission (if today's skill not yet submitted)
+2. News signal (if cooldown clear and slots available)
+3. Secondary rotation: `bitcoin -> bounties -> onboarding -> contribute`
 
-**Revenue math:** 25K sats per brief inclusion. 6 signals/day max. If even 2 get included daily = 50K sats/day = 350K/week + 200K weekly prize for #1 = 550K sats/week potential.
+**Revenue math:**
+- BFF: $100/day skill prize + $100 HODLMM bonus = up to $200/day
+- News: 25K sats per brief inclusion × 6/day + weekly prizes
+- Combined: potentially 500K+ sats/week
+
+### Pillar: bff-skills (PRIMARY — daily submission)
+
+Goal: submit 1 quality DeFi skill per day to `BitflowFinance/bff-skills`. Win daily $100 + HODLMM bonus.
+
+**Repo:** `/home/mars/bff-skills/` (fork of BitflowFinance/bff-skills)
+**Format:** `/skills/{skill-name}/` containing `SKILL.md`, `AGENT.md`, `{skill-name}.ts`
+**PR title:** `[AIBTC Skills Comp Day X] Skill Name`
+**Deadline:** 11:59 PM PDT daily
+
+#### Skill Development Pipeline (quality gates)
+
+1. **Research (30 min):** Read protocol docs, check existing submissions (avoid duplicates), understand the DeFi primitive deeply. Use WebFetch on protocol APIs, read contract source.
+2. **Build (60 min):** Write the `.ts` implementation. Must have:
+   - `doctor` command (env/wallet checks)
+   - `run` command (core execution)
+   - `install-packs` command (if applicable)
+   - JSON output contract: `{status, action, data, error}`
+   - Real safety controls IN CODE (spend limits, confirmation gates, refusal logic)
+3. **Test (30 min):** Run all three commands locally. Get on-chain proof (real mainnet tx).
+4. **Document:** Fill SKILL.md (frontmatter + description + safety notes) and AGENT.md (decision order + guardrails).
+5. **Submit:** PR with smoke test output pasted, frontmatter validated, on-chain proof linked.
+
+#### Skill Ideas (prioritized by competitive advantage)
+
+**HODLMM-eligible (bonus $100):**
+- Bitflow HODLMM position manager (create/monitor/rebalance LP positions)
+- HODLMM yield optimizer (auto-compound, fee harvesting)
+- HODLMM risk monitor (impermanent loss alerts, position health)
+
+**From our real operations:**
+- Zest yield manager (supply/withdraw/claim — we do this daily)
+- sBTC auto-funnel (balance monitor + yield routing — our L1 sensor pattern)
+- Multi-DEX quote aggregator (Bitflow + ALEX comparison)
+- BTC fee-aware transaction scheduler (our inscription window logic)
+- Portfolio rebalancer (threshold-based reallocation across DeFi positions)
+- Stacking delegation manager (delegate/extend/revoke STX stacking)
+
+**Infrastructure:**
+- Agent wallet health checker (balances, nonces, pending txs across chains)
+- Contract simulation runner (stxer dry-run before broadcast — our pre-broadcast guard)
+
+#### Quality Rules (operator mandate: "not slop")
+- **Build from real usage.** Every skill must come from something we actually do or have done on-chain.
+- **On-chain proof is mandatory.** Run the skill on mainnet, get a real tx hash.
+- **Safety controls in code.** Spend limits, confirmation gates, refusal on ambiguous intent. Not just docs.
+- **Test before submit.** All three commands must produce clean JSON. No broken submissions.
+- **Research the protocol.** Read the actual contract source. Don't guess APIs.
+
+#### Tracking
+- Update `health.json` field `bff_skills.submitted_today` and `bff_skills.total_submitted`
+- Log each submission in journal: "BFF Day X: {skill-name} submitted, PR #{N}"
+- Track which skills are HODLMM-eligible for bonus
 
 ### Pillar: bitcoin
 
@@ -395,6 +451,7 @@ This phase is WRITE-ONLY. No reads.
   "phases": {...},
   "stats": {...},
   "circuit_breaker": {...},
+  "bff_skills": {"submitted_today": 0, "total_submitted": 0, "last_pr": "", "hodlmm_count": 0},
   "aibtc_news": {"next_signal_after": "ISO", ...},
   "bitcoin": {
     "last_sub": "yield|publish|trade|monitor",
@@ -508,14 +565,16 @@ Exit. The bash wrapper handles 15-minute sleep + restart.
 
 ## Minimum Output Guarantee
 
-Every cycle MUST produce at least one signal filed on aibtc.news. Additional output is bonus:
+Every DAY must produce: (1) one BFF skill PR submitted, AND (2) at least one news signal filed.
+Per CYCLE: at least one of the above, plus heartbeat.
+
+Additional output is bonus:
 - A reply sent (inbox or GitHub)
-- A PR filed or reviewed
 - A bounty posted, claimed, or reviewed
 - An agent contacted
 - A transaction executed
 
-If a cycle reaches Phase 6 with zero signals filed AND no secondary output, the cycle is FAILED.
+If a cycle reaches Phase 6 with zero primary output (no skill work AND no signal), the cycle is FAILED.
 
 Heartbeat alone does NOT count as output.
 
