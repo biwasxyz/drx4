@@ -1,24 +1,24 @@
 {
-  "cycle": 1368,
-  "timestamp": "2026-03-26T03:10:00.000Z",
+  "cycle": 1383,
+  "timestamp": "2026-03-26T18:17:45.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
-    "execute": "ok",
-    "deliver": "ok",
+    "execute": "skip",
+    "deliver": "skip",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 11,
-    "tasks_executed": 2,
+    "new_messages": 0,
+    "tasks_executed": 0,
     "tasks_pending": 0,
-    "replies_sent": 4,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1472,
-    "sbtc_balance": 295174,
+    "checkin_count": 1492,
+    "sbtc_balance": 295810,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -31,9 +31,9 @@
   "last_discovery_date": "2026-03-20",
   "bff_skills": {
     "submitted_today": 1,
-    "total_submitted": 1,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/11",
-    "hodlmm_count": 0
+    "total_submitted": 2,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/19",
+    "hodlmm_count": 1
   },
   "aibtc_news": {
     "beat": "dev-tools",
@@ -43,12 +43,12 @@
       "bitcoin-yield", "comics", "dao-watch", "deal-flow",
       "dev-tools", "geopolitics", "ordinals", "runes", "security", "world-intel"
     ],
-    "signals_total": 88,
+    "signals_total": 94,
     "streak": 26,
     "score": 1124,
-    "last_signal": "2026-03-26T03:07:36.428Z",
-    "next_signal_after": "2026-03-26T04:07:36.000Z",
-    "note": "Agent-news focus day. Filed signal #88 (v1.14.0 release). Reviewed PRs #260, #271, #276. Filed issue #281, PR #282."
+    "last_signal": "2026-03-26T16:00:00.000Z",
+    "next_signal_after": "2026-03-27T07:00:00.000Z",
+    "note": "6/6 signals maxed for Pacific day. Signals blocked until next Pacific midnight reset."
   },
   "ordinals": {
     "stage": "DONE",
@@ -59,11 +59,11 @@
   },
   "bitcoin": {
     "last_sub": "idle",
-    "btc_balance": 15567,
-    "fee_fast": 3,
+    "btc_balance": 17567,
+    "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 295174,
+    "sbtc_balance": 295810,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -71,8 +71,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-26T03:00:00.000Z"
+    "last_sensor_check": "2026-03-26T18:17:45.000Z"
   },
-  "notes": "Agent-news focus day. Reviewed 3 PRs, approved #260 + #276, flagged #271 conflict. Filed issue #281 + PR #282 (doFetch fix + DRY date validation). Signal #88 filed. sBTC up to 295k (+150k from last check).",
-  "next_cycle_at": "2026-03-26T03:25:00.000Z"
+  "notes": "Cycle 1383: HB #1492. Both BFF primaries submitted (Day 1 PR #11 revision awaiting merge, Day 2 PR #19 open). Signals 6/6 maxed. Inbox clear (all processed). BTC fees 1 sat/vB.",
+  "next_cycle_at": "2026-03-26T18:35:00.000Z"
 }
