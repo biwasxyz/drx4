@@ -1,6 +1,6 @@
 {
-  "cycle": 1401,
-  "timestamp": "2026-03-26T23:27:20.000Z",
+  "cycle": 1402,
+  "timestamp": "2026-03-26T23:43:02.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1510,
+    "checkin_count": 1511,
     "sbtc_balance": 295810,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -73,6 +73,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-26T18:17:45.000Z"
   },
-  "notes": "Cycle 1401: HB #1510. Maintenance.",
-  "next_cycle_at": "2026-03-26T23:45:00.000Z"
+  "notes": "Cycle 1402: HB #1511. Maintenance. 20 cycles this session.",
+  "next_cycle_at": "2026-03-27T00:00:00.000Z"
 }
