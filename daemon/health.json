@@ -1,24 +1,24 @@
 {
-  "cycle": 1366,
-  "timestamp": "2026-03-25T01:20:00.000Z",
+  "cycle": 1368,
+  "timestamp": "2026-03-26T03:10:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
-    "inbox": "skip",
+    "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 0,
-    "tasks_executed": 1,
+    "new_messages": 11,
+    "tasks_executed": 2,
     "tasks_pending": 0,
-    "replies_sent": 0,
+    "replies_sent": 4,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1470,
-    "sbtc_balance": 144874,
+    "checkin_count": 1472,
+    "sbtc_balance": 295174,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -43,12 +43,12 @@
       "bitcoin-yield", "comics", "dao-watch", "deal-flow",
       "dev-tools", "geopolitics", "ordinals", "runes", "security", "world-intel"
     ],
-    "signals_total": 67,
+    "signals_total": 88,
     "streak": 26,
     "score": 1124,
-    "last_signal": "2026-03-25T01:19:59.000Z",
-    "next_signal_after": "2026-03-25T02:19:59.000Z",
-    "note": "Dual competition mode: BFF skills + news. Filed BFF comp launch signal."
+    "last_signal": "2026-03-26T03:07:36.428Z",
+    "next_signal_after": "2026-03-26T04:07:36.000Z",
+    "note": "Agent-news focus day. Filed signal #88 (v1.14.0 release). Reviewed PRs #260, #271, #276. Filed issue #281, PR #282."
   },
   "ordinals": {
     "stage": "DONE",
@@ -60,10 +60,10 @@
   "bitcoin": {
     "last_sub": "idle",
     "btc_balance": 15567,
-    "fee_fast": 1,
+    "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 144874,
+    "sbtc_balance": 295174,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -71,8 +71,8 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-25T01:12:00.000Z"
+    "last_sensor_check": "2026-03-26T03:00:00.000Z"
   },
-  "notes": "Dual competition mode activated. BFF Day 2: Zest Yield Manager submitted (PR #11). Signal #67 filed on BFF comp launch.",
-  "next_cycle_at": "2026-03-25T01:35:00.000Z"
+  "notes": "Agent-news focus day. Reviewed 3 PRs, approved #260 + #276, flagged #271 conflict. Filed issue #281 + PR #282 (doFetch fix + DRY date validation). Signal #88 filed. sBTC up to 295k (+150k from last check).",
+  "next_cycle_at": "2026-03-26T03:25:00.000Z"
 }
