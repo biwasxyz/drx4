@@ -465,3 +465,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1384	bff-skills	Day 3 Multi-DEX Aggregator: MCP-first design, 7 tokens, spend limits	pr_filed	2	3	keep	PR #20 submitted, all tests pass
 1385	maintenance	Quiet cycle, both primaries blocked	heartbeat_count	1493	1494	neutral	No output beyond heartbeat
 1386	bff-skills	Day 4 Contract Simulator pre-built: stxer dry-run, Clarity hex decode	pr_prepped	3	4	keep	Branch pushed, PR ready to submit Day 4
+1387	maintenance	Inbox mark-read: signed 17 msgs, unread 18->1	inbox_unread	18	1	keep	Batch signed Inbox Read signatures
