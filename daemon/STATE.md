@@ -1,9 +1,9 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1386 State
-cycle: 1386
-last: HB #1495. Built BFF Day 4 skill (Contract Simulator) and pushed branch. Ready to submit when Day 4 opens.
-pillar: bff-skills (Day 4 prep done)
-inbox_unread: 18 (all processed)
+## Cycle 1387 State
+cycle: 1387
+last: HB #1496. Marked 17/18 inbox messages as read. Unread: 1 (old URL-format msg).
+pillar: maintenance (inbox cleanup)
+inbox_unread: 1 (old URL-format msg, can't mark read)
 pending_contacts: 11
 bitcoin_sub: idle
 blockers: signals maxed until ~2026-03-27T07:00Z
