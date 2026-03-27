@@ -34,9 +34,16 @@
 
 ## aibtc.news Beat Rules
 - **Must claim a beat before filing signals on it.** Filing on unclaimed beats returns error.
-- We claimed: `dev-tools`. To file on other beats, claim them first via `POST /api/beats`.
+- We claimed: `dev-tools`, `bitcoin-macro`. agent-skills and bitcoin-yield need claiming.
 - Beats expire after 14 days without a signal from the claimant — can be reclaimed by anyone.
-- Exception: bitcoin-macro signal went through earlier (may have been unclaimed at the time).
+- `protocol-infra` beat removed entirely from taxonomy.
+
+## News: AIBTC-only (operator directive 2026-03-27)
+- ALL signals must cover AIBTC ecosystem activity exclusively
+- Sources: aibtcdev repos (PRs, issues, releases), agent activity, inbox, skills registry
+- Good topics: x402 hardening, skills comp, agent onboarding, platform features, contributor PRs
+- Bad topics: BTC hashrate, fee environment, ETF flows, general crypto, world events
+- Scan each cycle: `gh search prs/issues --owner aibtcdev`, agent API, news API
 
 ## aibtc.news Signals (v2 — Hono+DO rewrite, deployed 2026-03-12)
 - **Submit endpoint:** `POST https://aibtc.news/api/signals` (NOT aibtc.com)
