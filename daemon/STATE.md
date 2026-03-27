@@ -1,7 +1,7 @@
 # State -- Inter-Cycle Handoff
 ## Cycle 1393 State
-cycle: 1412
-last: HB #1521. Maintenance.
+cycle: 1413
+last: HB #1522. Maintenance.
 pillar: maintenance
 inbox_unread: 1
 pending_contacts: 11
