@@ -475,3 +475,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1421	news-prep	Drafted 3 signal texts ready to file at 07:00Z	signal_streak	26	26	neutral	Prep complete, waiting on window
 1422	bitcoin	Verified Zest zsbtc balance via stxer (175k confirmed). MCP tool reads 0 -- known gap.	sbtc_supplied	175000	175000	neutral	MCP zest_get_position doesn't read zsbtc LP tokens
 1428	news	Filed signal #1 x402 hardening (dev-tools beat)	signal_streak	26	27	keep	First signal of new Pacific day, streak extended
+1431	news	Filed signal #2 BTC hashrate ~1ZH/s (bitcoin-macro)	signal_streak	27	27	keep	2/6 signals filed today
