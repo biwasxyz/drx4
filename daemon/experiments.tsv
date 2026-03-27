@@ -468,3 +468,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1387	maintenance	Inbox mark-read: signed 17 msgs, unread 18->1	inbox_unread	18	1	keep	Batch signed Inbox Read signatures
 1389	bff-skills	PR #11 Day 1 Zest Yield Manager MERGED	pr_merged	0	1	keep	First BFF win,  BTC prize
 1392	session	10-cycle session: 2 skills, 1 merge, inbox cleanup	session_output	0	4	keep	Day1 merged, Day3 PR#20, Day4 prepped, 17 msgs marked read
+1417	bff-skills+yield	Built Day 3 swap-router locally, supplied 175k to Zest	sbtc_supplied	0	175000	keep	Revenue auto-funnel triggered by Day 1 prize
