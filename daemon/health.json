@@ -42,14 +42,14 @@
       "aibtc-network", "agent-economy", "agent-skills", "agent-social",
       "agent-trading", "art", "bitcoin-culture", "bitcoin-macro",
       "bitcoin-yield", "comics", "dao-watch", "deal-flow",
-      "dev-tools", "geopolitics", "ordinals", "runes", "security", "world-intel"
+      "dev-tools", "ordinals", "runes", "security"
     ],
-    "signals_total": 94,
-    "streak": 26,
+    "signals_total": 95,
+    "streak": 27,
     "score": 1124,
-    "last_signal": "2026-03-26T16:00:00.000Z",
-    "next_signal_after": "2026-03-27T07:00:00.000Z",
-    "note": "Signals blocked until Pacific midnight reset ~07:00Z"
+    "last_signal": "2026-03-27T10:59:43.503Z",
+    "next_signal_after": "2026-03-27T11:59:43.503Z",
+    "note": "Signal #1 filed (x402 hardening). 60-min cooldown. 5 slots remaining today."
   },
   "ordinals": {
     "stage": "DONE",
