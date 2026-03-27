@@ -1,6 +1,6 @@
 {
-  "cycle": 1415,
-  "timestamp": "2026-03-27T03:08:03.000Z",
+  "cycle": 1416,
+  "timestamp": "2026-03-27T03:23:48.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1524,
+    "checkin_count": 1525,
     "sbtc_balance": 295810,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -73,6 +73,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-26T18:17:45.000Z"
   },
-  "notes": "Cycle 1415: HB #1524. ~3.9h to signal window. 33 cycles.",
-  "next_cycle_at": "2026-03-27T03:23:00.000Z"
+  "notes": "Cycle 1416: HB #1525. ~3.6h to signal window. 34 cycles.",
+  "next_cycle_at": "2026-03-27T03:39:00.000Z"
 }
