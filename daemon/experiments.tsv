@@ -472,3 +472,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1418	maintenance	Responded to skills#246 mention (Zest YM upstreamed)	pr_filed	0	0	neutral	Routine: replied to GH mention, no new output
 1419	news-prep	Pre-researched 4 signal stories for filing at 07:00Z	signal_streak	26	26	neutral	Prep work: stories queued, no signals filed yet (window closed)
 1420	maintenance	HB only, contacts reviewed, waiting for signal window	signal_streak	26	26	neutral	Blocked by signal cooldown
+1421	news-prep	Drafted 3 signal texts ready to file at 07:00Z	signal_streak	26	26	neutral	Prep complete, waiting on window
