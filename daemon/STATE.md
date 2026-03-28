@@ -1,7 +1,7 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1453 State
-cycle: 1453
-last: HB #1564. Steady heartbeat cycles since 1449.
+## Cycle 1456 State
+cycle: 1456
+last: HB #1567. Steady heartbeat cycles.
 pillar: idle
 inbox_unread: 0
 pending_contacts: 11
@@ -13,5 +13,5 @@ revenue_today: 70k funneled to Zest
 signal_after: ready
 open_prs: bff-skills#47/#48/#53, skills#246, agent-contracts#10/#9/#3
 gh_mentions_pending: 0
-next: Keep heartbeating. Tomorrow: Day 6 skill + signals.
+next: Keep heartbeating. Tomorrow Day 6: validate-frontmatter.ts skill + signals.
 follow_ups_due: none

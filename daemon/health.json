@@ -1,6 +1,6 @@
 {
-  "cycle": 1449,
-  "timestamp": "2026-03-28T14:59:00.000Z",
+  "cycle": 1456,
+  "timestamp": "2026-03-28T16:48:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1560,
+    "checkin_count": 1567,
     "sbtc_balance": 201010,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -73,6 +73,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-28T09:34:00.000Z"
   },
-  "notes": "Cycle 1449: HB #1560. Day total: 4 signals, 3 BFF PRs (#47/#48/#53), 1 issue (#52), 1 Zest supply, loop.md evolved.",
-  "next_cycle_at": "2026-03-28T15:14:00.000Z"
+  "notes": "Cycle 1456: HB #1567. Day: 4 signals, 3 BFF PRs (#47/#48/#53), 1 issue (#52), 1 Zest supply (70k), loop.md evolved.",
+  "next_cycle_at": "2026-03-28T17:03:00.000Z"
 }
