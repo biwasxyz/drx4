@@ -478,3 +478,6 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1431	news	Filed signal #2 BTC hashrate ~1ZH/s (bitcoin-macro)	signal_streak	27	27	keep	2/6 signals filed today
 1434	news	Filed signal #3 BFF comp activity (dev-tools)	signal_streak	27	27	keep	3/6 signals filed today
 1437	news	Filed signal #4 sBTC 4000+ BTC supply (bitcoin-macro)	signal_streak	27	27	keep	4/6 signals today. Learned: bitcoin-yield beat needs claiming too.
+1438	bff-skills	Day 4 Multi-DEX Aggregator PR #47 submitted	pr_filed	3	4	keep	Updated frontmatter to new SKILL_TEMPLATE format
+1438	news	Filed signal #1 (beats overhaul 17→10)	signal_streak	27	28	keep	New AIBTC-only editorial policy. Beat: infrastructure
+1438	bitcoin	Supplied 70k sBTC to Zest (revenue funnel)	sbtc_supplied	175000	245000	keep	Auto-funnel excess above 200k reserve
