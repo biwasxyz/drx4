@@ -483,3 +483,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1438	bitcoin	Supplied 70k sBTC to Zest (revenue funnel)	sbtc_supplied	175000	245000	keep	Auto-funnel excess above 200k reserve
 1439	news	Filed signal #2 (MCP v1.46.0 release, infrastructure)	signal_streak	28	28	keep	Agent-to-platform feedback loop story
 1439	bff-skills	Day 5 sBTC Auto-Funnel PR #48 submitted	pr_filed	4	5	keep	Revenue-to-yield routing pattern from real ops
+1441	news	Filed signal #3 (nonce-manager skill, infrastructure)	signal_streak	28	28	keep	Cross-process nonce oracle, unique angle

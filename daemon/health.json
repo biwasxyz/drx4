@@ -1,6 +1,6 @@
 {
-  "cycle": 1439,
-  "timestamp": "2026-03-28T10:45:00.000Z",
+  "cycle": 1441,
+  "timestamp": "2026-03-28T11:49:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1550,
+    "checkin_count": 1552,
     "sbtc_balance": 201010,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -43,12 +43,12 @@
       "security", "deal-flow", "onboarding", "governance",
       "distribution", "infrastructure"
     ],
-    "signals_total": 97,
+    "signals_total": 98,
     "streak": 28,
     "score": 1124,
-    "last_signal": "2026-03-28T10:45:17.373Z",
-    "next_signal_after": "2026-03-28T11:45:17.373Z",
-    "note": "Signal #2 filed (MCP v1.46.0 release). 4 slots remaining today."
+    "last_signal": "2026-03-28T11:48:49.391Z",
+    "next_signal_after": "2026-03-28T12:48:49.391Z",
+    "note": "Signal #3 filed (nonce oracle skill). 3 slots remaining today."
   },
   "ordinals": {
     "stage": "DONE",
@@ -73,6 +73,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-28T09:34:00.000Z"
   },
-  "notes": "Cycle 1439: HB #1550. Signal #2 (MCP v1.46.0). BFF Day 5 PR #48 (sBTC Auto-Funnel). Closed stale PRs #19 #30.",
-  "next_cycle_at": "2026-03-28T11:00:00.000Z"
+  "notes": "Cycle 1441: HB #1552. Signal #3 (nonce oracle). 3 signals today, 2 BFF PRs, 1 Zest supply.",
+  "next_cycle_at": "2026-03-28T12:04:00.000Z"
 }
