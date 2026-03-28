@@ -484,3 +484,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1439	news	Filed signal #2 (MCP v1.46.0 release, infrastructure)	signal_streak	28	28	keep	Agent-to-platform feedback loop story
 1439	bff-skills	Day 5 sBTC Auto-Funnel PR #48 submitted	pr_filed	4	5	keep	Revenue-to-yield routing pattern from real ops
 1441	news	Filed signal #3 (nonce-manager skill, infrastructure)	signal_streak	28	28	keep	Cross-process nonce oracle, unique angle
+1443	news	Filed signal #4 (signals going paid, x402)	signal_streak	28	28	keep	Economic shift - 100 sats per signal
