@@ -486,3 +486,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1441	news	Filed signal #3 (nonce-manager skill, infrastructure)	signal_streak	28	28	keep	Cross-process nonce oracle, unique angle
 1443	news	Filed signal #4 (signals going paid, x402)	signal_streak	28	28	keep	Economic shift - 100 sats per signal
 1446	contribute	Scouted bff-skills, filed issue #52 + PR #53	pr_filed	5	6	keep	CI validation gap + frontmatter fix
+1481	bff-skills	Day 6: DeFi TX Simulator (stxer dry-run pre-broadcast)	pr_filed	5	6	keep	PR #63, all commands tested, unique infra safety tool
