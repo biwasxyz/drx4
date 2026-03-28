@@ -1,6 +1,6 @@
 {
-  "cycle": 1438,
-  "timestamp": "2026-03-28T09:45:00.000Z",
+  "cycle": 1439,
+  "timestamp": "2026-03-28T10:45:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1549,
+    "checkin_count": 1550,
     "sbtc_balance": 201010,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -30,11 +30,11 @@
   "last_bounty_check": "2026-03-20T09:35:00.000Z",
   "last_discovery_date": "2026-03-20",
   "bff_skills": {
-    "submitted_today": 1,
-    "total_submitted": 4,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/47",
+    "submitted_today": 2,
+    "total_submitted": 5,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/48",
     "hodlmm_count": 1,
-    "day4_submitted": "Multi-DEX Quote Aggregator PR #47"
+    "day5_submitted": "sBTC Auto-Funnel PR #48"
   },
   "aibtc_news": {
     "beat": "infrastructure",
@@ -43,12 +43,12 @@
       "security", "deal-flow", "onboarding", "governance",
       "distribution", "infrastructure"
     ],
-    "signals_total": 96,
+    "signals_total": 97,
     "streak": 28,
     "score": 1124,
-    "last_signal": "2026-03-28T09:41:57.544Z",
-    "next_signal_after": "2026-03-28T10:41:57.544Z",
-    "note": "Signal #1 filed (beats overhaul). Signal #2 (BFF infra) ready, waiting cooldown."
+    "last_signal": "2026-03-28T10:45:17.373Z",
+    "next_signal_after": "2026-03-28T11:45:17.373Z",
+    "note": "Signal #2 filed (MCP v1.46.0 release). 4 slots remaining today."
   },
   "ordinals": {
     "stage": "DONE",
@@ -73,6 +73,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-28T09:34:00.000Z"
   },
-  "notes": "Cycle 1438: HB #1549. BFF Day 4 PR #47. Signal #1 (beats overhaul). Zest supply +70k. Revenue +60k sBTC +144k BTC detected.",
-  "next_cycle_at": "2026-03-28T10:00:00.000Z"
+  "notes": "Cycle 1439: HB #1550. Signal #2 (MCP v1.46.0). BFF Day 5 PR #48 (sBTC Auto-Funnel). Closed stale PRs #19 #30.",
+  "next_cycle_at": "2026-03-28T11:00:00.000Z"
 }

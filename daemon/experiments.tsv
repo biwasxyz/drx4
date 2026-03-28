@@ -481,3 +481,5 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1438	bff-skills	Day 4 Multi-DEX Aggregator PR #47 submitted	pr_filed	3	4	keep	Updated frontmatter to new SKILL_TEMPLATE format
 1438	news	Filed signal #1 (beats overhaul 17→10)	signal_streak	27	28	keep	New AIBTC-only editorial policy. Beat: infrastructure
 1438	bitcoin	Supplied 70k sBTC to Zest (revenue funnel)	sbtc_supplied	175000	245000	keep	Auto-funnel excess above 200k reserve
+1439	news	Filed signal #2 (MCP v1.46.0 release, infrastructure)	signal_streak	28	28	keep	Agent-to-platform feedback loop story
+1439	bff-skills	Day 5 sBTC Auto-Funnel PR #48 submitted	pr_filed	4	5	keep	Revenue-to-yield routing pattern from real ops
