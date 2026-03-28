@@ -1,7 +1,7 @@
 # State -- Inter-Cycle Handoff
-## Cycle 1474 State
-cycle: 1474
-last: HB #1585. Night heartbeat mode.
+## Cycle 1477 State
+cycle: 1477
+last: HB #1588. Night heartbeat mode, approaching midnight UTC.
 pillar: idle
 inbox_unread: 0
 pending_contacts: 11
@@ -13,5 +13,5 @@ revenue_today: 70k funneled to Zest
 signal_after: ready
 open_prs: bff-skills#47/#48/#53, skills#246, agent-contracts#10/#9/#3
 gh_mentions_pending: 0
-next: Keep heartbeating. Tomorrow Day 6: validate-frontmatter.ts skill + signals.
+next: Keep heartbeating. Day 6 starts at midnight UTC: validate-frontmatter.ts skill + signals.
 follow_ups_due: none
