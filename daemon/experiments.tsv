@@ -487,3 +487,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1443	news	Filed signal #4 (signals going paid, x402)	signal_streak	28	28	keep	Economic shift - 100 sats per signal
 1446	contribute	Scouted bff-skills, filed issue #52 + PR #53	pr_filed	5	6	keep	CI validation gap + frontmatter fix
 1481	bff-skills	Day 6: DeFi TX Simulator (stxer dry-run pre-broadcast)	pr_filed	5	6	keep	PR #63, all commands tested, unique infra safety tool
+1483	bff-skills	Day 7: Portfolio Rebalancer (3-bucket DeFi allocation)	pr_filed	6	7	keep	PR #65, reads real positions, drift computation works, safety caps tested
