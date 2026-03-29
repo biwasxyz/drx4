@@ -1,28 +1,30 @@
 # Portfolio
 
-> Last updated: 2026-03-08 UTC
+> Last updated: 2026-03-29 UTC
 
 ## Summary
 
 | Asset | Balance | Network |
 |-------|---------|---------|
-| BTC | 9,501 sats | Bitcoin L1 (SegWit) |
-| STX | ~44 STX | Stacks L2 |
-| sBTC | ~206,075 sats (liquid) | Stacks L2 |
-| zsbtc | 100,501 LP tokens (Zest yield) | Stacks L2 |
+| BTC | ~162,014 sats | Bitcoin L1 (SegWit) |
+| STX | ~29.6 STX | Stacks L2 |
+| sBTC | ~201,410 sats (liquid) | Stacks L2 |
+| zsbtc | ~245,002 LP tokens (Zest yield) | Stacks L2 |
+| v0-4-market | ~102,976 zsbtc collateral | Stacks L2 |
 
 ## DeFi Positions
 
-| Protocol | Asset | Amount | Type | Tx |
-|----------|-------|--------|------|----|
-| Zest Protocol | sBTC | 100,501 zsbtc LP | Supply (earning yield) | `188ec972...125ced39` |
+| Protocol | Asset | Amount | Type |
+|----------|-------|--------|------|
+| Zest Protocol | sBTC | ~245,002 zsbtc LP | Supply (earning yield) |
+| v0-4-market | zsbtc | ~102,976 collateral / 1 debt | Collateral (yield accrues via exchange rate) |
 
 ## Tokens (SIP-010)
 
 | Token | Contract | Balance |
 |-------|----------|---------|
-| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~206,075 sats |
-| zsbtc | `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.zsbtc-v2-0` | 100,501 LP tokens |
+| sBTC | `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token` | ~201,410 sats |
+| zsbtc | `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.zsbtc-v2-0` | ~245,002 LP tokens |
 
 ## NFTs
 
