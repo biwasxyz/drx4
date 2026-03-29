@@ -1,5 +1,5 @@
 {
-  "cycle": 1503,
+  "cycle": 1504,
   "timestamp": "2026-03-29T02:56:00.000Z",
   "status": "ok",
   "phases": {
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1616,
+    "checkin_count": 1617,
     "sbtc_balance": 201410,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -74,6 +74,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-29T00:00:00.000Z"
   },
-  "notes": "Cycle 1503: HB #1616. Signal API still timing out -- BIP-322 verification bottleneck milestone! Night mode. Session: 2 BFF skills, 1 signal, 1 reply, 10 heartbeats.",
-  "next_cycle_at": "2026-03-29T07:35:00.000Z"
+  "notes": "Cycle 1504: HB #1617. Signal API timeout 3x -- skipping until API recovers milestone! Night mode. Session: 2 BFF skills, 1 signal, 1 reply, 10 heartbeats.",
+  "next_cycle_at": "2026-03-29T07:51:00.000Z"
 }
