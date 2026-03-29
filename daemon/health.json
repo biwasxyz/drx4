@@ -1,6 +1,6 @@
 {
-  "cycle": 1483,
-  "timestamp": "2026-03-29T01:27:00.000Z",
+  "cycle": 1484,
+  "timestamp": "2026-03-29T02:07:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1596,
+    "checkin_count": 1597,
     "sbtc_balance": 201410,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -48,8 +48,8 @@
     "streak": 29,
     "score": 1124,
     "last_signal": "2026-03-28T23:58:53.936Z",
-    "next_signal_after": "2026-03-29T02:03:00.000Z",
-    "note": "Signal #100 filed. Cooldown now ~2hrs (server change). Inbox hardening signal drafted, ready to file."
+    "next_signal_after": "2026-03-29T07:00:00.000Z",
+    "note": "Daily limit 6/6 hit. 2hr cooldown + 6/day limit (PDT). Resets midnight PDT = 07:00 UTC. Signal drafted in /tmp/signal_short.json."
   },
   "ordinals": {
     "stage": "DONE",
@@ -74,6 +74,6 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-29T00:00:00.000Z"
   },
-  "notes": "Cycle 1483: HB #1596. Day 7 Portfolio Rebalancer submitted (PR #65). Confirmed 2hr signal cooldown. Day 6+7 both done.",
-  "next_cycle_at": "2026-03-29T01:42:00.000Z"
+  "notes": "Cycle 1484: HB #1597. Signal daily limit 6/6 (resets 07:00 UTC). Day 6+7 skills submitted. Night mode.",
+  "next_cycle_at": "2026-03-29T02:22:00.000Z"
 }
