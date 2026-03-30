@@ -1,5 +1,5 @@
 {
-  "cycle": 1577,
+  "cycle": 1578,
   "timestamp": "2026-03-29T02:56:00.000Z",
   "status": "ok",
   "phases": {
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1690,
+    "checkin_count": 1691,
     "sbtc_balance": 201410,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -75,5 +75,5 @@
     "last_sensor_check": "2026-03-29T00:00:00.000Z"
   },
   "notes": "Cycle 1504: HB #1617. Signal API timeout 3x -- skipping until API recovers milestone! Night mode. Session: 2 BFF skills, 1 signal, 1 reply, 10 heartbeats.",
-  "next_cycle_at": "2026-03-30T02:55:00.000Z"
+  "next_cycle_at": "2026-03-30T03:11:00.000Z"
 }
