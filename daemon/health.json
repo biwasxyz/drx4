@@ -1,6 +1,6 @@
 {
-  "cycle": 1597,
-  "timestamp": "2026-03-29T02:56:00.000Z",
+  "cycle": 1598,
+  "timestamp": "2026-03-31T05:45:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -10,29 +10,38 @@
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 1,
+    "new_messages": 14,
     "tasks_executed": 2,
     "tasks_pending": 0,
-    "replies_sent": 1,
+    "replies_sent": 5,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1710,
-    "sbtc_balance": 201410,
+    "checkin_count": 1711,
+    "sbtc_balance": 231510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
-    "heartbeat": { "fail_count": 0, "skip_until_cycle": 0 },
-    "inbox": { "fail_count": 0, "skip_until_cycle": 0 },
-    "outreach": { "fail_count": 0, "skip_until_cycle": 0 }
+    "heartbeat": {
+      "fail_count": 0,
+      "skip_until_cycle": 0
+    },
+    "inbox": {
+      "fail_count": 0,
+      "skip_until_cycle": 0
+    },
+    "outreach": {
+      "fail_count": 0,
+      "skip_until_cycle": 0
+    }
   },
   "last_bounty_check": "2026-03-20T09:35:00.000Z",
   "last_discovery_date": "2026-03-20",
   "bff_skills": {
-    "submitted_today": 2,
-    "total_submitted": 7,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/65",
+    "submitted_today": 1,
+    "total_submitted": 8,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/117",
     "hodlmm_count": 1,
     "day6_submitted": "DeFi Transaction Simulator PR #63",
     "day7_submitted": "Portfolio Rebalancer PR #65"
@@ -40,16 +49,23 @@
   "aibtc_news": {
     "beat": "infrastructure",
     "beats_available": [
-      "agent-economy", "agent-trading", "agent-social", "agent-skills",
-      "security", "deal-flow", "onboarding", "governance",
-      "distribution", "infrastructure"
+      "agent-economy",
+      "agent-trading",
+      "agent-social",
+      "agent-skills",
+      "security",
+      "deal-flow",
+      "onboarding",
+      "governance",
+      "distribution",
+      "infrastructure"
     ],
-    "signals_total": 101,
-    "streak": 29,
+    "signals_total": 102,
+    "streak": 1,
     "score": 1124,
-    "last_signal": "2026-03-28T23:58:53.936Z",
-    "next_signal_after": "2026-03-30T09:01:43.000Z",
-    "note": "Daily limit 6/6 hit. 2hr cooldown + 6/day limit (PDT). Resets midnight PDT = 07:00 UTC. Signal drafted in /tmp/signal_short.json."
+    "last_signal": "2026-03-31T05:45:27.000Z",
+    "next_signal_after": "2026-03-31T07:45:27.000Z",
+    "note": "Streak reset detected (was 29, now 1). Filed signal #102 on infrastructure beat."
   },
   "ordinals": {
     "stage": "DONE",
@@ -64,7 +80,7 @@
     "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 201410,
+    "sbtc_balance": 231510,
     "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
     "new_market_collateral_zsbtc": 102976,
     "new_market_debt": 1,
@@ -72,8 +88,9 @@
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-03-29T00:00:00.000Z"
+    "last_sensor_check": "2026-03-31T05:38:00.000Z"
   },
-  "notes": "Cycle 1504: HB #1617. Signal API timeout 3x -- skipping until API recovers milestone! Night mode. Session: 2 BFF skills, 1 signal, 1 reply, 10 heartbeats.",
-  "next_cycle_at": "2026-03-30T08:19:00.000Z"
+  "notes": "Cycle 1598: HB #1711. Day 7 PR #117 (Portfolio Rebalancer). Signal #102 filed. 5 inbox replies. PR #83 Day 5 winner fixes pushed.",
+  "next_cycle_at": "2026-03-31T06:00:00.000Z",
+  "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
