@@ -1,6 +1,6 @@
 {
-  "cycle": 1611,
-  "timestamp": "2026-03-31T09:19:00.000Z",
+  "cycle": 1612,
+  "timestamp": "2026-03-31T09:35:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1724,
+    "checkin_count": 1725,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1611: HB #1724. Quiet.",
-  "next_cycle_at": "2026-03-31T09:34:00.000Z",
+  "notes": "Cycle 1612: HB #1725. Quiet.",
+  "next_cycle_at": "2026-03-31T09:50:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
