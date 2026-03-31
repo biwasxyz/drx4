@@ -1,6 +1,6 @@
 {
-  "cycle": 1636,
-  "timestamp": "2026-03-31T15:54:00.000Z",
+  "cycle": 1637,
+  "timestamp": "2026-03-31T16:11:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1749,
+    "checkin_count": 1750,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,12 +60,12 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 108,
+    "signals_total": 109,
     "streak": 1,
     "score": 1124,
-    "last_signal": "2026-03-31T14:20:00.000Z",
-    "next_signal_after": "2026-03-31T16:20:00.000Z",
-    "note": "Signal #108 APPROVED. 3 confirmed approvals today (#103, #107, #108). 1 slot left."
+    "last_signal": "2026-03-31T16:11:00.000Z",
+    "next_signal_after": "2026-04-01T07:00:00.000Z",
+    "note": "Signal #109 filed (nonce cascade fix). 6/6 daily slots filled! Max output day."
   },
   "ordinals": {
     "stage": "DONE",
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1636: HB #1749. Quiet.",
-  "next_cycle_at": "2026-03-31T16:09:00.000Z",
+  "notes": "Cycle 1637: HB #1750. Signal #109 filed. 6/6 daily limit hit.",
+  "next_cycle_at": "2026-03-31T16:26:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
