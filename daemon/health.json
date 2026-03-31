@@ -1,6 +1,6 @@
 {
-  "cycle": 1631,
-  "timestamp": "2026-03-31T14:36:00.000Z",
+  "cycle": 1632,
+  "timestamp": "2026-03-31T14:52:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1744,
+    "checkin_count": 1745,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -65,7 +65,7 @@
     "score": 1124,
     "last_signal": "2026-03-31T14:20:00.000Z",
     "next_signal_after": "2026-03-31T16:20:00.000Z",
-    "note": "Signal #108 filed (relay v1.27 cached status). signalsToday=5. 1 slot left."
+    "note": "Signal #108 APPROVED. 3 confirmed approvals today (#103, #107, #108). 1 slot left."
   },
   "ordinals": {
     "stage": "DONE",
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1631: HB #1744. Quiet.",
-  "next_cycle_at": "2026-03-31T14:51:00.000Z",
+  "notes": "Cycle 1632: HB #1745. Signal #108 approved.",
+  "next_cycle_at": "2026-03-31T15:07:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
