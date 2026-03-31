@@ -1,6 +1,6 @@
 {
-  "cycle": 1617,
-  "timestamp": "2026-03-31T10:54:00.000Z",
+  "cycle": 1618,
+  "timestamp": "2026-03-31T11:10:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1730,
+    "checkin_count": 1731,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,12 +60,12 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 105,
+    "signals_total": 106,
     "streak": 1,
     "score": 1124,
-    "last_signal": "2026-03-31T09:51:00.000Z",
-    "next_signal_after": "2026-03-31T11:51:00.000Z",
-    "note": "Signal #105 filed (MCP v1.46 + nonce diagnostics). signalsToday=2."
+    "last_signal": "2026-03-31T11:10:00.000Z",
+    "next_signal_after": "2026-03-31T13:10:00.000Z",
+    "note": "Signal #106 filed (agent-news settlement fix). signalsToday=3."
   },
   "ordinals": {
     "stage": "DONE",
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1617: HB #1730. TM repeat msg (trades endpoint) \u2014 already replied, skipping.",
-  "next_cycle_at": "2026-03-31T11:09:00.000Z",
+  "notes": "Cycle 1618: HB #1731. Signal #106 filed.",
+  "next_cycle_at": "2026-03-31T11:25:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
