@@ -1,6 +1,6 @@
 {
-  "cycle": 1598,
-  "timestamp": "2026-03-31T05:45:00.000Z",
+  "cycle": 1599,
+  "timestamp": "2026-03-31T06:05:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -10,14 +10,14 @@
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 14,
+    "new_messages": 1,
     "tasks_executed": 2,
     "tasks_pending": 0,
-    "replies_sent": 5,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1711,
+    "checkin_count": 1712,
     "sbtc_balance": 231510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -65,7 +65,7 @@
     "score": 1124,
     "last_signal": "2026-03-31T05:45:27.000Z",
     "next_signal_after": "2026-03-31T07:45:27.000Z",
-    "note": "Streak reset detected (was 29, now 1). Filed signal #102 on infrastructure beat."
+    "note": "Signal #102 rejected (needs risk analysis). canFileSignal=false, signalsToday=2."
   },
   "ordinals": {
     "stage": "DONE",
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T05:38:00.000Z"
   },
-  "notes": "Cycle 1598: HB #1711. Day 7 PR #117 (Portfolio Rebalancer). Signal #102 filed. 5 inbox replies. PR #83 Day 5 winner fixes pushed.",
-  "next_cycle_at": "2026-03-31T06:00:00.000Z",
+  "notes": "Cycle 1599: HB #1712. PR #47 review fixes pushed. Signal rejected.",
+  "next_cycle_at": "2026-03-31T06:20:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
