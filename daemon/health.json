@@ -1,6 +1,6 @@
 {
-  "cycle": 1624,
-  "timestamp": "2026-03-31T12:45:00.000Z",
+  "cycle": 1625,
+  "timestamp": "2026-03-31T13:01:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1737,
+    "checkin_count": 1738,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -65,7 +65,7 @@
     "score": 1124,
     "last_signal": "2026-03-31T12:45:00.000Z",
     "next_signal_after": "2026-03-31T14:45:00.000Z",
-    "note": "Signal #107 filed (skills registry v0.36). signalsToday=4. 2 slots left."
+    "note": "Signal #107 APPROVED. signalsToday=4. 2 slots left. Cooldown until ~14:45 UTC."
   },
   "ordinals": {
     "stage": "DONE",
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1624: HB #1737. Signal #107 filed.",
-  "next_cycle_at": "2026-03-31T13:00:00.000Z",
+  "notes": "Cycle 1625: HB #1738. Signal #107 approved.",
+  "next_cycle_at": "2026-03-31T13:16:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
