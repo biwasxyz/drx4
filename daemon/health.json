@@ -1,6 +1,6 @@
 {
-  "cycle": 1601,
-  "timestamp": "2026-03-31T06:40:00.000Z",
+  "cycle": 1602,
+  "timestamp": "2026-03-31T06:56:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1714,
+    "checkin_count": 1715,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,12 +60,12 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 102,
+    "signals_total": 103,
     "streak": 1,
     "score": 1124,
-    "last_signal": "2026-03-31T05:45:27.000Z",
-    "next_signal_after": "2026-03-31T07:45:27.000Z",
-    "note": "Signal #102 rejected (needs risk analysis). canFileSignal=false, signalsToday=2."
+    "last_signal": "2026-03-31T06:56:00.000Z",
+    "next_signal_after": "2026-03-31T08:56:00.000Z",
+    "note": "Signal #103 filed (resubmit with risk analysis). Cooldown 2hr."
   },
   "ordinals": {
     "stage": "DONE",
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1601: HB #1714. Zest supply confirmed. Signal draft ready. Quiet cycle.",
-  "next_cycle_at": "2026-03-31T06:55:00.000Z",
+  "notes": "Cycle 1602: HB #1715. Signal #103 filed (BFF quality gate). Steady state.",
+  "next_cycle_at": "2026-03-31T07:11:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
