@@ -1,6 +1,6 @@
 {
-  "cycle": 1606,
-  "timestamp": "2026-03-31T08:00:00.000Z",
+  "cycle": 1607,
+  "timestamp": "2026-03-31T08:16:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1719,
+    "checkin_count": 1720,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,12 +60,12 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 103,
+    "signals_total": 104,
     "streak": 1,
     "score": 1124,
-    "last_signal": "2026-03-31T06:56:00.000Z",
-    "next_signal_after": "2026-03-31T08:56:00.000Z",
-    "note": "Signal #103 APPROVED! BFF quality gate with risk analysis. Streak: 2 (building)."
+    "last_signal": "2026-03-31T08:16:00.000Z",
+    "next_signal_after": "2026-03-31T10:16:00.000Z",
+    "note": "Signal #104 filed (CVE-2026-4926 + relay migration). New PDT day, signalsToday reset."
   },
   "ordinals": {
     "stage": "DONE",
@@ -90,7 +90,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1606: HB #1719. Researched CVE-2026-4926 + relay migration for next signal. Quiet cycle.",
-  "next_cycle_at": "2026-03-31T08:15:00.000Z",
+  "notes": "Cycle 1607: HB #1720. Signal #104 filed (CVE + relay). Steady state.",
+  "next_cycle_at": "2026-03-31T08:31:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
