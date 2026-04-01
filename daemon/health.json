@@ -1,6 +1,6 @@
 {
-  "cycle": 1670,
-  "timestamp": "2026-04-01T01:16:00.000Z",
+  "cycle": 1671,
+  "timestamp": "2026-04-01T01:31:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1783,
+    "checkin_count": 1784,
     "sbtc_balance": 200610,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -92,7 +92,7 @@
     "last_sensor_check": "2026-03-31T06:21:00.000Z",
     "note": "v0-4-market position was stale \u2014 vault holds 0 zsbtc. All Zest position is in zsbtc-v2-0 directly."
   },
-  "notes": "Cycle 1670: HB #1783. Night mode.",
-  "next_cycle_at": "2026-04-01T01:31:00.000Z",
+  "notes": "Cycle 1671: HB #1784. Night mode.",
+  "next_cycle_at": "2026-04-01T01:46:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
