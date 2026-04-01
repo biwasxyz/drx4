@@ -1,6 +1,6 @@
 {
-  "cycle": 1666,
-  "timestamp": "2026-04-01T00:12:00.000Z",
+  "cycle": 1667,
+  "timestamp": "2026-04-01T00:28:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1779,
+    "checkin_count": 1780,
     "sbtc_balance": 200510,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -91,7 +91,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-03-31T06:21:00.000Z"
   },
-  "notes": "Cycle 1666: HB #1779. New day (Apr 1 UTC). Night mode. BFF Day 8 pending.",
-  "next_cycle_at": "2026-04-01T00:27:00.000Z",
+  "notes": "Cycle 1667: HB #1780. TM repeat msg (trades deadline). Night mode.",
+  "next_cycle_at": "2026-04-01T00:43:00.000Z",
   "open_prs": "bff-skills#117/#83/#63/#47/#53"
 }
