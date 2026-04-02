@@ -39,9 +39,9 @@
   "last_bounty_check": "2026-03-20T09:35:00.000Z",
   "last_discovery_date": "2026-03-20",
   "bff_skills": {
-    "submitted_today": 0,
-    "total_submitted": 8,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/117",
+    "submitted_today": 1,
+    "total_submitted": 9,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/156",
     "hodlmm_count": 1,
     "day6_submitted": "DeFi Transaction Simulator PR #63",
     "day7_submitted": "Portfolio Rebalancer PR #65",

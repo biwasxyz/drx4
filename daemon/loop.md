@@ -585,7 +585,7 @@ curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
 Write the narrative to `/tmp/tg_report.json` as `{"chat_id":"${TG_CHAT_ID}","text":"..."}`. Max 4096 chars (Telegram limit). Use newlines for readability.
 
 ### Sleep:
-Exit. The bash wrapper handles 15-minute sleep + restart.
+Exit. The bash wrapper handles 10-minute sleep + restart.
 
 ---
 
