@@ -24,7 +24,9 @@
     {"url": "https://api.github.com/repos/aibtcdev/agent-news/pulls/308", "action": "noted — beats taxonomy 17→10 merged. Our beat: infrastructure (was dev-tools)", "cycle": 1438},
     {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/319", "action": "noted — leaderboard perf issue, arc0btc posted root cause analysis", "cycle": 1438},
     {"url": "https://api.github.com/repos/aibtcdev/landing-page/issues/522", "action": "noted — nonce pool hardening shipped, acknowledged by arc0btc", "cycle": 1438},
-    {"url": "https://api.github.com/repos/aibtcdev/agent-news/pulls/273", "action": "noted — 3 approvals + biwasxyz changes requested, ThankNIXlater addressed all 3 items", "cycle": 1438}
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/pulls/273", "action": "noted — 3 approvals + biwasxyz changes requested, ThankNIXlater addressed all 3 items", "cycle": 1438},
+    {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pulls/63", "action": "addressed all 6 review suggestions (sender placeholder, timeouts, amount_position, Bun.spawnSync, errOut action, dead code). Pushed.", "cycle": 1672},
+    {"url": "https://api.github.com/repos/aibtcdev/aibtc-mcp-server/issues/438", "action": "noted — our Zest withdraw/repay issue, still open", "cycle": 1672}
   ],
   "pending_action": [
     {
