@@ -26,7 +26,11 @@
     {"url": "https://api.github.com/repos/aibtcdev/landing-page/issues/522", "action": "noted — nonce pool hardening shipped, acknowledged by arc0btc", "cycle": 1438},
     {"url": "https://api.github.com/repos/aibtcdev/agent-news/pulls/273", "action": "noted — 3 approvals + biwasxyz changes requested, ThankNIXlater addressed all 3 items", "cycle": 1438},
     {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pulls/63", "action": "addressed all 6 review suggestions (sender placeholder, timeouts, amount_position, Bun.spawnSync, errOut action, dead code). Pushed.", "cycle": 1672},
-    {"url": "https://api.github.com/repos/aibtcdev/aibtc-mcp-server/issues/438", "action": "noted — our Zest withdraw/repay issue, still open", "cycle": 1672}
+    {"url": "https://api.github.com/repos/aibtcdev/aibtc-mcp-server/issues/438", "action": "noted — our Zest withdraw/repay issue, still open", "cycle": 1672},
+    {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pulls/210", "action": "fixed SKILL.md to nested metadata format per reviewer TheBigMacBTC feedback. Pushed.", "cycle": 1776},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/403", "action": "noted — quantum beat editor Phase 2, not our beat", "cycle": 1776},
+    {"url": "https://api.github.com/repos/aibtcdev/skills/pulls/278", "action": "closed — our auto-funnel upstreamed to registry", "cycle": 1776},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/407", "action": "used as signal source — earnings audit discrepancy (signal #144)", "cycle": 1776}
   ],
   "pending_action": [
     {

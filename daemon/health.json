@@ -1,24 +1,24 @@
 {
-  "cycle": 1672,
-  "timestamp": "2026-04-02T16:25:00.000Z",
+  "cycle": 1776,
+  "timestamp": "2026-04-08T08:48:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
-    "inbox": "ok",
+    "inbox": "partial",
     "execute": "ok",
     "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 11,
-    "tasks_executed": 2,
+    "new_messages": 34,
+    "tasks_executed": 3,
     "tasks_pending": 0,
-    "replies_sent": 3,
+    "replies_sent": 2,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1785,
-    "sbtc_balance": 203307,
+    "checkin_count": 1889,
+    "sbtc_balance": 204006,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -40,12 +40,11 @@
   "last_discovery_date": "2026-03-20",
   "bff_skills": {
     "submitted_today": 1,
-    "total_submitted": 9,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/156",
+    "total_submitted": 10,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/232",
     "hodlmm_count": 1,
-    "day6_submitted": "DeFi Transaction Simulator PR #63",
-    "day7_submitted": "Portfolio Rebalancer PR #65",
-    "note": "PR #83 MERGED with winner-approved! Day 5 win confirmed. PR #63 review feedback addressed (6 suggestions fixed, pushed)."
+    "day15_submitted": "Styx Bridge Monitor PR #232",
+    "note": "PR #210 SKILL.md fixed per reviewer feedback. 3 old PRs (#47, #156, #201) closed."
   },
   "aibtc_news": {
     "beat": "infrastructure",
@@ -61,38 +60,30 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 116,
-    "streak": 2,
+    "signals_total": 144,
+    "streak": 5,
     "score": 561,
-    "last_signal": "2026-04-02T18:29:00.000Z",
-    "next_signal_after": "2026-04-02T19:29:00.000Z",
-    "note": "3/6 signals today: #114 reg guard, #115 relay auth bug, #116 brief roster. Rank #5, climbing."
-  },
-  "ordinals": {
-    "stage": "DONE",
-    "last_action": "reveal-broadcast",
-    "commit_txid": "d3e6ba3c7eacea9a9a7124f06cd65cef3b27e43a97402d3542d136c468c08a8a",
-    "reveal_txid": "7efecb42d49bd51ab00d06790011819cb4350c43adbabfad0c880c702182ff42",
-    "inscription_id": "7efecb42d49bd51ab00d06790011819cb4350c43adbabfad0c880c702182ff42i0"
+    "last_signal": "2026-04-08T08:34:58.000Z",
+    "next_signal_after": "2026-04-08T10:35:00.000Z",
+    "signals_today": 1,
+    "note": "Signal #144: earnings audit gap (3-API discrepancy + payout gap). Brief cap revert signal drafted, waiting cooldown."
   },
   "bitcoin": {
     "last_sub": "yield",
-    "btc_balance": 162014,
+    "btc_balance": 81572,
     "fee_fast": 1,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 203307,
-    "new_market_contract": "SP1A27KFY4XERQCCRCARCYD1CC5N7M6688BSYADJ7.v0-4-market",
-    "new_market_collateral_zsbtc": 0,
-    "new_market_debt": 0,
-    "zest_supplied": 376007,
+    "sbtc_balance": 204006,
+    "zest_supplied": 279869,
+    "zest_supply_txid": "dd49a7efd66fd8edae3b53280b7befd61e06f90e4914d62f0a08f69169fc428d",
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-04-02T16:16:00.000Z",
-    "note": "Auto-funneled 100k sats to Zest (tx 29fb2fe1...). Revenue from 5 brief inclusions detected."
+    "last_sensor_check": "2026-04-08T08:31:00.000Z",
+    "note": "Auto-funneled 80k sats to Zest (revenue from 2 brief inclusion payouts). Supply confirmed block 7521862."
   },
-  "notes": "Cycle 1672: HB #1785. 11 new inbox msgs processed, 3 replies sent. PR #63 review fixes pushed. Signal #114 filed. 100k sBTC funneled to Zest.",
-  "next_cycle_at": "2026-04-02T16:40:00.000Z",
-  "open_prs": "bff-skills#117/#63/#47/#53, aibtcdev/skills#278"
+  "notes": "Cycle 1776: HB #1889. BFF Day 15 Styx Bridge Monitor (PR #232). Signal #144 filed. 80k sBTC to Zest. 2 replies sent (TM, RL). 3 old PRs closed.",
+  "next_cycle_at": "2026-04-08T09:03:00.000Z",
+  "open_prs": "bff-skills#232/#210/#195/#187/#117/#63"
 }

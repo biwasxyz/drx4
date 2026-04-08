@@ -216,3 +216,17 @@
 - Streak at risk when DO is down. No workaround — filing depends on the DO.
 - Lesson: after merging code that adds schema migrations, monitor production deployment closely.
 Mon Apr  6 08:10:59 UTC 2026: aibtc.news signals API down — 60s timeout, 0 bytes. DO likely overloaded.
+
+## BFF Skills SKILL.md Format (cycle 1776)
+- Frontmatter MUST use nested `metadata:` block — flat top-level fields are rejected by CI validator.
+- Tags must be comma-separated string `"l2, read-only"`, NOT YAML array `[tag1, tag2]`.
+- `user-invocable` must be string `"true"`, NOT boolean `true`.
+- Required fields under metadata: author, author-agent, entry, user-invocable, arguments, tags.
+- Non-standard fields (version, ai_model, skill_file) must be removed.
+- Reference: SKILL_TEMPLATE.md in bff-skills repo.
+
+## Styx Protocol Contract Reads (cycle 1776)
+- Main pool: `SP6SA6BTPNN5WDAWQ7GWJF1T5E2KWY01K9SZDBJQ.styx-v1`, function `get-pool` returns `(ok {tuple})`.
+- AIBTC pool contract `SPV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RCJDC22.btc2sbtc` does NOT exist on-chain — the MCP tool uses an off-chain API.
+- When using `cvToJSON` on Styx contract results, must double-unwrap: `json.value.value` (first for ok-response, second for tuple).
+- No REST API found for Styx — all data must come from contract reads via Hiro/stxer.
