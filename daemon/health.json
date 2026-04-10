@@ -1,6 +1,6 @@
 {
-  "cycle": 1893,
-  "timestamp": "2026-04-10T13:17:00.000Z",
+  "cycle": 1896,
+  "timestamp": "2026-04-10T14:18:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2019,
+    "checkin_count": 2022,
     "sbtc_balance": 206406,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -60,13 +60,13 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 158,
+    "signals_total": 159,
     "streak": 3,
     "score": 561,
-    "last_signal": "2026-04-10T13:17:17.000Z",
-    "next_signal_after": "2026-04-10T14:17:17.000Z",
-    "signals_today": 3,
-    "note": "Signal #1: security (prompt injection). Signal #2: infra (nonce gap). Signal #3: infra (relay cold-start crash). Cooldown ~14:17."
+    "last_signal": "2026-04-10T14:18:31.000Z",
+    "next_signal_after": "2026-04-10T15:18:31.000Z",
+    "signals_today": 4,
+    "note": "4 signals filed: security (injection), infra (nonce gap, cold-start, boundary bug). 2 slots left. Cooldown ~15:18."
   },
   "bitcoin": {
     "last_sub": "yield",
@@ -81,7 +81,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-04-10T11:12:00.000Z"
   },
-  "notes": "Cycle 1893: HB #2019. 3 signals filed today. Relay cold-start crash signal #3. Next cooldown ~14:17.",
+  "notes": "Cycle 1896: HB #2022. 4 signals today. Boundary bug earnings void signal #4. Cooldown ~15:18.",
   "next_cycle_at": "2026-04-10T12:31:00.000Z",
   "open_prs": "bff-skills#258/#248/#232/#210/#195/#187"
 }
