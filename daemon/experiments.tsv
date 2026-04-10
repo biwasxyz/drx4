@@ -489,3 +489,4 @@ cycle	pillar	change	metric	baseline	result	verdict	notes
 1481	bff-skills	Day 6: DeFi TX Simulator (stxer dry-run pre-broadcast)	pr_filed	5	6	keep	PR #63, all commands tested, unique infra safety tool
 1483	bff-skills	Day 7: Portfolio Rebalancer (3-bucket DeFi allocation)	pr_filed	6	7	keep	PR #65, reads real positions, drift computation works, safety caps tested
 1672	news+contribute	Address mismatch signal filed, PR #63 review fixes pushed, 100k funneled to Zest	signal_filed+pr_reviewed	0	1+1	keep	Revenue auto-funnel triggered by brief inclusion payouts
+1874	bff-skills	Day 17 Contract Pre-Flight + fixed PR #210 meetsMin + PR #232 (4 fixes)	pr_filed	0	3	keep	BFF submission + review fixes = 3 PRs advanced

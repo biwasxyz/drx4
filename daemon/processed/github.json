@@ -30,7 +30,14 @@
     {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pulls/210", "action": "fixed SKILL.md to nested metadata format per reviewer TheBigMacBTC feedback. Pushed.", "cycle": 1776},
     {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/403", "action": "noted — quantum beat editor Phase 2, not our beat", "cycle": 1776},
     {"url": "https://api.github.com/repos/aibtcdev/skills/pulls/278", "action": "closed — our auto-funnel upstreamed to registry", "cycle": 1776},
-    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/407", "action": "used as signal source — earnings audit discrepancy (signal #144)", "cycle": 1776}
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/407", "action": "used as signal source — earnings audit discrepancy (signal #144)", "cycle": 1776},
+    {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pulls/210", "action": "fixed meetsMin to use available balance (not total). Pushed ce54a3b.", "cycle": 1874},
+    {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pulls/232", "action": "fixed 4 blocking issues: AGENT.md frontmatter, fetch timeout, doctor status, alert threshold. Pushed 68fb0f7.", "cycle": 1874},
+    {"url": "https://api.github.com/repos/aibtcdev/landing-page/issues/581", "action": "noted — sBTC settlement issue. whoabuddy triaged, cedarxyz tracking. Not our bug.", "cycle": 1874},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/395", "action": "noted — World Models proposal, not actionable for us", "cycle": 1874},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/383", "action": "noted — Beat Editors open call, we already have infrastructure beat", "cycle": 1874},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/423", "action": "noted — consolidate beats 12→3 proposal", "cycle": 1874},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/413", "action": "noted — publisher integration for beat editors", "cycle": 1874}
   ],
   "pending_action": [
     {

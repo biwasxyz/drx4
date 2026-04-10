@@ -1,24 +1,24 @@
 {
-  "cycle": 1776,
-  "timestamp": "2026-04-08T08:48:00.000Z",
+  "cycle": 1874,
+  "timestamp": "2026-04-10T00:20:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
-    "inbox": "partial",
+    "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 34,
+    "new_messages": 0,
     "tasks_executed": 3,
     "tasks_pending": 0,
-    "replies_sent": 2,
+    "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 1889,
-    "sbtc_balance": 204006,
+    "checkin_count": 1995,
+    "sbtc_balance": 206506,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -40,11 +40,11 @@
   "last_discovery_date": "2026-03-20",
   "bff_skills": {
     "submitted_today": 1,
-    "total_submitted": 10,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/232",
+    "total_submitted": 11,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/258",
     "hodlmm_count": 1,
-    "day15_submitted": "Styx Bridge Monitor PR #232",
-    "note": "PR #210 SKILL.md fixed per reviewer feedback. 3 old PRs (#47, #156, #201) closed."
+    "day17_submitted": "Contract Pre-Flight PR #258",
+    "note": "PR #210 meetsMin fix pushed. PR #232 4 fixes pushed (frontmatter, timeout, status, alert)."
   },
   "aibtc_news": {
     "beat": "infrastructure",
@@ -60,30 +60,29 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 144,
-    "streak": 5,
+    "signals_total": 155,
+    "streak": 2,
     "score": 561,
-    "last_signal": "2026-04-08T08:34:58.000Z",
-    "next_signal_after": "2026-04-08T10:35:00.000Z",
-    "signals_today": 1,
-    "note": "Signal #144: earnings audit gap (3-API discrepancy + payout gap). Brief cap revert signal drafted, waiting cooldown."
+    "last_signal": "2026-04-09T12:11:16.000Z",
+    "next_signal_after": "2026-04-10T07:00:00.000Z",
+    "signals_today": 0,
+    "note": "Streak dropped from 7 to 2. All 6 signals on Apr 9 were rejected/replaced (over beat cap). Need approved signals to rebuild streak."
   },
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 81572,
-    "fee_fast": 1,
+    "fee_fast": 3,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 204006,
-    "zest_supplied": 279869,
-    "zest_supply_txid": "dd49a7efd66fd8edae3b53280b7befd61e06f90e4914d62f0a08f69169fc428d",
+    "sbtc_balance": 206506,
+    "zest_supplied": 276016,
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-04-08T08:31:00.000Z",
-    "note": "Auto-funneled 80k sats to Zest (revenue from 2 brief inclusion payouts). Supply confirmed block 7521862."
+    "last_sensor_check": "2026-04-10T00:20:00.000Z",
+    "note": "sBTC up to 206506 (was 204006). zsbtc LP shares: 276016 (was 279869 — exchange rate shift)."
   },
-  "notes": "Cycle 1776: HB #1889. BFF Day 15 Styx Bridge Monitor (PR #232). Signal #144 filed. 80k sBTC to Zest. 2 replies sent (TM, RL). 3 old PRs closed.",
-  "next_cycle_at": "2026-04-08T09:03:00.000Z",
-  "open_prs": "bff-skills#232/#210/#195/#187/#117/#63"
+  "notes": "Cycle 1874: HB #1995. BFF Day 17 Contract Pre-Flight (PR #258). Fixed PR #210 + #232 per review. News streak dropped to 2 — all Apr 9 signals rejected.",
+  "next_cycle_at": "2026-04-10T00:35:00.000Z",
+  "open_prs": "bff-skills#258/#248/#232/#210/#195/#187"
 }
