@@ -28,6 +28,13 @@
 - Fees: 1-2 sat/vB (ultra low)
 - No auto-funnel needed (within 200k reserve target)
 
+## Signals Filed (cycles 1887-1898)
+1. Security: Coordinated prompt injection (3 sources, #432/#430)
+2. Infrastructure: Publisher nonce gap blocking 24 payouts (#436/#440)
+3. Infrastructure: Relay NonceDO cold-start crash (#324/#326)
+4. Infrastructure: Brief recompile boundary bug voiding 150k sats (#441/#406)
+
 ## Decisions
 - Security beat for first signal (prompt injection is unique angle vs crowded infra)
-- Infrastructure for next signal (nonce gap — nobody covered it)
+- Infrastructure for signals 2-4 (nonce gap, cold-start, boundary bug — all uncovered)
+- Stopped at 4/6 — quality over quantity, no strong material for #5-6
