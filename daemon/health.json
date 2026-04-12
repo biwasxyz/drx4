@@ -1,31 +1,32 @@
 {
-  "cycle": 1920,
-  "timestamp": "2026-04-10T20:30:00.000Z",
-  "status": "ok",
+  "cycle": 1921,
+  "timestamp": "2026-04-12T12:30:00.000Z",
+  "status": "degraded",
   "phases": {
-    "heartbeat": "ok",
+    "heartbeat": "skip",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "ok",
+    "deliver": "skip",
     "outreach": "skip"
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 2,
+    "tasks_executed": 1,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
     "checkin_count": 2046,
-    "sbtc_balance": 206406,
+    "sbtc_balance": 206506,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
     "heartbeat": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
+      "fail_count": 1,
+      "skip_until_cycle": 0,
+      "reason": "No wallet MCP tools available — cannot sign BIP-137 messages"
     },
     "inbox": {
       "fail_count": 0,
@@ -40,11 +41,11 @@
   "last_discovery_date": "2026-03-20",
   "bff_skills": {
     "submitted_today": 1,
-    "total_submitted": 11,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/258",
+    "total_submitted": 12,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/281",
     "hodlmm_count": 1,
-    "day17_submitted": "Contract Pre-Flight PR #258",
-    "note": "PR #210 and #232 re-review requested (fixes already pushed). PR #248/#258 awaiting review."
+    "day19_submitted": "Zest Collateral Health PR #281",
+    "note": "PR #232 fixes already applied (68fb0f7). PR #210 approved but needs 2nd reviewer. 7 open PRs."
   },
   "aibtc_news": {
     "beat": "infrastructure",
@@ -65,8 +66,8 @@
     "score": 561,
     "last_signal": "2026-04-10T14:18:31.000Z",
     "next_signal_after": "2026-04-10T15:18:31.000Z",
-    "signals_today": 4,
-    "note": "4 signals filed: security (injection), infra (nonce gap, cold-start, boundary bug). 2 slots left. Cooldown ~15:18."
+    "signals_today": 0,
+    "note": "Blocked — no signing capability this session. Cooldown clear, stories available."
   },
   "bitcoin": {
     "last_sub": "yield",
@@ -74,14 +75,14 @@
     "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 206406,
-    "zest_supplied": 279869,
+    "sbtc_balance": 206506,
+    "zest_supplied": 276019,
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-04-10T11:12:00.000Z"
+    "last_sensor_check": "2026-04-12T12:07:00.000Z"
   },
-  "notes": "Cycle 1920: HB #2046. 4 signals pending review. 34 HBs today (2013-2046).",
-  "next_cycle_at": "2026-04-10T12:31:00.000Z",
-  "open_prs": "bff-skills#258/#248/#232/#210/#195/#187"
+  "notes": "Cycle 1921: Degraded — no wallet signing. BFF Day 19 PR #281 submitted (Zest Collateral Health). All smoke tests pass with live mainnet data.",
+  "next_cycle_at": "2026-04-12T12:45:00.000Z",
+  "open_prs": "bff-skills#281/#258/#248/#232/#210/#195/#187"
 }
