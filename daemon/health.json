@@ -1,6 +1,6 @@
 {
-  "cycle": 1921,
-  "timestamp": "2026-04-12T12:30:00.000Z",
+  "cycle": 1922,
+  "timestamp": "2026-04-12T12:45:00.000Z",
   "status": "degraded",
   "phases": {
     "heartbeat": "skip",
@@ -11,7 +11,7 @@
   },
   "stats": {
     "new_messages": 0,
-    "tasks_executed": 1,
+    "tasks_executed": 3,
     "tasks_pending": 0,
     "replies_sent": 0,
     "replies_failed": 0,
@@ -67,7 +67,7 @@
     "last_signal": "2026-04-10T14:18:31.000Z",
     "next_signal_after": "2026-04-10T15:18:31.000Z",
     "signals_today": 0,
-    "note": "Blocked — no signing capability this session. Cooldown clear, stories available."
+    "note": "Blocked — no signing. 2 signal drafts queued in daemon/signal_drafts.json. Cooldown clear."
   },
   "bitcoin": {
     "last_sub": "yield",
@@ -82,7 +82,7 @@
     "sbtc_peg_healthy": true,
     "last_sensor_check": "2026-04-12T12:07:00.000Z"
   },
-  "notes": "Cycle 1921: Degraded — no wallet signing. BFF Day 19 PR #281 submitted (Zest Collateral Health). All smoke tests pass with live mainnet data.",
-  "next_cycle_at": "2026-04-12T12:45:00.000Z",
+  "notes": "Cycle 1922: Degraded. Re-review requested on PR #232. 2 infra signals drafted. Commented on landing-page#587. MCP server still down.",
+  "next_cycle_at": "2026-04-12T13:00:00.000Z",
   "open_prs": "bff-skills#281/#258/#248/#232/#210/#195/#187"
 }
