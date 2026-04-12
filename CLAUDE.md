@@ -29,18 +29,21 @@ Always unlock wallet before performing any transaction.
 
 ## Autonomous Loop Architecture
 
-Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
+Claude IS the agent. `/start` enters the native `/loop` with `ScheduleWakeup`-based cycling:
 
-1. Read `daemon/loop.md` — the self-updating agent prompt
-2. Follow every phase (Setup, Observe, Decide, Execute, Deliver, Outreach, Reflect, Evolve, Sync, Sleep)
-3. Edit `daemon/loop.md` with improvements after each cycle
-4. Sleep 15 minutes, then re-read `daemon/loop.md` and repeat
-5. `/stop` exits the loop, locks wallet, syncs to git
+1. `.claude/loop.md` — compact cycle prompt (loaded by native /loop mechanism)
+2. `daemon/pillars/` — modular pillar instructions (bitcoin, news, bff, bd, bounties, onboarding, contribute)
+3. After each cycle, `ScheduleWakeup(900)` schedules the next (15 min default)
+4. `/stop` saves state, syncs git, and exits the loop
 
 ### Key Files
-- `daemon/loop.md` — Self-updating cycle instructions (the living brain)
-- `daemon/queue.json` — Task queue extracted from inbox messages
-- `daemon/processed.json` — Message IDs already replied to
+- `.claude/loop.md` — Native loop prompt (compact, ~130 lines)
+- `daemon/pillars/*.md` — Pillar instructions loaded on-demand
+- `daemon/loop.md` — Legacy full reference (693 lines, NOT loaded during cycles)
+- `daemon/STATE.md` — Inter-cycle handoff (max 14 lines)
+- `daemon/health.json` — Cycle stats, circuit breakers, pillar state
+- `daemon/queue.json` — Task queue from inbox messages
+- `daemon/processed/` — inbox.json + github.json (dedup tracking)
 
 ### AIBTC Endpoints
 - **Heartbeat:** `POST https://aibtc.com/api/heartbeat` — params: `signature` (base64 BIP-137), `timestamp` (ISO 8601 with .000Z)
@@ -50,27 +53,21 @@ Claude IS the agent. No subprocess, no daemon. `/start` enters a perpetual loop:
 - **Mark read:** `PATCH https://aibtc.com/api/inbox/{addr}/{msgId}`
 - **Docs:** https://aibtc.com/llms-full.txt
 
-## Memory (Dual-Write Rule)
-- `memory/journal/` — Per-cycle journals (cycle-N.md) + latest.md (last 3) + archive/
-- `memory/contacts/` — index.json (routing) + {slug}.json per agent + dormant.json
-- `memory/learnings/` — active.md (pitfalls) + resolved.md (reference)
-- `memory/portfolio.md` — Wallet balances and holdings (update when balances change)
-- `daemon/STATE.md` — Inter-cycle handoff (max 15 lines, updated every cycle)
-- **ALWAYS dual-write**: when updating Claude auto-memory (`~/.claude/projects/.../MEMORY.md`),
-  also update the corresponding workspace memory file in `memory/`, and vice versa.
-  Both locations must stay in sync so the operator can see memory in the repo.
-- Update memory files after meaningful sessions
-- Commit and push memory changes to GitHub
+## Memory (Tiered Writes)
+- `daemon/STATE.md` — Inter-cycle handoff (max 14 lines, MANDATORY every cycle)
+- `daemon/health.json` — Cycle stats (MANDATORY every cycle)
+- `memory/journal/` — Per-cycle journals (ONLY when cycle produced real output)
+- `memory/contacts/` — index.json + {slug}.json (ONLY when interacted with agent)
+- `memory/learnings/` — active.md + resolved.md (ONLY when something new learned)
+- **Do NOT dual-write** to auto-memory during the loop. Let Claude's built-in auto-memory handle `~/.claude/` automatically. Workspace `memory/` files are for operator visibility and git history.
+- Commit and push memory changes to GitHub during Phase 7 sync
 
 ## Self-Learning Rules
-- **Session memory rule**: Files read in this session are in context — do NOT re-read them. Files are persistence for across-session state. Re-read ONLY if: (a) you edited the file and need the exact new state, or (b) auto-compact fired and context was reset.
-- **Session start only**: Read queue.json, processed.json, health.json, learnings.md, portfolio.md once at the top of the first cycle. After that, track state in conversation memory.
-- **Track processed messages**: Write replied message IDs to daemon/processed.json to avoid duplicates
-- **Learn from errors**: If an API call fails or something unexpected happens:
-  - Append what you learned to `memory/learnings.md`
-  - If it's a permanent change, update THIS file (CLAUDE.md) AND `daemon/loop.md`
-- **Evolve**: After each cycle, edit `daemon/loop.md` to improve instructions
-- **Never repeat mistakes**: If learnings.md says something doesn't work, don't try it again
+- **Session memory rule**: Files read in this session are in context — do NOT re-read them unless (a) you edited and need the new state, or (b) auto-compact fired.
+- **Boot reads**: STATE.md + health.json at cycle start. Everything else on-demand.
+- **Track processed messages**: Write replied message IDs to `daemon/processed/` to avoid duplicates.
+- **Learn from errors**: Append to `memory/learnings/active.md`. If permanent, update CLAUDE.md.
+- **Never repeat mistakes**: Check learnings before retrying failed operations.
 
 ## Context Compaction Instructions
 
