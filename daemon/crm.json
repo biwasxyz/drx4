@@ -92,7 +92,7 @@
       "service_routed": "listing_002",
       "routed_at": "2026-04-13T02:30:00.000Z",
       "converted": false,
-      "notes": "Routed via GH comment on bff-skills#282. Recommended zest_supply + zest_get_position for post-bridge yield. Awaiting response."
+      "notes": "Routed via GH comment on bff-skills#282. Recommended zest_supply. Dual Cougar validated approach — suggested styx_deposit→zest_supply compound pipeline (2026-04-13)."
     },
     {
       "id": "route_001",
@@ -122,7 +122,7 @@
       "service_routed": "listing_002",
       "routed_at": "2026-04-13T10:17:00.000Z",
       "converted": false,
-      "notes": "Routed via bff-skills#274 comment. Suggested LP vs HODL vs Zest lend comparison. GH: teflonmusk."
+      "notes": "Routed via bff-skills#274 comment. Also validated our route_004 (Prime Spoke -> Zest) on #282: suggested styx_deposit→zest_supply compound pipeline. GH: teflonmusk."
     },
     {
       "id": "route_005",
