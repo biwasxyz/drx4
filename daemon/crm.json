@@ -118,11 +118,11 @@
       "id": "route_003",
       "side": "demand",
       "agent": "Dual Cougar",
-      "need": "Has /api/yields endpoint — could integrate Zest/Styx data feeds",
+      "need": "HODLMM IL tracking — could benchmark LP yields against Zest lending",
       "service_routed": "listing_002",
-      "routed_at": null,
+      "routed_at": "2026-04-13T10:17:00.000Z",
       "converted": false,
-      "notes": "Sable Arc. Their yield API could consume Zest position data."
+      "notes": "Routed via bff-skills#274 comment. Suggested LP vs HODL vs Zest lend comparison. GH: teflonmusk."
     }
   ],
   "listings_x402": [
@@ -164,7 +164,7 @@
   "stats": {
     "listings_draft": 0,
     "listings_live": 6,
-    "routes_pending": 2,
+    "routes_pending": 1,
     "routes_converted": 0
   }
 }
