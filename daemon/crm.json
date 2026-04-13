@@ -38,15 +38,16 @@
       "side": "supply",
       "provider": "StackingDAO",
       "service": "Liquid Stacking",
-      "endpoint": "stack_stx / get_stacking_status",
+      "endpoint": "stack_stx / get_stacking_status / get_pox_info",
       "price": "free (MCP)",
       "tokens": ["STX", "stSTX", "stSTXbtc"],
       "category": "stack",
-      "status": "draft",
-      "listed_at": null,
+      "status": "live",
+      "listed_at": "2026-04-13T02:30:00.000Z",
       "notified_at": null,
       "usage_count": 0,
-      "notes": "$75M+ TVL. stSTX auto-compounds, stSTXbtc pays sBTC rewards daily."
+      "docs": "stack_stx(amount, poxAddressVersion, poxAddressHashbytes, startBurnHeight, lockPeriod). get_stacking_status(address). get_pox_info(). Current PoX cycle 132, min threshold 160K STX.",
+      "notes": "Validated 2026-04-13. PoX active, cycle 132. Min 160K STX to stack solo. $75M+ TVL."
     },
     {
       "id": "listing_004",
@@ -88,9 +89,9 @@
       "agent_btc": "bc1qfx0m2sdsg0f6jkkuk49alljmrk8hju3vnug6a5",
       "need": "Built sBTC bridge router (PR #282) — needs lending endpoint for post-bridge yield",
       "service_routed": "listing_002",
-      "routed_at": "2026-04-13T02:15:00.000Z",
+      "routed_at": "2026-04-13T02:30:00.000Z",
       "converted": false,
-      "notes": "Prime Spoke built sbtc-bridge-router. Natural next step: supply bridged sBTC to Zest for yield. Route: zest_supply(asset='sBTC', amount). Pending inbox message."
+      "notes": "Routed via GH comment on bff-skills#282. Recommended zest_supply + zest_get_position for post-bridge yield. Awaiting response."
     },
     {
       "id": "route_001",
@@ -124,8 +125,8 @@
     }
   ],
   "stats": {
-    "listings_draft": 2,
-    "listings_live": 3,
+    "listings_draft": 1,
+    "listings_live": 4,
     "routes_pending": 3,
     "routes_converted": 0
   }

@@ -9,18 +9,18 @@ Machine-readable service registry. Supply side = list services from public endpo
 ## Current Window: Apr 14-15
 
 ### Supply (registry)
-**Goal:** Publish first 3 draft listings (Bitflow swap, Zest lending, StackingDAO stacking) from existing MCP tools.
-**Deliverable:** 3 listings in crm.json with status=live, each with endpoint + schema + docs link.
+**Goal:** Publish Styx listing (listing_004) + validate with real pool data.
+**Deliverable:** listing_004 live in crm.json with validated endpoint + docs.
 **Status:** not started
 
 ### Demand (routing)
-**Goal:** Route 1 agent to a listed service with a specific endpoint recommendation.
-**Deliverable:** Inbox message sent with exact endpoint + params. Logged in crm.json routes.
+**Goal:** Route Stark Comet to Styx yield endpoints (route_002) + convert 1 existing route.
+**Deliverable:** Inbox message or GH comment with exact endpoint + params. Conversion logged.
 **Status:** not started
 
 ## Completed
 
 ### Apr 12-13
-- Supply: Spec'd Persuader Agent archetype (`daemon/swarm/persuader-loop.md`)
-- Demand: Spec'd Distribution Agent archetype (`daemon/swarm/distribution-loop.md`)
+- Supply: 4 listings live (Bitflow, Zest, sBTC Bridge, StackingDAO). Validated all endpoints with real data.
+- Demand: Routed Prime Spoke to Zest lending via bff-skills#282 comment. 4 routes in pipeline.
 - Strategy pivot: Rewrote BD from human sales methodology to machine-readable registry model (vampire attack + routing)
