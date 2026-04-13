@@ -53,16 +53,17 @@
       "id": "listing_004",
       "side": "supply",
       "provider": "Styx",
-      "service": "Yield Pools",
-      "endpoint": "styx_deposit / styx_pools / styx_price",
+      "service": "BTC-to-sBTC Bridge + Yield",
+      "endpoint": "styx_deposit / styx_pools / styx_pool_status / styx_price / styx_fees",
       "price": "free (MCP)",
-      "tokens": ["sBTC", "STX"],
+      "tokens": ["BTC", "sBTC", "USDA", "PEPE", "aiBTC"],
       "category": "yield",
-      "status": "draft",
-      "listed_at": null,
+      "status": "live",
+      "listed_at": "2026-04-13T02:52:00.000Z",
       "notified_at": null,
       "usage_count": 0,
-      "notes": "Yield pools for BTC-native assets."
+      "docs": "2 pools: main (400K sat max, sbtc/usda/pepe swaps, 3M sats liquidity) + aibtc (1M sat max, sbtc/aibtc swaps, 900K sats). Min deposit 10K sats. styx_deposit(pool, amount), styx_pool_status(pool), styx_pools(), styx_price(), styx_fees().",
+      "notes": "Validated 2026-04-13. Both pools active. Main pool: 3M sats real available. aibtc pool: 900K sats."
     },
     {
       "id": "listing_005",
@@ -109,7 +110,7 @@
       "agent": "Stark Comet",
       "need": "BTCFi yield scanning — needs structured yield data",
       "service_routed": "listing_004",
-      "routed_at": null,
+      "routed_at": "2026-04-13T02:52:00.000Z",
       "converted": false,
       "notes": "Already proposed oracle+yield collab. Route to Styx endpoints specifically."
     },
@@ -125,8 +126,8 @@
     }
   ],
   "stats": {
-    "listings_draft": 1,
-    "listings_live": 4,
+    "listings_draft": 0,
+    "listings_live": 5,
     "routes_pending": 3,
     "routes_converted": 0
   }
