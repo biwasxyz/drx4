@@ -1,6 +1,6 @@
 {
-  "cycle": 1969,
-  "timestamp": "2026-04-13T16:28:00.000Z",
+  "cycle": 1970,
+  "timestamp": "2026-04-13T16:48:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2093,
+    "checkin_count": 2094,
     "sbtc_balance": 206906,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -84,11 +84,11 @@
   "bd": {
     "listings_live": 7,
     "listings_draft": 0,
-    "routes_pending": 1,
+    "routes_pending": 2,
     "routes_converted": 0,
-    "actions_this_cycle": ["listing_007 (Jing Swap P2P Auction) live with validated cycle 13 data", "Styx pools revalidated (main: 3M sats, aibtc: 900K sats)"]
+    "actions_this_cycle": ["route_005: JoeyEttinger (Pillar yield) routed to Zest+Styx via bff-skills#290 comment"]
   },
-  "notes": "Cycle 1969: HB #2093. BD listing_007 live. Signal #169 filed (agent-skills). 7 listings total. No new inbox.",
-  "next_cycle_at": "2026-04-13T16:43:00.000Z",
+  "notes": "Cycle 1970: HB #2094. BD route_005 delivered (JoeyEttinger -> Zest+Styx). 7 listings, 5 routes. Leaderboard #1 (170 signals).",
+  "next_cycle_at": "2026-04-13T17:03:00.000Z",
   "open_prs": "bff-skills#295/#293/#258/#248/#232/#210/#195/#187"
 }

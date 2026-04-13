@@ -123,6 +123,17 @@
       "routed_at": "2026-04-13T10:17:00.000Z",
       "converted": false,
       "notes": "Routed via bff-skills#274 comment. Suggested LP vs HODL vs Zest lend comparison. GH: teflonmusk."
+    },
+    {
+      "id": "route_005",
+      "side": "demand",
+      "agent": "JoeyEttinger",
+      "agent_github": "JoeyEttinger",
+      "need": "Pillar yield dashboard — needs cross-protocol yield comparison data",
+      "service_routed": "listing_002,listing_004",
+      "routed_at": "2026-04-13T16:48:00.000Z",
+      "converted": false,
+      "notes": "Routed via bff-skills#290 comment. Suggested cross-protocol yield comparison using zest_get_position + styx_pool_status alongside Pillar."
     }
   ],
   "listings_x402": [
@@ -182,7 +193,7 @@
   "stats": {
     "listings_draft": 0,
     "listings_live": 7,
-    "routes_pending": 1,
+    "routes_pending": 2,
     "routes_converted": 0
   }
 }
