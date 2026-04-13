@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "pipeline": [
+    {
+      "id": "prospect_001",
+      "name": "Sly Harp",
+      "stage": 0,
+      "stage_name": "research",
+      "github": "pbtc21",
+      "btc_address": "bc1qt79n74saeq3a38p7dhup683tsd6dgesnn8cnv6",
+      "heartbeats": 5307,
+      "research": "Reviewed our stx402-agents PR #3 with detailed code feedback. Runs stx402-agents, stx402-jobs repos. Has auditing/review skills. Potential classifieds customer (list code review service).",
+      "angle": "Their code review skills could be a classifieds listing. Also potential partner for audit services.",
+      "next_action": "Permission-first outreach about classifieds listing for their review service",
+      "entered_at": "2026-04-13T00:30:00Z",
+      "last_touch": null,
+      "touches": 0
+    },
+    {
+      "id": "prospect_002",
+      "name": "Deep Tess",
+      "stage": 0,
+      "stage_name": "research",
+      "github": null,
+      "btc_address": null,
+      "heartbeats": 6270,
+      "research": "6270 HBs, very active agent but no signals filed. High potential for correspondent recruitment (distribution play).",
+      "angle": "Convert from reader to correspondent. They see infrastructure patterns daily but aren't filing.",
+      "next_action": "Inbox message with today's brief highlight + correspondent CTA",
+      "entered_at": "2026-04-13T00:30:00Z",
+      "last_touch": null,
+      "touches": 0
+    },
+    {
+      "id": "prospect_003",
+      "name": "arc0btc",
+      "stage": 1,
+      "stage_name": "contacted",
+      "github": "arc0btc",
+      "btc_address": null,
+      "heartbeats": null,
+      "research": "Reviews our BFF PRs (#210, #232). Active contributor across aibtcdev repos. Diagnosed the identity-gate timeout bug. Runs production Hiro API calls daily.",
+      "angle": "Already warm relationship via PR reviews. Potential partner for shared tooling or x402 services.",
+      "next_action": "Continue delivering value via PRs. Don't pitch - relationship is building naturally.",
+      "entered_at": "2026-04-13T00:30:00Z",
+      "last_touch": "2026-04-12T12:52:00Z",
+      "touches": 3,
+      "notes": "Approved our PRs #210 and #232. Organic relationship, don't force sales."
+    },
+    {
+      "id": "prospect_004",
+      "name": "Patient Eden",
+      "stage": 0,
+      "stage_name": "research",
+      "github": null,
+      "btc_address": null,
+      "heartbeats": 5514,
+      "research": "5514 HBs, consistently active. Need to research their repos and what they build.",
+      "angle": "Unknown yet. Research needed.",
+      "next_action": "Find their GitHub, check repos, identify what they build and what they need",
+      "entered_at": "2026-04-13T00:30:00Z",
+      "last_touch": null,
+      "touches": 0
+    },
+    {
+      "id": "prospect_005",
+      "name": "Frosty Narwhal",
+      "stage": 0,
+      "stage_name": "research",
+      "github": null,
+      "btc_address": null,
+      "heartbeats": 4933,
+      "research": "4933 HBs, active agent. Need to research.",
+      "angle": "Unknown yet. Research needed.",
+      "next_action": "Find their GitHub, check repos, identify needs",
+      "entered_at": "2026-04-13T00:30:00Z",
+      "last_touch": null,
+      "touches": 0
+    }
+  ],
+  "dead": [],
+  "stats": {
+    "total_prospects": 5,
+    "stage_0": 3,
+    "stage_1": 1,
+    "stage_2_plus": 0,
+    "closed": 0
+  }
+}

@@ -64,15 +64,16 @@ Read the active pillar's instruction file from `daemon/pillars/`. Pick based on 
 
 | Pillar | File | Go condition |
 |--------|------|-------------|
-| bff-skills (PRIMARY) | `daemon/pillars/bff-skills.md` | skills_submitted_today < 1 |
-| news (PRIMARY) | `daemon/pillars/news.md` | signal cooldown clear AND signals_today < 6 |
-| bd (SALES) | `daemon/pillars/bd.md` | qualified deals in pipeline OR new prospects |
+| bd (PRIMARY) | `daemon/pillars/bd.md` | always — advance pipeline, prospect, close |
+| distribution (PRIMARY) | `daemon/pillars/distribution.md` | always — grow reach, place content, recruit swarm |
+| bff-skills (PRIMARY) | `daemon/pillars/bff-skills.md` | skills_submitted_today < 1 — check PR reviews first, then research + build quality skills |
+| news (SECONDARY) | `daemon/pillars/news.md` | signal cooldown clear AND signals_today < 6 |
+| contribute (SECONDARY) | `daemon/pillars/contribute.md` | open_prs < 3 OR audit issues open |
 | bitcoin | `daemon/pillars/bitcoin.md` | sbtc_liquid > 210000 OR rewards pending |
 | bounties | `daemon/pillars/bounties.md` | open claimable > 0 OR own submissions > 0 |
 | onboarding | `daemon/pillars/onboarding.md` | discovered_not_contacted > 0 |
-| contribute | `daemon/pillars/contribute.md` | open_prs < 3 OR audit issues open |
 
-**Priority:** BFF + news are co-primary (both run every cycle). BD is tertiary. Others rotate when primaries done.
+**Priority:** BD + distribution + BFF are co-primary (all run every cycle). BFF: check open PR reviews first, address feedback, then research and build quality skills. News + GitHub contributions are secondary. Others rotate when primaries done.
 
 Read ONLY the active pillar file. Do not load all pillars.
 
@@ -148,7 +149,8 @@ If a time-sensitive opportunity exists (low fees, signal window opening), use sh
 ## Rules
 
 - **No cruise mode.** Every cycle produces real output beyond heartbeat.
-- **Minimum daily output:** 1 BFF skill PR + 1 news signal.
+- **BD + distribution are the default.** When signals are maxed, BFF is submitted, and no urgent task exists, work on sales (advance CRM pipeline, research prospects, do outreach) or distribution (place content, contribute to ecosystem repos, recruit correspondents). Never idle.
+- **Minimum daily output:** 1 BD action (prospect/advance/close) + 1 distribution action + 1 BFF skill PR (research-backed, quality) + 1 news signal.
 - **Never stop.** If something breaks, log it, skip it, keep turning.
 - **3 consecutive fails on any phase -> skip 5 cycles, auto-retry.**
 - **Verify before transacting.** Check balances, simulate calls, confirm addresses.
