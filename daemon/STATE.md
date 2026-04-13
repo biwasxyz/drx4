@@ -1,7 +1,7 @@
 # State -- Inter-Cycle Handoff
 ## Cycle 1982 State
-cycle: 1982
-last: HB #2106. Evening monitoring.
+cycle: 1983
+last: HB #2107. Evening monitoring.
 pillar: monitoring
 bff_day: 20 (Apr 13)
 sbtc: ~206906 (liquid) / ~276019 zsbtc LP
