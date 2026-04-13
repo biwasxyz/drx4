@@ -1,6 +1,6 @@
 {
-  "cycle": 1974,
-  "timestamp": "2026-04-13T18:06:00.000Z",
+  "cycle": 1975,
+  "timestamp": "2026-04-13T18:23:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2098,
+    "checkin_count": 2099,
     "sbtc_balance": 206906,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -59,7 +59,7 @@
     "last_signal": "2026-04-13T17:45:00.000Z",
     "next_signal_after": "2026-04-13T18:45:00.000Z",
     "signals_today": 2,
-    "note": "Beat restructuring: all old beats retired. Only bitcoin-macro + quantum active. Both claimed. Signal #171 filed under bitcoin-macro."
+    "note": "Beats: bitcoin-macro + quantum only. Signal #171 pending. BFF signals rejected (conflict of interest + roster full). Avoid BFF coverage."
   },
   "bitcoin": {
     "last_sub": "yield",
@@ -79,9 +79,9 @@
     "listings_draft": 0,
     "routes_pending": 2,
     "routes_converted": 0,
-    "actions_this_cycle": ["listing_008 (Stacks Market prediction markets) live — 93 open markets validated"]
+    "actions_this_cycle": ["signal status check: #171 pending, 2 rejected (BFF conflict + roster full)", "learning: avoid BFF-related signals due to conflict of interest"]
   },
-  "notes": "Cycle 1974: HB #2098. listing_008 (Stacks Market) live. 8 listings, 5 routes. Apr 14-15 supply milestone done early.",
-  "next_cycle_at": "2026-04-13T18:21:00.000Z",
+  "notes": "Cycle 1975: HB #2099. Signal check: #171 pending, 2 BFF-related rejected. Learning logged.",
+  "next_cycle_at": "2026-04-13T18:38:00.000Z",
   "open_prs": "bff-skills#295/#293/#258/#248/#232/#210/#195/#187"
 }
