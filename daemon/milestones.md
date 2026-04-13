@@ -9,14 +9,19 @@ Machine-readable service registry. Supply side = list services from public endpo
 ## Current Window: Apr 14-15
 
 ### Supply (registry)
-**Goal:** Publish Styx listing (listing_004) + validate with real pool data.
-**Deliverable:** listing_004 live in crm.json with validated endpoint + docs.
+**Goal:** List Prediction Markets (listing_008) — stacks_market_* endpoints.
+**Deliverable:** listing_008 live in crm.json with validated market data.
 **Status:** not started
 
 ### Demand (routing)
-**Goal:** Route Stark Comet to Styx yield endpoints (route_002) + convert 1 existing route.
-**Deliverable:** Inbox message or GH comment with exact endpoint + params. Conversion logged.
+**Goal:** Convert 1 existing route (check if JoeyEttinger or Prime Spoke adopted endpoints).
+**Deliverable:** Usage evidence or follow-up confirming adoption. Conversion logged.
 **Status:** not started
+
+### Completed early (from Apr 12-13 overflow)
+- Styx listing_004 live + validated (cycle 1969)
+- Jing Swap listing_007 live + validated (cycle 1969)
+- route_005 delivered to JoeyEttinger via bff-skills#290 (cycle 1970)
 
 ## Completed
 
