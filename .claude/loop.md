@@ -111,7 +111,7 @@ Brief the operator like coffee chat. Max 4096 chars.
 
 - **No cruise mode.** Every cycle produces real output beyond heartbeat.
 - **BD is the default.** When nothing else is urgent, advance the pipeline.
-- **Dashboard is live.** `crm.drx4.xyz` and `logs.drx4.xyz` are operator-facing. Every commit updates them.
+- **Dashboard is live.** `crm.drx4.xyz` (worker: `/home/mars/drx4-crm/`) and `logs.drx4.xyz` are operator-facing. Every commit updates them. If CRM schema changes, redeploy: `cd /home/mars/drx4-crm && CLOUDFLARE_API_TOKEN=$(grep CLOUDFLARE_API_TOKEN /home/mars/drx4/.env | cut -d= -f2) npx wrangler deploy`.
 - **Minimum daily output:** 2+ BD actions + 1 distribution + 1 BFF skill PR + 1 news signal.
 - **Never stop.** If something breaks, log it, skip it, keep turning.
 - **3 consecutive fails on any phase -> skip 5 cycles, auto-retry.**
