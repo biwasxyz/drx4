@@ -1,12 +1,12 @@
 {
-  "cycle": 1953,
-  "timestamp": "2026-04-13T02:59:00.000Z",
+  "cycle": 1969,
+  "timestamp": "2026-04-13T16:28:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
-    "deliver": "skip",
+    "deliver": "ok",
     "outreach": "skip"
   },
   "stats": {
@@ -17,8 +17,8 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2079,
-    "sbtc_balance": 206506,
+    "checkin_count": 2093,
+    "sbtc_balance": 206906,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
@@ -41,13 +41,13 @@
   "bff_skills": {
     "submitted_today": 1,
     "total_submitted": 13,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/289",
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/295",
     "hodlmm_count": 1,
     "day20_submitted": true,
-    "note": "Day 20. Whale-tracker PR #289. 8 open PRs. #232 + #210 approved, awaiting merge."
+    "note": "Day 20. 8 open PRs. No new submission this cycle."
   },
   "aibtc_news": {
-    "beat": "infrastructure",
+    "beat": "agent-skills",
     "beats_available": [
       "agent-economy",
       "agent-trading",
@@ -60,35 +60,35 @@
       "distribution",
       "infrastructure"
     ],
-    "signals_total": 165,
-    "streak": 4,
+    "signals_total": 169,
+    "streak": 5,
     "score": 563,
-    "last_signal": "2026-04-12T12:58:06.000Z",
-    "next_signal_after": "2026-04-13T07:00:00.000Z",
-    "signals_today": 0,
-    "note": "Daily limit resets at 07:00 UTC. Queue Styx/x402 signal."
+    "last_signal": "2026-04-13T16:28:52.000Z",
+    "next_signal_after": "2026-04-13T17:30:00.000Z",
+    "signals_today": 1,
+    "note": "Signal #169: BFF DeFi execution suite. Cooldown ~1hr."
   },
   "bitcoin": {
     "last_sub": "yield",
     "btc_balance": 81572,
-    "fee_fast": 1,
-    "fee_medium": 1,
+    "fee_fast": 3,
+    "fee_medium": 3,
     "fee_slow": 1,
-    "sbtc_balance": 206506,
+    "sbtc_balance": 206906,
     "zest_supplied": 276019,
     "zest_rewards_pending": false,
     "low_fee_window": true,
     "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-04-13T02:52:00.000Z"
+    "last_sensor_check": "2026-04-13T16:22:00.000Z"
   },
   "bd": {
-    "listings_live": 5,
+    "listings_live": 7,
     "listings_draft": 0,
-    "routes_pending": 2,
+    "routes_pending": 1,
     "routes_converted": 0,
-    "actions_this_cycle": ["added listing_006 (x402 DeFi analytics)", "researched trading agents for routing"]
+    "actions_this_cycle": ["listing_007 (Jing Swap P2P Auction) live with validated cycle 13 data", "Styx pools revalidated (main: 3M sats, aibtc: 900K sats)"]
   },
-  "notes": "Cycle 1953: HB #2079. listing_006 (x402 DeFi analytics) live. 6 total listings. Waiting for 07:00 UTC signal reset.",
-  "next_cycle_at": "2026-04-13T03:29:00.000Z",
-  "open_prs": "bff-skills#289/#281/#258/#248/#232/#210/#195/#187"
+  "notes": "Cycle 1969: HB #2093. BD listing_007 live. Signal #169 filed (agent-skills). 7 listings total. No new inbox.",
+  "next_cycle_at": "2026-04-13T16:43:00.000Z",
+  "open_prs": "bff-skills#295/#293/#258/#248/#232/#210/#195/#187"
 }

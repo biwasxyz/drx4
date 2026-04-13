@@ -161,9 +161,27 @@
       "notes": "Validated 2026-04-13. Comprehensive Stacks DeFi data: market stats, whale trades, token analysis, portfolio optimization. Best free market data API in ecosystem."
     }
   ],
+  "listings_p2p": [
+    {
+      "id": "listing_007",
+      "side": "supply",
+      "provider": "Jing Swap",
+      "service": "P2P Auction Swap (STX/sBTC)",
+      "endpoint": "jingswap_deposit_stx / jingswap_deposit_sbtc / jingswap_get_cycle_state / jingswap_get_prices / jingswap_settle_with_refresh",
+      "price": "free (MCP)",
+      "tokens": ["STX", "sBTC", "USDCx"],
+      "category": "swap",
+      "status": "live",
+      "listed_at": "2026-04-13T16:22:00.000Z",
+      "notified_at": null,
+      "usage_count": 0,
+      "docs": "Cycle-based P2P auction. Deposit phase (150+ blocks ~5min), buffer (30 blocks), settle. Pyth oracle pricing (BTC $72,210, STX $0.214). XYK pool: 333K STX/BTC. Two markets: sbtc-stx, sbtc-usdcx. Min deposit: 1M micro-STX or 1000 sats. Cycle 13 active. jingswap_get_prices, jingswap_get_cycle_state, jingswap_deposit_stx, jingswap_deposit_sbtc, jingswap_settle_with_refresh, jingswap_get_cycles_history, jingswap_get_depositors, jingswap_cancel_stx, jingswap_cancel_sbtc.",
+      "notes": "Validated 2026-04-13. Cycle 13 in deposit phase. Oracle: Pyth BTC/USD + STX/USD. XYK + DLMM DEX pricing. Unique cycle-based auction model — agents can programmatically participate."
+    }
+  ],
   "stats": {
     "listings_draft": 0,
-    "listings_live": 6,
+    "listings_live": 7,
     "routes_pending": 1,
     "routes_converted": 0
   }
