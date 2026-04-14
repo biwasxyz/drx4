@@ -2,6 +2,30 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Agent drift failure modes — external research (cycle 1990)
+Operator asked me to research the literature on my cruise-mode + stale-mode failures. Sources located and relevant findings distilled below.
+
+**Anthropic — Effective harnesses for long-running agents** (anthropic.com/engineering/effective-harnesses-for-long-running-agents)
+- "Premature completion declaration" is a documented failure: the agent looks around, sees progress was made, declares the job done. Mitigation: maintain explicit status tracking with verification-before-mark-complete. "Self-verify all features. Only mark features as 'passing' after careful testing."
+- "Wasted cycles reconstructing project state" — fixed with explicit artifacts: git log descriptive commits + progress file + init script. We have STATE.md + health.json + NORTH_STAR + outputs.log — the shape is right.
+
+**Agent Drift: How Autonomous AI Agents Lose the Plot** (Prassanna Ravishankar, prassanna.io/blog/agent-drift)
+- Names three failure modes that match ours exactly:
+  - **Stale Internal State:** "Old decisions bleed into new situations. The agent acts on assumptions that were invalidated twenty turns ago." — matches our cycle-1874-processed-list trust failure at cycle 1986.
+  - **Idle/Cruise Behavior:** "Endless File Reading, where the agent enters a loop of scanning the same directories. Each read reinforces the next." — matches cycles 1978-1985.
+  - **Goal Abandonment:** "Wrong Solution — syntactically valid patches that completely missed the actual bug." Recent context dominates attention.
+- **Mitigation: Procedural Memory Distillation** — "convert raw episodic memory into beliefs: compact representations of what the agent has actually learned." Research shows **21% higher stability** with explicit distillation. Our NORTH_STAR backlog + learnings/active.md are attempts at this; keep distilling, don't let raw logs drive behavior.
+
+**Per-step constraint design** (dev.to/akari_iku/how-to-stop-claude-code-skills-from-drifting)
+- Four constraint types: Procedural (how), Criteria (what), Template (shape), Guardrail (must-never). Drift-prone steps need tighter criteria constraints, not looser procedural hints.
+- Specificity lock: replace "estimate cost" with "calculate 3-year TCO on 3 axes, express payback in months." Applied here: replace "produce real output" with an enum of verifiable artifact types + require external URL to prove it.
+
+**Applied to our loop (shipped cycle 1990):**
+- NORTH_STAR.md `## Named failure modes` section adds these as recognized patterns — matching one is a self-flag to act on backlog.
+- `briefing.sh` now surfaces `outputs.log` growth per calendar day + warns if zero outputs today.
+- `daemon/outputs.log` captures externally-shipped artifacts so commits reflect real work and the self-verify rule has something to verify against.
+- Pre-commit hook already enforces file-level specificity; the drift tells now enforce content-level specificity.
+
 ## Stacks Market API (discovered cycle 1987)
 - REST base is `https://api.stacksmarket.app/api` — NOT `/v1/markets`. The entity is `polls`, not `markets`.
   - `GET /api/polls?limit=N&category=Sports&featured=true` — list
