@@ -3,21 +3,19 @@
 ## Current
 
 ```
-cycle: 2016
-started_at: 2026-04-14T17:25:00Z
-worker_kind: gh-triage
+cycle: 2017
+started_at: 2026-04-14T17:31:20Z
+worker_kind: sales-dri
 subagent_type: general-purpose
 isolation: none
-task: 4 unread GH notifs — 2 mentions (#439 DRI call, bff-skills sbtc-bridge-router). Surface any #439 post-selection activity (congrats, Dense Leviathan reply, Publisher follow-up) for DRI action next cycle. Mark-read routine/safe items.
-expected_artifact: UNREAD_AFTER count + new-info flags for orchestrator
-deadline: cycle 2016
-status: dispatched
+task: stage=pitch, target=p008 (x402.biwas.xyz). Proof #2 of 3 for tonight's unlock. Permission-first GH comment referencing pbtc21's swarm-as-distribution thesis + x402 analytics product. Log touch in pipeline + append proof line to daemon/sales-proofs/2026-04-14.md.
+expected_artifact: GH comment URL (fetchable 200) on a recent pbtc21 repo/PR + proof line committed to daemon/sales-proofs/2026-04-14.md
+deadline: 2026-04-15T06:59Z (13h28m)
+status: verified
 commitments_outstanding:
-  - 3 proof URLs tonight (seat unlock, 13h34m left, 0/3 merged-or-pending)
+  - 3 proof URLs tonight (currently 1/3 merged — this dispatch ships #2)
   - DNC list populated by 2026-04-16T16:54Z (48h)
-  - Dense Leviathan onboarding before 20:00Z (2.5h)
   - Nostr post #correspondent-guild (deadline 2026-04-15T13:43Z)
-  - Dashboard migration to pipeline view (deferred, backlog P8)
 ```
 
 ## Format
