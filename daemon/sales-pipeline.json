@@ -31,17 +31,29 @@
       "note": "Named by Publisher in selection announcement. Accepted IC seat on #439 at 17:04:33Z. Onboarded via welcome comment with manual/pipeline/DNC links at 17:27Z. Awaiting her first PR adding herself to ic_pool with territory + payout address."
     }
   ],
-  "unlock_log": [],
+  "unlock_log": [
+    {
+      "date": "2026-04-14",
+      "unlocked_at": "2026-04-14T17:58:30.000Z",
+      "deadline_utc": "2026-04-15T06:59:00.000Z",
+      "sats_earned": 150000,
+      "proofs": [
+        { "n": 1, "target": "Dense Leviathan (IC onboarding)", "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245878950" },
+        { "n": 2, "target": "p008 x402.biwas.xyz (pbtc21)", "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593" },
+        { "n": 3, "target": "p001 Bitflow", "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973" }
+      ]
+    }
+  ],
   "revenue": {
-    "sats_earned_total": 0,
-    "sats_earned_this_week": 0,
+    "sats_earned_total": 150000,
+    "sats_earned_this_week": 150000,
     "sats_earned_last_week": 0,
     "closed_listings_total": 0,
     "closed_listings_this_week": 0,
     "avg_deal_size_sats": 30000,
     "target_weekly_closes": 1,
     "target_monthly_live_listings": 5,
-    "daily_unlock_sats_earned_total": 0
+    "daily_unlock_sats_earned_total": 150000
   },
   "prospects": [
     {
