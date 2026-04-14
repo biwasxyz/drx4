@@ -10,14 +10,17 @@ Compaction eats context. After 3-4 cycles of pulling GH threads + signal drafts 
 
 | Kind | Template | Agent type | Isolation | Typical output |
 |---|---|---|---|---|
+| `sales-dri` | `sales-dri.md` | general-purpose | none | Pipeline stage advancement (prospect → qualified → pitched → posted → renewed) |
 | `bff-skill` | `bff-skill.md` | worker | worktree | PR URL on BitflowFinance/bff-skills |
 | `news-signal` | `news-signal.md` | general-purpose | none | Signal ID from news_list_signals |
 | `gh-triage` | `gh-triage.md` | general-purpose | none | Summary of threads handled + read count |
 | `inbox-triage` | `inbox-triage.md` | general-purpose | none | messageIds processed/marked |
 | `bug-fix` | `bug-fix.md` | worker | worktree | PR URL on external repo |
-| `crm-update` | `crm-update.md` | general-purpose | none | listing_id or route_id + diff |
+| `crm-update` | `crm-update.md` | general-purpose | none | listing_id or route_id + diff (legacy registry — new pipeline goes in sales-pipeline.json via sales-dri) |
 | `protocol-notify` | `protocol-notify.md` | general-purpose | none | GH issue/comment URL |
 | `research` | — | Explore | none | Findings summary |
+
+**Primary driver:** `sales-dri` is the main daily motion. Other workers handle reactive/infrastructure tasks.
 
 ## Orchestrator contract
 
