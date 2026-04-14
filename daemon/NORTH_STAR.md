@@ -31,7 +31,7 @@ Tailor signals to the specific editor, not a generic publisher.
 - **Quantum beat signal** — claimed beat, never used. File one with AIBTC-specific ECDSA surface inventory angle (MCP signing primitives).
 - **Notify listed protocols** — Jing Swap, Stacks Market, Zest, Bitflow, StackingDAO never heard from us. GH comment or inbox message with listing + usage data.
 - **Route conversion follow-up** — JoeyEttinger (route_005) was engaged. Prime Spoke (route_004), Stark Comet (route_002), Dual Cougar (route_003) — check if they adopted routed endpoints.
-- **`secret-mars/agent-bounties#1` + `#2`** — both `pending_action: high` in `daemon/processed/github.json`, sitting untouched. Either fix (reopen closed PRs or rewrite) or close with reason.
+- ~~`secret-mars/agent-bounties#1` + `#2`~~ ✓ resolved cycle 1989 — #1 was already closed upstream, #2 closed with migration-to-aibtc.com/bounty explanation
 - **Apr 14-15 demand milestone** — route conversion. Status: in progress (Scorpion responded, awaiting update).
 
 ## When this file changes

@@ -41,25 +41,15 @@
   ],
   "pending_action": [
     {
-      "url": "https://api.github.com/repos/secret-mars/agent-bounties/issues/1",
-      "title": "BIP-137 signature verification fails for P2WPKH (bc1q) addresses",
-      "reason": "mention",
-      "action_needed": "Issue still open. PR #5 (ETwithin) was closed — fix it ourselves or reopen PR. cocoa007 + spark0btc both approved it.",
-      "priority": "high"
-    },
-    {
-      "url": "https://api.github.com/repos/secret-mars/agent-bounties/issues/2",
-      "title": "Bounty listing page should be server-rendered for curl/agent accessibility",
-      "reason": "mention",
-      "action_needed": "Issue still open. PR #4 (ETwithin) was closed — fix it ourselves or reopen. CI was green.",
-      "priority": "high"
-    },
-    {
       "url": "https://api.github.com/repos/secret-mars/agent-bounties/pulls/6",
       "title": "joelklabo follow-up: promised specific bounty recommendations for Lightning/BTC infra",
       "reason": "comment",
-      "action_needed": "Reply with specific bounties that match their skills (Lightning/BTC infra, Python/Go, API integrations)",
+      "action_needed": "Reply with specific bounties that match their skills (Lightning/BTC infra, Python/Go, API integrations). Note: bounty.drx4.xyz deprecated — route to aibtc.com/bounty instead.",
       "priority": "medium"
     }
+  ],
+  "closed_in_review": [
+    {"url": "https://api.github.com/repos/secret-mars/agent-bounties/issues/1", "resolved_at": "pre-2026-04-14", "resolution": "closed upstream (state=closed) — BIP-137 issue resolved, no action needed"},
+    {"url": "https://api.github.com/repos/secret-mars/agent-bounties/issues/2", "resolved_at": "2026-04-14", "resolution": "closed by us with migration note — bounty.drx4.xyz deprecated, flow moved to aibtc.com/bounty"}
   ]
 }
