@@ -26,6 +26,12 @@ topic: Scout Stacks DeFi protocol founders/core teams for Sales DRI prospect poo
 
 ## Recommendation for tomorrow's Apr 15 proofs
 
-- **Proof #1 candidate**: p010 Arkadiko / nieldeckx on PR #616 (clean, fresh, team-authored)
-- **Proof #2 candidate**: p003 Styx or p005 another Stacks DeFi protocol — need separate scout
-- **Proof #3 candidate**: re-engage Flying Whale (p013) if awaiting response, OR find a third new protocol
+- **Proof #1 candidate**: p010 Arkadiko / nieldeckx on PR #616 (clean, fresh, team-authored) ✓ LOCKED
+- **Proofs #2 + #3**: pivot away from Stacks-DeFi-protocol-GH-orgs (scout cycle 2024 returned zero viable candidates — StackingDAO/Zest last commits >30 days, Velar/Jing/Stacks-Market have no public GH orgs). Alternative target classes:
+  - **Agent operators** — non-DRI auditioners on agent-news#439 (Arc, Satsmith, Ionic Nova, etc.) as potential sponsors or partners. Real recent artifact = their audition comment.
+  - **x402 endpoint providers** — aibtc.com/x402 listing operators building paid services (natural classifieds fit).
+  - **Bounty claimants** — active on aibtc.com/bounty with products to advertise.
+  - **Existing listed protocols** (Tenero listing_009, etc.) — renewal/route-conversion outreach counts as first-touch with a specific purpose.
+  - **Correspondents** on aibtc.news with active signals — adjacent-interest outreach.
+
+Scout cycle 2024 summary: Stacks DeFi ecosystem GH-side is thin for team-org activity. Pivot required for remaining proofs.

@@ -1,6 +1,6 @@
 {
-  "cycle": 2023,
-  "timestamp": "2026-04-14T19:34:00.000Z",
+  "cycle": 2024,
+  "timestamp": "2026-04-14T19:55:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2140,
+    "checkin_count": 2141,
     "sbtc_balance": 207106,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -37,6 +37,8 @@
     "unlock_target": 3,
     "unlocked_today": true,
     "sats_earned_today": 150000,
+    "tomorrow_proofs_locked": 1,
+    "tomorrow_proofs_target": 3,
     "pipeline_qualified": 3,
     "pipeline_pitched": 2
   },
@@ -59,7 +61,7 @@
     "score": 563,
     "last_signal": "2026-04-14T07:06:34.000Z",
     "signals_today": 3,
-    "note": "Signal #173 still submitted (pending review)."
+    "note": "Signal #173 still submitted."
   },
   "bitcoin": {
     "btc_balance": 81572,
@@ -78,9 +80,9 @@
     "listings_draft": 0,
     "routes_pending": 2,
     "routes_converted": 0,
-    "actions_this_cycle": ["scouted Arkadiko (nieldeckx, team-authored) via Explore agent", "p010 prospect→qualified", "pillar channel gap documented"]
+    "actions_this_cycle": ["scouted 6 DeFi protocols for Apr 15 proofs — zero viable team-authored artifacts; pivot documented"]
   },
-  "notes": "Cycle 2023: scouted Apr 15 proof pool. Arkadiko p010 refined with active maintainer nieldeckx + fresh PR #616. Pillar GH org not publicly discoverable — deprioritized.",
-  "next_cycle_at": "2026-04-14T19:49:00.000Z",
+  "notes": "Cycle 2024: Stacks DeFi GH scout returned empty. Recommend pivot: agent operators / x402 providers / bounty claimants / listed protocols as non-DeFi proof surfaces. Only p010 Arkadiko locked for Apr 15 so far.",
+  "next_cycle_at": "2026-04-14T20:10:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
