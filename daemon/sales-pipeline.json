@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-14T17:05:00.000Z",
+  "last_updated": "2026-04-14T17:33:14.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -139,13 +139,15 @@
       "id": "p008",
       "name": "x402.biwas.xyz",
       "contact": { "channel": "github", "handle": "biwasxyz", "btc_address": null },
-      "stage": "qualified",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-14T17:33:14.000Z",
+      "last_touch_at": "2026-04-14T17:33:14.000Z",
+      "touches": [
+        { "at": "2026-04-14T17:33:14.000Z", "channel": "github", "direction": "out", "summary": "Permission-first comment on agent-news PR #467 (active-beats filter) — tied to pbtc21's own verifiable-on-chain-usage thesis, asked permission to share an adjacent opportunity.", "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593" }
+      ],
       "bant_plus": { "budget": "confirmed", "authority": "owner", "need": "high", "timeline": "ready" },
       "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
-      "notes": "Operator-adjacent (pbtc21). Paid analytics already x402-monetized. Highest-qualified prospect. Recommend pitch this week.",
+      "notes": "Operator-adjacent (pbtc21). Paid analytics already x402-monetized. Highest-qualified prospect. Permission-ask posted 2026-04-14T17:33Z on agent-news#467.",
       "do_not_contact": false
     },
     {
