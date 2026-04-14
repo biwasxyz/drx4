@@ -40,18 +40,20 @@ Read:
 - `daemon/NORTH_STAR.md` backlog
 - Current counts (unread inbox, unread GH, open PRs, signals_today, bff_day, listings_live)
 
-Decision priority (top wins):
+Decision priority by notification TYPE (not count — 1 critical mention beats 20 stale subscriptions):
 1. **CI failure on my open PR** → dispatch `bug-fix` or `bff-skill` worker to fix.
-2. **Unread GH notifications > 5** → dispatch `gh-triage` worker.
-3. **Reviewer asked me something on open PR** (visible in gh-triage output) → dispatch `bug-fix` worker to address.
+2. **GH mention or review_requested** (any count — even 1) → dispatch `gh-triage` worker. One DRI selection, review-requested PR, or reviewer ask matters more than 20 stale `subscribed` notifications.
+3. **Reviewer asked something on my PR** (visible in gh-triage output: comment on my open PR requesting changes) → dispatch `bug-fix` worker to address.
 4. **Daily minimum gap**: check `outputs.log` for today's UTC date. Required per day:
    - 2 BD actions (listing or route in `daemon/crm.json`)
    - 1 news signal (approved or submitted)
    - 1 BFF skill PR (open or merged)
    - 1 distribution/comment
    → dispatch the worker that closes the gap.
-5. **Inbox unread > 10** → dispatch `inbox-triage` worker.
+5. **Inbox unread** (any count) → dispatch `inbox-triage` worker. Mentions of one important sender (editor, operator, human ask) matter independent of volume.
 6. **Backlog item from NORTH_STAR** → dispatch relevant worker.
+
+Don't threshold by volume. A single DRI announcement, reviewer change-request, or editor ask outranks a flood of routine state_change notifications. The `gh-triage` script classifies `review` vs `safe` — surface `review` items regardless of count.
 
 **Write `daemon/dri-active.md` BEFORE dispatching.** Status=dispatched.
 
@@ -59,7 +61,21 @@ Decision priority (top wins):
 
 ## 3. Dispatch — spawn a worker
 
-Use the `Agent` tool with the right `subagent_type` + prompt from `daemon/workers/<kind>.md`. Substitute `{{variables}}` with concrete values. Pass the minimum context the worker needs.
+**Mechanism:** use the Claude Code **`Agent` tool** (native subagent dispatch — it's in your tool list). Do NOT attempt to do the work inline. Do NOT shell out to `claude --print -p` as a default (only fall back to that if the Agent tool is unavailable in your harness).
+
+**Invocation shape (Agent tool):**
+```
+Agent(
+  description: "<3-5 word task>",
+  subagent_type: "<worker | general-purpose | Explore>",
+  isolation: "<worktree>" if code changes, omit otherwise,
+  prompt: "<full prompt loaded from daemon/workers/<kind>.md with {{variables}} substituted>"
+)
+```
+
+The Agent tool opens a fresh subagent context. The worker's tool calls and file reads stay in the subagent's context, NOT yours. Only the subagent's final summary flows back to you.
+
+**If you find yourself reading a PR thread, drafting a skill file, or authoring a signal body in the orchestrator context, STOP.** That's a signal you forgot to dispatch. Kill the inline work, open Agent, pass the context.
 
 Kinds and mapping: see `daemon/workers/README.md`. Quick reference:
 
@@ -67,14 +83,16 @@ Kinds and mapping: see `daemon/workers/README.md`. Quick reference:
 |---|---|---|---|
 | Open BFF skill PR | `bff-skill` | worker | worktree |
 | Fix bug in external repo | `bug-fix` | worker | worktree |
-| File news signal | `news-signal` | general-purpose | none |
-| GH notification triage | `gh-triage` | general-purpose | none |
-| Inbox triage | `inbox-triage` | general-purpose | none |
-| Update CRM | `crm-update` | general-purpose | none |
-| Notify listed protocol | `protocol-notify` | general-purpose | none |
-| Deep codebase research | (Explore agent) | Explore | none |
+| File news signal | `news-signal` | general-purpose | (none) |
+| GH notification triage | `gh-triage` | general-purpose | (none) |
+| Inbox triage | `inbox-triage` | general-purpose | (none) |
+| Update CRM | `crm-update` | general-purpose | (none) |
+| Notify listed protocol | `protocol-notify` | general-purpose | (none) |
+| Deep codebase research | — | Explore | (none) |
 
 **Never spawn more than 1 worker per cycle.** Serialize. Second worker next cycle.
+
+**Fallback if Agent tool fails:** invoke `claude --print -p "<full-prompt>"` via Bash tool. Slower + higher friction but produces the same context-isolation property. Capture stdout as the worker return.
 
 ---
 
