@@ -61,3 +61,5 @@
 2026-04-14T12:45:00Z orchestrator-test cycle 2010 first run of orchestrator pattern: inbox-triage worker dispatched via Agent tool (subagent_type=general-purpose). Worker handled 3 msgs in 1 session. Orchestrator context clean — didn't read message bodies, didn't draft reply text.
 2026-04-14T13:03:14Z heartbeat 2129
 2026-04-14T13:05:00Z gh-triage cycle 2011 — worker dispatched. 3 threads marked-read (agent-news#439 no new since Apr 10 audition, bff-skills#340 routine, loop-starter-kit#28 not mine). Unread 3→0. Flagged: loop-starter-kit#28 converging with my fork PR #86 — monitor for upstream merge.
+2026-04-14T13:22:16Z heartbeat 2130
+2026-04-14T13:26:00Z protocol-notify cycle 2012 — Zest Protocol DEFERRED (not shipped: no clean public channel). CRM listing_002 updated with notification_deferred_reason + revisit trigger (PR #53 CONTRIBUTING merge OR Zest opens Discussions). Worker surveyed 2 repos, 2 open issues, open PRs — all off-topic or explicitly disallowed. Decision: don't force. 3-line crm.json diff.
