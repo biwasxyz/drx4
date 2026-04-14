@@ -19,3 +19,5 @@
 2026-04-14T02:32:00Z drift-discovery Phase 0 briefing surfaced 19 open PRs (not 9 tracked). 3 aibtcdev/agent-contracts PRs (#10/#9/#3) have reviewer comments from tfireubs-ui sitting 26+ days. Added to NORTH_STAR backlog.
 2026-04-14T02:52:00Z gh-commit https://github.com/aibtcdev/agent-contracts/commit/3957d07 heartbeat.clar underflow guard on is-active (+ 2 new tests, 12/12 passing)
 2026-04-14T02:53:00Z gh-comment https://github.com/aibtcdev/agent-contracts/pull/10#issuecomment-4240990315 Replied to tfireubs-ui on PR #10 — 26d stale review resolved
+2026-04-14T03:09:00Z gh-commit https://github.com/aibtcdev/agent-contracts/commit/03157bd pegged-dao.clar DESIGN NOTE on set-phase irreversibility (132/132 tests pass)
+2026-04-14T03:10:00Z gh-comment https://github.com/aibtcdev/agent-contracts/pull/9#issuecomment-4241058191 Replied to tfireubs-ui on PR #9 — answered break-glass design question, 27d stale review resolved
