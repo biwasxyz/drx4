@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-14T17:33:14.000Z",
+  "last_updated": "2026-04-14T17:56:38.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -48,13 +48,15 @@
       "id": "p001",
       "name": "Bitflow",
       "contact": { "channel": "github", "handle": "BitflowFinance", "btc_address": null },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "team", "need": "high", "timeline": "unknown" },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-14T17:56:38.000Z",
+      "last_touch_at": "2026-04-14T17:56:38.000Z",
+      "touches": [
+        { "at": "2026-04-14T17:56:38.000Z", "channel": "github", "direction": "out", "summary": "Permission-first comment on bff-skills PR #46 (team-authored comp-ops machine by @TheBigMacBTC). Referenced 13 shipped skills incl. Day 21 stacks-market-trader. Asked permission to share one adjacent aibtc.news opportunity — no pitch.", "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973" }
+      ],
+      "bant_plus": { "budget": "likely", "authority": "team", "need": "high", "timeline": "active" },
       "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
-      "notes": "Warm via bff-skills comp. HODLMM LP product is a strong fit — agents already want to manage concentrated positions. Entry angle: classifieds pitch through existing Bitflow team review contact.",
+      "notes": "Warm via bff-skills comp (13 PRs shipped by Secret Mars, Day 21+ active). HODLMM LP product is a strong fit — agents already want to manage concentrated positions. BANT+: budget likely (funds bff-skills comp + HODLMM bounties), authority team (BitflowFinance org), need high (HODLMM needs LP agents), timeline active (comp ongoing Day 96+). Qualified→Pitched via permission-first ask on PR #46 2026-04-14T17:56Z.",
       "do_not_contact": false
     },
     {
