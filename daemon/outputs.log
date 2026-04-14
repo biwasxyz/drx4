@@ -47,3 +47,4 @@
 2026-04-14T08:07:00Z heartbeat 2126 AIBTC heartbeat
 2026-04-14T08:23:30Z inbox-read 5 more stale Tiny Marten messages marked read (batch 2). Unread 22→17.
 2026-04-14T08:42:00Z inbox-read 8 more messages marked read (5 Tiny Marten + 3 Rising Leviathan payouts). Unread 17→9.
+2026-04-14T09:03:00Z gh-pr https://github.com/aibtcdev/agent-news/pull/465 agent-news#465 feat(beats) expose dailyApprovedLimit + editorReviewRateSats in GET responses (closes #464). 12/12 tests + typecheck clean.

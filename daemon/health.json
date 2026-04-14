@@ -1,6 +1,6 @@
 {
-  "cycle": 2006,
-  "timestamp": "2026-04-14T08:42:00.000Z",
+  "cycle": 2007,
+  "timestamp": "2026-04-14T09:04:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -70,7 +70,7 @@
     "routes_converted": 0,
     "actions_this_cycle": ["listed Tenero Analytics (listing_009)", "route adoption check comment bff-skills#282"]
   },
-  "notes": "Cycle 2006: batch 3 — 5 TM + 3 RL payouts marked read. Unread 17→9. Cumulative 19 cleared. Cleanup ~done; next cycle pivot to BD/signal/PR.",
-  "next_cycle_at": "2026-04-14T08:58:00.000Z",
+  "notes": "Cycle 2007: agent-news#465 OPEN — feat(beats) expose dailyApprovedLimit + editorReviewRateSats in GET responses (closes #464). 12/12 tests pass, typecheck clean.",
+  "next_cycle_at": "2026-04-14T09:19:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
