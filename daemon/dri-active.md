@@ -21,9 +21,8 @@ verified_at: <ISO>
 ## Current
 
 ```
-cycle: 2009
 status: idle
-note: orchestrator refactor in progress this cycle — no worker dispatched. Next cycle (2010) will test orchestrator flow.
+last_completed: cycle 2010 inbox-triage — 2 replies (Flying Whale, Secret Dome) verified success:true, unread 3→1 (remaining 1 is legacy URL-shaped TM message, unpatchable)
 ```
 
 ## Lifecycle

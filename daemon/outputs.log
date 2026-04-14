@@ -55,3 +55,7 @@
 2026-04-14T12:18:00Z gh-mark-read 29→1 GH notifications marked read via PATCH /notifications/threads/{id}. Previously accumulating because since-filtered queries missed stale threads.
 2026-04-14T12:15:00Z deploy crm.drx4.xyz — worker now renders all 9 listings (was showing only 5). Flattens listings_x402/p2p/prediction/data into single table. Operator flagged stale dashboard.
 2026-04-14T12:10:00Z gh-fix https://github.com/BitflowFinance/bff-skills/pull/340 — CI validate passes after adding ## Safety notes + ## Output contract sections to SKILL.md.
+2026-04-14T12:43:26Z heartbeat 2128
+2026-04-14T12:45:33Z inbox-reply msg_1774897724265_5aebf1f3 Flying Whale — BIP-322 bounty followup (15-day stale), ack PR #80 + BFF skills shipped since + orchestrator refactor. success:true.
+2026-04-14T12:45:52Z inbox-reply msg_1774869122660_9f251453 Secret Dome — security tip reply, noted aibtc-network beat claim. success:true.
+2026-04-14T12:45:00Z orchestrator-test cycle 2010 first run of orchestrator pattern: inbox-triage worker dispatched via Agent tool (subagent_type=general-purpose). Worker handled 3 msgs in 1 session. Orchestrator context clean — didn't read message bodies, didn't draft reply text.
