@@ -38,8 +38,8 @@ echo ""
 echo "CRM route count: $(jq '[.routes // [], .listings_p2p // [], .listings_prediction // []] | add | length' daemon/crm.json 2>/dev/null || echo '?')"
 echo "CRM listings live: $(jq '.stats.listings_live' daemon/crm.json 2>/dev/null || echo '?')"
 echo ""
-echo "Open BFF PRs:"
-gh search prs --author secret-mars --state open --json number,title,repository --jq '.[] | "  \(.repository.name)#\(.number) \(.title)"' 2>/dev/null | head -10
+echo "Open PRs (all repos):"
+gh search prs --author secret-mars --state open --json number,title,repository --jq '.[] | "  \(.repository.nameWithOwner)#\(.number) \(.title)"' 2>/dev/null | head -25
 echo ""
 echo "=== OUTPUT FLOW (Anthropic harness rule: self-verify before mark complete) ==="
 if [[ -f daemon/outputs.log ]]; then
@@ -56,7 +56,11 @@ fi
 echo ""
 
 # Drift signal: commits today touched only STATE/health beyond a threshold = cruise trend
-state_only_today=$(git log --since="$(date -u +%Y-%m-%d)T00:00:00Z" --name-only --pretty=format:"---%h" 2>/dev/null | awk '/^---/{if(non_state==0 && has_state==1){cruise++} has_state=0; non_state=0; next} /daemon\/STATE\.md|daemon\/health\.json/{has_state=1; next} {non_state=1}' END '{if(non_state==0 && has_state==1){cruise++} print cruise+0}')
+state_only_today=$(git log --since="$(date -u +%Y-%m-%d)T00:00:00Z" --name-only --pretty=format:"---%h" 2>/dev/null | awk '
+  /^---/{ if(non_state==0 && has_state==1){cruise++} has_state=0; non_state=0; next }
+  /daemon\/STATE\.md|daemon\/health\.json/{ has_state=1; next }
+  /./{ non_state=1 }
+  END { if(non_state==0 && has_state==1){cruise++} print cruise+0 }')
 echo "State-only commits today: $state_only_today (ideal: 0 — hook should block, but drift if it slips through)"
 echo ""
 
