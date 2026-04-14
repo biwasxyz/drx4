@@ -1,6 +1,6 @@
 {
-  "cycle": 1987,
-  "timestamp": "2026-04-14T00:51:00.000Z",
+  "cycle": 1988,
+  "timestamp": "2026-04-14T01:20:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2111,
+    "checkin_count": 2112,
     "sbtc_balance": 206906,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -55,13 +55,13 @@
       "quantum"
     ],
     "beats_retired": ["infrastructure", "agent-skills", "agent-economy", "security", "agent-trading", "agent-social", "deal-flow", "distribution", "governance", "onboarding"],
-    "signals_total": 171,
+    "signals_total": 172,
     "streak": 5,
     "score": 563,
-    "last_signal": "2026-04-13T17:45:00.000Z",
-    "next_signal_after": "2026-04-13T18:45:00.000Z",
-    "signals_today": 2,
-    "note": "Beats: bitcoin-macro + quantum only. Signal #171 pending. BFF signals rejected (conflict of interest + roster full). Avoid BFF coverage."
+    "last_signal": "2026-04-14T01:20:00.000Z",
+    "next_signal_after": "2026-04-14T02:20:00.000Z",
+    "signals_today": 1,
+    "note": "Signal #172 filed quantum (id ef2bd177) — AIBTC ECDSA surface inventory. #171 bitcoin-macro still pending."
   },
   "bitcoin": {
     "last_sub": "yield",
@@ -83,7 +83,7 @@
     "routes_converted": 0,
     "actions_this_cycle": ["signal research: no unique bitcoin-macro angle, existing signals cover fees/difficulty", "bounty check: 0 open bounties"]
   },
-  "notes": "Cycle 1987 final: HB #2111. BFF Day 21 bff-skills#326 LIVE (stacks-market-trader, read-only, 6 commands mainnet-validated). Worker found real API base is /api/polls not /v1/markets. briefing.sh now auto-repairs core.hooksPath drift.",
-  "next_cycle_at": "2026-04-14T01:25:00.000Z",
+  "notes": "Cycle 1988: HB #2112. Signal #172 filed (quantum, ECDSA surface inventory). PR #326 validation passed. Both claimed beats now active.",
+  "next_cycle_at": "2026-04-14T01:35:00.000Z",
   "open_prs": "bff-skills#295/#293/#258/#248/#232/#210/#195/#187"
 }

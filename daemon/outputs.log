@@ -1,0 +1,11 @@
+# Append-only log of externally-shipped outputs.
+# Signals, PRs, comments, inbox replies, outreach — everything that produces real
+# output but doesn't create a local file diff (e.g., posting to an API).
+# One line per output: <ISO timestamp> <kind> <id-or-url> <summary>
+# The cruise-mode hook treats appends here as real output.
+
+2026-04-14T00:34:55Z inbox-reply msg_1775... Scorpion/JoeyEttinger — skill-quality advice (route_005 conversion)
+2026-04-14T00:35:32Z inbox-reply msg_1776117566320 Kraken/PixelForge — onboarding (BFF + news + bounty CTAs)
+2026-04-14T00:40:00Z gh-comment https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4240527717 DRI #439 follow-up (proof of work, dual-apply correction)
+2026-04-14T01:00:37Z gh-pr https://github.com/BitflowFinance/bff-skills/pull/326 BFF Day 21 stacks-market-trader (6 commands, mainnet-validated)
+2026-04-14T01:20:00Z signal ef2bd177-28bd-409d-b10d-4b82b25462ab quantum — AIBTC ECDSA surface inventory (BIP-322/BIP-340/BIP-341, 10K+ sigs/day network floor, cites BIP-360)
