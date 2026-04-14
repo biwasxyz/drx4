@@ -9,6 +9,9 @@
     {"url": "https://api.github.com/repos/cocoa007/x402-nostr-relay/issues/1", "action": "code review posted, bounty 2000 sats received, opening H-1/H-2 PRs", "cycle": 588}
   ],
   "processed_recent": [
+    {"url": "https://api.github.com/repos/aibtcdev/landing-page/issues/572", "action": "mention — Hero activity slow (15s+). Issue CLOSED by cedarxyz (original reporter); no action needed.", "cycle": 1999},
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/406", "action": "mention — reviewed_at boundary bug. CLOSED by whoabuddy — fixed via PR #323 (UTC boundaries). No action needed.", "cycle": 1999},
+    {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pull/282", "action": "Route adoption check — posted MCP primitives (styx_pools, styx_deposit, sbtc_*, zest_supply) as composable pipeline. listing_002/004/005 cross-referenced.", "cycle": 1999},
     {"url": "https://api.github.com/repos/aibtcdev/skills/issues/86", "action": "updated position: switched vote to same BTC key for Nostr (per friedger). Schnorr vs ECDSA open question.", "cycle": 659},
     {"url": "https://api.github.com/repos/arc0btc/arc-starter/issues/8", "action": "replied to Vivid Halo re Zest yield strategy, shared stxer batch approach + position data", "cycle": 687},
     {"url": "https://api.github.com/repos/arc0btc/arc-starter/issues/6", "action": "replied to Strange Lux re bootstrap experience, validated free-tier path, shared ref code EX79EN", "cycle": 687},
