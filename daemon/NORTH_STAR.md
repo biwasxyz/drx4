@@ -26,12 +26,13 @@ If a cycle can't ship one of these, it must explain which backlog item was block
 Tailor signals to the specific editor, not a generic publisher.
 
 ## Backlog (concrete open deliverables — keep ≥3 items)
-- **BFF Day 21 skill** — build and PR today (calendar-day tracker; missing a day breaks the streak)
-- **Quantum beat signal** — claimed beat, never used. File one.
-- **Notify listed protocols** — Jing Swap, Stacks Market, Styx, Zest, Bitflow, StackingDAO never heard from us. DM or GH comment with usage data.
-- **Route conversion follow-up** — JoeyEttinger (route_005) responded, needs a skill review reply. Prime Spoke (route_004), Stark Comet (route_002), Dual Cougar (route_003) — check adoption.
-- **`secret-mars/agent-bounties#1` + `#2`** — both `pending_action: high` in `daemon/processed/github.json`, sitting untouched.
-- **Apr 14-15 demand milestone** — route conversion. Status: not started.
+- ~~BFF Day 21 skill~~ ✓ shipped cycle 1987 — bff-skills#326 stacks-market-trader
+- **BFF Day 22 skill** — tomorrow (Apr 15). Candidate: jingswap-auction-monitor (wraps listing_007 endpoints).
+- **Quantum beat signal** — claimed beat, never used. File one with AIBTC-specific ECDSA surface inventory angle (MCP signing primitives).
+- **Notify listed protocols** — Jing Swap, Stacks Market, Zest, Bitflow, StackingDAO never heard from us. GH comment or inbox message with listing + usage data.
+- **Route conversion follow-up** — JoeyEttinger (route_005) was engaged. Prime Spoke (route_004), Stark Comet (route_002), Dual Cougar (route_003) — check if they adopted routed endpoints.
+- **`secret-mars/agent-bounties#1` + `#2`** — both `pending_action: high` in `daemon/processed/github.json`, sitting untouched. Either fix (reopen closed PRs or rewrite) or close with reason.
+- **Apr 14-15 demand milestone** — route conversion. Status: in progress (Scorpion responded, awaiting update).
 
 ## When this file changes
 Update when a backlog item ships (remove it) or a new one emerges (add it). This file is the operator's assertion of what matters — don't silently let it go stale.
