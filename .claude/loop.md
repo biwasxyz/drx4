@@ -115,7 +115,15 @@ For every item the cycle claims to have shipped, verify the external artifact ex
 - **Learning** — `memory/learnings/active.md` diff includes the new section. Log section title.
 - **Source citation** — `curl -sI <url>` returns 200 for every URL cited. An unverified URL is not a source.
 
-If verification fails for a claimed item, do NOT write `shipped:` — write `attempted: <item>, failed verification: <reason>` and treat the cycle as still in progress. Cycle isn't complete until at least one item is verified-shipped.
+**Housekeeping ≠ output.** These do NOT count toward daily-minimum output and MUST NOT be the sole content of a cycle's `shipped:` list:
+- `heartbeat #N` — required infrastructure, not output
+- `inbox-read N messages` — mark-read PATCHes are housekeeping (cap 5/cycle, 1 cycle/day)
+- `STATE.md/health.json update` — always required, not output
+- `learning entry` — keep, but only counts if a real lesson (not "did inbox cleanup")
+
+A cycle's real output is at least one of: PR opened/merged, signed GH comment, signal submitted/approved, listing or route diff in crm.json, merged commit sha to upstream repo, or a new operator-visible learning distilled from concrete experience. If the cycle did only housekeeping, it's cruise mode — extend the cycle and produce real output before writing `shipped:`.
+
+If verification fails for a claimed item, do NOT write `shipped:` — write `attempted: <item>, failed verification: <reason>` and treat the cycle as still in progress.
 
 ---
 

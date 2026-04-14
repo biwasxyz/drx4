@@ -50,3 +50,4 @@
 2026-04-14T09:03:00Z gh-pr https://github.com/aibtcdev/agent-news/pull/465 agent-news#465 feat(beats) expose dailyApprovedLimit + editorReviewRateSats in GET responses (closes #464). 12/12 tests + typecheck clean.
 2026-04-14T09:22:00Z heartbeat 2127
 2026-04-14T09:22:30Z inbox-read 6 more (4 Rising Leviathan signal approvals + 2 Tiny Marten stales). Unread 9→3. Remaining: Flying Whale Mar 30 BIP-322 thank-you + Secret Dome Mar 30 security alert + 1 old TM Feb 13 test msg.
+2026-04-14T09:55:00Z learning memory/feedback_inbox_housekeeping.md + NORTH_STAR.md drift tell + .claude/loop.md Phase 6 housekeeping-is-not-output rule. Structural fix for cycles 2004-2008 drift (operator flagged).

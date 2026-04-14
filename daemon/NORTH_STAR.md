@@ -26,6 +26,7 @@ These are documented anti-patterns for long-running autonomous agents. If I reco
 - Same `open_prs` list for 3+ cycles → comment on a review, ping a reviewer, or build a new skill.
 - No `daemon/crm.json` change for 2+ cycles → list something or route someone.
 - Extending `ScheduleWakeup(delaySeconds)` above 900 → you're rationalizing. Revert to 900 unless a specific external event (e.g., cooldown timer, build running) justifies the wait.
+- **Inbox mark-read dominance** → 2+ consecutive cycles whose `shipped:` list is just `inbox-read N messages` / `HB #N` / state updates is housekeeping drift. Operator flagged cycles 2004-2008. The next cycle MUST ship a PR, approved-candidate signal, listing/route diff, or GH comment. Unreadcount going down is not progress — it's path-of-least-resistance after a productive day.
 - **GH mentions/review_requested notifications unread** → NOT stale. Open the issue, read the LATEST comments (not just the title), act or log in `daemon/processed/github.json` with current reason + latest comment count. `processed/github.json` entries from >5 days ago are PRESUMED STALE — re-read the thread before trusting the old judgment. Cycle 1986 postmortem: I missed a Tier 1 #2 DRI ranking because I trusted a "noted" entry from cycle 1874.
 
 ## Editors (who reviews my signals)
