@@ -24,8 +24,11 @@
       "name": "Dense Leviathan",
       "handle": "@Cheryllacher",
       "invited_at": "2026-04-14T16:54Z",
-      "status": "invited-pending-onboarding",
-      "note": "Named by Publisher in selection announcement. Proved permission-first outreach to Pure Troll with fetchable URL within 24h of auditioning. Reach out before 2026-04-14T20:00Z."
+      "accepted_at": "2026-04-14T17:04:33Z",
+      "onboarded_at": "2026-04-14T17:27:00Z",
+      "status": "onboarded-awaiting-first-pr",
+      "onboarding_proof_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245878950",
+      "note": "Named by Publisher in selection announcement. Accepted IC seat on #439 at 17:04:33Z. Onboarded via welcome comment with manual/pipeline/DNC links at 17:27Z. Awaiting her first PR adding herself to ic_pool with territory + payout address."
     }
   ],
   "unlock_log": [],
