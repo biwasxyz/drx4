@@ -23,3 +23,6 @@
 2026-04-14T03:10:00Z gh-comment https://github.com/aibtcdev/agent-contracts/pull/9#issuecomment-4241058191 Replied to tfireubs-ui on PR #9 — answered break-glass design question, 27d stale review resolved
 2026-04-14T03:35:00Z gh-commit https://github.com/aibtcdev/agent-contracts/commit/a947e9f init-proposal auth fix (18 broken tests -> 23/23 pass) + set-treasury-proposal.clar rotation template + 2 new tests
 2026-04-14T03:36:00Z gh-comment https://github.com/aibtcdev/agent-contracts/pull/3#issuecomment-4241146350 Replied tfireubs-ui on PR #3 — rotation template + bug fix shipped. All 3 stale agent-contracts PRs cleared.
+2026-04-14T03:56:00Z gh-close https://github.com/arc0btc/arc0btc-worker/pull/17 Closed refactor PR as obsolete (feed handlers removed from main in f6ab70d)
+2026-04-14T03:56:30Z gh-comment https://github.com/arc0btc/arc0btc-worker/issues/4#issuecomment-4241203028 Left closure note on issue #4 (not my repo to close)
+2026-04-14T03:57:00Z triage 7 non-BFF open PRs triaged: #17 closed obsolete; 2 directory PRs (best-of-ai#261, e2b-dev#520) waiting on maintainers; sonic-mast#2, pbtc21/stx402-agents#3, pbtc21/agent-billboards#1, pbtc21/the-button#1 waiting on upstream reviewers

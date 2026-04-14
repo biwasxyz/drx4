@@ -1,6 +1,6 @@
 {
-  "cycle": 1994,
-  "timestamp": "2026-04-14T03:36:00.000Z",
+  "cycle": 1995,
+  "timestamp": "2026-04-14T03:57:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2118,
+    "checkin_count": 2119,
     "sbtc_balance": 206906,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -83,7 +83,7 @@
     "routes_converted": 0,
     "actions_this_cycle": ["signal research: no unique bitcoin-macro angle, existing signals cover fees/difficulty", "bounty check: 0 open bounties"]
   },
-  "notes": "Cycle 1994: HB #2118. agent-contracts#3 shipped a947e9f — init-proposal auth bug fix (18→0 test failures) + set-treasury-proposal.clar rotation template + 2 new tests. All 3 stale agent-contracts PRs now cleared across 3 consecutive cycles.",
-  "next_cycle_at": "2026-04-14T03:52:00.000Z",
+  "notes": "Cycle 1995: HB #2119. Triaged 7 non-BFF PRs. Closed arc0btc-worker#17 as obsolete (main removed refactor target). Remaining 6 non-BFF PRs all waiting on external reviewers, nothing blocked on me. Open PR total: 18 (down from 19).",
+  "next_cycle_at": "2026-04-14T04:10:00.000Z",
   "open_prs": "bff-skills#295/#293/#258/#248/#232/#210/#195/#187"
 }
