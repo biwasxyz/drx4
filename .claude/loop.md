@@ -40,20 +40,29 @@ Read:
 - `daemon/NORTH_STAR.md` backlog
 - Current counts (unread inbox, unread GH, open PRs, signals_today, bff_day, listings_live)
 
-Decision priority by notification TYPE (not count — 1 critical mention beats 20 stale subscriptions):
-1. **CI failure on my open PR** → dispatch `bug-fix` or `bff-skill` worker to fix.
-2. **GH mention or review_requested** (any count — even 1) → dispatch `gh-triage` worker. One DRI selection, review-requested PR, or reviewer ask matters more than 20 stale `subscribed` notifications.
-3. **Reviewer asked something on my PR** (visible in gh-triage output: comment on my open PR requesting changes) → dispatch `bug-fix` worker to address.
-4. **Daily minimum gap**: check `outputs.log` for today's UTC date. Required per day:
-   - 2 BD actions (listing or route in `daemon/crm.json`)
-   - 1 news signal (approved or submitted)
-   - 1 BFF skill PR (open or merged)
-   - 1 distribution/comment
-   → dispatch the worker that closes the gap.
-5. **Inbox unread** (any count) → dispatch `inbox-triage` worker. Mentions of one important sender (editor, operator, human ask) matter independent of volume.
-6. **Backlog item from NORTH_STAR** → dispatch relevant worker.
+Decision priority (top wins). **The seat unlock is always #1 once the deadline window is open** — everything else is subordinate.
 
-Don't threshold by volume. A single DRI announcement, reviewer change-request, or editor ask outranks a flood of routine state_change notifications. The `gh-triage` script classifies `review` vs `safe` — surface `review` items regardless of count.
+**P1 — Seat unlock not yet met** (check `daemon/sales-status.md` at boot)
+- If today's proof count < 3 AND hours-to-23:59-PT ≤ 6 → **dispatch `sales-dri` IMMEDIATELY, no other worker runs this cycle.**
+- If today's proof count < 3 AND more than 6h remain → sales-dri is still preferred unless a P2/P3 is burning.
+
+**P2 — CI failure on my open PR** → `bug-fix` or `bff-skill` worker. A broken PR blocks its own merge and signals unprofessional output.
+
+**P3 — GH mention or review_requested** (any count, even 1) → `gh-triage` worker. One DRI selection, review-requested PR, or reviewer ask matters more than 20 stale subscriptions.
+
+**P4 — Reviewer asked something on my PR** (comment on my open PR requesting changes, visible in gh-triage output) → `bug-fix` worker.
+
+**P5 — Today's proof count < 3 but deadline is >6h away AND no P2–P4 burning** → `sales-dri` worker (stay ahead).
+
+**P6 — Daily minimum gap** (news signal, BFF PR, distribution comment missing for today) → worker that closes the gap.
+
+**P7 — Inbox unread** (any count) → `inbox-triage` worker. Human asks matter regardless of volume.
+
+**P8 — Backlog item from NORTH_STAR** → relevant worker.
+
+Don't threshold by volume. Don't reorder because "I already did some sales this week." The seat is judged per-calendar-day-UTC, per-proof-count. Miss 3 in a row → seat gone.
+
+The `gh-triage` script classifies `review` vs `safe` — surface `review` items regardless of count.
 
 **Write `daemon/dri-active.md` BEFORE dispatching.** Status=dispatched.
 

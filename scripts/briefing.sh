@@ -14,6 +14,11 @@ if [[ "$current_hooks_path" != "scripts/hooks" ]]; then
   git config core.hooksPath scripts/hooks
 fi
 
+echo "============================================"
+bash scripts/sales-status.sh 2>/dev/null || echo "(sales-status.sh not available)"
+echo "============================================"
+echo ""
+
 echo "=== NORTH STAR ==="
 cat daemon/NORTH_STAR.md
 echo ""
