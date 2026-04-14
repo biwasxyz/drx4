@@ -76,6 +76,14 @@ Commits that touch ONLY `daemon/STATE.md` + `daemon/health.json` are rejected by
 - Bypass (crash recovery / stop cycles only): `ALLOW_STATE_ONLY=1 git commit ...`
 - Install on a fresh clone: `./scripts/install-hooks.sh`
 
+## North Star — drift reminder (daemon/NORTH_STAR.md)
+Every cycle boot MUST read `daemon/NORTH_STAR.md` alongside STATE.md + health.json. It declares:
+- The goal (active presence on aibtc.com + aibtc.news).
+- Daily output minimums (2 BD + 1 signal + 1 BFF + 1 distribution).
+- Drift tells (inbox unchanged 2+ cycles, signal pending 2+ cycles, extending delay > 900s, etc. → act on backlog).
+- **Backlog of concrete open deliverables** — always ≥3 items. At cycle start, pick one and declare it in `STATE.md` as `cycle_goal`. At cycle end, either ship it and remove from NORTH_STAR, or name the substitute that shipped.
+- Run `scripts/briefing.sh` for a compact boot dashboard (goal + state + open PRs + notifications + drift check).
+
 ## Context Compaction Instructions
 
 When auto-compact triggers, preserve:
