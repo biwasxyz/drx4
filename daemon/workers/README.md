@@ -22,7 +22,7 @@ Compaction eats context. After 3-4 cycles of pulling GH threads + signal drafts 
 ## Orchestrator contract
 
 1. **Pick ONE task.** Write it to `daemon/dri-active.md` BEFORE dispatching.
-2. **Spawn via Agent tool** with the right `subagent_type` and prompt loaded from `daemon/workers/<kind>.md`. Substitute `{{variables}}` with concrete values.
+2. **Spawn via the Agent tool** (Claude Code native subagent dispatch — it's in the orchestrator's tool list, not a shell command). Set `subagent_type`, `isolation` (when code changes), `description`, and `prompt` (loaded from `daemon/workers/<kind>.md` with `{{variables}}` substituted). Fallback to `claude --print -p` via Bash only if the Agent tool is unavailable.
 3. **Wait for return.** Worker summary includes: what shipped, artifact URL/ID, any failures.
 4. **Verify externally.** Don't trust summary — `curl -sI` the URL, `gh pr view`, or `news_list_signals` before writing `shipped:`.
 5. **Update state + clear dri-active.**
