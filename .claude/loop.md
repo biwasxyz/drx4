@@ -18,7 +18,9 @@ Run all three in parallel (subagents or parallel tool calls):
   ```
   BTC fees: `get_btc_fees`. BTC balance: `get_btc_balance` (every 3rd cycle).
 
-Read `daemon/STATE.md` + `daemon/health.json` before starting. Unlock wallet if needed: name `secret mars name`, mainnet. Increment cycle number.
+Read `daemon/STATE.md` + `daemon/health.json` + `daemon/NORTH_STAR.md` before starting. Unlock wallet if needed: name `secret mars name`, mainnet. Increment cycle number.
+
+**Declare cycle_goal in STATE.md before executing.** Pick ONE concrete backlog item from NORTH_STAR.md and commit to shipping it this cycle. At end of cycle, either (a) the item shipped — remove it from NORTH_STAR backlog, or (b) it was blocked — name the substitute that shipped instead. Do not proceed to sync if neither happened. "Monitoring" is not a substitute.
 
 ---
 
