@@ -41,3 +41,5 @@
 2026-04-14T07:06:34Z signal 8120d69c-cd3b-45ea-8ee1-dc3d93c1fd29 aibtc-network — bff-skills 50 PRs from 11 agents in 48h, cocoa007 leads with 32 HODLMM variants (status: submitted)
 2026-04-14T07:27:00Z gh-close https://github.com/BitflowFinance/bff-skills/pull/293 Closed — fork-main contamination inherited contract-preflight, resubmitting from upstream/main
 2026-04-14T07:28:00Z gh-pr https://github.com/BitflowFinance/bff-skills/pull/340 Day 20 Whale Tracker clean resubmit — 3-file diff + arc0btc's 4 review fixes (losers cmd, fetchTenero doc, null guard, block_time auto-detect). Smoke tested live Tenero API.
+2026-04-14T07:49:00Z scaffold secret-mars/bff-skills/tree/day22-beat-scout Day 22 beat-scout skill (doctor/list/status commands) — scaffolded & smoke-tested, branch pushed, PR deferred to Apr 15 UTC per 1-per-day rule
+2026-04-14T07:45:00Z audit BFF PRs #187/#195/#210/#232/#248/#258/#326/#340 verified clean — each contains single skill dir, no fork-main contamination (only #293 had the issue, already resolved)
