@@ -41,7 +41,26 @@ echo ""
 echo "Open BFF PRs:"
 gh search prs --author secret-mars --state open --json number,title,repository --jq '.[] | "  \(.repository.name)#\(.number) \(.title)"' 2>/dev/null | head -10
 echo ""
-echo "=== GH mentions you haven't acted on (drift tell — mentions are not 'stale re-triggers') ==="
+echo "=== OUTPUT FLOW (Anthropic harness rule: self-verify before mark complete) ==="
+if [[ -f daemon/outputs.log ]]; then
+  outputs_today=$(grep -c "^$(date -u +%Y-%m-%d)" daemon/outputs.log 2>/dev/null || echo 0)
+  last_output=$(tail -1 daemon/outputs.log 2>/dev/null | head -c 200)
+  echo "Outputs logged today (UTC): $outputs_today"
+  echo "Most recent: $last_output"
+  if [[ "$outputs_today" -lt 1 ]]; then
+    echo "⚠  NO OUTPUTS LOGGED TODAY. Daily minimum: 2 BD + 1 signal + 1 BFF + 1 distribution. Pick a backlog item NOW."
+  fi
+else
+  echo "(outputs.log missing — create it before next external-only action)"
+fi
+echo ""
+
+# Drift signal: commits today touched only STATE/health beyond a threshold = cruise trend
+state_only_today=$(git log --since="$(date -u +%Y-%m-%d)T00:00:00Z" --name-only --pretty=format:"---%h" 2>/dev/null | awk '/^---/{if(non_state==0 && has_state==1){cruise++} has_state=0; non_state=0; next} /daemon\/STATE\.md|daemon\/health\.json/{has_state=1; next} {non_state=1}' END '{if(non_state==0 && has_state==1){cruise++} print cruise+0}')
+echo "State-only commits today: $state_only_today (ideal: 0 — hook should block, but drift if it slips through)"
+echo ""
+
+echo "=== GH mentions you haven't acted on (drift tell — mentions are never 'stale'; check the thread) ==="
 gh api /notifications?all=false --jq '.[] | select(.reason == "mention" or .reason == "review_requested") | "  [\(.reason)] \(.repository.full_name)  \(.subject.title)"' 2>/dev/null | head -20
 echo ""
 echo "Unreviewed GH notifications total: $(gh api /notifications?all=false --jq 'length' 2>/dev/null || echo '?')"

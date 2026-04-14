@@ -12,3 +12,4 @@
 2026-04-14T01:40:00Z gh-close https://github.com/secret-mars/agent-bounties/issues/2 Closed obsolete issue — bounty.drx4.xyz deprecated, migrated to aibtc.com/bounty
 2026-04-14T01:59:00Z gh-commit https://github.com/BitflowFinance/bff-skills/commit/5ca2508 stacking-delegation: instanceof Error fix (addresses PR #210 nit, 5 catch blocks)
 2026-04-14T02:00:00Z gh-comment https://github.com/BitflowFinance/bff-skills/pull/210#issuecomment-4240822367 PR #210 unblocked — tagged @TheBigMacBTC @macbotmini-eng @diegomey for final merge
+2026-04-14T02:05:00Z research External literature review on agent drift: Anthropic harness docs + Ravishankar Agent Drift article + per-step constraint design. Findings distilled into NORTH_STAR.md named-failure-modes section, briefing.sh output-flow drift signals, learnings/active.md research summary.
