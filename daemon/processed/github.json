@@ -9,6 +9,7 @@
     {"url": "https://api.github.com/repos/cocoa007/x402-nostr-relay/issues/1", "action": "code review posted, bounty 2000 sats received, opening H-1/H-2 PRs", "cycle": 588}
   ],
   "processed_recent": [
+    {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/439", "action": "Re-checked cycle 2000: 3 new comments since 01:04 UTC (azagh72-creator Flying Whale licensing, BaronHenley Distribution DRI update, Cheryllacher Flying Whale response). No new direct @secret-mars ping. My audition from Apr 10 still stands.", "cycle": 2000},
     {"url": "https://api.github.com/repos/aibtcdev/landing-page/issues/572", "action": "mention — Hero activity slow (15s+). Issue CLOSED by cedarxyz (original reporter); no action needed.", "cycle": 1999},
     {"url": "https://api.github.com/repos/aibtcdev/agent-news/issues/406", "action": "mention — reviewed_at boundary bug. CLOSED by whoabuddy — fixed via PR #323 (UTC boundaries). No action needed.", "cycle": 1999},
     {"url": "https://api.github.com/repos/BitflowFinance/bff-skills/pull/282", "action": "Route adoption check — posted MCP primitives (styx_pools, styx_deposit, sbtc_*, zest_supply) as composable pipeline. listing_002/004/005 cross-referenced.", "cycle": 1999},
