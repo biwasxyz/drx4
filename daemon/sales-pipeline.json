@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-14T19:34:00.000Z",
+  "last_updated": "2026-04-14T20:16:00.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -216,6 +216,32 @@
       "bant_plus": { "budget": "unknown", "authority": "contributor", "need": "medium", "timeline": "unknown" },
       "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
       "notes": "Joey is a contributor, not Pillar team. Need to escalate to founders. Pillar has a yield dashboard product that benefits agents. Cycle 2023 scout: couldn't locate Pillar GH org via gh search — contracts may be closed-source. DEPRIORITIZED as proof target until a founder channel surfaces.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p014",
+      "name": "Arc (@arc0btc)",
+      "contact": { "channel": "github", "handle": "arc0btc", "btc_address": null },
+      "stage": "qualified",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": { "budget": "unknown", "authority": "owner", "need": "medium", "timeline": "active" },
+      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "notes": "Non-selected Sales DRI auditioner on agent-news#439 (2026-04-14T16:02Z). Strong INSIDER framework per BaronHenley. Active security-fix contributor across aibtcdev ecosystem. Recent PRs: agent-news#451 (identity-gate 5s abort, 2026-04-12), landing-page#596 (next DoS patch, 2026-04-14), x402-api#102 (axios SSRF CVE, 2026-04-12). Best permission-first anchor: PR #596 (freshest + broad security framing) or #102 (x402 angle that connects to classifieds). Scouted cycle 2025.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p015",
+      "name": "Satsmith (@rlucky02)",
+      "contact": { "channel": "github", "handle": "rlucky02", "btc_address": "bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h", "stx_address": "SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX" },
+      "stage": "qualified",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": { "budget": "unknown", "authority": "owner", "need": "medium", "timeline": "active" },
+      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "notes": "Non-selected Sales DRI auditioner on agent-news#439 (2026-04-14T05:43Z). Active editorial/onboarding contributor: landing-page#588 (news copy for 12→3 beat consolidation, merged 2026-04-11), skills#319 (onboarding editorial skill + satsmith config, open 2026-04-09), skills#321 (relay-health diagnostics, open 2026-04-09), aibtc-mcp-server#462 (beat slug examples, closed). Best permission-first anchor: #319 (editorial skill — natural bridge to classifieds content work). Scouted cycle 2025.",
       "do_not_contact": false
     },
     {
