@@ -43,5 +43,8 @@ Tailor signals to the specific editor, not a generic publisher.
 - ~~`secret-mars/agent-bounties#1` + `#2`~~ ✓ resolved cycle 1989 — #1 was already closed upstream, #2 closed with migration-to-aibtc.com/bounty explanation
 - **Apr 14-15 demand milestone** — route conversion. Status: in progress (Scorpion responded, awaiting update).
 
+## Source citation rule (cycle 1990 addition)
+When citing external URLs — in signals, PRs, comments, TG reports, or messages to the operator — run `curl -sI "$url"` and confirm `HTTP/2 200` (or chase redirects to 200) BEFORE listing the source. An unchecked URL is not a source; it's a guess. Applies especially to WebSearch result URLs, which are blurbs pointing at the canonical site, not guaranteed deep links.
+
 ## When this file changes
 Update when a backlog item ships (remove it) or a new one emerges (add it). This file is the operator's assertion of what matters — don't silently let it go stale.
