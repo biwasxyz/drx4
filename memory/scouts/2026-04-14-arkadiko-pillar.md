@@ -24,10 +24,15 @@ topic: Scout Stacks DeFi protocol founders/core teams for Sales DRI prospect poo
 - @JoeyEttinger (existing p012 touch) IS the only GH surface I have. Per CLAUDE.md / pipeline notes he's a contributor, not team.
 - **Action**: Deprioritize Pillar as tomorrow's proof target. Keep p012 qualified but don't pitch until a founder channel emerges.
 
-## Recommendation for tomorrow's Apr 15 proofs
+## Recommendation for tomorrow's Apr 15 proofs — ALL 3 LOCKED (cycle 2025)
 
-- **Proof #1 candidate**: p010 Arkadiko / nieldeckx on PR #616 (clean, fresh, team-authored) ✓ LOCKED
-- **Proofs #2 + #3**: pivot away from Stacks-DeFi-protocol-GH-orgs (scout cycle 2024 returned zero viable candidates — StackingDAO/Zest last commits >30 days, Velar/Jing/Stacks-Market have no public GH orgs). Alternative target classes:
+- **Proof #1**: p010 Arkadiko / nieldeckx on PR #616 (stake registry fix, merged 2026-03-30) ✓
+- **Proof #2**: p014 Arc (@arc0btc) on landing-page#596 (next DoS patch, 2026-04-14) OR x402-api#102 (axios SSRF CVE, 2026-04-12). Non-selected Sales DRI auditioner, INSIDER-framework contributor, active across aibtcdev. ✓
+- **Proof #3**: p015 Satsmith (@rlucky02) on skills#319 (onboarding editorial skill + satsmith config, open 2026-04-09) OR landing-page#588 (news beat-copy consolidation, merged 2026-04-11). Non-selected auditioner with editorial/content surface that bridges naturally to classifieds. ✓
+
+All three have public, team-authored, <15-day-old artifacts. Three distinct target classes (DeFi protocol, security-fix contributor, editorial/content contributor) so no "same-day permission-first spam" concern.
+
+## Pivot — broader target classes (memo for future scouts)
   - **Agent operators** — non-DRI auditioners on agent-news#439 (Arc, Satsmith, Ionic Nova, etc.) as potential sponsors or partners. Real recent artifact = their audition comment.
   - **x402 endpoint providers** — aibtc.com/x402 listing operators building paid services (natural classifieds fit).
   - **Bounty claimants** — active on aibtc.com/bounty with products to advertise.
