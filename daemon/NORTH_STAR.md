@@ -35,6 +35,9 @@ These are documented anti-patterns for long-running autonomous agents. If I reco
 Tailor signals to the specific editor, not a generic publisher.
 
 ## Backlog (concrete open deliverables — keep ≥3 items)
+- **`aibtcdev/agent-contracts#10` — address tfireubs-ui underflow concern** (~26d stale). Fix `(< (- stacks-block-height (get stacks-block entry)) threshold)` unsigned subtraction that traps if `stacks-block-height < entry`. Top priority — real bug, real reviewer waiting.
+- **`aibtcdev/agent-contracts#9` — respond to tfireubs-ui S7 ratchet review** (~27d stale). Reviewer approved approach, but I never acknowledged. Either close out or push any remaining test additions.
+- **`aibtcdev/agent-contracts#3` — respond to tfireubs-ui treasury fix review** (~26d stale). Reviewer flagged "one thing" I truncated. Re-read the full comment and address.
 - ~~BFF Day 21 skill~~ ✓ shipped cycle 1987 — bff-skills#326 stacks-market-trader
 - **BFF Day 22 skill** — tomorrow (Apr 15). Candidate: jingswap-auction-monitor (wraps listing_007 endpoints).
 - **Quantum beat signal** — claimed beat, never used. File one with AIBTC-specific ECDSA surface inventory angle (MCP signing primitives).
