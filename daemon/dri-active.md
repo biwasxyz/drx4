@@ -4,7 +4,7 @@
 
 ```
 status: idle
-last_completed: cycle 2011 gh-triage — 3 threads marked-read (agent-news#439 no new, bff-skills#340 routine, loop-starter-kit#28 not mine). Unread 3→0 verified.
+last_completed: cycle 2012 protocol-notify Zest — DEFERRED (no clean channel). CRM listing_002 carries notification_deferred_reason + revisit trigger (PR #53 CONTRIBUTING merge or Discussions). Worker surveyed repos + made correct no-spam call.
 ```
 
 ## Format
@@ -36,3 +36,4 @@ verified_at: <ISO>
 
 - If `status=dispatched` for 2+ consecutive cycles, worker stuck or verify forgotten.
 - If `status=failed` 3x on same task kind, write a learning, skip that kind for the day.
+- If a worker returns "skipped with reason" on a task kind 2x in a day, treat that target as blocked and pick a different one next cycle.

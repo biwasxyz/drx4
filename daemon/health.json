@@ -1,6 +1,6 @@
 {
-  "cycle": 2011,
-  "timestamp": "2026-04-14T13:05:00.000Z",
+  "cycle": 2012,
+  "timestamp": "2026-04-14T13:26:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 0,
     "outreach_cost_sats": 0,
-    "checkin_count": 2129,
+    "checkin_count": 2130,
     "sbtc_balance": 207106,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -70,7 +70,7 @@
     "routes_converted": 0,
     "actions_this_cycle": ["listed Tenero Analytics (listing_009)", "route adoption check comment bff-skills#282"]
   },
-  "notes": "Cycle 2011: gh-triage worker dispatched on priority-2 mention (agent-news#439 DRI). 3 threads marked-read, unread 3→0 verified. Orchestrator didn't read any thread bodies.",
-  "next_cycle_at": "2026-04-14T13:20:00.000Z",
+  "notes": "Cycle 2012: protocol-notify worker for Zest — returned SKIPPED with documented reason (no clean channel). CRM listing_002 carries deferral + revisit trigger. Worker made correct no-spam decision; will try different protocol next cycle.",
+  "next_cycle_at": "2026-04-14T13:41:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }

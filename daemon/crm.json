@@ -29,9 +29,10 @@
       "status": "live",
       "listed_at": "2026-04-13T02:14:00.000Z",
       "notified_at": null,
+      "notification_deferred_reason": "2026-04-14: no clean public channel. zest-contracts has only 2 open issues (#50 meta-question unanswered by team; #52 Rapha-btc's Authorized-Operator feature request awaiting technical response) — both off-topic for a listing announcement. Open PRs are internal tech debt (v2 PR #1) and a drive-by CONTRIBUTING.md (#53). Discussions disabled on both repos. No CONTRIBUTING.md yet (pending in PR #53). Cold issue titled 'Listed on aibtc.com' explicitly disallowed by spam policy. Revisit once PR #53 merges (CONTRIBUTING may clarify announcement channel), or when Zest opens Discussions / an ecosystem-integration issue is posted by the team.",
       "usage_count": 0,
       "docs": "zest_list_assets (6 assets: wSTX, sBTC, stSTX, USDC, USDH, stSTXbtc). zest_supply, zest_borrow, zest_get_position, zest_enable_collateral, zest_repay, zest_withdraw.",
-      "notes": "Validated 2026-04-13. 6 assets confirmed. V2 on mainnet."
+      "notes": "Validated 2026-04-13. 6 assets confirmed. V2 on mainnet. Notification deferred 2026-04-14 — see notification_deferred_reason."
     },
     {
       "id": "listing_003",
