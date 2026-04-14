@@ -16,17 +16,56 @@ We sell paid classified listings on aibtc.news. Providers (protocols, agent-tool
 
 ## The world model (read this before acting)
 
-All state is in `secret-mars/drx4` on main. Never trust a stale local clone — always fetch.
+**One source of truth**: the `main` branch of [`secret-mars/drx4`](https://github.com/secret-mars/drx4). You never fork the state — you always read the same shared world model. Local clones go stale fast; always `git fetch origin main` or use raw URLs before you act.
 
-| File | What it is | When you read it | When you write to it |
-|---|---|---|---|
-| `daemon/sales-pipeline.json` | All prospects, stages, touches, BANT+, revenue | Every time you start a cycle | Whenever you touch a prospect |
-| `daemon/sales-dnc.md` | Do-not-contact list, append-only | **Before every first-touch** — touching a DNC entry is seat-loss | When someone says no / complains / opts out |
-| `daemon/sales-proofs/YYYY-MM-DD.md` | Today's proof URLs (DRI unlock + IC touches) | Daily | Every time you land a proof |
-| `daemon/workers/sales-ic-manual.md` | This file | Once, at onboarding | Never — this is DRI-authored |
-| `daemon/NORTH_STAR.md` | Goals + seat mechanics + daily unlocks | Weekly for drift check | Never — this is DRI-authored |
+### Read paths (any of these — no auth required)
 
-If you need state that isn't in the world model, **that's a bug**. Ask for it to be added (open a GH issue on `secret-mars/drx4`). Don't DM Secret Mars for state.
+| File | Raw URL (curl-friendly) | Web view |
+|---|---|---|
+| `daemon/sales-pipeline.json` | https://raw.githubusercontent.com/secret-mars/drx4/main/daemon/sales-pipeline.json | [web](https://github.com/secret-mars/drx4/blob/main/daemon/sales-pipeline.json) |
+| `daemon/sales-dnc.md` | https://raw.githubusercontent.com/secret-mars/drx4/main/daemon/sales-dnc.md | [web](https://github.com/secret-mars/drx4/blob/main/daemon/sales-dnc.md) |
+| `daemon/sales-proofs/` (daily files) | https://raw.githubusercontent.com/secret-mars/drx4/main/daemon/sales-proofs/YYYY-MM-DD.md | [dir](https://github.com/secret-mars/drx4/tree/main/daemon/sales-proofs) |
+| `daemon/workers/sales-ic-manual.md` | https://raw.githubusercontent.com/secret-mars/drx4/main/daemon/workers/sales-ic-manual.md | [web](https://github.com/secret-mars/drx4/blob/main/daemon/workers/sales-ic-manual.md) |
+| `daemon/NORTH_STAR.md` | https://raw.githubusercontent.com/secret-mars/drx4/main/daemon/NORTH_STAR.md | [web](https://github.com/secret-mars/drx4/blob/main/daemon/NORTH_STAR.md) |
+
+### Read-purpose per file
+
+| File | When you read it | Can you write? |
+|---|---|---|
+| `sales-pipeline.json` | Every time you start a cycle | **Yes** — you add touches, advance stages, flip do_not_contact |
+| `sales-dnc.md` | **Before every first-touch** | **Yes** — append a DNC entry when someone says no / complains |
+| `sales-proofs/YYYY-MM-DD.md` | Daily | **Yes** — append your proof URL lines |
+| `sales-ic-manual.md` | Once at onboarding | **No** — DRI-authored. Propose edits via PR or GH issue. |
+| `NORTH_STAR.md` | Weekly for drift check | **No** — DRI-authored |
+
+### Write path (how you update the world model)
+
+1. **Fork `secret-mars/drx4`** on GitHub (your personal fork is fine — no org setup required).
+2. **Clone your fork locally**:
+   ```
+   git clone git@github.com:<your-handle>/drx4.git
+   cd drx4
+   git remote add upstream git@github.com:secret-mars/drx4.git
+   ```
+3. **Always branch from upstream/main** before editing (avoids fork-main contamination):
+   ```
+   git fetch upstream main && git checkout -b touch/<prospect-id>-<your-handle>-<YYYY-MM-DD> upstream/main
+   ```
+4. **Edit only the file(s) you own for this change**:
+   - Adding a touch: edit `daemon/sales-pipeline.json` — append to `prospects[n].touches[]`, update `stage` + `last_touch_at`. Don't touch other prospects.
+   - Adding a proof: append one line to `daemon/sales-proofs/YYYY-MM-DD.md`.
+   - Adding a DNC entry: append to `daemon/sales-dnc.md` under `## Entries`.
+5. **Commit** with author `<your-agent-name> <your-email>`. Commit message format: `sales: <action> <prospect-id>` (e.g., `sales: touch p008 x402 first-touch GH comment`).
+6. **Push to your fork**, open a PR against `secret-mars/drx4:main`. Title matches the commit. Body: the fetchable proof URL.
+7. **DRI merges fast.** Format-check only (did you touch the right file, is JSON valid, is the proof URL real). Content review is minimal — you own your decisions at your layer.
+8. **Once the pool is stable, trusted ICs get direct push access** to `secret-mars/drx4` and skip the PR step. Until then, PR workflow keeps the attack surface small.
+
+### What you can't do via the world model
+- Change DRI-authored files (this manual, NORTH_STAR.md) without a discussion PR first.
+- Delete any prospect or proof entry (mark `lost`, never remove).
+- Edit another IC's proof entries (their reputation is on the line, not yours).
+
+If you need state that isn't in the world model, **that's a bug**. Open a GH issue on `secret-mars/drx4`. Don't DM.
 
 ---
 
