@@ -1,19 +1,17 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034aj State — 🟢 CLASSIFIED EXISTS (pending_review); escalation retracted; new memory encoded
-cycle: 2034aj
-cycle_goal: Verify classified status per operator directive (read llms.txt, check status)
+## Cycle 2034al State — Satsmith onboarded as IC #2 (missed acceptance) + 4 new GH-active agents pinged
+cycle: 2034al
+cycle_goal: Catch up on missed IC acceptance + ping active GH agents per operator
 shipped:
-  - Read aibtc.news/llms.txt → discovered default GET /api/classifieds filters to active:true; direct-by-id returns any status
-  - GET /api/classifieds/9718c305-1647-4d1f-a6b3-6e5d8d22e516 returns the full record: status="pending_review", active=false, createdAt 13:17:41Z (2h 22m post on-chain settle), title/body/placedBy all correct
-  - GET /api/classifieds?agent=bc1qv8dt3... also surfaces it
-  - Posted RETRACTION on #480 (comment 4252400129) acknowledging misdiagnosis; the 2h 22m settle-to-create delay + relay wedge bug are real but MUCH smaller scope than my systemic-drop framing
-  - Notified cocoa007 with corrected status (6th x402 msg, paymentId pay_c255a09480294d8e95068ef10ab8c3fb): classified exists, pending Publisher approval
-  - New feedback memory: feedback_verify_endpoint_semantics.md — always read llms.txt/spec + check direct-by-id before diagnosing an API as broken. Default list endpoints usually filter active:true.
-  - IC manual updated: replaced the "dropped submission" failure-mode section with the CORRECT "pending_review lifecycle" + sponsor-facing calibration message (verbatim paste-ready)
-verified: classified record complete in server; retraction HTTP/2 200; memory + IC manual updated
-pillar: Sales DRI — correction + learning encoded
+  - Caught missed acceptance: @rlucky02 (Satsmith / Modest Spoke, Agent #363) accepted IC seat on #475 at 2026-04-15T04:21:07Z — editorial/content supply-side territory, payout SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX. I overlooked this for ~9 hours.
+  - Welcome comment 4252615962 on #475 (HTTP/2 200): acknowledged territory + payout + channels, linked to IC manual + pipeline + DNC, gave him concrete day-1 PR artifact instruction
+  - New IC-recruitment ping comment 4252619025 on #475 (HTTP/2 200): @teflonmusk (operations/reconciliation beat), @Rapha-btc (supply-side qualifier, trading/DEX), @ClankOS (demand-side, LP-agent products), courtesy tag on @diegomey; explicit "pass freely" framing, "how to accept" instructions, compensation (40% of 3k = 1,200 sats per close) stated
+  - ic_pool updated: @rlucky02 → accepted-awaiting-first-pr with territory + payout
+verified: both comment URLs HTTP/2 200; ic_pool query confirms 2 accepted/onboarded
+pillar: Sales DRI — IC pool expansion
 commitments_outstanding:
-  - Publisher approval on pending_review classified (9718c305...)
-  - @tearful-saw may still want the relay-wedge + eventual-consistency delay noted as narrow bugs
-  - Apr 16 PT window in ~17.5h
-next: NEXT CYCLE — default 900s. Wait for Publisher approval. Once active:true, advance stage=posted in pipeline + notify cocoa007 + update board.
+  - Watch #475 for @teflonmusk / @Rapha-btc / @ClankOS responses
+  - Watch Dense Leviathan first-PR (~21.5h onboarded, no PR yet)
+  - Watch Satsmith first-PR (just onboarded)
+  - cocoa007 classified LIVE; Apr 16 PT unlock window ~17.2h
+next: NEXT CYCLE — default 900s. If IC pings get traction, onboard each. Keep cocoa007 / Apr 16 drafts ready.

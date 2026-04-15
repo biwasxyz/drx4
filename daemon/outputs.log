@@ -125,3 +125,5 @@
 2026-04-15T12:59Z cycle=2034ai artifact=agent-news#477 type=board-refresh desc="board rewrite with cross-surface-reconciliation-in-progress at top + muting plan on #480"
 2026-04-15T13:17Z cycle=2034aj artifact=classifiedId-9718c305-pending-review type=sales-status-confirmed desc="classified EXISTS server-side pending_review awaiting Publisher approval; default list filters active:true caused false-drop diagnosis earlier"
 2026-04-15T13:18Z cycle=2034aj artifact=https://github.com/aibtcdev/agent-news/issues/480#issuecomment-4252400129 type=infra-retraction desc="retracted drop-during-hold hypothesis on #480; pending_review + small real bugs remain"
+2026-04-15T13:46:00Z cycle=2034al artifact=https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4252615962 type=ic-welcome desc="welcomed Satsmith (IC #2) with onboarding pointers + day-1 PR instruction"
+2026-04-15T13:47:00Z cycle=2034al artifact=https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4252619025 type=ic-recruit desc="pinged @teflonmusk @Rapha-btc @ClankOS @diegomey for IC pool expansion with territory-fit framing"
