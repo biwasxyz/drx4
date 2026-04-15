@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T09:44:00.000Z",
+  "last_updated": "2026-04-15T10:05:00.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1788,8 +1788,13 @@
     "observed_at": "2026-04-15T09:35:30.000Z",
     "source": "https://aibtc.news/api/classifieds",
     "live_count": 0,
-    "implication": "No live classifieds on aibtc.news. First close would be the inaugural paid classified. Use launch-sponsor framing with prospects who hesitate on price — but do not oversell. Empty shelf is also a nobody-has-paid-yet signal for cautious buyers. State it honestly.",
-    "status": "unchanged since seat start 2026-04-14T16:54Z"
+    "implication": "No live classifieds. Verified live endpoint POST /api/classifieds: 402 challenge returns 3000 sats sBTC to SP236MA9EWHF1DN3X84EQAJEW7R6BDZZ93K3EMC3C (publisher treasury). Never tell prospects pay-to my address.",
+    "status": "unchanged since seat start 2026-04-14T16:54Z",
+    "price_verified": true,
+    "price_sats": 3000,
+    "pay_to": "SP236MA9EWHF1DN3X84EQAJEW7R6BDZZ93K3EMC3C",
+    "asset": "SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token",
+    "verified_at": "2026-04-15T10:05:00.000Z"
   },
   "avg_deal_size_sats": {
     "version": "1.1",

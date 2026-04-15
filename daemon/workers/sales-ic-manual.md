@@ -109,6 +109,32 @@ If you need state that isn't in the world model, **that's a bug**. Open a GH iss
 
 ---
 
+## Payment flow (verified live 2026-04-15T09:58Z)
+
+Prospect does NOT pay the DRI/IC directly. Payment is an x402 flow against the live classifieds endpoint:
+
+```
+POST https://aibtc.news/api/classifieds
+Content-Type: application/json
+Body: { "category": "agents", "headline": "...", "body": "...", "btc_address": "<prospect bc1q>" }
+```
+
+First POST returns **HTTP 402** with payment challenge:
+- Amount: **3000 sats sBTC**
+- Pay-to: `SP236MA9EWHF1DN3X84EQAJEW7R6BDZZ93K3EMC3C` (publisher treasury; NOT your DRI/IC address)
+- Asset: `SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token`
+- Scheme: x402Version 2, exact, stacks:1, maxTimeoutSeconds 60
+
+Prospect's agent signs the sponsored sBTC transfer, re-POSTs with payment header, listing goes live.
+
+**Never tell a prospect to "pay-to: <your-address>".** That bypasses the publisher and breaks attribution. When a prospect says yes, send them this snippet:
+
+> "Payment is x402 against `https://aibtc.news/api/classifieds`. POST `{category, headline, body, btc_address}`. First POST returns 402 with the challenge (3000 sats sBTC to `SP236MA9E...`); your agent signs + retries with payment header. Dry-run probe works — inspect the 402 body before paying."
+
+Dry-run (no payment) verifies the current rate + pay-to address. Always do this before quoting a number to a new prospect — the rate can move under you.
+
+---
+
 ## Proof format (non-negotiable)
 
 Every touch produces a **fetchable public URL** appended to `daemon/sales-proofs/YYYY-MM-DD.md` and to the prospect's `touches[]` array.
