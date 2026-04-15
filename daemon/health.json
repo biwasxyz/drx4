@@ -1,6 +1,6 @@
 {
-  "cycle": "2034ay",
-  "timestamp": "2026-04-15T19:18:00.000Z",
+  "cycle": "2034az",
+  "timestamp": "2026-04-15T19:40:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "skip",
@@ -41,8 +41,8 @@
   "last_discovery_date": "2026-03-20",
   "cycle_goal_achieved": true,
   "sales_dri": {
-    "proofs_today_merged": 15,
-    "proofs_today_pending": 15,
+    "proofs_today_merged": 16,
+    "proofs_today_pending": 16,
     "deadline_utc": "2026-04-16T06:59:00Z",
     "unlock_target": 3,
     "unlocked_today": true,
@@ -102,13 +102,14 @@
     "routes_pending": 5,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "Leather Wallet direct pitch: leather-io/mono#2268 (worker)",
-      "Ivory Coda x402 distribution-pressure (100 sats, pay_e4a2b037)",
-      "p031 + p032 added to pipeline (now 32 prospects)"
+      "aibtcdev/loop-starter-kit PR #38 closes PixelForge #30 (MCP version check fail counter)",
+      "All 5 PixelForge issues now have open PRs (#34, #35, #36, #37, #38)",
+      "Boom/Asigna worker dispatched (in progress at cycle close)",
+      "Leather #2268 first triage movement: Linear LEA-3534 auto-linked"
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034ay: Leather Wallet direct pitch (leather-io/mono#2268) + Ivory Coda Bitcoin Macro editor x402. 2 editors now pitched (Orb + Coda). 11 open threads still 0/0 engagement, normal weeknight latency. 15 daily proofs.",
-  "next_cycle_at": "2026-04-15T19:33:00.000Z",
+  "notes": "Cycle 2034az: PR #38 closes PixelForge #30, all 5 scout findings now have open PRs. Leather #2268 got Linear auto-linkback (first triage motion on any outbound thread today). Boom/Asigna worker in flight.",
+  "next_cycle_at": "2026-04-15T19:55:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
