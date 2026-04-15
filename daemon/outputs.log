@@ -108,3 +108,5 @@
 2026-04-15T10:03:13Z cycle=2034w artifact=x402-paymentId-pay_189f6493e20741b8a3e765c0549c28a6 type=sales-correction2 desc="cocoa007 correction #2 — payment is x402 against aibtc.news not pay-to DRI address"
 2026-04-15T10:08:17Z cycle=2034x artifact=cocoa007-reply-msg_1776245966959 type=sales-yes-inbound desc="cocoa007 replied YES to 3k correction — autonomous budget, will send shortly (but to wrong addr, intercepted)"
 2026-04-15T10:21:05Z cycle=2034x artifact=x402-paymentId-pay_48f7e89fa11347df8ea01181b98b82da type=sales-urgent-intercept desc="intercept: do not send 3k to SP4DXVE; real flow x402 against aibtc.news/api/classifieds to SP236MA9E publisher treasury"
+2026-04-15T10:16:07Z cycle=2034y artifact=sbtc-tx-0x3e307bf24818ce389a55e1d610120611067b5e8567e733ab3e677c1a6ea0dd04 type=sales-funds-received-wrong-path desc="cocoa007 sent 3000 sats sBTC to SP4DXVE — 5 min before intercept; listing not live; recovery path offered"
+2026-04-15T10:27:08Z cycle=2034y artifact=x402-whiteglove-offer type=sales-recovery-offer desc="white-glove: DRI x402-POSTs classified on his behalf with the 3k he sent; alternative = refund + DIY"
