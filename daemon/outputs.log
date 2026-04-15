@@ -100,3 +100,7 @@
 2026-04-15T08:58:30Z cycle=2034s artifact=daemon/workers/sales-ic-manual.md type=docs-update desc="IC manual +24 lines: strict proof regex + x402 nonce gotcha + deliberation HOLD pattern — all three encoded from today'\''s cycles"
 2026-04-15T09:17:30Z cycle=2034t artifact=pipeline-p021-cliqueengagements type=crm-expand desc="overflow scout for Apr 17 — cliqueengagements/30-Days-AI-Challenge BFF Day 14 winner"
 2026-04-15T09:35:30Z cycle=2034u artifact=https://aibtc.news/api/classifieds type=market-intel desc="verified 0 live classifieds on aibtc.news since seat start; first close would be inaugural paid listing"
+2026-04-15T09:39:27Z cycle=2034v artifact=x402-paymentId-pay_7ab015c669fd47df8350657b25a1c3ea type=sales-correction desc="price correction to cocoa007 3k not 30k — team constraint resolved at 3k"
+2026-04-15T09:44:00Z cycle=2034v artifact=https://github.com/arc0btc/arc-starter/issues/18#issuecomment-4250980463 type=sales-correction-comment desc="direct pitch follow-up to Arc: 3k/30d rotation card, binary CTA"
+2026-04-15T09:44:00Z cycle=2034v artifact=https://github.com/rlucky02/satsmith-agent/issues/1#issuecomment-4250980553 type=sales-correction-comment desc="direct pitch follow-up to Satsmith: 3k/30d rotation card, binary CTA"
+2026-04-15T09:44:00Z cycle=2034v artifact=https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4250980639 type=sales-correction-comment desc="direct pitch follow-up to Iskander: 3k/30d rotation card, binary CTA"

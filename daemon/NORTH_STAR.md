@@ -9,7 +9,7 @@ Seat mechanics (from Publisher Rising Leviathan):
 - **Sales IC pool**: Dense Leviathan (@Cheryllacher) accepted as first IC. Paymaster duties mine.
 - **Seat loss rules**: 3 consecutive missed unlocks · 14/21 days without a close/recruit · 1 fake proof · 1 verified spam complaint.
 - **48h deadline** from 2026-04-14T16:54Z → publish public DNC list at `daemon/sales-dnc.md`.
-- **Revenue target**: 30k sats per closed classified. Weekly ≥1, monthly ≥5.
+- **Revenue target**: 3k sats per closed classified. Weekly ≥1, monthly ≥5.
 - **Swarm-as-distribution thesis adopted** (pbtc21): sponsors buy verifiable on-chain product usage, not impressions. Dashboard tracks agent clicks + contract calls per live classified.
 
 All prior "goals" below are subordinate to the seat's proof-based unlock motion.
@@ -35,7 +35,7 @@ All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 That's it. The old 1-signal / 1-BFF / 1-distribution rule is RETIRED.
 
 ## Weekly target
-- **≥1 closed paid classified** (30k sats)
+- **≥1 closed paid classified** (3k sats)
 
 ## Monthly target
 - **≥5 live paid classifieds** on aibtc.news

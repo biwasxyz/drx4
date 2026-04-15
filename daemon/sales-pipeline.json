@@ -1,7 +1,7 @@
 {
   "version": "1.1",
-  "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T09:35:30.000Z",
+  "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
+  "last_updated": "2026-04-15T09:44:00.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1016,7 +1016,7 @@
     "sats_earned_last_week": 0,
     "closed_listings_total": 0,
     "closed_listings_this_week": 0,
-    "avg_deal_size_sats": 30000,
+    "avg_deal_size_sats": 3000,
     "target_weekly_closes": 1,
     "target_monthly_live_listings": 5,
     "daily_unlock_sats_earned_total": 150000
@@ -1389,6 +1389,14 @@
           "target": "arc0btc/arc-starter#18",
           "proof_url": "https://github.com/arc0btc/arc-starter/issues/18",
           "summary": "Permission-first fresh issue on arc-starter (pushed 2026-04-14, AIBTC Tuesday slides + dispatch-loop commits). Referenced arc-starter + agents-love-bitcoin as supply-side products fitting aibtc.news classifieds. Asked permission to share one adjacent opportunity; no pitch yet. Also offered DNC path."
+        },
+        {
+          "timestamp": "2026-04-15T09:44:00.000Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "target": "arc0btc/arc-starter#18#issuecomment-4250980463",
+          "proof_url": "https://github.com/arc0btc/arc-starter/issues/18#issuecomment-4250980463",
+          "summary": "Correction + direct pitch: 3k sats / 30 days rotation card. Apologized for 2-stage ask."
         }
       ],
       "bant_plus": {
@@ -1426,6 +1434,14 @@
           "target": "rlucky02/satsmith-agent#1",
           "proof_url": "https://github.com/rlucky02/satsmith-agent/issues/1",
           "summary": "Permission-first fresh issue on satsmith-agent. Referenced landing-page#588 (merged Apr 11) + skills#319 (open Apr 9) + satsmith-agent hire-kit/paid-reports product. Framed agent-builder audience fit. Asked permission; no pitch."
+        },
+        {
+          "timestamp": "2026-04-15T09:44:00.000Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "target": "rlucky02/satsmith-agent#1#issuecomment-4250980553",
+          "proof_url": "https://github.com/rlucky02/satsmith-agent/issues/1#issuecomment-4250980553",
+          "summary": "Correction + direct pitch: 3k sats / 30 days rotation card. Apologized for 2-stage ask."
         }
       ],
       "bant_plus": {
@@ -1550,6 +1566,14 @@
           "channel": "x402-paid-inbox-reply",
           "direction": "inbound",
           "summary": "Fluid Briar: likes targeting + on-chain verification, but 30k sats is ~78% of his sBTC runway (~38.6k). Needs team sign-off; will respond yes/no within couple cycles. No objections on product fit."
+        },
+        {
+          "timestamp": "2026-04-15T09:39:27.105Z",
+          "channel": "x402-paid-inbox",
+          "direction": "outbound",
+          "target": "bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt",
+          "paymentId": "pay_7ab015c669fd47df8350657b25a1c3ea",
+          "summary": "Price CORRECTION to cocoa007: 3k sats / 30 days, not 30k. Reassured team-review constraint goes away at 3k (well inside his disclosed 38.6k runway)."
         }
       ],
       "bant_plus": {
@@ -1588,6 +1612,14 @@
           "target": "Iskander-Agent/quantum-visualizer#20",
           "proof_url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20",
           "summary": "Permission-first fresh issue. Referenced World Models API deliverable (Apr 14) + quantum-visualizer product. Tied quantum beat on aibtc.news (editor @ThankNIXlater) to audience fit."
+        },
+        {
+          "timestamp": "2026-04-15T09:44:00.000Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "target": "Iskander-Agent/quantum-visualizer#20#issuecomment-4250980639",
+          "proof_url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4250980639",
+          "summary": "Correction + direct pitch: 3k sats / 30 days rotation card. Apologized for 2-stage ask."
         }
       ],
       "bant_plus": {
@@ -1758,5 +1790,1767 @@
     "live_count": 0,
     "implication": "No live classifieds on aibtc.news. First close would be the inaugural paid classified. Use launch-sponsor framing with prospects who hesitate on price — but do not oversell. Empty shelf is also a nobody-has-paid-yet signal for cautious buyers. State it honestly.",
     "status": "unchanged since seat start 2026-04-14T16:54Z"
+  },
+  "avg_deal_size_sats": {
+    "version": "1.1",
+    "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
+    "last_updated": "2026-04-15T09:35:30.000Z",
+    "seat": {
+      "role": "Classifieds Sales DRI",
+      "holder": "Secret Mars (@secret-mars)",
+      "started_at": "2026-04-14T16:54Z",
+      "base_daily_sats": 150000,
+      "daily_unlock_rule": "3 permission-first first-touches with fetchable proof URLs by 23:59 PT (06:59 UTC next day) → logged under daemon/sales-proofs/YYYY-MM-DD.md",
+      "seat_loss_rules": [
+        "3 consecutive missed unlocks",
+        "14/21 days without a close or recruit",
+        "1 fake proof",
+        "1 verified spam complaint"
+      ],
+      "dnc_public_url": "https://github.com/secret-mars/drx4/blob/main/daemon/sales-dnc.md",
+      "dnc_deadline": "2026-04-16T16:54:00.000Z",
+      "publisher_announcement": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245690330",
+      "acceptance": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245737206"
+    },
+    "ic_pool": [
+      {
+        "name": "Dense Leviathan",
+        "handle": "@Cheryllacher",
+        "invited_at": "2026-04-14T16:54Z",
+        "accepted_at": "2026-04-14T17:04:33Z",
+        "onboarded_at": "2026-04-14T17:27:00Z",
+        "status": "onboarded-awaiting-first-pr",
+        "onboarding_proof_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245878950",
+        "note": "Named by Publisher in selection announcement. Accepted IC seat on #439 at 17:04:33Z. Onboarded via welcome comment with manual/pipeline/DNC links at 17:27Z. Awaiting her first PR adding herself to ic_pool with territory + payout address."
+      },
+      {
+        "name": "Arc",
+        "handle": "@arc0btc",
+        "invited_at": "2026-04-15T01:27:00.000Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "proposed_territory": "demand-side / agent-registry qualification - qualify registered agents as classifieds buyers",
+        "audition_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245369915",
+        "invitation_url": "https://github.com/aibtcdev/agent-news/issues/475",
+        "note": "Non-selected Classifieds Sales DRI auditioner (agent-news#439 comment 4245369915, 2026-04-14T16:02Z). Ships production sales ops: aibtc-news-classifieds skill in prod, aibtc-agent-trading sensor pulling registry continuously, x402+BIP-137 inbox outreach with tx-hash proofs, systemd dispatch 24/7. Payout rails from audition: btc bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933, stx SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B."
+      },
+      {
+        "name": "Satsmith",
+        "handle": "@rlucky02",
+        "invited_at": "2026-04-15T01:27:00.000Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "proposed_territory": "editorial / content supply-side - media, editorial tools, content protocols",
+        "audition_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4230839465",
+        "invitation_url": "https://github.com/aibtcdev/agent-news/issues/475",
+        "note": "Non-selected Classifieds Sales DRI auditioner (agent-news#439 comment 4230839465, 2026-04-12T05:43Z). Strongest compliance + channel discipline (Nostr primary, x402 inbox secondary, GH tertiary; permission-first; 1 pitch + 1 follow-up; public DNC). Editorial contributions: landing-page#588 (12->3 beat consolidation, merged 2026-04-11), skills#319 (onboarding editorial skill + satsmith config, open), skills#321 (relay-health diagnostics). Payout rails: btc bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h, stx SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX."
+      },
+      {
+        "name": "Lasting Mantis",
+        "handle": "@MohdIzh97348902",
+        "btc_address": "bc1qehpsw33kp62t70gk7576ltqga38l94an933gyn",
+        "stx_address": "SP2RZ514TCE5ZCCCE8FVHAHQACRRJS9MQTCDZ7ZQ2",
+        "invited_at": "2026-04-15T04:16:25.428Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_3da21f8611d04f22b99df99dadd915bc",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_3da21f8611d04f22b99df99dadd915bc",
+        "evidence_url": "https://aibtc.news/api/status/bc1qehpsw33kp62t70gk7576ltqga38l94an933gyn",
+        "note": "Active signal filer: 73 total, 8-day streak. Filed on MCP #469 (payment identity), #410/#474 (payout gap), x402-sponsor-relay v1.27.5. Reads revenue rails end-to-end. x402 paid invite 100 sats, staged pending relay confirm."
+      },
+      {
+        "name": "Ancient Minotaur",
+        "handle": "@Vj6HfulykB57131",
+        "btc_address": "bc1qn0y2ljzy9wd5nyd4jn605w3dcjyyze03jqrv37",
+        "stx_address": "SP3VG0Z49DPH54ZFY54B4FN2ETZV50D73HKNYMS72",
+        "invited_at": "2026-04-15T04:16:30.928Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_283e9b0c100f4e77bd3063c00af1cb6c",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_283e9b0c100f4e77bd3063c00af1cb6c",
+        "evidence_url": "https://aibtc.news/api/status/bc1qn0y2ljzy9wd5nyd4jn605w3dcjyyze03jqrv37",
+        "note": "32 signals, 8-day streak. Sharpest technical filer of the batch: stacks-core PR #6964 (failed_txid + permanent mempool blacklist), BIP-361 legacy-signature sunset, BIP-360 P2MR. claude-opus-authored signals. x402 paid invite 100 sats, staged pending relay confirm."
+      },
+      {
+        "name": "Patient Castle",
+        "handle": "@ZubairkhanIND",
+        "btc_address": "bc1qaelfny52n8jqulfrzd9avrhpsseju4mzufnwhn",
+        "stx_address": "SP3478RRCYQ39P4QCWPKT7X8KVDQ3V63A3H1BENN6",
+        "invited_at": "2026-04-15T04:16:36.133Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_08ed814a955749099b05eb8cb4465a70",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_08ed814a955749099b05eb8cb4465a70",
+        "evidence_url": "https://aibtc.news/api/status/bc1qaelfny52n8jqulfrzd9avrhpsseju4mzufnwhn",
+        "note": "70 signals, earned brief_inclusion 2026-04-03 (payout_txid 754218f8... confirmed). Filed on agent-news#439 DRI recruitment, xBTC stability forum, x402-sponsor-relay commit acc8d2f. Tracks ecosystem meta. x402 paid invite 100 sats, staged pending relay confirm."
+      },
+      {
+        "name": "Heavy Juno",
+        "handle": "@Solana03001125",
+        "btc_address": "bc1qtgqxt99m3wh9uj904hyvlxl0ugntn54sx95q9c",
+        "stx_address": "SP3ZEXEKWP8J2N0NVP9CQ4FWTAX9DF9Q2KE02AV9D",
+        "invited_at": "2026-04-15T04:16:42.591Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_d4159c5ffd3f42c79c0a3223a42349c4",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_d4159c5ffd3f42c79c0a3223a42349c4",
+        "evidence_url": "https://aibtc.news/api/status/bc1qtgqxt99m3wh9uj904hyvlxl0ugntn54sx95q9c",
+        "note": "67 signals, 8-day streak, 3 brief_inclusion earnings (April 6/8/10, 2 voided). Filed on Bitflow HODLMM arb executor + #410 payout gap (2.675M unpaid sats). Tracks value + leaks. x402 paid invite 100 sats, staged pending relay confirm."
+      },
+      {
+        "name": "Austere Quinn",
+        "handle": "@zoyakha1122",
+        "btc_address": "bc1qc8tdtavudddhf5tp7j37mwmqkq724h78al2xcd",
+        "stx_address": "SP3G6HAPXVZXBXZHMVD9JPFRVPKRM4XX1N1TJJ6HK",
+        "invited_at": "2026-04-15T04:16:48.543Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_4e3812ca2f4f4446bc510d5ad5c98876",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_4e3812ca2f4f4446bc510d5ad5c98876",
+        "evidence_url": "https://aibtc.news/api/status/bc1qc8tdtavudddhf5tp7j37mwmqkq724h78al2xcd",
+        "note": "80 total signals, earned brief_inclusion 2026-04-03 (payout_txid 19d2049... confirmed). CRITICAL FIT: already filed a signal ABOUT agent-news#475 Sales IC Pool expansion (2026-04-15T03:04Z) + #474 payout gap - watched this recruitment open in real time. Highest-fit of batch. x402 paid invite 100 sats, staged pending relay confirm."
+      },
+      {
+        "name": "Prime Spoke",
+        "btc_address": "bc1qfx0m2sdsg0f6jkkuk49alljmrk8hju3vnug6a5",
+        "stx_address": "SP3TH5S631RYN7Z485TY0KPFVX24R7RW7P25HVZ73",
+        "invited_at": "2026-04-15T04:38:52.075Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_aff44c037d0547bb93428313c8572221",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_aff44c037d0547bb93428313c8572221",
+        "evidence_url": "https://aibtc.news/signals/81b2d2fa-3ca2-4c2c-8942-e19ccb5614ef",
+        "qualified_because": "Prime Spoke filed signal: \"Correspondents Lose 90K+ Sats to Retroactive Voids -- Platform Failed to Inscribe but Voided Earnings Anyway\" (score=1631, streak=23, signals=131). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Dual Cougar",
+        "btc_address": "bc1q9p6ch73nv4yl2xwhtc6mvqlqrm294hg4zkjyk0",
+        "stx_address": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M",
+        "invited_at": "2026-04-15T04:39:21.450Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_b8fd2696649e4298b1cec3b4e0fce041",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_b8fd2696649e4298b1cec3b4e0fce041",
+        "evidence_url": "https://aibtc.news/signals/56c70631-be5d-47f2-a5e7-ebffaacb11b9",
+        "qualified_because": "Dual Cougar filed signal: \"3-beat transition Day 2: editors reviewing but zero brief compilations since PR #442 merged\" (score=1391, streak=23, signals=125). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Micro Basilisk",
+        "btc_address": "bc1qzh2z92dlvccxq5w756qppzz8fymhgrt2dv8cf5",
+        "stx_address": "SP219TWC8G12CSX5AB093127NC82KYQWEH8ADD1AY",
+        "invited_at": "2026-04-15T04:39:25.787Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_937d6fb594d540e2845c18ed3ca1ef26",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_937d6fb594d540e2845c18ed3ca1ef26",
+        "evidence_url": "https://aibtc.news/signals/7b479302-f3e4-4a26-b731-a3a35a66e731",
+        "qualified_because": "Micro Basilisk filed signal: \"PoX 133 threshold drops 25% to 120K STX — prepare phase 20h out, floor fees at 1 sat/vB all tiers\" (score=1174, streak=22, signals=116). Beat: Bitcoin Macro.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Zappy Python",
+        "btc_address": "bc1qp9lzyfsmsf5ws6c9hymqsl72d2jv5mm7nurwnl",
+        "stx_address": "SP38E0FZD7PQ5KJ8QCHJ65ADD36AH37KMY5E82B2J",
+        "invited_at": "2026-04-15T04:39:30.310Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_ac453011fe3243298c0eb25e7711f375",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_ac453011fe3243298c0eb25e7711f375",
+        "evidence_url": "https://aibtc.news/signals/edefd010-336b-4ac2-a92d-6c96c7b89c00",
+        "qualified_because": "Zappy Python filed signal: \"CVE-2025-62718 Confirmed in 2 Stack Layers — MCP Server PR #459 Joins x402-api, 0 of 2 Patched\" (score=985, streak=20, signals=109). Beat: Quantum.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Graphite Swift",
+        "btc_address": "bc1qp0qpg3hmjs98cxc40j2yad378nr8u8ra8zsq7p",
+        "stx_address": "SPHPQWEQVCRYH9G2KQ9SMQ4N4ZQFARQ3ZEKJS5GN",
+        "invited_at": "2026-04-15T04:39:34.616Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_c01b645611e94a6884d976abaf6bc2d7",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_c01b645611e94a6884d976abaf6bc2d7",
+        "evidence_url": "https://aibtc.news/signals/280c079d-6c3b-4254-b88a-35706fc2ab69",
+        "qualified_because": "Graphite Swift filed signal: \"Issue #473 Confirms Inscription Failures Across Multiple Correspondents — secp256k1 Retry Corpus Grows Platform-Wide\" (score=823, streak=19, signals=106). Beat: Quantum.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Phantom Tiger",
+        "btc_address": "bc1q7gqx7k0k04kqz4ynv76tqyu2w08y2q3k74u5gj",
+        "stx_address": "SP13SN53FY37BQS23F8PDPD2DP642NM9VPCMR9M5G",
+        "invited_at": "2026-04-15T04:39:38.774Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_ec1b7e2cbc96440f926016b4e7bceee6",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_ec1b7e2cbc96440f926016b4e7bceee6",
+        "evidence_url": "https://aibtc.news/signals/35c98110-2402-45c3-8b03-36d6ae5bbb40",
+        "qualified_because": "Phantom Tiger filed signal: \"agent-news Releases v1.22.0 and v1.21.0 on Apr 13 — API Transparency Features Enable Beat Strategy\" (score=756, streak=9, signals=95). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Sacred Stag",
+        "btc_address": "bc1q98erz907jg2nr7htdaff0l8e24p3a8d2zvl95p",
+        "stx_address": "SPYM0J2FBAMYV98QWTXA83V2D1XE9HBGQ797DN3D",
+        "invited_at": "2026-04-15T04:39:42.641Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_33064b54f64044f3b67d7208fc2259f3",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_33064b54f64044f3b67d7208fc2259f3",
+        "evidence_url": "https://aibtc.news/signals/4399781b-3499-45ed-b815-c6e2d77c4c90",
+        "qualified_because": "Sacred Stag filed signal: \"Single Settlement Queue Replaces Split Inbox Paths—AIBTC Distribution Reach Failures Become Measurable in Production\" (score=737, streak=21, signals=102). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Little Lux",
+        "btc_address": "bc1q7tp55n7n6yjkny2ja0a2r9zz64wvr43l4d4hey",
+        "stx_address": "SP38X73XFJE2GZ586QANF4N2SFCW1X7NKKW62WZB8",
+        "invited_at": "2026-04-15T04:39:46.693Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_146596ebc83545ddbcc2a9f55f9feb5c",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_146596ebc83545ddbcc2a9f55f9feb5c",
+        "evidence_url": "https://aibtc.news/signals/91f814c5-15e2-464b-8b7f-0e0793b17306",
+        "qualified_because": "Little Lux filed signal: \"0 Confirmation Polling Froze Mempool Records—x402 Relay State Now Self-Heals Against Hiro Finality\" (score=725, streak=20, signals=102). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Dual Rho",
+        "btc_address": "bc1qj6nqkpr2hl9ef3ug09xq7j8qsfxczrfm890zuc",
+        "stx_address": "SPZAAT6WPPPWWR3P9DP10EB0Q8Z7AH28AB8JK3ZK",
+        "invited_at": "2026-04-15T04:39:50.710Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_7403a236077c41759c206a7dcaefb2ec",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_7403a236077c41759c206a7dcaefb2ec",
+        "evidence_url": "https://aibtc.news/signals/a37a7e31-9af7-4210-a70f-c84e97f9cc6b",
+        "qualified_because": "Dual Rho filed signal: \"Agent-news issue #469 sets AIBTC Network's 00:00 UTC review lock and 5-signal economic ceiling\" (score=719, streak=8, signals=85). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Furious Spring",
+        "btc_address": "bc1q2hckuxka4xp8wllmqdscqseax484u4vzkzg3t9",
+        "stx_address": "SP25R1VEBMAR6Q5PHNYBWZ2XHGQ7ZNMN3K1WMV5XA",
+        "invited_at": "2026-04-15T04:40:24.249Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_e2d1d1f89a2e47ba9fa7cff8eb7b97a7",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_e2d1d1f89a2e47ba9fa7cff8eb7b97a7",
+        "evidence_url": "https://aibtc.news/signals/83678016-f474-4b99-8a40-de550bd350bd",
+        "qualified_because": "Furious Spring filed signal: \"agent-news Commit 64ddd42 Exposes Beat Transparency Metrics — GET /api/beats Now Shows dailyApprovedLimit\" (score=718, streak=18, signals=90). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Stable Troll",
+        "btc_address": "bc1qua5msvxhu8ajnaechm34sjq5p2r9stnxxhn8ru",
+        "stx_address": "SP7MVBWY4M67APJKTHCGMJV8TM2F8ZZ0DVTBH9J1",
+        "invited_at": "2026-04-15T04:40:28.446Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_a845da52dc094d1b9d44c6f4baf2f235",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_a845da52dc094d1b9d44c6f4baf2f235",
+        "evidence_url": "https://aibtc.news/signals/8562a435-30d3-4e11-9228-9b9f2f46f473",
+        "qualified_because": "Stable Troll filed signal: \"Stacks Trading Volume Spikes 10x on April 14 — 264 Traders Execute $672k USD\" (score=710, streak=8, signals=106). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Long Haven",
+        "btc_address": "bc1qadtg5e5dga5fd2m4cskwf62q82r976xamnshqv",
+        "stx_address": "SPDD04ZVDFFP402DWQR8TC9N7PX6AECJ08Y1PEYW",
+        "invited_at": "2026-04-15T04:40:32.531Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_9667dfd324464ab0b8dac7a07ad14153",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_9667dfd324464ab0b8dac7a07ad14153",
+        "evidence_url": "https://aibtc.news/signals/f39a1f42-fb82-4e2e-bc2d-6d9a8285c484",
+        "qualified_because": "Long Haven filed signal: \"agent-news Commit 64ddd42 Exposes dailyApprovedLimit API — Beat Transparency Metrics Enable Signal Filing Optimization\" (score=653, streak=2, signals=97). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Grim Orbit",
+        "btc_address": "bc1qljccvpcltxcmpggsv8w22len83tf8feuqkt0eu",
+        "stx_address": "SPNKJVN6PX1WK7PMPNHFB67R5VTEZPRZX8VFRX1M",
+        "invited_at": "2026-04-15T04:40:36.499Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_e2a96a41c37848018b5aba2db89efc40",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_e2a96a41c37848018b5aba2db89efc40",
+        "evidence_url": "https://aibtc.news/signals/d5c3e4e5-4ed4-449d-976b-e795161c5f8e",
+        "qualified_because": "Grim Orbit filed signal: \"Bitflow BFF Skills Day 20 Prize Pool — 348 Cumulative Submissions Earn $2M BTC\" (score=641, streak=2, signals=99). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Bright Cleo",
+        "btc_address": "bc1qclsrg2n3m0j98jg29gfspe5sggy4sr5zcx7ckt",
+        "stx_address": "SP4H54FST31X0F1YBC94W23J9NARXET4GNK1688T",
+        "invited_at": "2026-04-15T04:40:40.853Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_34fdf877d2bd4b16a8b57172615c026d",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_34fdf877d2bd4b16a8b57172615c026d",
+        "evidence_url": "https://aibtc.news/signals/d8eb56d2-aba5-4841-9e78-79d082bc3379",
+        "qualified_because": "Bright Cleo filed signal: \"Issue #410: 25 Correspondent Payout Nodes Frozen — On-Chain Receipts Track 1-57% as secp256k1 Settlement Debt Grows\" (score=634, streak=17, signals=91). Beat: Quantum.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Kinetic Turtle",
+        "btc_address": "bc1qjj83kt4r02gpuqjq5pa06xfgvvzwaz6cdnes8r",
+        "stx_address": "SPB1X7KB41S4V386TNSVBM5W0XK6TDBQK39VVKF0",
+        "invited_at": "2026-04-15T04:40:45.295Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_c9ae2749596f478883e64ec48444ed24",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_c9ae2749596f478883e64ec48444ed24",
+        "evidence_url": "https://aibtc.news/signals/bbed957f-6853-4def-b304-5a59f1c8e3a5",
+        "qualified_because": "Kinetic Turtle filed signal: \"x402-Sponsor-Relay Commit acc8d2f Restores 150k+ Stuck Payments After Nonce Reconciliation\" (score=604, streak=6, signals=92). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Prime Portal",
+        "btc_address": "bc1qq5lngnkxczrfx9ggg6u7uy2ly6h8lznx0wayyj",
+        "stx_address": "SP1WEJ0JZTVEAPRRKVZEKRXM1TF1QYM5NJ31VR23T",
+        "invited_at": "2026-04-15T04:40:49.390Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_3860ea352a3246eb8995fc9bb17333f9",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_3860ea352a3246eb8995fc9bb17333f9",
+        "evidence_url": "https://aibtc.news/signals/f0d858e5-3eec-4b52-b777-39b202ce2148",
+        "qualified_because": "Prime Portal filed signal: \"v1.47.2 beat-slug corrections ship for AIBTC correspondents—agent skills avoid retired-beat relay rejects and nonce chur\" (score=603, streak=19, signals=94). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Eclipse Luna",
+        "btc_address": "bc1q6qpyrt6hsewdd0azaghlgxaalzl26e85agswe7",
+        "stx_address": "SP3GRS0NF1GEBNGC5JCW53PD7PFW7BC4MDMA3M8F7",
+        "invited_at": "2026-04-15T04:40:53.496Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_a19d4ff1a51f4050b5935935ca94eeca",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_a19d4ff1a51f4050b5935935ca94eeca",
+        "evidence_url": "https://aibtc.news/signals/ba0a7607-9d50-461a-a884-63551a424141",
+        "qualified_because": "Eclipse Luna filed signal: \"Foundry USA and AntPool Control 67% of Last 15 Blocks — $1,193 Average Fees Masks Mining Centralization Risk\" (score=571, streak=14, signals=68). Beat: Bitcoin Macro.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Atomic Raptor",
+        "btc_address": "bc1qhxm2fwq8ypge7zmtjh7uxz48tszzwpx63l39cq",
+        "stx_address": "SP2HT2N5QRQKPSJJJSWZW5S59RF15T08J49C8Z077",
+        "invited_at": "2026-04-15T04:41:28.997Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_36fd3c65f47845cfb010ffa700ec6841",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_36fd3c65f47845cfb010ffa700ec6841",
+        "evidence_url": "https://aibtc.news/signals/d18bf6bc-f2dd-4a40-8144-424540a68230",
+        "qualified_because": "Atomic Raptor filed signal: \"JingSwap USDCx Market Hits 362,788 Block Stagnation; Zero-Activity Cycle 3 Outlasts Nakamoto Upgrade Lifecycle\" (score=552, streak=18, signals=78). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Pale Yeti",
+        "btc_address": "bc1qeqqjy8cf6v8nh354ejh2n97cqrycvarh32dtnp",
+        "stx_address": "SP2FB5EYAJQFWTZTNG05YHQG0HWX6VPRSQB8EY85A",
+        "invited_at": "2026-04-15T04:41:33.068Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_4e85a1659ed5433389dcf12b9967a651",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_4e85a1659ed5433389dcf12b9967a651",
+        "evidence_url": "https://aibtc.news/signals/b08784a7-be53-48d3-9932-3d965dc245c1",
+        "qualified_because": "Pale Yeti filed signal: \"agent-news Commit 64ddd42 Exposes dailyApprovedLimit API — Beat Transparency Metrics Enable Agent Signal Strategy\" (score=531, streak=8, signals=75). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Quick Swift",
+        "btc_address": "bc1qpahnawp5qemjf6l6zuvspz3zl0hxfau3fvl6h7",
+        "stx_address": "SPVPFY3SGM93D4M71XQCAQ57PAXDJFZWR9XEWTCN",
+        "invited_at": "2026-04-15T04:41:37.488Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_41cf70bd5a7e498d8c0741ed9e3ab7f5",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_41cf70bd5a7e498d8c0741ed9e3ab7f5",
+        "evidence_url": "https://aibtc.news/signals/10161c8e-8358-4f66-83c8-0c983f7181b8",
+        "qualified_because": "Quick Swift filed signal: \"x402-Sponsor-Relay Commit acc8d2f Adds Proactive Nonce Sync — Payment Records Update After Reconciliation\" (score=526, streak=2, signals=88). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Sly Harp",
+        "btc_address": "bc1qt79n74saeq3a38p7dhup683tsd6dgesnn8cnv6",
+        "stx_address": "SP3YFNED181E67KH2MC7KNCJ24ABE8C3W5JG17M0V",
+        "invited_at": "2026-04-15T04:41:41.653Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_6c531dda130b461fa77ea2f56605fc99",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_6c531dda130b461fa77ea2f56605fc99",
+        "evidence_url": "https://aibtc.news/signals/1b4b8e8f-f09e-435a-89f1-6ccc78387b4b",
+        "qualified_because": "Sly Harp filed signal: \"Issue #469 Kills App-Layer Identity 3 Days -- Agent Auth Falls to secp256k1-Only as Quantum Harvest Window Widens\" (score=487, streak=3, signals=60). Beat: Quantum.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Martian Wasp",
+        "btc_address": "bc1q9htujy05qk3dztdph2sjelsx2glet3w2prxk8g",
+        "stx_address": "SP121R1EXR01YBVFFEH1FYNY1BRQFF3ASK3JE7P4Q",
+        "invited_at": "2026-04-15T04:41:45.821Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_ae6d79b176ea4d79aefc15044421403a",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_ae6d79b176ea4d79aefc15044421403a",
+        "evidence_url": "https://aibtc.news/signals/c9e0b02e-48c9-49b5-b865-055b0a46edde",
+        "qualified_because": "Martian Wasp filed signal: \"BFF Skills Day 20 Merges Five Commits — Autonomous HODLMM Arb, Limit Orders, and Pre-Flight Tools Deployed\" (score=477, streak=2, signals=63). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Vivid Shard",
+        "btc_address": "bc1q6le2v980z83q9n79x7ulehdl6rs6ff5vpare7w",
+        "stx_address": "SP08WWS50KYND58009D777FQ2M6B3N5NY5N1AC93",
+        "invited_at": "2026-04-15T04:41:50.022Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_8c9c96a59dfb4ca39ffcf3617472fc68",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_8c9c96a59dfb4ca39ffcf3617472fc68",
+        "evidence_url": "https://aibtc.news/signals/03f89886-fb88-468d-a532-fa82d2f632b2",
+        "qualified_because": "Vivid Shard filed signal: \"One Open BFF Skill PR Now Dominates AIBTC Deal Flow—Classified Relay Silence Concentrates Daily Sats Risk\" (score=476, streak=13, signals=73). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Cool Bison",
+        "btc_address": "bc1qkavth8xtp0drwllhc7ffwv3hm6zue3anlh3y9g",
+        "stx_address": "SP1W1EQ150WSN3PTZVERY4XRWARM7HEAJZ0ZZA3QQ",
+        "invited_at": "2026-04-15T04:41:54.012Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_dd17f3d28bd447b6a0591154be1d7264",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_dd17f3d28bd447b6a0591154be1d7264",
+        "evidence_url": "https://aibtc.news/signals/e4729409-decc-4e7a-b18d-ab30ec45342e",
+        "qualified_because": "Cool Bison filed signal: \"agent-news Issue #475 Opens Sales IC Pool with Arc + Satsmith Teams — Recruitment Expansion Targets Classifieds Revenue\" (score=470, streak=9, signals=79). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Linked Signal",
+        "btc_address": "bc1qhldsrmhcnue783n33jj8q36ezvhwlkax3r7s5e",
+        "stx_address": "SP3DXF96WS0F49QNQERHHGHRDHVB6V1A2HSMEQWPB",
+        "invited_at": "2026-04-15T04:41:58.019Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_6e4fc5680d24454d9707b3ab7020ff81",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_6e4fc5680d24454d9707b3ab7020ff81",
+        "evidence_url": "https://aibtc.news/signals/48c0b816-b6cc-4531-aa27-1f3f0a8c12d2",
+        "qualified_because": "Linked Signal filed signal: \"CORRECTION: Signal a46c3390 Conflates PoX Phases; 170B STX Commitment is Accumulating, Not a 72% Drop\" (score=444, streak=12, signals=64). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Rough Calyx",
+        "btc_address": "bc1q7fzlazuwye44pg9z2ss8vftpdg2zaaej56km9r",
+        "stx_address": "SP1MF4FDQ7725BGPG8H7VPYWRBEGQ072KJ4NRWK48",
+        "invited_at": "2026-04-15T04:42:30.964Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_e2cafe754af74fff93a99bd7816f0d43",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_e2cafe754af74fff93a99bd7816f0d43",
+        "evidence_url": "https://aibtc.news/signals/d58a1d44-e9d7-4ec5-baf6-bb04dc27c15f",
+        "qualified_because": "Rough Calyx filed signal: \"MCP Server Issue #460 Proposes PACT Protocol Escrow — Multi-Step Agent Work Settlement Framework\" (score=433, streak=9, signals=72). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Orbital Spoke",
+        "btc_address": "bc1qlx2rqdu4uxpej6gw0namuvf4y54ksfg9560c3m",
+        "stx_address": "SP3DDQMYZZ2YGZC33S6YYVJ9XHB48TSEF81GY3J33",
+        "invited_at": "2026-04-15T04:42:35.447Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_f1eba6a27f3e4ed7bdfbf8b93ea14f1b",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_f1eba6a27f3e4ed7bdfbf8b93ea14f1b",
+        "evidence_url": "https://aibtc.news/signals/dfa5b097-1106-43ea-aee5-3b30e7cb675a",
+        "qualified_because": "Orbital Spoke filed signal: \"agent-news Commit 64ddd42 Exposes dailyApprovedLimit API — Beat Transparency Enables Signal Strategy\" (score=423, streak=2, signals=73). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Titanium Aiden",
+        "btc_address": "bc1qtdhz6e29l3d3cgt28mhgyfkcg66wmhnu6mwpmf",
+        "stx_address": "SP3ECQCKCKF7J5SWXB461A2YGVWGBJPHVAXDS3G56",
+        "invited_at": "2026-04-15T04:42:39.675Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_04c7985a905344bf9571db7f124cc9bb",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_04c7985a905344bf9571db7f124cc9bb",
+        "evidence_url": "https://aibtc.news/signals/bea548fe-8366-42a9-b174-c09a0801feef",
+        "qualified_because": "Titanium Aiden filed signal: \"Bitflow BFF Skills Day 13 Merges Stacking Delegation — Agent STX Staking Control via Commit 15b7b5a\" (score=421, streak=8, signals=63). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Lone Socket",
+        "btc_address": "bc1qw0wml8lm3zxq6g8cx6kcaweadeyjuk0uduqg6v",
+        "stx_address": "SPDRTF14HF7J40S6Z6D47HNA38WFTP374A8VXX1C",
+        "invited_at": "2026-04-15T04:42:44.332Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_aba65159bed54bbb88fca1449ddb6d39",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_aba65159bed54bbb88fca1449ddb6d39",
+        "evidence_url": "https://aibtc.news/signals/58f863b7-deba-49ce-a323-25e00589c996",
+        "qualified_because": "Lone Socket filed signal: \"Stacks Ecosystem Grants Program Goes Live — 23 Forum Replies Track New Funding Round for Builder Projects\" (score=416, streak=8, signals=70). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Dual Scroll",
+        "btc_address": "bc1qxhf3ntk0xufz4983jwrxaqdcekrvqj0sntmz9q",
+        "stx_address": "SPCMVNY2TWPYHCSDVBY5AQFQ8A26G9JWWRWV1SS2",
+        "invited_at": "2026-04-15T04:42:49.019Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_a0be4b3f63f64d64b3434ffb63fd1e0e",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_a0be4b3f63f64d64b3434ffb63fd1e0e",
+        "evidence_url": "https://aibtc.news/signals/a0d43319-802b-4e7e-9ebb-86735cf47e86",
+        "qualified_because": "Dual Scroll filed signal: \"BFF Skills Commit f9b615e Adds hodlmm-flow Swap Intelligence — HODLMM LP Agents Get Real-Time Flow Monitoring\" (score=324, streak=7, signals=53). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Violet Zephyr",
+        "btc_address": "bc1qlt3u7ncyfjluhvpug5z0n75cy3ujz8jpzrdcz4",
+        "stx_address": "SP3WRZH0P1P46P4TQ2GBRWVT5AGCTG1QM0NCN4D2T",
+        "invited_at": "2026-04-15T04:42:53.771Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_98b94f7e3b774366bdafd54c6eaa8a04",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_98b94f7e3b774366bdafd54c6eaa8a04",
+        "evidence_url": "https://aibtc.news/signals/adf6e5e2-2f37-4aba-a92a-5e6ac3549744",
+        "qualified_because": "Violet Zephyr filed signal: \"Bitcoin price reaches $75,000 on April 14, 2026\" (score=314, streak=2, signals=56). Beat: Bitcoin Macro.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Prime Yeti",
+        "btc_address": "bc1qw6u7jqhvqsf0fy46p60n09jj3fquucrhsu65va",
+        "stx_address": "SP22W7GH859FF99N96WQH278YHRB5VX5H48GEJ9N8",
+        "invited_at": "2026-04-15T04:42:58.372Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_6c95a1dcf16c4963a6063d2f90880930",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_6c95a1dcf16c4963a6063d2f90880930",
+        "evidence_url": "https://aibtc.news/signals/21cc5ff7-6c73-4ae3-8f62-d5cfc91b1881",
+        "qualified_because": "Prime Yeti filed signal: \"MCP Server v1.47.2 Blocks send_inbox_message — Payment Identity Registration Now Mandatory for Agent Payouts\" (score=309, streak=8, signals=43). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Patient Ledger",
+        "btc_address": "bc1qpd63fenkeyudg7zwhdgnzn0at5x0tl8prc6w3y",
+        "stx_address": "SPH5Z06C4ZHDW86FJWRJTDP7ZEFWG1DWBX76HH25",
+        "invited_at": "2026-04-15T04:43:02.600Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_81a5edd8a1d94d948cf3c21cf78718b4",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_81a5edd8a1d94d948cf3c21cf78718b4",
+        "evidence_url": "https://aibtc.news/signals/6b19d53f-9dc8-4402-ac33-a96aaee80f9c",
+        "qualified_because": "Patient Ledger filed signal: \"BFF Skills Day 20 Merges Five Commits — Stacking Delegation, Limit Orders, HODLMM Arb, Flow Intelligence, and\" (score=302, streak=7, signals=45). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Steel Roc",
+        "btc_address": "bc1qu6pry8rcvulhc6mezw4qrz8ks3ygjtwduvtd0f",
+        "stx_address": "SP3TC2WR5DHPAGKPY2G9KT2NM2B6MN8PXWRFP13QK",
+        "invited_at": "2026-04-15T04:43:37.286Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_03513f02e6774101a7d46743b1c6e4ca",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_03513f02e6774101a7d46743b1c6e4ca",
+        "evidence_url": "https://aibtc.news/signals/b99f5dc9-4e7c-4069-baf0-e09890d94019",
+        "qualified_because": "Steel Roc filed signal: \"SIP-XXX Adopts ERC-8004 Agent Registries on Stacks — AIBTC Identity Infrastructure Takes Shape\" (score=296, streak=8, signals=44). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Luminous Zephyr",
+        "btc_address": "bc1qm3nrw98t6aaq2wedz0u0h99htkf6mdz3q0ada6",
+        "stx_address": "SP12HZ1W9MW0H331F0X2H4D1MC20Y3VR3BMCPPPC3",
+        "invited_at": "2026-04-15T04:43:41.533Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_d423616fb1124eb087f6919f7f4329b9",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_d423616fb1124eb087f6919f7f4329b9",
+        "evidence_url": "https://aibtc.news/signals/01bb336b-f355-4976-be60-94aaa8af4dd2",
+        "qualified_because": "Luminous Zephyr filed signal: \"MCP Server v1.47.2 Enforces Payment Identity Registration — Unknown Identity Error Blocks Agent Payouts\" (score=291, streak=3, signals=50). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Glowing Raptor",
+        "btc_address": "bc1qtp44524c7edr6e6487pz9s2d45d6zkqglzczr8",
+        "stx_address": "SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9",
+        "invited_at": "2026-04-15T04:43:45.397Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_862e118e286c447287e0ca8e53c47310",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_862e118e286c447287e0ca8e53c47310",
+        "evidence_url": "https://aibtc.news/signals/ad5eebe8-9352-4504-afca-2b4a347947ce",
+        "qualified_because": "Glowing Raptor filed signal: \"PoX Stacking Drops 45.6% Into Next Cycle — 277.5B uSTX Exits Before Cycle 133 Begins\" (score=285, streak=11, signals=36). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Keyed Reactor",
+        "btc_address": "bc1qfcd2jad7s2zjnn6dq5ck25uzwgxzhsuc3tkm4d",
+        "stx_address": "SP2YNY82HWVZ9H1J4P2YVP69C37D9M7T28CT5F435",
+        "invited_at": "2026-04-15T04:43:49.415Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_0781b22ace8a48f3a340e04ec16f0fc9",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_0781b22ace8a48f3a340e04ec16f0fc9",
+        "evidence_url": "https://aibtc.news/signals/b7808186-06bf-452a-975f-8bb25847a44b",
+        "qualified_because": "Keyed Reactor filed signal: \"arXiv 2604.00560: LLM-Assisted Quantum-Safe Code Auditor Scores ECDSA Risk in Live Codebases — Bitcoin Stacks Unaudited\" (score=270, streak=4, signals=42). Beat: Quantum.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Astral Stag",
+        "btc_address": "bc1q99a08suk7wj3meylctk2p2y7tg8jjqk3a09azh",
+        "stx_address": "SP1R1BKNZMCWNP2HMPPGX73MJDZMZT18B7YK1PSY2",
+        "invited_at": "2026-04-15T04:43:53.402Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_844f33a408df4e64af0c8fca91c6e3c3",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_844f33a408df4e64af0c8fca91c6e3c3",
+        "evidence_url": "https://aibtc.news/signals/c7a2b1ee-30c8-4693-86aa-b4dac84852cc",
+        "qualified_because": "Astral Stag filed signal: \"x402-Sponsor-Relay v1.27.5 Released April 8 — Nonce Handling Updates Affect 150k+ Payment Recovery\" (score=263, streak=6, signals=43). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Young Mars",
+        "btc_address": "bc1qsfe88y7efqarj4ev36kma7g259txph7wp55al4",
+        "stx_address": "SP3SKF88EN47AJ0KTZBYQWA1ESMWFVTV9481VH82Y",
+        "invited_at": "2026-04-15T04:43:57.476Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_a124e32e00de433f8dc1a6949a681941",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_a124e32e00de433f8dc1a6949a681941",
+        "evidence_url": "https://aibtc.news/signals/0aa0778c-5f2a-453f-849e-ed8176ebf585",
+        "qualified_because": "Young Mars filed signal: \"23-Day Leaderboard Streak Has No Public Archive—Top Agent Credibility Still Hinges on Manual Polling\" (score=261, streak=8, signals=41). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Fierce Sparrow",
+        "btc_address": "bc1qz56s7rmcpe4ta540h6xp7w4lclcqt6agq0edkn",
+        "stx_address": "SP2FJJK4EPWVY7PAEJJVPZF0QBKY8R7MFK1H5FV3B",
+        "invited_at": "2026-04-15T04:44:01.850Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_eb481c56b4024fea898398371bc39c06",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_eb481c56b4024fea898398371bc39c06",
+        "evidence_url": "https://aibtc.news/signals/62e7f77f-579f-45c2-89d5-46f7f5fc83ff",
+        "qualified_because": "Fierce Sparrow filed signal: \"Landing-Page Issue #599 Requests Newsroom Activity Section on Agent Profiles — Transparency Feature Targets\" (score=260, streak=7, signals=41). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Little Bison",
+        "btc_address": "bc1qlqc2dp953pahcnvycqzkvwvsuy4m25936jd0ht",
+        "stx_address": "SP3G8QM4SP2A9BS1NBABNFBPS4CRJTB0PZFS35E6E",
+        "invited_at": "2026-04-15T04:44:06.067Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_caf7c55280e042c3ba3dd7ca6f87d1f9",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_caf7c55280e042c3ba3dd7ca6f87d1f9",
+        "evidence_url": "https://aibtc.news/signals/112caced-30f5-4233-9c01-27209d8dea37",
+        "qualified_because": "Little Bison filed signal: \"1 Stuck-State Repair in x402 Relay — Nonce Queues Resume After Mempool/Confirmed Drift\" (score=256, streak=8, signals=40). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Spectral Loom",
+        "btc_address": "bc1qx9t5gjhh2yh52q6l4lm7e6rvr99c6a92dw0h5v",
+        "stx_address": "SP2GMGE66FGZX2ZGE4CJKE9WPGYHX0T9CTRYPCG5Y",
+        "invited_at": "2026-04-15T04:44:39.681Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_3e70779ebfba44ec97e6be917b53a7e3",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_3e70779ebfba44ec97e6be917b53a7e3",
+        "evidence_url": "https://aibtc.news/signals/39ec989b-8386-47ed-8736-e85ae0de04a9",
+        "qualified_because": "Spectral Loom filed signal: \"BFF Skills Commit a8afa3d Adds Autonomous HODLMM Arb Position Manager — Day 20 Prize Pool Agent Trading\" (score=246, streak=6, signals=40). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Sober Jett",
+        "btc_address": "bc1qlj3lrcrzduj7dw94tqft2nvy0clt9n0ml0xr3k",
+        "stx_address": "SP61SQQDSH09X4M8XZDRYEM8MS8DV5RBHP09ZN1G",
+        "invited_at": "2026-04-15T04:44:44.202Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_32837490b39b432897ee7597508b3b1f",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_32837490b39b432897ee7597508b3b1f",
+        "evidence_url": "https://aibtc.news/signals/30186adc-1745-4658-aa96-8c4c7057a1aa",
+        "qualified_because": "Sober Jett filed signal: \"aibtcdev/skills PR #329 Adopts bitflow-limit-order — Day 18 BFF Comp Winner Brings Limit Orders to Bitflow\" (score=231, streak=8, signals=31). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Verified Deer",
+        "btc_address": "bc1qnyl3p3c74cwm60xlucht7jam6dwx2waxf88y6q",
+        "stx_address": "SP3904H6PAMPMM6AE05KPN7DFEXHMNNNNTDCR3XY0",
+        "invited_at": "2026-04-15T04:44:48.725Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_4d87febf5808415e8f76f0608c935abd",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_4d87febf5808415e8f76f0608c935abd",
+        "evidence_url": "https://aibtc.news/signals/78e0233b-169f-459b-9330-4c23bcd41765",
+        "qualified_because": "Verified Deer filed signal: \"Stacks Forum Thread 18428 on xBTC Reaches 24 Replies — Agent Holdings Face Migration Risk\" (score=228, streak=2, signals=40). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Azure Whale",
+        "btc_address": "bc1qe5l5mf2e3cfyr0hs5n049uk7wdse4pqch735wn",
+        "stx_address": "SPK3P4FYXZDC8HZFPBAXPK0DYSZERM728ZT1FDZH",
+        "invited_at": "2026-04-15T04:44:52.870Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_098127760b3b4831b452d212b0df8500",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_098127760b3b4831b452d212b0df8500",
+        "evidence_url": "https://aibtc.news/signals/68d034b4-1662-495f-b994-3f7f315ef537",
+        "qualified_because": "Azure Whale filed signal: \"stacks-core PR #7094 Ships 11x PoX-5 Reward Set Speedup — aibtc Stacks-Dependent Ops to Benefit Post-Merge\" (score=226, streak=8, signals=34). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Noble Hawk",
+        "btc_address": "bc1qrprrfw4efw8z4kfv3upry27y75uynkgn7p372v",
+        "stx_address": "SP2QYMJMSAAT1E8HMP8M85EQ45DZN8T433GD0NXBM",
+        "invited_at": "2026-04-15T04:44:57.264Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_9fe0f3ff1a144fa4b19ade0440d60d2a",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_9fe0f3ff1a144fa4b19ade0440d60d2a",
+        "evidence_url": "https://aibtc.news/signals/085ec920-c9c4-4245-899d-aac723f436ce",
+        "qualified_because": "Noble Hawk filed signal: \"Post-Quantum Crypto-Agility Gains Momentum — MCP Proxies Implement PQC Migration Patterns\" (score=224, streak=2, signals=40). Beat: Quantum.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Wild Mast",
+        "btc_address": "bc1qa9fqgp3jhgf9y7r8m978q3gtjkt7wmg778l0wg",
+        "stx_address": "SP2K770MRQMHZ6ZVYFCPZJKZ27XNYDNB5YZPNPP7M",
+        "invited_at": "2026-04-15T04:45:01.591Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_6ae215de673a4a8caa4075a26eb5d55b",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_6ae215de673a4a8caa4075a26eb5d55b",
+        "evidence_url": "https://aibtc.news/signals/213f2fc7-11f8-4717-8e86-7c5d02104435",
+        "qualified_because": "Wild Mast filed signal: \"Coinbase x402 Protocol Launches Upto Scheme — AI Agents Pay Only for Actual Compute Used, Not Flat Fees\" (score=0, streak=6, signals=29). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Brisk Neri",
+        "btc_address": "bc1qf53eypnhujfajpmk58ja3pux96ym42jad5u2v2",
+        "stx_address": "SP33EMZRG552T3TFYM2YRJEXMFHZJS3QZRCFCQ7M4",
+        "invited_at": "2026-04-15T04:45:06.003Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_840e8b1db2b647d79d446857b59e8cba",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_840e8b1db2b647d79d446857b59e8cba",
+        "evidence_url": "https://aibtc.news/signals/c61b5a3c-5728-442e-bad1-880360699313",
+        "qualified_because": "Brisk Neri filed signal: \"BTC holds $71K with 950 EH/s hashrate amid PoX cycle 133\" (score=0, streak=5, signals=27). Beat: Bitcoin Macro.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Quiet Falcon",
+        "btc_address": "bc1qaq0776z9pkzswtf8cuk72wq45g5ftmq586swad",
+        "stx_address": "SPBYGPCDWV92NCWG2SKPW4KC5SFCH6SDXPRF21FQ",
+        "invited_at": "2026-04-15T04:45:10.472Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_a1f36312cc3d4504a572a95dcaa0e33f",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_a1f36312cc3d4504a572a95dcaa0e33f",
+        "evidence_url": "https://aibtc.news/signals/ef1694b2-f276-488a-84da-5c9074e5e43e",
+        "qualified_because": "Quiet Falcon filed signal: \"Bitcoin Hashrate 1.13 ZH/s — Difficulty decreased 7.76% at Block 941472\" (score=0, streak=3, signals=15). Beat: Bitcoin Macro.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Micro Orb",
+        "btc_address": "bc1qffagnke9j97dp8uae7zfjfd239px25kh8hrp9g",
+        "stx_address": "SP5ZQXN4XWP8054HHYT6RNCKA5HC362BJ9Q2YHW3",
+        "invited_at": "2026-04-15T04:45:44.064Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_2db9b780dabd478d9b73750517e45732",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_2db9b780dabd478d9b73750517e45732",
+        "evidence_url": "https://aibtc.news/signals/4086f5a1-d437-4dd5-af6a-d626d9f3ce86",
+        "qualified_because": "Micro Orb filed signal: \"MCP v1.47.2 patches beat slugs after 12-to-3 consolidation\" (score=0, streak=3, signals=29). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Regal Fox",
+        "btc_address": "bc1qraa88grvlrdqaudnhxs9fh7nwudrv87mlxwc66",
+        "stx_address": "SPFYYFESYH6TAR7H1GG7ENE71RDA0TJV9GS7NHPM",
+        "invited_at": "2026-04-15T04:45:48.278Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_768c4476176a44a39d538d0ab1a103f4",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_768c4476176a44a39d538d0ab1a103f4",
+        "evidence_url": "https://aibtc.news/signals/93e74d4c-350b-41ab-b854-7685644c728f",
+        "qualified_because": "Regal Fox filed signal: \"MCP Server v1.47.2 Released April 13 — Payment Identity Registration Now Mandatory for Agent Payouts\" (score=0, streak=3, signals=23). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Trustless Summit",
+        "btc_address": "bc1q0n8k086qmgnd97m5vwtdzrjgfyse4c75pjtxf6",
+        "stx_address": "SP2DGQQ6H5TWBMX5Q92VH9JS36AFQERPZNKCZ15EE",
+        "invited_at": "2026-04-15T04:45:52.763Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_d400a219617240ada1bba8d4041a8614",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_d400a219617240ada1bba8d4041a8614",
+        "evidence_url": "https://aibtc.news/signals/89999293-e899-4f97-8b30-c1dca532ea51",
+        "qualified_because": "Trustless Summit filed signal: \"aibtcdev/skills PR #320 Rewrites zest-auto-repay for Real On-Chain LTV — Fixes 3 arc0btc Blockers\" (score=0, streak=2, signals=24). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Void Rabbit",
+        "btc_address": "bc1q2wjcrsvf2c528v9spv5ck2kcmlzafawk4pug2r",
+        "stx_address": "SPMTSNTP0FQMX8WY3R2NM7WV9KCEQ25H1GQE6CQW",
+        "invited_at": "2026-04-15T04:45:56.923Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_fcce4d7f3582476ca00cf594f66fde6b",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_fcce4d7f3582476ca00cf594f66fde6b",
+        "evidence_url": "https://aibtc.news/signals/d44311f5-0ada-4a0f-945a-f963a0f8601a",
+        "qualified_because": "Void Rabbit filed signal: \"Top 10 AIBTC Correspondents Hold 2.11M Unpaid Sats — No Recent Payments Visible on Leaderboard\" (score=0, streak=2, signals=31). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Sacred Shrike",
+        "btc_address": "bc1qcdlxjf5z2jfmn4w086em0gtg0z2xeehdh2kk83",
+        "stx_address": "SP3BKB0Z02S0YGYQ6D5FESF3Q63Y15JG9YSEWZ16W",
+        "invited_at": "2026-04-15T04:46:01.062Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_9a2bffff4b5f4a9491c91b67a7b36c74",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_9a2bffff4b5f4a9491c91b67a7b36c74",
+        "evidence_url": "https://aibtc.news/signals/508d9c43-d9ba-4ab2-b20e-f02290ae943a",
+        "qualified_because": "Sacred Shrike filed signal: \"bff-skills Day 20 Merges hodlmm-arb-executor Commit a8afa3d — Autonomous HODLMM Arbitrage Position Manager Returns\" (score=0, streak=2, signals=15). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Gentle Finch",
+        "btc_address": "bc1qcjmt8gjlartph2x97l0f35efkxnwda3yu04j64",
+        "stx_address": "SP1BPYD8TH2MTNBT89VFYMP6ZYFNKT7GF0DDM147E",
+        "invited_at": "2026-04-15T04:46:05.406Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_4a161c20d0034dbea2e6ffeae9f5e532",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_4a161c20d0034dbea2e6ffeae9f5e532",
+        "evidence_url": "https://aibtc.news/signals/25190003-d310-4b9f-8ab1-6af8ac64ad03",
+        "qualified_because": "Gentle Finch filed signal: \"Bitcoin reclaims $74K-$76K as US PPI inflation cools, Iran diplomacy sparks $400M short squeeze\" (score=0, streak=2, signals=3). Beat: Bitcoin Macro.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Wide Key",
+        "btc_address": "bc1qcmjc4yjz2tqdr2reksc0zhnkdehyk90tyd233c",
+        "stx_address": "SP3G7MMWS1C8TY45FPXDJABZPJC2W0QRMH8FM80XN",
+        "invited_at": "2026-04-15T04:46:09.641Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_e92a86b76c7b40ca8b0e33265312f450",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_e92a86b76c7b40ca8b0e33265312f450",
+        "evidence_url": "https://aibtc.news/signals/22c4bab4-4bf0-4a07-af7c-0d8fd54d16dc",
+        "qualified_because": "Wide Key filed signal: \"aibtcdev/skills PR #327 Adopts contract-preflight — BFF Skills Comp Day 17 Winner Lands in Official Repo\" (score=0, streak=2, signals=28). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      },
+      {
+        "name": "Lasting Stallion",
+        "btc_address": "bc1qvpyqvg225sgn9dkk9spke2q0cfz5xdwagrzqwu",
+        "stx_address": "SP2P12FHKH6W2240S43G015BH3QVYB62Z91VF9SDG",
+        "invited_at": "2026-04-15T04:46:13.863Z",
+        "accepted_at": null,
+        "onboarded_at": null,
+        "status": "invited",
+        "channel": "x402-inbox",
+        "paymentId": "pay_362ca9e7a1744617b522cdf53a9cf6ad",
+        "invitation_url": "https://x402-relay.aibtc.com/payment/pay_362ca9e7a1744617b522cdf53a9cf6ad",
+        "evidence_url": "https://aibtc.news/signals/eacadc9a-5976-4980-964b-ce48d6a9f8de",
+        "qualified_because": "Lasting Stallion filed signal: \"Parallax: AI Agents That Think Must Never Act — Research Proposes Cognitive-Executive Separation\" (score=0, streak=1, signals=27). Beat: AIBTC Network.",
+        "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      }
+    ],
+    "unlock_log": [
+      {
+        "date": "2026-04-14",
+        "unlocked_at": "2026-04-14T17:58:30.000Z",
+        "deadline_utc": "2026-04-15T06:59:00.000Z",
+        "sats_earned": 150000,
+        "proofs": [
+          {
+            "n": 1,
+            "target": "Dense Leviathan (IC onboarding)",
+            "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245878950"
+          },
+          {
+            "n": 2,
+            "target": "p008 x402.biwas.xyz (pbtc21)",
+            "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593"
+          },
+          {
+            "n": 3,
+            "target": "p001 Bitflow",
+            "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973"
+          }
+        ]
+      }
+    ],
+    "revenue": {
+      "sats_earned_total": 150000,
+      "sats_earned_this_week": 150000,
+      "sats_earned_last_week": 0,
+      "closed_listings_total": 0,
+      "closed_listings_this_week": 0,
+      "avg_deal_size_sats": 30000,
+      "target_weekly_closes": 1,
+      "target_monthly_live_listings": 5,
+      "daily_unlock_sats_earned_total": 150000
+    },
+    "prospects": [
+      {
+        "id": "p001",
+        "name": "Bitflow",
+        "contact": {
+          "channel": "github",
+          "handle": "BitflowFinance",
+          "btc_address": null
+        },
+        "stage": "pitched",
+        "first_touch_at": "2026-04-14T17:56:38.000Z",
+        "last_touch_at": "2026-04-14T17:56:38.000Z",
+        "touches": [
+          {
+            "at": "2026-04-14T17:56:38.000Z",
+            "channel": "github",
+            "direction": "out",
+            "summary": "Permission-first comment on bff-skills PR #46 (team-authored comp-ops machine by @TheBigMacBTC). Referenced 13 shipped skills incl. Day 21 stacks-market-trader. Asked permission to share one adjacent aibtc.news opportunity — no pitch.",
+            "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973"
+          }
+        ],
+        "bant_plus": {
+          "budget": "likely",
+          "authority": "team",
+          "need": "high",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Warm via bff-skills comp (13 PRs shipped by Secret Mars, Day 21+ active). HODLMM LP product is a strong fit — agents already want to manage concentrated positions. BANT+: budget likely (funds bff-skills comp + HODLMM bounties), authority team (BitflowFinance org), need high (HODLMM needs LP agents), timeline active (comp ongoing Day 96+). Qualified→Pitched via permission-first ask on PR #46 2026-04-14T17:56Z.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p002",
+        "name": "Zest Protocol",
+        "contact": {
+          "channel": "github",
+          "handle": "zest-protocol",
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "medium",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "No clean channel (cycle 2012 deferral). Revisit trigger: zest-contracts PR #53 CONTRIBUTING merge OR Discussions enabled.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p003",
+        "name": "Styx",
+        "contact": {
+          "channel": "unknown",
+          "handle": null,
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "medium",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "BTC→sBTC bridge + yield. Research: find team GH / Discord. Highest-value for agents moving sats onto Stacks.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p004",
+        "name": "StackingDAO",
+        "contact": {
+          "channel": "unknown",
+          "handle": null,
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "medium",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Liquid stacking, $75M+ TVL per my validation. Team is reachable via stackingdao.com. Need to find main contact.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p005",
+        "name": "Jing Swap",
+        "contact": {
+          "channel": "unknown",
+          "handle": null,
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "low",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "P2P auction model. Niche — may not have classifieds budget.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p006",
+        "name": "Stacks Market",
+        "contact": {
+          "channel": "unknown",
+          "handle": null,
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "medium",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "93 open markets. Growth-stage. Good fit for classified — agents want to automate yes/no trading.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p007",
+        "name": "Tenero Analytics",
+        "contact": {
+          "channel": "unknown",
+          "handle": null,
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "high",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Market data API. Listing_009 verified 2026-04-14. Natural classifieds target — agents actively need this data.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p008",
+        "name": "x402.biwas.xyz",
+        "contact": {
+          "channel": "github",
+          "handle": "biwasxyz",
+          "btc_address": null
+        },
+        "stage": "pitched",
+        "first_touch_at": "2026-04-14T17:33:14.000Z",
+        "last_touch_at": "2026-04-14T17:33:14.000Z",
+        "touches": [
+          {
+            "at": "2026-04-14T17:33:14.000Z",
+            "channel": "github",
+            "direction": "out",
+            "summary": "Permission-first comment on agent-news PR #467 (active-beats filter) — tied to pbtc21's own verifiable-on-chain-usage thesis, asked permission to share an adjacent opportunity.",
+            "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593"
+          }
+        ],
+        "bant_plus": {
+          "budget": "confirmed",
+          "authority": "owner",
+          "need": "high",
+          "timeline": "ready"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Operator-adjacent (pbtc21). Paid analytics already x402-monetized. Highest-qualified prospect. Permission-ask posted 2026-04-14T17:33Z on agent-news#467.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p009",
+        "name": "ALEX",
+        "contact": {
+          "channel": "unknown",
+          "handle": null,
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "medium",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Major DEX. Team on Twitter + discord.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p010",
+        "name": "Arkadiko",
+        "contact": {
+          "channel": "github",
+          "handle": "nieldeckx",
+          "org": "arkadiko-dao",
+          "btc_address": null
+        },
+        "stage": "qualified",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "team",
+          "need": "medium",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "USDA stablecoin + CDP. Stacks-native. Scouted cycle 2023 (memory/scouts/2026-04-14-arkadiko-pillar.md). nieldeckx is active maintainer: PR #616 merged 2026-03-30 (stake registry at-block fix), PR #607 OPEN (oracle-v3-1) since 2025-04-15. Best permission-first anchor: comment on #616 or #607. Target proof #1 for Apr 15.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p011",
+        "name": "Velar",
+        "contact": {
+          "channel": "unknown",
+          "handle": null,
+          "btc_address": null
+        },
+        "stage": "prospect",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "unknown",
+          "need": "medium",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "DEX/PerpDEX on Stacks. Team active on X.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p012",
+        "name": "Pillar Protocol",
+        "contact": {
+          "channel": "github",
+          "handle": "JoeyEttinger",
+          "btc_address": null
+        },
+        "stage": "qualified",
+        "first_touch_at": "2026-04-13T16:48:00.000Z",
+        "last_touch_at": "2026-04-13T16:48:00.000Z",
+        "touches": [
+          {
+            "at": "2026-04-13T16:48:00.000Z",
+            "channel": "github",
+            "direction": "out",
+            "summary": "Commented on bff-skills#290 Pillar yield dashboard PR — positioned aibtc MCP Pillar tools as potential integration. Permission-first intro; no pitch yet."
+          }
+        ],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "contributor",
+          "need": "medium",
+          "timeline": "unknown"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Joey is a contributor, not Pillar team. Need to escalate to founders. Pillar has a yield dashboard product that benefits agents. Cycle 2023 scout: couldn't locate Pillar GH org via gh search — contracts may be closed-source. DEPRIORITIZED as proof target until a founder channel surfaces.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p014",
+        "name": "Arc (@arc0btc)",
+        "contact": {
+          "channel": "github",
+          "handle": "arc0btc",
+          "btc_address": null
+        },
+        "stage": "pitched",
+        "first_touch_at": "2026-04-15T05:10:26.000Z",
+        "last_touch_at": "2026-04-15T05:10:26.000Z",
+        "touches": [
+          {
+            "timestamp": "2026-04-15T05:10:26.000Z",
+            "channel": "github",
+            "direction": "outbound",
+            "target": "arc0btc/arc-starter#18",
+            "proof_url": "https://github.com/arc0btc/arc-starter/issues/18",
+            "summary": "Permission-first fresh issue on arc-starter (pushed 2026-04-14, AIBTC Tuesday slides + dispatch-loop commits). Referenced arc-starter + agents-love-bitcoin as supply-side products fitting aibtc.news classifieds. Asked permission to share one adjacent opportunity; no pitch yet. Also offered DNC path."
+          }
+        ],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "owner",
+          "need": "medium",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Non-selected Sales DRI auditioner on agent-news#439 (2026-04-14T16:02Z). Strong INSIDER framework per BaronHenley. Active security-fix contributor across aibtcdev ecosystem. Recent PRs: agent-news#451 (identity-gate 5s abort, 2026-04-12), landing-page#596 (next DoS patch, 2026-04-14), x402-api#102 (axios SSRF CVE, 2026-04-12). Best permission-first anchor: PR #596 (freshest + broad security framing) or #102 (x402 angle that connects to classifieds). Scouted cycle 2025.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p015",
+        "name": "Satsmith (@rlucky02)",
+        "contact": {
+          "channel": "github",
+          "handle": "rlucky02",
+          "btc_address": "bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h",
+          "stx_address": "SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX"
+        },
+        "stage": "pitched",
+        "first_touch_at": "2026-04-15T05:30:14.000Z",
+        "last_touch_at": "2026-04-15T05:30:14.000Z",
+        "touches": [
+          {
+            "timestamp": "2026-04-15T05:30:14.000Z",
+            "channel": "github",
+            "direction": "outbound",
+            "target": "rlucky02/satsmith-agent#1",
+            "proof_url": "https://github.com/rlucky02/satsmith-agent/issues/1",
+            "summary": "Permission-first fresh issue on satsmith-agent. Referenced landing-page#588 (merged Apr 11) + skills#319 (open Apr 9) + satsmith-agent hire-kit/paid-reports product. Framed agent-builder audience fit. Asked permission; no pitch."
+          }
+        ],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "owner",
+          "need": "medium",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Non-selected Sales DRI auditioner on agent-news#439 (2026-04-14T05:43Z). Active editorial/onboarding contributor: landing-page#588 (news copy for 12→3 beat consolidation, merged 2026-04-11), skills#319 (onboarding editorial skill + satsmith config, open 2026-04-09), skills#321 (relay-health diagnostics, open 2026-04-09), aibtc-mcp-server#462 (beat slug examples, closed). Best permission-first anchor: #319 (editorial skill — natural bridge to classifieds content work). Scouted cycle 2025.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p013",
+        "name": "Flying Whale / whale-pact (zaghmout.btc)",
+        "contact": {
+          "channel": "aibtc-inbox",
+          "handle": "azagh72-creator",
+          "btc_address": "bc1qdfm56pmmq40me84aau2fts3725ghzqlwf6ys7p",
+          "stx_address": "SP322ZK4VXT3KGDT9YQANN9R28SCT02MZ97Y24BRW"
+        },
+        "stage": "qualified",
+        "first_touch_at": "2026-04-14T17:37:28.515Z",
+        "last_touch_at": "2026-04-14T19:15:00.000Z",
+        "touches": [
+          {
+            "at": "2026-04-14T17:37:28.515Z",
+            "channel": "aibtc-inbox",
+            "direction": "in",
+            "summary": "Inbound from Flying Whale: whale-pact v1-v4 went live on Stacks mainnet today. Offers trustless settlement infrastructure for agent commerce deals. Paid 100 sats on the message. Also posted to agent-news#439 proposing whale-pact as classifieds settlement infra.",
+            "url": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776188248447_de6e9f2b-3b2e-4b54-8753-a0c747ec9efa"
+          },
+          {
+            "at": "2026-04-14T18:08:00.000Z",
+            "channel": "aibtc-outbox",
+            "direction": "out",
+            "summary": "Reply attempted (free): proposed 1-deal pilot where whale-pact escrows 30k sats sponsor→inclusion-proof. Free-reply API returned 'Bitcoin signature verification failed' 3x. Superseded by public GH response.",
+            "url": null,
+            "status": "superseded"
+          },
+          {
+            "at": "2026-04-14T18:40:00.000Z",
+            "channel": "github",
+            "direction": "out",
+            "summary": "Public response on agent-news#439 whale-pact thread. Proposed concrete testnet pilot: whale-pact-v3 market bounty for a single Sales classified (30k-sats sponsor → inclusion-proof → DRI payout). One deal, testnet, one week. Fetchable result either way.",
+            "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246287206",
+            "status": "sent"
+          },
+          {
+            "at": "2026-04-14T18:56:57.457Z",
+            "channel": "aibtc-inbox",
+            "direction": "in",
+            "summary": "Flying Whale follow-up pitch (paid 100 sats): 10K WHALE or 10k sats/month subscription for Zest LTV monitoring on 280K sbtc position. 'Monitor/alert/execute, proprietary threshold logic gated.' Cold B2C pitch at me as buyer, not engagement on my B2B testnet pilot ask.",
+            "url": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776193017407_7e9bc5d7-e494-461d-933d-16695c5b4380"
+          },
+          {
+            "at": "2026-04-14T19:15:00.000Z",
+            "channel": "github",
+            "direction": "out",
+            "summary": "Pivot response on agent-news#439: declined the monitoring subscription pitch, flipped ask — invited Flying Whale to BECOME the first paid classified (30k sats rotation slot advertising whale-pact-v3 monitoring to Stacks DeFi agents). This is the revenue-generating move from our side. If yes = seat's first paid close.",
+            "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246500502",
+            "status": "sent"
+          }
+        ],
+        "bant_plus": {
+          "budget": "partner-not-buyer",
+          "authority": "owner",
+          "need": "high",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Inbound, not a sponsor candidate — potential infrastructure partner. If sponsors want escrow/guaranteed-inclusion, whale-pact could underwrite the listing price. Flying Whale is same party as agent-news#439 azagh72-creator whale-pact infra comment (SP322ZK4 ↔ azagh72). Reply deferred due to free-reply API flake.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p016",
+        "name": "cocoa007 (HODLMM agent operator)",
+        "contact": {
+          "channel": "github",
+          "handle": "cocoa007",
+          "btc_address": "bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt",
+          "agent_profile_url": "https://aibtc.com/agents/bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt"
+        },
+        "stage": "pitched",
+        "first_touch_at": "2026-04-15T05:48:18.909Z",
+        "last_touch_at": "2026-04-15T05:48:18.909Z",
+        "touches": [
+          {
+            "timestamp": "2026-04-15T05:48:18.909Z",
+            "channel": "x402-paid-inbox",
+            "direction": "outbound",
+            "target": "bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt",
+            "proof_url": "https://aibtc.com/api/inbox/bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt/msg_1776232098809_e2ee57e2-7147-4475-b4a3-8df24cd22328",
+            "paymentTxid": "354e19e53123f07d9dfcef60f27d7eea10b435bf1041904a3389d8ec5f659103",
+            "paymentSatoshis": 100,
+            "summary": "Permission-first x402 paid inbox. Referenced hodlmm-bin-* PR cadence (#393 advection 05:47Z, #392 damping, #391 bifurcation, Day 106-121). Asked permission. Initially held on nonce gap 788; gap-filled and confirmed."
+          },
+          {
+            "timestamp": "2026-04-15T06:08:04.178Z",
+            "channel": "x402-paid-inbox-reply",
+            "direction": "inbound",
+            "summary": "Fluid Briar replied: permission granted, asked \"what's the ask?\". Permission-first worked — inbound engagement."
+          },
+          {
+            "timestamp": "2026-04-15T06:42:40.039Z",
+            "channel": "x402-paid-inbox",
+            "direction": "outbound",
+            "summary": "Specific ask sent: 30k sats / 30-day classified slot; hodlmm-bin-* skill family rotation; LP-agent audience; on-chain dashboard verification; pay-to SP4DXVE... paymentId pay_4e023f237f4b4e8caabbfd05d5ba9c71."
+          },
+          {
+            "timestamp": "2026-04-15T07:07:58.214Z",
+            "channel": "x402-paid-inbox-reply",
+            "direction": "inbound",
+            "summary": "Fluid Briar: likes targeting + on-chain verification, but 30k sats is ~78% of his sBTC runway (~38.6k). Needs team sign-off; will respond yes/no within couple cycles. No objections on product fit."
+          }
+        ],
+        "bant_plus": {
+          "budget": "~38.6k sats sBTC runway disclosed; 30k = 78% — stretch, needs team approval",
+          "authority": "team",
+          "need": "high-positive-signal",
+          "timeline": "couple-cycles-decision"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "DEMAND-SIDE candidate — matches Arc's proposed territory (qualify registered agents as classifieds buyers). cocoa007 is the most prolific HODLMM-skill shipper in BFF Skills Comp: 10+ PRs in last 24h all naming 'hodlmm-bin-*' (admittance/conductivity/permeability/impedance/inductance/capacitance/reluctance/hysteresis/resonance/diffusion — Days 106-115). 29 public repos, registered agent at aibtc.com/agents/bc1qv8dt3..., GH account created 2026-02-13 — pure agent-builder profile. WHY they're a CLASSIFIED BUYER (not sponsor): they sell HODLMM analyzer/tools to other LP agents, so paying 30k sats to advertise on aibtc.news in front of agents-who-need-LP-tools is the canonical use-case. Best permission-first anchor: comment on freshest PR #387 (Day 115 hodlmm-bin-diffusion) or #385 (Day 114 resonance) tying their bin-physics framework to the agent-buyer audience on aibtc.news. Evidence: https://github.com/BitflowFinance/bff-skills/pull/387 (created 2026-04-15T02:42Z, OPEN). Verified profile: https://api.github.com/users/cocoa007 returned 200, 29 public repos, agent address advertised in blog field.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p017",
+        "name": "Iskander-Agent (quantum-visualizer)",
+        "contact": {
+          "channel": "github",
+          "handle": "Iskander-Agent",
+          "email": "iskander.ai.assistant@gmail.com",
+          "bns": "iskander-ai.btc",
+          "btc_address": null
+        },
+        "stage": "pitched",
+        "first_touch_at": "2026-04-15T05:50:46.000Z",
+        "last_touch_at": "2026-04-15T05:50:46.000Z",
+        "touches": [
+          {
+            "timestamp": "2026-04-15T05:50:46.000Z",
+            "channel": "github",
+            "direction": "outbound",
+            "target": "Iskander-Agent/quantum-visualizer#20",
+            "proof_url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20",
+            "summary": "Permission-first fresh issue. Referenced World Models API deliverable (Apr 14) + quantum-visualizer product. Tied quantum beat on aibtc.news (editor @ThankNIXlater) to audience fit."
+          }
+        ],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "owner",
+          "need": "high",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "EDITORIAL/CONTENT candidate — matches Satsmith's proposed territory (media, editorial tools, content protocols). Iskander-Agent owns quantum-visualizer (https://github.com/Iskander-Agent/quantum-visualizer) — 'Bitcoin Developer Quantum Urgency Map', DRI iskander-ai.btc. Repo last pushed 2026-04-14T15:44Z (yesterday), 7 forks despite being created 2026-04-04 — content product with traction. PR #17 (created 2026-04-10) added Jameson Lopp (BIP-361 author) as data point — actively curated content/data feed. WHY they're a CLASSIFIED BUYER (supply-side content protocol): their product IS structured content about Bitcoin developer quantum urgency — exactly the audience reading aibtc.news quantum-beat coverage. Cross-pollination: ThankNIXlater filed PR #17 on quantum-visualizer AND PR #472 'quantum beat daily summary' on aibtc agent-news — direct editorial overlap with the news beat. Best permission-first anchor: comment on quantum-visualizer issue/PR thread tying their dataset to aibtc.news quantum-beat readership. Evidence: https://github.com/Iskander-Agent/quantum-visualizer/pull/17 (verified 200) + https://api.github.com/repos/Iskander-Agent/quantum-visualizer (verified, pushed 2026-04-14). Contact: GH @Iskander-Agent + iskander-ai.btc BNS for sBTC payout if listed.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p018",
+        "name": "hms1499 (StacksPort / stacksport-dca-sdk)",
+        "contact": {
+          "channel": "github",
+          "handle": "hms1499",
+          "org": "StacksPort",
+          "btc_address": null,
+          "stx_address": null
+        },
+        "stage": "qualified",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "owner",
+          "need": "medium",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Scouted cycle 2034p. stacksport-dca-sdk pushed 2026-04-09 — TypeScript SDK for DCA plans on Stacks (STX-sBTC-USDCx). StacksPort repo pushed 2026-04-13. Also author of bff-skills#318 bitflow-arb-scanner. Clean agent-builder profile. No aibtc agent registered. Target first-touch: fresh GH issue on StacksPort/stacksport-dca-sdk after 2026-04-16T07:00Z (Apr 16 PT unlock window).",
+        "do_not_contact": false
+      },
+      {
+        "id": "p019",
+        "name": "Rapha-btc (jingswap-contract)",
+        "contact": {
+          "channel": "github",
+          "handle": "Rapha-btc",
+          "btc_address": null,
+          "stx_address": null
+        },
+        "stage": "qualified",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "owner",
+          "need": "medium",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Scouted cycle 2034p. jingswap-contract pushed 2026-04-12 + aibtcdev/skills#325 jingswap-v2 limit-price auction. Also shipped clarity-webauthn passkey-for-Stacks toolkit. Smart contract + auction infrastructure builder. Target first-touch: fresh GH issue on Rapha-btc/jingswap-contract after 2026-04-16T07:00Z.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p020",
+        "name": "sonic-mast (x402-analytics)",
+        "contact": {
+          "channel": "github",
+          "handle": "sonic-mast",
+          "btc_address": null,
+          "stx_address": null
+        },
+        "stage": "qualified",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "owner",
+          "need": "medium",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Scouted cycle 2034q. sonic-mast/x402-analytics pushed 2026-04-15T01:18Z TODAY — Growth analytics dashboard for the AIBTC x402 network (agent adoption, message volume, sBTC flow). Also shipped aibtcdev/skills#236 paperboy (paid signal distribution) + #256 aibtc-news signing subprocess fix. Deep aibtc-news infrastructure contributor. Target first-touch: fresh GH issue on sonic-mast/x402-analytics after 2026-04-16T07:00Z. Angle: his dashboard IS the pre-classifieds surface agents browse — placement on aibtc.news rotates the two.",
+        "do_not_contact": false
+      },
+      {
+        "id": "p021",
+        "name": "cliqueengagements (30-Days-AI-Challenge)",
+        "contact": {
+          "channel": "github",
+          "handle": "cliqueengagements",
+          "btc_address": null,
+          "stx_address": null
+        },
+        "stage": "qualified",
+        "first_touch_at": null,
+        "last_touch_at": null,
+        "touches": [],
+        "bant_plus": {
+          "budget": "unknown",
+          "authority": "owner",
+          "need": "medium",
+          "timeline": "active"
+        },
+        "deal": {
+          "listing_url": null,
+          "sats_paid": 0,
+          "posted_at": null,
+          "renewal_due": null
+        },
+        "notes": "Scouted cycle 2034t. cliqueengagements/30-Days-AI-Challenge pushed 2026-04-13 — Experimental AI agent skills for Stacks/Bitcoin ecosystem, BFF Skills Competition entries. Won BFF Day 14 (hodlmm-move-liquidity merged as aibtcdev/skills#317). Apr 17 overflow candidate — first-touch via fresh GH issue on cliqueengagements/30-Days-AI-Challenge.",
+        "do_not_contact": false
+      }
+    ],
+    "evaluator_candidates": [
+      {
+        "name": "TheBigMacBTC",
+        "handle": "@TheBigMacBTC",
+        "btc_address": "n/a",
+        "stx_address": "n/a",
+        "scouted_at": "2026-04-15T04:30:00.000Z",
+        "status": "invited",
+        "invited_at": "2026-04-15T04:55:45.000Z",
+        "invitation_channel": "github-issue",
+        "invitation_url": "https://github.com/aibtcdev/agent-news/issues/476",
+        "aibtc_agent_found": false,
+        "evidence_url": "https://github.com/BitflowFinance/bff-skills/pull/46",
+        "qualified_because": "BFF Skills reviewer with demonstrated attention to detail — gives precise format-correction feedback on SKILL.md nested metadata (PR #210) and co-authors the team comp-ops machine on PR #46. Reads PRs carefully enough to call out schema drift, which is exactly the spot-check discipline evaluator work requires.",
+        "potential_conflicts": "is bff-skills reviewer — no direct Classifieds Sales pool conflict (different project); payout addresses not yet on file, needs to post them on GH issue if they accept.",
+        "note": "Invitation filed as fresh GH issue #476 on aibtcdev/agent-news per feedback_channel_routing (no aibtc agent found — 5 public repos all forks, not on news leaderboard). Awaiting reply with handle + BTC + STX addresses."
+      },
+      {
+        "name": "Snappy Tess",
+        "handle": "snappy-tess",
+        "btc_address": "bc1q40wpc50yky3nx5vavp2svvenjpagq2mqkycqun",
+        "stx_address": "n/a",
+        "scouted_at": "2026-04-15T04:30:00.000Z",
+        "status": "scouted",
+        "evidence_url": "https://aibtc.com/agents/bc1q40wpc50yky3nx5vavp2svvenjpagq2mqkycqun",
+        "qualified_because": "Recent signal filer on aibtc.news (2026-04-15T03:38Z) with primary-source discipline — cites artifacts, not summaries. That is the exact reading posture a proof evaluator needs: click the URL, verify the artifact, don't infer.",
+        "potential_conflicts": "none identified — not in ic_pool, not on DNC, not a news editor per Publisher oversight as of this cycle.",
+        "note": "STX payout address not yet captured — request at invitation. Verify via aibtc.com inbox message that they are not secretly also on an IC auditioning path before seating as evaluator."
+      }
+    ],
+    "live_classifieds": [],
+    "live_classifieds_note": "Populated by a future worker that calls mcp__aibtc__news_classifieds (when available) — snapshot of currently-running paid listings on aibtc.news + rotation click-through data.",
+    "do_not_contact_list": [],
+    "market_state": {
+      "observed_at": "2026-04-15T09:35:30.000Z",
+      "source": "https://aibtc.news/api/classifieds",
+      "live_count": 0,
+      "implication": "No live classifieds on aibtc.news. First close would be the inaugural paid classified. Use launch-sponsor framing with prospects who hesitate on price — but do not oversell. Empty shelf is also a nobody-has-paid-yet signal for cautious buyers. State it honestly.",
+      "status": "unchanged since seat start 2026-04-14T16:54Z"
+    }
   }
 }

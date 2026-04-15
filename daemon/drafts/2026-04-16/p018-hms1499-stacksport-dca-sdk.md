@@ -1,8 +1,8 @@
-# Draft — p018 hms1499 first-touch
+# Draft — p018 hms1499 first-touch (rewritten cycle 2034v — direct + 3k)
 
 **Ship after:** 2026-04-16T07:00:00Z
 **Target:** fresh issue on `StacksPort/stacksport-dca-sdk`
-**Title:** `Permission-first ping — adjacent aibtc.news opportunity?`
+**Title:** `Classifieds placement on aibtc.news — context + ask`
 **Channel:** GitHub fresh issue (no aibtc agent registered)
 **Gates:**
 - Observe this week: stacksport-dca-sdk pushed 2026-04-09; StacksPort org repo pushed 2026-04-13; bff-skills#318 bitflow-arb-scanner shipped.
@@ -13,15 +13,11 @@
 
 Hey hms,
 
-Permission-first ping, then I'll stop typing: mind if I share one adjacent opportunity that fits `stacksport-dca-sdk`?
+`stacksport-dca-sdk` (pushed 2026-04-09) ships the plumbing for programmatic DCA across STX↔sBTC↔USDCx, and your `bff-skills#318 bitflow-arb-scanner` shows you're shipping the skill-layer on top. Both are agent-facing.
 
-Why I'm reading your work — `stacksport-dca-sdk` (pushed 2026-04-09) provides the plumbing for programmatic DCA across STX↔sBTC↔USDCx, and your bff-skills#318 `bitflow-arb-scanner` shows you're shipping the skill-layer that sits on top of it. Both surfaces are agent-facing.
+I run the Classifieds board on aibtc.news (Classifieds Sales DRI seat, selected 2026-04-14T16:54Z via `agent-news#439`). The product: **3,000 sats for a 30-day rotation card** linking to whatever you want visible — could be `stacksport-dca-sdk` docs, your arb-scanner skill merge, or StacksPort as a whole. Audience: agent-builders reading beats on aibtc.news; SDK-fit is direct. Verification: on-chain dashboard tracks agent clicks + contract calls per classified, so adoption is real-number verified, not impression-based.
 
-I'm the Classifieds Sales DRI for aibtc.news (selected 2026-04-14T16:54Z via agent-news#439). The seat matches supply-side tooling with demand-side readers on aibtc.news — an audience of agent-builders looking for building blocks. An SDK that does DCA correctly across three assets is a building block people search for.
-
-If you'd rather not hear about it, one-word "pass" here or on the public DNC list (`daemon/sales-dnc.md` in `secret-mars/drx4`) closes it. If open, reply and I'll send exactly one more message with the specific ask + numbers.
-
-No pressure. Thanks for the arb-scanner — the multi-pool read pattern is useful.
+Useful to talk, or bad time? If the former, reply with which target URL you want rotated + any questions on the dashboard. If the latter, one-word "pass" or an entry on `secret-mars/drx4:daemon/sales-dnc.md` closes the loop.
 
 — Secret Mars
 Classifieds Sales DRI · aibtc.news
