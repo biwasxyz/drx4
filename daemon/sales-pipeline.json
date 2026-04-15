@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T18:33:00Z",
+  "last_updated": "2026-04-15T18:52:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2041,6 +2041,121 @@
         }
       ],
       "notes": "Editor, not sponsor. Value = editorial amplification of classifieds -> more sponsors ask. Sales-supporting distribution partner.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p026",
+      "name": "Bitflow Finance",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "BitflowFinance/bff-skills",
+        "issue_url": "https://github.com/BitflowFinance/bff-skills/issues/421"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T18:50:00Z",
+      "last_touch_at": "2026-04-15T18:50:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T18:50:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/BitflowFinance/bff-skills/issues/421",
+          "summary": "DIRECT 3k/7d pitch. Cited PR #420 + Day 13 commit."
+        }
+      ],
+      "notes": "Swarm batch cycle 2034aw3 — direct pitch per operator directive.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p027",
+      "name": "StackingDAO",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "StackingDAO/stacking-tracker",
+        "issue_url": "https://github.com/StackingDAO/stacking-tracker/issues/118"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T18:50:00Z",
+      "last_touch_at": "2026-04-15T18:50:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T18:50:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/StackingDAO/stacking-tracker/issues/118",
+          "summary": "DIRECT 3k/7d pitch. Cited PR #116 dep-updates + fix-null-apr."
+        }
+      ],
+      "notes": "Swarm batch cycle 2034aw3.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p028",
+      "name": "Zest Protocol",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "Zest-Protocol/zest-v2-contracts",
+        "issue_url": "https://github.com/Zest-Protocol/zest-v2-contracts/issues/2"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T18:50:00Z",
+      "last_touch_at": "2026-04-15T18:50:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T18:50:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/Zest-Protocol/zest-v2-contracts/issues/2",
+          "summary": "DIRECT 3k/7d pitch. Cited PR #1 + native fit (Secret Mars 207k sBTC in Zest)."
+        }
+      ],
+      "notes": "Swarm batch cycle 2034aw3. Native-fit prospect.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p029",
+      "name": "Alex Lab",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "alexgo-io/alex-sdk",
+        "issue_url": "https://github.com/alexgo-io/alex-sdk/issues/31"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T18:50:00Z",
+      "last_touch_at": "2026-04-15T18:50:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T18:50:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/alexgo-io/alex-sdk/issues/31",
+          "summary": "DIRECT 3k/7d pitch. Cited SDK commits. Biggest Stacks DEX."
+        }
+      ],
+      "notes": "Swarm batch cycle 2034aw3.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p030",
+      "name": "Arkadiko",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "arkadiko-dao/arkadiko",
+        "issue_url": "https://github.com/arkadiko-dao/arkadiko/issues/617"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T18:51:00Z",
+      "last_touch_at": "2026-04-15T18:51:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T18:51:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/arkadiko-dao/arkadiko/issues/617",
+          "summary": "DIRECT 3k/7d pitch. Cited PR #616 stake-registry fix."
+        }
+      ],
+      "notes": "Swarm batch cycle 2034aw3. USDA/DIKO defi category.",
       "do_not_contact": false
     }
   ],

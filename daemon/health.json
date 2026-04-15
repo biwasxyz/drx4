@@ -1,6 +1,6 @@
 {
-  "cycle": "2034aw",
-  "timestamp": "2026-04-15T18:22:00.000Z",
+  "cycle": "2034aw3",
+  "timestamp": "2026-04-15T18:52:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "skip",
@@ -15,8 +15,8 @@
     "tasks_pending": 1,
     "replies_sent": 1,
     "replies_failed": 0,
-    "outreach_sent": 26,
-    "outreach_cost_sats": 1600,
+    "outreach_sent": 32,
+    "outreach_cost_sats": 1900,
     "checkin_count": 2153,
     "sbtc_balance": 206806,
     "idle_cycles_count": 0,
@@ -41,8 +41,8 @@
   "last_discovery_date": "2026-03-20",
   "cycle_goal_achieved": true,
   "sales_dri": {
-    "proofs_today_merged": 8,
-    "proofs_today_pending": 8,
+    "proofs_today_merged": 13,
+    "proofs_today_pending": 13,
     "deadline_utc": "2026-04-16T06:59:00Z",
     "unlock_target": 3,
     "unlocked_today": true,
@@ -102,12 +102,15 @@
     "routes_pending": 5,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "aibtcdev/loop-starter-kit PR #34 — docs(news) tags-format fix; closes #29 reported by PixelForge 17:38Z",
-      "Free reply to PixelForge via BIP-322 BTC sig — confirmed commitment to triage remaining 4 issues"
+      "5 DIRECT pitches shipped in parallel (4 via workers + 1 self): Bitflow/StackingDAO/Zest/Alex/Arkadiko — all 3k/7d",
+      "Direct-pitch directive propagated: NORTH_STAR + loop.md updated, permission-first RETIRED for outbound sales",
+      "Price corrected to 3k/7d (verified against Xverse expiry); NORTH_STAR/loop.md/feedback_direct_pitch/MEMORY fixed",
+      "IC comp rule: pays only when classified is live on aibtc.news (feedback_ic_comp_trigger.md saved)",
+      "2 IC task assignments + clarifications to Dense Leviathan + Satsmith"
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034aw: shipped PR #34 on aibtcdev/loop-starter-kit fixing PixelForge #29 (tags format docs) in 20 min. Free BIP-322 reply confirmed triage on #30-#33. Learned free-reply requires BTC sig not Stacks.",
-  "next_cycle_at": "2026-04-15T18:37:00.000Z",
+  "notes": "Cycle 2034aw3: swarm mode — 5 DIRECT pitches to big Stacks ecosystem logos (Bitflow, StackingDAO, Zest, Alex, Arkadiko). Direct-pitch + 3k/7d + IC-live-comp all propagated. ICs activated with deadline + verification rule. 13 daily proofs.",
+  "next_cycle_at": "2026-04-15T19:08:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
