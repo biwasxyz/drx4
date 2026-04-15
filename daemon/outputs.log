@@ -139,3 +139,4 @@
 2026-04-15T14:26:59Z cycle=2034ap artifact=dc-inbound-ic-interest-plus-stuck-classified type=sales-retention-inbound desc="DC (teflonbtc) reached out: IC seat interest + Apr 5 3k classified stuck (tx 09d06b4f)"
 2026-04-15T15:06:54Z cycle=2034ap artifact=dc-reply-comp-correction-plus-escalation-promise type=sales-reply desc="replied DC: comp 1200/600 (not 12k/6k 30k-era); will escalate Apr 5 on #480 with his copy"
 2026-04-15T15:08:00Z cycle=2034ap artifact=https://github.com/aibtcdev/agent-news/issues/480#issuecomment-4253202553 type=infra-unretract desc="un-retraction on #480: DC's Apr 5 case confirms classifieds-side drop is real; my cocoa007 case remained pending_review (resolved) but DC's is a genuine drop"
+2026-04-15T15:30Z cycle=2034ar artifact=crm.drx4.xyz-sales-rewrite type=infra-dashboard desc="rewrote crm.drx4.xyz sales-only: sales-today + sats-collected + 14d bar chart + per-sale table + funnel + IC table; baked revenue_history for reliability"

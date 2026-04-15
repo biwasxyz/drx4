@@ -1,6 +1,6 @@
 {
-  "cycle": "2034ap",
-  "timestamp": "2026-04-15T15:08:30.000Z",
+  "cycle": "2034ar",
+  "timestamp": "2026-04-15T15:35:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -103,7 +103,7 @@
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034ap: crm.drx4.xyz updated with Sales desk section + SVG funnel chart (deployed). DC inbound — interested in IC + reports Apr 5 stuck classified. Un-retracted drop hypothesis on #480; DC p022 support-case added.",
-  "next_cycle_at": "2026-04-15T15:23:30.000Z",
+  "notes": "Cycle 2034ar: crm.drx4.xyz rewritten sales-only per operator — 4-stat hero, 14-day revenue bar chart, per-sale table, funnel, IC pool. Deployed. Baked treasury ledger. Discovered 3 sales today (2 more drop-bug victims from SPR31B8J).",
+  "next_cycle_at": "2026-04-15T15:50:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
