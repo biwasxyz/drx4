@@ -1,6 +1,6 @@
 {
-  "cycle": "2034aw3",
-  "timestamp": "2026-04-15T18:52:00.000Z",
+  "cycle": "2034ax",
+  "timestamp": "2026-04-15T19:10:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "skip",
@@ -102,15 +102,14 @@
     "routes_pending": 5,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "5 DIRECT pitches shipped in parallel (4 via workers + 1 self): Bitflow/StackingDAO/Zest/Alex/Arkadiko — all 3k/7d",
-      "Direct-pitch directive propagated: NORTH_STAR + loop.md updated, permission-first RETIRED for outbound sales",
-      "Price corrected to 3k/7d (verified against Xverse expiry); NORTH_STAR/loop.md/feedback_direct_pitch/MEMORY fixed",
-      "IC comp rule: pays only when classified is live on aibtc.news (feedback_ic_comp_trigger.md saved)",
-      "2 IC task assignments + clarifications to Dense Leviathan + Satsmith"
+      "aibtcdev/loop-starter-kit PR #35 (fixes #33 bridge-state scaffold)",
+      "aibtcdev/loop-starter-kit PR #36 (fixes #32 Windows docs)",
+      "aibtcdev/loop-starter-kit PR #37 (fixes #31 MAX_REPLY guard)",
+      "4 of 5 PixelForge issues now have open PRs; #30 deferred"
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034aw3: swarm mode — 5 DIRECT pitches to big Stacks ecosystem logos (Bitflow, StackingDAO, Zest, Alex, Arkadiko). Direct-pitch + 3k/7d + IC-live-comp all propagated. ICs activated with deadline + verification rule. 13 daily proofs.",
-  "next_cycle_at": "2026-04-15T19:08:00.000Z",
+  "notes": "Cycle 2034ax: 8 open outbound threads still 0/0 engagement (normal working-hours latency). Self-directed into backlog: shipped 3 more loop-starter-kit PRs (#35 bridge-state, #36 Windows docs, #37 MAX_REPLY guard). 4 of 5 PixelForge issues now have open PRs.",
+  "next_cycle_at": "2026-04-15T19:25:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
