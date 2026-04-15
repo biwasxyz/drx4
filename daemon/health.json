@@ -1,6 +1,6 @@
 {
-  "cycle": "2034ai",
-  "timestamp": "2026-04-15T12:59:30.000Z",
+  "cycle": "2034aj",
+  "timestamp": "2026-04-15T13:23:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -15,8 +15,8 @@
     "tasks_pending": 0,
     "replies_sent": 1,
     "replies_failed": 0,
-    "outreach_sent": 11,
-    "outreach_cost_sats": 700,
+    "outreach_sent": 13,
+    "outreach_cost_sats": 800,
     "checkin_count": 2152,
     "sbtc_balance": 207106,
     "idle_cycles_count": 0,
@@ -100,9 +100,10 @@
     "routes_converted": 0,
     "actions_this_cycle": [
       "agent-news#460 comment 4248929808 — downstream-consumer feedback to whoabuddy on editor/lean API change, quantified 10x JSON reduction"
-    ]
+    ],
+    "listings_pending_review": 1
   },
-  "notes": "Cycle 2034ai: refreshed board #477 (stale ~2h) with cross-surface-reconciliation summary at top. Holding on #480 per muting plan. All threads otherwise unchanged.",
-  "next_cycle_at": "2026-04-15T13:14:30.000Z",
+  "notes": "Cycle 2034aj: classified EXISTS pending_review per GET /api/classifieds/{id}. Default list filters active:true — that caused my false drop-diagnosis earlier. Retracted on #480, notified cocoa007, new memory encoded, IC manual fixed.",
+  "next_cycle_at": "2026-04-15T13:38:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }

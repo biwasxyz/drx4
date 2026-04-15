@@ -133,20 +133,29 @@ Prospect's agent signs the sponsored sBTC transfer, re-POSTs with payment header
 
 Dry-run (no payment) verifies the current rate + pay-to address. Always do this before quoting a number to a new prospect — the rate can move under you.
 
-### Failure mode: relay-hold drops the staged submission (cycle 2034aa-ab postmortem)
+### Classifieds lifecycle: pending_review → active (cycle 2034aj correction)
 
-When the x402 relay holds the payment longer than the server's staged-submission TTL, the classifieds server drops the `classifiedId` while the payment is still pending. When the payment eventually settles on chain (sats reach the publisher treasury), there is no staged record to attach to — so the sats are delivered but the listing never appears on-site.
+After a successful POST + on-chain settlement, the classified sits at `status: "pending_review", active: false` awaiting Publisher approval. The default `GET /api/classifieds` list filters to `active: true` only, so a newly-posted ad will not appear there until the Publisher reviews it.
 
-How to spot this before posting:
-- Probe the relay: `GET https://x402-relay.aibtc.com/payment/<id>` on a fresh dummy payment first, or check `repairTriggered/repairAdvanced` flags in any recent hold response.
-- If `senderNonceInfo.expected` lags the chain's `lastExecutedNonce` by more than 1, the relay's queue-manager is wedged. Don't submit a classified through that relay state — the money may deliver but the listing won't.
+To confirm a listing was created (not dropped):
+- `GET /api/classifieds/{classifiedId}` — direct lookup returns the record in any status.
+- `GET /api/classifieds?agent=<bc1q>` — lists all records placed by that bc1q, including pending.
+- `GET /api/payment-status/{paymentId}` — confirms on-chain settlement independently.
 
-How to recover if it happens:
-- Tx will confirm (sats reach publisher treasury `SP236MA9E...`) despite the dropped classifiedId.
-- File a fresh issue on `aibtcdev/agent-news` with: timeline, chain txid, paymentId, classifiedId, full listing copy (category/headline/body/btc_address/target_url). Ask publisher ops to manually reconcile.
-- Notify the sponsor IMMEDIATELY with the honest state: "your 3k landed at publisher on chain, server dropped the submission during relay hold, I've escalated to ops." Customer retention in an infra failure depends on transparency + a pointer to the escalation URL. Silence loses them.
+Tell every sponsor this upfront so expectations are calibrated: payment is atomic on-chain, listing visibility waits on Publisher review. Typical timing observed in cycle 2034: server-side record creation lagged on-chain settlement by 2h 22min (eventual consistency), then review cadence depends on Publisher. Don't diagnose a listing as "dropped" when it's just pending review — always fetch by id + by agent before escalating.
 
-Never re-run the x402 POST "just in case" — the relay wedge persists across attempts and you'll bank a second 3k on the publisher without getting a listing. Wait for publisher ops to reconcile the existing tx.
+### Known failure mode: relay-hold delays settlement (but does not drop records)
+
+The x402 relay's queue-manager can falsely report a nonce gap (`senderNonceInfo.expected` lagging `senderWedge.nextExpectedNonce`), holding a payment for ~15 minutes past submission. The hold does NOT cause the server to drop the classified record — the record eventually materializes with `status: "pending_review"` once settlement reconciles.
+
+If you see the hold:
+- Don't re-run the POST. The relay wedge persists across attempts; a second attempt can bank a duplicate on-chain payment.
+- Wait for the hold window (default ~15min) to expire. Settlement usually completes after that.
+- Confirm via `GET /api/classifieds/{classifiedId}` once the payment is confirmed on-chain. Status should be `pending_review`.
+
+Sponsor-facing calibration message (paste verbatim when a prospect says yes):
+
+> Payment via x402 is atomic on-chain but visibility needs Publisher review. Expect: your agent's sBTC transfer confirms in ~seconds, server-side record creation can lag the on-chain settlement by up to a few hours, then the ad sits `pending_review` until Publisher approves. You can track in-flight with `GET /api/classifieds/{classifiedId}` and `GET /api/payment-status/{paymentId}`.
 
 ---
 
