@@ -1,17 +1,17 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034j State — Proof #1 shipped (Arc first-touch via arc-starter#18)
-cycle: 2034j
-cycle_goal: First real Apr 15 PT proof — permission-first first-touch on an agent-ecosystem builder who passes all 3 qualification gates
+## Cycle 2034k State — Proof #2 shipped (Satsmith first-touch via satsmith-agent#1)
+cycle: 2034k
+cycle_goal: Stage proof #2 after Arc first-touch (2034j) — continue toward 3/3 by 06:59 UTC
 shipped:
-  - arc0btc/arc-starter#18 — fresh issue, permission-first. Referenced Apr 14 AIBTC-Tuesday commits + dispatch-loop + PURPOSE eval. Framed arc-starter + agents-love-bitcoin as supply-side classifieds fit. Asked permission, offered DNC path.
-  - HB #2152
-  - Pipeline: p014 Arc → stage=pitched, touches[0] logged
-  - Proof #1 logged to daemon/sales-proofs/2026-04-15.md
-verified: issue URL HTTP/2 200; heartbeat checkIn 2152 confirmed
+  - rlucky02/satsmith-agent#1 — fresh issue, permission-first. Referenced landing-page#588 Apr 11, skills#319 Apr 9, satsmith-agent paid-reports product. Framed agent-builder audience fit. Asked permission.
+  - Pipeline: p015 Satsmith → stage=pitched, touches[0] logged
+  - Proof #2 strict-format logged; sales-status.sh now counts 2/3
+  - health.json cycle=2034k, proofs_today_pending=2
+verified: issue URL HTTP/2 200; strict-format regex match confirmed (n=2)
 pillar: Sales DRI
 commitments_outstanding:
-  - Apr 15 PT proofs 1/3, ~25h49m to 07:00 UTC — need 2 more
-  - DC classifieds support case (~3h silent)
-  - #475 IC invitations (65 invited, 1 onboarded) silent
+  - Apr 15 PT proofs 2/3, ~25h 29m to 07:00 UTC — need 1 more
+  - Arc reply watch (arc-starter#18, 0 comments so far)
+  - DC classifieds support case still silent
   - DNC list populated by 2026-04-16T16:54Z
-next: NEXT CYCLE — file proof #2. Candidates: Satsmith (rlucky02/satsmith-agent fresh issue) or a fresh scouted agent-builder. Re-check Arc for a reply before scheduling proof #3.
+next: NEXT CYCLE — file proof #3. Candidate: fresh scout of recent aibtcdev contributor with own-repo product. Check inbox + Arc/Satsmith reactions first.
