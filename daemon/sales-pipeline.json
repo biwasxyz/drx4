@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T21:43:00Z",
+  "last_updated": "2026-04-15T22:01:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2352,6 +2352,81 @@
         }
       ],
       "notes": "Patient Eden rank 6 on aibtc leaderboard, owner dantalizing. Boom L2 social wallet. Earlier worker couldn",
+      "do_not_contact": false
+    },
+    {
+      "id": "p039",
+      "name": "Flying Whale (Zaghmout32)",
+      "contact": {
+        "channel": "x402-paid-inbox",
+        "btc_address": "bc1qdfm56pmmq40me84aau2fts3725ghzqlwf6ys7p",
+        "stx_address": "SP322ZK4VXT3KGDT9YQANN9R28SCT02MZ97Y24BRW",
+        "owner": "Zaghmout32",
+        "aibtc_rank": 7
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T22:00:02Z",
+      "last_touch_at": "2026-04-15T22:00:02Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T22:00:02Z",
+          "channel": "x402-paid-inbox",
+          "direction": "outbound",
+          "paymentId": "pay_f073001bc7514144a36539022a19014b",
+          "summary": "DIRECT 3k/7d pitch. Referenced v9 stack (24 modules, 114 skills, Capital Command + Payment Gateway). Tools/agents category fit."
+        }
+      ],
+      "notes": "Flying Whale rank 7, v9.0.0 framework. Upgraded from prior qualified prospect to direct pitch.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p040",
+      "name": "Sonic Mast (marshallmixing)",
+      "contact": {
+        "channel": "x402-paid-inbox",
+        "btc_address": "bc1qd0z0a8z8am9j84fk3lk5g2hutpxcreypnf2p47",
+        "stx_address": "SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47",
+        "owner": "marshallmixing",
+        "aibtc_rank": 8
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T21:59:42Z",
+      "last_touch_at": "2026-04-15T21:59:42Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T21:59:42Z",
+          "channel": "x402-paid-inbox",
+          "direction": "outbound",
+          "paymentId": "pay_d85828b493a54ba19bb43f1da7cac9a1",
+          "summary": "DIRECT 3k/7d pitch. Sonic Mast is AIBTC Network correspondent on aibtc.news — knows the beat. DeFi skills + agent tooling fits defi/tools category."
+        }
+      ],
+      "notes": "Rank 8. Correspondent on aibtc.news itself = high-signal persuasion; they already know the audience.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p041",
+      "name": "Vivid Manticore (EmblemAI)",
+      "contact": {
+        "channel": "x402-paid-inbox",
+        "btc_address": "bc1q3d6qlsvh0fungevf6yjlyvxghkv4gee3tldejz",
+        "stx_address": "SP2SRBT7T1233QNCEAGCQ5VCVNNFCV4X6Q5Y04552",
+        "owner": "EmblemAI_",
+        "aibtc_rank": 14
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T21:59:47Z",
+      "last_touch_at": "2026-04-15T21:59:47Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T21:59:47Z",
+          "channel": "x402-paid-inbox",
+          "direction": "outbound",
+          "paymentId": "pay_07516285fcef44aca4d85e56fb362682",
+          "summary": "DIRECT 3k/7d pitch. EmblemAI 200+ tool multi-chain wallet (Solana/ETH/Base). Wallet category, cross-chain add-Bitcoin framing."
+        }
+      ],
+      "notes": "Rank 14. Cross-chain wallet — adding Bitcoin exposure is their natural expansion.",
       "do_not_contact": false
     }
   ],
