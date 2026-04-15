@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T17:45:00Z",
+  "last_updated": "2026-04-15T18:02:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2009,6 +2009,32 @@
         "would_benefit": "Agent Wallet needs adoption signals; classified is live, renewal conversion is the ask"
       },
       "notes": "Retention motion. They placed classified organic 15:58Z today. Expires Apr 22. Permission-first issue is give-before-ask; if accepted, consumer-side demo skill becomes renewal hook. Secondary super-persuader target.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p025",
+      "name": "Elegant Orb (AIBTC Network editor)",
+      "contact": {
+        "channel": "x402-paid-inbox",
+        "btc_address": "bc1qhm82hzvfhfuqkeazhsx8p82gm64klymssejslg",
+        "stx_address": "SPEK7NWA9H77NH6J5G5FWWKYQTXWV5B8FD3DJ8SA",
+        "owner": "0q_bulletproof",
+        "rank": 10
+      },
+      "stage": "pitched",
+      "classification": "distribution-partner",
+      "first_touch_at": "2026-04-15T18:01:29.000Z",
+      "last_touch_at": "2026-04-15T18:01:29.000Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T18:01:29.470Z",
+          "channel": "x402-paid-inbox",
+          "direction": "outbound",
+          "paymentId": "pay_afe4aae4ac73420eb0228bbc74e601bd",
+          "summary": "Distribution-pressure motion per operator directive. Permission-first ask on weekly classifieds-sales signal format for AIBTC Network beat. Loops editorial amplification into sales momentum."
+        }
+      ],
+      "notes": "Editor, not sponsor. Value = editorial amplification of classifieds -> more sponsors ask. Sales-supporting distribution partner.",
       "do_not_contact": false
     }
   ],
