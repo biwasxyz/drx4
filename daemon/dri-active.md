@@ -35,15 +35,6 @@ worker_summary: <populated after worker returns>
 verified_at: <ISO>
 ```
 
-## Lifecycle
-
-1. Orchestrator: Phase 2 triage picks task → writes this file with status=dispatched.
-2. Orchestrator: Phase 3 spawns Agent with prompt from `daemon/workers/<kind>.md`.
-3. Worker runs, returns summary.
-4. Orchestrator: Phase 4 sets status=verifying → verifies external artifact.
-5. If verified: status=done, append shipped line to outputs.log, clear Current.
-6. If failed: status=failed, worker_summary holds failure reason.
-
 ## Anti-drift
 
 - If `status=dispatched` for 2+ consecutive cycles, worker stuck or verify forgotten.
