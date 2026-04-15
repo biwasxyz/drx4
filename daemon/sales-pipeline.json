@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T15:08:00.000Z",
+  "last_updated": "2026-04-15T15:32:00.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -3745,5 +3745,134 @@
       "implication": "No live classifieds on aibtc.news. First close would be the inaugural paid classified. Use launch-sponsor framing with prospects who hesitate on price — but do not oversell. Empty shelf is also a nobody-has-paid-yet signal for cautious buyers. State it honestly.",
       "status": "unchanged since seat start 2026-04-14T16:54Z"
     }
-  }
+  },
+  "revenue_history": [
+    {
+      "tx_id": "0x3b43404106136f4660d3bf9699350aa0524287a64ed2985b16dc6e924dce1006",
+      "when": "2026-04-15T15:06:38.000Z",
+      "sender": "SPR31B8J0BCHXK6M9W6H87H4N94HVXE81KTB7J1Y",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0xfba870cb30b35eb88e1927b6904310f5445d10010a21135eed91f6cc85be5be6",
+      "when": "2026-04-15T14:24:33.000Z",
+      "sender": "SPR31B8J0BCHXK6M9W6H87H4N94HVXE81KTB7J1Y",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0x6fb747389d702a5f18a510f02f7661ea7107eacaab14e6ac3ca4af21aae19ce9",
+      "when": "2026-04-15T10:55:27.000Z",
+      "sender": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0xd115ac728308f908e702fe70d80c22d556072148ac796432ec0b28d1d2ea7538",
+      "when": "2026-04-12T23:10:43.000Z",
+      "sender": "SP24EH4DG99ZSSZY501BFH9Z4YTDJHC4B8X4K8BST",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0x09d06b4f167ea9ff6d0f1f7f294cb37d5397b68d9c38ee89487d8f03034c16ec",
+      "when": "2026-04-05T14:45:50.000Z",
+      "sender": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0xcb49f308fa1c3ff059c6f8be0cc91b2258bc528500d6a912282eb97b48a7fca3",
+      "when": "2026-04-02T00:16:09.000Z",
+      "sender": "SP13H2T1D1DS5MGP68GD6MEVRAW0RCJ3HBCMPX30Y",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0xc3f104a43e65dfa744b45dc537a9225bed5d2066d69adfb90e2f9419aa3c3524",
+      "when": "2026-04-01T13:29:31.000Z",
+      "sender": "SP1092FF21MZXE9D7SZ7F86WA3Q58BY9WCZ0T0DF7",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0x74fa2868f192b5473c45d585a41c4e96322caf9bea0dda9765785dc1a333f653",
+      "when": "2026-03-27T22:31:23.000Z",
+      "sender": "SP13H2T1D1DS5MGP68GD6MEVRAW0RCJ3HBCMPX30Y",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0x480849f08f04220e88a620e20744d3971142c85d2a92397832241b8207c78555",
+      "when": "2026-03-27T22:30:11.000Z",
+      "sender": "SP13H2T1D1DS5MGP68GD6MEVRAW0RCJ3HBCMPX30Y",
+      "sats": 3000
+    },
+    {
+      "tx_id": "0xe3b05b8f4bc0832ba7bda315f706dc92cebdcc67a83d3619497bf5fc3ad0ffec",
+      "when": "2026-03-24T15:34:05.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 30000
+    },
+    {
+      "tx_id": "0x8e07b3c94c5d870deeaea910c6f21d7e102d49e7fb168c9228f6994e54237679",
+      "when": "2026-03-24T14:32:43.000Z",
+      "sender": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "sats": 30000
+    },
+    {
+      "tx_id": "0xb57b332c529968a648e49389a827564b01de7045ebfadccfdaa61433904b9e01",
+      "when": "2026-03-24T05:29:00.000Z",
+      "sender": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "sats": 30000
+    },
+    {
+      "tx_id": "0x718ccfa2ea60dd9f99c145710845e2c6bc68ea104d19e241542ad304e72fe946",
+      "when": "2026-03-24T04:56:04.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 30000
+    },
+    {
+      "tx_id": "0x74f382951d94f452ba1f069fada59b530b3bcf1d037fea92cfa390ea44a766b3",
+      "when": "2026-03-24T03:07:54.000Z",
+      "sender": "SP1AK5ZKGDFAPXDVT6T9HZPW5D2R4DJ6Z40PZ7MKR",
+      "sats": 30000
+    },
+    {
+      "tx_id": "0x24e1cb197eb749f14a76199219e6024017be399c987c29c1c37be2f0a9987b18",
+      "when": "2026-03-20T05:28:28.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 30000
+    },
+    {
+      "tx_id": "0x0be12e251ad23c0d14595041b4120557e0ef60af40d66b58bf38c18b4f520d5d",
+      "when": "2026-03-03T23:50:23.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 5000
+    },
+    {
+      "tx_id": "0x5b77e31b8f7552b43ee0c211591b5e9427635a2a4ada99b636049ecea046f810",
+      "when": "2026-03-03T23:26:21.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 5000
+    },
+    {
+      "tx_id": "0xdcf6e6e63ac1a39073a00f8faa7d96c979b343ef432884ae9a24350892599d55",
+      "when": "2026-03-03T22:27:36.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 5000
+    },
+    {
+      "tx_id": "0x5e5ddc30c85013a706e2cedb0d295b65166103e51ae6bd5196fad52191dbdf55",
+      "when": "2026-03-03T22:25:32.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 5000
+    },
+    {
+      "tx_id": "0x9bb6c1128a6c15b28d8f399e0f34bf26f21c8a031dc0c02951325afabd636794",
+      "when": "2026-03-03T21:36:46.000Z",
+      "sender": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K",
+      "sats": 5000
+    },
+    {
+      "tx_id": "0x11648a9735bfbe061cf4cf7588d93c95de7f50bb0e19cb17a563f265c304d625",
+      "when": "2026-03-03T06:24:12.000Z",
+      "sender": "SP13H2T1D1DS5MGP68GD6MEVRAW0RCJ3HBCMPX30Y",
+      "sats": 5000
+    }
+  ],
+  "revenue_history_updated_at": "2026-04-15T15:32:00.000Z"
 }
