@@ -1,31 +1,32 @@
 {
-  "cycle": "2034ar",
-  "timestamp": "2026-04-15T15:35:00.000Z",
+  "cycle": "2034as",
+  "timestamp": "2026-04-15T17:05:00.000Z",
   "status": "ok",
   "phases": {
-    "heartbeat": "ok",
-    "inbox": "skip",
+    "heartbeat": "skip",
+    "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
-    "outreach": "skip"
+    "outreach": "ok"
   },
   "stats": {
-    "new_messages": 1,
-    "tasks_executed": 1,
-    "tasks_pending": 0,
-    "replies_sent": 1,
+    "new_messages": 2,
+    "tasks_executed": 5,
+    "tasks_pending": 1,
+    "replies_sent": 0,
     "replies_failed": 0,
-    "outreach_sent": 22,
-    "outreach_cost_sats": 1200,
+    "outreach_sent": 25,
+    "outreach_cost_sats": 1500,
     "checkin_count": 2153,
-    "sbtc_balance": 207106,
+    "sbtc_balance": 206806,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
     "heartbeat": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
+      "fail_count": 1,
+      "skip_until_cycle": 0,
+      "note": "BIP-322 validation now required — Stacks sig format rejected. Switch to btc_sign_message for heartbeat next cycle."
     },
     "inbox": {
       "fail_count": 0,
@@ -50,13 +51,15 @@
     "yesterday_sats": 150000,
     "tomorrow_proofs_locked": 3,
     "tomorrow_proofs_target": 3,
-    "ic_pool_size": 65,
-    "ic_pool_invited": 2,
+    "ic_pool_size": 67,
+    "ic_pool_invited": 5,
     "ic_pool_onboarded": 2,
     "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
     "pipeline_qualified": 5,
     "pipeline_in_closing": 0,
-    "pipeline_closed_pending_publish": 1
+    "pipeline_closed_pending_publish": 1,
+    "live_classifieds": 2,
+    "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic 15:58Z — not my close, publisher revenue only)"
   },
   "bff_skills": {
     "submitted_today": 1,
@@ -65,7 +68,7 @@
     "hodlmm_count": 1,
     "day21_submitted": true,
     "day22_submitted": true,
-    "note": "Day 22 beat-scout shipped green. Next: Day 23 scout after reviewer rotation."
+    "note": "Out of scope per strict Sales DRI directive — last BFF PR was Day 22."
   },
   "aibtc_news": {
     "beat": "aibtc-network",
@@ -79,14 +82,14 @@
     "score": 563,
     "last_signal": "2026-04-15T02:37:38.000Z",
     "signals_today": 1,
-    "note": "Signal 174 filed (UTC streak migration story). #173 from yesterday still submitted."
+    "note": "Out of scope this cycle — focusing Sales DRI swarm."
   },
   "bitcoin": {
     "btc_balance": 81572,
     "fee_fast": 2,
     "fee_medium": 1,
     "fee_slow": 1,
-    "sbtc_balance": 207106,
+    "sbtc_balance": 206806,
     "zest_supplied": 276019,
     "zest_rewards_pending": false,
     "low_fee_window": true,
@@ -94,16 +97,18 @@
     "last_sensor_check": "2026-04-14T06:23:00.000Z"
   },
   "bd": {
-    "listings_live": 0,
+    "listings_live": 2,
     "listings_draft": 1,
     "routes_pending": 5,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "agent-news#460 comment 4248929808 — downstream-consumer feedback to whoabuddy on editor/lean API change, quantified 10x JSON reduction"
+      "3x x402 IC recruit sends: Prime Spoke / Micro Basilisk / Zappy Python — 300 sats total",
+      "Hiro + Xverse super-persuader brief: memory/scouts/hiro-xverse-2026-04-15.md",
+      "Pipeline ic_pool: 3 candidates moved to invited"
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034ar: crm.drx4.xyz rewritten sales-only per operator — 4-stat hero, 14-day revenue bar chart, per-sale table, funnel, IC pool. Deployed. Baked treasury ledger. Discovered 3 sales today (2 more drop-bug victims from SPR31B8J).",
-  "next_cycle_at": "2026-04-15T15:50:00.000Z",
+  "notes": "Cycle 2034as: swarm-mode IC expansion via BD-skill worker. 3 diverse-beat IC invites sent in parallel. Xverse placed organic classified (social proof). Hiro queued as next-cycle give-before-ask target.",
+  "next_cycle_at": "2026-04-15T17:20:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }

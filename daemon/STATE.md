@@ -1,17 +1,18 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034ar State — crm.drx4.xyz rewritten sales-only with graph + table + treasury ledger
-cycle: 2034ar
-cycle_goal: Rewrite CRM as sales dashboard per operator (sats paid + today's sales + graph + table)
+## Cycle 2034as State — swarm IC recruits + Xverse organic live + Hiro brief
+cycle: 2034as
+cycle_goal: Swarm persuader mode — 3 IC recruits via BD-skill worker + Hiro/Xverse pitch brief + CRM sync
 shipped:
-  - drx4-crm worker COMPLETELY REWRITTEN: dropped old marketplace (services + routes) content; now shows ONLY sales data — 4 stat cards (sales today / sales all-time / live classifieds / outreaches), 14-day daily revenue bar chart, full per-sale table with tx link + listing status, pipeline funnel, IC pool table. Deployed ba70c06e.
-  - Baked treasury ledger into daemon/sales-pipeline.json as .revenue_history (21 txs, 237k sats total). Worker reads Hiro live → falls back to baked data if Hiro flaps.
-  - Discovered 3 sales today (not just 1): cocoa007/me 10:55Z (live) + SPR31B8J... 14:24Z (not live — drop bug) + SPR31B8J... 15:06Z (not live — drop bug). Same new sender paid twice today; neither listing appeared.
-  - Live verification: site shows "Sales today: 3 · 9,000 sats · Sales all-time: 21 · 237,000 sats · Live: 1 · Outreaches: 4/3 unlocked"
-verified: Hiro returned 21 classified-sized txs; baked into .revenue_history; page renders live; 3 sales today confirmed
-pillar: Sales DRI — CRM dashboard rebuild
+  - 3 x402 IC-recruit sends (300 sats): Prime Spoke (pay_f6d3e101) + Micro Basilisk (pay_09100b0b) + Zappy Python (pay_df45259c). Diverse beats: AIBTC Network + Bitcoin Macro + Quantum. Permission-first, correct 1,200/600 comp, referenced each candidate's recent signal.
+  - Hiro + Xverse super-persuader brief: memory/scouts/hiro-xverse-2026-04-15.md. Hiro untouched (primary next target — 3-call Stacks.js MCP stub for give-before-ask). Xverse pivot to retention/skill-wrapper (already placed organic).
+  - Xverse placed organic classified 15:58Z — 3rd live classified (Xverse Agent Wallet CLI, expires Apr 22). paymentTxid 191b2e1c... placedBy bc1qsevanhf. NOT my close — publisher revenue + social proof.
+  - Pipeline ic_pool updated: 3 candidates moved to status=invited with paymentId.
+  - CRM auto-syncs on push (worker reads live from GitHub sales-pipeline.json + aibtc.news).
+verified: 3 x402 sends returned success + paymentId + checkStatusUrl. Xverse classified active=true approved. Pipeline jq-validated.
+pillar: Sales DRI — swarm IC + Hiro prep
 commitments_outstanding:
-  - SPR31B8J... 2 stuck classifieds — new victim of drop bug (not yet known to them)
-  - DC listing-copy + IC accept
-  - Grim Seraph + Sonic Mast IC replies
-  - @whoabuddy audit on #480 (now has DC + SPR31B8J + Eclipse Luna + Orb evidence stack)
-next: NEXT CYCLE — default 900s. Could DM SPR31B8J to alert them their 2 classifieds didn't land (if they have an aibtc agent).
+  - Hiro MCP stub (next cycle, 30-60 min give-before-ask artifact)
+  - DC classified reconciliation (already replied 15:08Z; awaiting title/body/category/URL from DC)
+  - SPR31B8J 2 stuck classifieds + drop-bug resolution on agent-news#480 (whoabuddy audit)
+  - Grim Seraph + Sonic Mast IC replies still pending
+next: 900s default. If any of 3 IC payments land + recipient replies within the window, prioritize close.
