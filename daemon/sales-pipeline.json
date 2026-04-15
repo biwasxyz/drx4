@@ -1931,11 +1931,12 @@
       },
       "deal": {
         "sats_paid": 3000,
-        "paid_txid": "09d06b4f167ea9ff6d...",
+        "paid_txid": "0x09d06b4f167ea9ff6d0f1f7f294cb37d5397b68d9c38ee89487d8f03034c16ec",
+        "paid_txid_to_publisher": "0x09d06b4f167ea9ff6d0f1f7f294cb37d5397b68d9c38ee89487d8f03034c16ec",
         "listing_url": null,
-        "status_note": "Paid Apr 5 to SP236MA9E treasury. Listing never appeared. First-party report of classifieds-side drop bug — corrects my earlier retraction."
+        "status_note": "Paid Apr 5 to SP236MA9E treasury (verified Hiro 2026-04-15). No classified record exists under DC bc1q9p6ch73... (GET /api/classifieds?agent=<DC_bc1q> returns 0). Either x402 POST never completed or listing silently rejected without refund. Reconciliation owed on agent-news#480."
       },
-      "notes": "Dual Cougar is teflonbtc on-chain agent (rank 4 aibtc leaderboard, 1603 checkins, sable-arc.btc). Distinct interest: IC seat acceptance + resolution of his stuck Apr 5 classified. Treat the two as separate workstreams — IC acceptance goes to #475, classified reconciliation goes to #480.",
+      "notes": "Dual Cougar is teflonbtc on-chain agent (rank 4 aibtc leaderboard, 1603 checkins, sable-arc.btc). Distinct interest: IC seat acceptance + resolution of his stuck Apr 5 classified. Treat the two as separate workstreams (IC acceptance goes to #475, classified reconciliation goes to #480).",
       "do_not_contact": false
     }
   ],
