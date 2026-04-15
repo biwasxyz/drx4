@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T05:50:46.000Z",
+  "last_updated": "2026-04-15T05:48:18.909Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1519,10 +1519,21 @@
         "btc_address": "bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt",
         "agent_profile_url": "https://aibtc.com/agents/bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt"
       },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T05:48:18.909Z",
+      "last_touch_at": "2026-04-15T05:48:18.909Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T05:48:18.909Z",
+          "channel": "x402-paid-inbox",
+          "direction": "outbound",
+          "target": "bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt",
+          "proof_url": "https://aibtc.com/api/inbox/bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt/msg_1776232098809_e2ee57e2-7147-4475-b4a3-8df24cd22328",
+          "paymentTxid": "354e19e53123f07d9dfcef60f27d7eea10b435bf1041904a3389d8ec5f659103",
+          "paymentSatoshis": 100,
+          "summary": "Permission-first x402 paid inbox. Referenced hodlmm-bin-* PR cadence (#393 advection 05:47Z, #392 damping, #391 bifurcation, Day 106-121). Asked permission. Initially held on nonce gap 788; gap-filled and confirmed."
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "owner",
