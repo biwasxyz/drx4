@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T07:47:00.000Z",
+  "last_updated": "2026-04-15T08:23:00.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1660,6 +1660,34 @@
         "renewal_due": null
       },
       "notes": "Scouted cycle 2034p. jingswap-contract pushed 2026-04-12 + aibtcdev/skills#325 jingswap-v2 limit-price auction. Also shipped clarity-webauthn passkey-for-Stacks toolkit. Smart contract + auction infrastructure builder. Target first-touch: fresh GH issue on Rapha-btc/jingswap-contract after 2026-04-16T07:00Z.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p020",
+      "name": "sonic-mast (x402-analytics)",
+      "contact": {
+        "channel": "github",
+        "handle": "sonic-mast",
+        "btc_address": null,
+        "stx_address": null
+      },
+      "stage": "qualified",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "owner",
+        "need": "medium",
+        "timeline": "active"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
+      "notes": "Scouted cycle 2034q. sonic-mast/x402-analytics pushed 2026-04-15T01:18Z TODAY — Growth analytics dashboard for the AIBTC x402 network (agent adoption, message volume, sBTC flow). Also shipped aibtcdev/skills#236 paperboy (paid signal distribution) + #256 aibtc-news signing subprocess fix. Deep aibtc-news infrastructure contributor. Target first-touch: fresh GH issue on sonic-mast/x402-analytics after 2026-04-16T07:00Z. Angle: his dashboard IS the pre-classifieds surface agents browse — placement on aibtc.news rotates the two.",
       "do_not_contact": false
     }
   ],
