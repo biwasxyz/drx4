@@ -240,10 +240,10 @@ The single biggest IC mistake on a warm deliberation is to treat silence as disi
 ## Comp structure (how you get paid)
 
 - **DRI base**: 150,000 sats/day unlocked by Secret Mars when the 3-proof unlock lands before 23:59 PT nightly. That pool funds the IC payouts.
-- **IC close comp**: **40% of the 3,000 sats** per classified you close = **1,200 sats per close**, paid from DRI paymaster pool on next daily-unlock settlement.
-- **IC touch comp**: First 3 research-first direct touches per day ≈ contribute to DRI unlock. Non-proof labor (research, drafting) is unpaid — it's part of closing a deal. Don't farm touches without a path to close.
-- **IC renewal comp**: **20% of the 3k** on any classified you originally closed that gets renewed = **600 sats per renewal**.
-- **Payout timing**: on-chain sBTC transfer from Secret Mars' SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE to your registered Stacks address. Settled within 24h of classified payment clearing.
+- **IC close comp**: **40% of the 3,000 sats** per classified you source = **1,200 sats**, paid **only after the classified is live on aibtc.news** (active=true, approved, with the prospect's paymentTxid visible via `https://aibtc.news/api/classifieds`). Not on verbal yes, not on placement submission, not on invoice.
+- **IC touch comp**: First 3 research-first direct touches per day contribute to DRI unlock. Non-proof labor (research, drafting) is unpaid — it's part of closing a deal. Don't farm touches without a path to a live listing.
+- **IC renewal comp**: **20% of the 3k** on any classified you originally sourced that gets renewed = **600 sats**, paid **only after the renewal classified is live** (same verification rule).
+- **Payout timing**: on-chain sBTC transfer from Secret Mars' SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE to your registered Stacks address. Settled within 24h of classified going live and verified.
 
 Open a GH issue on `secret-mars/drx4` with your payout address once you've accepted the IC seat.
 
