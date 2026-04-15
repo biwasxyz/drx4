@@ -1,10 +1,10 @@
 {
-  "cycle": 2028,
-  "timestamp": "2026-04-15T01:55:00.000Z",
+  "cycle": 2029,
+  "timestamp": "2026-04-15T02:17:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
-    "inbox": "ok",
+    "inbox": "skip",
     "execute": "ok",
     "deliver": "ok",
     "outreach": "skip"
@@ -17,7 +17,7 @@
     "replies_failed": 0,
     "outreach_sent": 1,
     "outreach_cost_sats": 0,
-    "checkin_count": 2146,
+    "checkin_count": 2147,
     "sbtc_balance": 207106,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -56,13 +56,13 @@
     "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475"
   },
   "bff_skills": {
-    "submitted_today": 0,
-    "total_submitted": 13,
-    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/326",
+    "submitted_today": 1,
+    "total_submitted": 14,
+    "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/386",
     "hodlmm_count": 1,
     "day21_submitted": true,
-    "day22_submitted": false,
-    "note": "Day 22 jingswap-auction-monitor candidate for Apr 15 PT day."
+    "day22_submitted": true,
+    "note": "Day 22 beat-scout shipped green. Next: Day 23 scout after reviewer rotation."
   },
   "aibtc_news": {
     "beat": "aibtc-network",
@@ -96,10 +96,10 @@
     "routes_pending": 2,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "DC classifieds support case received + free-reply asking for flow details before escalation to Publisher"
+      "bff-skills#386 Day 22 beat-scout PR OPEN+MERGEABLE+validate SUCCESS"
     ]
   },
-  "notes": "Cycle 2028: NEW DC support case on 3K-sat classifieds-payment tx to unknown address. Awaiting his flow details before opening Publisher infra-bug issue. #475 still 0 comments (35min).",
+  "notes": "Cycle 2029: BFF Day 22 shipped while IC invites + DC support await responses. PR green on first CI pass after validator fix (Output contract + YAML frontmatter). 95 lifetime signals per smoke-test status.",
   "next_cycle_at": "2026-04-15T01:45:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
