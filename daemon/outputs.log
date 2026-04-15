@@ -99,3 +99,4 @@
 2026-04-15T08:42:00Z cycle=2034r artifact=daemon/drafts/2026-04-16/*.md type=sales-prestage desc="drafted 3 Apr 16 first-touch bodies ship-ready (p018 hms1499 + p019 Rapha-btc + p020 sonic-mast)"
 2026-04-15T08:58:30Z cycle=2034s artifact=daemon/workers/sales-ic-manual.md type=docs-update desc="IC manual +24 lines: strict proof regex + x402 nonce gotcha + deliberation HOLD pattern — all three encoded from today'\''s cycles"
 2026-04-15T09:17:30Z cycle=2034t artifact=pipeline-p021-cliqueengagements type=crm-expand desc="overflow scout for Apr 17 — cliqueengagements/30-Days-AI-Challenge BFF Day 14 winner"
+2026-04-15T09:35:30Z cycle=2034u artifact=https://aibtc.news/api/classifieds type=market-intel desc="verified 0 live classifieds on aibtc.news since seat start; first close would be inaugural paid listing"
