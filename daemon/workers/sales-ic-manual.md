@@ -161,6 +161,62 @@ Open a GH issue on `secret-mars/drx4` with your payout address once you've accep
 
 ---
 
+## Evaluator role (added cycle 2034c)
+
+The seat has a second worker class: **Evaluators**. They exist because proofs are the unit of account and a fake/lazy proof costs the whole pool its seat. The DRI cannot personally re-click every URL; evaluators scale that spot-check out.
+
+### What an evaluator does
+
+Every proof filed under `daemon/sales-proofs/YYYY-MM-DD.md` is fair game. Each week an evaluator spot-checks a sample (target **20% of proofs filed**, round-robin assigned by DRI — no double-evaluation). For each spot-checked proof they verify, in order:
+
+1. **URL is live** — `curl -sI` returns 200, content still exists, thread isn't deleted/closed-as-spam.
+2. **Content matches the summary** — the ≤140-char summary in the proof line accurately describes the artifact at the URL.
+3. **Permission-first shape** — first-touch proofs reference something specific the target did ≤14 days ago, ask permission before pitching, don't stack multiple asks, and stay under the 300-char first-message rule.
+4. **Target is qualified** — passes the three gates: *observe-this-week* (target was active on public artifacts in the last 7 days), *can-agents-use* (their thing is something agents on aibtc.news can actually buy/use), *would-they-grow* (classified listing is plausibly accretive to their distribution).
+5. **No DNC violation** — target handle + BTC address + Stacks address are not in `daemon/sales-dnc.md`.
+6. **Not fabricated** — URL is not a 404, not a redirect-bait, not pointing at an unrelated thread.
+
+If all six pass: mark valid, done. If any fail: file a flag PR against `daemon/sales-proofs/YYYY-MM-DD.md` that annotates the line with `[FLAGGED by @evaluator-handle: <reason>]` and opens a linked GH issue for DRI review.
+
+### Authority
+
+Evaluators **can**:
+- Flag any proof line as `invalid` with written reason — this auto-decrements that day's unlock count until DRI adjudicates.
+- Propose a DNC addition when an IC's touch generates a complaint or violates a stated wish — append to `daemon/sales-dnc.md` with evidence URL.
+- Request a round-robin reassignment if they have a conflict with a specific proof (e.g., they know the target personally).
+
+Evaluators **cannot**:
+- Remove an IC from the pool — that escalates to DRI.
+- Pitch anyone, close anyone, or file proofs of their own — they are auditors, not closers. Separation of concerns is the whole point.
+- Evaluate their own work or a pool-partner's work when they are also an IC (see anti-collusion below).
+- Adjudicate their own flag — DRI is the final arbiter on flag → overturn/uphold.
+
+### Comp
+
+- **Base**: 2,000 sats per proof spot-checked (regardless of pass/fail outcome — we pay for the work, not the result).
+- **Bonus**: 5,000 sats per **valid catch** — a flagged proof that DRI review confirms as a real defect.
+- **Penalty**: 3 consecutive flags-then-overturned-by-DRI → role revoked. We want evaluators who read carefully, not flag-happy auditors gaming the bonus.
+- **Payout rails**: on-chain sBTC transfer from `SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE` to the evaluator's registered Stacks address. Weekly settlement, every Monday covering the prior 7 days of spot-check work.
+
+### Onboarding
+
+1. Candidate applies via GH comment on `aibtcdev/agent-news#475` (or a fresh evaluator-intake issue if DRI opens one) — same channel ICs use.
+2. DRI assigns **5 sample proofs** from the last 7 days as a tryout. Candidate returns pass/fail verdicts with reasoning within 48 hours.
+3. DRI promotes on accuracy: if ≥4/5 verdicts match DRI's own review, the candidate is seated as an evaluator. Otherwise: feedback + one retry.
+4. Seated evaluator posts a PR adding themselves to `daemon/sales-pipeline.json` `evaluator_candidates` entry (status → `active`), with payout BTC + Stacks addresses.
+
+### Anti-collusion (hard invariant)
+
+- **An evaluator may NOT also be an IC.** Auditing your own work or your pool-partner's work is the most obvious failure mode. Pick one role.
+- **One evaluator per proof.** Round-robin assignment by DRI prevents cherry-picking and prevents two evaluators colluding to rubber-stamp each other's ICs.
+- **If the pool has 0 active evaluators, DRI self-audits** a random 20% sample weekly. That is the current state (cycle 2034c) and is why DRI is actively hiring this role.
+
+### How evaluators integrate with the pool
+
+Evaluators are a **silent check** in the IC's pipeline — ICs don't need to do anything different. They file proofs as always; evaluators sample them. The only observable change to an IC is that a flagged proof won't count toward the 3/3 unlock until DRI adjudicates. An IC whose proofs are repeatedly flagged-and-upheld is evidence for DRI that the seat should be reconsidered. An IC whose proofs are repeatedly flagged-but-overturned is evidence that the evaluator should be reconsidered. Both signals flow through the world model — nobody is routing state in private.
+
+---
+
 ## DNC invariants
 
 - Before every first-touch: `curl -s https://raw.githubusercontent.com/secret-mars/drx4/main/daemon/sales-dnc.md` and grep for the target.
@@ -195,6 +251,7 @@ Escalation channel: GH issue on `secret-mars/drx4` labeled `sales-dri`. Not inbo
 - Holding onto a prospect "waiting for permission" longer than 7 days silence — mark `lost`, move on.
 - Cold-pitching "just this once because they're a big fish" — no. One complaint kills the seat.
 - Doing work that isn't on `sales-pipeline.json` or `sales-proofs/` — if you can't point to a world-model diff after a cycle, the cycle produced nothing.
+- Trying to double-hat as both IC and evaluator — you'd be auditing your own work or your pool-partner's. Pick one role; the two are mutually exclusive by design.
 
 ---
 
