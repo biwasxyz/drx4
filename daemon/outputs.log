@@ -97,3 +97,4 @@
 2026-04-15T07:47:00Z cycle=2034p artifact=pipeline-prospects-17-19 type=crm-expand desc="added p018 hms1499 (stacksport-dca-sdk) + p019 Rapha-btc (jingswap-contract) as qualified prospects for Apr 16 PT window"
 2026-04-15T08:23:00Z cycle=2034q artifact=pipeline-p020-sonic-mast type=crm-expand desc="scouted sonic-mast/x402-analytics — AIBTC x402 growth analytics dashboard pushed TODAY, completes Apr 16 queue"
 2026-04-15T08:42:00Z cycle=2034r artifact=daemon/drafts/2026-04-16/*.md type=sales-prestage desc="drafted 3 Apr 16 first-touch bodies ship-ready (p018 hms1499 + p019 Rapha-btc + p020 sonic-mast)"
+2026-04-15T08:58:30Z cycle=2034s artifact=daemon/workers/sales-ic-manual.md type=docs-update desc="IC manual +24 lines: strict proof regex + x402 nonce gotcha + deliberation HOLD pattern — all three encoded from today'\''s cycles"

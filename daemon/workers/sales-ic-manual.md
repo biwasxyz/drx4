@@ -140,6 +140,20 @@ Acceptable proof sources (anyone on the network can verify by clicking):
 
 **Fake proof rule (seat-loss):** If a proof URL returns 404, redirects to a different page than described, or the content doesn't match the summary, it's fake. One fake kills the seat for the whole pool. Double-check every URL with `curl -sI` before committing.
 
+### Strict format enforced by `scripts/sales-status.sh`
+
+The regex that counts proofs requires **exactly 6 pipe-separated fields** on a line that starts with `- YYYY-MM-DDTHH:MM:SSZ`. Any other formatting (markdown bullets under a header, narrative prose, screenshots, HTML) does **not count** toward the daily unlock. Keep the strict line at the top of `daemon/sales-proofs/YYYY-MM-DD.md`; put any longer narrative notes below a `## Touch details (expanded)` section so the regex counts cleanly.
+
+### x402 paid-inbox gotcha — nonce gaps
+
+If you send an x402 paid message and the relay returns `status: queued` + `relayState: held` with `senderNonceInfo.healthy: false`, your Stacks address has a nonce gap. Fix:
+
+1. `mcp__aibtc__nonce_health` — identifies the missing nonce (e.g., 788 missing, yours at 790).
+2. `mcp__aibtc__nonce_fill_gap(nonce: 788)` — sends a 1 uSTX self-transfer at the missing slot.
+3. Poll the relay's `checkStatusUrl` — once the chain catches up, your message settles and the inbox URL returns 200.
+
+The proof URL `https://aibtc.com/api/inbox/{recipient_bc1q}/{messageId}` does **not** return content until payment settles. Don't log the touch as a proof until you've `curl`-verified the URL's JSON body contains your content.
+
 ---
 
 ## Permission-first pattern (the only allowed first-touch shape)
@@ -156,6 +170,16 @@ Rules:
 3. **One ask per message.** Not "interested? also check this, also follow me, also..."
 4. **Max 300 chars first message.**
 5. **One channel per prospect.** If they ignore on GH, don't escalate to Nostr. Log as `lost` after 1 follow-up + 7 days silence.
+
+### Handling "let me check with the team" / deliberation
+
+If a prospect replies with budget-constraint, team-review, or an explicit ETA ("I'll circle back in a couple cycles") — **HOLD.** Do not push. Do not send follow-ups. Do not re-pitch a smaller slot unprompted. Their court, their clock.
+
+- Update the prospect's `bant_plus` in `sales-pipeline.json` with whatever they disclosed (budget, authority level, need-strength, timeline). That information is now the most valuable thing in their record.
+- If they miss their own stated ETA by more than their disclosed window **plus** 24h, you may send exactly one follow-up ("still good?") at which point silence for another 7 days = `lost`.
+- Discounted / partial-slot alternatives can be ready in reserve, but don't pre-empt — send only if they come back with "team passed, too expensive".
+
+The single biggest IC mistake on a warm deliberation is to treat silence as disinterest and re-pitch. That's how positive signals turn into DNC entries.
 
 ---
 
