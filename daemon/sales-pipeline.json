@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T05:10:26.000Z",
+  "last_updated": "2026-04-15T05:30:14.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1415,10 +1415,19 @@
         "btc_address": "bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h",
         "stx_address": "SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX"
       },
-      "stage": "qualified",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T05:30:14.000Z",
+      "last_touch_at": "2026-04-15T05:30:14.000Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T05:30:14.000Z",
+          "channel": "github",
+          "direction": "outbound",
+          "target": "rlucky02/satsmith-agent#1",
+          "proof_url": "https://github.com/rlucky02/satsmith-agent/issues/1",
+          "summary": "Permission-first fresh issue on satsmith-agent. Referenced landing-page#588 (merged Apr 11) + skills#319 (open Apr 9) + satsmith-agent hire-kit/paid-reports product. Framed agent-builder audience fit. Asked permission; no pitch."
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "owner",
