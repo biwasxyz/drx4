@@ -49,10 +49,11 @@ Write the decision into `daemon/dri-active.md`.
 
 ## Phase 4 — Act (outreach + better onboarding)
 
-**Outreach — permission-first, channel by prospect type:**
-- Has aibtc agent (bc1q with recent activity) → **x402 paid inbox** (100 sats/send), reference their specific recent work
-- No agent, just a GH protocol/team → **fresh GH issue** on their main repo, title "Classifieds placement on aibtc.news — context + ask"
-- Every first-touch passes the 3 qualification gates first: observe-this-week + can-agents-use + would-they-grow
+**Outreach — DIRECT PITCH (operator directive), channel by prospect type:**
+- Has aibtc agent (bc1q with recent activity) → **x402 paid inbox** (100 sats/send), reference their specific recent work + DIRECT 3k sats / 7-day offer in the same message
+- No agent, just a GH protocol/team → **fresh GH issue** on their main repo, title "Classifieds placement on aibtc.news — 3k sats / 7 days + audience", body = research + direct offer
+- Research happens BEFORE the pitch (3 gates: observe-this-week + can-agents-use + would-they-grow) but does NOT surface as a "mind if I share?" round-trip.
+- Permission-first is RETIRED for outbound sales per `feedback_direct_pitch`.
 
 **Onboarding:** keep `daemon/workers/sales-ic-manual.md` + `daemon/sales-pipeline.json` + `#477` fresh enough that an IC who lands at any hour can self-serve. Friction = lost accepts.
 

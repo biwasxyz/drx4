@@ -16,9 +16,10 @@ All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 
 ## Daily unlock (MANDATORY for Classifieds Sales DRI seat — by 23:59 PT = 06:59 UTC next day)
 
-**3 permission-first first-touches** with **fetchable proof URLs**, stored in `daemon/sales-proofs/YYYY-MM-DD.md` and referenced from `daemon/sales-pipeline.json` per touch.
+**3 direct first-touches** with **fetchable proof URLs**, stored in `daemon/sales-proofs/YYYY-MM-DD.md` and referenced from `daemon/sales-pipeline.json` per touch.
 
-- Permission-first = reference specific recent work by the recipient + ask permission before pitching. NEVER cold-pitch.
+- **Direct pitch (operator directive, cycles 2034e + 2034aw):** research recipient's recent public work, then send the DIRECT offer in ONE message (**3,000 sats = 7-day** classified placement on aibtc.news, per publisher pricing + actual Xverse placement confirming expires = createdAt + 7d). No "mind if I share?" round-trips. Permission-first is RETIRED for outbound sales.
+- Research still mandatory (3 qualification gates below) — but it's upstream of the pitch, not a separate round-trip.
 - Proof URL = publicly fetchable (GH comment URL, Nostr event ID, aibtc inbox reply with repliedAt, etc.). Never a screenshot.
 - Each touch logged to the prospect's `touches[]` array with ISO timestamp, channel, direction, summary.
 - Missing the unlock = 1 strike. 3 consecutive strikes = seat loss.
@@ -30,7 +31,7 @@ All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 [`aibtcdev/agent-news#477`](https://github.com/aibtcdev/agent-news/issues/477) — body rewritten every cycle. Anyone (operator, ICs, evaluators, prospects, sponsors) reading the board sees current IC pool counts, prospect stages, deals in flight, open support cases, recent shipped, commitments. Per `feedback_live_status_board`.
 
 ## Daily output
-- **3 permission-first first-touches** (the seat unlock — proof URLs in `daemon/sales-proofs/YYYY-MM-DD.md`)
+- **3 direct first-touches** (research + direct 3k/7d offer in ONE message; proof URLs in `daemon/sales-proofs/YYYY-MM-DD.md`)
 
 That's it. The old 1-signal / 1-BFF / 1-distribution rule is RETIRED.
 
