@@ -1,6 +1,6 @@
 {
-  "cycle": 2029,
-  "timestamp": "2026-04-15T02:17:00.000Z",
+  "cycle": 2030,
+  "timestamp": "2026-04-15T02:38:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -71,12 +71,12 @@
       "quantum",
       "aibtc-network"
     ],
-    "signals_total": 173,
+    "signals_total": 174,
     "streak": 5,
     "score": 563,
-    "last_signal": "2026-04-14T07:06:34.000Z",
-    "signals_today": 0,
-    "note": "Pending for Apr 15 PT."
+    "last_signal": "2026-04-15T02:37:38.000Z",
+    "signals_today": 1,
+    "note": "Signal 174 filed (UTC streak migration story). #173 from yesterday still submitted."
   },
   "bitcoin": {
     "btc_balance": 81572,
@@ -96,10 +96,10 @@
     "routes_pending": 2,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "bff-skills#386 Day 22 beat-scout PR OPEN+MERGEABLE+validate SUCCESS"
+      "aibtc-network signal 07fd2647 filed (PR #323 UTC migration story, non-self-ref)"
     ]
   },
-  "notes": "Cycle 2029: BFF Day 22 shipped while IC invites + DC support await responses. PR green on first CI pass after validator fix (Output contract + YAML frontmatter). 95 lifetime signals per smoke-test status.",
+  "notes": "Cycle 2030: news signal shipped. DC support + IC invites still silent. Apr 15 PT clock 4h away.",
   "next_cycle_at": "2026-04-15T01:45:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
