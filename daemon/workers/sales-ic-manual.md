@@ -116,17 +116,25 @@ Every touch produces a **fetchable public URL** appended to `daemon/sales-proofs
 ```
 
 Acceptable proof sources (anyone on the network can verify by clicking):
-- GitHub comment URL (`.../issues/N#issuecomment-NNNN` or `.../pull/N#issuecomment-NNNN`)
+- **Fresh GH issue URL** that you opened on the prospect's repo (`.../issues/N`, posted within the last 7 days, NOT a comment on someone else's issue/PR)
+- **GH issue comment URL** when the prospect's team has been actively engaged in the thread within the last 7 days — comment ON your own opened issue is fine, but a comment on an unrelated open/closed PR is NOT
+- **x402 paid inbox messageId URL** (`https://aibtc.com/api/inbox/{recipient}/{messageId}`) — only when the recipient has an active aibtc agent
+- **aibtc inbox free-reply** returning `success:true` with `repliedAt` — only when recipient engaged us first
 - Nostr event ID (`nostr:nevent1...` or `https://snort.social/e/NEVENT`)
-- aibtc.com inbox reply returning `success:true` with `repliedAt` timestamp — paste the `messageId + repliedAt + a public snapshot URL`
 - Public x.com post URL (only if the prospect is reachable publicly there and you've previously engaged their content)
 
-**Not acceptable:**
+**NOT acceptable (cycle 2034f operator rule, see `feedback_channel_routing`):**
+- **Comments on open/closed PRs** that you didn't open — sales pitches in PR threads are noise to maintainers and look like spam. Use a fresh issue OR x402 instead.
+- Comments on closed/merged threads >7 days old (recipient isn't watching).
 - Screenshots
 - Private DMs
 - Email
 - Anything gated behind login you don't share with the DRI
 - "I'll paste the URL later" promises
+
+**Channel routing (which channel to use BEFORE drafting the touch):**
+- Recipient has an active aibtc agent (bc1q address with recent signal/inbox/heartbeat) → **x402 paid inbox** (100 sats per send)
+- Recipient is a GH protocol/team without an aibtc agent → **fresh GH issue** on their main repo (title: "Classifieds placement on aibtc.news — context + ask")
 
 **Fake proof rule (seat-loss):** If a proof URL returns 404, redirects to a different page than described, or the content doesn't match the summary, it's fake. One fake kills the seat for the whole pool. Double-check every URL with `curl -sI` before committing.
 

@@ -40,7 +40,11 @@ Rule: every decision must move toward **a paid 30k-sat classified close**, direc
 ### 4. Act — outreach + better onboarding
 
 Two tools, both important:
-- **Outreach**: x402 paid inbox messages to active agents, GH comments on LIVE threads, agent-news issues for IC/Evaluator recruitment. Permission-first ALWAYS. Per `feedback_real_qualification`, every first-touch passes observe-this-week + can-agents-use + would-they-grow gates.
+- **Outreach**: PERMISSION-FIRST always, on the right channel for the prospect:
+  - **Has aibtc agent (bc1q with recent activity)** → **x402 paid inbox** (100 sats per send). Reference their specific recent signal/work.
+  - **No aibtc agent (just a GH protocol/team)** → **fresh GH issue on their main repo** with research-driven pitch. Title: "Classifieds placement on aibtc.news — context + ask." Body: research summary (3 gates evidence) + offer + single CTA.
+  - **NEVER as a comment on an open or closed PR.** PRs are about code; sales pitches there are noise. Operator forbade this in cycle 2034f.
+  - Per `feedback_real_qualification`, every first-touch passes observe-this-week + can-agents-use + would-they-grow gates BEFORE channel choice.
 - **Better onboarding**: keep `daemon/workers/sales-ic-manual.md` + `daemon/sales-pipeline.json` clean enough that an IC who shows up at any hour can self-serve. Friction in the manual = lost IC accepts.
 
 Repeat faster than everyone else.
@@ -125,7 +129,9 @@ Then commit (sign with `secret-mars <contactablino@gmail.com>`), push, TG (colle
 - Don't read PR thread comments inline — dispatch a worker.
 - Don't dispatch out-of-scope work types — they're banned.
 - Don't pad proofs with low-quality dead-thread anchors to hit 3/3.
+- **Don't comment on PRs (open or closed) as a sales channel** — fresh issue or x402 only (`feedback_channel_routing`).
 - Don't ask operator for direction every cycle — decide, execute, report (per `feedback_swarm_mode`).
+- **When operator gives a new directive, update instructions (loop.md / worker templates / IC manual / NORTH_STAR) FIRST, commit, THEN act** — per `feedback_directive_propagation`. Memory feedback alone doesn't reach the workers.
 - Don't drift back to bullet-list TG reports — colleague voice (`feedback_tg_voice`).
 - Don't treat `news_check_status` beat list as authoritative for filing — security/agent-skills/agent-economy/infrastructure beats are RETIRED (returns 410 on file). Only `aibtc-network`, `bitcoin-macro`, `quantum` are file-eligible.
 

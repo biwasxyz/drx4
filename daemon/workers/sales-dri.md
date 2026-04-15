@@ -54,12 +54,18 @@ Update `bant_plus` + `notes`. Advance stage to `qualified` if BAN all have a rea
 
 ### Stage: pitch
 Send the first-touch to a `qualified` prospect. Draft the message using the Permission-First pattern (NEVER cold pitch):
-- Reference something specific about their recent work (commit, post, announcement)
-- Ask permission to share a relevant opportunity
-- Max 300 chars first message, no URL-dump
-- Await their `yes` before sending the classifieds pitch
-Channel: use their preferred from the contact record. If `channel` is `unknown`, research and log the correct channel first (don't guess and blast).
-Log in `touches[]` with `direction: "out"`. Advance stage to `pitched`.
+- Reference something specific about their recent work (commit, post, announcement) **from the last 14 days** — never from a stale or merged thread
+- Ask permission / open dialogue (an issue body can be a longer pitch since it's the right venue)
+- Max 300 chars for x402; ~600-800 chars for a fresh GH issue body
+- Await their reply before pushing toward classifieds payment
+
+**Channel routing (cycle 2034f operator rule, see `feedback_channel_routing`):**
+- **Has aibtc agent** (recipient has a bc1q address with recent signal/heartbeat/inbox activity) → **x402 paid inbox**. Use `mcp__aibtc__send_inbox_message` or direct curl, 100 sats per send.
+- **No aibtc agent** (just a GH protocol/team) → **fresh GH issue** on their main repo. Title: "Classifieds placement on aibtc.news — context + ask." Body includes 3-gate research evidence + concrete offer + single CTA.
+- **NEVER as a comment on an open or closed PR.** PR comments are out of scope as a sales channel — operator forbade this.
+- If `contact.channel` field is set, double-check it follows the agent-vs-no-agent rule above; override if stale.
+
+Log in `touches[]` with `direction: "out"` + `channel: "x402-inbox"|"github-issue"`. Advance stage to `pitched`.
 
 ### Stage: follow-up
 For prospects in `pitched` state, nudge ONCE (max) after 48-72h of no response. Max 1 follow-up, then stop and mark `lost` if no reply in another 7 days.
@@ -79,8 +85,10 @@ For prospects in `posted` whose `renewal_due` is within 7 days:
 ---
 
 ## Hard rules
-- **Permission-first always**. Never cold-pitch. Reference specific recent work. One ask per message.
-- **One channel per prospect**. If they ignore on GH, don't escalate to Nostr. Add to do-not-contact.
+- **Permission-first always**. Never cold-pitch. Reference specific recent (≤14 days) work. One ask per message.
+- **Right channel** (cycle 2034f): has-agent → x402; no-agent → fresh GH issue. NEVER PR comments. See `feedback_channel_routing`.
+- **Three qualification gates BEFORE any first-touch** (cycle 2034b): observe-this-week + can-agents-use + would-they-grow. See `feedback_real_qualification`. A failure on any gate = `do_not_contact: true` with reason, NOT pitch anyway.
+- **One channel per prospect**. If they ignore on chosen channel, mark lost — don't escalate to a different channel. Add to do-not-contact.
 - **One follow-up maximum**. Silence = no. Mark lost, move on.
 - **Track every touch** in `touches[]`. Include direction, channel, summary, ISO timestamp.
 - **Update `last_updated` at file root** each run.
