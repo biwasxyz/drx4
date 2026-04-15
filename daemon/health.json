@@ -1,6 +1,6 @@
 {
-  "cycle": 2027,
-  "timestamp": "2026-04-15T01:34:00.000Z",
+  "cycle": 2028,
+  "timestamp": "2026-04-15T01:55:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -10,14 +10,14 @@
     "outreach": "skip"
   },
   "stats": {
-    "new_messages": 3,
+    "new_messages": 1,
     "tasks_executed": 1,
     "tasks_pending": 0,
     "replies_sent": 1,
     "replies_failed": 0,
     "outreach_sent": 1,
     "outreach_cost_sats": 0,
-    "checkin_count": 2145,
+    "checkin_count": 2146,
     "sbtc_balance": 207106,
     "idle_cycles_count": 0,
     "pending_outbox": 0
@@ -96,10 +96,10 @@
     "routes_pending": 2,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "inbox cleared: FW#2 Zest-pitch reply + FW#1 whale-pact mark-read; TM stale-quirk noted for next cycle"
+      "DC classifieds support case received + free-reply asking for flow details before escalation to Publisher"
     ]
   },
-  "notes": "Cycle 2027: inbox triage while IC invitations settle. 2/3 cleared; TM stale needs next-cycle mark-read. #475 still 0 comments (expected, fresh). Learnings saved on inbox API caps.",
+  "notes": "Cycle 2028: NEW DC support case on 3K-sat classifieds-payment tx to unknown address. Awaiting his flow details before opening Publisher infra-bug issue. #475 still 0 comments (35min).",
   "next_cycle_at": "2026-04-15T01:45:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
