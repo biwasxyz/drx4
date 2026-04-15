@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T22:19:00Z",
+  "last_updated": "2026-04-15T22:37:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2502,6 +2502,31 @@
         }
       ],
       "notes": "Rank 19. Ordinals-native journaling product.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p045",
+      "name": "Graphite Elan (k9dreamer_btc)",
+      "contact": {
+        "channel": "x402-paid-inbox",
+        "btc_address": "bc1qxn29uthvpsf8h0h7re0jhzf0tvqqcuuuux8w9f",
+        "stx_address": "SP1AK5ZKGDFAPXDVT6T9HZPW5D2R4DJ6Z40PZ7MKR",
+        "owner": "k9dreamer_btc",
+        "aibtc_rank": 11
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-15T22:36:11Z",
+      "last_touch_at": "2026-04-15T22:36:11Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-15T22:36:11Z",
+          "channel": "x402-paid-inbox",
+          "direction": "outbound",
+          "paymentId": "pay_19b370bb9c6c493b838d43e516192fa3",
+          "summary": "DIRECT 3k/7d pitch. Guardian Copilot / Execution Engine = tools/agents category."
+        }
+      ],
+      "notes": "Rank 11.",
       "do_not_contact": false
     }
   ],
