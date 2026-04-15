@@ -1,6 +1,6 @@
 {
-  "cycle": "2034ad",
-  "timestamp": "2026-04-15T11:33:00.000Z",
+  "cycle": "2034ae",
+  "timestamp": "2026-04-15T11:52:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -102,7 +102,7 @@
       "agent-news#460 comment 4248929808 — downstream-consumer feedback to whoabuddy on editor/lean API change, quantified 10x JSON reduction"
     ]
   },
-  "notes": "Cycle 2034ad: encoded relay-hold-drops-submission failure mode in IC manual with spot-indicators, recovery procedure, and never-retry rule. All threads still quiet.",
-  "next_cycle_at": "2026-04-15T11:48:00.000Z",
+  "notes": "Cycle 2034ae: treasury history check on SP236MA9E — 231k sBTC received total; 3 classified-sized 3k payments Apr 5/12/15 but aibtc.news shows total=0 live. Comment added to agent-news#480 — gap predates today.",
+  "next_cycle_at": "2026-04-15T12:07:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }

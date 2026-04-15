@@ -117,3 +117,4 @@
 2026-04-15T10:55:00Z cycle=2034ab artifact=https://github.com/aibtcdev/agent-news/issues/480 type=infra-escalation desc="filed issue asking publisher ops to manually reconcile dropped classifiedId 9718c305 against settled payment tx"
 2026-04-15T11:13:28Z cycle=2034ac artifact=cocoa007-patient-reply type=sales-retention desc="cocoa007 patient through infra failure — 'no action needed, will wait for ops to reconcile' — customer retained despite server drop"
 2026-04-15T11:33:00Z cycle=2034ad artifact=daemon/workers/sales-ic-manual.md type=docs-postmortem desc="encoded relay-hold-drops-staged-submission failure mode in IC manual: spot indicators + recovery procedure + never-retry rule"
+2026-04-15T11:51:00Z cycle=2034ae artifact=https://github.com/aibtcdev/agent-news/issues/480#issuecomment-4251729724 type=infra-investigation desc="publisher treasury history — 3 classified-sized payments Apr 5/12/15 vs 0 live listings, gap predates today's case"
