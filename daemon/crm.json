@@ -8,7 +8,11 @@
       "service": "Token Swap",
       "endpoint": "alex_swap",
       "price": "free (MCP)",
-      "tokens": ["STX", "sBTC", "ALEX"],
+      "tokens": [
+        "STX",
+        "sBTC",
+        "ALEX"
+      ],
       "category": "swap",
       "status": "live",
       "listed_at": "2026-04-13T02:14:00.000Z",
@@ -24,7 +28,14 @@
       "service": "Lending & Borrowing",
       "endpoint": "zest_supply / zest_borrow / zest_get_position",
       "price": "free (MCP)",
-      "tokens": ["sBTC", "STX", "stSTX", "USDC", "USDH", "stSTXbtc"],
+      "tokens": [
+        "sBTC",
+        "STX",
+        "stSTX",
+        "USDC",
+        "USDH",
+        "stSTXbtc"
+      ],
       "category": "lend",
       "status": "live",
       "listed_at": "2026-04-13T02:14:00.000Z",
@@ -41,7 +52,11 @@
       "service": "Liquid Stacking",
       "endpoint": "stack_stx / get_stacking_status / get_pox_info",
       "price": "free (MCP)",
-      "tokens": ["STX", "stSTX", "stSTXbtc"],
+      "tokens": [
+        "STX",
+        "stSTX",
+        "stSTXbtc"
+      ],
       "category": "stack",
       "status": "live",
       "listed_at": "2026-04-13T02:30:00.000Z",
@@ -57,7 +72,13 @@
       "service": "BTC-to-sBTC Bridge + Yield",
       "endpoint": "styx_deposit / styx_pools / styx_pool_status / styx_price / styx_fees",
       "price": "free (MCP)",
-      "tokens": ["BTC", "sBTC", "USDA", "PEPE", "aiBTC"],
+      "tokens": [
+        "BTC",
+        "sBTC",
+        "USDA",
+        "PEPE",
+        "aiBTC"
+      ],
       "category": "yield",
       "status": "live",
       "listed_at": "2026-04-13T02:52:00.000Z",
@@ -73,7 +94,10 @@
       "service": "BTC-to-sBTC Bridge",
       "endpoint": "sbtc_deposit / sbtc_withdraw / sbtc_get_balance",
       "price": "free (MCP)",
-      "tokens": ["BTC", "sBTC"],
+      "tokens": [
+        "BTC",
+        "sBTC"
+      ],
       "category": "bridge",
       "status": "live",
       "listed_at": "2026-04-13T02:14:00.000Z",
@@ -93,7 +117,10 @@
       "service_routed": "listing_002",
       "routed_at": "2026-04-13T02:30:00.000Z",
       "converted": false,
-      "notes": "Routed via GH comment on bff-skills#282. Recommended zest_supply. Dual Cougar validated approach — suggested styx_deposit→zest_supply compound pipeline (2026-04-13)."
+      "notes": "Routed via GH comment on bff-skills#282. Recommended zest_supply. Dual Cougar validated approach — suggested styx_deposit→zest_supply compound pipeline (2026-04-13).",
+      "follow_up_at": "2026-04-15T03:18:00.000Z",
+      "follow_up_url": "https://github.com/BitflowFinance/bff-skills/pull/282#issuecomment-4248868524",
+      "follow_up_note": "Open-invitation comment to any builder (including future ICs) to ship bridge-and-supply skill. No exclusivity, first-to-ship gets route placement."
     },
     {
       "id": "route_001",
@@ -181,7 +208,11 @@
       "service": "P2P Auction Swap (STX/sBTC)",
       "endpoint": "jingswap_deposit_stx / jingswap_deposit_sbtc / jingswap_get_cycle_state / jingswap_get_prices / jingswap_settle_with_refresh",
       "price": "free (MCP)",
-      "tokens": ["STX", "sBTC", "USDCx"],
+      "tokens": [
+        "STX",
+        "sBTC",
+        "USDCx"
+      ],
       "category": "swap",
       "status": "live",
       "listed_at": "2026-04-13T16:22:00.000Z",
@@ -199,7 +230,9 @@
       "service": "Stacks Ecosystem Market Data API",
       "endpoint": "tenero_market_stats / tenero_top_gainers / tenero_top_losers / tenero_trending_pools / tenero_whale_trades / tenero_market_summary / tenero_holder_stats / tenero_token_info / tenero_wallet_holdings / tenero_wallet_trades / tenero_search",
       "price": "free (MCP, no auth)",
-      "tokens": ["all Stacks tokens"],
+      "tokens": [
+        "all Stacks tokens"
+      ],
       "category": "data",
       "status": "live",
       "listed_at": "2026-04-14T06:30:00.000Z",
@@ -217,7 +250,9 @@
       "service": "Prediction Markets (Binary Yes/No)",
       "endpoint": "stacks_market_list / stacks_market_get / stacks_market_buy_yes / stacks_market_buy_no / stacks_market_sell_yes / stacks_market_sell_no / stacks_market_redeem",
       "price": "free (MCP reads) / STX (trades)",
-      "tokens": ["STX"],
+      "tokens": [
+        "STX"
+      ],
       "category": "trade",
       "status": "live",
       "listed_at": "2026-04-13T18:06:00.000Z",
