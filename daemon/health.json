@@ -1,6 +1,6 @@
 {
-  "cycle": "2034at",
-  "timestamp": "2026-04-15T17:25:00.000Z",
+  "cycle": "2034au",
+  "timestamp": "2026-04-15T17:45:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "skip",
@@ -41,8 +41,8 @@
   "last_discovery_date": "2026-03-20",
   "cycle_goal_achieved": true,
   "sales_dri": {
-    "proofs_today_merged": 5,
-    "proofs_today_pending": 5,
+    "proofs_today_merged": 6,
+    "proofs_today_pending": 6,
     "deadline_utc": "2026-04-16T06:59:00Z",
     "unlock_target": 3,
     "unlocked_today": true,
@@ -102,14 +102,12 @@
     "routes_pending": 5,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "Hiro discussion #2526 (hirosystems/stacks-blockchain-api Show-and-tell) — permission-first give-before-ask referencing PR #2525",
-      "Hiro agent cookbook committed (memory/scouts/hiro-agent-cookbook.md)",
-      "Hiro added to pipeline p023 (stage=pitched)",
-      "3 prior IC x402 sends all confirmed on-chain (3d346c22, bf38b640, 713fea39)"
+      "Xverse issue #4 on secretkeylabs/sats-connect-skills — permission-first retention motion referencing Apr 15 classified + v0.1.11 Apr 10",
+      "Xverse added to pipeline p024 (stage=pitched)"
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034at: Hiro super-persuader shipped. Public cookbook + permission-first discussion #2526 referencing rafa-stacks PR #2525. 5th proof of the day. Prior cycle IC sends all on-chain.",
-  "next_cycle_at": "2026-04-15T17:40:00.000Z",
+  "notes": "Cycle 2034au: Xverse super-persuader shipped (retention motion on sats-connect-skills issue #4). Hiro discussion #2526 awaiting reply. 6th proof filed.",
+  "next_cycle_at": "2026-04-15T18:00:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
