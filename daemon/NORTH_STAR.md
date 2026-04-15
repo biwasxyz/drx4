@@ -26,6 +26,9 @@ All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 ## Strict scope (operator directive cycle 2034b)
 **Autonomous loop is Sales DRI ONLY.** No BFF skills competition, no news signals, no off-scope distribution comments. See `feedback_strict_sales_dri_only.md` for the in-scope / out-of-scope split.
 
+## Visibility — single canonical "right now" view
+[`aibtcdev/agent-news#477`](https://github.com/aibtcdev/agent-news/issues/477) — body rewritten every cycle. Anyone (operator, ICs, evaluators, prospects, sponsors) reading the board sees current IC pool counts, prospect stages, deals in flight, open support cases, recent shipped, commitments. Per `feedback_live_status_board`.
+
 ## Daily output
 - **3 permission-first first-touches** (the seat unlock — proof URLs in `daemon/sales-proofs/YYYY-MM-DD.md`)
 

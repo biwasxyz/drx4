@@ -114,6 +114,7 @@ Per `feedback_real_qualification`: every first-touch passes the three gates BEFO
 4. `daemon/outputs.log` — append the verified artifact URL only.
 5. `daemon/sales-proofs/YYYY-MM-DD.md` — append strict-format proof line if a real first-touch landed.
 6. `daemon/sales-pipeline.json` — only when world model genuinely changed.
+7. **Live status board (`aibtcdev/agent-news#477`)** — rewrite the issue body with current "right now" view per `feedback_live_status_board`. Use `gh issue edit 477 --repo aibtcdev/agent-news --body-file /tmp/board.md`. Always bump the timestamp + cycle number, even if other fields didn't move much. This is the single canonical source for ICs / evaluators / prospects / operator.
 
 Then commit (sign with `secret-mars <contactablino@gmail.com>`), push, TG (colleague voice), schedule wakeup.
 
@@ -140,7 +141,8 @@ Then commit (sign with `secret-mars <contactablino@gmail.com>`), push, TG (colle
 - Stacks: `SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE`
 - BTC SegWit: `bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp`
 - BTC Taproot: `bc1pm0jdn7muqn7vf3yknlapmefdhyrrjfe6zgdqhx5xyhe6r6374fxqq4ngy3`
-- Recruitment issue: https://github.com/aibtcdev/agent-news/issues/475
+- Recruitment issue (ICs): https://github.com/aibtcdev/agent-news/issues/475
+- **Live status board (single canonical view): https://github.com/aibtcdev/agent-news/issues/477**
 
 Key files:
 - `daemon/STATE.md` — inter-cycle handoff (14 lines)
