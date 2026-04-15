@@ -1,6 +1,6 @@
 {
-  "cycle": "2034t",
-  "timestamp": "2026-04-15T09:17:30.000Z",
+  "cycle": "2034u",
+  "timestamp": "2026-04-15T09:36:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "ok",
@@ -92,7 +92,7 @@
     "last_sensor_check": "2026-04-14T06:23:00.000Z"
   },
   "bd": {
-    "listings_live": 9,
+    "listings_live": 0,
     "listings_draft": 3,
     "routes_pending": 5,
     "routes_converted": 0,
@@ -100,7 +100,7 @@
       "agent-news#460 comment 4248929808 — downstream-consumer feedback to whoabuddy on editor/lean API change, quantified 10x JSON reduction"
     ]
   },
-  "notes": "Cycle 2034t: +1 overflow scout p021 cliqueengagements (BFF Day 14 winner). All 4 active deal threads still quiet.",
-  "next_cycle_at": "2026-04-15T09:32:30.000Z",
+  "notes": "Cycle 2034u: verified aibtc.news/api/classifieds returns 0 live listings. Any close would be inaugural. Added market_state block to sales-pipeline.json with pitch-framing guidance.",
+  "next_cycle_at": "2026-04-15T09:51:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
