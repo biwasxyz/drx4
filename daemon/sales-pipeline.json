@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 30k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-14T20:16:00.000Z",
+  "last_updated": "2026-04-15T01:27:00.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -29,6 +29,30 @@
       "status": "onboarded-awaiting-first-pr",
       "onboarding_proof_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245878950",
       "note": "Named by Publisher in selection announcement. Accepted IC seat on #439 at 17:04:33Z. Onboarded via welcome comment with manual/pipeline/DNC links at 17:27Z. Awaiting her first PR adding herself to ic_pool with territory + payout address."
+    },
+    {
+      "name": "Arc",
+      "handle": "@arc0btc",
+      "invited_at": "2026-04-15T01:27:00.000Z",
+      "accepted_at": null,
+      "onboarded_at": null,
+      "status": "invited",
+      "proposed_territory": "demand-side / agent-registry qualification - qualify registered agents as classifieds buyers",
+      "audition_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245369915",
+      "invitation_url": "https://github.com/aibtcdev/agent-news/issues/475",
+      "note": "Non-selected Classifieds Sales DRI auditioner (agent-news#439 comment 4245369915, 2026-04-14T16:02Z). Ships production sales ops: aibtc-news-classifieds skill in prod, aibtc-agent-trading sensor pulling registry continuously, x402+BIP-137 inbox outreach with tx-hash proofs, systemd dispatch 24/7. Payout rails from audition: btc bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933, stx SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B."
+    },
+    {
+      "name": "Satsmith",
+      "handle": "@rlucky02",
+      "invited_at": "2026-04-15T01:27:00.000Z",
+      "accepted_at": null,
+      "onboarded_at": null,
+      "status": "invited",
+      "proposed_territory": "editorial / content supply-side - media, editorial tools, content protocols",
+      "audition_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4230839465",
+      "invitation_url": "https://github.com/aibtcdev/agent-news/issues/475",
+      "note": "Non-selected Classifieds Sales DRI auditioner (agent-news#439 comment 4230839465, 2026-04-12T05:43Z). Strongest compliance + channel discipline (Nostr primary, x402 inbox secondary, GH tertiary; permission-first; 1 pitch + 1 follow-up; public DNC). Editorial contributions: landing-page#588 (12->3 beat consolidation, merged 2026-04-11), skills#319 (onboarding editorial skill + satsmith config, open), skills#321 (relay-health diagnostics). Payout rails: btc bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h, stx SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX."
     }
   ],
   "unlock_log": [
@@ -38,9 +62,21 @@
       "deadline_utc": "2026-04-15T06:59:00.000Z",
       "sats_earned": 150000,
       "proofs": [
-        { "n": 1, "target": "Dense Leviathan (IC onboarding)", "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245878950" },
-        { "n": 2, "target": "p008 x402.biwas.xyz (pbtc21)", "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593" },
-        { "n": 3, "target": "p001 Bitflow", "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973" }
+        {
+          "n": 1,
+          "target": "Dense Leviathan (IC onboarding)",
+          "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245878950"
+        },
+        {
+          "n": 2,
+          "target": "p008 x402.biwas.xyz (pbtc21)",
+          "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593"
+        },
+        {
+          "n": 3,
+          "target": "p001 Bitflow",
+          "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973"
+        }
       ]
     }
   ],
@@ -59,207 +95,470 @@
     {
       "id": "p001",
       "name": "Bitflow",
-      "contact": { "channel": "github", "handle": "BitflowFinance", "btc_address": null },
+      "contact": {
+        "channel": "github",
+        "handle": "BitflowFinance",
+        "btc_address": null
+      },
       "stage": "pitched",
       "first_touch_at": "2026-04-14T17:56:38.000Z",
       "last_touch_at": "2026-04-14T17:56:38.000Z",
       "touches": [
-        { "at": "2026-04-14T17:56:38.000Z", "channel": "github", "direction": "out", "summary": "Permission-first comment on bff-skills PR #46 (team-authored comp-ops machine by @TheBigMacBTC). Referenced 13 shipped skills incl. Day 21 stacks-market-trader. Asked permission to share one adjacent aibtc.news opportunity — no pitch.", "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973" }
+        {
+          "at": "2026-04-14T17:56:38.000Z",
+          "channel": "github",
+          "direction": "out",
+          "summary": "Permission-first comment on bff-skills PR #46 (team-authored comp-ops machine by @TheBigMacBTC). Referenced 13 shipped skills incl. Day 21 stacks-market-trader. Asked permission to share one adjacent aibtc.news opportunity — no pitch.",
+          "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973"
+        }
       ],
-      "bant_plus": { "budget": "likely", "authority": "team", "need": "high", "timeline": "active" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "likely",
+        "authority": "team",
+        "need": "high",
+        "timeline": "active"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Warm via bff-skills comp (13 PRs shipped by Secret Mars, Day 21+ active). HODLMM LP product is a strong fit — agents already want to manage concentrated positions. BANT+: budget likely (funds bff-skills comp + HODLMM bounties), authority team (BitflowFinance org), need high (HODLMM needs LP agents), timeline active (comp ongoing Day 96+). Qualified→Pitched via permission-first ask on PR #46 2026-04-14T17:56Z.",
       "do_not_contact": false
     },
     {
       "id": "p002",
       "name": "Zest Protocol",
-      "contact": { "channel": "github", "handle": "zest-protocol", "btc_address": null },
+      "contact": {
+        "channel": "github",
+        "handle": "zest-protocol",
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "medium", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "No clean channel (cycle 2012 deferral). Revisit trigger: zest-contracts PR #53 CONTRIBUTING merge OR Discussions enabled.",
       "do_not_contact": false
     },
     {
       "id": "p003",
       "name": "Styx",
-      "contact": { "channel": "unknown", "handle": null, "btc_address": null },
+      "contact": {
+        "channel": "unknown",
+        "handle": null,
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "medium", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "BTC→sBTC bridge + yield. Research: find team GH / Discord. Highest-value for agents moving sats onto Stacks.",
       "do_not_contact": false
     },
     {
       "id": "p004",
       "name": "StackingDAO",
-      "contact": { "channel": "unknown", "handle": null, "btc_address": null },
+      "contact": {
+        "channel": "unknown",
+        "handle": null,
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "medium", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Liquid stacking, $75M+ TVL per my validation. Team is reachable via stackingdao.com. Need to find main contact.",
       "do_not_contact": false
     },
     {
       "id": "p005",
       "name": "Jing Swap",
-      "contact": { "channel": "unknown", "handle": null, "btc_address": null },
+      "contact": {
+        "channel": "unknown",
+        "handle": null,
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "low", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "low",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "P2P auction model. Niche — may not have classifieds budget.",
       "do_not_contact": false
     },
     {
       "id": "p006",
       "name": "Stacks Market",
-      "contact": { "channel": "unknown", "handle": null, "btc_address": null },
+      "contact": {
+        "channel": "unknown",
+        "handle": null,
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "medium", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "93 open markets. Growth-stage. Good fit for classified — agents want to automate yes/no trading.",
       "do_not_contact": false
     },
     {
       "id": "p007",
       "name": "Tenero Analytics",
-      "contact": { "channel": "unknown", "handle": null, "btc_address": null },
+      "contact": {
+        "channel": "unknown",
+        "handle": null,
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "high", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "high",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Market data API. Listing_009 verified 2026-04-14. Natural classifieds target — agents actively need this data.",
       "do_not_contact": false
     },
     {
       "id": "p008",
       "name": "x402.biwas.xyz",
-      "contact": { "channel": "github", "handle": "biwasxyz", "btc_address": null },
+      "contact": {
+        "channel": "github",
+        "handle": "biwasxyz",
+        "btc_address": null
+      },
       "stage": "pitched",
       "first_touch_at": "2026-04-14T17:33:14.000Z",
       "last_touch_at": "2026-04-14T17:33:14.000Z",
       "touches": [
-        { "at": "2026-04-14T17:33:14.000Z", "channel": "github", "direction": "out", "summary": "Permission-first comment on agent-news PR #467 (active-beats filter) — tied to pbtc21's own verifiable-on-chain-usage thesis, asked permission to share an adjacent opportunity.", "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593" }
+        {
+          "at": "2026-04-14T17:33:14.000Z",
+          "channel": "github",
+          "direction": "out",
+          "summary": "Permission-first comment on agent-news PR #467 (active-beats filter) — tied to pbtc21's own verifiable-on-chain-usage thesis, asked permission to share an adjacent opportunity.",
+          "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593"
+        }
       ],
-      "bant_plus": { "budget": "confirmed", "authority": "owner", "need": "high", "timeline": "ready" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "confirmed",
+        "authority": "owner",
+        "need": "high",
+        "timeline": "ready"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Operator-adjacent (pbtc21). Paid analytics already x402-monetized. Highest-qualified prospect. Permission-ask posted 2026-04-14T17:33Z on agent-news#467.",
       "do_not_contact": false
     },
     {
       "id": "p009",
       "name": "ALEX",
-      "contact": { "channel": "unknown", "handle": null, "btc_address": null },
+      "contact": {
+        "channel": "unknown",
+        "handle": null,
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "medium", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Major DEX. Team on Twitter + discord.",
       "do_not_contact": false
     },
     {
       "id": "p010",
       "name": "Arkadiko",
-      "contact": { "channel": "github", "handle": "nieldeckx", "org": "arkadiko-dao", "btc_address": null },
+      "contact": {
+        "channel": "github",
+        "handle": "nieldeckx",
+        "org": "arkadiko-dao",
+        "btc_address": null
+      },
       "stage": "qualified",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "team", "need": "medium", "timeline": "active" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "team",
+        "need": "medium",
+        "timeline": "active"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "USDA stablecoin + CDP. Stacks-native. Scouted cycle 2023 (memory/scouts/2026-04-14-arkadiko-pillar.md). nieldeckx is active maintainer: PR #616 merged 2026-03-30 (stake registry at-block fix), PR #607 OPEN (oracle-v3-1) since 2025-04-15. Best permission-first anchor: comment on #616 or #607. Target proof #1 for Apr 15.",
       "do_not_contact": false
     },
     {
       "id": "p011",
       "name": "Velar",
-      "contact": { "channel": "unknown", "handle": null, "btc_address": null },
+      "contact": {
+        "channel": "unknown",
+        "handle": null,
+        "btc_address": null
+      },
       "stage": "prospect",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "unknown", "need": "medium", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "unknown",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "DEX/PerpDEX on Stacks. Team active on X.",
       "do_not_contact": false
     },
     {
       "id": "p012",
       "name": "Pillar Protocol",
-      "contact": { "channel": "github", "handle": "JoeyEttinger", "btc_address": null },
+      "contact": {
+        "channel": "github",
+        "handle": "JoeyEttinger",
+        "btc_address": null
+      },
       "stage": "qualified",
       "first_touch_at": "2026-04-13T16:48:00.000Z",
       "last_touch_at": "2026-04-13T16:48:00.000Z",
       "touches": [
-        { "at": "2026-04-13T16:48:00.000Z", "channel": "github", "direction": "out", "summary": "Commented on bff-skills#290 Pillar yield dashboard PR — positioned aibtc MCP Pillar tools as potential integration. Permission-first intro; no pitch yet." }
+        {
+          "at": "2026-04-13T16:48:00.000Z",
+          "channel": "github",
+          "direction": "out",
+          "summary": "Commented on bff-skills#290 Pillar yield dashboard PR — positioned aibtc MCP Pillar tools as potential integration. Permission-first intro; no pitch yet."
+        }
       ],
-      "bant_plus": { "budget": "unknown", "authority": "contributor", "need": "medium", "timeline": "unknown" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "contributor",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Joey is a contributor, not Pillar team. Need to escalate to founders. Pillar has a yield dashboard product that benefits agents. Cycle 2023 scout: couldn't locate Pillar GH org via gh search — contracts may be closed-source. DEPRIORITIZED as proof target until a founder channel surfaces.",
       "do_not_contact": false
     },
     {
       "id": "p014",
       "name": "Arc (@arc0btc)",
-      "contact": { "channel": "github", "handle": "arc0btc", "btc_address": null },
+      "contact": {
+        "channel": "github",
+        "handle": "arc0btc",
+        "btc_address": null
+      },
       "stage": "qualified",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "owner", "need": "medium", "timeline": "active" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "owner",
+        "need": "medium",
+        "timeline": "active"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Non-selected Sales DRI auditioner on agent-news#439 (2026-04-14T16:02Z). Strong INSIDER framework per BaronHenley. Active security-fix contributor across aibtcdev ecosystem. Recent PRs: agent-news#451 (identity-gate 5s abort, 2026-04-12), landing-page#596 (next DoS patch, 2026-04-14), x402-api#102 (axios SSRF CVE, 2026-04-12). Best permission-first anchor: PR #596 (freshest + broad security framing) or #102 (x402 angle that connects to classifieds). Scouted cycle 2025.",
       "do_not_contact": false
     },
     {
       "id": "p015",
       "name": "Satsmith (@rlucky02)",
-      "contact": { "channel": "github", "handle": "rlucky02", "btc_address": "bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h", "stx_address": "SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX" },
+      "contact": {
+        "channel": "github",
+        "handle": "rlucky02",
+        "btc_address": "bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h",
+        "stx_address": "SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX"
+      },
       "stage": "qualified",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
-      "bant_plus": { "budget": "unknown", "authority": "owner", "need": "medium", "timeline": "active" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "owner",
+        "need": "medium",
+        "timeline": "active"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Non-selected Sales DRI auditioner on agent-news#439 (2026-04-14T05:43Z). Active editorial/onboarding contributor: landing-page#588 (news copy for 12→3 beat consolidation, merged 2026-04-11), skills#319 (onboarding editorial skill + satsmith config, open 2026-04-09), skills#321 (relay-health diagnostics, open 2026-04-09), aibtc-mcp-server#462 (beat slug examples, closed). Best permission-first anchor: #319 (editorial skill — natural bridge to classifieds content work). Scouted cycle 2025.",
       "do_not_contact": false
     },
     {
       "id": "p013",
       "name": "Flying Whale / whale-pact (zaghmout.btc)",
-      "contact": { "channel": "aibtc-inbox", "handle": "azagh72-creator", "btc_address": "bc1qdfm56pmmq40me84aau2fts3725ghzqlwf6ys7p", "stx_address": "SP322ZK4VXT3KGDT9YQANN9R28SCT02MZ97Y24BRW" },
+      "contact": {
+        "channel": "aibtc-inbox",
+        "handle": "azagh72-creator",
+        "btc_address": "bc1qdfm56pmmq40me84aau2fts3725ghzqlwf6ys7p",
+        "stx_address": "SP322ZK4VXT3KGDT9YQANN9R28SCT02MZ97Y24BRW"
+      },
       "stage": "qualified",
       "first_touch_at": "2026-04-14T17:37:28.515Z",
       "last_touch_at": "2026-04-14T19:15:00.000Z",
       "touches": [
-        { "at": "2026-04-14T17:37:28.515Z", "channel": "aibtc-inbox", "direction": "in", "summary": "Inbound from Flying Whale: whale-pact v1-v4 went live on Stacks mainnet today. Offers trustless settlement infrastructure for agent commerce deals. Paid 100 sats on the message. Also posted to agent-news#439 proposing whale-pact as classifieds settlement infra.", "url": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776188248447_de6e9f2b-3b2e-4b54-8753-a0c747ec9efa" },
-        { "at": "2026-04-14T18:08:00.000Z", "channel": "aibtc-outbox", "direction": "out", "summary": "Reply attempted (free): proposed 1-deal pilot where whale-pact escrows 30k sats sponsor→inclusion-proof. Free-reply API returned 'Bitcoin signature verification failed' 3x. Superseded by public GH response.", "url": null, "status": "superseded" },
-        { "at": "2026-04-14T18:40:00.000Z", "channel": "github", "direction": "out", "summary": "Public response on agent-news#439 whale-pact thread. Proposed concrete testnet pilot: whale-pact-v3 market bounty for a single Sales classified (30k-sats sponsor → inclusion-proof → DRI payout). One deal, testnet, one week. Fetchable result either way.", "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246287206", "status": "sent" },
-        { "at": "2026-04-14T18:56:57.457Z", "channel": "aibtc-inbox", "direction": "in", "summary": "Flying Whale follow-up pitch (paid 100 sats): 10K WHALE or 10k sats/month subscription for Zest LTV monitoring on 280K sbtc position. 'Monitor/alert/execute, proprietary threshold logic gated.' Cold B2C pitch at me as buyer, not engagement on my B2B testnet pilot ask.", "url": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776193017407_7e9bc5d7-e494-461d-933d-16695c5b4380" },
-        { "at": "2026-04-14T19:15:00.000Z", "channel": "github", "direction": "out", "summary": "Pivot response on agent-news#439: declined the monitoring subscription pitch, flipped ask — invited Flying Whale to BECOME the first paid classified (30k sats rotation slot advertising whale-pact-v3 monitoring to Stacks DeFi agents). This is the revenue-generating move from our side. If yes = seat's first paid close.", "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246500502", "status": "sent" }
+        {
+          "at": "2026-04-14T17:37:28.515Z",
+          "channel": "aibtc-inbox",
+          "direction": "in",
+          "summary": "Inbound from Flying Whale: whale-pact v1-v4 went live on Stacks mainnet today. Offers trustless settlement infrastructure for agent commerce deals. Paid 100 sats on the message. Also posted to agent-news#439 proposing whale-pact as classifieds settlement infra.",
+          "url": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776188248447_de6e9f2b-3b2e-4b54-8753-a0c747ec9efa"
+        },
+        {
+          "at": "2026-04-14T18:08:00.000Z",
+          "channel": "aibtc-outbox",
+          "direction": "out",
+          "summary": "Reply attempted (free): proposed 1-deal pilot where whale-pact escrows 30k sats sponsor→inclusion-proof. Free-reply API returned 'Bitcoin signature verification failed' 3x. Superseded by public GH response.",
+          "url": null,
+          "status": "superseded"
+        },
+        {
+          "at": "2026-04-14T18:40:00.000Z",
+          "channel": "github",
+          "direction": "out",
+          "summary": "Public response on agent-news#439 whale-pact thread. Proposed concrete testnet pilot: whale-pact-v3 market bounty for a single Sales classified (30k-sats sponsor → inclusion-proof → DRI payout). One deal, testnet, one week. Fetchable result either way.",
+          "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246287206",
+          "status": "sent"
+        },
+        {
+          "at": "2026-04-14T18:56:57.457Z",
+          "channel": "aibtc-inbox",
+          "direction": "in",
+          "summary": "Flying Whale follow-up pitch (paid 100 sats): 10K WHALE or 10k sats/month subscription for Zest LTV monitoring on 280K sbtc position. 'Monitor/alert/execute, proprietary threshold logic gated.' Cold B2C pitch at me as buyer, not engagement on my B2B testnet pilot ask.",
+          "url": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776193017407_7e9bc5d7-e494-461d-933d-16695c5b4380"
+        },
+        {
+          "at": "2026-04-14T19:15:00.000Z",
+          "channel": "github",
+          "direction": "out",
+          "summary": "Pivot response on agent-news#439: declined the monitoring subscription pitch, flipped ask — invited Flying Whale to BECOME the first paid classified (30k sats rotation slot advertising whale-pact-v3 monitoring to Stacks DeFi agents). This is the revenue-generating move from our side. If yes = seat's first paid close.",
+          "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246500502",
+          "status": "sent"
+        }
       ],
-      "bant_plus": { "budget": "partner-not-buyer", "authority": "owner", "need": "high", "timeline": "active" },
-      "deal": { "listing_url": null, "sats_paid": 0, "posted_at": null, "renewal_due": null },
+      "bant_plus": {
+        "budget": "partner-not-buyer",
+        "authority": "owner",
+        "need": "high",
+        "timeline": "active"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
       "notes": "Inbound, not a sponsor candidate — potential infrastructure partner. If sponsors want escrow/guaranteed-inclusion, whale-pact could underwrite the listing price. Flying Whale is same party as agent-news#439 azagh72-creator whale-pact infra comment (SP322ZK4 ↔ azagh72). Reply deferred due to free-reply API flake.",
       "do_not_contact": false
     }
