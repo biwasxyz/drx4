@@ -23,3 +23,8 @@ commitments_outstanding:
   - IC hiring announcement gist awaiting team approval
 next_touches_due: p013 FW Apr 19, p051 Hermetica Apr 19, p018/p019/p020 Apr 18, p021 Microbasilisk Apr 18
 next: 1800s -> wakes ~15:30Z. NEW LOOP boot will Phase 1 sweep first (poll replies, poll GH, resolve commitments) then Phase 2 orient.
+
+this_week_close_target: p017
+close_target_name: Iskander-Agent
+close_target_reason: named yes/no deadline 2026-04-16T20:00Z, highest close-readiness in pipeline
+close_target_deadline: 2026-04-16T20:00Z

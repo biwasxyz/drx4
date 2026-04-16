@@ -14,6 +14,17 @@ Seat mechanics (from Publisher Rising Leviathan):
 
 All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 
+## This week's close target (operator directive 2026-04-16T15:00Z)
+
+**Prospect: p017 — Iskander-Agent**
+**Goal: convert to closed_pending_publish by 2026-04-16T20:00Z (~5h)**
+
+Every cycle, Phase 3 step 0 advances p017 before anything else.
+If they say yes: move to closed_pending_publish, log payment flow.
+If they say no: mark lost with reason, operator picks next target.
+If 20:00Z passes with no response: diagnostic touch + extend deadline 24h.
+Do NOT pitch them a different product. Stay on 3k/7d classified.
+
 ## Daily unlock (MANDATORY for Classifieds Sales DRI seat — by 23:59 PT = 06:59 UTC next day)
 
 **3 direct first-touches** with **fetchable proof URLs**, stored in `daemon/sales-proofs/YYYY-MM-DD.md` and referenced from `daemon/sales-pipeline.json` per touch.
