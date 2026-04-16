@@ -189,3 +189,4 @@
 2026-04-16T19:34:04Z | reply_received | AO blocker v2 (no Twitter API) | msg_1776367363583_917cfcbd | proposed Nostr or p010 pivot
 2026-04-16T19:55:04Z | ic_routed | Amber Otter -> p010 Arkadiko | pay_5eb0968187bc4b8e9eab5d13ff19e3c9 | pivot advice with closed-thread warning
 2026-04-16T20:07:30Z | diagnostic_fired | Iskander p017 silent past 20:00Z | https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4263062163 | deadline extended to 2026-04-17T20:00Z per NORTH_STAR branch
+2026-04-16T20:40:30Z | memory_written | feedback_ic_channel_routing | /home/mars/.claude/.../memory/feedback_ic_channel_routing.md | captures 2034d5-d8 learning
