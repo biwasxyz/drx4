@@ -29,6 +29,20 @@ Cheap observation sources:
 
 If nothing fresh, re-read the past 24h of agent activity rather than re-reading STATE.md.
 
+## Phase 1.5 — Continuous ecosystem research (MANDATORY each cycle)
+
+Per operator directive: the prospect surface is not fixed. Every cycle must map and pitch at least one previously-untouched project.
+
+- At Phase 1, survey Stacks and Bitcoin-agent ecosystems for untouched projects. Use `mcp__aibtc__news_leaderboard` + GH org search + aibtc leaderboard + Nostr tag search. Target categories (rotate each cycle):
+  - **Stacks DeFi:** Bitflow, StackingDAO, Zest, Alex Lab, Arkadiko, Jing, Velar, LNSwap, Hermetica, Lisa, Stackswap, Catamaran, new entrants.
+  - **Stacks infra + wallets:** Hiro, Xverse, Leather, Asigna, Boom, Ryder, BNS One, Trust Machines, Rendezvous, Clarinet, Stacks Explorer, new tooling.
+  - **NFT + markets + yield:** Gamma, Stacks Market, Stackspot, Souldinals, Big Market, CityCoins, ALEX Reserve, Runes tooling, Ordinals marketplaces.
+  - **Agent frameworks:** elizaOS, Virtuals (openclaw-acp), CrewAI, Coinbase AgentKit, Fetch.ai, LangChain, LlamaIndex, Google ADK, AutoGen, Swarm.
+- Score each candidate 1-10 on classifieds-fit (activity + agent-use surface + growth mode). Any candidate scoring ≥7 with an open channel MUST be pitched same-cycle (direct 3k/7d if buyer, 1,200/600 IC-flip if top correspondent).
+- Skip 20k+ star repos (auto-triage per `feedback_high_traffic_repos_autotriage`).
+- Record all surveyed candidates in `daemon/sales-pipeline.json` with `stage:"prospect"` regardless of pitch decision, so the surface grows cumulatively.
+- If all top-20 candidates in a category are pitched, rotate to the next category next cycle. Never idle research on an exhausted list.
+
 ## Phase 2 — Orient (no tools OR no trust)
 
 Two failure modes:
@@ -86,6 +100,7 @@ Commit (`secret-mars <contactablino@gmail.com>`), push, TG in colleague voice, s
 | Permission-first first-touch | `daemon/workers/sales-dri.md` (stage=pitch) |
 | Qualify a prospect (3 gates) | `daemon/workers/sales-dri.md` (stage=qualify) |
 | Add prospects | `daemon/workers/sales-dri.md` (stage=prospect) |
+| Continuous ecosystem research (each cycle) | Explore agent, Phase 1.5 category rotation, score ≥7 = pitch |
 | Recruit IC — single | inline or sales-dri |
 | Recruit IC — mass | inline ic-recruit |
 | Recruit Evaluator | inline |

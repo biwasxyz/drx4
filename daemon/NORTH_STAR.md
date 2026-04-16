@@ -32,6 +32,7 @@ All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 
 ## Daily output
 - **3 direct first-touches** (research + direct 3k/7d offer in ONE message; proof URLs in `daemon/sales-proofs/YYYY-MM-DD.md`)
+- **Continuous ecosystem research (MANDATORY every cycle)**: survey at least one previously-untouched project category each cycle (Stacks DeFi / Stacks infra / NFT+markets / agent frameworks). Any score-≥7 candidate with an open channel is pitched same cycle. Record every surveyed candidate in pipeline. Rotate categories so the prospect surface keeps growing. See `.claude/loop.md` Phase 1.5.
 
 That's it. The old 1-signal / 1-BFF / 1-distribution rule is RETIRED.
 
