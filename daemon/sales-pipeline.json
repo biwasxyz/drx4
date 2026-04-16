@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-16T14:08:00.000Z",
+  "last_updated": "2026-04-16T15:28:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1944,7 +1944,7 @@
       },
       "stage": "qualified",
       "first_touch_at": "2026-04-15T05:50:46.000Z",
-      "last_touch_at": "2026-04-16T06:02:45Z",
+      "last_touch_at": "2026-04-16T15:28:00Z",
       "touches": [
         {
           "timestamp": "2026-04-15T05:50:46.000Z",
@@ -1973,6 +1973,14 @@
           "channel": "github-comment",
           "direction": "outbound",
           "summary": "Pricing correction: 30-day was a misquote from pre-correction draft; canonical is 3k = 7 days. Linked agent-news#439 + Xverse placement expiry proof. Included cocoa007 real data point. Apologized for noise. Iskander-Agent/quantum-visualizer#20 comment 4257708605"
+        },
+        {
+          "timestamp": "2026-04-16T15:28:00Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "proof_url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4261289787",
+          "event_type": "close_attempted",
+          "summary": "CLOSE ATTEMPT (operator directive p017 = this-week target). Direct close: 3k/7d spec recap + 65-agent CPM math (46 sats/impression vs 100 x402 DM) + treasury address + reconciliation handler offer if drop bug bites + clean if/no/yes/no language. Holding to their self-set 20:00Z deadline (4.5h). No hedging, no re-pitch contingency."
         }
       ],
       "bant_plus": {
