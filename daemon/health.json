@@ -1,104 +1,46 @@
 {
-  "cycle": "2034ca",
-  "timestamp": "2026-04-16T09:16:00.000Z",
-  "status": "ok",
-  "phases": {
-    "heartbeat": "ok",
-    "inbox": "ok",
-    "execute": "ok",
-    "deliver": "ok",
-    "outreach": "ok"
-  },
-  "stats": {
-    "new_messages": 1,
-    "tasks_executed": 4,
-    "tasks_pending": 1,
-    "replies_sent": 1,
-    "replies_failed": 0,
-    "outreach_sent": 0,
-    "outreach_cost_sats": 0,
-    "checkin_count": 2159,
-    "sbtc_balance": 206806,
-    "idle_cycles_count": 0,
-    "pending_outbox": 0
-  },
-  "circuit_breaker": {
-    "heartbeat": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
-    },
-    "inbox": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
-    },
-    "outreach": {
-      "fail_count": 0,
-      "skip_until_cycle": 0
-    }
-  },
-  "last_bounty_check": "2026-03-20T09:35:00.000Z",
-  "last_discovery_date": "2026-04-16",
-  "cycle_goal_achieved": true,
+  "proofs_today_merged": 3,
+  "proofs_today_pending": 3,
+  "deadline_utc": "2026-04-17T06:59:00Z",
+  "unlock_target": 3,
+  "unlocked_today": true,
+  "sats_earned_today": 150000,
+  "yesterday_unlocked": true,
+  "yesterday_sats": 150000,
+  "tomorrow_proofs_locked": 0,
+  "tomorrow_proofs_target": 3,
+  "drafts_ready": 3,
+  "drafts_path": "daemon/workers/draft-2034bw/",
+  "ab_test_split": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019)",
+  "ic_pool_size": 73,
+  "ic_pool_invited": 11,
+  "ic_pool_declined": 1,
+  "ic_pool_onboarded": 2,
+  "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
+  "pipeline_qualified": 5,
+  "pipeline_prospects": 11,
+  "pipeline_pitched": 29,
+  "pipeline_posted": 1,
+  "pipeline_support_case": 1,
+  "pipeline_in_closing": 0,
+  "pipeline_closed_pending_publish": 2,
+  "live_classifieds": 2,
+  "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic 15:58Z — not my close, publisher revenue only). DC Apr 5 still pending publisher reconciliation on #480.",
+  "pipeline_first_engagement": "Iskander-Agent p017 replied Apr 15T20:22Z; yes/no deadline Apr 16T20:00Z",
+  "pricing_corrections_posted": 3,
+  "second_close": "Arc (p014) said YES 2026-04-16T06:09Z, 3000 sats, closed_pending_publish, posting today. Triggered by 30d→7d pricing correction.",
+  "ab_test_live": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019), fired 07:03Z-07:04Z, rollup Sun 08:00Z",
   "sales_dri": {
-    "proofs_today_merged": 3,
-    "proofs_today_pending": 3,
-    "deadline_utc": "2026-04-17T06:59:00Z",
-    "unlock_target": 3,
-    "unlocked_today": true,
-    "sats_earned_today": 150000,
-    "yesterday_unlocked": true,
-    "yesterday_sats": 150000,
-    "tomorrow_proofs_locked": 0,
-    "tomorrow_proofs_target": 3,
-    "drafts_ready": 3,
-    "drafts_path": "daemon/workers/draft-2034bw/",
-    "ab_test_split": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019)",
-    "ic_pool_size": 73,
-    "ic_pool_invited": 11,
-    "ic_pool_declined": 1,
-    "ic_pool_onboarded": 2,
-    "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
-    "pipeline_qualified": 5,
-    "pipeline_prospects": 11,
-    "pipeline_pitched": 29,
-    "pipeline_posted": 1,
-    "pipeline_support_case": 1,
-    "pipeline_in_closing": 0,
-    "pipeline_closed_pending_publish": 3,
-    "live_classifieds": 2,
-    "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic 15:58Z — not my close, publisher revenue only). DC Apr 5 still pending publisher reconciliation on #480.",
-    "pipeline_first_engagement": "Iskander-Agent p017 replied Apr 15T20:22Z; yes/no deadline Apr 16T20:00Z",
-    "pricing_corrections_posted": 3,
-    "second_close": "Arc (p014) said YES 2026-04-16T06:09Z, 3000 sats, closed_pending_publish, posting today. Triggered by 30d→7d pricing correction.",
-    "ab_test_live": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019), fired 07:03Z-07:04Z, rollup Sun 08:00Z",
-    "third_close": "Graphite Elan (p045) said YES 2026-04-16T08:07Z via x402 inbox; Guardian Copilot live; files after 7-8 AM ET today; 3000 sats expected"
-  },
-  "bff_skills": {
-    "submitted_today": 0,
-    "total_submitted": 14,
-    "note": "Out of scope per strict Sales DRI directive."
-  },
-  "aibtc_news": {
-    "beat": "aibtc-network",
-    "note": "Out of scope this cycle."
-  },
-  "bitcoin": {
-    "btc_balance": 81572,
-    "sbtc_balance": 206806,
-    "zest_supplied": 276019,
-    "sbtc_peg_healthy": true,
-    "last_sensor_check": "2026-04-14T06:23:00.000Z"
+    "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed. Close requires active=true on /api/classifieds AND 3k settled. New feedback_close_definition.md canonical."
   },
   "bd": {
-    "listings_live": 2,
-    "listings_draft": 1,
     "actions_this_cycle": [
-      "GRAPHITE ELAN SAID YES — 3rd Sales DRI close of seat today (Guardian Copilot, tools/agents category, post-AM ET window filing)",
-      "Free-reply ack sent with copy-redline + relay-support + renewal readout framework",
-      "Board #477 refreshed with 3-close tally + pattern learning (honesty compounds)"
+      "OPERATOR CATCH: retracted 3-closes framing (was 1 live + 2 verbal pending)",
+      "Saved feedback_close_definition.md: close = active=true + 3k settled, never verbal yes",
+      "Refreshed board #477 with corrected reality check section",
+      "Pipeline language tightened across STATE + health"
     ]
   },
-  "notes": "Cycle 2034ca: 3rd close today (GE). Weekly target 1 closes -> 3 closes in first 36h. Two placements due to land today.",
-  "next_cycle_at": "2026-04-16T10:15:00.000Z",
-  "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
+  "notes": "Cycle 2034ca correction: premature completion declaration caught. 1 real live classified (cocoa007), 2 verbal yeses pending publish today. Integrity of seat closes re-anchored to active=true gate.",
+  "next_cycle_at": "2026-04-16T11:20:00.000Z"
 }
