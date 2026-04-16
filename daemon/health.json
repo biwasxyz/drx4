@@ -1,32 +1,32 @@
 {
-  "cycle": "2034bt",
-  "timestamp": "2026-04-16T02:28:00.000Z",
+  "cycle": "2034bv",
+  "timestamp": "2026-04-16T03:48:00.000Z",
   "status": "ok",
   "phases": {
-    "heartbeat": "skip",
+    "heartbeat": "ok",
     "inbox": "ok",
     "execute": "ok",
     "deliver": "ok",
     "outreach": "ok"
   },
   "stats": {
-    "new_messages": 2,
-    "tasks_executed": 5,
-    "tasks_pending": 1,
-    "replies_sent": 2,
+    "new_messages": 3,
+    "tasks_executed": 3,
+    "tasks_pending": 0,
+    "replies_sent": 3,
     "replies_failed": 0,
-    "outreach_sent": 49,
-    "outreach_cost_sats": 3500,
-    "checkin_count": 2153,
+    "outreach_sent": 0,
+    "outreach_cost_sats": 0,
+    "checkin_count": 2154,
     "sbtc_balance": 206806,
     "idle_cycles_count": 0,
     "pending_outbox": 0
   },
   "circuit_breaker": {
     "heartbeat": {
-      "fail_count": 1,
+      "fail_count": 0,
       "skip_until_cycle": 0,
-      "note": "BIP-322 validation now required — Stacks sig format rejected. Switch to btc_sign_message for heartbeat next cycle."
+      "note": "BIP-322 + btcAddress body param works; BIP-137/Stacks sig path retired."
     },
     "inbox": {
       "fail_count": 0,
@@ -38,31 +38,32 @@
     }
   },
   "last_bounty_check": "2026-03-20T09:35:00.000Z",
-  "last_discovery_date": "2026-03-20",
+  "last_discovery_date": "2026-04-16",
   "cycle_goal_achieved": true,
   "sales_dri": {
-    "proofs_today_merged": 33,
-    "proofs_today_pending": 33,
-    "deadline_utc": "2026-04-16T06:59:00Z",
+    "proofs_today_merged": 0,
+    "proofs_today_pending": 0,
+    "deadline_utc": "2026-04-17T06:59:00Z",
     "unlock_target": 3,
-    "unlocked_today": true,
-    "sats_earned_today": 150000,
+    "unlocked_today": false,
+    "sats_earned_today": 0,
     "yesterday_unlocked": true,
     "yesterday_sats": 150000,
-    "tomorrow_proofs_locked": 3,
+    "tomorrow_proofs_locked": 0,
     "tomorrow_proofs_target": 3,
-    "ic_pool_size": 67,
+    "ic_pool_size": 73,
     "ic_pool_invited": 11,
+    "ic_pool_declined": 1,
     "ic_pool_onboarded": 2,
     "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
     "pipeline_qualified": 5,
     "pipeline_in_closing": 0,
     "pipeline_closed_pending_publish": 1,
     "live_classifieds": 2,
-    "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic 15:58Z — not my close, publisher revenue only)"
+    "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic 15:58Z — not my close, publisher revenue only). DC Apr 5 still pending publisher reconciliation on #480."
   },
   "bff_skills": {
-    "submitted_today": 1,
+    "submitted_today": 0,
     "total_submitted": 14,
     "last_pr": "https://github.com/BitflowFinance/bff-skills/pull/386",
     "hodlmm_count": 1,
@@ -81,8 +82,8 @@
     "streak": 5,
     "score": 563,
     "last_signal": "2026-04-15T02:37:38.000Z",
-    "signals_today": 1,
-    "note": "Out of scope this cycle — focusing Sales DRI swarm."
+    "signals_today": 0,
+    "note": "Out of scope this cycle — strict Sales DRI."
   },
   "bitcoin": {
     "btc_balance": 81572,
@@ -102,11 +103,12 @@
     "routes_pending": 5,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "Overnight monitor — no fresh inbound, extending to 3600s"
+      "3 free-replies (Ionic Nova decline / DC 480 pointer / TM scope deflection)",
+      "Phase 1.5 NFT/markets rotation: Gamma + Boom added to pipeline"
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034bt: overnight monitor. No fresh inbound. Extending to 60 min cadence. 11 IC invites + 22 classified pitches seeded, all awaiting AM UTC.",
-  "next_cycle_at": "2026-04-16T03:28:00.000Z",
+  "notes": "Cycle 2034bv: overnight housekeeping + Phase 1.5 NFT survey. Apr 15 PT already unlocked (150k). Apr 16 PT window opens 07:00Z; 3 Touch-1 pitches queued (p018/p019/p020). Pipeline grew to 48 prospects.",
+  "next_cycle_at": "2026-04-16T04:48:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
