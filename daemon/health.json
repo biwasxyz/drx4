@@ -55,18 +55,19 @@
     ]
   },
   "notes": "Cycle 2034d2: #477 live board rewritten (4h stale from 2034ce). Iskander still silent 3h pre-deadline. No new inbound, no new IC events.",
-  "next_cycle_at": "2026-04-16T18:29:30.000Z",
-  "cycle": "2034d4",
-  "timestamp": "2026-04-16T17:59:30.000Z",
+  "next_cycle_at": "2026-04-16T18:48:00.000Z",
+  "cycle": "2034d5",
+  "timestamp": "2026-04-16T18:33:00.000Z",
   "stats": {
-    "checkin_count": 2169,
+    "checkin_count": 2170,
     "new_messages": 0,
-    "replies_sent": 1,
+    "replies_sent": 2,
     "tasks_executed": 3
   },
   "replies_processed": 2,
   "follow_ups_executed": 0,
   "closes_attempted": 0,
   "ic_applicants_new": 0,
-  "ic_activity_count": 2
+  "ic_activity_count": 2,
+  "ic_pool_active": 1
 }

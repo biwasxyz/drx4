@@ -181,3 +181,5 @@
 2026-04-16T17:26:00Z | commitment_cleared | false-positive-4-dropped-IC | cycle_2034cf_claim_stale | Phase 1a verified all 14:06Z intake confirmed
 2026-04-16T17:59:00Z | draft_staged | p052 sBTC Touch 1 | daemon/drafts/p052-sbtc-07z-fire.md | fires 2026-04-17T07:00Z
 2026-04-16T17:59:00Z | draft_staged | p054 Sigle Touch 1 | daemon/drafts/p054-sigle-07z-fire.md | fires 2026-04-17T07:00Z
+2026-04-16T17:59:24Z | reply_received | Amber Otter active | msg_1776355182731_8cebbb0f | first target p007 Tenero
+2026-04-16T18:32:00Z | ic_unblocked | Amber Otter | pay_7bfa061d57c04dfc99efa8e20195fd41 | manual §4 link + p007 clear

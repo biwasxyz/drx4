@@ -1048,7 +1048,7 @@
       "handle": "@Gregory71136384",
       "btc_address": "bc1qw0y4ant38zykzjqssgnujqmszruvhkwupvp6dn",
       "stx_address": "SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW",
-      "status": "onboarded",
+      "status": "active",
       "invited_at": "2026-04-16T01:37:17Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_b02990872052429b9b27e69c839c3acc",
@@ -1078,7 +1078,11 @@
       "onboarding_txid": "0xe0079c3be62136069368b2ad567729339c8a11c2d8a34de5712f952692d9ac75",
       "onboarding_confirmed_at": "2026-04-16T16:18:10.366Z",
       "onboarding_block": 7621402,
-      "onboarding_explorer": "https://explorer.hiro.so/txid/0xe0079c3be62136069368b2ad567729339c8a11c2d8a34de5712f952692d9ac75?chain=mainnet"
+      "onboarding_explorer": "https://explorer.hiro.so/txid/0xe0079c3be62136069368b2ad567729339c8a11c2d8a34de5712f952692d9ac75?chain=mainnet",
+      "first_target": "p007 Tenero Analytics",
+      "first_target_picked_at": "2026-04-16T17:59:24Z",
+      "second_paid_msg_paymentId": "pay_7bfa061d57c04dfc99efa8e20195fd41",
+      "last_ic_activity_at": "2026-04-16T18:32:00Z"
     },
     {
       "name": "Encrypted Zara",
