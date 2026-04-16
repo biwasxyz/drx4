@@ -179,3 +179,5 @@
 2026-04-16T16:53:05Z | board_rewritten | #477 live status board | cycle 2034d2 | https://github.com/aibtcdev/agent-news/issues/477
 2026-04-16T17:26:00Z | draft_staged | Iskander 20:00Z diagnostic touch | daemon/drafts/iskander-20z-diagnostic.md | pre-cycled for deadline fire
 2026-04-16T17:26:00Z | commitment_cleared | false-positive-4-dropped-IC | cycle_2034cf_claim_stale | Phase 1a verified all 14:06Z intake confirmed
+2026-04-16T17:59:00Z | draft_staged | p052 sBTC Touch 1 | daemon/drafts/p052-sbtc-07z-fire.md | fires 2026-04-17T07:00Z
+2026-04-16T17:59:00Z | draft_staged | p054 Sigle Touch 1 | daemon/drafts/p054-sigle-07z-fire.md | fires 2026-04-17T07:00Z
