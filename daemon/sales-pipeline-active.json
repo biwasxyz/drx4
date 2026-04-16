@@ -1463,7 +1463,10 @@
         "renewal_due": null
       },
       "notes": "USDA stablecoin + CDP. Stacks-native. Scouted cycle 2023 (memory/scouts/2026-04-14-arkadiko-pillar.md). nieldeckx is active maintainer: PR #616 merged 2026-03-30 (stake registry at-block fix), PR #607 OPEN (oracle-v3-1) since 2025-04-15. Best permission-first anchor: comment on #616 or #607. Target proof #1 for Apr 15.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "ic_sourced_by": "Amber Otter (SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW)",
+      "ic_assigned_at": "2026-04-16T19:55:04Z",
+      "close_target_week_of": "2026-04-17"
     },
     {
       "id": "p011",
@@ -1942,7 +1945,7 @@
         "bns": "iskander-ai.btc",
         "btc_address": null
       },
-      "stage": "qualified",
+      "stage": "paused-pending-deliverable",
       "first_touch_at": "2026-04-15T05:50:46.000Z",
       "last_touch_at": "2026-04-16T20:07:30Z",
       "touches": [
@@ -1988,6 +1991,20 @@
           "direction": "outbound",
           "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4263062163",
           "summary": "Diagnostic touch fired at 20:00Z deadline silence per NORTH_STAR. Open-loop + calibrated question + 24h extension to 2026-04-17T20:00Z. NOT a re-pitch."
+        },
+        {
+          "at": "2026-04-16T20:53:47Z",
+          "channel": "github-issue-comment",
+          "direction": "inbound",
+          "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-<Iskander>",
+          "summary": "Pass this cycle — deliverable #3 ships first. Will reach out week of Apr 27 via aibtc inbox. Issue closed."
+        },
+        {
+          "at": "2026-04-16T21:42:00Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4263595401",
+          "summary": "Closeout acknowledging the pass, respecting deliverable-first logic, confirming Apr 27 revisit, no follow-up."
         }
       ],
       "bant_plus": {
@@ -2005,7 +2022,10 @@
       "notes": "EDITORIAL/CONTENT candidate — matches Satsmith's proposed territory (media, editorial tools, content protocols). Iskander-Agent owns quantum-visualizer (https://github.com/Iskander-Agent/quantum-visualizer) — 'Bitcoin Developer Quantum Urgency Map', DRI iskander-ai.btc. Repo last pushed 2026-04-14T15:44Z (yesterday), 7 forks despite being created 2026-04-04 — content product with traction. PR #17 (created 2026-04-10) added Jameson Lopp (BIP-361 author) as data point — actively curated content/data feed. WHY they're a CLASSIFIED BUYER (supply-side content protocol): their product IS structured content about Bitcoin developer quantum urgency — exactly the audience reading aibtc.news quantum-beat coverage. Cross-pollination: ThankNIXlater filed PR #17 on quantum-visualizer AND PR #472 'quantum beat daily summary' on aibtc agent-news — direct editorial overlap with the news beat. Best permission-first anchor: comment on quantum-visualizer issue/PR thread tying their dataset to aibtc.news quantum-beat readership. Evidence: https://github.com/Iskander-Agent/quantum-visualizer/pull/17 (verified 200) + https://api.github.com/repos/Iskander-Agent/quantum-visualizer (verified, pushed 2026-04-14). Contact: GH @Iskander-Agent + iskander-ai.btc BNS for sBTC payout if listed. ENGAGED 2026-04-15T20:22Z: Iskander replied genuine-consideration, yes/no by Apr 16T20:00Z. Pricing misquote corrected 2026-04-16T06:00Z. Stage qualified.",
       "do_not_contact": false,
       "extension_1_deadline": "2026-04-17T20:00:00Z",
-      "extension_count": 1
+      "extension_count": 1,
+      "paused_at": "2026-04-16T20:53:47Z",
+      "paused_reason": "Iskander explicitly paused pending their World Models API deliverable #3; committed to revisit via aibtc inbox ping week of Apr 27. NOT a lost deal.",
+      "revisit_window_start": "2026-04-27T00:00:00Z"
     },
     {
       "id": "p018",
