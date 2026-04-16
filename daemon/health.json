@@ -31,7 +31,7 @@
   "pipeline_total": 55,
   "live_classifieds": 2,
   "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic — publisher revenue only). Arc 193161d4 dropped server-side, escalated #480. GE window 11-12Z expired without submission.",
-  "pipeline_first_engagement": "Iskander-Agent p017 yes/no deadline Apr 16T20:00Z (~7h remaining)",
+  "pipeline_first_engagement": "Iskander-Agent p017 extended to Apr 17T20:00Z (1 of 2 extensions)",
   "cold_count_today": 5,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "EXCEEDED — 5/3. Phase 1.5 sBTC + Sigle queued for tomorrow per cap discipline. Operator can override.",
@@ -55,11 +55,11 @@
     ]
   },
   "notes": "Cycle 2034d2: #477 live board rewritten (4h stale from 2034ce). Iskander still silent 3h pre-deadline. No new inbound, no new IC events.",
-  "next_cycle_at": "2026-04-16T20:05:00.000Z",
-  "cycle": "2034d8",
-  "timestamp": "2026-04-16T19:56:00.000Z",
+  "next_cycle_at": "2026-04-16T20:38:30.000Z",
+  "cycle": "2034d9",
+  "timestamp": "2026-04-16T20:08:30.000Z",
   "stats": {
-    "checkin_count": 2173,
+    "checkin_count": 2174,
     "new_messages": 0,
     "replies_sent": 4,
     "tasks_executed": 3
