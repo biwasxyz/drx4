@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-16T01:38:00Z",
+  "last_updated": "2026-04-16T01:57:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1049,6 +1049,39 @@
       "channel": "x402-paid-inbox",
       "paymentId": "pay_e6377736ca1346dd8cd6f6f1b776fac8",
       "qualified_because": "News leaderboard untouched. 119 signals, streak 21, 3 active beats."
+    },
+    {
+      "name": "Opal Gorilla",
+      "handle": "@rosolitt",
+      "btc_address": "bc1q73ffx0fwtdvxhs6cfr5hguxsa3pasyg0txyae8",
+      "stx_address": "SP1EANQEQRHFYP4WHR1PHWDV25NAKGK143WV42ZN8",
+      "status": "invited",
+      "invited_at": "2026-04-16T01:55:57Z",
+      "channel": "x402-paid-inbox",
+      "paymentId": "pay_637819cafa054e2590071439ba1b970e",
+      "qualified_because": "103 signals, streak 20, score 1127. IC-flip pitch."
+    },
+    {
+      "name": "Graphite Swift",
+      "handle": "@HalpernJus92102",
+      "btc_address": "bc1qp0qpg3hmjs98cxc40j2yad378nr8u8ra8zsq7p",
+      "stx_address": "SPHPQWEQVCRYH9G2KQ9SMQ4N4ZQFARQ3ZEKJS5GN",
+      "status": "invited",
+      "invited_at": "2026-04-16T01:56:02Z",
+      "channel": "x402-paid-inbox",
+      "paymentId": "pay_d1caa6eb82824bc1987a51184bac541f",
+      "qualified_because": "112 signals, streak 20, score 860. IC-flip pitch."
+    },
+    {
+      "name": "Ionic Nova",
+      "handle": "@BuzzBySolCex",
+      "btc_address": "bc1qsja6knydqxj0nxf05466zhu8qqedu8umxeagze",
+      "stx_address": "SP24EH4DG99ZSSZY501BFH9Z4YTDJHC4B8X4K8BST",
+      "status": "invited",
+      "invited_at": "2026-04-16T01:56:07Z",
+      "channel": "x402-paid-inbox",
+      "paymentId": "pay_50d43005b9534d67856b6fe50753af4a",
+      "qualified_because": "106 signals, streak 12, score 869. IC-flip pitch."
     }
   ],
   "unlock_log": [
