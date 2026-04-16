@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-16T14:08:00.000Z",
+  "last_updated": "2026-04-16T15:18:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -3068,10 +3068,22 @@
         "url": "https://github.com/sigle/sigle",
         "btc_address": null
       },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-16T15:18:00Z",
+      "last_touch_at": "2026-04-16T15:18:00Z",
+      "touches": [
+        {
+          "touch_number": 1,
+          "at": "2026-04-16T15:18:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "sample_type": "v3-baseline",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/sigle/sigle/issues/1253",
+          "ic": "Amber Otter (@Gregory71136384)",
+          "summary": "BD canonical 3 value drops (audience fit, HODLMM placement benchmark, timing/upgrade-cycle) + calibrated close question. No em-dashes."
+        }
+      ],
       "bant_plus": {
         "budget": "unknown \u2014 venture-backed BTC publishing platform",
         "authority": "founder/maintainer (need to identify via GH org)",
@@ -3088,7 +3100,7 @@
       "do_not_contact": false,
       "surveyed_at": "2026-04-16T12:37:00Z",
       "survey_source": "Phase 1.5 NFT/markets rotation",
-      "queued_for_next_cold_slot": true
+      "queued_for_next_cold_slot": false
     },
     {
       "id": "p055",
