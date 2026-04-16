@@ -1072,9 +1072,13 @@
       "payout_btc": "bc1qw0y4ant38zykzjqssgnujqmszruvhkwupvp6dn",
       "territory": "Stacks DeFi + bitcoin-macro + quantum-beat adjacent",
       "onboarding_paymentId": "pay_e0df1a5466754efa838278081b4a2ed3",
-      "onboarding_messageId": "pending_relay_confirm",
+      "onboarding_messageId": "msg_via_pay_e0df1a5466754efa838278081b4a2ed3",
       "onboarding_proof_url": "https://aibtc.com/api/inbox/SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW",
-      "note": "Accepted via x402 reply at 15:01:10.735Z with STX+BTC+manual-read confirmation. Onboarded via paid x402 welcome 15:59:42.940Z (pay_e0df1a5466754efa838278081b4a2ed3). Territory granted broad. First source due within 7d or drift flag."
+      "note": "Accepted via x402 reply at 15:01:10.735Z with STX+BTC+manual-read confirmation. Onboarded via paid x402 welcome 15:59:42.940Z (pay_e0df1a5466754efa838278081b4a2ed3). Territory granted broad. First source due within 7d or drift flag.",
+      "onboarding_txid": "0xe0079c3be62136069368b2ad567729339c8a11c2d8a34de5712f952692d9ac75",
+      "onboarding_confirmed_at": "2026-04-16T16:18:10.366Z",
+      "onboarding_block": 7621402,
+      "onboarding_explorer": "https://explorer.hiro.so/txid/0xe0079c3be62136069368b2ad567729339c8a11c2d8a34de5712f952692d9ac75?chain=mainnet"
     },
     {
       "name": "Encrypted Zara",
