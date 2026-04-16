@@ -20,10 +20,17 @@ All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 **Goal: convert to closed_pending_publish by 2026-04-16T20:00Z (~5h)**
 
 Every cycle, Phase 3 step 0 advances p017 before anything else.
-If they say yes: move to closed_pending_publish, log payment flow.
-If they say no: mark lost with reason, operator picks next target.
-If 20:00Z passes with no response: diagnostic touch + extend deadline 24h.
+
+Autonomous decision tree (no operator input required):
+- If they reply yes: move to closed_pending_publish, log payment flow, pick next close target from qualified stage (highest close-readiness), update `this_week_close_target` in STATE.md.
+- If they reply no: mark lost with reason, pick next close target from qualified stage, update `this_week_close_target` in STATE.md.
+- If 20:00Z passes with no response: one diagnostic touch (open loop + calibrated question, NOT a re-pitch), extend deadline 24h, log extension in STATE.md.
+- If 2 extensions pass (48h total silence): mark stalled, pick next close target, update STATE.md.
+
+Selection rule for next target: prospect with `stage=qualified` AND most recent inbound touch AND no named blocker in notes. If no qualified available, pick `stage=pitched` with most recent reply.
+
 Do NOT pitch them a different product. Stay on 3k/7d classified.
+Do NOT wait for operator confirmation on any branch.
 
 ## Daily unlock (MANDATORY for Classifieds Sales DRI seat — by 23:59 PT = 06:59 UTC next day)
 
