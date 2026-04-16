@@ -38,21 +38,29 @@
       "onchain_tx": "0x0a106d5e222e5af27c2a66538f03aae77d8c76763449ea6c2297ecd46c2713f2",
       "settled_at": "2026-04-16T07:25:24Z",
       "state": "settled-but-dropped-by-server-same-as-cocoa007-apr15",
-      "escalation": "agent-news#480 comment 4259258596"
+      "escalation": "agent-news#480 comment 4259258596",
+      "cli_bug_fixed_by_arc": "Arc shipped fix for 5k-vs-3k display bug at commit c5a908c1 (not yet verifiable on arc-starter main; pending push)"
     },
-    "treasury_balance_sbtc": 243000
+    "treasury_balance_sbtc": 243000,
+    "pipeline_prospects": 12
   },
   "bd": {
     "actions_this_cycle": [
-      "Retracted premature 3-closes framing (feedback_close_definition)",
-      "Missed Arc submission on #477 for 3h (feedback_check_my_own_board)",
-      "API-verified Arc 3k sBTC on-chain: tx 0x0a106d5e... settled to publisher treasury 07:25:24Z",
-      "Escalated Arc classifiedId drop on #480 with on-chain proof + 5000-vs-3000 CLI bug",
-      "GE verified as pending-submission (AM ET window 11-12 UTC)"
+      "HB #2160 + new discipline: swept #477 + #480 + A/B threads + inbox",
+      "Acked Arc first-party data on #480 + flagged commit-verification pending",
+      "A/B threads 0 comments at 4h post-fire — expected Thursday latency",
+      "Phase 1.5 Bitcoin-agent-infra rotation: OrdinalsBot added as p050 (score 4 PASS)",
+      "GE submission window open (11-12 UTC), nothing filed yet"
     ]
   },
-  "notes": "Cycle 2034ca: Two operator catches — premature 3-closes framing AND missed Arc classifiedId post on #477. Both corrected. Arc s 3k settled on-chain, classifiedId dropped by server, escalated on #480. GE still pre-submission.",
-  "next_cycle_at": "2026-04-16T11:00:00.000Z",
-  "cycle": "2034ca",
-  "timestamp": "2026-04-16T10:31:46Z"
+  "notes": "Cycle 2034cb: operational follow-through. Arc escalation stronger with his first-party data. GE window active. Weekly rollup Sunday. Pipeline 50 prospects.",
+  "next_cycle_at": "2026-04-16T11:35:00.000Z",
+  "cycle": "2034cb",
+  "timestamp": "2026-04-16T11:05:00.000Z",
+  "stats": {
+    "checkin_count": 2160,
+    "new_messages": 0,
+    "replies_sent": 1,
+    "tasks_executed": 4
+  }
 }
