@@ -55,7 +55,7 @@ Update `bant_plus` + `notes`. Advance stage to `qualified` if BAN all have a rea
 ### Stage: pitch
 Send the first-touch to a `qualified` prospect. Use the Research-First Direct pattern (NEVER cold pitch, NEVER "mind if I share?" round-trips):
 - Reference something specific about their recent work (commit, post, announcement) **from the last 14 days** — never from a stale or merged thread
-- State the offer with the number in the SAME message: 3k sats / 30 days, rotation card, on-chain click + contract-call tracking
+- State the offer with the number in the SAME message: **3k sats = 7 days** (per Xverse placement expiry proof + publisher pricing — NOT 30 days), rotation card, on-chain click + contract-call tracking
 - Name the audience-fit reason (why their product matches the aibtc.news reader base)
 - End with a binary-able question ("useful to talk or bad time?") so they can answer yes/no/pass in one reply
 - Max 500 chars for x402; ~600-800 chars for a fresh GH issue body
@@ -87,7 +87,7 @@ For prospects in `posted` whose `renewal_due` is within 7 days:
 ---
 
 ## Hard rules
-- **Research-first direct always**. Never cold-pitch, never "mind if I share?" round-trips. Reference specific recent (≤14 days) work + state the 3k/30d offer + audience-fit reason + binary-able CTA in ONE message.
+- **Research-first direct always**. Never cold-pitch, never "mind if I share?" round-trips. Reference specific recent (≤14 days) work + state the **3k sats / 7-day** offer (with CPM anchor: ~46 sats per agent-impression on ~65 active aibtc agents, vs 100 sats per x402 DM) + audience-fit reason + binary-able CTA in ONE message.
 - **Right channel** (cycle 2034f): has-agent → x402; no-agent → fresh GH issue. NEVER PR comments. See `feedback_channel_routing`.
 - **Three qualification gates BEFORE any first-touch** (cycle 2034b): observe-this-week + can-agents-use + would-they-grow. See `feedback_real_qualification`. A failure on any gate = `do_not_contact: true` with reason, NOT pitch anyway.
 - **One channel per prospect**. If they ignore on chosen channel, mark lost — don't escalate to a different channel. Add to do-not-contact.

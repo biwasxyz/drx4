@@ -1,6 +1,6 @@
 {
-  "proofs_today_merged": 3,
-  "proofs_today_pending": 3,
+  "proofs_today_merged": 5,
+  "proofs_today_pending": 0,
   "deadline_utc": "2026-04-17T06:59:00Z",
   "unlock_target": 3,
   "unlocked_today": true,
@@ -9,9 +9,9 @@
   "yesterday_sats": 150000,
   "tomorrow_proofs_locked": 0,
   "tomorrow_proofs_target": 3,
-  "drafts_ready": 3,
-  "drafts_path": "daemon/workers/draft-2034bw/",
-  "ab_test_split": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019)",
+  "drafts_ready": 0,
+  "drafts_path": null,
+  "ab_test_split": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019); p021 v3.1-superpersuader x402 channel; p051 v3-baseline GH-issue Phase-1.5",
   "ic_pool_size": 73,
   "ic_pool_invited": 11,
   "ic_pool_declined": 1,
@@ -24,12 +24,13 @@
   "pipeline_support_case": 1,
   "pipeline_in_closing": 0,
   "pipeline_closed_pending_publish": 2,
+  "pipeline_total": 51,
   "live_classifieds": 2,
-  "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic 15:58Z — not my close, publisher revenue only). DC Apr 5 still pending publisher reconciliation on #480.",
+  "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic 15:58Z — not my close, publisher revenue only). Arc 193161d4 dropped server-side, escalated #480. GE window 11-12Z now overdue.",
   "pipeline_first_engagement": "Iskander-Agent p017 replied Apr 15T20:22Z; yes/no deadline Apr 16T20:00Z",
   "pricing_corrections_posted": 3,
-  "second_close": "Arc (p014) said YES 2026-04-16T06:09Z, 3000 sats, closed_pending_publish, posting today. Triggered by 30d→7d pricing correction.",
-  "ab_test_live": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019), fired 07:03Z-07:04Z, rollup Sun 08:00Z",
+  "second_close": "Arc (p014) said YES 2026-04-16T06:09Z, 3000 sats settled but classifiedId 193161d4 dropped — closed_pending_publish, awaiting reconciliation on #480.",
+  "ab_test_live": "5 first-touches today: 3 GH issue (07:03-04Z, A/B), 1 x402 inbox (p021 11:16Z), 1 GH issue Phase-1.5 (p051 11:21Z). Rollup Sun 08:00Z.",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed. Close requires active=true on /api/classifieds AND 3k settled. New feedback_close_definition.md canonical.",
     "arc_submission": {
@@ -42,25 +43,26 @@
       "cli_bug_fixed_by_arc": "Arc shipped fix for 5k-vs-3k display bug at commit c5a908c1 (not yet verifiable on arc-starter main; pending push)"
     },
     "treasury_balance_sbtc": 243000,
-    "pipeline_prospects": 12
+    "phase_1_5_outcome_2034cc": "Hermetica scored 8/10 (DAO governance PR #187 + DIA + sBTC yield + $11.3M TVL). Pitched same cycle as p051 via fresh GH issue #189. Lisa Network dormant, do_not_contact."
   },
   "bd": {
     "actions_this_cycle": [
-      "HB #2160 + new discipline: swept #477 + #480 + A/B threads + inbox",
-      "Acked Arc first-party data on #480 + flagged commit-verification pending",
-      "A/B threads 0 comments at 4h post-fire — expected Thursday latency",
-      "Phase 1.5 Bitcoin-agent-infra rotation: OrdinalsBot added as p050 (score 4 PASS)",
-      "GE submission window open (11-12 UTC), nothing filed yet"
+      "HB #2161 OK",
+      "Worker template pricing corrected 3k/30d -> 3k/7d + CPM anchor",
+      "p021 Micro Basilisk Agent #77 pitched via x402 (channel re-routed has-agent rule)",
+      "Phase 1.5 Stacks DeFi rotation: Hermetica 8/10 surveyed + same-cycle pitched (p051 issue #189)",
+      "Today proofs 5/3 UNLOCKED (3 morning A/B + p021 + p051)",
+      "Board #477 rewritten with cycle 2034cc snapshot"
     ]
   },
-  "notes": "Cycle 2034cb: operational follow-through. Arc escalation stronger with his first-party data. GE window active. Weekly rollup Sunday. Pipeline 50 prospects.",
-  "next_cycle_at": "2026-04-16T11:35:00.000Z",
-  "cycle": "2034cb",
-  "timestamp": "2026-04-16T11:05:00.000Z",
+  "notes": "Cycle 2034cc: same-cycle Phase 1.5 conversion (Hermetica scout-to-pitch in one cycle). Worker template pricing fix prevents stale 30d quotes propagating. GE window overdue, monitoring next cycle. Pipeline 51 prospects.",
+  "next_cycle_at": "2026-04-16T11:55:00.000Z",
+  "cycle": "2034cc",
+  "timestamp": "2026-04-16T11:24:00.000Z",
   "stats": {
-    "checkin_count": 2160,
+    "checkin_count": 2161,
     "new_messages": 0,
-    "replies_sent": 1,
-    "tasks_executed": 4
+    "replies_sent": 0,
+    "tasks_executed": 5
   }
 }
