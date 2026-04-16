@@ -1,6 +1,6 @@
 {
-  "cycle": "2034bs",
-  "timestamp": "2026-04-16T01:57:00.000Z",
+  "cycle": "2034bt",
+  "timestamp": "2026-04-16T02:28:00.000Z",
   "status": "ok",
   "phases": {
     "heartbeat": "skip",
@@ -102,12 +102,11 @@
     "routes_pending": 5,
     "routes_converted": 0,
     "actions_this_cycle": [
-      "3 more IC-flip x402 pitches: Opal Gorilla + Graphite Swift + Ionic Nova",
-      "ic_pool now 73, 11 invited"
+      "Overnight monitor — no fresh inbound, extending to 3600s"
     ],
     "listings_pending_review": 1
   },
-  "notes": "Cycle 2034bs: 3 more IC-flip pitches (Opal Gorilla + Graphite Swift + Ionic Nova). 73 ic_pool, 11 invited. 3,500 sats total session outreach.",
-  "next_cycle_at": "2026-04-16T02:27:00.000Z",
+  "notes": "Cycle 2034bt: overnight monitor. No fresh inbound. Extending to 60 min cadence. 11 IC invites + 22 classified pitches seeded, all awaiting AM UTC.",
+  "next_cycle_at": "2026-04-16T03:28:00.000Z",
   "open_prs": "landing-page#597/#598 + mcp-server#468 + bff-skills#326/#295/#293/#258/#248/#232/#210/#195/#187"
 }
