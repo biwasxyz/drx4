@@ -1528,7 +1528,16 @@
         "renewal_due": null
       },
       "notes": "Joey is a contributor, not Pillar team. Need to escalate to founders. Pillar has a yield dashboard product that benefits agents. Cycle 2023 scout: couldn't locate Pillar GH org via gh search — contracts may be closed-source. DEPRIORITIZED as proof target until a founder channel surfaces.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "research_2034dc": {
+        "api_url": "https://pillar-be.vercel.app",
+        "contract": "SP38GBJ8GCXNKNNC87R5AZEPW7K6A1SSD6E1D6VNH",
+        "public_gh_org": "pillar-finance (empty, no public repos or members)",
+        "public_team_handles": "unknown — no public GH, no visible Twitter/Discord on pillar.finance from homepage scan",
+        "public_contributor": "JoeyEttinger via bff-skills#290 (contributor only, not founder)",
+        "next_research_steps": "1. Read pillar-be.vercel.app for docs/contact. 2. Check contract principal SP38GB... for deployer (via Hiro explorer) for direct x402 channel. 3. Find Pillar Twitter if any.",
+        "founder_escalation_status": "blocked on public surface discovery"
+      }
     },
     {
       "id": "p014",
@@ -1688,7 +1697,7 @@
         "btc_address": "bc1qdfm56pmmq40me84aau2fts3725ghzqlwf6ys7p",
         "stx_address": "SP322ZK4VXT3KGDT9YQANN9R28SCT02MZ97Y24BRW"
       },
-      "stage": "qualified",
+      "stage": "partnership-not-sponsor",
       "first_touch_at": "2026-04-14T17:37:28.515Z",
       "last_touch_at": "2026-04-16T14:04:05Z",
       "touches": [
@@ -1751,7 +1760,9 @@
         "renewal_due": null
       },
       "notes": "Inbound, not a sponsor candidate — potential infrastructure partner. If sponsors want escrow/guaranteed-inclusion, whale-pact could underwrite the listing price. Flying Whale is same party as agent-news#439 azagh72-creator whale-pact infra comment (SP322ZK4 ↔ azagh72). Reply deferred due to free-reply API flake.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "reclassified_at": "2026-04-16T22:17:00Z",
+      "reclassified_reason": "Audit pivot cycle 2034db: Flying Whale/whale-pact is infrastructure-partner candidate (escrow/guaranteed-inclusion for listings), NOT a classified sponsor. Removed from qualified count to reflect actual closable pipeline. Re-engage only when a sponsor needs escrow underwriting."
     },
     {
       "id": "p016",
