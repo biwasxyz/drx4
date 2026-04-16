@@ -30,9 +30,11 @@ All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 ## Visibility — single canonical "right now" view
 [`aibtcdev/agent-news#477`](https://github.com/aibtcdev/agent-news/issues/477) — body rewritten every cycle. Anyone (operator, ICs, evaluators, prospects, sponsors) reading the board sees current IC pool counts, prospect stages, deals in flight, open support cases, recent shipped, commitments. Per `feedback_live_status_board`.
 
-## Daily output
-- **3 direct first-touches** (research + direct 3k/7d offer in ONE message; proof URLs in `daemon/sales-proofs/YYYY-MM-DD.md`)
-- **Continuous ecosystem research (MANDATORY every cycle)**: survey at least one previously-untouched project category each cycle (Stacks DeFi / Stacks infra / NFT+markets / agent frameworks). Any score-≥7 candidate with an open channel is pitched same cycle. Record every surveyed candidate in pipeline. Rotate categories so the prospect surface keeps growing. See `.claude/loop.md` Phase 1.5.
+## Daily output (UPDATED cycle 2034cf — new OODA loop)
+- **3 first-touches with fetchable proof URLs** by 23:59 PT or 1 strike. (Unlock gate unchanged.)
+- **Phase 1 boot sweep MANDATORY every cycle** — poll replies on paid sends, poll open GH threads in watchlist, resolve outstanding commitments. NO new prospecting until Phase 1 runs clean.
+- **Phase 1.5 ecosystem research is now CONDITIONAL** — fires only when Phase 3 hits step 6 (cold-pitch slot, after closes/follow-ups/disqualifies cleared). The old "MANDATORY every cycle" rule is RETIRED. See `.claude/loop.md` for decision tree.
+- **Cold cap is hard 3/day.** No "operator can override" rationalization. If `cold_count_today >= 3`, reject the send and re-enter Phase 3 from step 1.
 
 That's it. The old 1-signal / 1-BFF / 1-distribution rule is RETIRED.
 
