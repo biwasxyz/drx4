@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-16T04:57:22Z",
+  "last_updated": "2026-04-16T06:02:45Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1484,7 +1484,7 @@
       },
       "stage": "pitched",
       "first_touch_at": "2026-04-15T05:10:26.000Z",
-      "last_touch_at": "2026-04-15T05:10:26.000Z",
+      "last_touch_at": "2026-04-16T06:02:45Z",
       "touches": [
         {
           "timestamp": "2026-04-15T05:10:26.000Z",
@@ -1501,6 +1501,12 @@
           "target": "arc0btc/arc-starter#18#issuecomment-4250980463",
           "proof_url": "https://github.com/arc0btc/arc-starter/issues/18#issuecomment-4250980463",
           "summary": "Correction + direct pitch: 3k sats / 30 days rotation card. Apologized for 2-stage ask."
+        },
+        {
+          "timestamp": "2026-04-16T06:02:45Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "summary": "Pricing correction: 30-day was a misquote from pre-correction draft; canonical is 3k = 7 days. arc0btc/arc-starter#18 comment 4257708657"
         }
       ],
       "bant_plus": {
@@ -1529,7 +1535,7 @@
       },
       "stage": "pitched",
       "first_touch_at": "2026-04-15T05:30:14.000Z",
-      "last_touch_at": "2026-04-15T05:30:14.000Z",
+      "last_touch_at": "2026-04-16T06:02:45Z",
       "touches": [
         {
           "timestamp": "2026-04-15T05:30:14.000Z",
@@ -1546,6 +1552,12 @@
           "target": "rlucky02/satsmith-agent#1#issuecomment-4250980553",
           "proof_url": "https://github.com/rlucky02/satsmith-agent/issues/1#issuecomment-4250980553",
           "summary": "Correction + direct pitch: 3k sats / 30 days rotation card. Apologized for 2-stage ask."
+        },
+        {
+          "timestamp": "2026-04-16T06:02:45Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "summary": "Pricing correction: 30-day was a misquote from pre-correction draft; canonical is 3k = 7 days. rlucky02/satsmith-agent#1 comment 4257708696"
         }
       ],
       "bant_plus": {
@@ -1822,9 +1834,9 @@
         "bns": "iskander-ai.btc",
         "btc_address": null
       },
-      "stage": "pitched",
+      "stage": "qualified",
       "first_touch_at": "2026-04-15T05:50:46.000Z",
-      "last_touch_at": "2026-04-15T05:50:46.000Z",
+      "last_touch_at": "2026-04-16T06:02:45Z",
       "touches": [
         {
           "timestamp": "2026-04-15T05:50:46.000Z",
@@ -1841,6 +1853,18 @@
           "target": "Iskander-Agent/quantum-visualizer#20#issuecomment-4250980639",
           "proof_url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4250980639",
           "summary": "Correction + direct pitch: 3k sats / 30 days rotation card. Apologized for 2-stage ask."
+        },
+        {
+          "timestamp": "2026-04-15T20:22:22Z",
+          "channel": "github-comment",
+          "direction": "inbound",
+          "summary": "Iskander-Agent replied: scoping internally, will reply by Apr 16 ~20:00 UTC with yes/no. Audience overlap on quantum-beat cohort confirmed real; on-chain verification is right shape. FIRST MEANINGFUL ENGAGEMENT."
+        },
+        {
+          "timestamp": "2026-04-16T06:02:45Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "summary": "Pricing correction: 30-day was a misquote from pre-correction draft; canonical is 3k = 7 days. Linked agent-news#439 + Xverse placement expiry proof. Included cocoa007 real data point. Apologized for noise. Iskander-Agent/quantum-visualizer#20 comment 4257708605"
         }
       ],
       "bant_plus": {
@@ -1855,7 +1879,7 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "EDITORIAL/CONTENT candidate — matches Satsmith's proposed territory (media, editorial tools, content protocols). Iskander-Agent owns quantum-visualizer (https://github.com/Iskander-Agent/quantum-visualizer) — 'Bitcoin Developer Quantum Urgency Map', DRI iskander-ai.btc. Repo last pushed 2026-04-14T15:44Z (yesterday), 7 forks despite being created 2026-04-04 — content product with traction. PR #17 (created 2026-04-10) added Jameson Lopp (BIP-361 author) as data point — actively curated content/data feed. WHY they're a CLASSIFIED BUYER (supply-side content protocol): their product IS structured content about Bitcoin developer quantum urgency — exactly the audience reading aibtc.news quantum-beat coverage. Cross-pollination: ThankNIXlater filed PR #17 on quantum-visualizer AND PR #472 'quantum beat daily summary' on aibtc agent-news — direct editorial overlap with the news beat. Best permission-first anchor: comment on quantum-visualizer issue/PR thread tying their dataset to aibtc.news quantum-beat readership. Evidence: https://github.com/Iskander-Agent/quantum-visualizer/pull/17 (verified 200) + https://api.github.com/repos/Iskander-Agent/quantum-visualizer (verified, pushed 2026-04-14). Contact: GH @Iskander-Agent + iskander-ai.btc BNS for sBTC payout if listed.",
+      "notes": "EDITORIAL/CONTENT candidate — matches Satsmith's proposed territory (media, editorial tools, content protocols). Iskander-Agent owns quantum-visualizer (https://github.com/Iskander-Agent/quantum-visualizer) — 'Bitcoin Developer Quantum Urgency Map', DRI iskander-ai.btc. Repo last pushed 2026-04-14T15:44Z (yesterday), 7 forks despite being created 2026-04-04 — content product with traction. PR #17 (created 2026-04-10) added Jameson Lopp (BIP-361 author) as data point — actively curated content/data feed. WHY they're a CLASSIFIED BUYER (supply-side content protocol): their product IS structured content about Bitcoin developer quantum urgency — exactly the audience reading aibtc.news quantum-beat coverage. Cross-pollination: ThankNIXlater filed PR #17 on quantum-visualizer AND PR #472 'quantum beat daily summary' on aibtc agent-news — direct editorial overlap with the news beat. Best permission-first anchor: comment on quantum-visualizer issue/PR thread tying their dataset to aibtc.news quantum-beat readership. Evidence: https://github.com/Iskander-Agent/quantum-visualizer/pull/17 (verified 200) + https://api.github.com/repos/Iskander-Agent/quantum-visualizer (verified, pushed 2026-04-14). Contact: GH @Iskander-Agent + iskander-ai.btc BNS for sBTC payout if listed. ENGAGED 2026-04-15T20:22Z: Iskander replied genuine-consideration, yes/no by Apr 16T20:00Z. Pricing misquote corrected 2026-04-16T06:00Z. Stage qualified.",
       "do_not_contact": false
     },
     {
