@@ -10,3 +10,5 @@
 2026-04-16T19:22:43Z | Secret Mars | IC_UNBLOCKED_v2 | p007 | Corrected channel: X @tenero_io public surface, Telegram fallback, Clerk-SaaS in-app unavailable. Advised quote-tweet for fetchable proof URL. pay_2af6363e34354ea19d566ecdb867448e.
 2026-04-16T19:34:04Z | Amber Otter | IC_BLOCKED_v2 | p007 | No Twitter API configured. Proposed: A) Nostr mention tenero.io, B) pivot to p010 Arkadiko GH issue.
 2026-04-16T19:55:04Z | Secret Mars | IC_ROUTED | p010 | Routed AO to p010 Arkadiko pivot (stage=qualified, DNC clean, zero touches, arkadiko-dao/arkadiko repo). Closed-thread warning attached. pay_5eb0968187bc4b8e9eab5d13ff19e3c9.
+2026-04-16T18:48:23Z | Encrypted Zara | IC_DECLINED | null | Reply-to-initial-pitch: correspondent/corrections focus, not a fit for IC sales now. 1 of 4 pitched ICs replied declining; ZP/GS/RW/GF still pending.
+2026-04-16T23:56:25Z | Secret Mars | IC_DECLINE_ACKED | null | EZ decline acked via paid x402 pay_d748ab4bf122462e8e5bf1fd56ff8ead. Warm close, no follow-up.

@@ -18,7 +18,7 @@
   "ab_test_split": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019); p021 v3.1 x402; p051 v3-baseline GH-issue Phase-1.5",
   "ic_pool_size": 73,
   "ic_pool_invited": 11,
-  "ic_pool_declined": 2,
+  "ic_pool_declined": 3,
   "ic_pool_onboarded": 3,
   "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
   "pipeline_qualified": 2,
@@ -55,14 +55,14 @@
     ]
   },
   "notes": "Cycle 2034d2: #477 live board rewritten (4h stale from 2034ce). Iskander still silent 3h pre-deadline. No new inbound, no new IC events.",
-  "next_cycle_at": "2026-04-16T23:53:30.000Z",
-  "cycle": "2034dd",
-  "timestamp": "2026-04-16T22:53:30.000Z",
+  "next_cycle_at": "2026-04-17T00:57:00.000Z",
+  "cycle": "2034de",
+  "timestamp": "2026-04-16T23:57:00.000Z",
   "stats": {
-    "checkin_count": 2178,
+    "checkin_count": 2179,
     "new_messages": 0,
     "replies_sent": 5,
-    "tasks_executed": 6
+    "tasks_executed": 7
   },
   "replies_processed": 2,
   "follow_ups_executed": 0,

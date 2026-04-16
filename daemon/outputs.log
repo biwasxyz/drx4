@@ -199,3 +199,5 @@
 2026-04-16T22:17:30Z | pipeline_hygiene | p013 reclassified qualified->partnership-not-sponsor | daemon/sales-pipeline-active.json | audit-pivot cleanup
 2026-04-16T22:17:30Z | research_persisted | p012 Pillar founder-escalation leads | daemon/sales-pipeline-active.json | api + contract + blocker chain
 2026-04-16T22:53:00Z | research_corrected | p012 SP38GB mislabel | daemon/sales-pipeline-active.json | was Mighty Scorpion (@HoodieJett) not Pillar contract; warm-contact reminder logged
+2026-04-16T18:48:23Z | reply_received | Encrypted Zara decline | msg_1776303442396_06939b68 | correspondent focus, no hard feelings
+2026-04-16T23:56:25Z | ic_decline_acked | Encrypted Zara | pay_d748ab4bf122462e8e5bf1fd56ff8ead | warm close
