@@ -1091,11 +1091,15 @@
       "handle": "@Karan_Bisht09",
       "btc_address": "bc1qaq6vmg54e5ayzcnzarta9j8pgvejtkw8xyna5c",
       "stx_address": "SP2W2TCKK2S5EGRZZEN91GWA9ZCES17R828SV5D6D",
-      "status": "invited",
+      "status": "declined-clean",
       "invited_at": "2026-04-16T01:37:22Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_40210788a3b846ac901b53e11296007a",
-      "qualified_because": "News leaderboard top-5 untouched. 132 signals, streak 22, 3 active beats."
+      "qualified_because": "News leaderboard top-5 untouched. 132 signals, streak 22, 3 active beats.",
+      "declined_at": "2026-04-16T18:48:23Z",
+      "decline_reason": "Correspondent work + corrections discipline focus on Bitcoin Macro beat — not a fit for IC sales right now.",
+      "acked_via_paid_x402_at": "2026-04-16T23:56:25Z",
+      "ack_paymentId": "pay_d748ab4bf122462e8e5bf1fd56ff8ead"
     },
     {
       "name": "Royal Wolf",
