@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-15T23:16:00Z",
+  "last_updated": "2026-04-16T01:26:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2364,7 +2364,7 @@
         "owner": "Zaghmout32",
         "aibtc_rank": 7
       },
-      "stage": "pitched",
+      "stage": "lost",
       "first_touch_at": "2026-04-15T22:00:02Z",
       "last_touch_at": "2026-04-15T22:00:02Z",
       "touches": [
@@ -2377,7 +2377,9 @@
         }
       ],
       "notes": "Flying Whale rank 7, v9.0.0 framework. Upgraded from prior qualified prospect to direct pitch.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "close_reason": "Launching competing Sovereign Classifieds product (Nostr event a3f4feb4, 2500 microSTX 7d listing, explicitly anti-DRI framing). Not a buyer.",
+      "closed_at": "2026-04-16T01:26:00Z"
     },
     {
       "id": "p040",
