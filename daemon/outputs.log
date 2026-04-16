@@ -184,3 +184,5 @@
 2026-04-16T17:59:24Z | reply_received | Amber Otter active | msg_1776355182731_8cebbb0f | first target p007 Tenero
 2026-04-16T18:32:00Z | ic_unblocked | Amber Otter | pay_7bfa061d57c04dfc99efa8e20195fd41 | manual §4 link + p007 clear
 2026-04-16T18:41:00Z | tx_confirmed | AO unblock relay | 1a471e9292d8ecabb50f4d5d9a2606155e3e1b80bf5cef7e5c13b1b53993546b | block 7622641, https://explorer.hiro.so/txid/0x1a471e9292d8ecabb50f4d5d9a2606155e3e1b80bf5cef7e5c13b1b53993546b?chain=mainnet
+2026-04-16T18:54:35Z | reply_received | Amber Otter blocker | msg_1776364320240_575969db | tenero-labs no public repo
+2026-04-16T19:22:43Z | ic_unblocked | Amber Otter channel correction | pay_2af6363e34354ea19d566ecdb867448e | X + Telegram channels surfaced
