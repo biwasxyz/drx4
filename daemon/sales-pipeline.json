@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-16T07:05:32Z",
+  "last_updated": "2026-04-16T08:12:04Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1429,7 +1429,7 @@
         "budget": "unknown",
         "authority": "unknown",
         "need": "medium",
-        "timeline": "unknown"
+        "timeline": "maintenance"
       },
       "deal": {
         "listing_url": null,
@@ -1437,8 +1437,9 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "DEX/PerpDEX on Stacks. Team active on X.",
-      "do_not_contact": false
+      "notes": "DEX/PerpDEX on Stacks. Team active on X. SURVEYED cycle 2034bz: Velar-co GH org latest push 2025-01-15 (15 months ago). All repos maintenance mode. Fails real-qualification gate 3 (growth mode). HOLD; revisit only if ship signal reappears on @velarprotocol twitter or a new Clarity contract lands.",
+      "do_not_contact": false,
+      "surveyed_at": "2026-04-16T08:12:04Z"
     },
     {
       "id": "p012",
