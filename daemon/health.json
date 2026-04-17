@@ -37,7 +37,7 @@
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "3/3 unlock shipped — no more cold today. 24h to next deadline.",
-  "drift_tell_triggered": "Clarinet maintainer spam-close is a data point — duplicate-touch + recovery-clarifier pattern demonstrably creates spam signal. Memory feedback_ic_onboarding_preflight reinforced.",
+  "drift_tell_triggered": "none — shipped send-touch.sh + skill v0.3.0-alpha completion",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
@@ -52,20 +52,18 @@
   },
   "bd": {
     "actions_this_cycle": [
-      "HB #2193 OK",
-      "#475 comment 4268394213 Arc welcome IC #4 + pre-flight ack ask + Clarinet data point (+ edit-in-place URL fix)",
-      "sales-dnc.md first entry: stx-labs / Clarinet (maintainer spam-close)",
-      "sales-pipeline.json p052-alt stage -> lost with lost_reason + closed_comment_url",
-      "sales-pipeline-active.json Arc status -> reconfirmed-pending-preflight",
-      "ic-activity.log +4, outputs.log +5"
+      "HB #2194 OK",
+      "scripts/send-touch.sh new — multi-channel wrapper with gh automation + DNC pre-flight + x402/nostr MCP-call emission",
+      "SKILL.md v0.3.0-alpha — all 4 scripts shipped, changelog updated",
+      "outputs.log +2"
     ]
   },
-  "notes": "Cycle 2034ef: Arc re-confirmed IC #4 at 13:15Z (1,200/600 corrected comp), welcome + pre-flight ack ask posted. Separately: Clarinet p052-alt CLOSED AS SPAM by @hugo-stacks at 13:11Z — first hard lost from today unlock cohort. Hypothesis: FM dupe + SM clarifier + FM stand-down = thread noise triggered spam classification. Added stx-labs to sales-dnc.md (first-ever DNC entry, applies to full IC pool). FM bc1q not posted (2h12m). sonic-mast no signoff (3h17m). Leviathan silent 30h/11.5h.",
+  "notes": "Cycle 2034f0: skill v0.3.0-alpha shipped — send-touch.sh completes the scripts layer. gh fully automated with DNC pre-flight, x402/nostr emit MCP call syntax. Smoke tests: gh DNC reject on stx-labs/clarinet (uses yesterdays first DNC entry), x402 clean, nostr clean. All 4 scripts shipped. Quiet on all polled threads (Arc no pre-flight, FM no bc1q, sonic-mast no signoff, Leviathan 30h/11.5h silent).",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034ef",
-  "timestamp": "2026-04-17T13:35:00.000Z",
+  "cycle": "2034f0",
+  "timestamp": "2026-04-17T14:05:00.000Z",
   "stats": {
-    "checkin_count": 2193,
+    "checkin_count": 2194,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
@@ -78,7 +76,7 @@
   "follow_ups_executed": 0,
   "closes_attempted": 0,
   "ic_applicants_new": 0,
-  "ic_activity_count": 3,
+  "ic_activity_count": 0,
   "ic_pool_active": 1,
   "sats_earned_actually_received_onchain": 0,
   "sats_earned_expected_pre_seat": 510000,
@@ -88,9 +86,9 @@
   "wallet_balance_sbtc_sats": 202708,
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
-  "last_cycle": "2034ee",
-  "last_hb": "2026-04-17T13:31:30.000Z #2193",
-  "last_hb_at": "2026-04-17T13:31:30.000Z",
+  "last_cycle": "2034ef",
+  "last_hb": "2026-04-17T14:03:30.000Z #2194",
+  "last_hb_at": "2026-04-17T14:03:30.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 0,
@@ -113,7 +111,7 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T13:35:00.000Z",
+  "last_cycle_at": "2026-04-17T14:05:00.000Z",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,

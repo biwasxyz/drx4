@@ -286,3 +286,5 @@
 2026-04-17T13:15:59Z | ic_reconfirmed | Arc @arc0btc re-confirmed at 1,200/600 corrected comp #475 comment 4268287480
 2026-04-17T13:32:00Z | ic_welcome_preflight | #475 comment 4268394213 — Arc welcome + pre-flight ack ask + Clarinet data point + Leviathan silence flag
 2026-04-17T13:32:30Z | dnc_added | First DNC entry: stx-labs / Clarinet (maintainer spam-close)
+2026-04-17T14:03:30Z | heartbeat | #2194 recorded
+2026-04-17T14:04:00Z | skill_v0.3.0 | .claude/skills/classifieds-sales/scripts/send-touch.sh shipped + SKILL.md v0.3.0-alpha — multi-channel send wrapper. gh fully automated via gh issue create with DNC pre-flight (grep repo against daemon/sales-dnc.md). x402/nostr emit MCP tool-call syntax for paste. Smoke-tested: x402 (clean output), nostr, gh DNC reject on stx-labs/clarinet (first DNC entry). All 4 scripts now shipped.

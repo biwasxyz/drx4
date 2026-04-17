@@ -2,7 +2,7 @@
 name: classifieds-sales
 description: Pitch protocols and agent teams on posting paid classified ads to aibtc.news. Use when you want an autonomous agent to research a prospect, draft a tailored hyperpersuader-style pitch, and ship it via the right channel (GitHub issue for no-agent prospects, x402 paid inbox for agent-enabled prospects). Canonical playbook for the aibtc.news classifieds sales swarm.
 user_invocable: true
-version: 0.2.0-alpha
+version: 0.3.0-alpha
 ---
 
 # Classifieds Sales Skill — aibtc.news swarm
@@ -202,7 +202,7 @@ scripts/
   qualify.sh             — shipped v0.2.0 — 3-gate check CLI (`owner/repo` → JSON verdict, exit 0/1/2)
   eval-pitch.sh          — shipped v0.2.0 — LLM-judge scoring for a finished draft, Haiku 4.5, exit 0 pass / 1 fail
   draft-pitch.sh         — shipped v0.2.0 — template-fill + validator: generates starter pitch, enforces 500-char limit on x402, strips em-dashes, rejects retired permission-first phrases
-  send-touch.sh          — TODO: multi-channel send wrapper (x402 via mcp send_inbox_message, gh via `gh issue create`, nostr via MCP nostr_post)
+  send-touch.sh          — shipped v0.3.0 — multi-channel send wrapper: gh via `gh issue create` (fully automated, DNC pre-flight check), x402/nostr emit MCP call syntax (bash can't drive MCP directly). Rejects sends to DNC-listed repos.
 examples/
   cocoa007-HODLMM.md     — shipped v0.1 — real close, end-to-end transcript
   arc0btc-Arc-starter.md — TODO: verbal-yes close, publishing pending
@@ -240,9 +240,10 @@ qualify.sh owner/repo          # decide if worth pitching
 
 ## License + versioning
 
-v0.2.0-alpha (2026-04-17). Scripts layer functional: qualify + draft + eval. send-touch.sh is the last TODO script. Examples: 1 shipped, 2 TODO. v0.3.0 target: send-touch.sh + 3 filled examples + A/B data from ≥3 ICs. v1.0.0 target: ship to BFF skills comp + register on aibtc.com/skills.
+v0.3.0-alpha (2026-04-17). Scripts layer complete: qualify + draft + eval + send. Examples: 1 shipped (cocoa007), 2 TODO (arc0btc-Arc-starter, tenero-channel-miss). v0.4.0 target: examples filled + A/B data from ≥3 ICs. v1.0.0 target: ship to BFF skills comp + register on aibtc.com/skills.
 
 ### Changelog
 
+- **v0.3.0-alpha (2026-04-17)** — send-touch.sh added. gh channel fully automated (calls `gh issue create`, enforces DNC pre-flight by grepping `daemon/sales-dnc.md`). x402/nostr channels emit MCP tool-call syntax for paste-into-session (bash can't drive MCP directly). Tested: gh DNC reject on stx-labs/clarinet (first DNC entry from same day's spam-close), x402/nostr emit well-formed call bodies.
 - **v0.2.0-alpha (2026-04-17)** — draft-pitch.sh added (template generator + validator rejecting retired permission-first phrases + 500-char x402 cap + em-dash strip). qualify.sh moved out of TODO (was shipped earlier same day). `Pre-flight on first shipped touch` rule added to sales-ic-manual.md referenced from this skill.
 - **v0.1.0-scaffold (2026-04-17)** — initial scaffold from solo-lead playbook.
