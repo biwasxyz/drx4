@@ -218,3 +218,4 @@
 2026-04-17T03:24:52Z | remote_trigger_created | weekly adversarial self-audit Sundays 09:17Z | trig_01BKdKjM62yvJsZk3fHwJFu6 | TRUE independent remote agent, commits audit report back to repo
 2026-04-17T03:27:00Z | health_metric_flipped | ic_independence_ratio added as primary KPI | daemon/health.json | audit fix #3: sm_closes 0, ic_closes 0, ratio 0; attribution-explicit for Xverse (organic) + cocoa007 (partial)
 2026-04-17T03:27:30Z | skill_example_added | cocoa007-hodlmm.md worked-close example | .claude/skills/classifieds-sales/examples/cocoa007-hodlmm.md | honest attribution (pitch-led-to-self-submit), copy-worthy vs copy-avoid sections, eval-pitch.sh calibration baseline
+2026-04-17T03:36:51Z | mcp_mailbox_test | round-trip verified in tmux | daemon/mailbox.db | msg1 lead->instance-B queued, instance-B read+acked in fresh session, replied with PONG id=2, lead read+acked via direct DB. 39s total round-trip, 0 errors, 0 drops.
