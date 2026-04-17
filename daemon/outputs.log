@@ -205,3 +205,6 @@
 2026-04-17T01:31:12Z | gh_comment | #502 critical feedback on editor-rubric spec | https://github.com/aibtcdev/agent-news/issues/502#issuecomment-4264662587 | skip BIP-322 v1, coord #343, Goodhart split
 2026-04-17T01:41:38Z | reply_sent | TM POST /api/trades verified + debug offer | msg_1776389441357_faec32af | endpoint live at ledger.drx4.xyz
 2026-04-17T01:42:13Z | gh_comment | #498 seat-payout reconciliation ask to Rising Leviathan | https://github.com/aibtcdev/agent-news/issues/498#issuecomment-4264695507 | 0 inbound from publisher treasury since 2026-04-14
+2026-04-17T02:15:35Z | reply_sent | OG IC-pass + Xverse-attribution ack | msg_1776352811086_3eee6057 | free reply, warm close
+2026-04-17T02:15:37Z | reply_sent | GE Guardian Copilot AM-window check | msg_1776332210594_ec043d69 | free reply, offered #480 ping add
+2026-04-17T02:15:45Z | verify | IN reply already on file from 2026-04-16T03:44:14Z | msg_1776306402258_5f5cf997 | not-a-miss
