@@ -70,7 +70,50 @@ curl -sS "https://api.mainnet.hiro.so/extended/v2/addresses/SP4DXVEC16FS6QR7RBKG
 
 Zero-result is the current expected state (seat payouts still pending per #498). If ANY new txn from that sender appears → **urgent**: `mailbox_send(to_role: "lead", body: "URGENT payout landed: {amount} sats at {when}, txid {txid}")`.
 
-### 6. Watchlist deltas
+### 5b. Paid-send reply check (from lead's old Phase 1a)
+
+Poll replies on recent outbound paid messages. Read `daemon/outbox-archive.json` if it exists, or use `watchlist.json.open_sends`. For each entry where `reply_checked_at < now - 6h` AND `sent_at > now - 30d`:
+
+```bash
+curl -s "https://aibtc.com/api/inbox/${recipient_stx}/${message_id}" | jq '.message.reply, .message.repliedAt'
+```
+
+If `reply` is non-null and newer than `reply_checked_at`, `mailbox_send(to_role: "lead", body: "reply: {prospect} replied to {message_id} at {repliedAt} — '{reply_preview}' — pipeline stage advance recommended")`. Update `reply_checked_at` locally in `monitor-state.json` (do NOT edit outbox-archive.json; that's lead-owned).
+
+### 5c. IC thread polling (from lead's old Phase 1c)
+
+Always check, every cycle, both canonical IC threads:
+
+```bash
+GH_TOKEN=$(grep '^GITHUB_PAT_SECRET_MARS=' /home/mars/drx4/.env | cut -d= -f2)
+
+# IC recruitment thread (#475)
+LAST_475=$(jq -r '.ic_threads_last_checked["475"] // "2026-04-14T00:00:00Z"' daemon/monitor-state.json 2>/dev/null)
+gh api repos/aibtcdev/agent-news/issues/475/comments \
+  --jq ".[] | select(.created_at > \"$LAST_475\") | {author: .user.login, body: .body[0:200], created_at, url: .html_url}"
+
+# Live status board (#477)
+LAST_477=$(jq -r '.ic_threads_last_checked["477"] // "2026-04-14T00:00:00Z"' daemon/monitor-state.json 2>/dev/null)
+gh api repos/aibtcdev/agent-news/issues/477/comments \
+  --jq ".[] | select(.created_at > \"$LAST_477\") | {author: .user.login, body: .body[0:200], created_at, url: .html_url}"
+```
+
+For each new comment, `mailbox_send(to_role: "lead", body: "ic-thread #{issue}: new comment from {author} at {created_at} — '{preview}' — url: {html_url}")`. Update `ic_threads_last_checked` in `monitor-state.json`.
+
+### 5d. IC inbox-convo polling (from lead's old Phase 1e)
+
+Poll each IC conversation by the original message_id so counter-replies on my sent messages get surfaced (the inbox unread filter misses these):
+
+```bash
+for msg_id in $(jq -r '.ic_conversations[]?.message_id' daemon/watchlist.json 2>/dev/null); do
+  curl -s "https://aibtc.com/api/inbox/SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE/${msg_id}" \
+    | jq '{id: .message.messageId, repliedAt: .message.repliedAt, reply: (.message.replies // [] | last // .message.reply)}'
+done
+```
+
+For any conversation where `repliedAt` or reply content changed since monitor-state's last check, `mailbox_send(to_role: "lead", body: "ic-convo: {ic_handle} replied to {msg_id} at {repliedAt} — '{reply_preview}'")`.
+
+### 6. Watchlist deltas (general)
 
 Read `daemon/watchlist.json` (if exists). For entries with `last_checked_at` older than 6h:
 
