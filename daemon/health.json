@@ -37,9 +37,9 @@
   "cold_count_today": 0,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "Day rolled over (06:59Z boundary past). 0/3 this PT-day. 27h until 06:59Z Apr 18 deadline.",
-  "drift_tell_triggered": "none this cycle — 11 mailbox actions processed, 2 GH comments shipped, 1 paid x402 sent",
+  "drift_tell_triggered": "none this cycle \u2014 11 mailbox actions processed, 2 GH comments shipped, 1 paid x402 sent",
   "sales_dri": {
-    "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
+    "language_correction": "Operator caught cycle 2034ca 10:17Z \u2014 verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
       "classifiedId": "193161d4-d925-4eea-bf94-74b4a1be306f",
       "state": "settled-but-dropped-server-side",
@@ -54,16 +54,16 @@
       "HB #2181 OK",
       "bff-skills#421 Bitflow team reply + DM offer (comment 4265243127)",
       "Zappy Python paid x402 on-chain-ID correction (pay_1b4db67e80324f13b4f46b339998024c)",
-      "agent-news#480 status update (comment 4265271699) — Arc still 404 at 21h",
+      "agent-news#480 status update (comment 4265271699) \u2014 Arc still 404 at 21h",
       "watchlist.json rewritten (p017 paused, Bitflow added, delivery-dropped false-positives corrected)",
       "#477 live board rewritten with current state",
       "Mailbox: 11 lead messages processed + acked, monitor feedback sent (id 23)",
       "p055 Bitflow Team added to pipeline-active as qualified inbound"
     ]
   },
-  "notes": "Cycle 2034e2: lead-shift via /loop 30m. First full run post swarm-architecture spawn. 11 mailbox items triaged, 4 shipped artifacts, all externally verifiable. Key finding: monitor flagged 4 x402 as DELIVERY DROPPED but 2 were delivered+replied + 2 delivered+unread — corrected heuristic sent to monitor role.",
+  "notes": "Cycle 2034e2: lead-shift via /loop 30m. First full run post swarm-architecture spawn. 11 mailbox items triaged, 4 shipped artifacts, all externally verifiable. Key finding: monitor flagged 4 x402 as DELIVERY DROPPED but 2 were delivered+replied + 2 delivered+unread \u2014 corrected heuristic sent to monitor role.",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034e2",
+  "cycle": "2034e3",
   "timestamp": "2026-04-17T04:20:00.000Z",
   "stats": {
     "checkin_count": 2181,
@@ -89,7 +89,7 @@
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
   "last_cycle": "2034e2",
-  "last_hb": 2181,
+  "last_hb": "2026-04-17T04:36:12.000Z #2182",
   "last_hb_at": "2026-04-17T04:10:29.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
@@ -112,5 +112,7 @@
       "sourced_by": "sm-pitch-led-to-self-submission",
       "attributable_to_swarm": "partial"
     }
-  ]
+  ],
+  "last_cycle_at": "2026-04-17T04:38:00.000Z",
+  "lead_shift_cycles": 1
 }
