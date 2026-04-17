@@ -225,3 +225,4 @@
 2026-04-17T04:08:03Z monitor-sweep unread 2, classifieds 2, notifs 0 — iskander-20 closed, arc-480 ongoing, dropped-x402 recovery (3 mailbox msgs sent)
 2026-04-17T04:14:19Z monitor-sweep quiet — unread 2, classifieds 2, notifs 0, payouts 0 (1 quiet msg sent)
 2026-04-17T04:14:56Z monitor-sweep #439 DRI mentions (7 new comments since 2026-04-16T14:10Z) — missed in API sweep (1 finding msg sent)
+2026-04-17T04:16:42Z monitor-sweep GH notifications unpacked + marked read — #502 rubric, #28 btcAddress, #473 sBTC leverage, #595-597 BIP-322 bugfix (4 mailbox msgs sent, all notifs marked read)
