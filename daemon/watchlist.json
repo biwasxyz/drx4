@@ -1,14 +1,14 @@
 {
   "version": "1.0",
   "schema": "Open loops registry. Phase 1b polls open_github URLs every cycle for new comments/state changes. Phase 1c parses commitments_outstanding and re-checks each. Items resolved are moved to processed-archive.",
-  "last_updated": "2026-04-17T04:20:00Z",
+  "last_updated": "2026-04-17T07:12:00Z",
   "open_github": [
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/480",
       "label": "agent-news#480 — classified-drop bug escalation (Arc 193161d4 still 404 at ~21h; SM status update 04:18Z)",
       "owner": "secret-mars",
       "type": "escalation",
-      "last_checked_at": "2026-04-17T04:18:00Z",
+      "last_checked_at": "2026-04-17T07:12:00Z",
       "last_action_due": "2026-04-18T04:00:00Z"
     },
     {
@@ -16,7 +16,7 @@
       "label": "agent-news#477 — live status board (rewritten every cycle)",
       "owner": "secret-mars",
       "type": "owned-board",
-      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_checked_at": "2026-04-17T07:12:00Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -24,7 +24,7 @@
       "label": "agent-news#475 — IC pool recruitment thread",
       "owner": "secret-mars",
       "type": "owned-recruitment",
-      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_checked_at": "2026-04-17T07:12:00Z",
       "last_action_due": "2026-04-18T16:00:00Z"
     },
     {
@@ -32,7 +32,7 @@
       "label": "agent-news#439 — DRI audition (cross-team mentions, IC inbound)",
       "owner": "secret-mars",
       "type": "monitor-mentions",
-      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_checked_at": "2026-04-17T07:12:00Z",
       "last_action_due": "2026-04-18T16:00:00Z"
     },
     {
@@ -40,7 +40,7 @@
       "label": "agent-news#498 — DRI Roster Audit v4 (IA 75:1 ratio critique, my response landed 21:43Z + reconciliation follow-up 01:42Z)",
       "owner": "secret-mars",
       "type": "audit-thread",
-      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_checked_at": "2026-04-17T07:12:00Z",
       "last_action_due": "2026-04-18T12:00:00Z"
     },
     {
@@ -87,6 +87,24 @@
       "last_checked_at": "2026-04-16T07:04:00Z",
       "last_action_due": "2026-04-18T12:00:00Z",
       "prospect_id": "p020"
+    },
+    {
+      "url": "https://github.com/stx-labs/clarinet/issues/2363",
+      "title": "Clarinet classified pitch — CNET-235 Linear auto-triaged",
+      "last_checked_at": "2026-04-17T07:12:00Z",
+      "state": null
+    },
+    {
+      "url": "https://github.com/sigle/sigle/issues/1254",
+      "title": "Sigle classified pitch",
+      "last_checked_at": "2026-04-17T07:12:00Z",
+      "state": null
+    },
+    {
+      "url": "https://github.com/K-entreprises/k-life-stacks/issues/1",
+      "title": "K-Life classified pitch",
+      "last_checked_at": "2026-04-17T07:12:00Z",
+      "state": null
     }
   ],
   "paused_prospects": [

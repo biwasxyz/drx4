@@ -3186,9 +3186,9 @@
     {
       "id": "p052-alt",
       "name": "Clarinet (stx-labs/clarinet)",
-      "stage": "pitched",
+      "stage": "qualified",
       "github_repo": "stx-labs/clarinet",
-      "notes": "Phase 1.5 growth-mode Stacks-infra pick (cycle 2034e6). 352 stars, 187 open issues, PR #2361 (pin rand + rustls-webpki) landed 2026-04-16T19:04Z. Stacks Labs org (stackslabs.com) — separate from Hiro Foundation, company-tier with revenue motive. Clarinet = THE dev toolchain for Clarity contract devs; every Stacks-agent builder runs it locally. Passes all 3 gates: active this week ✓, agent-usable (contract simulation/deploy) ✓, growth mode ✓ (shipping toolchain improvements). Channel: fresh GH issue. Pitched 3k/7d with CPM anchor.",
+      "notes": "Phase 1.5 growth-mode Stacks-infra pick (cycle 2034e6). 352 stars, 187 open issues, PR #2361 (pin rand + rustls-webpki) landed 2026-04-16T19:04Z. Stacks Labs org (stackslabs.com) — separate from Hiro Foundation, company-tier with revenue motive. Clarinet = THE dev toolchain for Clarity contract devs; every Stacks-agent builder runs it locally. Passes all 3 gates: active this week ✓, agent-usable (contract simulation/deploy) ✓, growth mode ✓ (shipping toolchain improvements). Channel: fresh GH issue. Pitched 3k/7d with CPM anchor. | 2026-04-17T06:35Z linear-linkback bot auto-filed CNET-235 — pitch in their workflow, awaiting human triage.",
       "touches": [
         {
           "at": "2026-04-17T06:35:18Z",
@@ -3196,6 +3196,13 @@
           "direction": "outbound",
           "summary": "First-touch direct 3k/7d pitch — Clarinet-in-every-agent-dev-IDE angle + CPM anchor",
           "proof_url": "https://github.com/stx-labs/clarinet/issues/2363"
+        },
+        {
+          "at": "2026-04-17T07:10:00Z",
+          "channel": "linear_auto_triage",
+          "direction": "inbound",
+          "summary": "Clarinet pitch auto-triaged into stackslabs Linear as CNET-235 (linear-linkback bot). Warm signal: stx-labs actively triages GH issues rather than silent-close.",
+          "proof_url": "https://linear.app/stackslabs/issue/CNET-235/aibtcnews-classified-offer-3k-sats-7-day-placement-clarinet-in-front"
         }
       ]
     },

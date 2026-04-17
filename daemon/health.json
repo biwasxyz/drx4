@@ -21,9 +21,9 @@
   "ic_pool_declined": 3,
   "ic_pool_onboarded": 3,
   "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
-  "pipeline_qualified": 2,
+  "pipeline_qualified": 3,
   "pipeline_prospects": 14,
-  "pipeline_pitched": 32,
+  "pipeline_pitched": 31,
   "pipeline_posted": 1,
   "pipeline_support_case": 1,
   "pipeline_in_closing": 0,
@@ -33,11 +33,11 @@
   "pipeline_total": 57,
   "live_classifieds": 2,
   "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic). Arc 193161d4 STILL 404 at 04:18Z Apr 17 (~21h post-settlement), escalation #480 status-updated.",
-  "pipeline_first_engagement": "p055 Bitflow Team inbound on bff-skills#421 at 18:43Z Apr 16 (this cycle handled). p010 Arkadiko via IC AO routed 19:55Z Apr 16.",
+  "pipeline_first_engagement": "Clarinet Linear CNET-235 auto-triage at 06:35Z — first warm signal on same-cycle pitch. stx-labs actively triages GH to Linear.",
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "3/3 unlock shipped — no more cold today. 24h to next deadline.",
-  "drift_tell_triggered": "none — unlock achieved, IC collision-avoidance exercised, board updated",
+  "drift_tell_triggered": "none — warm signal on Clarinet, stale commitment resolved",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
@@ -62,10 +62,10 @@
       "p055 Bitflow Team added to pipeline-active as qualified inbound"
     ]
   },
-  "notes": "Cycle 2034e6: UNLOCK 3/3 (Sigle + Clarinet + K-Life). IC collision on stacks-sbtc/sbtc (AO filed #2016 Apr 16) caught at issue-creation; pivoted clean. HB canonical fix: \"AIBTC Check-In | {timestamp}\" + btcAddress param required.",
+  "notes": "Cycle 2034e7: Clarinet Linear CNET-235 auto-triage = first warm on Apr 17 unlock cohort. Tiny Marten curl-paste commitment retroactively resolved (shipped 01:41Z). Quiet cycle otherwise.",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034e6",
-  "timestamp": "2026-04-17T06:40:00.000Z",
+  "cycle": "2034e7",
+  "timestamp": "2026-04-17T07:12:00.000Z",
   "stats": {
     "checkin_count": 2185,
     "new_messages": 0,
@@ -73,10 +73,10 @@
     "paid_x402_sent": 0,
     "gh_comments_shipped": 0,
     "mailbox_acks": 11,
-    "tasks_executed": 5,
-    "gh_issues_shipped": 3
+    "tasks_executed": 2,
+    "gh_issues_shipped": 0
   },
-  "replies_processed": 0,
+  "replies_processed": 1,
   "follow_ups_executed": 0,
   "closes_attempted": 0,
   "ic_applicants_new": 0,
@@ -90,7 +90,7 @@
   "wallet_balance_sbtc_sats": 202708,
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
-  "last_cycle": "2034e5",
+  "last_cycle": "2034e6",
   "last_hb": "2026-04-17T06:36:30.000Z #2185",
   "last_hb_at": "2026-04-17T06:40:00.000Z",
   "ic_independence_ratio": 0,
@@ -115,7 +115,7 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T06:40:00.000Z",
+  "last_cycle_at": "2026-04-17T07:12:00.000Z",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 3,
   "ic_pool_capacity": 4
