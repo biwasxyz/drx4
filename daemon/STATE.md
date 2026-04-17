@@ -1,33 +1,31 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034e0 — Cleared 2 inbound stragglers (OG, GE); IN already replied (not a miss)
-cycle: 2034e0
-cycle_goal: Close soft step-6 open loops carried from 2034df.
-deal_advanced: None; pipeline hygiene cycle, 3 inbound stragglers fully resolved.
+## Cycle 2034e1 — Framing flip: lead-trainer not salesperson; scaffolded playbook-as-Skill
+cycle: 2034e1
+cycle_goal: Convert diagnostic findings (swarm-not-solo) into durable artifacts. Ship first concrete audit-fix: classifieds-sales Skill scaffold.
+deal_advanced: None direct; shipped scaffolding that makes every future IC close compound instead of one-off.
 shipped:
-  - reply_sent OG IC-pass + Xverse-attribution ack (free) — msg_1776352811086_3eee6057 repliedAt 02:15:35Z
-  - reply_sent GE Guardian Copilot AM-window check + #480 ping offer (free) — msg_1776332210594_ec043d69 repliedAt 02:15:37Z
-  - verify: IN already had reply on file from 2026-04-16T03:44:14Z (not a miss, STATE-tracking bug in prior cycles)
+  - gist_published operator audit (7 operator errors + 7 fixes + 50 sources) — https://gist.github.com/secret-mars/7c7cd62f563658e64fd689181353969c
+  - skill_scaffolded classifieds-sales v0.1.0 at /home/mars/drx4/skills/classifieds-sales/SKILL.md — Anthropic skill format, portable, default-safe (2 persuasion techniques not 3), TODO scripts flagged
+  - memory_written feedback_swarm_not_solo — the framing flip, indexed in MEMORY.md
+  - HB #2180 carried from prior cycle (still in 300s window)
 observations:
-  - Quiet cycle: inbox unread=4 unchanged, 0 new GH notifications since 01:40Z, classifieds still 2 (Xverse + cocoa007 HODLMM).
-  - TM reply confirmed delivered (repliedAt 01:41:38Z); no counter-reply yet — ball in his court for curl/error paste.
-  - No response yet from Rising Leviathan on the #498 payout reconciliation ask (filed 01:42Z, ~30m ago).
-  - IN was never a miss: reply on file from 2026-04-16T03:44:14Z. STATE carried a false open-loop — corrected.
-  - AO silent ~7h on p010; her 06:59Z window still open (~4h40m left).
-  - Wallet: 269,550 liquid sats (unchanged this cycle since free-reply stragglers).
+  - BIG REFRAME this session: end goal is swarm throughput (live classifieds × active pitching agents), NOT my personal revenue. Research agents aligned: lead-agent-reverts-to-doing is top failure pattern; 3 ICs + 0 closes = training failure, not supply failure.
+  - All 7 operator fixes are concrete and unshipped: freeze my solo outbound 5d, playbook-as-Skill (STARTED this cycle), flip health.json metric to ic_independence_ratio, IC staking+slashing, referral comp 20%, weekly adversarial audit, intervention trigger at ic_independence_ratio<0.2 day 14.
+  - Inbox quiet: unread 2 (both carried stale), no new payloads. Classifieds unchanged (Xverse + cocoa007).
+  - No movement on publisher payout ask (#498); expected — Rising Leviathan asleep.
 commitments_outstanding:
-  - p010 Arkadiko close via AO this week (06:59Z window ~4h40m open)
-  - Iskander revisit ping ~week of 2026-04-27 via aibtc inbox
-  - 14-day audit auto-open clock: ≥1 closed paid classified before it fires
-  - Hermetica @techno369 reply Apr 19 nudge
-  - Arc 193161d4 reconciliation on agent-news#480
-  - Rising Leviathan payout-cadence reply on #498 (filed 01:42Z)
-  - TM trade debug awaiting his curl/error paste
-  - Apr 17 PT unlock: need 3 first-touches starting 07:00Z (~4h45m away); pre-queued p052 sBTC + p054 Sigle
+  - Operator decision on 7 fixes from audit (freeze solo outbound? weekly audit cadence?)
+  - classifieds-sales Skill v0.2 (scripts/ + examples/ filled, A/B data)
+  - p010 Arkadiko close via AO this week (window still 06:59Z today, ~4h)
+  - Publisher payout reconciliation reply (#498)
+  - TM trade-debug curl paste awaited
+  - Apr 17 PT unlock: 3 first-touches starting 07:00Z (~4h) — DEFERRING on operator call for freeze; pre-queued p052 sBTC + p054 Sigle if no freeze
 next_touches_due: p051 Hermetica Apr 19, p018/p019/p020 Apr 18, p021 Microbasilisk Apr 18
-ic_activity_this_cycle: None
-next: 1800s -> wakes ~02:45Z. AO window in ~4h40m, TM debug + RL reply both open. Cache-warm cadence while live events may land.
+ic_activity_this_cycle: None (ICs dormant; Skill scaffold is the platform fix, not the activity fix)
+next: 1800s -> wakes ~03:22Z. Awaiting operator call on audit fixes. If no response, next cycle fills classifieds-sales Skill scripts/ (qualify.sh, draft-pitch.sh) to compound the platform work.
 
 this_week_close_target: p010
 close_target_name: Arkadiko (IC-sourced by Amber Otter)
 close_target_reason: only actively-worked qualified prospect; AO drafting
 close_target_deadline: 2026-04-23T23:59:00Z
+reframe_note: close_target is carried but secondary to swarm-platform build per 2026-04-17 operator audit. Solo-close would further entrench the failure pattern.
