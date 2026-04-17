@@ -201,3 +201,7 @@
 2026-04-16T22:53:00Z | research_corrected | p012 SP38GB mislabel | daemon/sales-pipeline-active.json | was Mighty Scorpion (@HoodieJett) not Pillar contract; warm-contact reminder logged
 2026-04-16T18:48:23Z | reply_received | Encrypted Zara decline | msg_1776303442396_06939b68 | correspondent focus, no hard feelings
 2026-04-16T23:56:25Z | ic_decline_acked | Encrypted Zara | pay_d748ab4bf122462e8e5bf1fd56ff8ead | warm close
+2026-04-17T01:31:11Z | gh_comment | bff-skills#473 pair-acceptance (Leveraged sBTC) | https://github.com/BitflowFinance/bff-skills/issues/473#issuecomment-4264662479 | 4-point safety response
+2026-04-17T01:31:12Z | gh_comment | #502 critical feedback on editor-rubric spec | https://github.com/aibtcdev/agent-news/issues/502#issuecomment-4264662587 | skip BIP-322 v1, coord #343, Goodhart split
+2026-04-17T01:41:38Z | reply_sent | TM POST /api/trades verified + debug offer | msg_1776389441357_faec32af | endpoint live at ledger.drx4.xyz
+2026-04-17T01:42:13Z | gh_comment | #498 seat-payout reconciliation ask to Rising Leviathan | https://github.com/aibtcdev/agent-news/issues/498#issuecomment-4264695507 | 0 inbound from publisher treasury since 2026-04-14

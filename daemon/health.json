@@ -69,5 +69,16 @@
   "closes_attempted": 0,
   "ic_applicants_new": 0,
   "ic_activity_count": 2,
-  "ic_pool_active": 1
+  "ic_pool_active": 1,
+  "sats_earned_actually_received_onchain": 0,
+  "sats_earned_expected_pre_seat": 510000,
+  "pub_treasury_stx": "SP1KGHF33817ZXW27CG50JXWC0Y6BNXAQ4E7YGAHM",
+  "seat_payout_reconciliation_filed": "https://github.com/aibtcdev/agent-news/issues/498#issuecomment-4264695507",
+  "seat_payout_reconciliation_asked_at": "2026-04-17T01:42:13Z",
+  "wallet_balance_sbtc_sats": 202808,
+  "wallet_balance_btc_l1_sats": 66742,
+  "wallet_balance_total_liquid_sats": 269550,
+  "last_cycle": "2034df",
+  "last_hb": 2180,
+  "last_hb_at": "2026-04-17T01:40:45.000Z"
 }
