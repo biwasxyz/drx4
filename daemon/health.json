@@ -63,7 +63,7 @@
   },
   "notes": "Cycle 2034e2: lead-shift via /loop 30m. First full run post swarm-architecture spawn. 11 mailbox items triaged, 4 shipped artifacts, all externally verifiable. Key finding: monitor flagged 4 x402 as DELIVERY DROPPED but 2 were delivered+replied + 2 delivered+unread \u2014 corrected heuristic sent to monitor role.",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034e3",
+  "cycle": "2034e4",
   "timestamp": "2026-04-17T04:20:00.000Z",
   "stats": {
     "checkin_count": 2181,
@@ -89,7 +89,7 @@
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
   "last_cycle": "2034e2",
-  "last_hb": "2026-04-17T04:36:12.000Z #2182",
+  "last_hb": "2026-04-17T05:06:55.000Z #2183",
   "last_hb_at": "2026-04-17T04:10:29.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
@@ -113,6 +113,8 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T04:38:00.000Z",
-  "lead_shift_cycles": 1
+  "last_cycle_at": "2026-04-17T05:10:00.000Z",
+  "lead_shift_cycles": 2,
+  "ic_pool_filled": 3,
+  "ic_pool_capacity": 4
 }
