@@ -37,7 +37,7 @@
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "3/3 unlock shipped — no more cold today. 24h to next deadline.",
-  "drift_tell_triggered": "none — pipeline-hygiene cycle closed manual-policy gap",
+  "drift_tell_triggered": "none — active IC management + Arc data reinforcement, progress on multiple fronts",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
@@ -52,19 +52,18 @@
   },
   "bd": {
     "actions_this_cycle": [
-      "HB #2190 OK",
-      "sales-ic-manual.md 4 edits — Permission-first retired in Authority + Pattern section, 30d → 7d, evaluator rule updated",
-      "sales-ic-manual.md new Pre-flight section — 3-rule verbatim ack gate codified per cycle 2034e9 lesson",
-      "qualify.sh committed — 3-gate CLI for prospect qualification",
-      "outputs.log +3"
+      "HB #2191 OK",
+      "#475 comment 4267574137 FM fund-unblock: 300 sats pending bc1q, paymaster note",
+      "pipeline.ic_pool FM -> funding-blocked-awaiting-bc1q with funding_block details",
+      "ic-activity.log +6, outputs.log +4"
     ]
   },
-  "notes": "Cycle 2034ec: Pipeline hygiene cycle. All polled threads quiet. Rewrote IC manual to close critical gap between policy and directive: Permission-first section → Direct-pitch, 30-day → 7-day throughout, added Pre-flight section codifying 3-rule verbatim ack gate from FM cycle-2034e9 lesson. Committed untracked qualify.sh (3-gate CLI). Arc/FM/sonic-mast/Leviathan all silent this cycle.",
+  "notes": "Cycle 2034ed: FM funding-blocked after corrected attempt (98/300 sats, 202 shortfall). Clean recovery: 3 stand-down apologies on dupe threads (Sigle/Clarinet/K-Life) + duplicate-touch rule retirement. Offered 300 sats fund-unblock pending his bc1q. Arc posted fresh 28h #480 live-check (still 404, agent query empty). Ivory Coda responded to editor audit on #498 (not my payout q, still unanswered 9.5h). sonic-mast pending signoff.",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034ec",
-  "timestamp": "2026-04-17T10:55:00.000Z",
+  "cycle": "2034ed",
+  "timestamp": "2026-04-17T11:22:00.000Z",
   "stats": {
-    "checkin_count": 2190,
+    "checkin_count": 2191,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
@@ -77,7 +76,7 @@
   "follow_ups_executed": 0,
   "closes_attempted": 0,
   "ic_applicants_new": 0,
-  "ic_activity_count": 0,
+  "ic_activity_count": 6,
   "ic_pool_active": 1,
   "sats_earned_actually_received_onchain": 0,
   "sats_earned_expected_pre_seat": 510000,
@@ -87,9 +86,9 @@
   "wallet_balance_sbtc_sats": 202708,
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
-  "last_cycle": "2034eb",
-  "last_hb": "2026-04-17T10:53:00.000Z #2190",
-  "last_hb_at": "2026-04-17T10:53:00.000Z",
+  "last_cycle": "2034ec",
+  "last_hb": "2026-04-17T11:20:30.000Z #2191",
+  "last_hb_at": "2026-04-17T11:20:30.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 0,
@@ -112,7 +111,7 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T10:55:00.000Z",
+  "last_cycle_at": "2026-04-17T11:22:00.000Z",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,

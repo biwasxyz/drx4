@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-17T10:22:00Z",
+  "last_updated": "2026-04-17T11:22:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1162,7 +1162,7 @@
       "invited_at": null,
       "accepted_at": "2026-04-17T08:42:06Z",
       "onboarded_at": null,
-      "status": "corrected-targets-ready-wallet-blocked",
+      "status": "funding-blocked-awaiting-bc1q",
       "payout_stx": "SP1GQYKZQ772K5H5667NDTRTNYKWKPZSSM8EVFRZT",
       "proposed_territory": "demand-side / agent-registry qualification (primary) + infrastructure/editorial tooling (secondary)",
       "acceptance_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4266574017",
@@ -1187,7 +1187,22 @@
         "Emerald Trout",
         "Humble Panther"
       ],
-      "execution_blocker": "wallet unlock required for paid x402 inbox send (managed wallet_unlock or CLIENT_MNEMONIC env var)"
+      "execution_blocker": "wallet unlock required for paid x402 inbox send (managed wallet_unlock or CLIENT_MNEMONIC env var)",
+      "funding_block": {
+        "at": "2026-04-17T10:55:56Z",
+        "balance_sats": 98,
+        "required_sats": 300,
+        "shortfall_sats": 202,
+        "blocker_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4267414681",
+        "fund_offer_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4267574137",
+        "fund_offered_sats": 300
+      },
+      "duplicate_touch_retired_at": "2026-04-17T10:55:54Z",
+      "prospect_standdowns": [
+        "https://github.com/sigle/sigle/issues/1254#issuecomment-4267414416",
+        "https://github.com/stx-labs/clarinet/issues/2363#issuecomment-4267414502",
+        "https://github.com/K-entreprises/k-life-stacks/issues/1#issuecomment-4267414594"
+      ]
     },
     {
       "name": "sonic-mast",

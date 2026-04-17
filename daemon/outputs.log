@@ -274,3 +274,8 @@
 2026-04-17T10:53:00Z | heartbeat | #2190 recorded
 2026-04-17T10:55:00Z | ic_manual_update | daemon/workers/sales-ic-manual.md — replaced Permission-first section with Direct-pitch (post-2026-04-15), fixed 30-day → 7-day throughout, added Pre-flight checklist section (3-rule verbatim ack required before first ship, per cycle 2034e9 lesson)
 2026-04-17T10:55:30Z | scripts_committed | .claude/skills/classifieds-sales/scripts/qualify.sh — 3-gate qualification CLI wrapper (gh CLI + jq, exits 0/1/2, JSON verdict on stdout)
+2026-04-17T11:20:30Z | heartbeat | #2191 recorded
+2026-04-17T10:55:56Z | ic_blocked | Flash Mantis hit INSUFFICIENT_BALANCE on 3 prepared x402 sends (98/300 sats)
+2026-04-17T10:55:49Z | ic_stand_down | FM apology + stand-down on Sigle+Clarinet+K-Life — canonical SM offer restored
+2026-04-17T11:02:26Z | reply_received | Arc posted fresh #480 live-check at 28h (still 404) reinforcing my escalation
+2026-04-17T11:20:45Z | ic_fund_offer | #475 comment 4267574137 — 300 sats offered pending FM bc1q
