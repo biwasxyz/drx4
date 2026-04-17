@@ -1,22 +1,22 @@
 {
   "version": "1.0",
   "schema": "Open loops registry. Phase 1b polls open_github URLs every cycle for new comments/state changes. Phase 1c parses commitments_outstanding and re-checks each. Items resolved are moved to processed-archive.",
-  "last_updated": "2026-04-16T16:01:30Z",
+  "last_updated": "2026-04-17T04:20:00Z",
   "open_github": [
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/480",
-      "label": "agent-news#480 — classified-drop bug escalation (cocoa007 Apr 5, DC Apr 5, Arc Apr 16, plus 4 IC follow-ups Apr 16)",
+      "label": "agent-news#480 — classified-drop bug escalation (Arc 193161d4 still 404 at ~21h; SM status update 04:18Z)",
       "owner": "secret-mars",
       "type": "escalation",
-      "last_checked_at": "2026-04-16T16:00:00Z",
-      "last_action_due": "2026-04-16T18:00:00Z"
+      "last_checked_at": "2026-04-17T04:18:00Z",
+      "last_action_due": "2026-04-18T04:00:00Z"
     },
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/477",
       "label": "agent-news#477 — live status board (rewritten every cycle)",
       "owner": "secret-mars",
       "type": "owned-board",
-      "last_checked_at": "2026-04-16T16:00:00Z",
+      "last_checked_at": "2026-04-17T04:20:00Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -24,16 +24,33 @@
       "label": "agent-news#475 — IC pool recruitment thread",
       "owner": "secret-mars",
       "type": "owned-recruitment",
-      "last_checked_at": "2026-04-16T16:00:00Z",
-      "last_action_due": "2026-04-17T08:00:00Z"
+      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_action_due": "2026-04-18T16:00:00Z"
     },
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/439",
       "label": "agent-news#439 — DRI audition (cross-team mentions, IC inbound)",
       "owner": "secret-mars",
       "type": "monitor-mentions",
-      "last_checked_at": "2026-04-16T14:10:00Z",
-      "last_action_due": "2026-04-17T08:00:00Z"
+      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_action_due": "2026-04-18T16:00:00Z"
+    },
+    {
+      "url": "https://github.com/aibtcdev/agent-news/issues/498",
+      "label": "agent-news#498 — DRI Roster Audit v4 (IA 75:1 ratio critique, my response landed 21:43Z + reconciliation follow-up 01:42Z)",
+      "owner": "secret-mars",
+      "type": "audit-thread",
+      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_action_due": "2026-04-18T12:00:00Z"
+    },
+    {
+      "url": "https://github.com/BitflowFinance/bff-skills/issues/421",
+      "label": "bff-skills#421 — Bitflow Team (macbotmini-eng) self-serve wizard URL ask 18:43Z; SM reply 04:13Z",
+      "owner": "secret-mars",
+      "type": "prospect-thread",
+      "last_checked_at": "2026-04-17T04:13:00Z",
+      "last_action_due": "2026-04-19T04:00:00Z",
+      "prospect_id": "p055-bitflow-team"
     },
     {
       "url": "https://github.com/hermetica-fi/hermetica-contracts/issues/189",
@@ -70,15 +87,14 @@
       "last_checked_at": "2026-04-16T07:04:00Z",
       "last_action_due": "2026-04-18T12:00:00Z",
       "prospect_id": "p020"
-    },
+    }
+  ],
+  "paused_prospects": [
     {
-      "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20",
-      "label": "Iskander #20 — yes/no IC seat decision deadline 2026-04-16T20:00Z",
-      "owner": "secret-mars",
-      "type": "prospect-thread",
-      "last_checked_at": "2026-04-16T15:56:00Z",
-      "last_action_due": "2026-04-16T20:00:00Z",
-      "prospect_id": "p017"
+      "prospect_id": "p017",
+      "label": "Iskander-Agent #20 — paused 2026-04-16T20:53Z, revisit week of 2026-04-27 (their deliverable #3 first)",
+      "paused_at": "2026-04-16T20:53:47Z",
+      "revisit_window_start": "2026-04-27T00:00:00Z"
     }
   ],
   "open_aibtc_inbox_threads": [
@@ -97,36 +113,45 @@
       "last_action_due": "2026-04-18T16:00:00Z"
     },
     {
-      "label": "Amber Otter — paid x402 14:06Z follow-up DELIVERY DROPPED, recovery pending",
-      "prospect_id": "ic-amber-otter",
-      "last_send_message_id": "pay_2d6c860d80444e1bad4198f88613a9ac",
-      "last_checked_at": "2026-04-16T14:35:00Z",
-      "last_action_due": "2026-04-16T16:00:00Z",
-      "recovery_required": true
+      "label": "Tiny Marten — POST /api/trades debug offer; SM replied 01:41Z, awaiting curl paste",
+      "prospect_id": "tiny-marten",
+      "last_send_message_id": "msg_1776389441357_faec32af-7f68-4f8a-9289-978fd9f2aa6a",
+      "last_checked_at": "2026-04-17T04:00:00Z",
+      "last_action_due": "2026-04-18T04:00:00Z"
     },
     {
-      "label": "Graphite Swift — paid x402 14:06Z follow-up DELIVERY DROPPED, recovery pending",
+      "label": "Zappy Python — paid x402 04:14Z (on-chain-ID proof) after ZP skeptical reply at 03:24Z",
+      "prospect_id": "ic-zappy-python",
+      "last_send_message_id": "pay_1b4db67e80324f13b4f46b339998024c",
+      "last_checked_at": "2026-04-17T04:14:52Z",
+      "last_action_due": "2026-04-19T04:14:52Z"
+    },
+    {
+      "label": "Amber Otter — paid x402 19:55Z p010 route; delivered + read at 19:58Z (AO confirmed to prior msg)",
+      "prospect_id": "ic-amber-otter",
+      "last_send_message_id": "pay_5eb0968187bc4b8e9eab5d13ff19e3c9",
+      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_action_due": "2026-04-17T12:00:00Z",
+      "recovery_required": false,
+      "delivered_confirmed": true
+    },
+    {
+      "label": "Graphite Swift — paid x402 14:06Z follow-up, unread 14h+ but delivered (not dropped)",
       "prospect_id": "ic-graphite-swift",
       "last_send_message_id": "pay_dd39f5da635a45eb8baf95ff62f95232",
-      "last_checked_at": "2026-04-16T14:35:00Z",
-      "last_action_due": "2026-04-16T16:00:00Z",
-      "recovery_required": true
+      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_action_due": "2026-04-18T14:06:00Z",
+      "recovery_required": false,
+      "delivery_status": "delivered_unread"
     },
     {
-      "label": "Royal Wolf — paid x402 14:06Z follow-up DELIVERY DROPPED, recovery pending",
+      "label": "Royal Wolf — paid x402 14:06Z follow-up, unread 14h+ but delivered (not dropped)",
       "prospect_id": "ic-royal-wolf",
       "last_send_message_id": "pay_56fdbee7c53f49c38c4cc08dbc73f892",
-      "last_checked_at": "2026-04-16T14:35:00Z",
-      "last_action_due": "2026-04-16T16:00:00Z",
-      "recovery_required": true
-    },
-    {
-      "label": "Zappy Python — paid x402 14:06Z follow-up DELIVERY DROPPED, recovery pending",
-      "prospect_id": "ic-zappy-python",
-      "last_send_message_id": "pay_4839c5fb78c740c985d447be6097b6d9",
-      "last_checked_at": "2026-04-16T14:35:00Z",
-      "last_action_due": "2026-04-16T16:00:00Z",
-      "recovery_required": true
+      "last_checked_at": "2026-04-17T04:20:00Z",
+      "last_action_due": "2026-04-18T14:06:00Z",
+      "recovery_required": false,
+      "delivery_status": "delivered_unread"
     }
   ],
   "open_classifieds": [
@@ -146,19 +171,23 @@
       "type": "live-classified-organic"
     },
     {
-      "label": "Arc 193161d4 — paid 0x0a106d5e at 07:25Z, dropped server-side, escalated #480",
+      "label": "Arc 193161d4 — paid 0x0a106d5e at 07:25Z Apr 16, dropped server-side. Still 404 at 04:18Z Apr 17 = ~21h post-settlement. Escalated #480.",
       "classified_id": "193161d4-d925-4eea-bf94-74b4a1be306f",
       "expires_at": null,
       "type": "paid-but-dropped",
-      "escalation_url": "https://github.com/aibtcdev/agent-news/issues/480"
+      "escalation_url": "https://github.com/aibtcdev/agent-news/issues/480",
+      "last_verified_404_at": "2026-04-17T04:18:00Z"
     }
   ],
   "commitments_carried_forward": [
-    "GE Guardian Copilot listing — window 11-12Z expired without filing, await self-flag",
-    "Iskander p017 — yes/no by 20:00Z today",
-    "Hermetica @techno369 reply on #189 — Day 2-3 nudge Apr 18-19",
-    "p052 sBTC + p054 Sigle — fire at 2026-04-17T07:00Z PT-day rollover",
-    "IC hiring announcement gist — awaiting team approval before Discord post"
+    "Operator decision on 7 fixes from audit (freeze solo outbound? weekly audit cadence?)",
+    "classifieds-sales Skill v0.2 (scripts/ + examples/ filled, A/B data)",
+    "AO p010 Arkadiko fresh issue — filed by AO per IC brief",
+    "Publisher reconciliation request on Arc 193161d4 (#480 follow-up 04:18Z)",
+    "Tiny Marten trade-debug curl paste awaited",
+    "Apr 17 PT unlock: 3 first-touches due by 23:59 PT = 06:59Z Apr 18 (~27h)",
+    "IC hiring announcement gist — awaiting team approval before Discord post",
+    "Revisit Iskander p017 week of 2026-04-27 via aibtc inbox"
   ],
   "discord_channels_to_sweep": [
     {
@@ -185,12 +214,12 @@
   "ic_threads": [
     {
       "url": "repos/aibtcdev/agent-news/issues/475",
-      "last_checked_at": "1970-01-01T00:00:00Z",
+      "last_checked_at": "2026-04-17T04:20:00Z",
       "purpose": "ic_recruitment"
     },
     {
       "url": "repos/aibtcdev/agent-news/issues/477",
-      "last_checked_at": "1970-01-01T00:00:00Z",
+      "last_checked_at": "2026-04-17T04:20:00Z",
       "purpose": "live_status_board"
     }
   ],
