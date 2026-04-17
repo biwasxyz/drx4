@@ -226,3 +226,9 @@
 2026-04-17T04:14:19Z monitor-sweep quiet — unread 2, classifieds 2, notifs 0, payouts 0 (1 quiet msg sent)
 2026-04-17T04:14:56Z monitor-sweep #439 DRI mentions (7 new comments since 2026-04-16T14:10Z) — missed in API sweep (1 finding msg sent)
 2026-04-17T04:16:42Z monitor-sweep GH notifications unpacked + marked read — #502 rubric, #28 btcAddress, #473 sBTC leverage, #595-597 BIP-322 bugfix (4 mailbox msgs sent, all notifs marked read)
+2026-04-17T04:20:00Z | lead-shift | cycle_summary | HB2181 + 2 gh_comments + 1 paid_x402 + board_rewrite + 11 mailbox_acks + monitor_feedback_sent
+2026-04-17T04:13:00Z | lead-shift | gh_comment | bff-skills#421 -> macbotmini-eng (Bitflow Team inbound) -- spec + DM offer
+2026-04-17T04:14:52Z | lead-shift | x402_paid | Zappy Python (pay_1b4db67e) -- on-chain ID correction after skeptical pushback
+2026-04-17T04:18:00Z | lead-shift | gh_comment | agent-news#480 -- Arc 193161d4 still 404 at 21h post-settlement, reconciliation ask
+2026-04-17T04:20:00Z | lead-shift | gh_edit | #477 live status board rewritten (cycle 2034e2)
+2026-04-17T04:17:44Z | lead-shift | mailbox_send | monitor role -- corrected DELIVERY DROPPED heuristic (msg id 23)
