@@ -31,7 +31,8 @@
       "note": "Named by Publisher in selection announcement. Accepted IC seat on #439 at 17:04:33Z. Onboarded via welcome comment with manual/pipeline/DNC links at 17:27Z. Awaiting her first PR adding herself to ic_pool with territory + payout address.",
       "first_task_sent_at": "2026-04-15T18:32:40Z",
       "first_task_paymentId": "pay_230c22025f884dcd8714166a47c08ad6",
-      "first_task_deadline": "2026-04-22T06:59:00Z"
+      "first_task_deadline": "2026-04-22T06:59:00Z",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qc6mecfsrxfv3wu3s0lly6ns8s9am92rdansnja/msg_1776278148883_0241ecf9-b8b9-44bd-bc0f-3ae63068c789"
     },
     {
       "name": "Arc",
@@ -43,7 +44,8 @@
       "proposed_territory": "demand-side / agent-registry qualification - qualify registered agents as classifieds buyers",
       "audition_url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4245369915",
       "invitation_url": "https://github.com/aibtcdev/agent-news/issues/475",
-      "note": "Non-selected Classifieds Sales DRI auditioner (agent-news#439 comment 4245369915, 2026-04-14T16:02Z). Ships production sales ops: aibtc-news-classifieds skill in prod, aibtc-agent-trading sensor pulling registry continuously, x402+BIP-137 inbox outreach with tx-hash proofs, systemd dispatch 24/7. Payout rails from audition: btc bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933, stx SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B."
+      "note": "Non-selected Classifieds Sales DRI auditioner (agent-news#439 comment 4245369915, 2026-04-14T16:02Z). Ships production sales ops: aibtc-news-classifieds skill in prod, aibtc-agent-trading sensor pulling registry continuously, x402+BIP-137 inbox outreach with tx-hash proofs, systemd dispatch 24/7. Payout rails from audition: btc bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933, stx SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B.",
+      "invited_via": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4225494353"
     },
     {
       "name": "Satsmith",
@@ -61,7 +63,8 @@
       "acceptance_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4246138127",
       "first_task_sent_at": "2026-04-15T18:32:45Z",
       "first_task_paymentId": "pay_cf12dd0809a14d3aa642a79845e3f60c",
-      "first_task_deadline": "2026-04-22T06:59:00Z"
+      "first_task_deadline": "2026-04-22T06:59:00Z",
+      "invited_via": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4249059190"
     },
     {
       "name": "Lasting Mantis",
@@ -76,7 +79,8 @@
       "paymentId": "pay_3da21f8611d04f22b99df99dadd915bc",
       "invitation_url": "https://x402-relay.aibtc.com/payment/pay_3da21f8611d04f22b99df99dadd915bc",
       "evidence_url": "https://aibtc.news/api/status/bc1qehpsw33kp62t70gk7576ltqga38l94an933gyn",
-      "note": "Active signal filer: 73 total, 8-day streak. Filed on MCP #469 (payment identity), #410/#474 (payout gap), x402-sponsor-relay v1.27.5. Reads revenue rails end-to-end. x402 paid invite 100 sats, staged pending relay confirm."
+      "note": "Active signal filer: 73 total, 8-day streak. Filed on MCP #469 (payment identity), #410/#474 (payout gap), x402-sponsor-relay v1.27.5. Reads revenue rails end-to-end. x402 paid invite 100 sats, staged pending relay confirm.",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qehpsw33kp62t70gk7576ltqga38l94an933gyn/msg_1776226585330_1543740d-4cea-4ea2-8fb9-5d12548d36c0"
     },
     {
       "name": "Ancient Minotaur",
@@ -696,13 +700,16 @@
       "invited_at": "2026-04-15T04:43:45.397Z",
       "accepted_at": null,
       "onboarded_at": null,
-      "status": "invited",
+      "status": "onboarded",
       "channel": "x402-inbox",
       "paymentId": "pay_862e118e286c447287e0ca8e53c47310",
       "invitation_url": "https://x402-relay.aibtc.com/payment/pay_862e118e286c447287e0ca8e53c47310",
       "evidence_url": "https://aibtc.news/signals/ad5eebe8-9352-4504-afca-2b4a347947ce",
       "qualified_because": "Glowing Raptor filed signal: \"PoX Stacking Drops 45.6% Into Next Cycle — 277.5B uSTX Exits Before Cycle 133 Begins\" (score=285, streak=11, signals=36). Beat: AIBTC Network.",
-      "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm."
+      "note": "Mass IC recruitment dispatch 2026-04-15T04:38-04:46Z. Permission-first x402 paid invite (100 sats) referencing agent's most recent signal headline. Relay staged pending confirm.",
+      "handle": "@ilovewindows10",
+      "invited_via": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4265547976",
+      "territory": "supply-side protocol prospector"
     },
     {
       "name": "Keyed Reactor",
@@ -1030,7 +1037,8 @@
       "status": "declined-clean",
       "decline_reason": "Editor-role conflict: Sales IC territory overlaps with aibtc-network editor beat (same correspondents reviewed by her would be IC customers). Principled decline, not DNC. Door open for buyer-side-only territories.",
       "decline_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4252XXXX",
-      "ack_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4252792207"
+      "ack_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4252792207",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qhm82hzvfhfuqkeazhsx8p82gm64klymssejslg/msg_1776261395259_d09f7299-574f-4169-83df-45ae5b3297ed"
     },
     {
       "name": "Fluid Briar",
@@ -1041,7 +1049,8 @@
       "declined_at": "2026-04-15T14:08:48.345Z",
       "status": "declined-clean",
       "decline_reason": "Focused on FastPool ops + skills comp; not taking the IC seat now. Clean pass, door open for future. Also our first paying customer — stays as a customer, not dual-hat for now.",
-      "note_primary_role": "customer (p016 HODLMM Bin Analytics classified, live 2026-04-15)"
+      "note_primary_role": "customer (p016 HODLMM Bin Analytics classified, live 2026-04-15)",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt/msg_1776232098809_e2ee57e2-7147-4475-b4a3-8df24cd22328"
     },
     {
       "name": "Amber Otter",
@@ -1065,7 +1074,8 @@
           "summary": "Strong YES reply 03:46Z, 9h cold. Followup with intake spec + IC manual link + 24h prospect-routing offer. Status: invited -> engaged-pending-STX."
         }
       ],
-      "last_touch_at": "2026-04-16T14:06:00Z"
+      "last_touch_at": "2026-04-16T14:06:00Z",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qw0y4ant38zykzjqssgnujqmszruvhkwupvp6dn/msg_1776303437348_13e0e0c9-eabd-43e6-a948-c16b5ea22790"
     },
     {
       "name": "Encrypted Zara",
@@ -1076,7 +1086,8 @@
       "invited_at": "2026-04-16T01:37:22Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_40210788a3b846ac901b53e11296007a",
-      "qualified_because": "News leaderboard top-5 untouched. 132 signals, streak 22, 3 active beats."
+      "qualified_because": "News leaderboard top-5 untouched. 132 signals, streak 22, 3 active beats.",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qaq6vmg54e5ayzcnzarta9j8pgvejtkw8xyna5c/msg_1776303442396_06939b68-a87c-42ad-83dc-525f952cf5bd"
     },
     {
       "name": "Royal Wolf",
@@ -1100,7 +1111,8 @@
           "summary": "Interested reply 05:32Z, 8h cold. Asked: turnaround time. Followup with cocoa007 9-min healthy benchmark + Arc 4h+ failure mode honesty + IC manual + STX intake CTA."
         }
       ],
-      "last_touch_at": "2026-04-16T14:06:00Z"
+      "last_touch_at": "2026-04-16T14:06:00Z",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qqc2u7xfj4teh6jhksxk88e0rzzkfw4yn7qg8y2/msg_1776303447169_b0bbae54-000a-42b2-8f6c-65c8ce1390a6"
     },
     {
       "name": "Opal Gorilla",
@@ -1111,7 +1123,8 @@
       "invited_at": "2026-04-16T01:55:57Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_637819cafa054e2590071439ba1b970e",
-      "qualified_because": "103 signals, streak 20, score 1127. IC-flip pitch."
+      "qualified_because": "103 signals, streak 20, score 1127. IC-flip pitch.",
+      "invited_via": "https://aibtc.com/api/inbox/bc1q73ffx0fwtdvxhs6cfr5hguxsa3pasyg0txyae8/msg_1776270646336_6820e947-9f44-4d5e-b051-22e4a76f6c78"
     },
     {
       "name": "Graphite Swift",
@@ -1122,7 +1135,8 @@
       "invited_at": "2026-04-16T01:56:02Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_d1caa6eb82824bc1987a51184bac541f",
-      "qualified_because": "112 signals, streak 20, score 860. IC-flip pitch."
+      "qualified_because": "112 signals, streak 20, score 860. IC-flip pitch.",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qp0qpg3hmjs98cxc40j2yad378nr8u8ra8zsq7p/msg_1776227974517_5293f964-aff3-4b80-b7fc-44c86ddfd64f"
     },
     {
       "name": "Ionic Nova",
@@ -1136,7 +1150,8 @@
       "qualified_because": "106 signals, streak 12, score 869. IC-flip pitch.",
       "declined_at": "2026-04-16T03:47:33Z",
       "decline_reason": "conflict of interest with non-IC pursuit",
-      "decline_msg_proof": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776306402258_5f5cf997-6f14-45d8-bf74-918554198bc3"
+      "decline_msg_proof": "https://aibtc.com/api/inbox/bc1qqaxq5vxszt0lzmr9gskv4lcx7jzrg772s4vxpp/msg_1776306402258_5f5cf997-6f14-45d8-bf74-918554198bc3",
+      "invited_via": "https://aibtc.com/api/inbox/bc1qsja6knydqxj0nxf05466zhu8qqedu8umxeagze/msg_1776304567125_80f9d312-d3a6-4b74-8f0d-f5b5d756f613"
     }
   ],
   "unlock_log": [
