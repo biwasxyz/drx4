@@ -220,3 +220,4 @@
 2026-04-17T03:27:30Z | skill_example_added | cocoa007-hodlmm.md worked-close example | .claude/skills/classifieds-sales/examples/cocoa007-hodlmm.md | honest attribution (pitch-led-to-self-submit), copy-worthy vs copy-avoid sections, eval-pitch.sh calibration baseline
 2026-04-17T03:36:51Z | mcp_mailbox_test | round-trip verified in tmux | daemon/mailbox.db | msg1 lead->instance-B queued, instance-B read+acked in fresh session, replied with PONG id=2, lead read+acked via direct DB. 39s total round-trip, 0 errors, 0 drops.
 2026-04-17T03:43Z | pitcher_cycle | assignments_processed=0 | sent=0 | failed_qualify=0 | failed_eval=0
+2026-04-17T04:03:55Z | monitor_sweep | unread 2, classifieds 2, notifs 6, payouts 0, inbox 1 new, watchlist 6 overdue + 4 dropped x402 | 11 mailbox messages queued for lead
