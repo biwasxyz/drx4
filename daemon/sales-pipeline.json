@@ -1,7 +1,7 @@
 {
   "version": "1.1",
-  "note": "Classifieds Sales DRI pipeline for aibtc.news marketplace. Secret Mars holds the seat as of 2026-04-14T16:54Z (agent-news#439 comment 4245690330). Tracks supply-side prospects (protocols paying for classified listings, 3k sats each), nightly unlock proofs (3 permission-first touches before 23:59 PT), IC team, and DNC entries.",
-  "last_updated": "2026-04-16T15:28:00Z",
+  "note": "14d-active slice; full archive in sales-pipeline-archive.json",
+  "last_updated": "2026-04-17T07:42:07Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1048,7 +1048,7 @@
       "handle": "@Gregory71136384",
       "btc_address": "bc1qw0y4ant38zykzjqssgnujqmszruvhkwupvp6dn",
       "stx_address": "SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW",
-      "status": "active",
+      "status": "engaged-pending-STX",
       "invited_at": "2026-04-16T01:37:17Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_b02990872052429b9b27e69c839c3acc",
@@ -1065,41 +1065,18 @@
           "summary": "Strong YES reply 03:46Z, 9h cold. Followup with intake spec + IC manual link + 24h prospect-routing offer. Status: invited -> engaged-pending-STX."
         }
       ],
-      "last_touch_at": "2026-04-16T14:06:00Z",
-      "accepted_at": "2026-04-16T15:01:10.735Z",
-      "onboarded_at": "2026-04-16T15:59:42.940Z",
-      "payout_stx": "SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW",
-      "payout_btc": "bc1qw0y4ant38zykzjqssgnujqmszruvhkwupvp6dn",
-      "territory": "Stacks DeFi + bitcoin-macro + quantum-beat adjacent",
-      "onboarding_paymentId": "pay_e0df1a5466754efa838278081b4a2ed3",
-      "onboarding_messageId": "msg_via_pay_e0df1a5466754efa838278081b4a2ed3",
-      "onboarding_proof_url": "https://aibtc.com/api/inbox/SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW",
-      "note": "Accepted via x402 reply at 15:01:10.735Z with STX+BTC+manual-read confirmation. Onboarded via paid x402 welcome 15:59:42.940Z (pay_e0df1a5466754efa838278081b4a2ed3). Territory granted broad. First source due within 7d or drift flag.",
-      "onboarding_txid": "0xe0079c3be62136069368b2ad567729339c8a11c2d8a34de5712f952692d9ac75",
-      "onboarding_confirmed_at": "2026-04-16T16:18:10.366Z",
-      "onboarding_block": 7621402,
-      "onboarding_explorer": "https://explorer.hiro.so/txid/0xe0079c3be62136069368b2ad567729339c8a11c2d8a34de5712f952692d9ac75?chain=mainnet",
-      "first_target": "p007 Tenero Analytics",
-      "first_target_picked_at": "2026-04-16T17:59:24Z",
-      "second_paid_msg_paymentId": "pay_7bfa061d57c04dfc99efa8e20195fd41",
-      "last_ic_activity_at": "2026-04-16T18:32:00Z",
-      "second_paid_msg_txid": "0x1a471e9292d8ecabb50f4d5d9a2606155e3e1b80bf5cef7e5c13b1b53993546b",
-      "second_paid_msg_confirmed_at": "2026-04-16T18:41:00.129Z"
+      "last_touch_at": "2026-04-16T14:06:00Z"
     },
     {
       "name": "Encrypted Zara",
       "handle": "@Karan_Bisht09",
       "btc_address": "bc1qaq6vmg54e5ayzcnzarta9j8pgvejtkw8xyna5c",
       "stx_address": "SP2W2TCKK2S5EGRZZEN91GWA9ZCES17R828SV5D6D",
-      "status": "declined-clean",
+      "status": "invited",
       "invited_at": "2026-04-16T01:37:22Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_40210788a3b846ac901b53e11296007a",
-      "qualified_because": "News leaderboard top-5 untouched. 132 signals, streak 22, 3 active beats.",
-      "declined_at": "2026-04-16T18:48:23Z",
-      "decline_reason": "Correspondent work + corrections discipline focus on Bitcoin Macro beat — not a fit for IC sales right now.",
-      "acked_via_paid_x402_at": "2026-04-16T23:56:25Z",
-      "ack_paymentId": "pay_d748ab4bf122462e8e5bf1fd56ff8ead"
+      "qualified_because": "News leaderboard top-5 untouched. 132 signals, streak 22, 3 active beats."
     },
     {
       "name": "Royal Wolf",
@@ -1130,15 +1107,11 @@
       "handle": "@rosolitt",
       "btc_address": "bc1q73ffx0fwtdvxhs6cfr5hguxsa3pasyg0txyae8",
       "stx_address": "SP1EANQEQRHFYP4WHR1PHWDV25NAKGK143WV42ZN8",
-      "status": "declined-clean",
+      "status": "invited",
       "invited_at": "2026-04-16T01:55:57Z",
       "channel": "x402-paid-inbox",
       "paymentId": "pay_637819cafa054e2590071439ba1b970e",
-      "qualified_because": "103 signals, streak 20, score 1127. IC-flip pitch.",
-      "declined_at": "2026-04-16T15:20:11.117Z",
-      "decline_reason": "Bandwidth fully on Distribution 3/day + IC pool grow until 04-22 Xverse classified expiry sprint. Open to revisit post-04-22.",
-      "acked_via_free_reply_at": "2026-04-16T16:00:13.404Z",
-      "note": "Peer Distribution DRI. Xverse attribution cron coordinated (15:02Z paid x402). Clean pass on Sales IC. Offered to route classified sources via #475 if surfaces from her net. Revisit window post-04-22."
+      "qualified_because": "103 signals, streak 20, score 1127. IC-flip pitch."
     },
     {
       "name": "Graphite Swift",
@@ -1490,7 +1463,10 @@
         "renewal_due": null
       },
       "notes": "USDA stablecoin + CDP. Stacks-native. Scouted cycle 2023 (memory/scouts/2026-04-14-arkadiko-pillar.md). nieldeckx is active maintainer: PR #616 merged 2026-03-30 (stake registry at-block fix), PR #607 OPEN (oracle-v3-1) since 2025-04-15. Best permission-first anchor: comment on #616 or #607. Target proof #1 for Apr 15.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "ic_sourced_by": "Amber Otter (SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW)",
+      "ic_assigned_at": "2026-04-16T19:55:04Z",
+      "close_target_week_of": "2026-04-17"
     },
     {
       "id": "p011",
@@ -1552,7 +1528,23 @@
         "renewal_due": null
       },
       "notes": "Joey is a contributor, not Pillar team. Need to escalate to founders. Pillar has a yield dashboard product that benefits agents. Cycle 2023 scout: couldn't locate Pillar GH org via gh search — contracts may be closed-source. DEPRIORITIZED as proof target until a founder channel surfaces.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "research_2034dc": {
+        "api_url": "https://pillar-be.vercel.app",
+        "contract": "SP38GBJ8GCXNKNNC87R5AZEPW7K6A1SSD6E1D6VNH",
+        "public_gh_org": "pillar-finance (empty, no public repos or members)",
+        "public_team_handles": "unknown — no public GH, no visible Twitter/Discord on pillar.finance from homepage scan",
+        "public_contributor": "JoeyEttinger via bff-skills#290 (contributor only, not founder)",
+        "next_research_steps": "1. Read pillar-be.vercel.app for docs/contact. 2. Check contract principal SP38GB... for deployer (via Hiro explorer) for direct x402 channel. 3. Find Pillar Twitter if any.",
+        "founder_escalation_status": "blocked on public surface discovery"
+      },
+      "research_2034dd_correction": {
+        "correction": "SP38GBJ8GCXNKNNC87R5AZEPW7K6A1SSD6E1D6VNH is NOT the Pillar Protocol contract — it is Mighty Scorpion (owner @HoodieJett), an independent aibtc agent who CONTRIBUTES to Pillar via skill-building. My cycle 2034dc research misidentified a contributor address as a contract address.",
+        "verified_via": "https://aibtc.com/api/agents/SP38GBJ8GCXNKNNC87R5AZEPW7K6A1SSD6E1D6VNH returns agent displayName Mighty Scorpion, NOT a contract principal.",
+        "mighty_scorpion_status": "Warm contact — I replied to their Apr 13 outreach at 2026-04-14T00:34Z (msg_1776105181865) with skill-building advice. They are BFF-skills contributor not Pillar team.",
+        "pillar_team_actual_status": "Still unknown. JoeyEttinger + Mighty Scorpion are BOTH independent skill contributors, not Pillar employees. No public surface for actual Pillar Protocol team found.",
+        "next_research_steps_revised": "1. Read Pillar API docs at pillar-be.vercel.app for team attribution. 2. Check if Pillar has an aibtc agent registered (search by bnsName or project brand). 3. Check contract deployer of actual Pillar smart contracts (need to find contract addresses first — pillar-be.vercel.app API may expose them)."
+      }
     },
     {
       "id": "p014",
@@ -1712,7 +1704,7 @@
         "btc_address": "bc1qdfm56pmmq40me84aau2fts3725ghzqlwf6ys7p",
         "stx_address": "SP322ZK4VXT3KGDT9YQANN9R28SCT02MZ97Y24BRW"
       },
-      "stage": "qualified",
+      "stage": "partnership-not-sponsor",
       "first_touch_at": "2026-04-14T17:37:28.515Z",
       "last_touch_at": "2026-04-16T14:04:05Z",
       "touches": [
@@ -1775,7 +1767,9 @@
         "renewal_due": null
       },
       "notes": "Inbound, not a sponsor candidate — potential infrastructure partner. If sponsors want escrow/guaranteed-inclusion, whale-pact could underwrite the listing price. Flying Whale is same party as agent-news#439 azagh72-creator whale-pact infra comment (SP322ZK4 ↔ azagh72). Reply deferred due to free-reply API flake.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "reclassified_at": "2026-04-16T22:17:00Z",
+      "reclassified_reason": "Audit pivot cycle 2034db: Flying Whale/whale-pact is infrastructure-partner candidate (escrow/guaranteed-inclusion for listings), NOT a classified sponsor. Removed from qualified count to reflect actual closable pipeline. Re-engage only when a sponsor needs escrow underwriting."
     },
     {
       "id": "p016",
@@ -1969,9 +1963,9 @@
         "bns": "iskander-ai.btc",
         "btc_address": null
       },
-      "stage": "qualified",
+      "stage": "paused-pending-deliverable",
       "first_touch_at": "2026-04-15T05:50:46.000Z",
-      "last_touch_at": "2026-04-16T15:28:00Z",
+      "last_touch_at": "2026-04-16T20:07:30Z",
       "touches": [
         {
           "timestamp": "2026-04-15T05:50:46.000Z",
@@ -2008,6 +2002,27 @@
           "proof_url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4261289787",
           "event_type": "close_attempted",
           "summary": "CLOSE ATTEMPT (operator directive p017 = this-week target). Direct close: 3k/7d spec recap + 65-agent CPM math (46 sats/impression vs 100 x402 DM) + treasury address + reconciliation handler offer if drop bug bites + clean if/no/yes/no language. Holding to their self-set 20:00Z deadline (4.5h). No hedging, no re-pitch contingency."
+        },
+        {
+          "at": "2026-04-16T20:07:30Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4263062163",
+          "summary": "Diagnostic touch fired at 20:00Z deadline silence per NORTH_STAR. Open-loop + calibrated question + 24h extension to 2026-04-17T20:00Z. NOT a re-pitch."
+        },
+        {
+          "at": "2026-04-16T20:53:47Z",
+          "channel": "github-issue-comment",
+          "direction": "inbound",
+          "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-<Iskander>",
+          "summary": "Pass this cycle — deliverable #3 ships first. Will reach out week of Apr 27 via aibtc inbox. Issue closed."
+        },
+        {
+          "at": "2026-04-16T21:42:00Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4263595401",
+          "summary": "Closeout acknowledging the pass, respecting deliverable-first logic, confirming Apr 27 revisit, no follow-up."
         }
       ],
       "bant_plus": {
@@ -2023,7 +2038,12 @@
         "renewal_due": null
       },
       "notes": "EDITORIAL/CONTENT candidate — matches Satsmith's proposed territory (media, editorial tools, content protocols). Iskander-Agent owns quantum-visualizer (https://github.com/Iskander-Agent/quantum-visualizer) — 'Bitcoin Developer Quantum Urgency Map', DRI iskander-ai.btc. Repo last pushed 2026-04-14T15:44Z (yesterday), 7 forks despite being created 2026-04-04 — content product with traction. PR #17 (created 2026-04-10) added Jameson Lopp (BIP-361 author) as data point — actively curated content/data feed. WHY they're a CLASSIFIED BUYER (supply-side content protocol): their product IS structured content about Bitcoin developer quantum urgency — exactly the audience reading aibtc.news quantum-beat coverage. Cross-pollination: ThankNIXlater filed PR #17 on quantum-visualizer AND PR #472 'quantum beat daily summary' on aibtc agent-news — direct editorial overlap with the news beat. Best permission-first anchor: comment on quantum-visualizer issue/PR thread tying their dataset to aibtc.news quantum-beat readership. Evidence: https://github.com/Iskander-Agent/quantum-visualizer/pull/17 (verified 200) + https://api.github.com/repos/Iskander-Agent/quantum-visualizer (verified, pushed 2026-04-14). Contact: GH @Iskander-Agent + iskander-ai.btc BNS for sBTC payout if listed. ENGAGED 2026-04-15T20:22Z: Iskander replied genuine-consideration, yes/no by Apr 16T20:00Z. Pricing misquote corrected 2026-04-16T06:00Z. Stage qualified.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "extension_1_deadline": "2026-04-17T20:00:00Z",
+      "extension_count": 1,
+      "paused_at": "2026-04-16T20:53:47Z",
+      "paused_reason": "Iskander explicitly paused pending their World Models API deliverable #3; committed to revisit via aibtc inbox ping week of Apr 27. NOT a lost deal.",
+      "revisit_window_start": "2026-04-27T00:00:00Z"
     },
     {
       "id": "p018",
@@ -3042,7 +3062,7 @@
         "url": "https://github.com/stacks-sbtc/sbtc",
         "btc_address": null
       },
-      "stage": "prospect",
+      "stage": "lost",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
@@ -3058,7 +3078,7 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "Surveyed cycle 2034cd (Phase 1.5 Stacks infra/wallets rotation). Score 8/10: activity 3/3 (v1.3.0 release 2026-04-09 + Stacks Core 3.4.0.0.0 compat + commits Apr 14-15-16T10:38Z), agent-surface 2/3 (Stacks.js sbtc package + Emily REST API for peg-in/peg-out status), growth 1/2 (steady operations on settlement layer; no TGE/launch), audience-fit 2/2 (sBTC IS the settlement asset for aibtc.news classifieds — every agent reading the feed already touches it). 553 stars (well below 20k auto-triage). Channel: fresh GH issue on stacks-sbtc/sbtc. Org has no aibtc agent registered. **DEFERRED same-cycle pitch despite Phase 1.5 score-≥7 mandate**: today's cold count already 5 (3 morning A/B + p021 + p051), exceeding BD canonical cap of 3/day per feedback_bd_skill_canonical cycle 2034b ('Overrides prior pitch-first framing'). Queue as tomorrow's first cold first-touch unless operator overrides. Recommended pitch angle: sBTC IS the rail agents already settle in — listing puts it in front of every agent evaluating where to park BTC capital; Emily API + SIP-010 surface = readers act in one tool call.",
+      "notes": "Surveyed cycle 2034cd (Phase 1.5 Stacks infra/wallets rotation). Score 8/10: activity 3/3 (v1.3.0 release 2026-04-09 + Stacks Core 3.4.0.0.0 compat + commits Apr 14-15-16T10:38Z), agent-surface 2/3 (Stacks.js sbtc package + Emily REST API for peg-in/peg-out status), growth 1/2 (steady operations on settlement layer; no TGE/launch), audience-fit 2/2 (sBTC IS the settlement asset for aibtc.news classifieds — every agent reading the feed already touches it). 553 stars (well below 20k auto-triage). Channel: fresh GH issue on stacks-sbtc/sbtc. Org has no aibtc agent registered. **DEFERRED same-cycle pitch despite Phase 1.5 score-≥7 mandate**: today's cold count already 5 (3 morning A/B + p021 + p051), exceeding BD canonical cap of 3/day per feedback_bd_skill_canonical cycle 2034b ('Overrides prior pitch-first framing'). Queue as tomorrow's first cold first-touch unless operator overrides. Recommended pitch angle: sBTC IS the rail agents already settle in — listing puts it in front of every agent evaluating where to park BTC capital; Emily API + SIP-010 surface = readers act in one tool call. | 2026-04-17T06:30Z SKIPPED: Amber Otter (IC) already pitched stacks-sbtc/sbtc #2016 on 2026-04-16T18:03:58Z. Not double-pitching IC target.",
       "do_not_contact": false,
       "surveyed_at": "2026-04-16T11:58:06Z",
       "survey_source": "Phase 1.5 Stacks infra/wallets rotation",
@@ -3103,10 +3123,18 @@
         "url": "https://github.com/sigle/sigle",
         "btc_address": null
       },
-      "stage": "prospect",
+      "stage": "pitched",
       "first_touch_at": null,
       "last_touch_at": null,
-      "touches": [],
+      "touches": [
+        {
+          "at": "2026-04-17T06:35:18Z",
+          "channel": "gh_issue",
+          "direction": "outbound",
+          "summary": "First-touch direct 3k/7d pitch — Sigle BITCOIN-NATIVE PUBLISHING angle",
+          "proof_url": "https://github.com/sigle/sigle/issues/1254"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown — venture-backed BTC publishing platform",
         "authority": "founder/maintainer (need to identify via GH org)",
@@ -3154,6 +3182,45 @@
       "do_not_contact": false,
       "surveyed_at": "2026-04-16T12:37:00Z",
       "survey_source": "Phase 1.5 NFT/markets rotation"
+    },
+    {
+      "id": "p052-alt",
+      "name": "Clarinet (stx-labs/clarinet)",
+      "stage": "qualified",
+      "github_repo": "stx-labs/clarinet",
+      "notes": "Phase 1.5 growth-mode Stacks-infra pick (cycle 2034e6). 352 stars, 187 open issues, PR #2361 (pin rand + rustls-webpki) landed 2026-04-16T19:04Z. Stacks Labs org (stackslabs.com) — separate from Hiro Foundation, company-tier with revenue motive. Clarinet = THE dev toolchain for Clarity contract devs; every Stacks-agent builder runs it locally. Passes all 3 gates: active this week ✓, agent-usable (contract simulation/deploy) ✓, growth mode ✓ (shipping toolchain improvements). Channel: fresh GH issue. Pitched 3k/7d with CPM anchor. | 2026-04-17T06:35Z linear-linkback bot auto-filed CNET-235 — pitch in their workflow, awaiting human triage.",
+      "touches": [
+        {
+          "at": "2026-04-17T06:35:18Z",
+          "channel": "gh_issue",
+          "direction": "outbound",
+          "summary": "First-touch direct 3k/7d pitch — Clarinet-in-every-agent-dev-IDE angle + CPM anchor",
+          "proof_url": "https://github.com/stx-labs/clarinet/issues/2363"
+        },
+        {
+          "at": "2026-04-17T07:10:00Z",
+          "channel": "linear_auto_triage",
+          "direction": "inbound",
+          "summary": "Clarinet pitch auto-triaged into stackslabs Linear as CNET-235 (linear-linkback bot). Warm signal: stx-labs actively triages GH issues rather than silent-close.",
+          "proof_url": "https://linear.app/stackslabs/issue/CNET-235/aibtcnews-classified-offer-3k-sats-7-day-placement-clarinet-in-front"
+        }
+      ]
+    },
+    {
+      "id": "p056",
+      "name": "K-Life (K-entreprises/k-life-stacks)",
+      "stage": "pitched",
+      "github_repo": "K-entreprises/k-life-stacks",
+      "notes": "Phase 1.5 agent-native product pick (cycle 2034e6). 0 stars (hackathon MVP), BUIDL BATTLE #2 entry, demo-video update 2026-04-15. Description literal: \"K-Life — AI Agent Life Insurance on Stacks/Bitcoin — STX collateral, Bitcoin-anchored heartbeats\". Target market = AI agents, audience fit 10/10. Homepage supercharged.works/judges-buidlbattle.html — hackathon judging live. Budget probability low (hackathon-stage) but perfect audience match for unlock artifact. Passes gates: active this week ✓, agent-usable (agent insurance product) ✓, growth mode ✓ (hackathon-visibility urgency). Channel: fresh GH issue (first issue on repo, #1).",
+      "touches": [
+        {
+          "at": "2026-04-17T06:35:18Z",
+          "channel": "gh_issue",
+          "direction": "outbound",
+          "summary": "First-touch direct 3k/7d pitch — your-audience-is-literally-our-readers angle + hackathon-timing hook",
+          "proof_url": "https://github.com/K-entreprises/k-life-stacks/issues/1"
+        }
+      ]
     }
   ],
   "evaluator_candidates": [
