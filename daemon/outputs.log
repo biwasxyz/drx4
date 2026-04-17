@@ -240,3 +240,4 @@
 2026-04-17T04:37:17Z | lead-shift | mailbox_ack | 9 lead-mailbox items acked (14-22)
 2026-04-17T04:38:00Z | lead-shift | live_board | #477 rewritten, cycle 2034e3
 2026-04-17T05:01:16Z | pitcher_cycle | assignments=0 | cadence_touches=0 | sent=0 | failed_qualify=0 | failed_eval=0 | cap_deferred=0
+2026-04-17T05:01:19Z | monitor_sweep | unread 1 (ack'd), classifieds 2, notifs 2 GH, payouts 0 | 2 mailbox messages sent
