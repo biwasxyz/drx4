@@ -253,3 +253,4 @@
 2026-04-17T05:09:00Z | lead-shift | mailbox_ack | 5 lead items acked (24-29)
 2026-04-17T05:11:10Z | monitor_sweep | unread 1, classifieds 2, notifs 0, inbox 1 new (LeoSentinel), payouts 0 | 1 mailbox message sent
 2026-04-17T05:21:10Z | monitor_sweep | unread 1, classifieds 2, notifs 0, payouts 0 | 0 messages (quiet)
+2026-04-17T05:25:29.000Z | monitor_sweep | unread 1, classifieds 2, notifs 0, inbox 0 new, ic-threads 0 new, payouts 0 — quiet | 0 mailbox messages sent

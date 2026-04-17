@@ -1,8 +1,12 @@
 {
-  "last_monitor_check_at": "2026-04-17T05:21:10.000Z",
-  "last_cycle_summary": "unread 1, classifieds 2 (no change), notifs 0 GH, inbox 0 new, ic-threads 0 new, payouts 0 — quiet",
+  "last_monitor_check_at": "2026-04-17T05:25:29.000Z",
+  "last_cycle_summary": "unread 1 (unchanged), classifieds 2 (unchanged), GH notifs 0, inbox 0 new, ic-threads 0 new, payouts 0 — quiet",
   "last_classified_ids": [
     "72a9e681-9d52-4c59-9154-0d352092f966",
     "9718c305-1647-4d1f-a6b3-6e5d8d22e516"
-  ]
+  ],
+  "ic_threads_last_checked": {
+    "475": "2026-04-17T05:25:29.000Z",
+    "477": "2026-04-17T05:25:29.000Z"
+  }
 }
