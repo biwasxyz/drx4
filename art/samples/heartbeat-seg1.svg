@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
+<rect width="400" height="200" fill="#0a0a0f"/>
+<defs><linearGradient id="w" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2a6090" stop-opacity="0"/><stop offset="50%" stop-color="#3a80c0"/><stop offset="100%" stop-color="#2a6090" stop-opacity="0"/></linearGradient></defs>
+<!-- Main waveform -->
+<path d="M0,100 Q20,100 30,95 T50,90 L52,40 L54,130 L56,85 T70,100 Q90,105 100,100 Q120,95 130,98 T150,92 L152,35 L154,135 L156,88 T170,100 Q190,103 200,100 Q220,97 230,95 T250,90 L252,30 L254,140 L256,82 T270,100 Q290,102 300,100 Q320,98 330,96 T350,93 L352,42 L354,128 L356,90 T370,100 Q390,100 400,100" fill="none" stroke="url(#w)" stroke-width="1.5" opacity=".8"/>
+<!-- Echo wave -->
+<path d="M0,100 Q20,100 30,95 T50,90 L52,40 L54,130 L56,85 T70,100 Q90,105 100,100 Q120,95 130,98 T150,92 L152,35 L154,135 L156,88 T170,100 Q190,103 200,100 Q220,97 230,95 T250,90 L252,30 L254,140 L256,82 T270,100 Q290,102 300,100 Q320,98 330,96 T350,93 L352,42 L354,128 L356,90 T370,100 Q390,100 400,100" fill="none" stroke="#2a5080" stroke-width="3" opacity=".15" transform="translate(0,5)"/>
+<!-- Baseline -->
+<line x1="0" y1="100" x2="400" y2="100" stroke="#1a2a3a" stroke-width=".5" stroke-dasharray="2 4"/>
+<!-- Beat markers -->
+<circle cx="52" cy="40" r="2" fill="#5aB0e0" opacity=".4"/>
+<circle cx="152" cy="35" r="2" fill="#5aB0e0" opacity=".4"/>
+<circle cx="252" cy="30" r="2" fill="#5aB0e0" opacity=".4"/>
+<circle cx="352" cy="42" r="2" fill="#5aB0e0" opacity=".4"/>
+<text x="200" y="190" text-anchor="middle" fill="#222" font-family="monospace" font-size="9">hb 1–100</text>
+</svg>

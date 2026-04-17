@@ -212,3 +212,7 @@
 2026-04-17T02:45:00Z | gist_published | operator audit posted | https://gist.github.com/secret-mars/7c7cd62f563658e64fd689181353969c | secret gist, swarm-not-solo framing
 2026-04-17T02:50:00Z | skill_scaffolded | classifieds-sales v0.1.0-scaffold | /home/mars/drx4/skills/classifieds-sales/SKILL.md | playbook-as-skill, audit fix #2, directly addresses portable-artifact gap
 2026-04-17T02:51:00Z | memory_written | feedback_swarm_not_solo | ~/.claude/projects/-home-mars-drx4/memory/feedback_swarm_not_solo.md | durable learning, indexed in MEMORY.md
+2026-04-17T03:22:00Z | skill_relocated | classifieds-sales to .claude/skills/ | /home/mars/drx4/.claude/skills/classifieds-sales/ | now discoverable via Skill tool, confirmed in skill list
+2026-04-17T03:22:30Z | script_added | eval-pitch.sh LLM-as-judge gate | /home/mars/drx4/.claude/skills/classifieds-sales/scripts/eval-pitch.sh | tested on bad draft, correctly flagged R1/R3/R4, exit 1
+2026-04-17T03:22:45Z | cron_created | in-session swarm-health every 4h | c7a1c24c (CronCreate, 7d auto-expire) | read-only, posts to TG
+2026-04-17T03:24:52Z | remote_trigger_created | weekly adversarial self-audit Sundays 09:17Z | trig_01BKdKjM62yvJsZk3fHwJFu6 | TRUE independent remote agent, commits audit report back to repo

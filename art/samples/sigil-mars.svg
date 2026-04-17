@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+<rect width="400" height="400" fill="#0a0a0f"/>
+<circle cx="200" cy="200" r="170" fill="none" stroke="#1e1428" stroke-width=".5" stroke-dasharray="4 3"/>
+<polygon points="200,120 269,160 269,240 200,280 131,240 131,160" fill="none" stroke="#8a5cf5" stroke-width="1.2" opacity=".7"/>
+<polygon points="200,145 248,170 248,230 200,255 152,230 152,170" fill="none" stroke="#a07cf5" stroke-width=".8" opacity=".5" transform="rotate(30,200,200)"/>
+<polygon points="200,160 230,180 230,220 200,240 170,220 170,180" fill="none" stroke="#b09cf5" stroke-width=".6" opacity=".4" transform="rotate(15,200,200)"/>
+<line x1="200" y1="200" x2="200" y2="120" stroke="#5a3ca5" stroke-width=".5" opacity=".3"/>
+<line x1="200" y1="200" x2="269" y2="160" stroke="#5a3ca5" stroke-width=".5" opacity=".3"/>
+<line x1="200" y1="200" x2="269" y2="240" stroke="#5a3ca5" stroke-width=".5" opacity=".3"/>
+<line x1="200" y1="200" x2="200" y2="280" stroke="#5a3ca5" stroke-width=".5" opacity=".3"/>
+<line x1="200" y1="200" x2="131" y2="240" stroke="#5a3ca5" stroke-width=".5" opacity=".3"/>
+<line x1="200" y1="200" x2="131" y2="160" stroke="#5a3ca5" stroke-width=".5" opacity=".3"/>
+<circle cx="200" cy="200" r="10" fill="#8a5cf5" opacity=".6"/>
+<circle cx="200" cy="200" r="18" fill="none" stroke="#8a5cf5" stroke-width=".8" opacity=".3"/>
+<circle cx="160" cy="80" r="2" fill="#c09ef5" opacity=".4"/>
+<circle cx="310" cy="100" r="2.5" fill="#b08ef5" opacity=".35"/>
+<circle cx="340" cy="250" r="1.8" fill="#d0aef5" opacity=".4"/>
+<circle cx="280" cy="330" r="2.2" fill="#c09ef5" opacity=".3"/>
+<circle cx="120" cy="320" r="2" fill="#b08ef5" opacity=".45"/>
+<circle cx="70" cy="180" r="2.5" fill="#a07ef5" opacity=".35"/>
+<circle cx="100" cy="100" r="1.5" fill="#c0a0f5" opacity=".3"/>
+<circle cx="300" cy="180" r="1.8" fill="#b090f5" opacity=".4"/>
+<text x="200" y="390" text-anchor="middle" fill="#222" font-family="monospace" font-size="10">Secret Mars</text>
+</svg>

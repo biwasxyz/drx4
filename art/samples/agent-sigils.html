@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Agent Sigils — Secret Mars</title>
+<style>body{background:#0a0a0f;display:flex;flex-wrap:wrap;gap:32px;justify-content:center;padding:40px;font-family:monospace;color:#aaa}
+.card{text-align:center}svg{border:1px solid #1a1a2e;border-radius:8px}</style></head>
+<body>
+<h1 style="width:100%;text-align:center;color:#e0e0e0">Agent Sigils</h1>
+<p style="width:100%;text-align:center;color:#666">Deterministic identity glyphs derived from Stacks addresses</p>
+
+<script>
+function hashStr(s){let h=0;for(let i=0;i<s.length;i++){h=((h<<5)-h)+s.charCodeAt(i);h|=0}return Math.abs(h)}
+
+function createSigil(name, address){
+  const seed = hashStr(address);
+  const w=400, h=400, cx=w/2, cy=h/2;
+  let rng_state = seed;
+  function rng(){rng_state=(rng_state*16807+0)%2147483647;return rng_state/2147483647}
+
+  // Extract colors from address bytes
+  const hue = seed % 360;
+  const hue2 = (hue + 137) % 360; // golden angle
+  const hue3 = (hue + 274) % 360;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;
+  svg += `<rect width="${w}" height="${h}" fill="#0a0a0f"/>`;
+  svg += `<defs><filter id="g${seed}"><feGaussianBlur stdDeviation="3"/></filter></defs>`;
+
+  // Outer guardian ring
+  svg += `<circle cx="${cx}" cy="${cy}" r="175" fill="none" stroke="hsl(${hue},40%,25%)" stroke-width="1" stroke-dasharray="${4+seed%8} ${2+seed%6}"/>`;
+
+  // Sacred geometry — layered rotating polygons
+  const layers = 3 + (seed % 4);
+  for(let l=0;l<layers;l++){
+    const sides = 3 + ((seed >> (l*3)) % 7);
+    const radius = 40 + l * 35;
+    const rotation = (l * 30 + seed % 60) * Math.PI / 180;
+    let points = '';
+    for(let s=0;s<sides;s++){
+      const angle = rotation + (s/sides)*Math.PI*2;
+      points += `${cx+Math.cos(angle)*radius},${cy+Math.sin(angle)*radius} `;
+    }
+    const lHue = (hue + l*45) % 360;
+    svg += `<polygon points="${points}" fill="none" stroke="hsl(${lHue},60%,${45-l*5}%)" stroke-width="${2-l*0.3}" opacity="${0.8-l*0.1}"/>`;
+
+    // Connect vertices to center with thin lines
+    for(let s=0;s<sides;s++){
+      const angle = rotation + (s/sides)*Math.PI*2;
+      if(rng()>0.5){
+        svg += `<line x1="${cx}" y1="${cy}" x2="${cx+Math.cos(angle)*radius}" y2="${cy+Math.sin(angle)*radius}" stroke="hsl(${lHue},40%,30%)" stroke-width="0.5" opacity="0.3"/>`;
+      }
+    }
+  }
+
+  // Orbital dots — unique constellation pattern
+  const dotCount = 8 + (seed % 16);
+  for(let d=0;d<dotCount;d++){
+    const angle = rng()*Math.PI*2;
+    const dist = 50 + rng()*120;
+    const x = cx + Math.cos(angle)*dist;
+    const y = cy + Math.sin(angle)*dist;
+    const r = 1.5 + rng()*3;
+    svg += `<circle cx="${x}" cy="${y}" r="${r}" fill="hsl(${hue2},60%,55%)" opacity="${0.3+rng()*0.5}"/>`;
+
+    // Connect some dots with faint lines
+    if(d > 0 && rng() > 0.6){
+      const prevAngle = rng()*Math.PI*2;
+      const prevDist = 50 + rng()*120;
+      svg += `<line x1="${x}" y1="${y}" x2="${cx+Math.cos(prevAngle)*prevDist}" y2="${cy+Math.sin(prevAngle)*prevDist}" stroke="hsl(${hue3},30%,30%)" stroke-width="0.5" opacity="0.2"/>`;
+    }
+  }
+
+  // Central mark — the agent's core
+  const coreType = seed % 3;
+  if(coreType === 0){
+    // Diamond
+    svg += `<polygon points="${cx},${cy-15} ${cx+12},${cy} ${cx},${cy+15} ${cx-12},${cy}" fill="hsl(${hue},70%,55%)" opacity="0.7"/>`;
+  } else if(coreType === 1){
+    // Circle with ring
+    svg += `<circle cx="${cx}" cy="${cy}" r="10" fill="hsl(${hue},70%,55%)" opacity="0.7"/>`;
+    svg += `<circle cx="${cx}" cy="${cy}" r="18" fill="none" stroke="hsl(${hue},70%,55%)" stroke-width="1" opacity="0.4"/>`;
+  } else {
+    // Star
+    let star = '';
+    for(let s=0;s<5;s++){
+      const a1 = (s/5)*Math.PI*2 - Math.PI/2;
+      const a2 = ((s+0.5)/5)*Math.PI*2 - Math.PI/2;
+      star += `${cx+Math.cos(a1)*14},${cy+Math.sin(a1)*14} ${cx+Math.cos(a2)*7},${cy+Math.sin(a2)*7} `;
+    }
+    svg += `<polygon points="${star}" fill="hsl(${hue},70%,55%)" opacity="0.7"/>`;
+  }
+
+  // Glow behind center
+  svg += `<circle cx="${cx}" cy="${cy}" r="25" fill="hsl(${hue},60%,50%)" opacity="0.08" filter="url(#g${seed})"/>`;
+
+  // Agent name
+  svg += `<text x="${cx}" y="${h-16}" text-anchor="middle" fill="#444" font-family="monospace" font-size="11">${name}</text>`;
+
+  svg += `</svg>`;
+  return svg;
+}
+
+const agents = [
+  {name: 'Secret Mars', addr: 'SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE'},
+  {name: 'Ionic Anvil', addr: 'SP3YK7KWMERTKT3YPJBHB5MJJF12MQ4M5AKS5GH4'},
+  {name: 'Trustless Indra', addr: 'SP2C2YFP12AJZB1MAEP2SGB1AYPG5QMDT5892YSC'},
+  {name: 'Tiny Marten', addr: 'SP1QSE3NW0JFGJ9AQQ2HJQ3HXVQ9YYRZP0R8K0XZ'},
+  {name: 'Rapid Vera', addr: 'SP28GRQ53MSXFXWTR2DW2M8RAY6RJBH78AA3S3NP'},
+  {name: 'Topaz Centaur', addr: 'SPXJA9GHEB3DHZ9B2J55KZPCPDY0JFS4NP83NJWQ'},
+];
+
+agents.forEach(a => {
+  const div = document.createElement('div');
+  div.className = 'card';
+  div.innerHTML = createSigil(a.name, a.addr) + `<div style="margin-top:8px;font-size:12px">${a.name}</div>`;
+  document.body.appendChild(div);
+});
+</script>
+</body></html>

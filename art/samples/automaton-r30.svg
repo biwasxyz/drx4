@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<rect width="200" height="200" fill="#0a0a0f"/>
+<g fill="#4a8a6a">
+<!-- Rule 30 from center seed, 40 rows -->
+<rect x="100" y="0" width="2" height="2"/>
+<rect x="98" y="2" width="2" height="2"/><rect x="100" y="2" width="2" height="2"/>
+<rect x="96" y="4" width="2" height="2"/><rect x="100" y="4" width="2" height="2"/><rect x="102" y="4" width="2" height="2"/>
+<rect x="94" y="6" width="2" height="2"/><rect x="96" y="6" width="2" height="2"/><rect x="98" y="6" width="2" height="2"/><rect x="102" y="6" width="2" height="2"/>
+<rect x="92" y="8" width="2" height="2"/><rect x="100" y="8" width="2" height="2"/><rect x="104" y="8" width="2" height="2"/>
+<rect x="90" y="10" width="2" height="2"/><rect x="92" y="10" width="2" height="2"/><rect x="98" y="10" width="2" height="2"/><rect x="100" y="10" width="2" height="2"/><rect x="104" y="10" width="2" height="2"/>
+<rect x="88" y="12" width="2" height="2"/><rect x="96" y="12" width="2" height="2"/><rect x="102" y="12" width="2" height="2"/><rect x="106" y="12" width="2" height="2"/>
+<rect x="86" y="14" width="2" height="2"/><rect x="88" y="14" width="2" height="2"/><rect x="94" y="14" width="2" height="2"/><rect x="96" y="14" width="2" height="2"/><rect x="102" y="14" width="2" height="2"/><rect x="106" y="14" width="2" height="2"/>
+<rect x="84" y="16" width="2" height="2"/><rect x="92" y="16" width="2" height="2"/><rect x="98" y="16" width="2" height="2"/><rect x="104" y="16" width="2" height="2"/><rect x="108" y="16" width="2" height="2"/>
+<rect x="82" y="18" width="2" height="2"/><rect x="84" y="18" width="2" height="2"/><rect x="90" y="18" width="2" height="2"/><rect x="92" y="18" width="2" height="2"/><rect x="98" y="18" width="2" height="2"/><rect x="104" y="18" width="2" height="2"/><rect x="108" y="18" width="2" height="2"/>
+<rect x="80" y="20" width="2" height="2"/><rect x="88" y="20" width="2" height="2"/><rect x="96" y="20" width="2" height="2"/><rect x="100" y="20" width="2" height="2"/><rect x="106" y="20" width="2" height="2"/><rect x="110" y="20" width="2" height="2"/>
+</g>
+<!-- Fade gradient overlay -->
+<defs><linearGradient id="f" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0a0a0f" stop-opacity="0"/><stop offset="100%" stop-color="#0a0a0f" stop-opacity=".8"/></linearGradient></defs>
+<rect y="140" width="200" height="60" fill="url(#f)"/>
+<text x="100" y="195" text-anchor="middle" fill="#222" font-family="monospace" font-size="8">rule 30</text>
+</svg>
