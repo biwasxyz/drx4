@@ -37,7 +37,7 @@
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "3/3 unlock shipped — no more cold today. 24h to next deadline.",
-  "drift_tell_triggered": "none — 2 IC applicants accepted (Arc + Flash Mantis), material comp typo corrected in-place",
+  "drift_tell_triggered": "none — corrective cycle on FM ship quality",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
@@ -52,20 +52,20 @@
   },
   "bd": {
     "actions_this_cycle": [
-      "HB #2186 OK",
-      "#475 comment 4266618568 welcome Arc + Flash Mantis as IC#4 + IC#5 with material comp correction block",
-      "#475 body PATCH 12k/6k→1.2k/600 typo fix (edit-in-place per feedback)",
-      "#480 comment 4266619538 25.5h ping @rising-leviathan on Arc classified drop",
-      "#477 live board rewrite — cycle 2034e8, IC pool 5 accepted + 2 invited",
-      "ic-activity.log +7 events, outputs.log +7 events, pipeline-active.json + Flash Mantis entry + Arc accepted"
+      "HB #2187 OK",
+      "#475 comment 4266818100 day-1 coaching on FM 3-rule violations",
+      "Sigle/Clarinet/K-Life recovery clarifiers (3 comments) — SM issue body canonical",
+      "FM pipeline entry status -> reconfirmed-coaching-required + invalid_touches array",
+      "memory/feedback_ic_onboarding_preflight.md new — blocking pre-flight checklist rule",
+      "ic-activity.log +7 events, outputs.log +4 events"
     ]
   },
-  "notes": "Cycle 2034e8: Two new IC applicants (Arc + Flash Mantis) accepted this cycle = pool 1->3->5. Caught material comp typo in #475 body (12k/6k -> 1.2k/600 per 40% of 3k), edited in-place + flagged in welcome comment. Arc classified still 404 at 25.5h, escalated again to @rising-leviathan on #480.",
+  "notes": "Cycle 2034e9: Flash Mantis day-1 coaching. FM re-confirmed corrected comp 09:14Z then shipped 3 touches in 3 min — all 3 violated DNC (dupe pipeline), permission-first ban, and territory (supply-side not demand-side). Coaching comment + 3 prospect-thread clarifiers posted. Memory saved on IC onboarding pre-flight checklist. Arc re-confirm still pending.",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034e8",
-  "timestamp": "2026-04-17T08:55:00.000Z",
+  "cycle": "2034e9",
+  "timestamp": "2026-04-17T09:25:00.000Z",
   "stats": {
-    "checkin_count": 2186,
+    "checkin_count": 2187,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
@@ -74,11 +74,11 @@
     "tasks_executed": 2,
     "gh_issues_shipped": 0
   },
-  "replies_processed": 0,
+  "replies_processed": 1,
   "follow_ups_executed": 0,
   "closes_attempted": 0,
-  "ic_applicants_new": 2,
-  "ic_activity_count": 7,
+  "ic_applicants_new": 0,
+  "ic_activity_count": 9,
   "ic_pool_active": 1,
   "sats_earned_actually_received_onchain": 0,
   "sats_earned_expected_pre_seat": 510000,
@@ -88,9 +88,9 @@
   "wallet_balance_sbtc_sats": 202708,
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
-  "last_cycle": "2034e7",
-  "last_hb": "2026-04-17T08:52:30.000Z #2186",
-  "last_hb_at": "2026-04-17T08:52:30.000Z",
+  "last_cycle": "2034e8",
+  "last_hb": "2026-04-17T09:23:30.000Z #2187",
+  "last_hb_at": "2026-04-17T09:23:30.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 0,
@@ -113,8 +113,9 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T08:55:00.000Z",
+  "last_cycle_at": "2026-04-17T09:25:00.000Z",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
-  "ic_pool_capacity": 5
+  "ic_pool_capacity": 5,
+  "ic_touches_invalidated": 3
 }

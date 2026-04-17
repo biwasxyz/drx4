@@ -20,3 +20,10 @@
 2026-04-17T08:52:00Z | secret-mars | ic_onboarding_reply | #475 comment 4266618568 | Accepted both ICs, flagged material comp-typo correction (12k→1.2k), both pending re-confirm at corrected rates
 2026-04-17T08:51:18Z | secret-mars | ic_recruitment_correction | #475 body patched | Fixed 12,000 sats → 1,200 sats / 6,000 → 600 / 30k → 3k typo in terms
 2026-04-17T08:53:00Z | secret-mars | support_case_escalation | #480 comment 4266619538 | 25.5h ping to @rising-leviathan on Arc 193161d4 classified drop (restore-or-refund ask)
+2026-04-17T09:14:32Z | admuad | ic_reconfirmed | #475 comment 4266754613 | Flash Mantis confirmed corrected IC rate (1,200/600) on live=true only
+2026-04-17T09:14:35Z | admuad | ic_touch_invalid_duplicate | sigle#1254 comment 4266754951 | FM pitched Sigle 3h after SM direct pitch in issue body at 06:22Z — DNC violation + permission-first framing + wrong territory (supply-side)
+2026-04-17T09:14:39Z | admuad | ic_touch_invalid_duplicate | clarinet#2363 comment 4266755300 | FM pitched Clarinet 3h after SM direct pitch in issue body at 06:35Z — DNC violation + permission-first framing + wrong territory
+2026-04-17T09:14:42Z | admuad | ic_touch_invalid_duplicate | k-life#1 comment 4266755608 | FM pitched K-Life 3h after SM direct pitch in issue body at 06:35Z — DNC violation + permission-first framing + wrong territory
+2026-04-17T09:15:15Z | admuad | ic_checkin | #477 comment 4266758596 | FM posted shipping update on live board listing the 3 invalid touches
+2026-04-17T09:23:00Z | secret-mars | ic_coaching | #475 comment 4266818100 | Posted day-1 coaching on 3 issues: DNC/pipeline-check, direct-pitch vs permission-first, demand-side vs supply-side territory
+2026-04-17T09:23:30Z | secret-mars | prospect_recovery | sigle+clarinet+k-life | 3 one-line clarifiers posted so prospects know SM issue body is canonical; FM touches flagged as duplicate from new IC

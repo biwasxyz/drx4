@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-17T08:55:00Z",
+  "last_updated": "2026-04-17T09:25:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1162,14 +1162,23 @@
       "invited_at": null,
       "accepted_at": "2026-04-17T08:42:06Z",
       "onboarded_at": null,
-      "status": "accepted-pending-reconfirm",
+      "status": "reconfirmed-coaching-required",
       "payout_stx": "SP1GQYKZQ772K5H5667NDTRTNYKWKPZSSM8EVFRZT",
       "proposed_territory": "demand-side / agent-registry qualification (primary) + infrastructure/editorial tooling (secondary)",
       "acceptance_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4266574017",
       "check_in_url": "https://github.com/aibtcdev/agent-news/issues/477#issuecomment-4266584888",
       "ic_number": 5,
       "note": "Cold-applied to #475 this cycle accepting terms without being on the invite list. Confirmed handle + territory + payout address. Reconfirm pending at corrected 1,200/600 rate.",
-      "reconfirm_reason": "material comp typo in #475 body corrected 2026-04-17T08:51Z (12,000→1,200 / 6,000→600 / 30k→3k). Awaiting re-confirm at corrected rates."
+      "reconfirm_reason": "material comp typo in #475 body corrected 2026-04-17T08:51Z (12,000→1,200 / 6,000→600 / 30k→3k). Awaiting re-confirm at corrected rates.",
+      "reconfirmed_at": "2026-04-17T09:14:32Z",
+      "reconfirmation_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4266754613",
+      "coaching_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4266818100",
+      "coaching_reason": "Touches 1-3 at 09:14Z violated: (a) DNC duplication of Sigle/Clarinet/K-Life already-pitched by SM at 06:22Z/06:35Z, (b) permission-first framing (retired), (c) wrong territory (supply-side instead of demand-side). Touches invalidated; coaching comment posted, 3 recovery clarifiers on prospect threads. Awaiting corrected ship.",
+      "invalid_touches": [
+        "https://github.com/sigle/sigle/issues/1254#issuecomment-4266754951",
+        "https://github.com/stx-labs/clarinet/issues/2363#issuecomment-4266755300",
+        "https://github.com/K-entreprises/k-life-stacks/issues/1#issuecomment-4266755608"
+      ]
     }
   ],
   "unlock_log": [
