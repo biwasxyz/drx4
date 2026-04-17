@@ -106,6 +106,16 @@ Logs:       tail -f $REPO/daemon/outputs.log
 EOF
 
   if [[ -t 0 ]]; then
+    attach_or_switch
+  fi
+}
+
+# If we're already inside tmux, switch-client into the swarm session
+# (tmux refuses to nest attach by default). Otherwise, attach normally.
+attach_or_switch() {
+  if [[ -n "${TMUX:-}" ]]; then
+    exec tmux switch-client -t "$SESSION"
+  else
     exec tmux attach -t "$SESSION"
   fi
 }
@@ -115,7 +125,7 @@ cmd_attach() {
     echo "no swarm session running. Launch with ./swarm.sh" >&2
     exit 1
   fi
-  exec tmux attach -t "$SESSION"
+  attach_or_switch
 }
 
 cmd_stop() {
