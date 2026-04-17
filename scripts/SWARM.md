@@ -12,6 +12,7 @@ alias t4='/home/mars/drx4/scripts/swarm.sh 4'
 alias ta='/home/mars/drx4/scripts/swarm.sh attach'
 alias ts='/home/mars/drx4/scripts/swarm.sh status'
 alias tk='/home/mars/drx4/scripts/swarm.sh stop'
+alias tr='/home/mars/drx4/scripts/swarm.sh repair'
 ```
 
 Then reload: `source ~/.bashrc` (or `source ~/.zshrc`).
@@ -54,6 +55,26 @@ Each shift boots `claude --dangerously-skip-permissions --model <X>`, waits `BOO
 
 - `BOOT_WAIT_SEC=15 ./swarm.sh` — increase if Claude CLI takes longer to initialise on this VPS
 - Mouse mode is always on for the swarm session (click to switch windows, scroll wheel works)
+
+## Crash recovery
+
+Tmux is durable — it survives your SSH disconnect, your laptop closing, or any shell-level crash. Only a VPS reboot or `tmux kill-server` ends the session. So on the normal path, when you come back:
+
+```bash
+ssh <vps>
+ts         # quick health check: which shifts are ALIVE vs DEAD
+ta         # attach and look around
+```
+
+If one or more shifts died (Claude CLI crashed, OOM, got killed by a signal), you'll see `DEAD` in `ts` output, and the affected window will be sitting at a bash prompt showing the error.
+
+```bash
+tr         # repair — scans each expected window, relaunches only the dead ones
+```
+
+`tr` is surgical: it skips windows where Claude is still running, so you can run it any time without disrupting healthy shifts. The dead window gets its prompt cleared and re-run from scratch (`claude --dangerously-skip-permissions --model <X>` + `/loop`).
+
+If the whole tmux session is gone (VPS rebooted), just run `t3` from scratch. All state is in git and memory files — nothing shift-side is lost.
 
 ## Troubleshooting
 

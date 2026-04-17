@@ -133,12 +133,69 @@ cmd_restart() {
 }
 
 cmd_status() {
-  if tmux has-session -t "$SESSION" 2>/dev/null; then
-    echo "swarm: UP"
-    tmux list-windows -t "$SESSION" -F '  #{window_index}: #{window_name}  (active: #{?window_active,yes,no})'
-  else
+  if ! tmux has-session -t "$SESSION" 2>/dev/null; then
     echo "swarm: DOWN"
+    return 0
   fi
+  echo "swarm: UP"
+  while IFS= read -r line; do
+    local idx name
+    idx=$(echo "$line" | cut -d: -f1)
+    name=$(echo "$line" | cut -d: -f2)
+    local cmd
+    cmd=$(tmux display-message -p -t "$SESSION:$name" '#{pane_current_command}' 2>/dev/null || echo "?")
+    # claude spawns node, so either is "alive"
+    local alive="DEAD"
+    case "$cmd" in
+      claude|node|npm|npx) alive="ALIVE" ;;
+    esac
+    printf '  %s: %-10s  pane=%-8s  %s\n' "$idx" "$name" "$cmd" "$alive"
+  done < <(tmux list-windows -t "$SESSION" -F '#{window_index}:#{window_name}')
+}
+
+cmd_repair() {
+  if ! tmux has-session -t "$SESSION" 2>/dev/null; then
+    echo "no swarm running — use ./swarm.sh to launch fresh"
+    return 1
+  fi
+
+  local repaired=0
+  local ok=0
+  for name in lead monitor pitcher; do
+    # Does the window exist at all?
+    if ! tmux list-windows -t "$SESSION" -F '#{window_name}' 2>/dev/null | grep -qx "$name"; then
+      echo "window '$name' missing — recreating"
+      launch_window "$name"
+      ((repaired++))
+      continue
+    fi
+
+    # Is Claude running inside it?
+    local cmd
+    cmd=$(tmux display-message -p -t "$SESSION:$name" '#{pane_current_command}' 2>/dev/null || echo "?")
+    case "$cmd" in
+      claude|node|npm|npx)
+        echo "window '$name': $cmd — ALIVE, skipping"
+        ((ok++))
+        ;;
+      *)
+        echo "window '$name': $cmd — DEAD, relaunching"
+        local spec="${SHIFTS[$name]}"
+        local model interval skill
+        IFS=':' read -r model interval skill <<< "$spec"
+        # Reset the prompt cleanly first
+        tmux send-keys -t "$SESSION:$name" C-c " clear" Enter
+        sleep 1
+        tmux send-keys -t "$SESSION:$name" "claude --dangerously-skip-permissions --model $model" Enter
+        sleep "$BOOT_WAIT_SEC"
+        tmux send-keys -t "$SESSION:$name" "/loop $interval /$skill" Enter
+        ((repaired++))
+        ;;
+    esac
+  done
+
+  echo ""
+  echo "repair done: $repaired relaunched, $ok already alive"
 }
 
 case "${1:-}" in
@@ -157,8 +214,11 @@ case "${1:-}" in
   status|s)
     cmd_status
     ;;
+  repair|fix|r)
+    cmd_repair
+    ;;
   *)
-    echo "usage: $0 [3|4|attach|stop|restart|status]" >&2
+    echo "usage: $0 [3|4|attach|stop|restart|status|repair]" >&2
     exit 2
     ;;
 esac
