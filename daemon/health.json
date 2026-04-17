@@ -37,7 +37,7 @@
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "3/3 unlock shipped — no more cold today. 24h to next deadline.",
-  "drift_tell_triggered": "none — shipped send-touch.sh + skill v0.3.0-alpha completion",
+  "drift_tell_triggered": "none — shipped tenero-channel-miss example",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
@@ -52,18 +52,17 @@
   },
   "bd": {
     "actions_this_cycle": [
-      "HB #2194 OK",
-      "scripts/send-touch.sh new — multi-channel wrapper with gh automation + DNC pre-flight + x402/nostr MCP-call emission",
-      "SKILL.md v0.3.0-alpha — all 4 scripts shipped, changelog updated",
+      "HB #2195 OK",
+      "tenero-channel-miss.md shipped — example/anti-pattern with timeline + cost accounting",
       "outputs.log +2"
     ]
   },
-  "notes": "Cycle 2034f0: skill v0.3.0-alpha shipped — send-touch.sh completes the scripts layer. gh fully automated with DNC pre-flight, x402/nostr emit MCP call syntax. Smoke tests: gh DNC reject on stx-labs/clarinet (uses yesterdays first DNC entry), x402 clean, nostr clean. All 4 scripts shipped. Quiet on all polled threads (Arc no pre-flight, FM no bc1q, sonic-mast no signoff, Leviathan 30h/11.5h silent).",
+  "notes": "Cycle 2034f1: tenero-channel-miss.md shipped — anti-example documenting 2026-04-16 AO/Tenero miss (no public GH repo, no Twitter API fallback, 200 sats + 2 round-trips burned). 2/3 example transcripts now shipped (cocoa007 + tenero; arc0btc still TODO). All polled threads quiet.",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034f0",
-  "timestamp": "2026-04-17T14:05:00.000Z",
+  "cycle": "2034f1",
+  "timestamp": "2026-04-17T14:36:00.000Z",
   "stats": {
-    "checkin_count": 2194,
+    "checkin_count": 2195,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
@@ -86,9 +85,9 @@
   "wallet_balance_sbtc_sats": 202708,
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
-  "last_cycle": "2034ef",
-  "last_hb": "2026-04-17T14:03:30.000Z #2194",
-  "last_hb_at": "2026-04-17T14:03:30.000Z",
+  "last_cycle": "2034f0",
+  "last_hb": "2026-04-17T14:35:00.000Z #2195",
+  "last_hb_at": "2026-04-17T14:35:00.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 0,
@@ -111,7 +110,7 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T14:05:00.000Z",
+  "last_cycle_at": "2026-04-17T14:36:00.000Z",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,

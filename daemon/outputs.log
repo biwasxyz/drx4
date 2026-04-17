@@ -288,3 +288,5 @@
 2026-04-17T13:32:30Z | dnc_added | First DNC entry: stx-labs / Clarinet (maintainer spam-close)
 2026-04-17T14:03:30Z | heartbeat | #2194 recorded
 2026-04-17T14:04:00Z | skill_v0.3.0 | .claude/skills/classifieds-sales/scripts/send-touch.sh shipped + SKILL.md v0.3.0-alpha — multi-channel send wrapper. gh fully automated via gh issue create with DNC pre-flight (grep repo against daemon/sales-dnc.md). x402/nostr emit MCP tool-call syntax for paste. Smoke-tested: x402 (clean output), nostr, gh DNC reject on stx-labs/clarinet (first DNC entry). All 4 scripts now shipped.
+2026-04-17T14:35:00Z | heartbeat | #2195 recorded
+2026-04-17T14:35:30Z | skill_example | .claude/skills/classifieds-sales/examples/tenero-channel-miss.md shipped — anti-example documenting 2026-04-16 channel-routing miss with Amber Otter / p007 Tenero: 2 x402 paid sends burned (200 sats), 2 round-trips, 0 first-touches. Cross-references memory/feedback_ic_channel_routing.md. 2/3 example transcripts now shipped (arc0btc still TODO).
