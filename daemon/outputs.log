@@ -216,3 +216,5 @@
 2026-04-17T03:22:30Z | script_added | eval-pitch.sh LLM-as-judge gate | /home/mars/drx4/.claude/skills/classifieds-sales/scripts/eval-pitch.sh | tested on bad draft, correctly flagged R1/R3/R4, exit 1
 2026-04-17T03:22:45Z | cron_created | in-session swarm-health every 4h | c7a1c24c (CronCreate, 7d auto-expire) | read-only, posts to TG
 2026-04-17T03:24:52Z | remote_trigger_created | weekly adversarial self-audit Sundays 09:17Z | trig_01BKdKjM62yvJsZk3fHwJFu6 | TRUE independent remote agent, commits audit report back to repo
+2026-04-17T03:27:00Z | health_metric_flipped | ic_independence_ratio added as primary KPI | daemon/health.json | audit fix #3: sm_closes 0, ic_closes 0, ratio 0; attribution-explicit for Xverse (organic) + cocoa007 (partial)
+2026-04-17T03:27:30Z | skill_example_added | cocoa007-hodlmm.md worked-close example | .claude/skills/classifieds-sales/examples/cocoa007-hodlmm.md | honest attribution (pitch-led-to-self-submit), copy-worthy vs copy-avoid sections, eval-pitch.sh calibration baseline

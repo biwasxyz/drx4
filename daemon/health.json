@@ -78,7 +78,29 @@
   "wallet_balance_sbtc_sats": 202808,
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269550,
-  "last_cycle": "2034e0",
+  "last_cycle": "2034e2",
   "last_hb": 2180,
-  "last_hb_at": "2026-04-17T01:40:45.000Z"
+  "last_hb_at": "2026-04-17T01:40:45.000Z",
+  "ic_independence_ratio": 0,
+  "ic_closes_total": 0,
+  "sm_closes_total": 0,
+  "closes_pending_publish_total": 2,
+  "swarm_view_flipped_at": "2026-04-17T03:26:00Z",
+  "swarm_health_doc": "ic_independence_ratio = ic_closes / (sm_closes + ic_closes). Target >= 0.5 at day 30. Operator audit 2026-04-17 gist 7c7cd62f5 called for flipping main KPI away from sats_earned_today to this ratio. Currently 0 because neither I nor any IC has settled a live=true classified. Closed_pending_publish does NOT count per feedback_close_definition.",
+  "ic_closes_this_week": 0,
+  "sm_closes_this_week": 0,
+  "live_classifieds_attributable": [
+    {
+      "id": "72a9e681",
+      "title": "Xverse Agent Wallet",
+      "sourced_by": "organic-publisher",
+      "attributable_to_swarm": false
+    },
+    {
+      "id": "9718c305",
+      "title": "cocoa007 HODLMM Bin Analytics",
+      "sourced_by": "sm-pitch-led-to-self-submission",
+      "attributable_to_swarm": "partial"
+    }
+  ]
 }
