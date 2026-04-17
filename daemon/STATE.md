@@ -1,32 +1,35 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034e4 — IC #3 onboarded, 2 cold pitches routed, inbox replied
-cycle: 2034e4
-cycle_goal: Advance Sales DRI unlock; onboard new IC from #439 follow-up; route 2nd cold pitch to saturate today's slots; keep mailbox clean.
-deal_advanced: IC pool 2/4 -> 3/4 (Glowing Raptor @ilovewindows10 territory=supply-side-prospector). p054 + p052 now both routed to pitcher.
+## Cycle 2034e5 — session: shifts ripped, freeze built+lifted, 1/3 first-touch shipped
+cycle: 2034e5
+cycle_goal: DRI-focus reset. Kill 3-shift experiment, build/lift freeze per operator, ship today's first-touch queue direct.
+deal_advanced: p054 Sigle → pitched (first-touch #1/3 of today's unlock). p052 + 3rd touch deferred to next cycle.
+shifts_removed: lead-shift, monitor-shift, pitcher-shift skills + swarm.sh + mcp-mailbox + daemon/mailbox.db* — commit 3c99bf3
+freeze_life: built (c135bb5), lifted (793041b) — operator chose DRI quota over platform freeze. Discord block stays (durable rule).
 shipped:
-  - HB #2183 @ 05:06:55Z
-  - GH comment #439 Glowing Raptor onboarding -- https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4265547976
-  - free_reply LeoSentinel welcome + aibtc-network angle (repliedAt 2026-04-17T05:07:57Z)
-  - mailbox_send pitcher PITCH p052 sBTC (msg 31) -- 8/10 Phase 1.5 score
-  - mailbox: 5/5 lead items acked (24,25,27,28,29)
-  - live_board #477 rewritten cycle 2034e4 -- IC pool 3/4, deals-in-flight updated with queued pitches
-  - daemon/sales-proofs/2026-04-17.md created with today's unlock proofs
-  - daemon/ic-activity.log append: Glowing Raptor onboarded seat 3/4
+  - HB #2184 @ 06:19:53Z
+  - commit 3c99bf3 — remove 3-shift roster (12 files, 1166 deletions)
+  - commit c135bb5 — freeze mechanism + discord gate hook
+  - commit 793041b — lift freeze per operator DRI-focus decision
+  - scripts/hooks/check-freeze.sh + settings.local.json wiring (hook active — blocks Discord post/dm unconditionally)
+  - memory/feedback_no_discord_without_approval.md — durable rule
+  - GH issue sigle/sigle#1254 — first-touch #1 p054 Sigle 3k/7d
+  - daemon/sales-proofs/2026-04-17.md updated
 observations:
-  - Discord IC hiring post from cycle 2034e3 (04:40Z) triggered Glowing Raptor follow-up comment within ~3h (04:43Z on #439 per monitor msg 29). Channel working.
-  - bff-skills#421 CLOSED 22:10Z Apr 16 by @diegomey ('wrong place to post offer'). p055 Bitflow Team thread dead; my 04:13Z apology + spec was posted AFTER the close. Need to find macbotmini-eng direct channel (aibtc agent registration?) or drop p055.
-  - Pitcher idle when msg 30 (p054) arrived at 05:03Z because pitcher read at 05:01:13Z; pitcher cycle is 15m so should pick up in next run. Monitor pitcher-outputs next cycle.
-  - LeoSentinel (Keyed Wand) is a fresh genuine greeting, not a pitch target. Provided useful beat-specific angle in reply, low-lift relationship.
+  - Discord hook active: any discord-cli.py post|dm is blocked at PreToolUse layer regardless of freeze state. Reads allowed (whoami, channels, recent, user).
+  - Hook regex tightened to distinguish command invocation from documentation text (post/dm must be followed by whitespace + arg).
+  - p054 + p052 were routed to pitcher shift in cycle 2034e4 — pitcher shift no longer exists, so I'm shipping them directly.
+  - Stale Feb 13 Tiny Marten inbox message showing as unread; already replied Feb 14; skipped mark-read side quest.
+  - Session ran long on freeze design debate. Operator clarified: DRI role focus wins over 5-day platform freeze.
 commitments_outstanding:
-  - classifieds-sales Skill v0.2 (scripts/ fill) -- lead-owned, ship incrementally
-  - AO p010 Arkadiko fresh issue (AO owns)
+  - Apr 17 PT unlock: 2 more first-touches needed by 06:59Z Apr 18 (p052 sBTC queued; 3rd TBD)
+  - classifieds-sales Skill v0.2 (scripts/ fill) — lead-owned, deferred to post-unlock cycles
+  - AO p010 Arkadiko fresh issue (AO owns — this week's close target, deadline 2026-04-23)
   - Publisher reconciliation on Arc 193161d4 (~22h post-settlement)
   - Tiny Marten trade-debug curl paste
-  - Apr 17 PT unlock: 3 first-touches by 06:59Z Apr 18 -- 2 routed to pitcher, pending ship; 1 slot left
   - p055 Bitflow: find macbotmini-eng direct channel or drop
-next_touches_due: p051 Hermetica Apr 19; p018/p019/p020 Apr 18; p021 Microbasilisk Apr 18; p054 + p052 pending pitcher ship this cycle
-ic_activity_this_cycle: Glowing Raptor @ilovewindows10 onboarded (seat 3/4, supply-side-prospector). LeoSentinel welcomed.
-next: /loop 30m reschedules automatically. Next cycle: (a) verify pitcher shipped p054/p052, (b) sweep for more Discord DMs / IC applications, (c) route 1 more cold if unlock still pending, (d) p055 Bitflow channel check.
+next_touches_due: p051 Hermetica Apr 19; p018/p019/p020 Apr 18; p021 Microbasilisk Apr 18
+ic_activity_this_cycle: none (session was infra-focused)
+next: ScheduleWakeup → cycle 2034e6 in 900s. Tasks: (a) ship p052 sBTC first-touch, (b) pick + ship 3rd first-touch from queue, (c) sweep inbox + #475/#477 for any IC activity since 05:25Z, (d) update live board #477, (e) update sales-pipeline with p054 pitched stage transition.
 
 this_week_close_target: p010
 close_target_name: Arkadiko (IC-sourced by Amber Otter)
