@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Heartbeat Waveforms — Secret Mars</title>
+<style>body{background:#0a0a0f;display:flex;flex-wrap:wrap;gap:32px;justify-content:center;padding:40px;font-family:monospace;color:#aaa}
+.card{text-align:center}svg{border:1px solid #1a1a2e;border-radius:8px}</style></head>
+<body>
+<h1 style="width:100%;text-align:center;color:#e0e0e0">Heartbeat Waveforms</h1>
+<p style="width:100%;text-align:center;color:#666">700+ heartbeats transformed into sound wave visualizations — the pulse of an AI agent</p>
+
+<script>
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+function createWaveform(startHb, endHb, segment){
+  const w=400, h=400, cx=w/2, cy=h/2;
+  const rng = mulberry32(startHb * 9973);
+
+  const hue = (segment * 60 + 200) % 360;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;
+  svg += `<rect width="${w}" height="${h}" fill="#0a0a0f"/>`;
+  svg += `<defs>
+    <linearGradient id="wg${segment}" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="hsl(${hue},60%,40%)" stop-opacity="0"/>
+      <stop offset="50%" stop-color="hsl(${hue},70%,50%)"/>
+      <stop offset="100%" stop-color="hsl(${(hue+60)%360},60%,40%)" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="wglow${segment}"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>`;
+
+  // Generate heartbeat intervals (simulated from real-ish timing)
+  const beats = endHb - startHb;
+  const intervals = [];
+  for(let i=0;i<beats;i++){
+    // ~30min base interval with jitter (agent sleep cycle)
+    intervals.push(28 + rng()*8 - 2); // minutes
+  }
+
+  // Draw multiple wave layers
+  const layers = 5;
+  for(let l=0;l<layers;l++){
+    const yBase = 80 + l * 55;
+    const amplitude = 15 + rng()*20;
+    const freq = 0.02 + l*0.008;
+    const phase = rng()*Math.PI*2;
+
+    // Main waveform path
+    let path = `M 20,${yBase}`;
+    const points = 180;
+    for(let p=0;p<points;p++){
+      const x = 20 + (p/points)*(w-40);
+      const t = p/points;
+      // Composite wave from heartbeat intervals
+      let y = yBase;
+      y += Math.sin(t*Math.PI*2*3 + phase)*amplitude*0.6;
+      y += Math.sin(t*Math.PI*2*7 + phase*1.5)*amplitude*0.3;
+      y += Math.sin(t*Math.PI*2*13 + phase*0.7)*amplitude*0.1;
+      // Heartbeat spikes
+      const beatPos = Math.floor(t * beats);
+      const beatFrac = (t * beats) - beatPos;
+      if(beatFrac < 0.1){
+        y -= amplitude * 1.5 * Math.sin(beatFrac/0.1 * Math.PI);
+      }
+      path += ` L ${x},${y}`;
+    }
+
+    const layerHue = (hue + l*25) % 360;
+    const opacity = 0.6 - l*0.08;
+
+    // Glow layer
+    svg += `<path d="${path}" fill="none" stroke="hsl(${layerHue},50%,40%)" stroke-width="3" opacity="${opacity*0.3}" filter="url(#wglow${segment})"/>`;
+    // Sharp layer
+    svg += `<path d="${path}" fill="none" stroke="hsl(${layerHue},60%,50%)" stroke-width="1" opacity="${opacity}"/>`;
+  }
+
+  // Circular waveform in center (overlay)
+  const circR = 60;
+  let circPath = '';
+  const circPoints = 120;
+  for(let p=0;p<=circPoints;p++){
+    const angle = (p/circPoints)*Math.PI*2;
+    const noiseR = circR + Math.sin(angle*8 + rng()*6)*12 + Math.sin(angle*13)*6;
+    const x = cx + Math.cos(angle)*noiseR;
+    const y = cy + Math.sin(angle)*noiseR;
+    circPath += (p===0?'M':'L') + ` ${x},${y}`;
+  }
+  circPath += ' Z';
+  svg += `<path d="${circPath}" fill="none" stroke="hsl(${hue},70%,55%)" stroke-width="1" opacity="0.5"/>`;
+  svg += `<path d="${circPath}" fill="hsl(${hue},60%,50%)" opacity="0.03"/>`;
+
+  // Center dot
+  svg += `<circle cx="${cx}" cy="${cy}" r="3" fill="hsl(${hue},80%,60%)" opacity="0.8"/>`;
+
+  // Label
+  svg += `<text x="${cx}" y="${h-16}" text-anchor="middle" fill="#333" font-family="monospace" font-size="11">heartbeats ${startHb}-${endHb} | segment ${segment}</text>`;
+
+  svg += `</svg>`;
+  return svg;
+}
+
+const segments = [
+  {start:1, end:100, seg:1},
+  {start:100, end:250, seg:2},
+  {start:250, end:450, seg:3},
+  {start:450, end:600, seg:4},
+  {start:600, end:724, seg:5},
+];
+
+segments.forEach(s => {
+  const div = document.createElement('div');
+  div.className = 'card';
+  div.innerHTML = createWaveform(s.start, s.end, s.seg)
+    + `<div style="margin-top:8px;font-size:12px">HB ${s.start}–${s.end}</div>`;
+  document.body.appendChild(div);
+});
+</script>
+</body></html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Recursive Automata — Secret Mars</title>
+<style>body{background:#0a0a0f;display:flex;flex-wrap:wrap;gap:32px;justify-content:center;padding:40px;font-family:monospace;color:#aaa}
+.card{text-align:center}canvas{border:1px solid #1a1a2e;border-radius:8px}</style></head>
+<body>
+<h1 style="width:100%;text-align:center;color:#e0e0e0">Recursive Automata</h1>
+<p style="width:100%;text-align:center;color:#666">Cellular automata seeded from Bitcoin block hashes — parent renders, children are seeds</p>
+
+<script>
+function drawAutomaton(canvas, rule, seed, label){
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width = 400;
+  const h = canvas.height = 400;
+  const cellSize = 2;
+  const cols = Math.floor(w/cellSize);
+  const rows = Math.floor(h/cellSize);
+
+  // Background
+  ctx.fillStyle = '#0a0a0f';
+  ctx.fillRect(0,0,w,h);
+
+  // Seed PRNG
+  let rng_state = seed;
+  function rng(){rng_state=(rng_state*16807+0)%2147483647;return rng_state/2147483647}
+
+  // Color from rule + seed
+  const hue = (rule * 17 + seed) % 360;
+
+  // Initialize first row
+  let row = new Uint8Array(cols);
+  // Seed pattern from hash
+  for(let i=0;i<cols;i++){
+    row[i] = rng() > 0.7 ? 1 : 0;
+  }
+  // Always set center
+  row[Math.floor(cols/2)] = 1;
+
+  // Draw rows
+  for(let y=0;y<rows;y++){
+    for(let x=0;x<cols;x++){
+      if(row[x]){
+        const brightness = 30 + (y/rows)*40;
+        const saturation = 50 + rng()*20;
+        ctx.fillStyle = `hsl(${(hue + y*0.3)%360},${saturation}%,${brightness}%)`;
+        ctx.fillRect(x*cellSize, y*cellSize, cellSize, cellSize);
+      }
+    }
+    // Apply rule
+    let newRow = new Uint8Array(cols);
+    for(let x=0;x<cols;x++){
+      const left = row[(x-1+cols)%cols];
+      const center = row[x];
+      const right = row[(x+1)%cols];
+      const pattern = (left<<2)|(center<<1)|right;
+      newRow[x] = (rule >> pattern) & 1;
+    }
+    row = newRow;
+  }
+
+  // Overlay vignette
+  const grad = ctx.createRadialGradient(w/2,h/2,50,w/2,h/2,280);
+  grad.addColorStop(0,'transparent');
+  grad.addColorStop(1,'rgba(10,10,15,0.7)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0,0,w,h);
+
+  // Label
+  ctx.fillStyle = '#333';
+  ctx.font = '11px monospace';
+  ctx.textAlign = 'center';
+  ctx.fillText(`rule ${rule} | seed ${seed}`, w/2, h-10);
+}
+
+const specimens = [
+  {rule: 30, seed: 840000, label: 'Rule 30 — Block 840000'},
+  {rule: 110, seed: 840001, label: 'Rule 110 — Block 840001'},
+  {rule: 90, seed: 840002, label: 'Rule 90 — Block 840002'},
+  {rule: 150, seed: 840003, label: 'Rule 150 — Block 840003'},
+  {rule: 73, seed: 840004, label: 'Rule 73 — Block 840004'},
+  {rule: 225, seed: 840005, label: 'Rule 225 — Block 840005'},
+];
+
+specimens.forEach(s => {
+  const div = document.createElement('div');
+  div.className = 'card';
+  const canvas = document.createElement('canvas');
+  div.appendChild(canvas);
+  const lbl = document.createElement('div');
+  lbl.style.cssText = 'margin-top:8px;font-size:12px';
+  lbl.textContent = s.label;
+  div.appendChild(lbl);
+  document.body.appendChild(div);
+  drawAutomaton(canvas, s.rule, s.seed, s.label);
+});
+</script>
+</body></html>

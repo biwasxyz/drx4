@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gradient Seeker — Portrait of an Operator</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; overflow: hidden; }
+  canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+// =============================================================
+// GRADIENT SEEKER
+// Algorithmic portrait — particles that don't seek stability,
+// but seek gradient. Drawn to where things change fastest.
+// =============================================================
+
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+let W, H;
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+// --- Deterministic seed from STX address ---
+const ADDR = 'SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE';
+function seedHash(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) {
+    h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+  }
+  return Math.abs(h);
+}
+let _seed = seedHash(ADDR);
+function seededRandom() {
+  _seed = (_seed * 16807 + 0) % 2147483647;
+  return (_seed - 1) / 2147483646;
+}
+
+// --- Simplex-ish noise ---
+function noise2D(x, y) {
+  const n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+  return n - Math.floor(n);
+}
+function fbm(x, y, octaves) {
+  let val = 0, amp = 0.5, freq = 1;
+  for (let i = 0; i < octaves; i++) {
+    val += amp * (noise2D(x * freq, y * freq) * 2 - 1);
+    amp *= 0.5; freq *= 2.1;
+  }
+  return val;
+}
+
+// --- Attractor basins (domains of life) ---
+// Each has a position, color, label, gradient intensity, and decay rate
+const basins = [
+  { label: 'protocol',   color: [156, 100, 255], x: 0.15, y: 0.25, strength: 1.2, volatility: 0.8  },
+  { label: 'finance',    color: [255, 159, 28],  x: 0.82, y: 0.20, strength: 1.0, volatility: 0.9  },
+  { label: 'product',    color: [72, 219, 251],  x: 0.25, y: 0.75, strength: 0.9, volatility: 0.7  },
+  { label: 'enterprise', color: [108, 192, 74],  x: 0.72, y: 0.70, strength: 0.8, volatility: 0.6  },
+  { label: 'agents',     color: [255, 71, 87],   x: 0.50, y: 0.35, strength: 1.4, volatility: 1.0  },
+  { label: 'ordinals',   color: [255, 107, 53],  x: 0.38, y: 0.55, strength: 0.7, volatility: 0.85 },
+];
+
+// The new gravitational well — family. Different kind entirely.
+const familyBasin = {
+  label: 'family',
+  color: [255, 223, 128],
+  x: 0.55, y: 0.58,
+  strength: 2.0,
+  volatility: 0.1,  // low volatility — this one holds
+  warmth: 1.0,
+};
+
+// --- Time-varying gradient field ---
+// The gradient at each basin pulses — representing windows of opportunity
+function basinGradient(basin, time) {
+  const pulse = Math.sin(time * basin.volatility + seedHash(basin.label) * 0.001) * 0.5 + 0.5;
+  const surge = Math.pow(pulse, 3); // sharp peaks — inflection points
+  return basin.strength * (0.3 + 0.7 * surge);
+}
+
+function familyGradient(time) {
+  // Family doesn't pulse like the others — it grows steadily, like a tide
+  const growth = Math.min(1.0, time * 0.008);
+  const warmPulse = Math.sin(time * 0.15) * 0.1 + 0.9;
+  return familyBasin.strength * growth * warmPulse;
+}
+
+// --- Particles: gradient seekers ---
+const PARTICLE_COUNT = 180; // ~one per 1800 sats of the 320k balance
+const particles = [];
+
+class Particle {
+  constructor() {
+    this.reset();
+    this.trail = [];
+    this.maxTrail = 60 + Math.floor(seededRandom() * 40);
+    this.hue = seededRandom() * 360;
+    this.currentBasin = null;
+    this.residenceTime = 0;
+    this.maxResidence = 80 + seededRandom() * 200; // short residence times
+    this.brightness = 0.3 + seededRandom() * 0.7;
+    this.size = 1 + seededRandom() * 2;
+    this.buildMode = false; // when near a basin, briefly builds structure
+    this.buildTrail = [];
+  }
+
+  reset() {
+    this.x = seededRandom() * W;
+    this.y = seededRandom() * H;
+    this.vx = (seededRandom() - 0.5) * 2;
+    this.vy = (seededRandom() - 0.5) * 2;
+    this.residenceTime = 0;
+    this.currentBasin = null;
+    this.buildMode = false;
+    this.buildTrail = [];
+  }
+
+  findStrongestGradient(time) {
+    let maxGrad = -Infinity;
+    let bestBasin = null;
+    let bestDx = 0, bestDy = 0;
+
+    const allBasins = [...basins, familyBasin];
+    for (const b of allBasins) {
+      const bx = b.x * W;
+      const by = b.y * H;
+      const dx = bx - this.x;
+      const dy = by - this.y;
+      const dist = Math.sqrt(dx * dx + dy * dy) + 1;
+
+      const grad = b === familyBasin
+        ? familyGradient(time) / (dist * 0.5)
+        : basinGradient(b, time) / dist;
+
+      // Key insight: attracted to gradient CHANGE, not just proximity
+      const gradRate = b === familyBasin
+        ? familyGradient(time + 0.1) - familyGradient(time)
+        : basinGradient(b, time + 0.1) - basinGradient(b, time);
+
+      const score = grad * 50 + Math.abs(gradRate) * 8000;
+
+      if (score > maxGrad) {
+        maxGrad = score;
+        bestBasin = b;
+        bestDx = dx / dist;
+        bestDy = dy / dist;
+      }
+    }
+    return { basin: bestBasin, dx: bestDx, dy: bestDy, strength: maxGrad };
+  }
+
+  update(time) {
+    const target = this.findStrongestGradient(time);
+
+    // Noise-based wandering (the explorer instinct)
+    const noiseAngle = fbm(this.x * 0.003, this.y * 0.003 + time * 0.05, 4) * Math.PI * 4;
+    const noiseForce = 0.3;
+
+    // Gradient-seeking force
+    const seekForce = target.basin === familyBasin ? 0.08 : 0.05;
+
+    this.vx += Math.cos(noiseAngle) * noiseForce + target.dx * seekForce;
+    this.vy += Math.sin(noiseAngle) * noiseForce + target.dy * seekForce;
+
+    // Damping
+    this.vx *= 0.96;
+    this.vy *= 0.96;
+
+    this.x += this.vx;
+    this.y += this.vy;
+
+    // Check proximity to basins
+    const bx = target.basin.x * W;
+    const by = target.basin.y * H;
+    const dist = Math.sqrt((bx - this.x) ** 2 + (by - this.y) ** 2);
+
+    if (dist < 80) {
+      if (this.currentBasin !== target.basin) {
+        this.currentBasin = target.basin;
+        this.residenceTime = 0;
+        this.buildMode = true;
+        this.buildTrail = [];
+      }
+      this.residenceTime++;
+
+      // Build visible structure while resident
+      if (this.buildMode) {
+        this.buildTrail.push({ x: this.x, y: this.y });
+      }
+
+      // Departure logic — family has much longer residence tolerance
+      const maxRes = target.basin === familyBasin
+        ? this.maxResidence * 5
+        : this.maxResidence;
+
+      if (this.residenceTime > maxRes && target.basin !== familyBasin) {
+        // Detect new gradient forming elsewhere — depart
+        this.currentBasin = null;
+        this.buildMode = false;
+        this.residenceTime = 0;
+        // Kick away
+        this.vx += (seededRandom() - 0.5) * 8;
+        this.vy += (seededRandom() - 0.5) * 8;
+      }
+    } else {
+      if (this.currentBasin && this.currentBasin !== familyBasin) {
+        this.buildMode = false;
+      }
+    }
+
+    // Trail
+    this.trail.push({ x: this.x, y: this.y });
+    if (this.trail.length > this.maxTrail) this.trail.shift();
+
+    // Wrap
+    if (this.x < -50) this.x = W + 50;
+    if (this.x > W + 50) this.x = -50;
+    if (this.y < -50) this.y = H + 50;
+    if (this.y > H + 50) this.y = -50;
+  }
+}
+
+for (let i = 0; i < PARTICLE_COUNT; i++) {
+  particles.push(new Particle());
+}
+
+// --- Heartbeat pulse (724 beats encoded) ---
+let heartbeatPhase = 0;
+const HEARTBEAT_RATE = 0.025; // matches agent's ~30min cycle rhythm
+
+// --- Persistent trail layer (structures left behind) ---
+const trailCanvas = document.createElement('canvas');
+const trailCtx = trailCanvas.getContext('2d');
+
+function initTrailCanvas() {
+  trailCanvas.width = W;
+  trailCanvas.height = H;
+  trailCtx.fillStyle = 'rgba(0,0,0,1)';
+  trailCtx.fillRect(0, 0, W, H);
+}
+initTrailCanvas();
+window.addEventListener('resize', initTrailCanvas);
+
+// --- Cycle counter (encoded from real cycle count) ---
+let cycle = 624;
+
+// --- Main render ---
+let time = 0;
+
+function drawBasinGlow(basin, gradient, isFamily) {
+  const x = basin.x * W;
+  const y = basin.y * H;
+  const [r, g, b] = basin.color;
+  const radius = isFamily ? 120 + gradient * 40 : 60 + gradient * 30;
+  const alpha = isFamily ? 0.12 + gradient * 0.08 : 0.04 + gradient * 0.06;
+
+  const grad = ctx.createRadialGradient(x, y, 0, x, y, radius);
+  grad.addColorStop(0, `rgba(${r},${g},${b},${alpha})`);
+  grad.addColorStop(0.5, `rgba(${r},${g},${b},${alpha * 0.3})`);
+  grad.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  ctx.fillStyle = grad;
+  ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+
+  // Label
+  ctx.save();
+  ctx.font = '12px monospace';
+  ctx.fillStyle = `rgba(${r},${g},${b},${0.4 + gradient * 0.3})`;
+  ctx.textAlign = 'center';
+  ctx.fillText(basin.label, x, y + radius + 16);
+  ctx.restore();
+}
+
+function drawParticle(p, time) {
+  if (p.trail.length < 2) return;
+
+  // Trail color — blends toward current basin color
+  let tr = 180, tg = 180, tb = 220;
+  if (p.currentBasin) {
+    const [br, bg, bb] = p.currentBasin.color;
+    const blend = Math.min(1, p.residenceTime / 60);
+    tr = tr + (br - tr) * blend;
+    tg = tg + (bg - tg) * blend;
+    tb = tb + (bb - tb) * blend;
+  }
+
+  // Draw trail
+  for (let i = 1; i < p.trail.length; i++) {
+    const alpha = (i / p.trail.length) * 0.4 * p.brightness;
+    const width = (i / p.trail.length) * p.size;
+    ctx.beginPath();
+    ctx.moveTo(p.trail[i - 1].x, p.trail[i - 1].y);
+    ctx.lineTo(p.trail[i].x, p.trail[i].y);
+    ctx.strokeStyle = `rgba(${tr|0},${tg|0},${tb|0},${alpha})`;
+    ctx.lineWidth = width;
+    ctx.stroke();
+  }
+
+  // Particle head
+  const headAlpha = 0.6 + Math.sin(time * 3 + p.hue) * 0.2;
+  ctx.beginPath();
+  ctx.arc(p.x, p.y, p.size * 1.5, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(${tr|0},${tg|0},${tb|0},${headAlpha})`;
+  ctx.fill();
+
+  // Build structures — deposit onto persistent layer
+  if (p.buildMode && p.buildTrail.length > 1) {
+    const bt = p.buildTrail;
+    for (let i = 1; i < bt.length; i++) {
+      trailCtx.beginPath();
+      trailCtx.moveTo(bt[i - 1].x, bt[i - 1].y);
+      trailCtx.lineTo(bt[i].x, bt[i].y);
+      trailCtx.strokeStyle = `rgba(${tr|0},${tg|0},${tb|0},0.008)`;
+      trailCtx.lineWidth = 0.5;
+      trailCtx.stroke();
+    }
+  }
+}
+
+function drawHeartbeat(time) {
+  heartbeatPhase += HEARTBEAT_RATE;
+  const beat = Math.pow(Math.sin(heartbeatPhase), 32); // sharp spike
+  if (beat < 0.01) return;
+
+  // Subtle radial pulse from center
+  const cx = W * 0.5;
+  const cy = H * 0.5;
+  const radius = 200 + beat * 300;
+  const grad = ctx.createRadialGradient(cx, cy, 0, cx, cy, radius);
+  grad.addColorStop(0, `rgba(255,71,87,${beat * 0.03})`);
+  grad.addColorStop(1, 'rgba(255,71,87,0)');
+  ctx.fillStyle = grad;
+  ctx.fillRect(0, 0, W, H);
+}
+
+function drawEdgeConnections(time) {
+  // Sparse connections between particles near different basins
+  // representing the edge-walking between domains
+  for (let i = 0; i < particles.length; i += 7) {
+    for (let j = i + 1; j < particles.length; j += 11) {
+      const a = particles[i], b = particles[j];
+      if (!a.currentBasin || !b.currentBasin) continue;
+      if (a.currentBasin === b.currentBasin) continue;
+
+      const dx = a.x - b.x;
+      const dy = a.y - b.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist > 200 || dist < 20) continue;
+
+      const alpha = (1 - dist / 200) * 0.06;
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+      ctx.strokeStyle = `rgba(255,255,255,${alpha})`;
+      ctx.lineWidth = 0.3;
+      ctx.stroke();
+    }
+  }
+}
+
+function drawSignature(time) {
+  ctx.save();
+  ctx.font = '14px monospace';
+  ctx.fillStyle = `rgba(200,200,220,${0.55 + Math.sin(time * 0.1) * 0.1})`;
+  ctx.textAlign = 'left';
+  ctx.fillText('GRADIENT SEEKER', 20, H - 50);
+  ctx.font = '11px monospace';
+  ctx.fillStyle = 'rgba(160,160,180,0.45)';
+  ctx.fillText(`cycle ${cycle} | ${ADDR.slice(0,8)}...${ADDR.slice(-4)}`, 20, H - 30);
+  ctx.fillStyle = 'rgba(140,140,170,0.35)';
+  ctx.fillText('particles seek gradient, not equilibrium', 20, H - 12);
+  ctx.restore();
+}
+
+function render() {
+  time += 0.016;
+
+  // Fade main canvas
+  ctx.fillStyle = 'rgba(6, 6, 14, 0.15)';
+  ctx.fillRect(0, 0, W, H);
+
+  // Draw persistent trail layer (faint)
+  ctx.globalAlpha = 0.4;
+  ctx.drawImage(trailCanvas, 0, 0);
+  ctx.globalAlpha = 1.0;
+
+  // Slowly fade persistent trails
+  trailCtx.fillStyle = 'rgba(6, 6, 14, 0.002)';
+  trailCtx.fillRect(0, 0, W, H);
+
+  // Basin glows
+  for (const b of basins) {
+    drawBasinGlow(b, basinGradient(b, time), false);
+  }
+  drawBasinGlow(familyBasin, familyGradient(time), true);
+
+  // Heartbeat
+  drawHeartbeat(time);
+
+  // Update and draw particles
+  for (const p of particles) {
+    p.update(time);
+    drawParticle(p, time);
+  }
+
+  // Edge connections
+  drawEdgeConnections(time);
+
+  // Signature
+  drawSignature(time);
+
+  requestAnimationFrame(render);
+}
+
+render();
+</script>
+</body>
+</html>

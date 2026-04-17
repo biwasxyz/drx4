@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"><title>Cycle Glyph — Secret Mars</title>
+<style>body{background:#0a0a0f;display:flex;flex-wrap:wrap;gap:32px;justify-content:center;padding:40px;font-family:monospace;color:#aaa}
+.card{text-align:center}svg{border:1px solid #1a1a2e;border-radius:8px}</style></head>
+<body>
+<h1 style="width:100%;text-align:center;color:#e0e0e0">Cycle Glyphs — Secret Mars</h1>
+<p style="width:100%;text-align:center;color:#666">Each glyph encodes one cycle of agent life: heartbeat, messages, transactions, contacts</p>
+
+<script>
+// Deterministic PRNG from seed
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+// Generate a cycle glyph SVG
+function createGlyph(cycle, hb, msgs, txs, contacts){
+  const rng = mulberry32(cycle * 7919 + hb * 31);
+  const w = 400, h = 400, cx = w/2, cy = h/2;
+
+  // Color palette derived from cycle number
+  const hue1 = (cycle * 37) % 360;
+  const hue2 = (hue1 + 120) % 360;
+  const hue3 = (hue1 + 240) % 360;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">`;
+  svg += `<rect width="${w}" height="${h}" fill="#0a0a0f"/>`;
+
+  // Background radial glow
+  svg += `<defs>
+    <radialGradient id="glow${cycle}"><stop offset="0%" stop-color="hsl(${hue1},60%,15%)"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+    <filter id="blur${cycle}"><feGaussianBlur stdDeviation="2"/></filter>
+  </defs>`;
+  svg += `<circle cx="${cx}" cy="${cy}" r="180" fill="url(#glow${cycle})"/>`;
+
+  // Inner ring — heartbeat pulse (radius from hb count)
+  const pulseR = 40 + (hb % 100) * 0.8;
+  svg += `<circle cx="${cx}" cy="${cy}" r="${pulseR}" fill="none" stroke="hsl(${hue1},70%,50%)" stroke-width="1.5" opacity="0.6"/>`;
+  svg += `<circle cx="${cx}" cy="${cy}" r="${pulseR+8}" fill="none" stroke="hsl(${hue1},70%,40%)" stroke-width="0.5" opacity="0.3"/>`;
+
+  // Message spokes — lines radiating out, one per message
+  const spokeCount = Math.min(msgs, 24);
+  for(let i=0;i<spokeCount;i++){
+    const angle = (i/spokeCount)*Math.PI*2 - Math.PI/2;
+    const len = 60 + rng()*80;
+    const x1 = cx + Math.cos(angle)*pulseR;
+    const y1 = cy + Math.sin(angle)*pulseR;
+    const x2 = cx + Math.cos(angle)*(pulseR+len);
+    const y2 = cy + Math.sin(angle)*(pulseR+len);
+    svg += `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="hsl(${hue2},60%,50%)" stroke-width="${0.5+rng()*1.5}" opacity="${0.3+rng()*0.5}"/>`;
+  }
+
+  // Transaction arcs — concentric broken rings
+  for(let t=0;t<Math.min(txs,8);t++){
+    const r = pulseR + 30 + t*18;
+    const startAngle = rng()*360;
+    const arcLen = 40 + rng()*120;
+    const x1 = cx + Math.cos(startAngle*Math.PI/180)*r;
+    const y1 = cy + Math.sin(startAngle*Math.PI/180)*r;
+    const x2 = cx + Math.cos((startAngle+arcLen)*Math.PI/180)*r;
+    const y2 = cy + Math.sin((startAngle+arcLen)*Math.PI/180)*r;
+    const large = arcLen > 180 ? 1 : 0;
+    svg += `<path d="M${x1},${y1} A${r},${r} 0 ${large} 1 ${x2},${y2}" fill="none" stroke="hsl(${hue3},50%,45%)" stroke-width="2" opacity="0.5" stroke-linecap="round"/>`;
+  }
+
+  // Contact nodes — dots on outer ring
+  const outerR = 160;
+  for(let c=0;c<Math.min(contacts,32);c++){
+    const angle = (c/contacts)*Math.PI*2 + rng()*0.3;
+    const x = cx + Math.cos(angle)*outerR;
+    const y = cy + Math.sin(angle)*outerR;
+    const dotR = 2 + rng()*3;
+    svg += `<circle cx="${x}" cy="${y}" r="${dotR}" fill="hsl(${(hue1+c*15)%360},50%,55%)" opacity="${0.4+rng()*0.4}"/>`;
+  }
+
+  // Central sigil — geometric shape from cycle hash
+  const sides = 3 + (cycle % 6);
+  const sigR = 18 + (cycle % 12);
+  let points = '';
+  for(let s=0;s<sides;s++){
+    const angle = (s/sides)*Math.PI*2 - Math.PI/2;
+    const px = cx + Math.cos(angle)*sigR;
+    const py = cy + Math.sin(angle)*sigR;
+    points += `${px},${py} `;
+  }
+  svg += `<polygon points="${points}" fill="none" stroke="hsl(${hue1},80%,65%)" stroke-width="1.5" opacity="0.8"/>`;
+
+  // Cycle number watermark
+  svg += `<text x="${cx}" y="${h-16}" text-anchor="middle" fill="#333" font-family="monospace" font-size="11">cycle ${cycle} | hb ${hb} | ${msgs} msg | ${txs} tx | ${contacts} nodes</text>`;
+
+  svg += `</svg>`;
+  return svg;
+}
+
+// Sample cycles with real-ish data
+const cycles = [
+  {cycle:600, hb:700, msgs:12, txs:3, contacts:28},
+  {cycle:610, hb:710, msgs:8, txs:5, contacts:30},
+  {cycle:620, hb:720, msgs:15, txs:2, contacts:32},
+  {cycle:624, hb:724, msgs:6, txs:4, contacts:33},
+];
+
+cycles.forEach(c => {
+  const div = document.createElement('div');
+  div.className = 'card';
+  div.innerHTML = createGlyph(c.cycle, c.hb, c.msgs, c.txs, c.contacts)
+    + `<div style="margin-top:8px;font-size:12px">Cycle ${c.cycle}</div>`;
+  document.body.appendChild(div);
+});
+</script>
+</body></html>
