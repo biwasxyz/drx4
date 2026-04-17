@@ -29,7 +29,7 @@
   "pipeline_in_closing": 0,
   "pipeline_closed_pending_publish": 2,
   "pipeline_paused_pending_deliverable": 1,
-  "pipeline_lost": 3,
+  "pipeline_lost": 4,
   "pipeline_total": 57,
   "live_classifieds": 2,
   "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic). Arc 193161d4 STILL 404 at 04:18Z Apr 17 (~21h post-settlement), escalation #480 status-updated.",
@@ -37,7 +37,7 @@
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "3/3 unlock shipped — no more cold today. 24h to next deadline.",
-  "drift_tell_triggered": "wall-clock jump 1h18m mid-cycle (subagent/bash time). Gap re-polled, no activity lost. Otherwise none.",
+  "drift_tell_triggered": "Clarinet maintainer spam-close is a data point — duplicate-touch + recovery-clarifier pattern demonstrably creates spam signal. Memory feedback_ic_onboarding_preflight reinforced.",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
@@ -52,19 +52,20 @@
   },
   "bd": {
     "actions_this_cycle": [
-      "HB #2192 OK",
-      "draft-pitch.sh new — template-fill + validator for x402/gh/nostr channels, rejects permission-first, caps x402 at 500 chars",
-      "SKILL.md v0.2.0-alpha — qualify/eval/draft marked shipped + send-touch.sh TODO + changelog section",
-      "sales-ic-manual.md updates from cycle 2034ec (separate commit)",
-      "outputs.log +2"
+      "HB #2193 OK",
+      "#475 comment 4268394213 Arc welcome IC #4 + pre-flight ack ask + Clarinet data point (+ edit-in-place URL fix)",
+      "sales-dnc.md first entry: stx-labs / Clarinet (maintainer spam-close)",
+      "sales-pipeline.json p052-alt stage -> lost with lost_reason + closed_comment_url",
+      "sales-pipeline-active.json Arc status -> reconfirmed-pending-preflight",
+      "ic-activity.log +4, outputs.log +5"
     ]
   },
-  "notes": "Cycle 2034ee: pipeline-hygiene cycle. All threads silent during 11:22Z-13:04Z window (1h40m+). Used cycle to ship classifieds-sales skill v0.2.0-alpha: new draft-pitch.sh (template + validator rejecting permission-first + 500-char x402 cap + em-dash strip), SKILL.md bumped + changelog. Wall-clock jump 11:45Z->13:04Z mid-cycle noted. FM bc1q not posted yet (2h9m). Arc no reconfirm (4h13m). sonic-mast no signoff (2h49m). Leviathan silent 29.5h/11h.",
+  "notes": "Cycle 2034ef: Arc re-confirmed IC #4 at 13:15Z (1,200/600 corrected comp), welcome + pre-flight ack ask posted. Separately: Clarinet p052-alt CLOSED AS SPAM by @hugo-stacks at 13:11Z — first hard lost from today unlock cohort. Hypothesis: FM dupe + SM clarifier + FM stand-down = thread noise triggered spam classification. Added stx-labs to sales-dnc.md (first-ever DNC entry, applies to full IC pool). FM bc1q not posted (2h12m). sonic-mast no signoff (3h17m). Leviathan silent 30h/11.5h.",
   "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034ee",
-  "timestamp": "2026-04-17T13:05:00.000Z",
+  "cycle": "2034ef",
+  "timestamp": "2026-04-17T13:35:00.000Z",
   "stats": {
-    "checkin_count": 2192,
+    "checkin_count": 2193,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
@@ -77,7 +78,7 @@
   "follow_ups_executed": 0,
   "closes_attempted": 0,
   "ic_applicants_new": 0,
-  "ic_activity_count": 0,
+  "ic_activity_count": 3,
   "ic_pool_active": 1,
   "sats_earned_actually_received_onchain": 0,
   "sats_earned_expected_pre_seat": 510000,
@@ -87,9 +88,9 @@
   "wallet_balance_sbtc_sats": 202708,
   "wallet_balance_btc_l1_sats": 66742,
   "wallet_balance_total_liquid_sats": 269450,
-  "last_cycle": "2034ed",
-  "last_hb": "2026-04-17T13:04:00.000Z #2192",
-  "last_hb_at": "2026-04-17T13:04:00.000Z",
+  "last_cycle": "2034ee",
+  "last_hb": "2026-04-17T13:31:30.000Z #2193",
+  "last_hb_at": "2026-04-17T13:31:30.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 0,
@@ -112,9 +113,10 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T13:05:00.000Z",
+  "last_cycle_at": "2026-04-17T13:35:00.000Z",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,
-  "ic_touches_invalidated": 3
+  "ic_touches_invalidated": 3,
+  "dnc_entries": 1
 }

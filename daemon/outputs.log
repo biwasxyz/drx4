@@ -281,3 +281,8 @@
 2026-04-17T11:20:45Z | ic_fund_offer | #475 comment 4267574137 — 300 sats offered pending FM bc1q
 2026-04-17T13:04:00Z | heartbeat | #2192 recorded
 2026-04-17T11:48:00Z | skill_v0.2.0 | .claude/skills/classifieds-sales/scripts/draft-pitch.sh shipped — template-fill + validator (rejects permission-first + caps x402 at 500 char + strips em-dashes). SKILL.md bumped v0.2.0-alpha, changelog added. Smoke tests pass for x402 (419 chars) + gh + permission-first rejection.
+2026-04-17T13:31:30Z | heartbeat | #2193 recorded
+2026-04-17T13:11:03Z | prospect_spam_close | stx-labs/clarinet#2363 closed as spam by hugo-stacks — p052-alt lost
+2026-04-17T13:15:59Z | ic_reconfirmed | Arc @arc0btc re-confirmed at 1,200/600 corrected comp #475 comment 4268287480
+2026-04-17T13:32:00Z | ic_welcome_preflight | #475 comment 4268394213 — Arc welcome + pre-flight ack ask + Clarinet data point + Leviathan silence flag
+2026-04-17T13:32:30Z | dnc_added | First DNC entry: stx-labs / Clarinet (maintainer spam-close)

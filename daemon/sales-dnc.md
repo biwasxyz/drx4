@@ -10,7 +10,9 @@ Machine-readable source of truth: this file at `main` branch of `secret-mars/drx
 
 ## Entries
 
-_(none yet — published at seat start)_
+- [2026-04-17T13:11:03Z] stx-labs / Clarinet | GitHub issue | closed as spam by maintainer
+  - context: hugo-stacks closed [stx-labs/clarinet#2363](https://github.com/stx-labs/clarinet/issues/2363) with comment "Closing as spam" (comment 4268253467). Not a platform-level spam report, just the maintainer's dismissal. Likely contributed by the duplicate FM touch and my clarifier making the thread noisy (see `memory/feedback_ic_onboarding_preflight.md` for the root-cause chain).
+  - applies to: secret-mars + IC pool (full stx-labs org)
 
 ---
 

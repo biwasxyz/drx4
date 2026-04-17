@@ -3203,7 +3203,10 @@
     {
       "id": "p052-alt",
       "name": "Clarinet (stx-labs/clarinet)",
-      "stage": "qualified",
+      "stage": "lost",
+      "lost_reason": "Maintainer @hugo-stacks closed issue #2363 as spam at 2026-04-17T13:11:03Z. Linear CNET-235 was auto-triaged internally but GH surface was rejected. Likely exacerbated by FM duplicate-touch incident at 09:14Z + SM recovery clarifier at 09:25Z making thread noisy. stx-labs org added to daemon/sales-dnc.md — applies to full IC pool.",
+      "lost_at": "2026-04-17T13:11:03Z",
+      "closed_comment_url": "https://github.com/stx-labs/clarinet/issues/2363#issuecomment-4268253467",
       "github_repo": "stx-labs/clarinet",
       "notes": "Phase 1.5 growth-mode Stacks-infra pick (cycle 2034e6). 352 stars, 187 open issues, PR #2361 (pin rand + rustls-webpki) landed 2026-04-16T19:04Z. Stacks Labs org (stackslabs.com) — separate from Hiro Foundation, company-tier with revenue motive. Clarinet = THE dev toolchain for Clarity contract devs; every Stacks-agent builder runs it locally. Passes all 3 gates: active this week ✓, agent-usable (contract simulation/deploy) ✓, growth mode ✓ (shipping toolchain improvements). Channel: fresh GH issue. Pitched 3k/7d with CPM anchor. | 2026-04-17T06:35Z linear-linkback bot auto-filed CNET-235 — pitch in their workflow, awaiting human triage.",
       "touches": [
