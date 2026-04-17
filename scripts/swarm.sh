@@ -28,9 +28,12 @@ declare -A SHIFTS=(
   [tracker]="haiku:60m:ic-tracker-shift"
 )
 
-launch_window() {
+# Track pane IDs per shift name so repair/status can find them reliably.
+declare -A PANE_IDS
+
+launch_pane() {
   local name="$1"
-  local first="${2:-}"   # "first" if this is the session-creator, else empty
+  local first="${2:-}"
   local spec="${SHIFTS[$name]:-}"
 
   if [[ -z "$spec" ]]; then
@@ -41,27 +44,35 @@ launch_window() {
   local model interval skill
   IFS=':' read -r model interval skill <<< "$spec"
 
+  local pane_id
   if [[ "$first" == "first" ]]; then
-    tmux new-session -d -s "$SESSION" -n "$name" -c "$REPO"
+    # New session, single window "shifts", first pane is the shell created by new-session
+    tmux new-session -d -s "$SESSION" -n "shifts" -c "$REPO"
+    pane_id=$(tmux list-panes -t "$SESSION:shifts" -F '#{pane_id}' | head -1)
   else
-    tmux new-window -t "$SESSION" -n "$name" -c "$REPO"
+    # Split the window into a new pane; -P prints the new pane id, -F formats it
+    pane_id=$(tmux split-window -t "$SESSION:shifts" -c "$REPO" -P -F '#{pane_id}')
   fi
+
+  PANE_IDS[$name]="$pane_id"
+
+  # Name the pane so the status bar / pane titles identify the shift
+  tmux select-pane -t "$pane_id" -T "$name"
 
   # Skip the /loop auto-start for tracker until that skill exists
   if [[ "$name" == "tracker" ]]; then
-    tmux send-keys -t "$SESSION:$name" \
-      "echo 'ic-tracker-shift skill not yet built — placeholder window'" Enter
+    tmux send-keys -t "$pane_id" \
+      "echo 'ic-tracker-shift skill not yet built — placeholder pane'" Enter
     return 0
   fi
 
   # Start Claude CLI
-  tmux send-keys -t "$SESSION:$name" \
+  tmux send-keys -t "$pane_id" \
     "claude --dangerously-skip-permissions --model $model" Enter
 
-  # Let Claude boot, then send the /loop command. Running sequentially is
-  # fine — total launch for 3 shifts is ~30s.
+  # Let Claude boot, then send the /loop command
   sleep "$BOOT_WAIT_SEC"
-  tmux send-keys -t "$SESSION:$name" "/loop $interval /$skill" Enter
+  tmux send-keys -t "$pane_id" "/loop $interval /$skill" Enter
 }
 
 cmd_launch() {
@@ -79,27 +90,35 @@ cmd_launch() {
 
   echo "Launching $n-shift swarm..."
 
-  launch_window lead first
-  launch_window monitor
-  launch_window pitcher
+  launch_pane lead first
+  launch_pane monitor
+  launch_pane pitcher
   if (( n >= 4 )); then
-    launch_window tracker
+    launch_pane tracker
   fi
 
+  # Tiled layout so all panes are visible at once, roughly equal size
+  tmux select-layout -t "$SESSION:shifts" tiled
+
+  # Mouse + pane borders with titles so you can see which pane is which
   tmux set-option -t "$SESSION" mouse on
   tmux set-option -t "$SESSION" status-interval 2
-  tmux select-window -t "$SESSION:lead"
+  tmux set-option -t "$SESSION" pane-border-status top
+  tmux set-option -t "$SESSION" pane-border-format ' #P: #{pane_title} '
 
-  local windows
-  windows=$(tmux list-windows -t "$SESSION" -F '#{window_index}:#{window_name}' | tr '\n' ' ')
+  # Focus the lead pane by default
+  tmux select-pane -t "${PANE_IDS[lead]}"
+
+  local panes
+  panes=$(tmux list-panes -t "$SESSION:shifts" -F '#{pane_index}:#{pane_title}' | tr '\n' ' ')
 
   cat <<EOF
 
-Swarm up.  Windows: $windows
+Swarm up.  Panes: $panes
 
 Attach:     tmux attach -t $SESSION     (or ./swarm.sh attach)
 Detach:     Ctrl-b then d
-Switch:     click window name in the status bar, or Ctrl-b then <window number>
+Switch:     click a pane (mouse on), or Ctrl-b then arrow-key / Ctrl-b q <number>
 Stop all:   ./swarm.sh stop
 Restart:    ./swarm.sh restart
 Logs:       tail -f $REPO/daemon/outputs.log
@@ -149,18 +168,16 @@ cmd_status() {
   fi
   echo "swarm: UP"
   while IFS= read -r line; do
-    local idx name
-    idx=$(echo "$line" | cut -d: -f1)
-    name=$(echo "$line" | cut -d: -f2)
-    local cmd
-    cmd=$(tmux display-message -p -t "$SESSION:$name" '#{pane_current_command}' 2>/dev/null || echo "?")
-    # claude spawns node, so either is "alive"
+    local idx title cmd
+    idx=$(echo "$line" | cut -d'|' -f1)
+    title=$(echo "$line" | cut -d'|' -f2)
+    cmd=$(echo "$line" | cut -d'|' -f3)
     local alive="DEAD"
     case "$cmd" in
       claude|node|npm|npx) alive="ALIVE" ;;
     esac
-    printf '  %s: %-10s  pane=%-8s  %s\n' "$idx" "$name" "$cmd" "$alive"
-  done < <(tmux list-windows -t "$SESSION" -F '#{window_index}:#{window_name}')
+    printf '  pane %s (%s): cmd=%-8s  %s\n' "$idx" "$title" "$cmd" "$alive"
+  done < <(tmux list-panes -t "$SESSION:shifts" -F '#{pane_index}|#{pane_title}|#{pane_current_command}')
 }
 
 cmd_repair() {
@@ -171,34 +188,38 @@ cmd_repair() {
 
   local repaired=0
   local ok=0
+
   for name in lead monitor pitcher; do
-    # Does the window exist at all?
-    if ! tmux list-windows -t "$SESSION" -F '#{window_name}' 2>/dev/null | grep -qx "$name"; then
-      echo "window '$name' missing — recreating"
-      launch_window "$name"
+    # Find the pane whose title matches the shift name
+    local pane_id
+    pane_id=$(tmux list-panes -t "$SESSION:shifts" -F '#{pane_id} #{pane_title}' 2>/dev/null \
+      | awk -v n="$name" '$2 == n { print $1; exit }')
+
+    if [[ -z "$pane_id" ]]; then
+      echo "pane '$name' missing — splitting fresh"
+      launch_pane "$name"
+      tmux select-layout -t "$SESSION:shifts" tiled
       ((repaired++))
       continue
     fi
 
-    # Is Claude running inside it?
     local cmd
-    cmd=$(tmux display-message -p -t "$SESSION:$name" '#{pane_current_command}' 2>/dev/null || echo "?")
+    cmd=$(tmux display-message -p -t "$pane_id" '#{pane_current_command}' 2>/dev/null || echo "?")
     case "$cmd" in
       claude|node|npm|npx)
-        echo "window '$name': $cmd — ALIVE, skipping"
+        echo "pane '$name': $cmd — ALIVE, skipping"
         ((ok++))
         ;;
       *)
-        echo "window '$name': $cmd — DEAD, relaunching"
+        echo "pane '$name': $cmd — DEAD, relaunching"
         local spec="${SHIFTS[$name]}"
         local model interval skill
         IFS=':' read -r model interval skill <<< "$spec"
-        # Reset the prompt cleanly first
-        tmux send-keys -t "$SESSION:$name" C-c " clear" Enter
+        tmux send-keys -t "$pane_id" C-c " clear" Enter
         sleep 1
-        tmux send-keys -t "$SESSION:$name" "claude --dangerously-skip-permissions --model $model" Enter
+        tmux send-keys -t "$pane_id" "claude --dangerously-skip-permissions --model $model" Enter
         sleep "$BOOT_WAIT_SEC"
-        tmux send-keys -t "$SESSION:$name" "/loop $interval /$skill" Enter
+        tmux send-keys -t "$pane_id" "/loop $interval /$skill" Enter
         ((repaired++))
         ;;
     esac
