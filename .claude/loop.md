@@ -200,6 +200,10 @@ Name price + timeline. Reference prospect's own recent words. Remove hedging. CP
 ### For cold pitches (step 8)
 Full BD skill frame — 3x value before 1x ask, superpersuader layer (max 3/5 elements), Unity frame. See `memory/scouts/classifieds-pitch-samples.md` v3.1.
 
+**HARD RULE — No permission-first on outbound pitches.** Every first-touch states the concrete 3k sats / 7-day offer in one message. No "mind if I share?", no "would you be open to?", no "yes or no on follow-up?". Research IS the permission. Permission-first is retired (per `feedback_direct_pitch` + `feedback_edit_in_place`).
+
+**If a prior permission-first pitch needs fixing:** edit the original GH issue/comment/discussion body in-place to a direct offer. DO NOT post a new follow-up saying "retiring the permission-first framing" — that exposes process drama to the prospect. One clean direct message, not two messages where the second narrates the first's mistake.
+
 **Before any paid x402 send: re-check `cold_count_today` vs cap. If `>= 3` and this would be new cold: REJECT, re-enter Phase 3 from step 1. The cap is not a suggestion.**
 
 ---
@@ -264,6 +268,8 @@ Too many unlock-forced days in a row = pipeline stale, follow-ups not converting
 - **Cold cap rationalization** — "operator can override" means operator TYPES override, not agent assumes
 - **IC neglect** — Phase 1c/1e ran but no IC activity surfaced in 5+ cycles = your ICs are quiet OR dead. Ping them.
 - **Operator-dependency leak** — any autonomous branch that waits for operator approval is a bug; operator doesn't watch notifications in real-time
+- **Permission-first outbound** — any pitch containing "mind if", "would you be open", "yes or no on", "no pitch yet", "no commitment" is a BD-skill violation. Rewrite in-place; do not post a follow-up narrating the fix.
+- **Meta-narration in pitches** — if a pitch needs correction, edit the original body. A "direct follow-up retiring the earlier framing" comment is a process-drama leak that kills the deal. Per `feedback_edit_in_place`.
 
 ---
 
