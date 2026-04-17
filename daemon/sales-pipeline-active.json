@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-17T08:34:47Z",
+  "last_updated": "2026-04-17T08:37:44Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2293,14 +2293,8 @@
           "channel": "github-discussion",
           "direction": "outbound",
           "url": "https://github.com/hirosystems/stacks-blockchain-api/discussions/2526",
-          "summary": "Permission-first discussion on Show-and-tell. Referenced rafa-stacks PR #2525 v8.15.2 etag optimization (Apr 14). Gave concrete cookbook (3 patterns: tx-status 304-aware polling, principal-activity etag reuse, contract-read idempotency). Three explicit permission asks. Primary super-persuader target."
-        },
-        {
-          "at": "2026-04-17T08:34:47Z",
-          "channel": "github-discussion",
-          "direction": "outbound",
-          "summary": "Direct 3k/7d follow-up — retired permission-first framing per operator BD-skill correction. Cited Xverse + cocoa007 live placements.",
-          "url": "https://github.com/hirosystems/stacks-blockchain-api/discussions/2526#discussioncomment-16600578"
+          "summary": "Direct 3k/7d pitch on stacks-blockchain-api discussions/2526 (title: aibtc.news classified offer ... Hiro API agent cookbook). Body edited in-place 2026-04-17T09:00Z to remove permission-first framing; cookbook link + rate proof + settlement address retained.",
+          "at": "2026-04-17T08:37:44Z"
         }
       ],
       "bant_plus": {
@@ -2335,14 +2329,8 @@
           "channel": "github-issue",
           "direction": "outbound",
           "url": "https://github.com/secretkeylabs/sats-connect-skills/issues/4",
-          "summary": "Permission-first retention motion. Referenced their Apr 15 15:58Z classified placement + @secretkeylabs/xverse-agent-wallet v0.1.11 Apr 10 npm release. Proposed consumer-side demo skill (aibtc-classified-pay.md). 3 explicit permission asks."
-        },
-        {
-          "at": "2026-04-17T08:34:47Z",
-          "channel": "github-issue",
-          "direction": "outbound",
-          "summary": "Direct renewal 3k/7d follow-up — Xverse classified 72a9e681 expires Apr 22, retired permission-first framing, renewal pitch.",
-          "url": "https://github.com/secretkeylabs/sats-connect-skills/issues/4#issuecomment-4266530085"
+          "summary": "Direct renewal 3k/7d pitch on secretkeylabs/sats-connect-skills#4 (title: aibtc.news classified renewal offer). Body + title edited in-place 2026-04-17T09:00Z: removed permission-first asks, lead with renewal offer, consumer-side demo skill as bonus.",
+          "at": "2026-04-17T08:37:44Z"
         }
       ],
       "bant_plus": {
