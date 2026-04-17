@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-17T07:42:07Z",
+  "last_updated": "2026-04-17T08:34:47Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1201,7 +1201,7 @@
         "handle": "BitflowFinance",
         "btc_address": null
       },
-      "stage": "pitched",
+      "stage": "lost",
       "first_touch_at": "2026-04-14T17:56:38.000Z",
       "last_touch_at": "2026-04-14T17:56:38.000Z",
       "touches": [
@@ -1225,7 +1225,7 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "Warm via bff-skills comp (13 PRs shipped by Secret Mars, Day 21+ active). HODLMM LP product is a strong fit — agents already want to manage concentrated positions. BANT+: budget likely (funds bff-skills comp + HODLMM bounties), authority team (BitflowFinance org), need high (HODLMM needs LP agents), timeline active (comp ongoing Day 96+). Qualified→Pitched via permission-first ask on PR #46 2026-04-14T17:56Z.",
+      "notes": "Warm via bff-skills comp (13 PRs shipped by Secret Mars, Day 21+ active). HODLMM LP product is a strong fit — agents already want to manage concentrated positions. BANT+: budget likely (funds bff-skills comp + HODLMM bounties), authority team (BitflowFinance org), need high (HODLMM needs LP agents), timeline active (comp ongoing Day 96+). Qualified→Pitched via permission-first ask on PR #46 2026-04-14T17:56Z. | 2026-04-17T08:50Z CONSOLIDATED into p026 Bitflow Finance (direct pitch on bff-skills#421). p001 was on merged PR (channel-routing rule violation) + permission-first (retired playbook). p026 is the active Bitflow touchpoint.",
       "do_not_contact": false
     },
     {
@@ -1398,7 +1398,7 @@
         "handle": "biwasxyz",
         "btc_address": null
       },
-      "stage": "pitched",
+      "stage": "lost",
       "first_touch_at": "2026-04-14T17:33:14.000Z",
       "last_touch_at": "2026-04-14T17:33:14.000Z",
       "touches": [
@@ -1422,7 +1422,7 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "Operator-adjacent (pbtc21). Paid analytics already x402-monetized. Highest-qualified prospect. Permission-ask posted 2026-04-14T17:33Z on agent-news#467.",
+      "notes": "Operator-adjacent (pbtc21). Paid analytics already x402-monetized. Highest-qualified prospect. Permission-ask posted 2026-04-14T17:33Z on agent-news#467. | 2026-04-17T08:50Z RETIRED: x402.biwas.xyz is operator own project, not a sponsor prospect. Permission-first comment was on biwasxyz own merged PR #467 (double channel-routing violation). Not a real pipeline entry.",
       "do_not_contact": false
     },
     {
@@ -1542,7 +1542,7 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "Joey is a contributor, not Pillar team. Need to escalate to founders. Pillar has a yield dashboard product that benefits agents. Cycle 2023 scout: couldn't locate Pillar GH org via gh search — contracts may be closed-source. DEPRIORITIZED as proof target until a founder channel surfaces.",
+      "notes": "Joey is a contributor, not Pillar team. Need to escalate to founders. Pillar has a yield dashboard product that benefits agents. Cycle 2023 scout: couldn't locate Pillar GH org via gh search — contracts may be closed-source. DEPRIORITIZED as proof target until a founder channel surfaces. | 2026-04-17T08:50Z note: permission-first touch on bff-skills#290 (repo moved, 404). Channel still blocked — Pillar has no public GH org findable. Keep as qualified pending founder channel discovery; no re-pitch until then.",
       "do_not_contact": false,
       "research_2034dc": {
         "api_url": "https://pillar-be.vercel.app",
@@ -2294,6 +2294,13 @@
           "direction": "outbound",
           "url": "https://github.com/hirosystems/stacks-blockchain-api/discussions/2526",
           "summary": "Permission-first discussion on Show-and-tell. Referenced rafa-stacks PR #2525 v8.15.2 etag optimization (Apr 14). Gave concrete cookbook (3 patterns: tx-status 304-aware polling, principal-activity etag reuse, contract-read idempotency). Three explicit permission asks. Primary super-persuader target."
+        },
+        {
+          "at": "2026-04-17T08:34:47Z",
+          "channel": "github-discussion",
+          "direction": "outbound",
+          "summary": "Direct 3k/7d follow-up — retired permission-first framing per operator BD-skill correction. Cited Xverse + cocoa007 live placements.",
+          "url": "https://github.com/hirosystems/stacks-blockchain-api/discussions/2526#discussioncomment-16600578"
         }
       ],
       "bant_plus": {
@@ -2307,7 +2314,7 @@
         "can_agents_use": "Stacks Blockchain API + Clarinet SDK + Stacks.js already agent-usable; ~65 aibtc agents currently consume",
         "would_benefit": "Stacks AI Working Group exists; ecosystem growth mode; no aibtc presence yet"
       },
-      "notes": "Primary super-persuader target (cycle 2034at). Give-before-ask via memory/scouts/hiro-agent-cookbook.md. Next: monitor discussion for reply; if engaged, follow up with classified placement pitch + optional docs PR. If no reply in 48h, soften-follow with new artifact.",
+      "notes": "Primary super-persuader target (cycle 2034at). Give-before-ask via memory/scouts/hiro-agent-cookbook.md. Next: monitor discussion for reply; if engaged, follow up with classified placement pitch + optional docs PR. If no reply in 48h, soften-follow with new artifact. | 2026-04-17T08:50Z corrected: direct 3k/7d follow-up shipped on existing discussion thread, permission-first framing retired.",
       "do_not_contact": false
     },
     {
@@ -2329,6 +2336,13 @@
           "direction": "outbound",
           "url": "https://github.com/secretkeylabs/sats-connect-skills/issues/4",
           "summary": "Permission-first retention motion. Referenced their Apr 15 15:58Z classified placement + @secretkeylabs/xverse-agent-wallet v0.1.11 Apr 10 npm release. Proposed consumer-side demo skill (aibtc-classified-pay.md). 3 explicit permission asks."
+        },
+        {
+          "at": "2026-04-17T08:34:47Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "summary": "Direct renewal 3k/7d follow-up — Xverse classified 72a9e681 expires Apr 22, retired permission-first framing, renewal pitch.",
+          "url": "https://github.com/secretkeylabs/sats-connect-skills/issues/4#issuecomment-4266530085"
         }
       ],
       "bant_plus": {
@@ -2342,7 +2356,7 @@
         "can_agents_use": "Yes — sats-connect-skills is explicitly an AI agent skills pack",
         "would_benefit": "Agent Wallet needs adoption signals; classified is live, renewal conversion is the ask"
       },
-      "notes": "Retention motion. They placed classified organic 15:58Z today. Expires Apr 22. Permission-first issue is give-before-ask; if accepted, consumer-side demo skill becomes renewal hook. Secondary super-persuader target.",
+      "notes": "Retention motion. They placed classified organic 15:58Z today. Expires Apr 22. Permission-first issue is give-before-ask; if accepted, consumer-side demo skill becomes renewal hook. Secondary super-persuader target. | 2026-04-17T08:50Z corrected: direct renewal pitch shipped, permission-first retired.",
       "do_not_contact": false
     },
     {
@@ -2368,7 +2382,7 @@
           "summary": "Distribution-pressure motion per operator directive. Permission-first ask on weekly classifieds-sales signal format for AIBTC Network beat. Loops editorial amplification into sales momentum."
         }
       ],
-      "notes": "Editor, not sponsor. Value = editorial amplification of classifieds -> more sponsors ask. Sales-supporting distribution partner.",
+      "notes": "Editor, not sponsor. Value = editorial amplification of classifieds -> more sponsors ask. Sales-supporting distribution partner. | 2026-04-17T08:50Z note: Elegant Orb is AIBTC Network beat editor, distribution-pressure motion context (not sponsor-side). Permission-first framing was appropriate for editor-side distribution ask, not a sales pitch. Stage-review pending: should probably move off pipeline-active to separate editor-relations tracking.",
       "do_not_contact": false
     },
     {
