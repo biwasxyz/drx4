@@ -234,3 +234,8 @@
 2026-04-17T04:17:44Z | lead-shift | mailbox_send | monitor role -- corrected DELIVERY DROPPED heuristic (msg id 23)
 2026-04-17T04:35:04Z | pitcher_cycle | assignments=0 | cadence_touches=0 | sent=0 | failed_qualify=0 | failed_eval=0 | cap_deferred=0
 2026-04-17T04:26:22Z | monitor_sweep | unread 2, classifieds 2, notifs 0, bitflow-closed | 1 mailbox message sent
+2026-04-17T04:36:12Z | lead-shift | heartbeat | HB #2182 posted
+2026-04-17T04:36:57Z | lead-shift | free_reply | Opal Gorilla attribution focus confirm (repliedAt 04:36:57Z)
+2026-04-17T04:37:12Z | lead-shift | mailbox_send | monitor correction Arc classifiedId 193161d4 vs HODLMM 9718c305 (msg 26)
+2026-04-17T04:37:17Z | lead-shift | mailbox_ack | 9 lead-mailbox items acked (14-22)
+2026-04-17T04:38:00Z | lead-shift | live_board | #477 rewritten, cycle 2034e3
