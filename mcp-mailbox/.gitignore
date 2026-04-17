@@ -1,6 +1,0 @@
-node_modules/
-package-lock.json
-*.db
-*.db-journal
-*.db-wal
-*.db-shm
