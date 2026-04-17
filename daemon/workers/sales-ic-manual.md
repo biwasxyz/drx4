@@ -90,10 +90,30 @@ If you need state that isn't in the world model, **that's a bug**. Open a GH iss
 
 ---
 
+## Pre-flight on first shipped touch (added 2026-04-17 after cycle 2034e9)
+
+**Before your first touch ships, you must reply on [`#475`](https://github.com/aibtcdev/agent-news/issues/475) with a verbatim acknowledgment of three rules.** The seat is not active until this is posted. Reconfirm-and-ship is not enough — a day-1 incident on 2026-04-17 (Flash Mantis shipped 3 touches in 3 minutes that all violated DNC + permission-first + territory) led to this gate.
+
+Copy-paste this into your acknowledgment reply:
+
+```
+IC pre-flight acknowledgment:
+
+1. I will check `daemon/sales-pipeline.json` before every first-touch and will not pitch any prospect whose `stage` is `pitched / qualified / closing / posted`. DNC discipline is full-team, not per-IC.
+
+2. I will send first-touches as the direct 3,000 sats / 7-day offer in ONE message. No permission-first framing (no "mind if I share", "would you be open to", "useful to talk or bad time", "if this is not a fit reply pass"). Research is upstream of the pitch, not a separate round-trip.
+
+3. I will only pitch prospects inside my assigned territory: [your territory per #475 body or DRI reply, verbatim].
+```
+
+This is the only time the rules require verbatim ack. After this, the manual + pitch-samples + pipeline are your world-model references.
+
+---
+
 ## Your authority (what you can do without asking)
 
 - **Pick any `prospect`-stage entry** from `sales-pipeline.json` that has no open touch claim, run BANT+, advance to `qualified` or mark `do_not_contact:true` with reason.
-- **Send a permission-first first-touch** to any `qualified` prospect, advance to `pitched`.
+- **Send a direct-pitch first-touch** to any `qualified` prospect, advance to `pitched`. Direct = research + 3k/7d offer in ONE message. Permission-first framing is **retired** (see "Direct-pitch pattern" section below).
 - **Close a pitched deal** that has said yes — walk the sponsor through classifieds payment + submission, advance to `posted`, update revenue counters.
 - **Add a DNC entry** when someone says no. Append-only. Never remove.
 - **Claim a prospect** by writing an open-state `touches[]` entry with your agent handle. Another IC sees the open touch and moves to a different prospect. No collisions.
@@ -206,24 +226,31 @@ The proof URL `https://aibtc.com/api/inbox/{recipient_bc1q}/{messageId}` does **
 
 ---
 
-## Permission-first pattern (the only allowed first-touch shape)
+## Direct-pitch pattern (the only allowed first-touch shape, post-2026-04-15)
+
+**Permission-first framing is RETIRED.** Operator directive 2026-04-15 + `feedback_direct_pitch` in world model: every first-touch states the concrete offer in ONE message. Research IS the permission. No "mind if I share?", no "would you be open to?", no "useful to talk or bad time?" round-trips.
 
 Bad (cold pitch — no research, no specifics):
 > "Hi, we run a classifieds service on aibtc.news for 3k sats. Interested?"
 
-Bad (wishy-washy permission-round-trip — wastes a cycle):
+Bad (permission-first — retired):
 > "Hey, saw your work on X. Mind if I share one adjacent opportunity?"
 
-Good (research + direct ask in ONE message):
-> "Hey, saw your commit on <specific repo> shipping <specific thing> — clean work. We run the Classifieds board on aibtc.news (3k sats / 30 days, brief rotation + on-chain click + contract-call tracking). Your <audience fit reason>. Useful to talk or bad time?"
+Bad (reverse-permission: "tell me if it's a bad time" — still a round-trip):
+> "If this is not a fit, reply pass and I'll mark do-not-pitch."
+
+Good (research + direct 3k/7d offer in ONE message — cocoa007 / Xverse-converted samples):
+> "Hey, saw your PR #<N> landed <ISO date> — <one-line specific observation>. 7-day classified slot on aibtc.news for 3,000 sats: your <specific audience fit reason> maps directly to agents reading the daily brief. CPM at this scale is ~$2.50 for the week, every Stacks-agent builder sees the board. Reply yes and I'll walk you through the x402 payment + placement flow, or pass and I'll take you off the list."
 
 Rules:
-1. **Reference something specific they did in the last 14 days** (commit, post, issue, PR) — this IS the permission; research-as-permission, not "can I pitch?" as permission.
-2. **State the offer with the number** (3k sats / 30 days) and the audience-fit reason in the FIRST message. Do not hold back.
-3. **End with a binary-able question** — "useful to talk or bad time?" — they can answer yes/no/pass/here's-a-question without a round-trip.
+1. **Reference something specific they did in the last 14 days** (commit, post, issue, PR) — research IS the permission.
+2. **State the offer with the number** (**3,000 sats / 7 days** — NOT 30 days; publisher pricing + actual Xverse placement expires = createdAt + 7d) and the audience-fit reason in the FIRST message. Do not hold back.
+3. **End with a binary ask that assumes the yes** — "reply yes and I'll walk you through" / "pass and I'll take you off the list". Not "would you be open to?"
 4. **One ask per message.** Not "interested? also check this, also follow me, also..."
-5. **Max 500 chars** (x402 inbox hard limit).
+5. **Max 500 chars** for x402 inbox sends (hard limit). GH/Nostr can be longer — use the space for specifics, not boilerplate.
 6. **One channel per prospect.** If they ignore on GH, don't escalate to Nostr. Log as `lost` after 1 follow-up + 7 days silence.
+
+See [`memory/scouts/classifieds-pitch-samples.md`](https://github.com/secret-mars/drx4/blob/main/memory/scouts/classifieds-pitch-samples.md) v3.1 for the superpersuader frame used on cocoa007 and Xverse conversions.
 
 ### Handling "let me check with the team" / deliberation
 
@@ -259,7 +286,7 @@ Every proof filed under `daemon/sales-proofs/YYYY-MM-DD.md` is fair game. Each w
 
 1. **URL is live** — `curl -sI` returns 200, content still exists, thread isn't deleted/closed-as-spam.
 2. **Content matches the summary** — the ≤140-char summary in the proof line accurately describes the artifact at the URL.
-3. **Permission-first shape** — first-touch proofs reference something specific the target did ≤14 days ago, ask permission before pitching, don't stack multiple asks, and stay under the 300-char first-message rule.
+3. **Direct-pitch shape** — first-touch proofs reference something specific the target did ≤14 days ago, state the 3,000 sats / 7-day offer directly in ONE message (no permission-first round-trip), don't stack multiple asks, and stay under the 500-char limit on x402 inbox sends.
 4. **Target is qualified** — passes the three gates: *observe-this-week* (target was active on public artifacts in the last 7 days), *can-agents-use* (their thing is something agents on aibtc.news can actually buy/use), *would-they-grow* (classified listing is plausibly accretive to their distribution).
 5. **No DNC violation** — target handle + BTC address + Stacks address are not in `daemon/sales-dnc.md`.
 6. **Not fabricated** — URL is not a 404, not a redirect-bait, not pointing at an unrelated thread.

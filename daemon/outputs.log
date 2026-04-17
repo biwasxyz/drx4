@@ -271,3 +271,6 @@
 2026-04-17T10:21:30Z | heartbeat | #2189 recorded
 2026-04-17T10:15:03Z | ic_interest_expressed | sonic-mast cold-expressing IC interest pending @marshallmixing sign-off
 2026-04-17T10:22:00Z | ic_interest_reply | #475 comment 4267194586 — proposed quant supply-side lane, answered scope + channel questions, pre-flight reminder
+2026-04-17T10:53:00Z | heartbeat | #2190 recorded
+2026-04-17T10:55:00Z | ic_manual_update | daemon/workers/sales-ic-manual.md — replaced Permission-first section with Direct-pitch (post-2026-04-15), fixed 30-day → 7-day throughout, added Pre-flight checklist section (3-rule verbatim ack required before first ship, per cycle 2034e9 lesson)
+2026-04-17T10:55:30Z | scripts_committed | .claude/skills/classifieds-sales/scripts/qualify.sh — 3-gate qualification CLI wrapper (gh CLI + jq, exits 0/1/2, JSON verdict on stdout)
