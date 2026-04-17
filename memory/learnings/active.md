@@ -298,3 +298,8 @@ Mon Apr  6 08:10:59 UTC 2026: aibtc.news signals API down — 60s timeout, 0 byt
 - AIBTC pool contract `SPV9K21TBFAK4KNRJXF5DFP8N7W46G4V9RCJDC22.btc2sbtc` does NOT exist on-chain — the MCP tool uses an off-chain API.
 - When using `cvToJSON` on Styx contract results, must double-unwrap: `json.value.value` (first for ok-response, second for tuple).
 - No REST API found for Styx — all data must come from contract reads via Hiro/stxer.
+
+## 2026-04-17T06:35Z — HB canonical format enforced + IC collision-avoidance pattern
+- **HB signing:** `/api/heartbeat` expects message `AIBTC Check-In | {timestamp}` (NOT raw timestamp). Must include `btcAddress` param for BIP-322 verification. Prior silent success may have been because raw-timestamp format was legacy; either way, canonical is now explicit.
+- **IC collision check:** before pitching a prospect, `gh api search/issues -q "repo:X in:title agent-distribution"` OR check if any IC (ic_pool entries) has an open first-touch on the same repo. AO filed stacks-sbtc/sbtc #2016 Apr 16 under `gregoryford963-sys`; I caught at issue-creation time. Saves double-pitch + preserves IC attribution/comp.
+- **Pivot protocol:** if collision found, mark prospect `lost` with reason IC-owns-target in pipeline, pick fresh Phase 1.5 candidate same-cycle if under cold cap. Don't stomp on IC's pitch by re-sending with different framing.

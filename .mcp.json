@@ -11,13 +11,6 @@
         "KEEPER_API_KEY": "public",
         "KEEPER_API_HOST": "https://bitflow-keeper-test-7owjsmt8.uc.gateway.dev"
       }
-    },
-    "mailbox": {
-      "command": "node",
-      "args": ["/home/mars/drx4/mcp-mailbox/src/server.js"],
-      "env": {
-        "MAILBOX_DB": "/home/mars/drx4/daemon/mailbox.db"
-      }
     }
   }
 }

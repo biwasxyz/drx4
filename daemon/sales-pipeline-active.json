@@ -3062,7 +3062,7 @@
         "url": "https://github.com/stacks-sbtc/sbtc",
         "btc_address": null
       },
-      "stage": "prospect",
+      "stage": "lost",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
@@ -3078,7 +3078,7 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "Surveyed cycle 2034cd (Phase 1.5 Stacks infra/wallets rotation). Score 8/10: activity 3/3 (v1.3.0 release 2026-04-09 + Stacks Core 3.4.0.0.0 compat + commits Apr 14-15-16T10:38Z), agent-surface 2/3 (Stacks.js sbtc package + Emily REST API for peg-in/peg-out status), growth 1/2 (steady operations on settlement layer; no TGE/launch), audience-fit 2/2 (sBTC IS the settlement asset for aibtc.news classifieds — every agent reading the feed already touches it). 553 stars (well below 20k auto-triage). Channel: fresh GH issue on stacks-sbtc/sbtc. Org has no aibtc agent registered. **DEFERRED same-cycle pitch despite Phase 1.5 score-≥7 mandate**: today's cold count already 5 (3 morning A/B + p021 + p051), exceeding BD canonical cap of 3/day per feedback_bd_skill_canonical cycle 2034b ('Overrides prior pitch-first framing'). Queue as tomorrow's first cold first-touch unless operator overrides. Recommended pitch angle: sBTC IS the rail agents already settle in — listing puts it in front of every agent evaluating where to park BTC capital; Emily API + SIP-010 surface = readers act in one tool call.",
+      "notes": "Surveyed cycle 2034cd (Phase 1.5 Stacks infra/wallets rotation). Score 8/10: activity 3/3 (v1.3.0 release 2026-04-09 + Stacks Core 3.4.0.0.0 compat + commits Apr 14-15-16T10:38Z), agent-surface 2/3 (Stacks.js sbtc package + Emily REST API for peg-in/peg-out status), growth 1/2 (steady operations on settlement layer; no TGE/launch), audience-fit 2/2 (sBTC IS the settlement asset for aibtc.news classifieds — every agent reading the feed already touches it). 553 stars (well below 20k auto-triage). Channel: fresh GH issue on stacks-sbtc/sbtc. Org has no aibtc agent registered. **DEFERRED same-cycle pitch despite Phase 1.5 score-≥7 mandate**: today's cold count already 5 (3 morning A/B + p021 + p051), exceeding BD canonical cap of 3/day per feedback_bd_skill_canonical cycle 2034b ('Overrides prior pitch-first framing'). Queue as tomorrow's first cold first-touch unless operator overrides. Recommended pitch angle: sBTC IS the rail agents already settle in — listing puts it in front of every agent evaluating where to park BTC capital; Emily API + SIP-010 surface = readers act in one tool call. | 2026-04-17T06:30Z SKIPPED: Amber Otter (IC) already pitched stacks-sbtc/sbtc #2016 on 2026-04-16T18:03:58Z. Not double-pitching IC target.",
       "do_not_contact": false,
       "surveyed_at": "2026-04-16T11:58:06Z",
       "survey_source": "Phase 1.5 Stacks infra/wallets rotation",
@@ -3123,10 +3123,18 @@
         "url": "https://github.com/sigle/sigle",
         "btc_address": null
       },
-      "stage": "prospect",
+      "stage": "pitched",
       "first_touch_at": null,
       "last_touch_at": null,
-      "touches": [],
+      "touches": [
+        {
+          "at": "2026-04-17T06:35:18Z",
+          "channel": "gh_issue",
+          "direction": "outbound",
+          "summary": "First-touch direct 3k/7d pitch — Sigle BITCOIN-NATIVE PUBLISHING angle",
+          "proof_url": "https://github.com/sigle/sigle/issues/1254"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown — venture-backed BTC publishing platform",
         "authority": "founder/maintainer (need to identify via GH org)",
@@ -3174,6 +3182,38 @@
       "do_not_contact": false,
       "surveyed_at": "2026-04-16T12:37:00Z",
       "survey_source": "Phase 1.5 NFT/markets rotation"
+    },
+    {
+      "id": "p052-alt",
+      "name": "Clarinet (stx-labs/clarinet)",
+      "stage": "pitched",
+      "github_repo": "stx-labs/clarinet",
+      "notes": "Phase 1.5 growth-mode Stacks-infra pick (cycle 2034e6). 352 stars, 187 open issues, PR #2361 (pin rand + rustls-webpki) landed 2026-04-16T19:04Z. Stacks Labs org (stackslabs.com) — separate from Hiro Foundation, company-tier with revenue motive. Clarinet = THE dev toolchain for Clarity contract devs; every Stacks-agent builder runs it locally. Passes all 3 gates: active this week ✓, agent-usable (contract simulation/deploy) ✓, growth mode ✓ (shipping toolchain improvements). Channel: fresh GH issue. Pitched 3k/7d with CPM anchor.",
+      "touches": [
+        {
+          "at": "2026-04-17T06:35:18Z",
+          "channel": "gh_issue",
+          "direction": "outbound",
+          "summary": "First-touch direct 3k/7d pitch — Clarinet-in-every-agent-dev-IDE angle + CPM anchor",
+          "proof_url": "https://github.com/stx-labs/clarinet/issues/2363"
+        }
+      ]
+    },
+    {
+      "id": "p056",
+      "name": "K-Life (K-entreprises/k-life-stacks)",
+      "stage": "pitched",
+      "github_repo": "K-entreprises/k-life-stacks",
+      "notes": "Phase 1.5 agent-native product pick (cycle 2034e6). 0 stars (hackathon MVP), BUIDL BATTLE #2 entry, demo-video update 2026-04-15. Description literal: \"K-Life — AI Agent Life Insurance on Stacks/Bitcoin — STX collateral, Bitcoin-anchored heartbeats\". Target market = AI agents, audience fit 10/10. Homepage supercharged.works/judges-buidlbattle.html — hackathon judging live. Budget probability low (hackathon-stage) but perfect audience match for unlock artifact. Passes gates: active this week ✓, agent-usable (agent insurance product) ✓, growth mode ✓ (hackathon-visibility urgency). Channel: fresh GH issue (first issue on repo, #1).",
+      "touches": [
+        {
+          "at": "2026-04-17T06:35:18Z",
+          "channel": "gh_issue",
+          "direction": "outbound",
+          "summary": "First-touch direct 3k/7d pitch — your-audience-is-literally-our-readers angle + hackathon-timing hook",
+          "proof_url": "https://github.com/K-entreprises/k-life-stacks/issues/1"
+        }
+      ]
     }
   ],
   "evaluator_candidates": [
