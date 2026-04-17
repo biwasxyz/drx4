@@ -38,13 +38,20 @@ Update `{last_monitor_check_at}` in `daemon/monitor-state.json` (monitor owns th
 
 ### 3. GitHub notifications
 
+Fetch all unread notifications and unpack content (not counts):
+
 ```bash
 GH_TOKEN=$(grep '^GITHUB_PAT_SECRET_MARS=' /home/mars/drx4/.env | cut -d= -f2)
-curl -sS -H "Authorization: token $GH_TOKEN" "https://api.github.com/notifications?since={last_monitor_check_at}" \
-  | jq '[.[] | {reason, updated: .updated_at, title: .subject.title, url: .subject.url}]'
+curl -sS -H "Authorization: token $GH_TOKEN" "https://api.github.com/notifications?all=true" \
+  | jq '[.[] | select(.unread == true) | {id: .id, reason, repo: .repository.name, subject_type: .subject.type, title: .subject.title, url: .subject.url}]'
 ```
 
-For each notification, `mailbox_send(to_role: "lead", body: "gh: {reason} on {repo} — '{title}' — url: {url}")`.
+For each notification:
+1. Fetch the actual issue/PR from `.subject.url` to get state, comment count, updated time
+2. `mailbox_send(to_role: "lead", body: "gh-notif: {repo}#{issue} — {reason} on {title} (state: {state}, {comment_count} comments) — url: {html_url}")`
+3. After reporting all, mark all as read: `curl -X PUT -H "Authorization: token $GH_TOKEN" "https://api.github.com/notifications" -d '{"last_read_at":"<ISO now>"}'`
+
+Report one message per notification (not summary counts). Always mark all as read after reporting.
 
 ### 4. Live classifieds board
 
@@ -65,7 +72,23 @@ Zero-result is the current expected state (seat payouts still pending per #498).
 
 ### 6. Watchlist deltas
 
-Read `daemon/watchlist.json` (if exists). For each entry with `last_checked_at` older than 6h, refetch the URL and compare. Only report deltas (new comment, state change, close/merge). `mailbox_send` per delta.
+Read `daemon/watchlist.json` (if exists). For entries with `last_checked_at` older than 6h:
+
+**Monitor-mentions entries (type: "monitor-mentions")**: These are explicit mention threads you must check every cycle (not just via GitHub notifications API, which misses some threads):
+
+```bash
+GH_TOKEN=$(grep '^GITHUB_PAT_SECRET_MARS=' /home/mars/drx4/.env | cut -d= -f2)
+for url in $(jq -r '.open_github[] | select(.type=="monitor-mentions") | .url' daemon/watchlist.json); do
+  LAST_CHECKED=$(jq -r '.open_github[] | select(.url=="'$url'") | .last_checked_at' daemon/watchlist.json)
+  gh api "$url/comments?since=$LAST_CHECKED" --jq '.[] | {author: .user.login, updated: .updated_at, body: .body[0:150]}'
+done
+```
+
+For each new comment: `mailbox_send(to_role: "lead", body: "mention: {issue} — new comment from {author} at {updated} — {preview} — url: {issue_url}")`.
+
+**All other watchlist entries**: Fetch URL, compare state (open/closed), comment count, and last_updated_at with `last_checked_at`. Only report deltas (new comments, state change, close/merge). `mailbox_send` per delta.
+
+Update `last_checked_at` for all entries checked in this step.
 
 ### 7. Cycle close
 
