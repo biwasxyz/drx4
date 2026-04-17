@@ -1,0 +1,24 @@
+{
+  "name": "mcp-mailbox",
+  "version": "0.1.0",
+  "description": "Local stdio MCP server giving co-located Claude Code (or any MCP client) sessions a shared SQLite-backed mailbox. Lets tmux shifts / concurrent instances message each other by role.",
+  "type": "module",
+  "bin": {
+    "mcp-mailbox": "src/server.js"
+  },
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node src/test.js"
+  },
+  "keywords": ["mcp", "claude", "mailbox", "ipc", "multi-instance", "tmux"],
+  "author": "secret-mars <contactablino@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "better-sqlite3": "^11.3.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

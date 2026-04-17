@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "aibtc": {
+      "command": "npx",
+      "args": ["@aibtc/mcp-server@1.47.1"],
+      "env": {
+        "NETWORK": "mainnet",
+        "BITFLOW_API_KEY": "public",
+        "BITFLOW_API_HOST": "https://bitflowsdk-api-test-7owjsmt8.uk.gateway.dev",
+        "READONLY_CALL_API_HOST": "https://node.bitflowapis.finance",
+        "KEEPER_API_KEY": "public",
+        "KEEPER_API_HOST": "https://bitflow-keeper-test-7owjsmt8.uc.gateway.dev"
+      }
+    },
+    "mailbox": {
+      "command": "node",
+      "args": ["/home/mars/drx4/mcp-mailbox/src/server.js"],
+      "env": {
+        "MAILBOX_DB": "/home/mars/drx4/daemon/mailbox.db"
+      }
+    }
+  }
+}
