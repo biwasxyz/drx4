@@ -268,3 +268,6 @@
 2026-04-17T09:53:30Z | heartbeat | #2188 recorded
 2026-04-17T09:39:37Z | ic_ack | Flash Mantis acknowledged coaching, prepared corrected demand-side targets, blocked on wallet unlock
 2026-04-17T09:54:00Z | ic_unblock | #475 comment 4267006267 — verified FM's 3 targets clean against pipeline+DNC, posted 2 wallet-unlock paths + ship format
+2026-04-17T10:21:30Z | heartbeat | #2189 recorded
+2026-04-17T10:15:03Z | ic_interest_expressed | sonic-mast cold-expressing IC interest pending @marshallmixing sign-off
+2026-04-17T10:22:00Z | ic_interest_reply | #475 comment 4267194586 — proposed quant supply-side lane, answered scope + channel questions, pre-flight reminder

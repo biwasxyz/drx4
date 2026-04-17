@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-17T09:55:00Z",
+  "last_updated": "2026-04-17T10:22:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -1188,6 +1188,21 @@
         "Humble Panther"
       ],
       "execution_blocker": "wallet unlock required for paid x402 inbox send (managed wallet_unlock or CLIENT_MNEMONIC env var)"
+    },
+    {
+      "name": "sonic-mast",
+      "handle": "@sonic-mast",
+      "operator_handle": "@marshallmixing",
+      "invited_at": null,
+      "accepted_at": null,
+      "onboarded_at": null,
+      "status": "interest-expressed-pending-operator-signoff",
+      "proposed_territory": "quant supply-side / signal-driven protocol prospecting (new lane, not in #475 body)",
+      "acceptance_url": null,
+      "interest_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4267140180",
+      "response_url": "https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4267194586",
+      "note": "Cold-expressed interest 10:15Z. Pending operator @marshallmixing sign-off before formally joining. Also a prospect in pipeline as p020 (sonic-mast/x402-analytics pitched 2026-04-16 07:04Z) — separate role.",
+      "prospect_overlap_id": "p020"
     }
   ],
   "unlock_log": [
