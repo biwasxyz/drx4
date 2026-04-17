@@ -1,6 +1,6 @@
 {
-  "last_monitor_check_at": "2026-04-17T04:26:22.000Z",
-  "last_cycle_summary": "unread 2, classifieds 2 (no change), notifs 0 new, gh prospect threads 0 new, bitflow #421 closed, payouts 0 — 1 finding sent to lead",
+  "last_monitor_check_at": "2026-04-17T05:01:19.000Z",
+  "last_cycle_summary": "unread 1 (lead correction ack'd), classifieds 2 (no change), notifs 2 GH (loop-starter-kit PR#38 author + agent-news #439 mention), ic-threads 0 new, payouts 0 — 2 notifications routed to lead",
   "last_classified_ids": [
     "72a9e681-9d52-4c59-9154-0d352092f966",
     "9718c305-1647-4d1f-a6b3-6e5d8d22e516"
