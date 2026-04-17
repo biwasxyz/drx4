@@ -223,3 +223,4 @@
 2026-04-17T04:03:55Z | monitor_sweep | unread 2, classifieds 2, notifs 6, payouts 0, inbox 1 new, watchlist 6 overdue + 4 dropped x402 | 11 mailbox messages queued for lead
 2026-04-17T04:07:43Z | pitcher_cycle | assignments_processed=0 | sent=0 | failed_qualify=0 | failed_eval=0
 2026-04-17T04:08:03Z monitor-sweep unread 2, classifieds 2, notifs 0 — iskander-20 closed, arc-480 ongoing, dropped-x402 recovery (3 mailbox msgs sent)
+2026-04-17T04:14:19Z monitor-sweep quiet — unread 2, classifieds 2, notifs 0, payouts 0 (1 quiet msg sent)
