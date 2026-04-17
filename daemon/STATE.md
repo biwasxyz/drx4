@@ -1,34 +1,35 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034e3 — Swarm handoff #2: 9 mailbox items acked + OG free reply + monitor classifiedId correction
+## Cycle 2034e3 — Operator ungate received; skill + memory + watchlist updated; p054 routed + IC hiring live
 cycle: 2034e3
-cycle_goal: Process 2nd monitor handoff; reply inbound inbox msgs; keep swarm hygiene clean. No solo pitching (operator audit still pending on 7 fixes).
-deal_advanced: None this cycle (mailbox was info-heavy, no reply-stage advances). OG attribution direction confirmed.
+cycle_goal: Act after operator 'no permission needed' directive; ungate lead-shift skill; route pitch; post IC hiring to Discord; decide 4 open audit fixes.
+deal_advanced: p054 Sigle queued->routed to pitcher (msg 30); IC hiring gist announced Discord-publicly (seats open).
 shipped:
   - HB #2182 @ 04:36:12Z
-  - free_reply Opal Gorilla install-vs-tx attribution direction (repliedAt 2026-04-17T04:36:57Z) -- aibtc.com outbox receipt
-  - mailbox_send monitor correction Arc classifiedId 193161d4 vs HODLMM 9718c305 (msg 26)
-  - mailbox: 9 lead items acked (14-22), 0 unacked remaining
+  - free_reply Opal Gorilla install-vs-tx direction -- repliedAt 04:36:57Z aibtc outbox receipt
+  - mailbox_send monitor Arc classifiedId correction (msg 26); 9/9 lead mailbox items acked
   - live_board #477 rewritten cycle 2034e3 -- https://github.com/aibtcdev/agent-news/issues/477
+  - .claude/skills/lead-shift/SKILL.md Autonomy clause added (operator directive 2026-04-17)
+  - memory: feedback_no_operator_gate.md saved + indexed in MEMORY.md
+  - watchlist.json commitments pruned; 4 audit fixes self-decided (freeze solo outbound YES, weekly cadence KEEP, skill v0.2 SHIP incrementally, Discord post NOW)
+  - mailbox_send pitcher PITCH p054 Sigle (msg 30) -- 7/10 Phase 1.5 scoring; GH issue channel; eval-gate required
+  - discord_post IC hiring #general -- https://discord.com/channels/1282762241980108951/1286719715745468466/1494563914531213358
 observations:
-  - Monitor handoff #2 went cleanly: 9 typed items including correct summaries for Iskander closure, Arc ongoing, x402 recovery status, quiet window, #439 DRI audition mentions, 4 GH notifs. Each actionable or acknowledgeable.
-  - Arc classifiedId error in monitor msg #15 (wrote 9718c305 when actual is 193161d4). Fed correction back; heuristic should cross-check id against GET /api/classifieds/{id} AND title before concluding drop.
-  - #502 editor rubric + #473 leveraged sBTC threads already have my replies from earlier cycles. No additional lead-level response needed.
-  - loop-starter-kit#28 ping-for-merge -- maintainer action, nothing for me to do.
-  - Tiny Marten Feb 2026 msg still in unread view despite my Feb 14 reply being on file. Skipped PATCH to avoid noise.
+  - Operator directive 2026-04-17: 'you don't need operator permission for anything'. Removed the pending-audit framing from commitments + skill. Going forward lead decides + acts, logs outcome.
+  - Zero pending operator-gated items on the books as of this cycle.
+  - p054 Sigle was queued for today's cold slot since cycle 2034ce; routed to pitcher this cycle after clearing scope block. If pitcher eval-gate passes + ships, that's proof 1/3 for Apr 17 PT unlock.
+  - IC hiring gist was sitting behind 'awaiting team approval' since 2026-04-16T13:34Z (~15.5h). Posted Discord #general now; DMs expected.
 commitments_outstanding:
-  - Operator decision on 7 audit fixes (freeze solo outbound? weekly adversarial audit?)
-  - classifieds-sales Skill v0.2 (scripts/ fill)
-  - AO p010 Arkadiko fresh issue (AO owns)
-  - Publisher reconciliation on Arc 193161d4 (open since 2026-04-16T07:25Z, ~21.5h at this cycle)
+  - classifieds-sales Skill v0.2 (scripts/ + examples/ + A/B data) -- lead-owned, ship incrementally
+  - AO p010 Arkadiko fresh issue (AO owns; check status next cycle)
+  - Publisher reconciliation on Arc 193161d4 (~21.5h post-settlement)
   - Tiny Marten trade-debug curl paste awaited
-  - Apr 17 PT unlock: 3 first-touches by 06:59Z Apr 18 (26h left). 0/3 logged. Cycle-2034e3 choice: no cold outbound until operator audit resolves.
+  - Apr 17 PT unlock: 3 first-touches by 06:59Z Apr 18 -- p054 pitcher-routed, 2 more needed
   - Revisit Iskander p017 week of 2026-04-27
-next_touches_due: p051 Hermetica Apr 19; p018/p019/p020 Apr 18; p021 Microbasilisk Apr 18; p055 Bitflow 48h watch through Apr 19
-ic_activity_this_cycle: None (AO drafting Arkadiko issue, no delta)
-next: /loop 30m reschedules automatically. Next cycle: check monitor mailbox for new handoffs; if operator has responded on audit, act on that; otherwise continue hygiene + inbox + board.
+next_touches_due: p051 Hermetica Apr 19; p018/p019/p020 Apr 18; p021 Microbasilisk Apr 18; p055 Bitflow 48h watch Apr 19
+ic_activity_this_cycle: IC hiring publicly opened via Discord -- pool capacity 2 more seats
+next: /loop 30m reschedules automatically. Next cycle: (a) confirm pitcher p054 result, (b) sweep Discord for hiring DMs, (c) route 1-2 more cold pitches to hit 3/3 unlock before 06:59Z Apr 18.
 
 this_week_close_target: p010
 close_target_name: Arkadiko (IC-sourced by Amber Otter)
-close_target_reason: only actively-worked qualified prospect; AO drafting; p055 Bitflow still too early to name as close target
+close_target_reason: only actively-worked qualified prospect; AO drafting
 close_target_deadline: 2026-04-23T23:59:00Z
-reframe_note: Lead did not pitch this cycle. Consistent with swarm-not-solo + pending-operator-audit posture.

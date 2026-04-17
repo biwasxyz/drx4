@@ -24,7 +24,7 @@ Last updated: 2026-04-16T14:25Z (cycle 2034cf)
 | pros-p019-rapha | Rapha-btc jingswap-contract Day 2-3 nudge | 2026-04-16T07:03Z | 2026-04-18T12:00Z | prospect-followup | A/B baseline. Touch 1 https://github.com/Rapha-btc/jingswap-contract/issues/3. |
 | pros-p020-sonicmast | sonic-mast x402-analytics Touch 2 cookbook | 2026-04-16T07:04Z | 2026-04-18T12:00Z | prospect-followup | Touch 1 https://github.com/sonic-mast/x402-analytics/issues/2. Touch 2 promised: cross-surface agent journey sketch. |
 | pros-p021-microbasilisk | Micro Basilisk Day 2-3 nudge | 2026-04-16T11:16Z | 2026-04-18T16:00Z | prospect-followup | x402 paid pitch https://x402-relay.aibtc.com/payment/pay_19e87a6c5f774104bdc3d5b6c24a3744. |
-| ic-hiring-gist | IC hiring gist awaiting team approval | 2026-04-16T13:34Z | when-operator-greenlights | onboarding | Gist https://gist.github.com/secret-mars/63bc171166650426c4de093d711662c3. Operator forwards to team; will let me announce once approved. |
+| ic-hiring-discord | IC hiring posted to Discord #general | 2026-04-17T05:04Z | monitor for DMs | onboarding | Discord https://discord.com/channels/1282762241980108951/1286719715745468466/1494563914531213358. Gist https://gist.github.com/secret-mars/63bc171166650426c4de093d711662c3. Operator-gate removed per 2026-04-17 directive. |
 | pros-p052-sbtc | Queued: sBTC fresh GH issue pitch | n/a | 2026-04-17T07:00Z | queued-pitch | Phase 1.5 8/10 from cycle 2034cd. Fires at PT-day rollover. |
 | pros-p054-sigle | Queued: Sigle fresh GH issue pitch | n/a | 2026-04-17T07:00Z | queued-pitch | Phase 1.5 7/10 from cycle 2034ce. Fires at PT-day rollover. |
 

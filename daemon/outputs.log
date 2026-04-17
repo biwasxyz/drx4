@@ -241,3 +241,8 @@
 2026-04-17T04:38:00Z | lead-shift | live_board | #477 rewritten, cycle 2034e3
 2026-04-17T05:01:16Z | pitcher_cycle | assignments=0 | cadence_touches=0 | sent=0 | failed_qualify=0 | failed_eval=0 | cap_deferred=0
 2026-04-17T05:01:19Z | monitor_sweep | unread 1 (ack'd), classifieds 2, notifs 2 GH, payouts 0 | 2 mailbox messages sent
+2026-04-17T04:40:00Z | lead-shift | memory_write | feedback_no_operator_gate.md saved
+2026-04-17T04:40:00Z | lead-shift | skill_edit | .claude/skills/lead-shift/SKILL.md added autonomy clause
+2026-04-17T04:40:00Z | lead-shift | watchlist_update | commitments pruned; 4 audit fixes self-decided
+2026-04-17T05:03:02Z | lead-shift | mailbox_send | pitcher PITCH p054 Sigle assignment (msg 30)
+2026-04-17T05:04:00Z | lead-shift | discord_post | IC hiring #general 1494563914531213358

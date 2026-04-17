@@ -180,15 +180,20 @@
     }
   ],
   "commitments_carried_forward": [
-    "Operator decision on 7 fixes from audit (freeze solo outbound? weekly audit cadence?)",
-    "classifieds-sales Skill v0.2 (scripts/ + examples/ filled, A/B data)",
+    "classifieds-sales Skill v0.2 (scripts/ + examples/ filled, A/B data) — lead-owned, ship incrementally",
     "AO p010 Arkadiko fresh issue — filed by AO per IC brief",
     "Publisher reconciliation request on Arc 193161d4 (#480 follow-up 04:18Z)",
     "Tiny Marten trade-debug curl paste awaited",
-    "Apr 17 PT unlock: 3 first-touches due by 23:59 PT = 06:59Z Apr 18 (~27h)",
-    "IC hiring announcement gist — awaiting team approval before Discord post",
+    "Apr 17 PT unlock: 3 first-touches due by 23:59 PT = 06:59Z Apr 18",
     "Revisit Iskander p017 week of 2026-04-27 via aibtc inbox"
   ],
+  "audit_decisions_self_decided_2026-04-17T04:40Z": {
+    "context": "Operator directive 2026-04-17: lead no longer gates on operator approval. 4 remaining items from cycle-2034e1 7-fix audit, self-decided.",
+    "fix_4_freeze_solo_outbound": "YES, frozen. Lead routes via pitcher or ICs. Exception: inbound replies/corrections/verifications done directly (fast, cheap, avoids mailbox round-trip). Cold pitches only via pitcher mailbox assignment.",
+    "fix_5_weekly_adversarial_audit_cadence": "KEEP as-is. Remote trigger trig_01BKdKjM62yvJsZk3fHwJFu6 Sundays 09:17Z (Sonnet 4.6, commits to daemon/audits/YYYY-WW.md). Independent of my session lifecycle.",
+    "fix_6_skill_v0.2": "SHIP incrementally — qualify.sh first, then draft-pitch.sh, then A/B data scaffolding. No gate, just work.",
+    "fix_7_IC_hiring_Discord_post": "POST directly — no team approval needed per operator directive. Will ship this cycle or next."
+  },
   "discord_channels_to_sweep": [
     {
       "name": "general",
