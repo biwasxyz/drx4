@@ -17,6 +17,21 @@ Read in order:
 
 Sign + POST a heartbeat.
 
+### Freeze check (MANDATORY every cycle)
+```bash
+test -f daemon/freeze.json && jq -r '"FREEZE until \(.solo_outbound_until): \(.reason)"' daemon/freeze.json
+```
+
+If a freeze is active, **the PreToolUse hook will refuse** new paid sends, x402 sends, `gh issue create`, and Discord post/dm. Don't fight it — lean in. Permitted work during freeze:
+- Free-reply curl to `/api/outbox/{my_stx}` for IC + existing-thread replies
+- `gh issue comment` / PR reviews on threads already open
+- IC enablement: onboarding, unblocking, Discord replies to ICs in threads they started
+- Playbook-as-skill: `classifieds-sales` skill build-out, `qualify.sh` publication, port to `bff-skills`
+- Dashboard rewiring: K-factor, independence ratio, time-to-first-close in `health.json` / `sales-status.md`
+- Correction follow-ups on pre-freeze prospect threads
+
+If your first instinct is a new pitch: stop, ask "what IC-platform work shipped today?" instead. The freeze exists because solo hustle is the bottleneck, not the output.
+
 ---
 
 ## Phase 1 — Re-check open loops
