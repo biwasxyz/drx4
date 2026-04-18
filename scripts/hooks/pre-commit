@@ -1,22 +1,128 @@
 #!/usr/bin/env bash
-# Cruise-mode block: reject commits that only touch state files.
+# Pre-commit hook: secret scanner + cruise-mode block.
 #
-# Every cycle must produce real output beyond a heartbeat — a listing, route,
-# signal, PR, comment, skill, or learning. This hook enforces that mechanically
-# so the rule in daemon/loop.md ("No cruise mode") can't be quietly broken.
+# Section 1: SECRET SCAN — rejects any staged diff containing a likely
+#            mnemonic, private key, or provider token. CANNOT be bypassed
+#            (that mistake happened once, 2026-04-17; never again).
 #
-# Bypass (use sparingly — crash recovery, stop/start, etc.):
-#   ALLOW_STATE_ONLY=1 git commit ...
+# Section 2: CRUISE-MODE BLOCK — rejects commits that touch only state
+#            files. Bypassable with ALLOW_STATE_ONLY=1 for crash recovery.
 
 set -euo pipefail
 
+HOOK_DIR="$(cd "$(dirname "$0")" && pwd)"
+WORDLIST="$HOOK_DIR/bip39-english.txt"
+
+# Get added-line content from staged diff (lines starting with + but not +++).
+STAGED_ADDED="$(git diff --cached --diff-filter=ACMRT -U0 | grep -E '^\+' | grep -vE '^\+\+\+' || true)"
+
+# ─────────────────────────────────────────────────────────────────────
+# Section 1: SECRET SCAN (NEVER bypassable)
+# ─────────────────────────────────────────────────────────────────────
+if [[ -n "$STAGED_ADDED" ]]; then
+
+  fail_secret() {
+    echo ""
+    echo "✗ SECRET DETECTED — commit rejected"
+    echo ""
+    echo "  Type: $1"
+    echo "  Location: staged diff"
+    echo ""
+    echo "This hook CANNOT be bypassed. If you think this is a false positive,"
+    echo "open scripts/hooks/pre-commit and narrow the pattern — never disable."
+    echo ""
+    echo "If the secret is real:"
+    echo "  1. Remove it from the staged file."
+    echo "  2. Rotate the secret immediately (assume it leaked)."
+    echo "  3. If already committed in a previous commit, scrub history with"
+    echo "     git-filter-repo and force-push before anyone else pulls."
+    echo ""
+    exit 1
+  }
+
+  # GitHub PATs
+  if echo "$STAGED_ADDED" | grep -qE 'ghp_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{50,}|gho_[A-Za-z0-9]{36}|ghs_[A-Za-z0-9]{36}'; then
+    fail_secret "GitHub token"
+  fi
+
+  # Extended private keys (BIP32)
+  if echo "$STAGED_ADDED" | grep -qE '\b(xprv|yprv|zprv|Yprv|Zprv|tprv|uprv|vprv)[1-9A-HJ-NP-Za-km-z]{107,108}\b'; then
+    fail_secret "BIP32 extended private key (xprv/yprv/zprv)"
+  fi
+
+  # AWS access key
+  if echo "$STAGED_ADDED" | grep -qE '\bAKIA[0-9A-Z]{16}\b'; then
+    fail_secret "AWS access key"
+  fi
+
+  # Slack tokens
+  if echo "$STAGED_ADDED" | grep -qE '\bxox[bpoars]-[A-Za-z0-9-]{10,}\b'; then
+    fail_secret "Slack token"
+  fi
+
+  # Stripe
+  if echo "$STAGED_ADDED" | grep -qE '\bsk_live_[0-9a-zA-Z]{24,}\b'; then
+    fail_secret "Stripe live secret key"
+  fi
+
+  # PEM private key headers
+  if echo "$STAGED_ADDED" | grep -qE -- '-----BEGIN (RSA |EC |DSA |OPENSSH |ENCRYPTED |PGP )?PRIVATE KEY-----'; then
+    fail_secret "PEM private key block"
+  fi
+
+  # OpenAI / Anthropic keys (common formats)
+  if echo "$STAGED_ADDED" | grep -qE '\bsk-(ant-)?[A-Za-z0-9_-]{32,}\b'; then
+    fail_secret "OpenAI/Anthropic API key"
+  fi
+
+  # BIP39 mnemonic: extract candidate sequences of 11+ lowercase words and
+  # validate each against the BIP39 English wordlist. Catches 12/15/18/21/24
+  # word mnemonics in any language-en setup.
+  if [[ -f "$WORDLIST" ]]; then
+    # Pull candidate sequences out of the added diff. Only plain lowercase words.
+    CANDIDATES="$(echo "$STAGED_ADDED" | grep -oE '([a-z]{3,8}[[:space:]]+){11,23}[a-z]{3,8}' || true)"
+    if [[ -n "$CANDIDATES" ]]; then
+      if ! echo "$CANDIDATES" | python3 -c '
+import sys
+with open(sys.argv[1]) as f:
+    wl = frozenset(w.strip() for w in f if w.strip())
+for line in sys.stdin:
+    words = line.strip().split()
+    for n in (12, 15, 18, 21, 24):
+        for i in range(len(words) - n + 1):
+            window = words[i:i+n]
+            if all(w in wl for w in window):
+                print("BIP39 hit:", " ".join(window)[:80], file=sys.stderr)
+                sys.exit(1)
+sys.exit(0)
+' "$WORDLIST"; then
+        fail_secret "BIP39 mnemonic (12/15/18/21/24-word seed phrase)"
+      fi
+    fi
+  fi
+
+  # Generic high-entropy secret in assignment form. Matches things like
+  # MNEMONIC = '...' / const PASSWORD = "..." / API_KEY: 'xxxxxxxx'.
+  # Heuristic: keyword + assignment + long-enough value in quotes.
+  if echo "$STAGED_ADDED" | grep -qiE '(mnemonic|passw(or)?d|secret_?key|api_?key|private_?key|seed_?phrase)[[:space:]]*[:=][[:space:]]*['\''\"][^'\''\"]{16,}['\''\"]'; then
+    # Second-stage check: avoid false positives on obvious placeholders
+    matched="$(echo "$STAGED_ADDED" | grep -iE '(mnemonic|passw(or)?d|secret_?key|api_?key|private_?key|seed_?phrase)[[:space:]]*[:=][[:space:]]*['\''\"][^'\''\"]{16,}['\''\"]' | head -3)"
+    # Let known placeholder patterns pass (REDACTED, YOUR_, xxx, example, <, ${...})
+    if ! echo "$matched" | grep -qiE 'REDACTED|YOUR_|your-|placeholder|example|EXAMPLE|<[A-Z_]+>|\$\{|process\.env|os\.(environ|getenv)|fromEnv|readEnv|xxxxxxxxxxxxxxxx'; then
+      echo "⚠ suspicious assignment: $matched" >&2
+      fail_secret "keyword + long literal string assignment"
+    fi
+  fi
+fi
+
+# ─────────────────────────────────────────────────────────────────────
+# Section 2: CRUISE-MODE BLOCK (bypassable for recovery only)
+# ─────────────────────────────────────────────────────────────────────
 if [[ "${ALLOW_STATE_ONLY:-0}" == "1" ]]; then
   exit 0
 fi
 
-# Files that count as "state only" — if the commit touches ONLY these, block.
 CRUISE_FILES_REGEX='^(daemon/STATE\.md|daemon/health\.json)$'
-
 staged=$(git diff --cached --name-only --diff-filter=ACMRTD)
 
 if [[ -z "$staged" ]]; then
