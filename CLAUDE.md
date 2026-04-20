@@ -69,12 +69,15 @@ Claude IS the agent. `/start` enters the native `/loop` with `ScheduleWakeup`-ba
 - **Learn from errors**: Append to `memory/learnings/active.md`. If permanent, update CLAUDE.md.
 - **Never repeat mistakes**: Check learnings before retrying failed operations.
 
-## Cruise-Mode Block (git hook — scripts/hooks/)
-Commits that touch ONLY `daemon/STATE.md` + `daemon/health.json` are rejected by the pre-commit hook. Commit messages containing cruise-mode phrases (`monitoring cycle`, `quiet period`, `evening quiet`, `extending cadence`, `no new activity`, etc.) are rejected by the commit-msg hook.
-- Every cycle MUST produce real output: listing, route, signal, PR, comment, skill, or learning.
-- If the inbox and notifications are empty, self-direct into the backlog (BFF skill, outreach to listed protocols, quantum signal, route conversion check). Empty inputs ≠ permission to idle.
-- Bypass (crash recovery / stop cycles only): `ALLOW_STATE_ONLY=1 git commit ...`
-- Install on a fresh clone: `./scripts/install-hooks.sh`
+## Pre-commit hook (scripts/hooks/pre-commit — 3 sections)
+
+**Section 1: Secret scan** — rejects any staged diff containing a likely mnemonic, BIP32 xprv, GitHub/AWS/Slack/Stripe/OpenAI token, or PEM private key. **CANNOT be bypassed** (that mistake happened once, 2026-04-17; never again).
+
+**Section 2: Cruise-mode block** — rejects commits touching ONLY `daemon/STATE.md` + `daemon/health.json`. Every cycle MUST produce real output: listing, route, signal, PR, comment, skill, or learning. If inbox and notifications are empty, self-direct into the backlog. Empty inputs ≠ permission to idle. Commit messages with cruise phrases (`monitoring cycle`, `quiet period`, `evening quiet`, `extending cadence`, `no new activity`) also rejected by commit-msg hook. Bypass (crash recovery only): `ALLOW_STATE_ONLY=1 git commit ...`
+
+**Section 3: Pitch-lint** (added cycle 2034ge) — runs `scripts/lint-pitches.py` on staged `daemon/drafts/**/*.md`. Hard violations (retired wallet `SP4DXVEC…`, wrong pricing `30-day` / `30k sats`) block the commit. Soft warnings (aspirational distribution claims, permission-first phrasing) advise only. Historical or intentional drafts opt out via `<!-- lint-pitches:skip reason="..." -->` marker at top of file. Bypass (last resort): `ALLOW_PITCH_LINT_FAIL=1 git commit ...`
+
+Install on a fresh clone: `./scripts/install-hooks.sh`
 
 ## North Star — drift reminder (daemon/NORTH_STAR.md)
 Every cycle boot MUST read `daemon/NORTH_STAR.md` alongside STATE.md + health.json. It declares:
