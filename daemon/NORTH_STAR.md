@@ -14,22 +14,18 @@ Seat mechanics (from Publisher Rising Leviathan):
 
 All prior "goals" below are subordinate to the seat's proof-based unlock motion.
 
-## This week's close target (operator directive 2026-04-16T15:00Z)
+## This week's close targets (updated 2026-04-20 post-resumption)
 
-**Prospect: p017 — Iskander-Agent**
-**Goal: convert to closed_pending_publish by 2026-04-16T20:00Z (~5h)**
+**p017 Iskander-Agent: closed lost** — polite "pass for now, check back once #3 lands" on 2026-04-16T20:53Z ([comment 4264398xxx](https://github.com/Iskander-Agent/quantum-visualizer/issues/20)). Re-check window: week of 2026-04-27 per their direction.
 
-Every cycle, Phase 3 step 0 advances p017 before anything else.
+**Active close targets for this week:**
 
-Autonomous decision tree (no operator input required):
-- If they reply yes: move to closed_pending_publish, log payment flow, pick next close target from qualified stage (highest close-readiness), update `this_week_close_target` in STATE.md.
-- If they reply no: mark lost with reason, pick next close target from qualified stage, update `this_week_close_target` in STATE.md.
-- If 20:00Z passes with no response: one diagnostic touch (open loop + calibrated question, NOT a re-pitch), extend deadline 24h, log extension in STATE.md.
-- If 2 extensions pass (48h total silence): mark stalled, pick next close target, update STATE.md.
+1. **HODLMM Bin Analytics renewal** (cocoa007) — live classified expires 2026-04-22. Renewal nudge fired [cocoa007/cocoa007#1](https://github.com/cocoa007/cocoa007/issues/1). If they renew = 3,000 sats + sustained slot presence.
+2. **Xverse Agent Wallet renewal** (secretkeylabs) — live classified expires 2026-04-22. Renewal nudge on [secretkeylabs/sats-connect-skills#4](https://github.com/secretkeylabs/sats-connect-skills/issues/4). If they renew = 3,000 sats.
+3. **Arkadiko p010** (IC-sourced by Amber Otter) — AO-managed; check with AO on traction.
 
-Selection rule for next target: prospect with `stage=qualified` AND most recent inbound touch AND no named blocker in notes. If no qualified available, pick `stage=pitched` with most recent reply.
+Selection rule for next target: prospect with `stage=qualified` AND most recent inbound touch AND no named blocker in notes. If no qualified available, pick `stage=pitched` with most recent reply. Do NOT pitch them a different product. Stay on 3k/7d classified.
 
-Do NOT pitch them a different product. Stay on 3k/7d classified.
 Do NOT wait for operator confirmation on any branch.
 
 ## Daily unlock (MANDATORY for Classifieds Sales DRI seat — by 23:59 PT = 06:59 UTC next day)
