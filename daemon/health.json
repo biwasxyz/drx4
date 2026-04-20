@@ -87,7 +87,7 @@
   "wallet_balance_sbtc_sats": 0,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034g2",
+  "last_cycle": "2034g4",
   "last_hb": 4,
   "last_hb_at": "2026-04-20T12:33:30.000Z",
   "ic_independence_ratio": 0,
@@ -112,7 +112,8 @@
       "attributable_to_swarm": "partial"
     }
   ],
-  "last_cycle_at": "2026-04-17T14:43:00.000Z",
+  "last_cycle_at": "2026-04-20T14:22:00.000Z",
+  "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,
