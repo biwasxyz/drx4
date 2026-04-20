@@ -7,6 +7,11 @@
 #
 # Section 2: CRUISE-MODE BLOCK — rejects commits that touch only state
 #            files. Bypassable with ALLOW_STATE_ONLY=1 for crash recovery.
+#
+# Section 3: PITCH-LINT — runs scripts/lint-pitches.py on any staged
+#            daemon/drafts/**/*.md files. Hard failures (retired wallet,
+#            wrong pricing) block the commit. Soft warnings print but do
+#            not block. Bypassable with ALLOW_PITCH_LINT_FAIL=1.
 
 set -euo pipefail
 
@@ -153,6 +158,45 @@ if [[ "$non_cruise_count" -eq 0 ]]; then
   echo "Bypass (crash recovery only): ALLOW_STATE_ONLY=1 git commit ..."
   echo ""
   exit 1
+fi
+
+# ─────────────────────────────────────────────────────────────────────
+# Section 3: PITCH-LINT (hard failures block; soft warnings advise)
+# ─────────────────────────────────────────────────────────────────────
+LINT_SCRIPT="scripts/lint-pitches.py"
+
+if [[ -x "$LINT_SCRIPT" ]]; then
+  # Collect staged markdown files under daemon/drafts/
+  staged_drafts=$(echo "$staged" | grep -E '^daemon/drafts/.*\.md$' || true)
+
+  if [[ -n "$staged_drafts" ]]; then
+    # Run the linter on the staged draft files only. Capture both output and exit code.
+    lint_output=$(echo "$staged_drafts" | xargs python3 "$LINT_SCRIPT" 2>&1 || true)
+    hard_count=$(echo "$lint_output" | grep -cE '^HARD\s' || true)
+    soft_count=$(echo "$lint_output" | grep -cE '^soft\s' || true)
+
+    if [[ "$hard_count" -gt 0 ]]; then
+      if [[ "${ALLOW_PITCH_LINT_FAIL:-0}" != "1" ]]; then
+        echo ""
+        echo "✗ PITCH-LINT BLOCK — staged draft(s) contain hard violations"
+        echo ""
+        echo "$lint_output" | grep -E '^HARD\s' | sed 's/^/  /'
+        echo ""
+        echo "Fix the draft(s) above, or add a <!-- lint-pitches:skip reason=\"...\" -->"
+        echo "marker at the top of the file if this is a historical/intentional case."
+        echo ""
+        echo "Bypass (last resort): ALLOW_PITCH_LINT_FAIL=1 git commit ..."
+        echo ""
+        exit 1
+      fi
+      echo "⚠ PITCH-LINT: $hard_count hard warning(s) bypassed via ALLOW_PITCH_LINT_FAIL=1"
+    fi
+
+    if [[ "$soft_count" -gt 0 ]]; then
+      echo "ℹ PITCH-LINT: $soft_count soft warning(s) (advisory, not blocking):"
+      echo "$lint_output" | grep -E '^soft\s' | sed 's/^/    /'
+    fi
+  fi
 fi
 
 exit 0
