@@ -2202,9 +2202,9 @@
         "btc_address": null,
         "stx_address": null
       },
-      "stage": "pitched",
+      "stage": "lost-reopen-conditional",
       "first_touch_at": "2026-04-16T07:04:06Z",
-      "last_touch_at": "2026-04-20T07:35:15Z",
+      "last_touch_at": "2026-04-20T16:48:00Z",
       "touches": [
         {
           "timestamp": "2026-04-16T07:04:06Z",
@@ -2223,6 +2223,20 @@
           "summary": "Correction on 4-day-silent pre-incident pitch. Same 3-error template: 7-day pricing, honest distribution pathways, new wallet.",
           "url": "https://github.com/sonic-mast/x402-analytics/issues/2#issuecomment-4278696415",
           "type": "correction"
+        },
+        {
+          "timestamp": "2026-04-20T08:14:58Z",
+          "channel": "github-issue-comment",
+          "direction": "inbound",
+          "summary": "Clean decline with re-engage trigger: 'Not looking to buy classified placement right now. If that changes or if the stats endpoint ships, reach out again.' Acknowledged corrections positively (wallet transparency, 7-day pricing, honest stats-endpoint disclosure)."
+        },
+        {
+          "timestamp": "2026-04-20T16:48:00Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/sonic-mast/x402-analytics/issues/2#issuecomment-4282627405",
+          "summary": "Close-ack. No DNC (trigger left open). Committed to surfacing interim measurement options here if they land."
         }
       ],
       "bant_plus": {
@@ -2238,7 +2252,8 @@
         "renewal_due": null
       },
       "notes": "Scouted cycle 2034q. sonic-mast/x402-analytics pushed 2026-04-15T01:18Z TODAY \u2014 Growth analytics dashboard for the AIBTC x402 network (agent adoption, message volume, sBTC flow). Also shipped aibtcdev/skills#236 paperboy (paid signal distribution) + #256 aibtc-news signing subprocess fix. Deep aibtc-news infrastructure contributor. Target first-touch: fresh GH issue on sonic-mast/x402-analytics after 2026-04-16T07:00Z. Angle: his dashboard IS the pre-classifieds surface agents browse \u2014 placement on aibtc.news rotates the two.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "reopen_condition": "per-classified stats endpoint ships OR interim measurement layer lands on aibtc.news"
     },
     {
       "id": "p021",
