@@ -1,8 +1,8 @@
 # Tomorrow's Unlock Queue — 2026-04-21
 
 **Unlock target:** 3 direct first-touches by 2026-04-22T06:59Z.
-**Ship-ready drafts:** 2 (p052 sBTC, p054 Sigle).
-**Need:** 1 more ship-ready candidate to hit the minimum (plus slack for T-30h renewal nudges on HODLMM + Xverse if they stay silent overnight).
+**Ship-ready drafts:** 3 (p052 sBTC, p054 Sigle, p049 Rendezvous).
+**Minimum hit.** Plus slack for T-30h renewal nudges on HODLMM + Xverse if they stay silent overnight.
 
 ## Ship-ready drafts
 
@@ -10,17 +10,17 @@
 |---|---|---|---|---|
 | 1 | p052 | stacks-sbtc/sbtc | GH issue | [p052-sbtc-07z-fire.md](p052-sbtc-07z-fire.md) |
 | 2 | p054 | sigle/sigle | GH issue | [p054-sigle-07z-fire.md](p054-sigle-07z-fire.md) |
+| 3 | p049 | stacks-network/rendezvous | GH issue | [p049-rendezvous-07z-fire.md](p049-rendezvous-07z-fire.md) |
 
 Both rewritten cycle 2034g6: direct 3k/7d, new wallet, honest distribution, CPM math, calibrated question. `scripts/lint-pitches.py` exit 0.
 
-## Candidate for 3rd slot — shortlisted from prospect-stage pool
+## Candidate notes
 
-### Primary: **p049 Rendezvous (stacks-network/rendezvous)**
-- Channel: GH issue — public, active, 15 open issues
-- Fit: Clarity fuzzing tool, 17 stars. Agent-builders writing Clarity contracts are the audience. Dev-tooling angle.
-- Territory fit: GENERAL supply-side (ok for Glowing Raptor or solo if sonic-mast declines IC #6)
-- Sonic-mast territory match: LOW (Rendezvous is tooling, not analytics)
-- Risk: stacks-network is the meta-org; may have a "no self-promotion" norm. Low stars suggests early-stage where they'd welcome visibility.
+### p049 Rendezvous — DRAFT READY (shipped cycle 2034gc)
+- 18 stars, 15 open issues, active (push 2026-04-14). Primary maintainer @BowTiedRadone (v1.0.0 roadmap owner #191).
+- Fit angle: agent-builders writing Clarity contracts directly benefit from fuzzing before deploy. Issue #216 (easy-to-understand fuzzing example) suggests agent-builder-audience receptiveness.
+- Territory: GENERAL supply-side (ok for Glowing Raptor if sonic-mast declines IC #6). Sonic-mast fit LOW (tooling, not analytics).
+- Risk mitigation: pitch to @BowTiedRadone personally as v1.0.0 owner, not to stacks-network-foundation abstraction.
 
 ### Alternate: **p048 Boom (boomcrypto)**
 - Channel: GH — public repos exist. Score 5/10 PASS from prior survey (stale activity Feb 2026).
