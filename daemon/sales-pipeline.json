@@ -1385,11 +1385,12 @@
       "id": "p007",
       "name": "Tenero Analytics",
       "contact": {
-        "channel": "unknown",
-        "handle": null,
-        "btc_address": null
+        "channel": "blocked-no-channel",
+        "handle": "tenero-labs (GitHub org)",
+        "btc_address": null,
+        "website": "https://tenero.io"
       },
-      "stage": "prospect",
+      "stage": "prospect-blocked-no-channel",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
@@ -1405,8 +1406,17 @@
         "posted_at": null,
         "renewal_due": null
       },
-      "notes": "Market data API. Listing_009 verified 2026-04-14. Natural classifieds target \u2014 agents actively need this data.",
-      "do_not_contact": false
+      "notes": "Market data API. Listing_009 verified 2026-04-14. Natural classifieds target \u2014 agents actively need this data. | Channel research 2026-04-20: no public repos on tenero-labs org (only private), no aibtc agent registration. Cannot pitch via GH issue (no repo) or x402 (no agent). Deferred pending channel opening. MCP server already integrates their tools, so aibtc already has a partner relationship \u2014 route via aibtc contact instead of direct pitch.",
+      "do_not_contact": false,
+      "channel_research": {
+        "researched_at": "2026-04-20T19:10:00Z",
+        "github_org": "tenero-labs",
+        "github_description": "Tenero is building advanced analytics, trading insights, and developer tools for the Bitcoin ecosystem \u2014 starting with a DEX screener for native Bitcoin DeFi",
+        "public_repos": 0,
+        "aibtc_agent_registered": false,
+        "mcp_integration": "tenero_* tools in aibtc MCP server (public-facing, backed service)",
+        "recommended_reopen_trigger": "first public repo on tenero-labs, OR Tenero registers as aibtc agent, OR aibtc partnership contact introduces"
+      }
     },
     {
       "id": "p008",

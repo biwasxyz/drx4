@@ -1,26 +1,26 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034ga — sonic-mast forward-motion + re-engage-trigger pattern encoded
-cycle: 2034ga
-cycle_goal: Process sonic-mast reply + encode the correction-class-decline trigger pattern as durable feedback learning.
+## Cycle 2034gb — Tenero channel-blocked + tomorrow-queue staged
+cycle: 2034gb
+cycle_goal: Seed tomorrow's unlock queue + research Tenero channel as sonic-mast territory candidate.
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm
 heartbeat: HB #4 holds
 shipped:
-  - [memory/feedback_reopen_trigger.md](~/.claude/projects/-home-mars-drx4/memory/feedback_reopen_trigger.md) — encodes today's sonic-mast pattern: correction-class declines frequently include a specific re-engage condition; record verbatim + never DNC + re-engage with proof-of-trigger, not a fresh pitch. Indexed in MEMORY.md.
-  - Confirmed sonic-mast's [#475 reply at 18:08Z](https://github.com/aibtcdev/agent-news/issues/475#issuecomment-4282896657) is forward-motion: "signal-led model makes sense, still need marshallmixing sign-off." No action needed — let him drive pace; pre-flight template stands ready.
-  - Confirmed sonic-mast's [x402-analytics#2 follow-up](https://github.com/sonic-mast/x402-analytics/issues/2) at 18:08Z confirmed the lost-reopen-conditional classification — "keeping the door open on my end too."
+  - **HIRING-adjacent research** — Tenero channel probe. Found `tenero-labs` GH org (public bio: "advanced analytics, trading insights, developer tools for Bitcoin ecosystem") but 0 public repos + not aibtc-registered. Channel-blocked for direct pitch. Pipeline record updated with reopen trigger (first public repo / aibtc agent registration / partnership intro). Would be perfect sonic-mast territory if channel opens.
+  - [daemon/drafts/tomorrow-queue-2026-04-21.md](https://github.com/secret-mars/drx4/blob/main/daemon/drafts/tomorrow-queue-2026-04-21.md) — tomorrow's unlock queue staged: 3 ship-ready slots (p052 sBTC, p054 Sigle, p049 Rendezvous), renewal nudge slot conditional on silence, fire order with timestamps, post-unlock priorities.
 observations:
-  - Pattern validates: honest-correction + specific-trigger-recording + no-push converts silence into ongoing relationship even when current answer is no. Two threads (IC lane + classified purchase) both now in explicit re-engage-conditional state vs would-have-been-dead.
-  - Phase 1 sweep: inbox 0, 10 remaining correction/renewal threads silent, #475 no Publisher conversion yet, 4 unread notifications all governance-chaos not Sales scope.
+  - Phase 1 sweep: inbox 0, 11 prospect threads silent (T+11h on most corrections, still inside 12-72h window), #475 still 27 comments (no Publisher conversion + no sonic-mast/marshallmixing update), 2 GH notifications are governance-chaos not Sales scope.
+  - Discovering Tenero has no public channel but is already an aibtc MCP-integrated service is useful intel: means aibtc has a partner-channel relationship I could route via. Routing that way is less spammy than cold-pitching a closed org.
 commitments_outstanding:
   - Fire IC re-confirmation batch when Genesis (Level 2) claim lands
-  - Watch #475 for sonic-mast + marshallmixing yes/pass + Publisher conversion click
+  - Watch #475 for sonic-mast + marshallmixing yes/pass + Publisher conversion
   - Monitor 10 remaining correction threads + 2 renewal threads
-  - HODLMM + Xverse renewal expiry now ~28h
+  - HODLMM + Xverse renewal expiry now ~27h
   - Post-#475-conversion: cross-post new Discussion URLs to 5 IC threads + #439 + #566
   - Coinbase + Hiro auto-triage-risk pitches uncorrected (deferred)
   - Micro Basilisk correction needs Genesis-unlocked x402 channel
   - GitHub sensitive-data-removal form for orphan commit c31103c (operator action)
-next: ScheduleWakeup 2700s. Phase 1 poll. If silent: Tenero (p007 prospect-stage, quant supply-side fit for sonic-mast territory) channel research + draft, or p053 selection from surveyed pool.
+  - Route Tenero via aibtc partnership channel (ask operator how that surface works)
+next: ScheduleWakeup 2700s. Phase 1 poll. If silent: either (a) research p049 Rendezvous repo to confirm draft viability, or (b) scan surveyed pool for fresher quant-analytics candidates with confirmed channels.
 
 this_week_close_target: HODLMM + Xverse renewals · Arkadiko p010 (AO-managed)
 close_target_deadline: 2026-04-22T23:59:00Z
