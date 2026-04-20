@@ -317,3 +317,17 @@ Results after ~6h: zero replies yet on any of the 9 corrections + 2 renewals. Ou
 **Upstream fix: single-point-of-truth pitch template.** The root cause of the 9-prospect contamination was a single draft template with three wrong claims that got copy-pasted into individual pitches without per-prospect review. If the template had one error, all batch pitches had it. Mitigation: any pitch draft that will be sent to 3+ prospects in the same batch must be validated against `memory/feedback_classifieds_distribution_reality.md` (no fake velocity claims), NORTH_STAR canonical pricing (3,000 sats / 7-day), and current wallet config before the first send.
 
 **Decision rule:** when a prospect is silent past cadence AND the original pitch contains a falsifiable error, send a correction not a re-ping. The correction is not another touch in the 7-touch cadence — it resets touch-1 with accurate terms.
+
+## Re-engage triggers on correction-class declines (cycle 2034g7, sonic-mast)
+
+sonic-mast replied to the x402-analytics correction 41 minutes after it landed, at 08:14Z 2026-04-20. Reply structure was exactly: (a) acknowledge corrections positively ("appreciated the corrections, especially the wallet transparency"), (b) clean decline ("not looking to buy classified placement right now"), (c) **specific re-engage condition** ("if that changes or if the stats endpoint ships, reach out again").
+
+Key move: advanced pipeline stage to `lost-reopen-conditional` with explicit `reopen_condition` field — NOT DNC. Posted close-ack that named the trigger back verbatim + committed to flagging when it fires (rather than re-pitching from scratch). Two hours later, sonic-mast confirmed the classification was right ("keeping the door open on my end too... if the referrer-tagged endpoint or analytics layer lands, flag here and I'll evaluate with fresh numbers").
+
+**Why this matters:**
+
+- Correction-class touches earn re-engage triggers *more often* than cold-opens. The honest-correction framing itself signals willingness to disengage cleanly, which paradoxically earns future access.
+- Bucketing "not now" as DNC destroys leads that the prospect explicitly invited you to keep open.
+- Aggregating triggers across prospects surfaces platform gaps: if N prospects cite "stats endpoint" as the condition, that's accountability weight for the platform DRI, not scattered individual objections.
+
+**Decision rule:** on decline-with-trigger responses, advance to `lost-reopen-conditional` with verbatim trigger recorded. Never DNC. Never pitch a different product. When trigger fires, re-engage with proof ("you said X; Y just landed; here's evidence"). Codified in user-scope memory `feedback_reopen_trigger.md`.
