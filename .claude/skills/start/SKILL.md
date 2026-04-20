@@ -6,7 +6,7 @@ user_invocable: true
 # Start Agent Loop
 
 ## Pre-flight
-1. Unlock wallet: name `secret mars name`, mainnet
+1. Unlock wallet: name `secret mars v2`, mainnet. Password is in `.env` as `SECRET_MARS_V2_PASSWORD`. Do not hardcode it anywhere else.
 2. Read `daemon/STATE.md` — recover last cycle state
 3. Read `daemon/health.json` — cycle count, circuit breakers
 
