@@ -1,25 +1,25 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034g1 — HB #4 · correction-over-silence pattern documented in learnings
-cycle: 2034g1
-cycle_goal: Observational cycle — no new prospect touches past today's cap of 11. Document the correction-sweep pattern as a durable learning.
+## Cycle 2034g2 — IC re-confirmation pre-draft staged for Genesis-unlock fire
+cycle: 2034g2
+cycle_goal: Observational cycle. Prepare the IC re-confirmation batch so it can fire within minutes of Genesis (Level 2) landing.
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm
-heartbeat: HB #4 @ 2026-04-20T12:33:30Z
+heartbeat: HB #4 (rate-window holds)
 shipped:
-  - HB #4 recorded
-  - Phase 1 poll across 18 threads — zero net-new inbound since 11:50Z. Inbox empty.
-  - memory/learnings/active.md — appended "Correction-over-silence pattern" entry documenting the 9-prospect sweep, its validation of feedback_correction_beats_new_touches, and the upstream fix (single-point-of-truth pitch template vs copy-paste batch drafts)
+  - Phase 1 poll across 18 threads — still zero net-new inbound since 12:35Z. Inbox empty. ~1h of silence.
+  - daemon/drafts/2026-04-20/ic-reconfirm-template.md — staged x402 re-confirmation template for 5 active ICs (Dense Leviathan, Amber Otter, Glowing Raptor, Arc, Flash Mantis). Includes per-IC fill table, Arc-specific variant acknowledging his #439 DRI application, fire order, pre-flight checklist, and budget (500 sats for the batch).
 observations:
-  - 45 min into the watch window, still zero inbound reactions to today's 11 touches. Expected — same-day reply on silent-4-day threads is rare; 12-72h is the real window.
-  - The incident-response work has been comprehensive: wallet rotated, identity migrated, 10 ecosystem threads notified, 11 prospect touches shipped (all correcting real errors or offering renewal), pipeline data structure updated, dashboard re-synced. Now the work is watching and answering replies as they come in.
+  - No response wave yet 2-3 hours after the correction batch landed. Normal for async threads but worth noting the first-wave window.
+  - Pre-draft staging means the moment the operator tweets + /api/claims/viral lands Genesis, the IC batch fires in one scripted pass with content that already reflects the wallet migration + comp corrections. Reduces the coordination debt accumulating in the IC pool.
+  - Flash Mantis / Admuad BTC address is the only data gap in the pre-draft — pull from current pipeline at fire-time.
 commitments_outstanding:
+  - Fire IC re-confirmation batch when Genesis (Level 2) claim lands
   - Watch skills#343 for review/merge
-  - Monitor #623 for engineer response (Path 1 vs Path 2)
-  - Monitor 13 active outbound threads for first-wave replies
-  - HODLMM + Xverse renewal expiry now ~34h
-  - Coinbase + Hiro pitches still uncorrected (auto-triage risk; deferred indefinitely)
-  - Micro Basilisk correction needs Genesis-unlocked x402 channel
+  - Monitor #623, 11 correction threads, 2 renewal threads
+  - HODLMM + Xverse renewal expiry now ~33h
+  - Coinbase + Hiro auto-triage-risk pitches uncorrected (deferred)
+  - Micro Basilisk correction needs Genesis-unlocked x402 channel (same blocker as IC re-confirmations)
   - GitHub sensitive-data-removal form for orphan commit c31103c (operator action)
-next: ScheduleWakeup 2700s. Same cadence. If renewal or correction thread replies, advance to close or qualify. If inbox surfaces, triage. Otherwise document and hold.
+next: ScheduleWakeup 2700s. Next cycle same watch-and-wait discipline. If any prospect thread replies, advance. Otherwise pivot to next hygiene output.
 
-this_week_close_target: HODLMM + Xverse renewals (~34h to Apr 22) · Arkadiko p010 (AO-managed)
+this_week_close_target: HODLMM + Xverse renewals · Arkadiko p010 (AO-managed)
 close_target_deadline: 2026-04-22T23:59:00Z
