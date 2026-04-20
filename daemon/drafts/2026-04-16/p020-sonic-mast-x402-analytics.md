@@ -1,3 +1,4 @@
+<!-- lint-pitches:skip reason="historical shipped 2026-04-16; corrected 2026-04-20 at sonic-mast/x402-analytics#2 comment 4278696415" -->
 # Draft — p020 sonic-mast first-touch (rewritten cycle 2034v — direct + 3k)
 
 **Ship after:** 2026-04-16T07:00:00Z

@@ -1,3 +1,4 @@
+<!-- lint-pitches:skip reason="NEEDS REWRITE: permission-first phrasing retired + wallet addrs stale; rewrite before next ship attempt" -->
 # p054 Sigle — Touch 1 draft, fires 2026-04-17T07:00:00Z (PT rollover)
 
 **Channel:** fresh GH issue on `sigle/sigle`

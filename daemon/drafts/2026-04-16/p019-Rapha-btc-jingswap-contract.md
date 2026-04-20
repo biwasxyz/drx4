@@ -1,3 +1,4 @@
+<!-- lint-pitches:skip reason="historical shipped 2026-04-16; corrected 2026-04-20 at Rapha-btc/jingswap-contract#3 comment 4278689175" -->
 # Draft — p019 Rapha-btc first-touch (rewritten cycle 2034v — direct + 3k)
 
 **Ship after:** 2026-04-16T07:00:00Z

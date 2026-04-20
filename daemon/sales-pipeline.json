@@ -2108,7 +2108,7 @@
       },
       "stage": "pitched",
       "first_touch_at": "2026-04-16T07:03:44Z",
-      "last_touch_at": "2026-04-16T07:03:44Z",
+      "last_touch_at": "2026-04-20T15:02:00Z",
       "touches": [
         {
           "timestamp": "2026-04-16T07:03:44Z",
@@ -2119,6 +2119,16 @@
           "sats_spent": 0,
           "proof_url": "https://github.com/hms1499/stacksport-dca-sdk/issues/1",
           "summary": "v3.1 superpersuader Touch-1 (accusation audit + identifiable victim cocoa007 + open loop). Timed 3h after 0.1.1 + CI ship."
+        },
+        {
+          "timestamp": "2026-04-20T15:02:00Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "touch_number": 2,
+          "sample_type": "correction",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/hms1499/stacksport-dca-sdk/issues/1#issuecomment-4281972032",
+          "summary": "Correction of original pitch: 30-day price (wrong, canonical is 7-day) + aspirational auto-tracking claim (no /stats endpoint exists) + retired wallet address (SP4DXVEC now SP20GPDS5). Surfaced by scripts/lint-pitches.py cycle 2034g5."
         }
       ],
       "bant_plus": {
