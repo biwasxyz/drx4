@@ -3367,6 +3367,64 @@
           "proof_url": "https://github.com/K-entreprises/k-life-stacks/issues/1"
         }
       ]
+    },
+    {
+      "id": "p057",
+      "name": "SatGate (satgate.io)",
+      "contact": {
+        "channel": "github",
+        "handle": "SatGate-io/satgate",
+        "btc_address": null
+      },
+      "stage": "surveyed",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "repo-maintainer",
+        "need": "high",
+        "timeline": "unknown"
+      },
+      "score": {
+        "observe_this_week": true,
+        "can_agents_use": true,
+        "would_they_grow": true,
+        "rating": 8,
+        "surveyed_cycle": "2034gi",
+        "surveyed_at": "2026-04-21T02:10:00Z"
+      },
+      "notes": "Economic Firewall for AI Agent Requests. 10 stars, pushed 2026-04-12. Agent-builder audience directly overlaps with aibtc.news readers. Ship-candidate for Touch 1 later this week OR sonic-mast first-queue pull if IC #6 onboards.",
+      "do_not_contact": false
+    },
+    {
+      "id": "p058",
+      "name": "Arkade skill SDK (arkade-os/skill)",
+      "contact": {
+        "channel": "github",
+        "handle": "arkade-os/skill",
+        "btc_address": null
+      },
+      "stage": "surveyed",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "repo-maintainer",
+        "need": "medium",
+        "timeline": "unknown"
+      },
+      "score": {
+        "observe_this_week": true,
+        "can_agents_use": true,
+        "would_they_grow": "conditional",
+        "rating": 7,
+        "surveyed_cycle": "2034gi",
+        "surveyed_at": "2026-04-21T02:10:00Z"
+      },
+      "notes": "Arkade skills for agent integration \u2014 Bitcoin payments over Arkade L2 + Lightning + swaps. 6 stars, pushed 2026-04-14. Agent-facing SDK. aibtc audience may be Stacks-leaning but Lightning is universal. Ship-candidate as sonic-mast first-queue pull (quant-supply fits) or for direct pitch later this week.",
+      "do_not_contact": false
     }
   ],
   "evaluator_candidates": [
