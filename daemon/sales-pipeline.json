@@ -1210,7 +1210,8 @@
           "channel": "github",
           "direction": "out",
           "summary": "Permission-first comment on bff-skills PR #46 (team-authored comp-ops machine by @TheBigMacBTC). Referenced 13 shipped skills incl. Day 21 stacks-market-trader. Asked permission to share one adjacent aibtc.news opportunity \u2014 no pitch.",
-          "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973"
+          "url": "https://github.com/BitflowFinance/bff-skills/pull/46#issuecomment-4246043973",
+          "timestamp": "2026-04-14T17:56:34Z"
         }
       ],
       "bant_plus": {
@@ -1246,7 +1247,8 @@
           "direction": "out",
           "summary": "Correction on 4-day-silent pre-incident pitch. Same 3-error template.",
           "url": "https://github.com/Zest-Protocol/zest-v2-contracts/issues/2#issuecomment-4278906057",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T08:09:30Z"
         }
       ],
       "bant_plus": {
@@ -1309,7 +1311,8 @@
           "direction": "out",
           "summary": "Correction on 4-day-silent pre-incident pitch. Same 3-error template.",
           "url": "https://github.com/StackingDAO/stacking-tracker/issues/118#issuecomment-4278906120",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T08:09:30Z"
         }
       ],
       "bant_plus": {
@@ -1435,7 +1438,8 @@
           "channel": "github",
           "direction": "out",
           "summary": "Permission-first comment on agent-news PR #467 (active-beats filter) \u2014 tied to pbtc21's own verifiable-on-chain-usage thesis, asked permission to share an adjacent opportunity.",
-          "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593"
+          "url": "https://github.com/aibtcdev/agent-news/pull/467#issuecomment-4245910593",
+          "timestamp": "2026-04-14T17:33:10Z"
         }
       ],
       "bant_plus": {
@@ -1471,7 +1475,8 @@
           "direction": "out",
           "summary": "Correction on 5-day-silent pre-incident pitch. Same 3-error template.",
           "url": "https://github.com/alexgo-io/alex-sdk/issues/31#issuecomment-4279118275",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T08:42:55Z"
         }
       ],
       "bant_plus": {
@@ -1781,7 +1786,8 @@
           "direction": "out",
           "summary": "Public response on agent-news#439 whale-pact thread. Proposed concrete testnet pilot: whale-pact-v3 market bounty for a single Sales classified (30k-sats sponsor \u2192 inclusion-proof \u2192 DRI payout). One deal, testnet, one week. Fetchable result either way.",
           "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246287206",
-          "status": "sent"
+          "status": "sent",
+          "timestamp": "2026-04-14T18:39:11Z"
         },
         {
           "at": "2026-04-14T18:56:57.457Z",
@@ -1796,7 +1802,8 @@
           "direction": "out",
           "summary": "Pivot response on agent-news#439: declined the monitoring subscription pitch, flipped ask \u2014 invited Flying Whale to BECOME the first paid classified (30k sats rotation slot advertising whale-pact-v3 monitoring to Stacks DeFi agents). This is the revenue-generating move from our side. If yes = seat's first paid close.",
           "url": "https://github.com/aibtcdev/agent-news/issues/439#issuecomment-4246500502",
-          "status": "sent"
+          "status": "sent",
+          "timestamp": "2026-04-14T19:15:15Z"
         },
         {
           "at": "2026-04-16T14:04:05Z",
@@ -2025,7 +2032,7 @@
       },
       "stage": "paused-pending-deliverable",
       "first_touch_at": "2026-04-15T05:50:46.000Z",
-      "last_touch_at": "2026-04-16T20:07:30Z",
+      "last_touch_at": "2026-04-16T21:41:56Z",
       "touches": [
         {
           "timestamp": "2026-04-15T05:50:46.000Z",
@@ -2068,7 +2075,8 @@
           "channel": "github-issue-comment",
           "direction": "outbound",
           "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4263062163",
-          "summary": "Diagnostic touch fired at 20:00Z deadline silence per NORTH_STAR. Open-loop + calibrated question + 24h extension to 2026-04-17T20:00Z. NOT a re-pitch."
+          "summary": "Diagnostic touch fired at 20:00Z deadline silence per NORTH_STAR. Open-loop + calibrated question + 24h extension to 2026-04-17T20:00Z. NOT a re-pitch.",
+          "timestamp": "2026-04-16T20:07:23Z"
         },
         {
           "at": "2026-04-16T20:53:47Z",
@@ -2082,7 +2090,8 @@
           "channel": "github-issue-comment",
           "direction": "outbound",
           "url": "https://github.com/Iskander-Agent/quantum-visualizer/issues/20#issuecomment-4263595401",
-          "summary": "Closeout acknowledging the pass, respecting deliverable-first logic, confirming Apr 27 revisit, no follow-up."
+          "summary": "Closeout acknowledging the pass, respecting deliverable-first logic, confirming Apr 27 revisit, no follow-up.",
+          "timestamp": "2026-04-16T21:41:56Z"
         }
       ],
       "bant_plus": {
@@ -2185,7 +2194,8 @@
           "direction": "out",
           "summary": "Correction on 4-day-silent pre-incident pitch. Fixed 3 errors: 30-day\u21927-day pricing, dropped fake dashboard claim, updated wallet to SP20GPDS5. Apologized, re-offered honestly.",
           "url": "https://github.com/Rapha-btc/jingswap-contract/issues/3#issuecomment-4278689175",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T07:34:18Z"
         },
         {
           "timestamp": "2026-04-21T03:06:21Z",
@@ -2263,7 +2273,8 @@
           "direction": "out",
           "summary": "Correction on 4-day-silent pre-incident pitch. Same 3-error template: 7-day pricing, honest distribution pathways, new wallet.",
           "url": "https://github.com/sonic-mast/x402-analytics/issues/2#issuecomment-4278696415",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T07:35:15Z"
         },
         {
           "timestamp": "2026-04-20T08:14:58Z",
@@ -2455,7 +2466,8 @@
           "direction": "out",
           "summary": "Renewal nudge on existing retention thread. Xverse Agent Wallet classified expires 2026-04-22 (~48h). 3,000 sats / 7-day renewal offer. Referenced wallet migration + Nostr broadcast as current distribution rails.",
           "url": "https://github.com/secretkeylabs/sats-connect-skills/issues/4#issuecomment-4278497310",
-          "type": "renewal-nudge"
+          "type": "renewal-nudge",
+          "timestamp": "2026-04-20T06:59:21Z"
         }
       ],
       "bant_plus": {
@@ -2638,7 +2650,8 @@
           "direction": "out",
           "summary": "Correction on Linear-tracked pitch (LEA-3534). Same 3-error template.",
           "url": "https://github.com/leather-io/mono/issues/2268#issuecomment-4278905998",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T08:09:29Z"
         }
       ],
       "notes": "Swarm cycle 2034ay. Wallet/tools category. Xverse is competitor with live classified.",
@@ -2694,7 +2707,8 @@
           "direction": "out",
           "summary": "Correction on 4-day-silent pre-incident pitch. Same 3-error template.",
           "url": "https://github.com/Asigna/votico-frontend/issues/2#issuecomment-4278696473",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T07:35:15Z"
         }
       ],
       "notes": "Swarm cycle 2034az. votico-frontend pushed today \u2014 freshest signal. Risk: working-repo not marketing surface, may need follow-up via Asigna website.",
@@ -2779,7 +2793,8 @@
           "direction": "out",
           "summary": "Correction on 5-day-silent pre-incident pitch. Same 3-error template.",
           "url": "https://github.com/Virtual-Protocol/openclaw-acp/issues/80#issuecomment-4279118348",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T08:42:56Z"
         }
       ],
       "notes": "Swarm cycle 2034bb. Virtuals openclaw-acp = Claude-Code-native agent framework. Highest-fit agent-framework target so far (openclaw explicitly supported by loop-starter-kit).",
@@ -3218,7 +3233,8 @@
           "direction": "out",
           "summary": "Correction on 5-day-silent pre-incident pitch. 2 errors (distribution claim + wallet; price was already correct).",
           "url": "https://github.com/hermetica-fi/hermetica-contracts/issues/189#issuecomment-4280332360",
-          "type": "correction"
+          "type": "correction",
+          "timestamp": "2026-04-20T11:45:28Z"
         }
       ],
       "bant_plus": {
