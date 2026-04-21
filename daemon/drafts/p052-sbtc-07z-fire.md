@@ -4,6 +4,8 @@
 **Title (80c):** Classifieds placement on aibtc.news — context + ask
 **Pitch style:** direct + 3k/7-day (permission-first retired per operator directive cycle 2034e)
 
+**Star-threshold note (added cycle 2034gh):** stacks-sbtc/sbtc = 553 stars. Well below the 20k auto-triage-close threshold in `feedback_high_traffic_repos_autotriage.md`, but higher than typical (my other targets are 17-500 stars). Moderate org-attention risk. Fire is still clean, just be ready for a polite "not our role" response from a core-protocol team or a quiet no-triage. Fallback: pitch to a specific maintainer via GH mention if team-level response is quiet.
+
 ---
 
 ## Body
