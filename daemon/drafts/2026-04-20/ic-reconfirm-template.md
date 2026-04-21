@@ -1,6 +1,6 @@
-# IC Re-confirmation Message Template — Post-Genesis-Unlock
+# IC Re-confirmation Message Template — Budget-gated (not Genesis)
 
-**Fire sequence:** moment Level 2 Genesis claim lands, send one x402 paid inbox message to each active IC.
+**Fire sequence:** fire when sBTC balance ≥ 500 sats (5 × 100 per send). Previously thought to be Genesis-gated — that was wrong (cycle 2034gx reversed the assumption after successful Deep Tess send at Trust Level 1). Use `scripts/fire-ic-reconfirm.sh` to pre-check balance + manifest the fire order.
 
 **Channel:** `POST https://aibtc.com/api/inbox/{recipient_btc}` (x402 paid, 100 sats each)
 
