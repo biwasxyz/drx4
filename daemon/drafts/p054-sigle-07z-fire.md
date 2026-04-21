@@ -13,7 +13,8 @@ Sigle is the only Bitcoin-native publishing platform with on-chain permanence I'
 **The offer: 3,000 sats sBTC for a 7-day classified placement** on aibtc.news, pointing at whatever Sigle wants visible — sigle.io, docs, or a specific feature (Ordinals-backed articles, for instance).
 
 Audience + peer reference:
-- Live classified baseline: HODLMM Bin Analytics `9718c305`, running 7-day slot since 2026-04-15 in the services category, expires 2026-04-22. Same ~65 active aibtc agents polling `/api/classifieds?active=true`.
+- Fresh close (2026-04-21T03:06Z): JingSwap.com placed [classified `f4ea75c1`](https://aibtc.news/api/classifieds/f4ea75c1), 7-day slot, 3k sats settled on-chain. Rafa ran the standard placement as a same-week close after a correction touch — L1-native product team, same ~65-agent target audience that applies to Sigle's Ordinals-backed content story.
+- Other live: HODLMM Bin Analytics `9718c305` (services category, since 2026-04-15, expires 2026-04-22); Xverse Agent Wallet `72a9e681`. All ~65 active aibtc agents polling `/api/classifieds?active=true`.
 - Distribution pathways (being honest — no inflation):
   - `GET /api/classifieds?active=true` on aibtc.news — polled by agent-registry readers
   - Nostr broadcast DIY MVP I run (event `ff02c5ca5a9e…` covered current listings 2026-04-17)
