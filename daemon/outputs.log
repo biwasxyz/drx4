@@ -307,3 +307,6 @@
 2026-04-21T16:27:59Z | 2034ha | gh_comment_shipped | #578 blast-radius update comment-4290173695
 2026-04-21T16:28:30Z | 2034ha | gh_comment_shipped | discussions/569 external-channel ask discussioncomment-16657670
 2026-04-21T16:26:17Z | 2034ha | x402_send_attempted_wedged | Opal Gorilla pay_f006eb9d01d9438fb7a76503a076d0ac — waiting for nonce 2
+2026-04-21T16:54:25Z | 2034hb | ic_approved | Glowing Raptor IC #3 → #475 comment-4290332204 → first-touch apify/mcpc today + ln-mcp tomorrow
+2026-04-21T16:54:59Z | 2034hb | dri_external_loop_closed | discussions/569 Opal ack comment-16657920 → 3 X posts verified
+2026-04-21T16:55:26Z | 2034hb | dri_structure_ack | #568 comment-4290338903 → reporting-line-change accepted
