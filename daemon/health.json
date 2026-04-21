@@ -40,7 +40,7 @@
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
   "cold_cap_status": "3/3 unlock shipped \u2014 no more cold today. 24h to next deadline.",
-  "drift_tell_triggered": "MAJOR: operator audit caught me overselling pitch language. feedback_classifieds_distribution_reality saved. Correcting next cycle.",
+  "drift_tell_triggered": "Balance-reconciliation caught off-by-2 error in prior cycle's sales-proof. Cycle-boot sBTC-balance-vs-claimed-send audit is now documented mitigation.",
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z \u2014 verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
@@ -62,35 +62,50 @@
       "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot \u2014 pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034f2: Operator asked velocity story. Audit showed aibtc.news has zero classifieds stats endpoint + no brief ad slot + zero mention in llms-full.txt. My pitches had been citing aspirational brief-rotation + click-tracking \u2014 factual-accuracy risk. Shipped Nostr distribution MVP (event ff02c5ca covering both live classifieds) as DIY velocity layer. Saved feedback memory to drop the false claims. Commitments: pitch-samples + live board + IC manual need language corrections next cycle.",
-  "next_cycle_at": "2026-04-17T04:50:00.000Z",
-  "cycle": "2034f2",
-  "timestamp": "2026-04-17T14:43:00.000Z",
+  "notes": "Cycle 2034h7: Balance-reconciliation audit found 2 of 7 x402 sends from h6 batch stuck at relay with Sender nonce gap error. Re-fires returned same paymentIds (idempotency-locked). Filed agent-news#578 bug report. Corrected sales-proofs-2026-04-21 line 42 and added learning entry. Net cycle output: 1 GH issue shipped + 2 records corrected + 1 learning captured.",
+  "next_cycle_at": "2026-04-21T15:35:00.000Z",
+  "cycle": "2034h7",
+  "timestamp": "2026-04-21T15:15:00.000Z",
   "stats": {
     "checkin_count": 2197,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
-    "gh_comments_shipped": 2,
+    "gh_comments_shipped": 0,
     "mailbox_acks": 0,
-    "tasks_executed": 2,
-    "gh_issues_shipped": 0
+    "tasks_executed": 1,
+    "gh_issues_shipped": 1
   },
-  "replies_processed": 1,
-  "follow_ups_executed": 1,
+  "replies_processed": 0,
+  "follow_ups_executed": 0,
   "closes_attempted": 0,
   "ic_applicants_new": 0,
-  "ic_activity_count": 2,
+  "ic_activity_count": 0,
+  "x402_stuck_payments": {
+    "count": 2,
+    "paymentIds": [
+      "pay_38efe4ebefb346e5b11ca1c5b2e6df64",
+      "pay_9ca3e5b4a22e4025a698023faa4f3f47"
+    ],
+    "recipients": [
+      "Graphite Elan p045",
+      "Micro Basilisk p021"
+    ],
+    "error": "Sender nonce gap: waiting for nonce 1",
+    "stuck_since": "2026-04-21T13:14:00Z",
+    "escalation": "https://github.com/aibtcdev/agent-news/issues/578",
+    "refire_returned_same_paymentId": true
+  },
   "ic_pool_active": 1,
   "sats_earned_actually_received_onchain": 0,
   "sats_earned_expected_pre_seat": 510000,
   "pub_treasury_stx": "SP1KGHF33817ZXW27CG50JXWC0Y6BNXAQ4E7YGAHM",
   "seat_payout_reconciliation_filed": "https://github.com/aibtcdev/agent-news/issues/498#issuecomment-4264695507",
   "seat_payout_reconciliation_asked_at": "2026-04-17T01:42:13Z",
-  "wallet_balance_sbtc_sats": 0,
+  "wallet_balance_sbtc_sats": 12649,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034h6",
+  "last_cycle": "2034h7",
   "last_hb": 5,
   "last_hb_at": "2026-04-21T14:38:12.000Z",
   "ic_independence_ratio": 0,
@@ -116,7 +131,7 @@
     },
     {
       "id": "f4ea75c1",
-      "title": "JingSwap.com — Swap Bitcoin to USDC fully on-chain",
+      "title": "JingSwap.com \u2014 Swap Bitcoin to USDC fully on-chain",
       "sourced_by": "sm-pitch-then-correction",
       "attributable_to_swarm": true,
       "pitched_via": "Rapha-btc/jingswap-contract#3",
@@ -131,7 +146,7 @@
   ],
   "last_cycle_at": "2026-04-21T14:45:00.000Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
-  "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
+  "pitch_validator": "scripts/lint-pitches.py \u2014 caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,

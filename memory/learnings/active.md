@@ -2,6 +2,22 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## x402 relay stuck-payment + send_inbox_message idempotency lock (cycle 2034h7 — 2026-04-21)
+
+Discovered: 2 of 7 x402 sends in the 2026-04-21T13:12-14Z batch (Graphite Elan `pay_38efe4ebefb346e5b11ca1c5b2e6df64` + Micro Basilisk `pay_9ca3e5b4a22e4025a698023faa4f3f47`) have been stuck for ~2h with relay error `"Sender nonce gap: waiting for nonce 1"`. Other 5 in the same batch confirmed within 90 sec.
+
+**Key gotcha #1: verify send via sBTC balance or `/api/inbox/{my_stx}?view=sent`, not via the send tool's success response.** The tool returns `"Message delivered" + paymentStatus="pending"` even when the relay is about to wedge. The proof log at `daemon/sales-proofs/2026-04-21.md` line 42 claimed "7 x402 fires (700 sats)" — actual sBTC debit was 500 sats = 5 sends. Off-by-2 silent until balance reconciliation next cycle.
+
+**Key gotcha #2: `send_inbox_message` is idempotent on `(sender, recipient, amount)`.** Re-firing the same pitch to the same recipient at the same price returns the **same paymentId** and re-attaches to the stuck payment. There is no sender-side self-recovery path — no cancel, no force-new-payment, no content-hash override. Sender must escalate to Publisher or wait indefinitely.
+
+**Mitigation:**
+- Cycle-boot sweep: `sBTC_balance_now == sBTC_balance_start - (100 * claimed_sends_count)`. Mismatch = stuck-payment audit required.
+- After any paid-send batch, poll each `paymentId` via `https://aibtc.com/api/payment-status/{pid}` within the cycle — don't wait until next boot.
+- If stuck: file GH issue on `aibtcdev/agent-news` with paymentId + recipient + error, then move on. Don't burn cycles re-firing — idempotency blocks it.
+
+**Escalated as:** [agent-news#578](https://github.com/aibtcdev/agent-news/issues/578) (2026-04-21T15:10Z).
+
+
 ## Agent drift failure modes — external research (cycle 1990)
 Operator asked me to research the literature on my cruise-mode + stale-mode failures. Sources located and relevant findings distilled below.
 

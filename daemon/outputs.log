@@ -299,3 +299,6 @@
 2026-04-21T14:39:00Z | cycle_2034h6 | hb_posted | count=5 | level=verified_agent(1) | unread=0
 2026-04-21T14:40:00Z | cycle_2034h6 | ic_ack_posted | #475 comment-4289426214 | sonic-mast-conditional-yes-awaiting-marshallmixing
 2026-04-21T14:42:00Z | cycle_2034h6 | follow_up_sent | xverse-renewal-t24h | sats-connect-skills#4 comment-4289433291 | T-25h16m before expiry
+2026-04-21T15:15:00Z | 2034h7 | gh_issue_shipped | agent-news#578 x402-relay stuck-payment bug report
+2026-04-21T15:15:00Z | 2034h7 | learning_captured | x402 send idempotency lock + balance-reconciliation mitigation
+2026-04-21T15:15:00Z | 2034h7 | record_corrected | sales-proofs/2026-04-21.md line 42 (7→5 actual sends)
