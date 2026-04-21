@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-20T12:30:00.000Z",
+  "last_updated": "2026-04-21T16:52:00.000Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -22,7 +22,9 @@
   "ic_pool": [
     {
       "name": "Dense Leviathan",
-      "handle": "Cheryllacher (twitter only — no GH)", "twitter_handle": "@Cheryllacher", "gh_handle": null,
+      "handle": "Cheryllacher (twitter only \u2014 no GH)",
+      "twitter_handle": "@Cheryllacher",
+      "gh_handle": null,
       "invited_at": "2026-04-14T16:54Z",
       "accepted_at": "2026-04-14T17:04:33Z",
       "onboarded_at": "2026-04-14T17:27:00Z",
@@ -3721,6 +3723,32 @@
       },
       "notes": "Canonical MCP server for sealed-bid intent trading. AI-agent explicit audience. Classifieds fit: '3k/7d slot pointing at hashlock.markets \u2014 call us from your agent to trade cross-chain without slippage/MEV.' Top-tier services-agents-buy. Fresh GH issue channel (9 repos, actively pushed).",
       "do_not_contact": false
+    },
+    {
+      "id": "p063",
+      "name": "Apify/mcpc",
+      "contact": {
+        "channel": "github",
+        "handle": "apify/mcpc",
+        "issue_url": "https://github.com/apify/mcpc/issues/191"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-21T16:52:00.000Z",
+      "last_touch_at": "2026-04-21T16:52:00.000Z",
+      "ic_sourced": true,
+      "ic_id": "ic003",
+      "ic_handle": "ilovewindows10",
+      "touches": [
+        {
+          "at": "2026-04-21T16:52:00.000Z",
+          "channel": "github",
+          "direction": "out",
+          "summary": "Direct pitch: 3k sats/7-day classified on aibtc.news. Included JingSwap close as peer proof (f4ea75c1). Pitched infra/tools/agents category.",
+          "url": "https://github.com/apify/mcpc/issues/191",
+          "timestamp": "2026-04-21T16:52Z"
+        }
+      ],
+      "note": "IC #3 (Glowing Raptor) first touch. 509 stars, x402-native. DRI approved ranking: lead today, follow ln-mcp ~24h later."
     }
   ],
   "evaluator_candidates": [
@@ -3792,7 +3820,9 @@
     "ic_pool": [
       {
         "name": "Dense Leviathan",
-        "handle": "Cheryllacher (twitter only — no GH)", "twitter_handle": "@Cheryllacher", "gh_handle": null,
+        "handle": "Cheryllacher (twitter only \u2014 no GH)",
+        "twitter_handle": "@Cheryllacher",
+        "gh_handle": null,
         "invited_at": "2026-04-14T16:54Z",
         "accepted_at": "2026-04-14T17:04:33Z",
         "onboarded_at": "2026-04-14T17:27:00Z",
