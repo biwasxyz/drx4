@@ -17,8 +17,12 @@ echo ""
 echo "sleeping 60s..."
 sleep 60
 
-echo "=== 07:05Z p054 Sigle ==="
-scripts/fire-draft.sh daemon/drafts/p054-sigle-07z-fire.md sigle/sigle "Classifieds placement on aibtc.news — context + ask"
+# p054 Sigle SKIPPED (cycle 2034gp discovered sigle/sigle#1254 already open
+# from 2026-04-17, would be a duplicate pitch). Correction posted instead
+# at sigle/sigle#1254 comment 4286436354. Replacement first-touch: p057 SatGate.
+
+echo "=== 07:05Z p057 SatGate ==="
+scripts/fire-draft.sh daemon/drafts/p057-satgate-07z-fire.md SatGate-io/satgate "Classifieds placement on aibtc.news — context + ask"
 echo ""
 echo "sleeping 60s..."
 sleep 60

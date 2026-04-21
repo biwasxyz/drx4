@@ -2202,7 +2202,7 @@
           "intake_payment_sats": 100,
           "intake_sent_at": "2026-04-21T02:47:11Z",
           "intake_pathway": "x402 paid inbox; Rafa asked for intake flow, went self-serve 19 min later when I hadn't replied",
-          "ic_seat_note": "Rafa mentioned 'setting aside IC seat discussion' — do NOT proactively invite to IC pool. Wait for him to re-raise."
+          "ic_seat_note": "Rafa mentioned 'setting aside IC seat discussion' \u2014 do NOT proactively invite to IC pool. Wait for him to re-raise."
         },
         {
           "timestamp": "2026-04-21T03:50:00Z",
@@ -3299,7 +3299,7 @@
       },
       "stage": "pitched",
       "first_touch_at": null,
-      "last_touch_at": null,
+      "last_touch_at": "2026-04-21T06:50:00Z",
       "touches": [
         {
           "at": "2026-04-17T06:35:18Z",
@@ -3307,6 +3307,16 @@
           "direction": "outbound",
           "summary": "First-touch direct 3k/7d pitch \u2014 Sigle BITCOIN-NATIVE PUBLISHING angle",
           "proof_url": "https://github.com/sigle/sigle/issues/1254"
+        },
+        {
+          "timestamp": "2026-04-21T06:50:00Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "touch_number": 2,
+          "sample_type": "correction",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/sigle/sigle/issues/1254#issuecomment-4286436354",
+          "summary": "Correction on retired wallet SP4DXVEC (compromised 2026-04-17, publicly visible on this thread until now) + trimmed inflated cocoa007 conversion story + added honest distribution disclaimer + cited JingSwap fresh close as peer proof. Surfaced by pre-fire collision check cycle 2034gp (was about to duplicate-pitch this repo)."
         }
       ],
       "bant_plus": {
@@ -3407,7 +3417,7 @@
         "handle": "SatGate-io/satgate",
         "btc_address": null
       },
-      "stage": "surveyed",
+      "stage": "ship-ready",
       "first_touch_at": null,
       "last_touch_at": null,
       "touches": [],
@@ -3425,7 +3435,7 @@
         "surveyed_cycle": "2034gi",
         "surveyed_at": "2026-04-21T02:10:00Z"
       },
-      "notes": "Economic Firewall for AI Agent Requests. 10 stars, pushed 2026-04-12. Agent-builder audience directly overlaps with aibtc.news readers. Ship-candidate for Touch 1 later this week OR sonic-mast first-queue pull if IC #6 onboards.",
+      "notes": "Economic Firewall for AI Agent Requests. 10 stars, pushed 2026-04-12. Agent-builder audience directly overlaps with aibtc.news readers. Ship-candidate for Touch 1 later this week OR sonic-mast first-queue pull if IC #6 onboards. | DRAFT READY cycle 2034gp at daemon/drafts/p057-satgate-07z-fire.md. Replaces p054 in tomorrow-queue slot 2 (sigle collision avoided). Fire 07:05Z 2026-04-21.",
       "do_not_contact": false
     },
     {

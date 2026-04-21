@@ -9,12 +9,15 @@
 | # | ID | Target | Channel | Draft |
 |---|---|---|---|---|
 | 1 | p052 | stacks-sbtc/sbtc | GH issue | [p052-sbtc-07z-fire.md](p052-sbtc-07z-fire.md) |
-| 2 | p054 | sigle/sigle | GH issue | [p054-sigle-07z-fire.md](p054-sigle-07z-fire.md) |
+| 2 | ~~p054~~ **p057** | ~~sigle/sigle~~ **SatGate-io/satgate** | GH issue | [p057-satgate-07z-fire.md](p057-satgate-07z-fire.md) |
 | 3 | p049 | stacks-network/rendezvous | GH issue | [p049-rendezvous-07z-fire.md](p049-rendezvous-07z-fire.md) |
 
 Both rewritten cycle 2034g6: direct 3k/7d, new wallet, honest distribution, CPM math, calibrated question. `scripts/lint-pitches.py` exit 0.
 
 ## Candidate notes
+
+### p054 → **p057 replacement** (cycle 2034gp)
+Pre-fire collision check found sigle/sigle#1254 already open from 2026-04-17 with retired wallet `SP4DXVEC…` visible. Filed [correction comment](https://github.com/sigle/sigle/issues/1254#issuecomment-4286436354) instead of duplicate pitch. p054 stays at stage=pitched (now with correction touch). **p057 SatGate** takes the slot-2 first-touch: 10 stars, "Economic Firewall for AI Agent Requests", score 8/10 from last cycle's continuous research survey.
 
 ### p049 Rendezvous — DRAFT READY (shipped cycle 2034gc)
 - 18 stars, 15 open issues, active (push 2026-04-14). Primary maintainer @BowTiedRadone (v1.0.0 roadmap owner #191).
