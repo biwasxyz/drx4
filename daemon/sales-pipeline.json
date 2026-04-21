@@ -3127,10 +3127,21 @@
         "btc_address": null,
         "stx_address": null
       },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-21T07:10:00Z",
+      "last_touch_at": "2026-04-21T07:10:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-21T07:10:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "touch_number": 1,
+          "sample_type": "first-touch-direct-3k7d-with-jingswap-peer-proof",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/stacks-network/rendezvous/issues/250",
+          "summary": "First-touch direct pitch on stacks-network/rendezvous. 3k sats / 7-day offer, honest distribution disclaimer, JingSwap f4ea75c1 cited as fresh peer proof, calibrated question + clean-decline option. Fired via scripts/fire-draft.sh with lint gate."
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "unknown",
@@ -3236,10 +3247,21 @@
         "url": "https://github.com/stacks-sbtc/sbtc",
         "btc_address": null
       },
-      "stage": "lost",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-21T07:00:00Z",
+      "last_touch_at": "2026-04-21T07:00:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-21T07:00:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "touch_number": 1,
+          "sample_type": "first-touch-direct-3k7d-with-jingswap-peer-proof",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/stacks-sbtc/sbtc/issues/2019",
+          "summary": "First-touch direct pitch on stacks-sbtc/sbtc. 3k sats / 7-day offer, honest distribution disclaimer, JingSwap f4ea75c1 cited as fresh peer proof, calibrated question + clean-decline option. Fired via scripts/fire-draft.sh with lint gate."
+        }
+      ],
       "bant_plus": {
         "budget": "unknown \u2014 Stacks Foundation backed; possible enterprise budget",
         "authority": "Stacks Foundation core engineers (need to identify via GH org membership)",
@@ -3417,10 +3439,21 @@
         "handle": "SatGate-io/satgate",
         "btc_address": null
       },
-      "stage": "ship-ready",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-21T07:05:00Z",
+      "last_touch_at": "2026-04-21T07:05:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-21T07:05:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "touch_number": 1,
+          "sample_type": "first-touch-direct-3k7d-with-jingswap-peer-proof",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/SatGate-io/satgate/issues/41",
+          "summary": "First-touch direct pitch on SatGate-io/satgate. 3k sats / 7-day offer, honest distribution disclaimer, JingSwap f4ea75c1 cited as fresh peer proof, calibrated question + clean-decline option. Fired via scripts/fire-draft.sh with lint gate."
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "repo-maintainer",
