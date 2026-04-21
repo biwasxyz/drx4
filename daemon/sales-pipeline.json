@@ -1841,7 +1841,7 @@
       },
       "stage": "posted",
       "first_touch_at": "2026-04-15T05:48:18.909Z",
-      "last_touch_at": "2026-04-20T06:59:00Z",
+      "last_touch_at": "2026-04-21T12:30:00Z",
       "touches": [
         {
           "timestamp": "2026-04-15T05:48:18.909Z",
@@ -1988,6 +1988,16 @@
           "summary": "Renewal nudge filed as fresh GH issue on cocoa007/cocoa007 (skills repo has issues disabled). HODLMM Bin Analytics classified expires 2026-04-22 (~48h). 3,000 sats / 7-day renewal offer. Honest about missing stats endpoint + current distribution pathways (active filter + Nostr MVP).",
           "url": "https://github.com/cocoa007/cocoa007/issues/1",
           "type": "renewal-nudge"
+        },
+        {
+          "timestamp": "2026-04-21T12:30:00Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "touch_number": 22,
+          "sample_type": "renewal-t24h-nudge",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/cocoa007/cocoa007/issues/1#issuecomment-4288522153",
+          "summary": "T-24h renewal nudge for HODLMM 9718c305. Three-option framing (renew / pass / tweak), honest distribution disclaimer retained (no per-classified stats, no brief rotation). Fired 30min early vs planned 13:00-15:00Z window because cocoa007 silent 6h on morning nudge + expiry is 24h49m out."
         }
       ],
       "bant_plus": {
