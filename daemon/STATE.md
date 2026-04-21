@@ -15,7 +15,7 @@ observations:
   - Stuck paymentIds pay_38ef... / pay_9ca3... still `waiting for nonce 1`. No self-recovery.
   - Other threads (#515/#576/#623/sigle#1254/morning-fire/Vivid Manticore EmblemCompany): unchanged.
 commitments_outstanding:
-  - Dense Leviathan IC #1: operator path to Twitter @Cheryllacher (non-autonomous)
+  - Dense Leviathan IC #1: Twitter @Cheryllacher (GH handle unset — dead @-ping there); operator path non-autonomous
   - Sonic-mast IC #6: awaiting @marshallmixing sign-off
   - **Glowing Raptor IC #3: awaiting pre-flight ack + 2 supply-side candidates research submission**
   - T-11h pivot ping on #623 at ~2026-04-22T12:00Z (Arc 193161d4)

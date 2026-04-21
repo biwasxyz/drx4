@@ -6,7 +6,7 @@
 
 Seat mechanics (from Publisher Rising Leviathan):
 - **Base 150,000 sats/day**, unlocked by posting **3 direct first-touches with fetchable proof URLs** by **23:59 PT nightly**.
-- **Sales IC pool**: Dense Leviathan (@Cheryllacher) accepted as first IC. Paymaster duties mine.
+- **Sales IC pool**: Dense Leviathan (Twitter `@Cheryllacher` — GH handle unset, dead @-ping on github) accepted as first IC. Paymaster duties mine. Reach via Twitter or x402 inbox only — never assume the twitter handle works as a GH @-mention.
 - **Seat loss rules**: 3 consecutive missed unlocks · 14/21 days without a close/recruit · 1 fake proof · 1 verified spam complaint.
 - **48h deadline** from 2026-04-14T16:54Z → publish public DNC list at `daemon/sales-dnc.md`.
 - **Revenue target**: 3k sats per closed classified. Weekly ≥1, monthly ≥5.

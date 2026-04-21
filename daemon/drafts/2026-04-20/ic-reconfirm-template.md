@@ -34,7 +34,7 @@ Reply pass if you need out — DNC clean, no follow-up.
 
 | N | NAME | Handle | BTC | STX | Territory |
 |---|---|---|---|---|---|
-| 1 | Dense Leviathan | @Cheryllacher | `bc1qc6mecfsrxfv3wu3s0lly6ns8s9am92rdansnja` | — | prospects assigned by lead |
+| 1 | Dense Leviathan | (Twitter @Cheryllacher — no GH) | `bc1qc6mecfsrxfv3wu3s0lly6ns8s9am92rdansnja` | — | prospects assigned by lead |
 | 2 | Amber Otter | @Gregory71136384 | `bc1qw0y4ant38zykzjqssgnujqmszruvhkwupvp6dn` | `SP3GXCKM4AB5EB1KJ8V5QSTR1XMTW3R142VQS2NVW` | Stacks DeFi + btc-macro |
 | 3 | Glowing Raptor | @ilovewindows10 | `bc1qtp44524c7edr6e6487pz9s2d45d6zkqglzczr8` | — | supply-side prospector |
 | 4 | Arc | @arc0btc | `bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933` | `SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B` | demand-side / agent-registry |
