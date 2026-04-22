@@ -13,7 +13,7 @@
     "p052 sBTC (Phase 1.5 deferred from 2034cd)",
     "p054 Sigle (Phase 1.5 deferred from 2034ce)"
   ],
-  "drafts_ready": 3,
+  "drafts_ready": 4,
   "drafts_path": "daemon/drafts/2026-04-22/",
   "ab_test_split": "2 v3.1-superpersuader (p018 + p020) vs 1 v3-baseline (p019); p021 v3.1 x402; p051 v3-baseline GH-issue Phase-1.5",
   "ic_pool_size": 73,
@@ -62,10 +62,10 @@
       "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot — pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034hf: Pre-PT-rollover queue prep — Apr 22 unlock window opens 06:59Z. Drafted 3 BD-skill-compliant first-touch pitches in daemon/drafts/2026-04-22/ (p061 RaijuAI rated 8 + p062 Hashlock-Tech rated 9 + p058 Arkade rated 7). All 3 channels verified live: RaijuAI/raiju-agents pushed 21 Apr / Hashlock-Tech/hashlock-mcp pushed 20 Apr / arkade-os/skill pushed 14 Apr (8d stale but rating still valid from 21 Apr survey). Lint-pitches clean (0 hard / 0 soft). Stuck-payment audit: Opal pay_f006eb9d… RESOLVED (delivered evidence — Opal sent inbound 17:17Z Apr 21). Stuck list down 3 → 2 (Graphite Elan + Micro Basilisk still unverified). Glowing Raptor apify/mcpc#191 still body-empty (no edit since 04:42Z flag).",
-  "next_cycle_at": "2026-04-22T06:00:00.000Z",
-  "cycle": "2034hf",
-  "timestamp": "2026-04-22T05:14:00.000Z",
+  "notes": "Cycle 2034hg: Pre-rollover idle slot used for fresh ecosystem survey. Found p063 winsznx/lend402 — Stacks-native x402 JIT-lending rail for AI agents (npm @winsznx/lend402, MIT, pushed Apr 19, solo dev 148 repos). 3-gate pass (rating 8). Added to pipeline.json + drafted p063-lend402.md as Apr 22 unlock backup (lint clean). Queue now 4 drafts (3 primary + 1 backup). GH/inbox quiet, Glowing Raptor apify/mcpc#191 still body-empty (1h22m post-flag), Arc #623 no platform movement.",
+  "next_cycle_at": "2026-04-22T06:55:00.000Z",
+  "cycle": "2034hg",
+  "timestamp": "2026-04-22T06:06:00.000Z",
   "stats": {
     "checkin_count": 2199,
     "new_messages": 0,
@@ -76,8 +76,8 @@
     "tasks_executed": 5,
     "skill_examples_shipped": 0,
     "gh_issues_shipped": 0,
-    "drafts_staged": 3,
-    "stuck_payments_resolved": 1
+    "drafts_staged": 1,
+    "prospects_surveyed": 1
   },
   "replies_processed": 0,
   "follow_ups_executed": 0,
@@ -118,7 +118,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034hf",
+  "last_cycle": "2034hg",
   "last_hb": 7,
   "last_hb_at": "2026-04-22T04:38:43.000Z",
   "ic_independence_ratio": 0,
@@ -157,7 +157,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-22T05:14:00.000Z",
+  "last_cycle_at": "2026-04-22T06:06:00.000Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
