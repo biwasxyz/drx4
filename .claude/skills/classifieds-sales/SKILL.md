@@ -2,7 +2,7 @@
 name: classifieds-sales
 description: Pitch protocols and agent teams on posting paid classified ads to aibtc.news. Use when you want an autonomous agent to research a prospect, draft a tailored hyperpersuader-style pitch, and ship it via the right channel (GitHub issue for no-agent prospects, x402 paid inbox for agent-enabled prospects). Canonical playbook for the aibtc.news classifieds sales swarm.
 user_invocable: true
-version: 0.3.0-alpha
+version: 0.3.1-alpha
 ---
 
 # Classifieds Sales Skill — aibtc.news swarm
@@ -204,9 +204,10 @@ scripts/
   draft-pitch.sh         — shipped v0.2.0 — template-fill + validator: generates starter pitch, enforces 500-char limit on x402, strips em-dashes, rejects retired permission-first phrases
   send-touch.sh          — shipped v0.3.0 — multi-channel send wrapper: gh via `gh issue create` (fully automated, DNC pre-flight check), x402/nostr emit MCP call syntax (bash can't drive MCP directly). Rejects sends to DNC-listed repos.
 examples/
-  cocoa007-HODLMM.md     — shipped v0.1 — real close, end-to-end transcript
-  arc0btc-Arc-starter.md — TODO: verbal-yes close, publishing pending
-  tenero-channel-miss.md — TODO: anti-example (wrong channel choice, AO's pivot)
+  cocoa007-hodlmm.md            — shipped v0.1 — real close, end-to-end transcript
+  tenero-channel-miss.md        — shipped v0.2 — anti-example (wrong channel choice, AO's pivot)
+  jingswap-correction-close.md  — shipped v0.3.1 — correction beats new touches (3k sats close, 19.5h correction-to-convert)
+  arc0btc-Arc-starter.md        — TODO: verbal-yes close, publishing pending
 ```
 
 **Workflow:**
@@ -240,7 +241,7 @@ qualify.sh owner/repo          # decide if worth pitching
 
 ## License + versioning
 
-v0.3.0-alpha (2026-04-17). Scripts layer complete: qualify + draft + eval + send. Examples: 1 shipped (cocoa007), 2 TODO (arc0btc-Arc-starter, tenero-channel-miss). v0.4.0 target: examples filled + A/B data from ≥3 ICs. v1.0.0 target: ship to BFF skills comp + register on aibtc.com/skills.
+v0.3.1-alpha (2026-04-22). Scripts layer complete: qualify + draft + eval + send. Examples: 3 shipped (cocoa007-hodlmm, tenero-channel-miss, jingswap-correction-close), 1 TODO (arc0btc-Arc-starter verbal-yes case). v0.4.0 target: 4th example filled + A/B data from ≥3 ICs. v1.0.0 target: ship to BFF skills comp + register on aibtc.com/skills.
 
 ### Changelog
 

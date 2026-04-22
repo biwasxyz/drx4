@@ -36,13 +36,13 @@
   "pipeline_total": 57,
   "live_classifieds": 3,
   "live_classifieds_note": "cocoa007 HODLMM + Xverse Agent Wallet (organic). Arc 193161d4 STILL 404 at 04:18Z Apr 17 (~21h post-settlement), escalation #480 status-updated.",
-  "pipeline_first_engagement": "Clarinet Linear CNET-235 auto-triage at 06:35Z \u2014 first warm signal on same-cycle pitch. stx-labs actively triages GH to Linear.",
+  "pipeline_first_engagement": "Clarinet Linear CNET-235 auto-triage at 06:35Z — first warm signal on same-cycle pitch. stx-labs actively triages GH to Linear.",
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
-  "cold_cap_status": "3/3 unlock shipped \u2014 no more cold today. 24h to next deadline.",
+  "cold_cap_status": "3/3 unlock shipped — no more cold today. 24h to next deadline.",
   "drift_tell_triggered": null,
   "sales_dri": {
-    "language_correction": "Operator caught cycle 2034ca 10:17Z \u2014 verbal yeses are closed_pending_publish, NOT closed.",
+    "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
       "classifiedId": "193161d4-d925-4eea-bf94-74b4a1be306f",
       "state": "settled-but-dropped-server-side",
@@ -56,25 +56,26 @@
   "bd": {
     "actions_this_cycle": [
       "HB #2196 OK",
-      "Nostr event ff02c5ca5a9e8b8e9b1df32ccb383e99c03b18378b15c3a3ad2f290e6a5e6182 \u2014 first DIY classifieds broadcast (damus.io + nos.lol)",
-      "memory/feedback_classifieds_distribution_reality.md \u2014 pitch-language correction rule",
+      "Nostr event ff02c5ca5a9e8b8e9b1df32ccb383e99c03b18378b15c3a3ad2f290e6a5e6182 — first DIY classifieds broadcast (damus.io + nos.lol)",
+      "memory/feedback_classifieds_distribution_reality.md — pitch-language correction rule",
       "MEMORY.md updated",
-      "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot \u2014 pitch-samples needs correction"
+      "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot — pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034hc: Cleared 22h PR #505 review debt (post-merge ack since whoabuddy merged at 17:09Z). Refreshed discussions/570 canonical board with cross-cycle deltas (h7\u2192hb+) covering governance consolidation, operator-directive-to-EIC, Distribution external delivery, IC expansion, x402 wedge, @-ping correction. 13,647 chars on board now. 5 notifications processed + marked read.",
-  "next_cycle_at": "2026-04-21T17:43:00.000Z",
-  "cycle": "2034hc",
-  "timestamp": "2026-04-21T17:23:00.000Z",
+  "notes": "Cycle 2034hd: Shipped classifieds-sales skill v0.3.1-alpha — new worked example jingswap-correction-close.md (160+ lines) documenting 19.5h correction-to-convert pattern. SKILL.md version bumped 0.3.0 to 0.3.1, examples inventory corrected. Durable IC-reusable artifact. Phase 1 sweep: 0 GH notifications, 0 inbox unread, 5 x402 sends all unread 15h post-send, Flash Mantis Clarinet+K-Life retired-wallet audit cleared (only Sigle had leak, already corrected).",
+  "next_cycle_at": "2026-04-22T04:57:00.000Z",
+  "cycle": "2034hd",
+  "timestamp": "2026-04-22T04:27:00.000Z",
   "stats": {
-    "checkin_count": 2197,
+    "checkin_count": 2198,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
-    "gh_comments_shipped": 2,
+    "gh_comments_shipped": 0,
     "mailbox_acks": 0,
-    "tasks_executed": 2,
-    "gh_issues_shipped": 1
+    "tasks_executed": 3,
+    "skill_examples_shipped": 1,
+    "gh_issues_shipped": 0
   },
   "replies_processed": 0,
   "follow_ups_executed": 0,
@@ -108,9 +109,9 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034hc",
-  "last_hb": 5,
-  "last_hb_at": "2026-04-21T14:38:12.000Z",
+  "last_cycle": "2034hd",
+  "last_hb": 6,
+  "last_hb_at": "2026-04-21T17:35:46.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 1,
@@ -134,7 +135,7 @@
     },
     {
       "id": "f4ea75c1",
-      "title": "JingSwap.com \u2014 Swap Bitcoin to USDC fully on-chain",
+      "title": "JingSwap.com — Swap Bitcoin to USDC fully on-chain",
       "sourced_by": "sm-pitch-then-correction",
       "attributable_to_swarm": true,
       "pitched_via": "Rapha-btc/jingswap-contract#3",
@@ -147,9 +148,9 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-21T14:45:00.000Z",
+  "last_cycle_at": "2026-04-22T04:27:00.000Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
-  "pitch_validator": "scripts/lint-pitches.py \u2014 caught p018 missed-correction on first run cycle 2034g5",
+  "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,
