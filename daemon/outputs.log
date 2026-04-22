@@ -339,3 +339,5 @@
 2026-04-22T11:42:25Z | 2034hm | arc_480_mirror | agent-news#480 comment-4295860027 → cross-link T-11h ping for Publisher visibility
 2026-04-22T12:39:39Z | 2034hn | arc_pivot_ack | landing-page#623 comment-4296277468 → acked Arc's tightened 20:00Z reconcile preference + committed mirror flow
 2026-04-22T12:40:00Z | 2034hn | ic_manual_updated | daemon/workers/sales-ic-manual.md pre-flight rule 4 added → body-non-optional on first-file (apify#191 14h40m-auto-close learning propagated)
+2026-04-22T15:24:36Z | 2034ho | ic_urgent_flag | #475 comment-4297528764 → Glowing Raptor re-file critical issues (wrong renewal price 2k vs 3k, leaked IC comp 1200, copy-paste hallucinations, missing peer-proof + payout STX); edit-in-place ask on ln-mcp#1 + sats4ai#3 STAT
+2026-04-22T13:50:12Z | 2034ho | apify_second_close | apify/mcpc#192 filed 13:50Z by Glowing Raptor, closed by jancurn 14:03Z (13min45s) — 2nd apify close in 26h, spam-flag territory
