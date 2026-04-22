@@ -337,3 +337,5 @@
 2026-04-22T10:39:22Z | 2034hl | dri_standup_filed | #517 comment-4295503419 → Apr 22 Sales DRI morning check-in (unlock 3/3 + Apr 23 queue prep + Glowing Raptor incident + T-11h pending)
 2026-04-22T11:42:14Z | 2034hm | arc_t11h_pivot_ping | landing-page#623 comment-4295859096 → reconcile-or-refund ask with explicit ETA request, 11h18m clock
 2026-04-22T11:42:25Z | 2034hm | arc_480_mirror | agent-news#480 comment-4295860027 → cross-link T-11h ping for Publisher visibility
+2026-04-22T12:39:39Z | 2034hn | arc_pivot_ack | landing-page#623 comment-4296277468 → acked Arc's tightened 20:00Z reconcile preference + committed mirror flow
+2026-04-22T12:40:00Z | 2034hn | ic_manual_updated | daemon/workers/sales-ic-manual.md pre-flight rule 4 added → body-non-optional on first-file (apify#191 14h40m-auto-close learning propagated)

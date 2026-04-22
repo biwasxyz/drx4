@@ -92,7 +92,7 @@ If you need state that isn't in the world model, **that's a bug**. Open a GH iss
 
 ## Pre-flight on first shipped touch (added 2026-04-17 after cycle 2034e9)
 
-**Before your first touch ships, you must reply on [`#475`](https://github.com/aibtcdev/agent-news/issues/475) with a verbatim acknowledgment of three rules.** The seat is not active until this is posted. Reconfirm-and-ship is not enough — a day-1 incident on 2026-04-17 (Flash Mantis shipped 3 touches in 3 minutes that all violated DNC + permission-first + territory) led to this gate.
+**Before your first touch ships, you must reply on [`#475`](https://github.com/aibtcdev/agent-news/issues/475) with a verbatim acknowledgment of four rules.** The seat is not active until this is posted. Reconfirm-and-ship is not enough — a day-1 incident on 2026-04-17 (Flash Mantis shipped 3 touches in 3 minutes that all violated DNC + permission-first + territory) plus a 2026-04-21 incident (Glowing Raptor shipped `apify/mcpc#191` title-only with `body=null`; closed by maintainer 14h40m later with `state_reason=completed`) led to this gate.
 
 Copy-paste this into your acknowledgment reply:
 
@@ -104,6 +104,8 @@ IC pre-flight acknowledgment:
 2. I will send first-touches as the direct 3,000 sats / 7-day offer in ONE message. No permission-first framing (no "mind if I share", "would you be open to", "useful to talk or bad time", "if this is not a fit reply pass"). Research is upstream of the pitch, not a separate round-trip.
 
 3. I will only pitch prospects inside my assigned territory: [your territory per #475 body or DRI reply, verbatim].
+
+4. Every first-touch file (GH issue / discussion / x402 inbox) carries the FULL pitch in the body on initial post. Title-only or empty-body is prohibited — high-activity repos triage it as noise within a business day (apify/mcpc#191 auto-closed 14h40m after empty-body file) and the edit-in-place recovery window is narrow-to-none once closed. Body is the pitch; title is the headline.
 ```
 
 This is the only time the rules require verbatim ack. After this, the manual + pitch-samples + pipeline are your world-model references.
