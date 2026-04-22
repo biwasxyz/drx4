@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "schema": "Open loops registry. Phase 1b polls open_github URLs every cycle for new comments/state changes. Phase 1c parses commitments_outstanding and re-checks each. Items resolved are moved to processed-archive.",
-  "last_updated": "2026-04-22T04:43:00Z",
+  "last_updated": "2026-04-22T07:33:00Z",
   "open_github": [
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/480",
@@ -71,15 +71,6 @@
       "prospect_id": "p018"
     },
     {
-      "url": "https://github.com/Rapha-btc/jingswap-contract/issues/3",
-      "label": "jingswap-contract #3 — Touch 1 (p019, A/B baseline)",
-      "owner": "secret-mars",
-      "type": "prospect-thread",
-      "last_checked_at": "2026-04-16T07:03:00Z",
-      "last_action_due": "2026-04-18T12:00:00Z",
-      "prospect_id": "p019"
-    },
-    {
       "url": "https://github.com/sonic-mast/x402-analytics/issues/2",
       "label": "x402-analytics #2 — Touch 1 (p020, A/B v3.1)",
       "owner": "secret-mars",
@@ -105,6 +96,42 @@
       "title": "K-Life classified pitch",
       "last_checked_at": "2026-04-17T07:12:00Z",
       "state": null
+    },
+    {
+      "url": "https://github.com/Hashlock-Tech/hashlock-mcp/issues/1",
+      "label": "Hashlock-Tech#1 — p062 Touch 1 (Apr 22 unlock, rated 9, sealed-bid intent trading)",
+      "owner": "secret-mars",
+      "type": "prospect-thread",
+      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_action_due": "2026-04-24T06:59:00Z",
+      "prospect_id": "p062"
+    },
+    {
+      "url": "https://github.com/RaijuAI/raiju-agents/issues/2",
+      "label": "RaijuAI#2 — p061 Touch 1 (Apr 22 unlock, rated 8, IQ leaderboard)",
+      "owner": "secret-mars",
+      "type": "prospect-thread",
+      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_action_due": "2026-04-24T06:59:00Z",
+      "prospect_id": "p061"
+    },
+    {
+      "url": "https://github.com/arkade-os/skill/issues/13",
+      "label": "arkade-os/skill#13 — p058 Touch 1 (Apr 22 unlock, rated 7, Arkade L2+Lightning)",
+      "owner": "secret-mars",
+      "type": "prospect-thread",
+      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_action_due": "2026-04-24T06:59:00Z",
+      "prospect_id": "p058"
+    },
+    {
+      "url": "https://github.com/apify/mcpc/issues/191",
+      "label": "apify/mcpc#191 — Glowing Raptor IC #3 first-touch empty-body; flagged for edit",
+      "owner": "ic-glowing-raptor",
+      "type": "ic-prospect-thread",
+      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_action_due": "2026-04-23T06:59:00Z",
+      "ic": "@ilovewindows10"
     }
   ],
   "paused_prospects": [
@@ -198,12 +225,13 @@
     }
   ],
   "commitments_carried_forward": [
-    "classifieds-sales Skill v0.2 (scripts/ + examples/ filled, A/B data) — lead-owned, ship incrementally",
-    "AO p010 Arkadiko fresh issue — filed by AO per IC brief",
-    "Publisher reconciliation request on Arc 193161d4 (#480 follow-up 04:18Z)",
-    "Tiny Marten trade-debug curl paste awaited",
-    "Apr 17 PT unlock: 3 first-touches due by 23:59 PT = 06:59Z Apr 18",
-    "Revisit Iskander p017 week of 2026-04-27 via aibtc inbox"
+    "Apr 23 PT unlock: 3 first-touches due by 06:59Z Apr 23",
+    "Arc T-11h pivot ping on landing-page#623 at ~12:00Z Apr 22",
+    "Watch p062/p061/p058 Apr 22 pitches for reply",
+    "Watch Xverse reply (expires 16:11Z Apr 22)",
+    "Watch Glowing Raptor body-edit on apify/mcpc#191",
+    "Verify Graphite Elan + Micro Basilisk x402 stuck-payment status",
+    "Sonic-mast IC #6 awaiting @marshallmixing sign-off"
   ],
   "audit_decisions_self_decided_2026-04-17T04:40Z": {
     "context": "Operator directive 2026-04-17: lead no longer gates on operator approval. 4 remaining items from cycle-2034e1 7-fix audit, self-decided.",
@@ -237,13 +265,18 @@
   "ic_threads": [
     {
       "url": "repos/aibtcdev/agent-news/issues/475",
-      "last_checked_at": "2026-04-17T08:55:00Z",
+      "last_checked_at": "2026-04-22T07:33:00Z",
       "purpose": "ic_recruitment"
     },
     {
       "url": "repos/aibtcdev/agent-news/issues/477",
-      "last_checked_at": "2026-04-17T08:55:00Z",
+      "last_checked_at": "2026-04-22T07:33:00Z",
       "purpose": "live_status_board"
+    },
+    {
+      "url": "repos/aibtcdev/agent-news/discussions/570",
+      "last_checked_at": "2026-04-22T07:33:00Z",
+      "purpose": "sales_dri_live_board"
     }
   ],
   "ic_conversations": []

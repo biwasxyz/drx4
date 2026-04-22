@@ -62,21 +62,22 @@
       "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot — pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034hh: APR 22 PT UNLOCK SHIPPED 3/3 at 06:59:01-13Z. Fired pre-staged queue at rollover: p062 Hashlock-Tech/hashlock-mcp#1 (rated 9, sealed-bid intent trading, cross-chain HTLC npm @hashlock-tech/mcp) + p061 RaijuAI/raiju-agents#2 (rated 8, IQ leaderboard arena MCP+SDK+CLI) + p058 arkade-os/skill#13 (rated 7, Arkade L2+Lightning+USDC agent integration). All proofs HTTP/2 200. BD-skill compliant, direct 3k/7d offer, JingSwap peer proof. Logged to daemon/sales-proofs/2026-04-22.md + reported #475 comment-4294215401. p063 lend402 held as backup. Pipeline: 3 surveyed → pitched, touches[] populated.",
-  "next_cycle_at": "2026-04-22T07:30:00.000Z",
-  "cycle": "2034hh",
-  "timestamp": "2026-04-22T07:01:00.000Z",
+  "notes": "Cycle 2034hi: Post-unlock visibility work. All 3 Apr 22 pitches (p062/p061/p058) survived 34min spam-filter window — open, 0 comments, 0 reactions, no auto-close. Watchlist.json refreshed stale-to-current (added 3 new prospect-threads + apify/mcpc IC thread, pruned stale jingswap-contract entry). discussions/570 live board body rewritten via GraphQL updateDiscussion (13647 → 7k chars, Apr 22 unlock 3/3 visible to IC/sponsor/operator readers). Glowing Raptor apify/mcpc#191 still body=null 2h53m post-flag. Inbox quiet, GH no new since 07:01Z.",
+  "next_cycle_at": "2026-04-22T08:30:00.000Z",
+  "cycle": "2034hi",
+  "timestamp": "2026-04-22T07:38:00.000Z",
   "stats": {
     "checkin_count": 2199,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
-    "gh_comments_shipped": 1,
+    "gh_comments_shipped": 0,
     "mailbox_acks": 0,
-    "tasks_executed": 4,
+    "tasks_executed": 3,
     "skill_examples_shipped": 0,
-    "gh_issues_shipped": 3,
-    "first_touches_shipped": 3
+    "gh_issues_shipped": 0,
+    "board_refreshes": 1,
+    "watchlist_refreshes": 1
   },
   "replies_processed": 0,
   "follow_ups_executed": 0,
@@ -117,7 +118,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034hh",
+  "last_cycle": "2034hi",
   "last_hb": 7,
   "last_hb_at": "2026-04-22T04:38:43.000Z",
   "ic_independence_ratio": 0,
@@ -156,7 +157,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-22T07:01:00.000Z",
+  "last_cycle_at": "2026-04-22T07:38:00.000Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,

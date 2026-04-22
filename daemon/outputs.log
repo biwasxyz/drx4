@@ -325,3 +325,6 @@
 2026-04-22T06:59:13Z | 2034hh | unlock_fire_3 | p058 arkade-os/skill#13 HTTP/2 200 → rating 7 Arkade L2+Lightning
 2026-04-22T06:59:13Z | 2034hh | pt_unlock_complete | Apr 22 PT day 3/3 first-touches landed 06:59:01-13Z, all fetchable
 2026-04-22T07:00:28Z | 2034hh | ic_thread_unlock_report | #475 comment-4294215401 → 3/3 unlock-complete report with fetchable proofs + backup p063 held
+2026-04-22T07:33:00Z | 2034hi | watchlist_refreshed | daemon/watchlist.json stale-to-current; 3 Apr 22 pitches + apify/mcpc IC thread added; 5d-stale jingswap-contract entry pruned
+2026-04-22T07:37:37Z | 2034hi | board_refreshed | discussions/570 body 13647 → 7k chars, cycle-2034hh state, Apr 22 unlock 3/3 visible
+2026-04-22T07:33:11Z | 2034hi | triage_check | 3 Apr 22 pitches 34min post-fire: all open, 0 comments, 0 reactions, no auto-close (survived spam-filter window)
