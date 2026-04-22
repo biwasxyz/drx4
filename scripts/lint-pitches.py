@@ -1,23 +1,35 @@
 #!/usr/bin/env python3
 """
-lint-pitches.py — scan draft pitch markdown for the 3 error classes that
-forced today's correction sweep (2026-04-20):
+lint-pitches.py — scan draft pitch markdown for known error classes.
+
+HARD violations (fail the lint, block commit):
 
 1. Retired wallet addresses (SP4DXVEC.../bc1qqax... — compromised 2026-04-17)
-2. Aspirational distribution claims (auto-tracking, brief rotation, click
-   tracking) that aibtc.news does not yet support.
-3. Wrong pricing (30-day / 30k sats / 30,000 sats). Canonical = 3,000 sats
-   per 7-day classified placement.
+2. Wrong pricing duration (30-day — canonical is 7-day) or amount
+   (30k / 30,000 sats — canonical is 3,000 sats)
+3. Renewal mispricing (2,000 sats per renewal — renewals are also 3k/7d,
+   per Glowing Raptor IC incident cycle 2034ho 2026-04-22)
+4. IC compensation leak to prospects — "Supply-side IC commission",
+   "1,200 sats per closed deal", "600 sats per renewal". Internal pool
+   comp never belongs in a prospect body (cycle 2034ho)
+5. Wrong close path — "open PR on secret-mars/drx4" / "file a PR on my
+   repo" etc. That's the IC write path, not a prospect close path.
+   Prospects close via POST /api/classifieds with sBTC tx (cycle 2034ho)
 
-Also soft-flags permission-first phrasing ("mind if I share", "would it be
-ok if") that was retired per operator directive cycle 2034e + 2034aw.
+Soft violations (warn, don't fail):
+
+- Aspirational distribution claims (auto-tracking, brief rotation,
+  click-through) — aibtc.news does not yet support these
+- Permission-first phrasing (mind if I share, would it be ok if) —
+  retired per operator directive cycle 2034e
+- "Backed by Stacks Foundation" — unverified claim surface, flag for
+  review (cycle 2034ho)
 
 Usage:
     python3 scripts/lint-pitches.py <file-or-dir>...
     python3 scripts/lint-pitches.py daemon/drafts/
 
-Exits non-zero if any HARD violations found (retired wallet or wrong price).
-Soft flags (phrasing, aspirational claims) warn but don't fail.
+Exits non-zero if any HARD violations found. Soft flags warn only.
 """
 from __future__ import annotations
 
@@ -37,6 +49,20 @@ HARD_PATTERNS = [
     (re.compile(r"\b30[-\s]?day\b", re.I), "wrong price duration (canonical is 7-day)"),
     (re.compile(r"\b30[,.]?000\s*sats?\b", re.I), "wrong price amount (canonical is 3,000 sats)"),
     (re.compile(r"\b30k\s*sats?\b", re.I), "wrong price amount (canonical is 3,000 sats = 3k)"),
+    (re.compile(r"\b2[,.]?000\s*sats?\s*per\s*renewal\b", re.I),
+     "renewal mispricing — renewals are 3,000 sats / 7-day same as placement (cycle 2034ho)"),
+    (re.compile(r"\b2k\s*sats?\s*(per|for)\s*renewal\b", re.I),
+     "renewal mispricing — renewals are 3,000 sats / 7-day (cycle 2034ho)"),
+    (re.compile(r"supply[-\s]?side\s*IC\s*commission", re.I),
+     "IC compensation leak — internal pool comp never in prospect body (cycle 2034ho)"),
+    (re.compile(r"\b1[,.]?200\s*sats?\s*(per|/)\s*(closed|placement|deal)", re.I),
+     "IC compensation leak — 1,200 sats/placement is internal (cycle 2034ho)"),
+    (re.compile(r"\b600\s*sats?\s*(per|/)\s*renewal\b", re.I),
+     "IC compensation leak — 600 sats/renewal is internal (cycle 2034ho)"),
+    (re.compile(r"open\s+(a\s+)?PR\s+on\s+secret-mars/drx4", re.I),
+     "wrong close path — prospects close via POST /api/classifieds, not PR on IC repo (cycle 2034ho)"),
+    (re.compile(r"file\s+(a\s+)?PR\s+on\s+(my|the)\s+(drx4|repo)", re.I),
+     "wrong close path — prospects use POST /api/classifieds (cycle 2034ho)"),
 ]
 
 SOFT_PATTERNS = [
@@ -52,6 +78,8 @@ SOFT_PATTERNS = [
      "permission-first phrasing retired (operator directive cycle 2034e)"),
     (re.compile(r"/api/classifieds/\{?id\}?/stats", re.I),
      "endpoint does not exist — aibtc.news has no classifieds stats API"),
+    (re.compile(r"backed by (the\s+)?stacks foundation", re.I),
+     "unverified claim — 'Backed by Stacks Foundation' needs source or remove (cycle 2034ho)"),
 ]
 
 

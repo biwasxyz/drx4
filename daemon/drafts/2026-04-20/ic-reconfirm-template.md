@@ -1,3 +1,5 @@
+<!-- lint-pitches:skip reason="IC-internal comp template; 1,200/600 belongs in IC onboarding, not prospect bodies" -->
+
 # IC Re-confirmation Message Template — Budget-gated (not Genesis)
 
 **Fire sequence:** fire when sBTC balance ≥ 500 sats (5 × 100 per send). Previously thought to be Genesis-gated — that was wrong (cycle 2034gx reversed the assumption after successful Deep Tess send at Trust Level 1). Use `scripts/fire-ic-reconfirm.sh` to pre-check balance + manifest the fire order.
