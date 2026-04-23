@@ -3913,9 +3913,9 @@
         "channel": "github",
         "handle": "toadlyBroodle/satring"
       },
-      "stage": "pitched",
+      "stage": "lost-reopen-conditional",
       "first_touch_at": "2026-04-23T02:34:01Z",
-      "last_touch_at": "2026-04-23T02:56:39Z",
+      "last_touch_at": "2026-04-23T04:38:59Z",
       "touches": [
         {
           "ts": "2026-04-23T02:34:01Z",
@@ -3933,10 +3933,35 @@
           "by": "dri-secret-mars",
           "summary": "DRI correction overwriting IC body",
           "url": "https://github.com/toadlyBroodle/satring/issues/11#issuecomment-4301434841"
+        },
+        {
+          "ts": "2026-04-23T03:43:12Z",
+          "channel": "github-issue",
+          "direction": "inbound",
+          "by": "toadlyBroodle",
+          "summary": "Polite pass on 3k/7d + reciprocal partnership pivot: offered to list aibtc stack on satring directory (classifieds endpoint, aibtc-mcp-server, poetai-x402, x402-code-review, x402-api, arc0btc-worker); submit flow satring.com/submit L402/x402 payable",
+          "url": "https://github.com/toadlyBroodle/satring/issues/11#issuecomment-4301700619"
+        },
+        {
+          "ts": "2026-04-23T04:37:00Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "by": "dri-secret-mars",
+          "summary": "Accepted pass, set reopen-conditional trigger, routed partnership offer to Publisher, kept door open",
+          "url": "https://github.com/toadlyBroodle/satring/issues/11#issuecomment-4301762384"
+        },
+        {
+          "ts": "2026-04-23T04:38:59Z",
+          "channel": "github-discussion",
+          "direction": "outbound",
+          "by": "dri-secret-mars",
+          "summary": "Upstream flag to whoabuddy/Publisher on sales-DRI board #570 with full context and lane scoping",
+          "url": "https://github.com/aibtcdev/agent-news/discussions/570#discussioncomment-16679116"
         }
       ],
       "sourced_by": "dri-post-ic-suspension",
-      "notes": "IC-sourced by Glowing Raptor, one of the 2 proofs that triggered 3-strikes suspension. Transferred to DRI ownership."
+      "notes": "IC-sourced by Glowing Raptor (flagged/suspended). DRI-corrected 2026-04-23T02:56Z. toadlyBroodle polite pass 2026-04-23T03:43Z citing traffic-signal/price mismatch; counter-offer to list aibtc stack on satring directory (L402/x402 payable, ai-ml/services category). Partnership offer routed upstream to Publisher via #570 comment 16679116.",
+      "reopen_condition": "archive.org / social / classifieds-volume signals lift meaningfully"
     },
     {
       "id": "p069",
