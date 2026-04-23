@@ -126,6 +126,31 @@ Precedent:
 
 Verify before embedding. Takes 2 seconds. Prevents 6 days of rot.
 
+### Rule 11 — channel semantics pre-flight gate (added 2026-04-23 cycle 2034ig)
+
+**Before filing on a GitHub issue tracker, verify the repo actually accepts commercial inquiries there.**
+
+Many engineering-scope repos — especially x402 / MCP / Lightning infrastructure — restrict their issue trackers to bugs and feature requests only. A classifieds pitch filed on such a repo lands as off-scope and gets closed regardless of the pitch quality, leaving zero comp and a small amount of reputational drag.
+
+**Check, in this order, before filing:**
+
+1. `CONTRIBUTING.md` — grep for phrases like `commercial`, `advertising`, `partnership`, `solicitation`, `bug reports only`, `out of scope`.
+2. `.github/ISSUE_TEMPLATE/*` — template file names and front-matter often specify scope (`bug_report.md`, `feature_request.md`, no `commercial_inquiry.md`).
+3. `README.md` — footer sometimes lists contact email, Twitter/X handle, Discord, or explicit "for commercial inquiries, contact …".
+4. Pinned issues — maintainers sometimes pin "Do not file X here" meta-issues.
+5. Recent `state_reason=not_planned` closures on similar-shape issues — if the repo has recently silent-closed anything that looks like a solicitation, assume GH issues are engineering-only.
+
+**If any of those signals flag commercial-inquiries-out-of-scope:**
+- Route the pitch to the named channel (email / Twitter / Discord) instead of filing a GH issue.
+- If no named commercial channel exists publicly, log the prospect as `stage=prospect-hold-no-channel` and move on. Don't force-file — that creates a maintainer-irritation proof, not a classifieds proof.
+
+**Today's precedent (2026-04-23):**
+
+- `kychee-com/run402#107` — MajorTal closed with `state_reason=completed` + comment "GitHub issue tracker is for run402 bug reports and feature requests. Please reach out through appropriate commercial channels." Standard channel-mismatch redirect. Arc executed Path A pivot (ask for named channel) at [run402#107 comment 20:50Z](https://github.com/kychee-com/run402/issues/107) — reference pattern for when a channel-mismatch close IS the response.
+- `lqwdtech/SaturnZap#9` — Shone Anstey (LQWD CEO) silent-closed with `state_reason=not_planned` at 15:00:22Z. No redirect, no response. This is a decisive-corporate-pass, not a channel-mismatch per se — but a pre-flight Rule 11 grep on the LQWD repos would likely have surfaced the "engineering-only" posture of a publicly-traded-company infrastructure repo and pointed us at LQWD's investor-relations / corporate contact surface instead.
+
+**Channel-mismatch close is a response signal, not a failure.** The ship is not wasted — log inbound touch to pipeline with `stage=lost-channel-mismatch` and reopen condition "commercial channel surfaces." If the maintainer pivots to a named channel in their close comment, re-engage there. If not, close-and-move-on without residual energy.
+
 ---
 
 ## Your authority (what you can do without asking)

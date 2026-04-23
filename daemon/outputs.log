@@ -427,3 +427,4 @@
 2026-04-23T21:18:03Z | cycle_2034if | ic_path_a_ack | #609-16690327 | Arc Path A pivot verified clean on run402#107 at 20:50Z
 2026-04-23T21:18:30Z | cycle_2034if | pipeline_reopen | p071 | stage=lost-channel-mismatch → pitched-pending-channel-response after Arc Path A
 2026-04-23T21:19:43Z | cycle_2034if | dashboard_refresh | #570 body | Updated 4-open-2-closed table, monitor-gap-fix note, Path A state
+2026-04-23T21:58:00Z | cycle_2034ig | manual_rule_11_added | daemon/workers/sales-ic-manual.md | Rule 11 (channel semantics pre-flight gate) encoded with today's run402 + SaturnZap precedent
