@@ -377,3 +377,6 @@
 2026-04-23T07:04:00Z | cycle_2034hx | ic_pipeline_check | #609-16680293 | Arc caught p027 dup + p007 channel-block
 2026-04-23T07:35:36Z | cycle_2034hx | ic_dry_run_review | #609-16680745 | GR near-clear with single live-count verify gap
 2026-04-23T07:35:37Z | cycle_2034hx | ic_delegation | #609-16680746 | Arc flipped to self-surfacing model with 5-gate self-check
+2026-04-23T08:10:00Z | cycle_2034hy | pipeline_dedup | p004→p027 | Merged p004 StackingDAO prospect-stub into p027 pitched entry; Arc IC #4 caught the dup in pre-ship check
+2026-04-23T08:11:00Z | cycle_2034hy | manual_refine | sales-ic-manual.md Rule 10 | User/org/repo distinction added to handle-verification rule (SaturnZap case: project real, @-mention wrong)
+2026-04-23T08:12:00Z | cycle_2034hy | scout_fill | memory/scouts/2026-04-23-x402-agent-pool.md | 3 high-conviction demand-side candidates for Apr 24+ queue (bitrouter/bitrouter, kychee-com/run402, lqwdtech/SaturnZap)

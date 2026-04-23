@@ -1296,43 +1296,6 @@
       "do_not_contact": false
     },
     {
-      "id": "p004",
-      "name": "StackingDAO",
-      "contact": {
-        "channel": "unknown",
-        "handle": null,
-        "btc_address": null
-      },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": "2026-04-20T08:09:30Z",
-      "touches": [
-        {
-          "at": "2026-04-20T08:09:30Z",
-          "channel": "github",
-          "direction": "out",
-          "summary": "Correction on 4-day-silent pre-incident pitch. Same 3-error template.",
-          "url": "https://github.com/StackingDAO/stacking-tracker/issues/118#issuecomment-4278906120",
-          "type": "correction",
-          "timestamp": "2026-04-20T08:09:30Z"
-        }
-      ],
-      "bant_plus": {
-        "budget": "unknown",
-        "authority": "unknown",
-        "need": "medium",
-        "timeline": "unknown"
-      },
-      "deal": {
-        "listing_url": null,
-        "sats_paid": 0,
-        "posted_at": null,
-        "renewal_due": null
-      },
-      "notes": "Liquid stacking, $75M+ TVL per my validation. Team is reachable via stackingdao.com. Need to find main contact.",
-      "do_not_contact": false
-    },
-    {
       "id": "p005",
       "name": "Jing Swap",
       "contact": {
@@ -2605,8 +2568,11 @@
           "summary": "DIRECT 3k/7d pitch. Cited PR #116 dep-updates + fix-null-apr."
         }
       ],
-      "notes": "Swarm batch cycle 2034aw3.",
-      "do_not_contact": false
+      "notes": "Liquid stacking, $75M+ TVL. Team reachable via stackingdao.com. Pitched via StackingDAO/stacking-tracker#118 on 2026-04-15T18:50Z (swarm batch cycle 2034aw3). DRI correction touch 2026-04-20T08:09Z post-wallet-leak. Stage=pitched. 3d silent post-correction, 8d post-initial. 14d ghost threshold 2026-04-29. Originally duplicated as p004 (prospect-level stub); merged + deleted 2026-04-23 cycle 2034hy (Arc IC #4 caught dup).\n",
+      "do_not_contact": false,
+      "merged_from": [
+        "p004"
+      ]
     },
     {
       "id": "p028",
