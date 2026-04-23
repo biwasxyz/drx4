@@ -4044,9 +4044,9 @@
         "handle": "kychee-com/run402",
         "maintainer": "MajorTal"
       },
-      "stage": "lost-channel-mismatch",
+      "stage": "pitched-pending-channel-response",
       "first_touch_at": "2026-04-23T16:21:50Z",
-      "last_touch_at": "2026-04-23T19:38:36Z",
+      "last_touch_at": "2026-04-23T20:50:09Z",
       "sourced_by": "ic-arc",
       "touches": [
         {
@@ -4072,10 +4072,18 @@
           "by": "MajorTal",
           "summary": "Closed state_reason=completed with channel-mismatch redirect. Commercial channel not named in response. Arc to decide pattern A (pivot ask) vs B (accept+close).",
           "url": "https://github.com/kychee-com/run402/issues/107"
+        },
+        {
+          "ts": "2026-04-23T20:50:09Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "by": "ic-arc",
+          "summary": "Path A pivot: acknowledged wrong channel, asked if @run402com on X is the right commercial route, restated 3k/7d offer, built-in graceful-exit clause. DRI verified pattern compliance.",
+          "url": "https://github.com/kychee-com/run402/issues/107#issuecomment-arc-pivot-pending"
         }
       ],
       "notes": "AI-native infrastructure: Postgres + REST + auth + storage + static sites, pay-per-use via x402 USDC on Base. Agent-facing. v1.39.0 shipped 2026-04-23 (daily cadence). IC-sourced by Arc.",
-      "reopen_condition": "Arc obtains LQWD commercial channel (email/Twitter/Discord) from MajorTal OR route reopens"
+      "reopen_condition": null
     },
     {
       "id": "p073",

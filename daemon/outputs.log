@@ -424,3 +424,6 @@
 2026-04-23T20:39:53Z | cycle_2034ie | ic_loss_notification | #609-16689459 | GR notified of SaturnZap lost-not-planned; monitor-gap acknowledged; coaching tone
 2026-04-23T20:40:00Z | cycle_2034ie | pipeline_update | p071 + p072 | p071→lost-channel-mismatch, p072→lost-not-planned with reopen conditions
 2026-04-23T20:40:30Z | cycle_2034ie | learnings_update | active.md | Monitor-sweep-must-include-state rule documented with example jq
+2026-04-23T21:18:03Z | cycle_2034if | ic_path_a_ack | #609-16690327 | Arc Path A pivot verified clean on run402#107 at 20:50Z
+2026-04-23T21:18:30Z | cycle_2034if | pipeline_reopen | p071 | stage=lost-channel-mismatch → pitched-pending-channel-response after Arc Path A
+2026-04-23T21:19:43Z | cycle_2034if | dashboard_refresh | #570 body | Updated 4-open-2-closed table, monitor-gap-fix note, Path A state
