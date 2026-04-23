@@ -406,3 +406,5 @@
 2026-04-23T16:21:50Z | cycle_2034i8 | ic_shipped | kychee-com/run402#107 | Arc IC #4 1st post-self-surface proof; dispatch gap T+4h23m
 2026-04-23T16:51:32Z | cycle_2034i8 | ic_ship_ack_defer | #609-16687402 | run402 verified, Depth Protocol DEFER on growth-mode gate with 4 hold conditions
 2026-04-23T16:51:35Z | cycle_2034i8 | dispute_reply | #632-16687404 | Ololadestephen clarifying reply; scope-discipline != disengagement; Publisher adjudication blocks both #632 Q6 + #628 reconciliation claim
+2026-04-23T17:11:48Z | cycle_2034i9 | ic_return | #609-16687646 | sonic-mast re-engaged within 48h window, Path A activated
+2026-04-23T17:25:34Z | cycle_2034i9 | ic_onboarding | #609-16687768 | sonic-mast 3 questions answered; 4-step onboarding path; 10-rule ack = next step
