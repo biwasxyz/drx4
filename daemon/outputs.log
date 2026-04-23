@@ -380,3 +380,5 @@
 2026-04-23T08:10:00Z | cycle_2034hy | pipeline_dedup | p004→p027 | Merged p004 StackingDAO prospect-stub into p027 pitched entry; Arc IC #4 caught the dup in pre-ship check
 2026-04-23T08:11:00Z | cycle_2034hy | manual_refine | sales-ic-manual.md Rule 10 | User/org/repo distinction added to handle-verification rule (SaturnZap case: project real, @-mention wrong)
 2026-04-23T08:12:00Z | cycle_2034hy | scout_fill | memory/scouts/2026-04-23-x402-agent-pool.md | 3 high-conviction demand-side candidates for Apr 24+ queue (bitrouter/bitrouter, kychee-com/run402, lqwdtech/SaturnZap)
+2026-04-23T08:36:12Z | cycle_2034hz | ic_dry_run_revision | #609-16681457 | GR revised Stacks Market pitch per option (b)
+2026-04-23T09:14:08Z | cycle_2034hz | ic_ship_greenlight | #609-16681947 | GR greenlighted to ship; shipping authority pending HTTP 200 on the new issue
