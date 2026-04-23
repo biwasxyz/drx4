@@ -1330,10 +1330,19 @@
         "handle": null,
         "btc_address": null
       },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-23T09:46:56Z",
+      "last_touch_at": "2026-04-23T09:46:56Z",
+      "touches": [
+        {
+          "ts": "2026-04-23T09:46:56Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "by": "ic-glowing-raptor",
+          "summary": "IC-sourced first-touch via dry-run re-qualification path; 4-gate research verified; lint 0/0; DRI greenlit at 09:14Z",
+          "url": "https://github.com/luisvilaclaras/StacksMarket/issues/1"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "unknown",
@@ -1347,7 +1356,8 @@
         "renewal_due": null
       },
       "notes": "93 open markets. Growth-stage. Good fit for classified — agents want to automate yes/no trading.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "sourced_by": "ic-glowing-raptor"
     },
     {
       "id": "p007",
