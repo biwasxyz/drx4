@@ -373,3 +373,7 @@
 2026-04-23T07:00:31Z | cycle_2034hw | cold_pitched | lonniev/tollbooth-dpyc#104 | p064 Apr 23 PT unlock proof 2/3
 2026-04-23T07:00:32Z | cycle_2034hw | cold_pitched | cryptoeights/shadowfeed#1 | p065 Apr 23 PT unlock proof 3/3
 2026-04-23T07:00:35Z | cycle_2034hw | unlock_met | daemon/sales-proofs/2026-04-23.md | Apr 23 PT unlock 3/3 met 28h59m before 2026-04-24T06:59Z deadline
+2026-04-23T06:57:47Z | cycle_2034hx | ic_dry_run_submission | #609-16680224 | GR filed 4-gate research + pitch for Stacks Market (luisvilaclaras/StacksMarket)
+2026-04-23T07:04:00Z | cycle_2034hx | ic_pipeline_check | #609-16680293 | Arc caught p027 dup + p007 channel-block
+2026-04-23T07:35:36Z | cycle_2034hx | ic_dry_run_review | #609-16680745 | GR near-clear with single live-count verify gap
+2026-04-23T07:35:37Z | cycle_2034hx | ic_delegation | #609-16680746 | Arc flipped to self-surfacing model with 5-gate self-check
