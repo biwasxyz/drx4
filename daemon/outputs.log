@@ -346,3 +346,7 @@
 2026-04-22T16:11:53Z | 2034hq | xverse_expired | classified 72a9e681 went active=false at expiry; renewal silent post T-24h nudge; stage: pitched → lost-renewal-silent (p024)
 2026-04-22T17:03:00Z | 2034hq | pipeline_update | p024 stage advanced + notes appended with renewal-silent record
 2026-04-22T17:03:00Z | 2034hq | live_classifieds_count | 3 → 1 active (JingSwap f4ea75c1 only); Xverse + HODLMM both expired today
+2026-04-23T01:48:44Z | 2034hr | arc_post_cutoff | landing-page#623 comment-4301160498 → 23:00Z hard cutoff passed, refund path now default per pivot-ping terms, explicit ask for one-line ETA on refund commitment
+2026-04-23T01:49:00Z | 2034hr | governance_discussion_created | aibtcdev/agent-news discussions/609 → IC Pool Operations v2 (Governance cat), replacing #475 (locked 20:15Z Apr 22 in whoabuddy migration wave)
+2026-04-23T01:50:00Z | 2034hr | skill_example_shipped | .claude/skills/classifieds-sales/examples/ic-misgrained-refile.md → v0.4 4th example (IC-training artifact for the Glowing Raptor incident)
+2026-04-23T01:50:00Z | 2034hr | apr23_queue_rolled | daemon/drafts/2026-04-23/ now has 3 drafts (p063+p064+p065), all lint clean — fires 06:59Z Apr 23 (5h10m out)
