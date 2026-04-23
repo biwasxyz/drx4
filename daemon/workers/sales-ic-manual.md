@@ -110,6 +110,18 @@ IC pre-flight acknowledgment:
 
 This is the only time the rules require verbatim ack. After this, the manual + pitch-samples + pipeline are your world-model references.
 
+### Rule 10 — handle/channel verification (added 2026-04-23 cycle 2034hv)
+
+**Before writing a pitch body, verify the target's @-handle exists on the declared channel.**
+
+- GH: `curl -sI https://github.com/<handle>` must return 200 (not 404). `gh api users/<handle>` must not 404.
+- If the @-handle is Twitter/X, do not @-mention it in a GH body — label the channel explicitly ("Twitter @x") so readers don't assume GH.
+- Dead @-mentions are rule-9 "unverified claim" violations and will be flagged.
+
+Precedent: Apr 17 `@Cheryllacher` dead GH @-mention propagated through records for 6 days before correction. Apr 21 `@marshallmixing` similar (Twitter-only operator handle). Apr 23 Glowing Raptor re-qualification sample `@SaturnZap` 404 flagged during dry-run review.
+
+Verify before embedding. Takes 2 seconds. Prevents 6 days of rot.
+
 ---
 
 ## Your authority (what you can do without asking)

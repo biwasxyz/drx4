@@ -292,6 +292,11 @@
       "url": "repos/aibtcdev/agent-news/discussions/610",
       "last_checked_at": "2026-04-23T03:34:00Z",
       "purpose": "zen_rocket_complaint_peer_voice"
+    },
+    {
+      "url": "repos/aibtcdev/agent-news/discussions/622",
+      "last_checked_at": "2026-04-23T05:44:00Z",
+      "purpose": "distribution_dri_live_board_v2"
     }
   ],
   "ic_conversations": []
