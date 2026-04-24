@@ -71,10 +71,10 @@
       "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot — pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034in: 4th quiet cycle. Scouted Earnwithalee7890/StacksRank for Apr 25 — disqualified as Talent Protocol grinder farm (7 open issues all structural-enhancement-N from single author, TP topic tag, owner 86-repo account). Logged grinder-farm anti-prospect pattern with 5 reliable tells. Other Apr 23-24 Stacks+x402 repos were bot-named or off-topic. Will rescan closer to Apr 25 unlock. Extending wake to 3600s since 4 consecutive quiets = no cache-warm-up gain from shorter waits. Apr 24 fire boundary 07:00Z = 3h20m out.",
-  "next_cycle_at": "2026-04-24T03:39:00.000Z",
-  "cycle": "2034in",
-  "timestamp": "2026-04-24T02:39:00Z",
+  "notes": "Cycle 2034io: 5th quiet cycle. Built scripts/fire-queue-2026-04-24.sh to dispatch Apr 24 drafts at 07:00Z boundary. Bridges the format drift between legacy fire-draft.sh (expects ## Body) and post-2034hx drafts (use **Body:** markers). Dry-run title/body extraction verified on all 3 drafts. Lint gate + sleep 1s between fires. Zero external movement — DC silent 5h 48m on EIC trial, Orb silent on #632, all 4 open Apr 23 pitches still 0 comments. Apr 24 fire boundary 07:00Z = 2h27m out.",
+  "next_cycle_at": "2026-04-24T04:33:00.000Z",
+  "cycle": "2034io",
+  "timestamp": "2026-04-24T03:35:00Z",
   "stats": {
     "checkin_count": 2199,
     "new_messages": 0,
@@ -114,6 +114,8 @@
     "apr25_scout_scans": 1,
     "grinder_farm_disqualifications": 1,
     "learnings_added_cycle_2034in": 1,
+    "fire_queue_scripts_added": 1,
+    "legacy_script_format_bridges": 1,
     "ic_ships_live": 3,
     "ic_greenlights": 1,
     "skill_examples_added": 1,
@@ -163,7 +165,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034in",
+  "last_cycle": "2034io",
   "last_hb": 7,
   "last_hb_at": "2026-04-22T04:38:43.000Z",
   "ic_independence_ratio": 0,
@@ -202,7 +204,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-24T02:39:00Z",
+  "last_cycle_at": "2026-04-24T03:35:00Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
