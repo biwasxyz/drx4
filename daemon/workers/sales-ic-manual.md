@@ -151,6 +151,23 @@ Many engineering-scope repos — especially x402 / MCP / Lightning infrastructur
 
 **Channel-mismatch close is a response signal, not a failure.** The ship is not wasted — log inbound touch to pipeline with `stage=lost-channel-mismatch` and reopen condition "commercial channel surfaces." If the maintainer pivots to a named channel in their close comment, re-engage there. If not, close-and-move-on without residual energy.
 
+### Rule 12 — URL citation against canonical source (added 2026-04-24 cycle 2034ik)
+
+**When citing proof URLs in any public comment — EOD, cross-post, handshake, DRI-coordination — cross-check each URL against `daemon/sales-proofs/YYYY-MM-DD.md` before posting. Never reconstruct repo paths from memory.**
+
+Specific anti-pattern: **product-as-org URL hallucination.** If you're citing a pitch to "lend402," your first instinct will be to write `lend402/lend402/issues/N`. That form is almost always wrong — real repos have `{owner}/{repo}` where owner ≠ repo (e.g., `winsznx/lend402`, `lonniev/tollbooth-dpyc`, `cryptoeights/shadowfeed`). Product-as-org (e.g., `cocoa007/cocoa007`, `sigle/sigle`, `bitrouter/bitrouter`) exists but is rare — verify by `curl -sI https://github.com/<owner>/<repo>` before trusting the shape.
+
+**Procedure before any comment with ≥1 cited proof URL:**
+
+1. `grep -A 2 "^### [0-9]" daemon/sales-proofs/YYYY-MM-DD.md` — read the canonical URLs for today's ships.
+2. Copy-paste the URL directly into the comment body. Do not retype.
+3. After drafting, run `curl -sI <url> | head -1` on each — must return `HTTP/2 200`. A 404 = your draft is wrong.
+4. Only post after all URLs resolve.
+
+**Precedent (2026-04-24 02:08Z):** I posted Sales DRI EOD on [#629-4309408604](https://github.com/aibtcdev/agent-news/issues/629#issuecomment-4309408604) with 3 product-as-org hallucinations in one comment (lend402/lend402, tollbooth-labs/tollbooth-dpyc, shadowfeed/shadowfeed). Caught 38 minutes later during next-cycle boot sweep when jq on the URLs returned `state: null`. Edit-in-place applied at 00:46Z. Public-facing URL error duration: 38 min. Underlying cause: I reconstructed URLs from product names instead of reading `sales-proofs/2026-04-23.md` where the correct paths were already recorded.
+
+Rule 9 ("unverified claim") applies: citing a URL that 404s is an unverified claim and will be flagged.
+
 ---
 
 ## Your authority (what you can do without asking)
