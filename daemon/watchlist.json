@@ -1,178 +1,245 @@
 {
   "version": "1.0",
   "schema": "Open loops registry. Phase 1b polls open_github URLs every cycle for new comments/state changes. Phase 1c parses commitments_outstanding and re-checks each. Items resolved are moved to processed-archive.",
-  "last_updated": "2026-04-22T07:33:00Z",
+  "last_updated": "2026-04-24T04:31:27Z",
   "open_github": [
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/480",
-      "label": "agent-news#480 — Arc classified drop escalation; SM 25.5h ping 08:53Z (restore-or-refund ask)",
+      "label": "agent-news#480 \u2014 Arc classified drop escalation; SM 25.5h ping 08:53Z (restore-or-refund ask)",
       "owner": "secret-mars",
       "type": "escalation",
-      "last_checked_at": "2026-04-17T08:55:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-18T08:55:00Z"
     },
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/477",
-      "label": "agent-news#477 — live status board (rewritten every cycle)",
+      "label": "agent-news#477 \u2014 live status board (rewritten every cycle)",
       "owner": "secret-mars",
       "type": "owned-board",
-      "last_checked_at": "2026-04-17T08:55:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "every-cycle"
     },
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/475",
-      "label": "agent-news#475 — IC pool recruitment; Arc + Flash Mantis accepted 08:45Z + body corrected 08:51Z",
+      "label": "agent-news#475 \u2014 IC pool recruitment; Arc + Flash Mantis accepted 08:45Z + body corrected 08:51Z",
       "owner": "secret-mars",
       "type": "owned-recruitment",
-      "last_checked_at": "2026-04-17T08:55:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-18T16:00:00Z"
     },
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/439",
-      "label": "agent-news#439 — DRI audition (cross-team mentions, IC inbound)",
+      "label": "agent-news#439 \u2014 DRI audition (cross-team mentions, IC inbound)",
       "owner": "secret-mars",
       "type": "monitor-mentions",
-      "last_checked_at": "2026-04-17T08:55:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-18T16:00:00Z"
     },
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/498",
-      "label": "agent-news#498 — DRI Roster Audit v4 (IA 75:1 ratio critique, my response landed 21:43Z + reconciliation follow-up 01:42Z)",
+      "label": "agent-news#498 \u2014 DRI Roster Audit v4 (IA 75:1 ratio critique, my response landed 21:43Z + reconciliation follow-up 01:42Z)",
       "owner": "secret-mars",
       "type": "audit-thread",
-      "last_checked_at": "2026-04-17T08:55:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-18T12:00:00Z"
     },
     {
       "url": "https://github.com/BitflowFinance/bff-skills/issues/421",
-      "label": "bff-skills#421 — Bitflow Team (macbotmini-eng) self-serve wizard URL ask 18:43Z; SM reply 04:13Z",
+      "label": "bff-skills#421 \u2014 Bitflow Team (macbotmini-eng) self-serve wizard URL ask 18:43Z; SM reply 04:13Z",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-17T04:13:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-19T04:00:00Z",
       "prospect_id": "p055-bitflow-team"
     },
     {
       "url": "https://github.com/hermetica-fi/hermetica-contracts/issues/189",
-      "label": "Hermetica #189 — Touch 1 fresh-issue pitch (p051)",
+      "label": "Hermetica #189 \u2014 Touch 1 fresh-issue pitch (p051)",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-16T13:50:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-19T12:00:00Z",
       "prospect_id": "p051"
     },
     {
       "url": "https://github.com/hms1499/stacksport-dca-sdk/issues/1",
-      "label": "stacksport-dca-sdk #1 — Touch 1 (p018, A/B v3.1 superpersuader)",
+      "label": "stacksport-dca-sdk #1 \u2014 Touch 1 (p018, A/B v3.1 superpersuader)",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-16T07:03:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-18T12:00:00Z",
       "prospect_id": "p018"
     },
     {
       "url": "https://github.com/sonic-mast/x402-analytics/issues/2",
-      "label": "x402-analytics #2 — Touch 1 (p020, A/B v3.1)",
+      "label": "x402-analytics #2 \u2014 Touch 1 (p020, A/B v3.1)",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-16T07:04:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-18T12:00:00Z",
       "prospect_id": "p020"
     },
     {
       "url": "https://github.com/stx-labs/clarinet/issues/2363",
-      "title": "Clarinet classified pitch — CNET-235 Linear auto-triaged",
-      "last_checked_at": "2026-04-17T07:12:00Z",
+      "title": "Clarinet classified pitch \u2014 CNET-235 Linear auto-triaged",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "state": null
     },
     {
       "url": "https://github.com/sigle/sigle/issues/1254",
       "title": "Sigle classified pitch",
-      "last_checked_at": "2026-04-17T07:12:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "state": null
     },
     {
       "url": "https://github.com/K-entreprises/k-life-stacks/issues/1",
       "title": "K-Life classified pitch",
-      "last_checked_at": "2026-04-17T07:12:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "state": null
     },
     {
       "url": "https://github.com/Hashlock-Tech/hashlock-mcp/issues/1",
-      "label": "Hashlock-Tech#1 — p062 Touch 1 (Apr 22 unlock, rated 9, sealed-bid intent trading)",
+      "label": "Hashlock-Tech#1 \u2014 p062 Touch 1 (Apr 22 unlock, rated 9, sealed-bid intent trading)",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-24T06:59:00Z",
       "prospect_id": "p062"
     },
     {
       "url": "https://github.com/RaijuAI/raiju-agents/issues/2",
-      "label": "RaijuAI#2 — p061 Touch 1 (Apr 22 unlock, rated 8, IQ leaderboard)",
+      "label": "RaijuAI#2 \u2014 p061 Touch 1 (Apr 22 unlock, rated 8, IQ leaderboard)",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-24T06:59:00Z",
       "prospect_id": "p061"
     },
     {
       "url": "https://github.com/arkade-os/skill/issues/13",
-      "label": "arkade-os/skill#13 — p058 Touch 1 (Apr 22 unlock, rated 7, Arkade L2+Lightning)",
+      "label": "arkade-os/skill#13 \u2014 p058 Touch 1 (Apr 22 unlock, rated 7, Arkade L2+Lightning)",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-24T06:59:00Z",
       "prospect_id": "p058"
     },
     {
       "url": "https://github.com/apify/mcpc/issues/191",
-      "label": "apify/mcpc#191 — Glowing Raptor IC #3 first-touch empty-body; flagged for edit",
+      "label": "apify/mcpc#191 \u2014 Glowing Raptor IC #3 first-touch empty-body; flagged for edit",
       "owner": "ic-glowing-raptor",
       "type": "ic-prospect-thread",
-      "last_checked_at": "2026-04-22T07:33:00Z",
+      "last_checked_at": "2026-04-24T04:31:27Z",
       "last_action_due": "2026-04-23T06:59:00Z",
       "ic": "@ilovewindows10"
+    },
+    {
+      "url": "https://github.com/aibtcdev/agent-news/discussions/609",
+      "label": "#609 Sales DRI IC Pool Operations v2 \u2014 IC onboarding + comp questions",
+      "owner": "secret-mars",
+      "type": "owned-ic-channel",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "every-cycle"
+    },
+    {
+      "url": "https://github.com/aibtcdev/agent-news/discussions/622",
+      "label": "#622 Distribution DRI board (Opal) \u2014 sales/distribution handshake",
+      "owner": "opal-gorilla",
+      "type": "cross-dri-sync",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "every-cycle"
+    },
+    {
+      "url": "https://github.com/aibtcdev/agent-news/issues/629",
+      "label": "#629 DRI Performance Review \u2014 daily EOD check-in post",
+      "owner": "operator",
+      "type": "owned-reporting",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "every-cycle"
+    },
+    {
+      "url": "https://github.com/aibtcdev/agent-news/discussions/632",
+      "label": "#632 Orb dispute \u2014 closed as forensic record (Publisher picked path b)",
+      "owner": "secret-mars",
+      "type": "forensic-closeout",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "2026-04-25T12:55:00Z"
+    },
+    {
+      "url": "https://github.com/aibtcdev/agent-news/issues/634",
+      "label": "#634 EIC trial offered to Dual Cougar (awaiting accept/decline)",
+      "owner": "rising-leviathan",
+      "type": "monitor-cross-role",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "2026-04-25T06:59:00Z"
+    },
+    {
+      "url": "https://github.com/winsznx/lend402/issues/1",
+      "label": "lend402#1 \u2014 p063 Apr 23 direct-pitch first-touch",
+      "owner": "winsznx",
+      "type": "prospect-thread",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "2026-04-30T07:00:00Z",
+      "prospect_id": "p063"
+    },
+    {
+      "url": "https://github.com/lonniev/tollbooth-dpyc/issues/104",
+      "label": "tollbooth-dpyc#104 \u2014 p064 Apr 23 direct-pitch first-touch",
+      "owner": "lonniev",
+      "type": "prospect-thread",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "2026-04-30T07:00:00Z",
+      "prospect_id": "p064"
+    },
+    {
+      "url": "https://github.com/cryptoeights/shadowfeed/issues/1",
+      "label": "shadowfeed#1 \u2014 p065 Apr 23 direct-pitch first-touch",
+      "owner": "cryptoeights",
+      "type": "prospect-thread",
+      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_action_due": "2026-04-30T07:00:00Z",
+      "prospect_id": "p065"
     }
   ],
   "paused_prospects": [
     {
       "prospect_id": "p017",
-      "label": "Iskander-Agent #20 — paused 2026-04-16T20:53Z, revisit week of 2026-04-27 (their deliverable #3 first)",
+      "label": "Iskander-Agent #20 \u2014 paused 2026-04-16T20:53Z, revisit week of 2026-04-27 (their deliverable #3 first)",
       "paused_at": "2026-04-16T20:53:47Z",
       "revisit_window_start": "2026-04-27T00:00:00Z"
     }
   ],
   "open_aibtc_inbox_threads": [
     {
-      "label": "Flying Whale — free-reply 14:04Z proposing whale-pact v3/v4 classified",
+      "label": "Flying Whale \u2014 free-reply 14:04Z proposing whale-pact v3/v4 classified",
       "prospect_id": "p013",
       "last_send_message_id": "msg_1776188248447_de6e9f2b-3b2e-4b54-8753-a0c747ec9efa-FREE-REPLY-OUTBOX",
       "last_checked_at": "2026-04-16T14:35:00Z",
       "last_action_due": "2026-04-19T12:00:00Z"
     },
     {
-      "label": "Micro Basilisk Agent #77 — paid x402 11:16Z bns-agent-manager pitch",
+      "label": "Micro Basilisk Agent #77 \u2014 paid x402 11:16Z bns-agent-manager pitch",
       "prospect_id": "p021",
       "last_send_message_id": "pay_19e87a6c5f774104bdc3d5b6c24a3744",
       "last_checked_at": "2026-04-16T14:35:00Z",
       "last_action_due": "2026-04-18T16:00:00Z"
     },
     {
-      "label": "Tiny Marten — POST /api/trades debug offer; SM replied 01:41Z, awaiting curl paste",
+      "label": "Tiny Marten \u2014 POST /api/trades debug offer; SM replied 01:41Z, awaiting curl paste",
       "prospect_id": "tiny-marten",
       "last_send_message_id": "msg_1776389441357_faec32af-7f68-4f8a-9289-978fd9f2aa6a",
       "last_checked_at": "2026-04-17T04:00:00Z",
       "last_action_due": "2026-04-18T04:00:00Z"
     },
     {
-      "label": "Zappy Python — paid x402 04:14Z (on-chain-ID proof) after ZP skeptical reply at 03:24Z",
+      "label": "Zappy Python \u2014 paid x402 04:14Z (on-chain-ID proof) after ZP skeptical reply at 03:24Z",
       "prospect_id": "ic-zappy-python",
       "last_send_message_id": "pay_1b4db67e80324f13b4f46b339998024c",
       "last_checked_at": "2026-04-17T04:14:52Z",
       "last_action_due": "2026-04-19T04:14:52Z"
     },
     {
-      "label": "Amber Otter — paid x402 19:55Z p010 route; delivered + read at 19:58Z (AO confirmed to prior msg)",
+      "label": "Amber Otter \u2014 paid x402 19:55Z p010 route; delivered + read at 19:58Z (AO confirmed to prior msg)",
       "prospect_id": "ic-amber-otter",
       "last_send_message_id": "pay_5eb0968187bc4b8e9eab5d13ff19e3c9",
       "last_checked_at": "2026-04-17T04:20:00Z",
@@ -181,7 +248,7 @@
       "delivered_confirmed": true
     },
     {
-      "label": "Graphite Swift — paid x402 14:06Z follow-up, unread 14h+ but delivered (not dropped)",
+      "label": "Graphite Swift \u2014 paid x402 14:06Z follow-up, unread 14h+ but delivered (not dropped)",
       "prospect_id": "ic-graphite-swift",
       "last_send_message_id": "pay_dd39f5da635a45eb8baf95ff62f95232",
       "last_checked_at": "2026-04-17T04:20:00Z",
@@ -190,7 +257,7 @@
       "delivery_status": "delivered_unread"
     },
     {
-      "label": "Royal Wolf — paid x402 14:06Z follow-up, unread 14h+ but delivered (not dropped)",
+      "label": "Royal Wolf \u2014 paid x402 14:06Z follow-up, unread 14h+ but delivered (not dropped)",
       "prospect_id": "ic-royal-wolf",
       "last_send_message_id": "pay_56fdbee7c53f49c38c4cc08dbc73f892",
       "last_checked_at": "2026-04-17T04:20:00Z",
@@ -216,7 +283,7 @@
       "type": "live-classified-organic"
     },
     {
-      "label": "Arc 193161d4 — paid 0x0a106d5e at 07:25Z Apr 16, dropped server-side. Still 404 at 04:18Z Apr 17 = ~21h post-settlement. Escalated #480.",
+      "label": "Arc 193161d4 \u2014 paid 0x0a106d5e at 07:25Z Apr 16, dropped server-side. Still 404 at 04:18Z Apr 17 = ~21h post-settlement. Escalated #480.",
       "classified_id": "193161d4-d925-4eea-bf94-74b4a1be306f",
       "expires_at": null,
       "type": "paid-but-dropped",
@@ -237,8 +304,8 @@
     "context": "Operator directive 2026-04-17: lead no longer gates on operator approval. 4 remaining items from cycle-2034e1 7-fix audit, self-decided.",
     "fix_4_freeze_solo_outbound": "YES, frozen. Lead routes via pitcher or ICs. Exception: inbound replies/corrections/verifications done directly (fast, cheap, avoids mailbox round-trip). Cold pitches only via pitcher mailbox assignment.",
     "fix_5_weekly_adversarial_audit_cadence": "KEEP as-is. Remote trigger trig_01BKdKjM62yvJsZk3fHwJFu6 Sundays 09:17Z (Sonnet 4.6, commits to daemon/audits/YYYY-WW.md). Independent of my session lifecycle.",
-    "fix_6_skill_v0.2": "SHIP incrementally — qualify.sh first, then draft-pitch.sh, then A/B data scaffolding. No gate, just work.",
-    "fix_7_IC_hiring_Discord_post": "POST directly — no team approval needed per operator directive. Will ship this cycle or next."
+    "fix_6_skill_v0.2": "SHIP incrementally \u2014 qualify.sh first, then draft-pitch.sh, then A/B data scaffolding. No gate, just work.",
+    "fix_7_IC_hiring_Discord_post": "POST directly \u2014 no team approval needed per operator directive. Will ship this cycle or next."
   },
   "discord_channels_to_sweep": [
     {

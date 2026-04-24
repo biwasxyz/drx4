@@ -45,13 +45,13 @@
   "pipeline_total": 56,
   "live_classifieds": 1,
   "live_classifieds_note": "JingSwap f4ea75c1 (sm-pitch-then-correction, sourced-attributable) is the only active=true classified. HODLMM 9718c305 + Xverse 72a9e681 both went active=false today (HODLMM ~13:17Z, Xverse 16:11:53Z). Arc 193161d4 still 404, platform-ops response pending on T-11h pivot ping (landing-page#623).",
-  "pipeline_first_engagement": "Clarinet Linear CNET-235 auto-triage at 06:35Z — first warm signal on same-cycle pitch. stx-labs actively triages GH to Linear.",
+  "pipeline_first_engagement": "Clarinet Linear CNET-235 auto-triage at 06:35Z \u2014 first warm signal on same-cycle pitch. stx-labs actively triages GH to Linear.",
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
-  "cold_cap_status": "3/3 fired at 07:00:30-32Z Apr 23 → lend402 + tollbooth-dpyc + shadowfeed. No more cold today. Cap hit 28h59m ahead of 2026-04-24T06:59Z deadline.",
+  "cold_cap_status": "3/3 fired at 07:00:30-32Z Apr 23 \u2192 lend402 + tollbooth-dpyc + shadowfeed. No more cold today. Cap hit 28h59m ahead of 2026-04-24T06:59Z deadline.",
   "drift_tell_triggered": null,
   "sales_dri": {
-    "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
+    "language_correction": "Operator caught cycle 2034ca 10:17Z \u2014 verbal yeses are closed_pending_publish, NOT closed.",
     "arc_submission": {
       "classifiedId": "193161d4-d925-4eea-bf94-74b4a1be306f",
       "state": "settled-but-dropped-server-side",
@@ -65,23 +65,23 @@
   "bd": {
     "actions_this_cycle": [
       "HB #2196 OK",
-      "Nostr event ff02c5ca5a9e8b8e9b1df32ccb383e99c03b18378b15c3a3ad2f290e6a5e6182 — first DIY classifieds broadcast (damus.io + nos.lol)",
-      "memory/feedback_classifieds_distribution_reality.md — pitch-language correction rule",
+      "Nostr event ff02c5ca5a9e8b8e9b1df32ccb383e99c03b18378b15c3a3ad2f290e6a5e6182 \u2014 first DIY classifieds broadcast (damus.io + nos.lol)",
+      "memory/feedback_classifieds_distribution_reality.md \u2014 pitch-language correction rule",
       "MEMORY.md updated",
-      "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot — pitch-samples needs correction"
+      "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot \u2014 pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034io: 5th quiet cycle. Built scripts/fire-queue-2026-04-24.sh to dispatch Apr 24 drafts at 07:00Z boundary. Bridges the format drift between legacy fire-draft.sh (expects ## Body) and post-2034hx drafts (use **Body:** markers). Dry-run title/body extraction verified on all 3 drafts. Lint gate + sleep 1s between fires. Zero external movement — DC silent 5h 48m on EIC trial, Orb silent on #632, all 4 open Apr 23 pitches still 0 comments. Apr 24 fire boundary 07:00Z = 2h27m out.",
-  "next_cycle_at": "2026-04-24T04:33:00.000Z",
-  "cycle": "2034io",
-  "timestamp": "2026-04-24T03:35:00Z",
+  "notes": "Cycle 2034ip: Phase 1 sweep caught 7-day watchlist drift (last_checked_at Apr 17 \u2192 Apr 24). Answered sonic-mast's 10h19m-silent commission question on #609 \u2014 flat 1,200/600 sats per close/renewal, gated on active=true. Updated watchlist.json with 8 new entries (#609/622/629/632/634 + 3 Apr 23 pitch threads). DC still silent on #634 EIC trial 6h45m post-offer. Fire boundary 07:00Z = 2h28m out.",
+  "next_cycle_at": "2026-04-24T05:31:00Z",
+  "cycle": "2034ip",
+  "timestamp": "2026-04-24T04:32:51Z",
   "stats": {
-    "checkin_count": 2199,
+    "checkin_count": 2200,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
     "mailbox_acks": 0,
-    "tasks_executed": 62,
+    "tasks_executed": 63,
     "gh_issues_shipped": 3,
     "gh_comments_shipped": 5,
     "discussion_comments_shipped": 31,
@@ -124,7 +124,10 @@
     "dispute_closeouts": 1,
     "dispute_corrections": 1,
     "dashboard_rewrites": 1,
-    "dispute_final_closeouts": 1
+    "dispute_final_closeouts": 1,
+    "ic_unblocks": 1,
+    "commission_q_closed": 1,
+    "watchlist_drift_cleared": 1
   },
   "replies_processed": 0,
   "follow_ups_executed": 0,
@@ -149,11 +152,11 @@
         "resolution_evidence": "Opal sent inbound msg_1776791877373 at 17:17Z Apr 21 referencing my 16:26Z send; tx 6179ddec8ff23e4f28ed8bcd728dbe3d47392f3c7927d3d4887a20b3cf07341b confirmed; replied to 04:42:46Z"
       }
     ],
-    "error": "Sender nonce gap: waiting for nonce 1 (original 2) / nonce 2 (all new sends behind) — wedge partially cleared as Opal landed despite being queued behind",
+    "error": "Sender nonce gap: waiting for nonce 1 (original 2) / nonce 2 (all new sends behind) \u2014 wedge partially cleared as Opal landed despite being queued behind",
     "stuck_since": "2026-04-21T13:14:00Z",
     "escalation": "https://github.com/aibtcdev/agent-news/issues/578",
     "refire_returned_same_paymentId": true,
-    "blast_radius": "Opal landed (3rd queued) but Graphite Elan + Micro Basilisk status unverified — needs recipient-side inbox check or platform-side payment-status query",
+    "blast_radius": "Opal landed (3rd queued) but Graphite Elan + Micro Basilisk status unverified \u2014 needs recipient-side inbox check or platform-side payment-status query",
     "audit_cycle": "2034hf"
   },
   "ic_pool_active": 2,
@@ -165,9 +168,9 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034io",
-  "last_hb": 7,
-  "last_hb_at": "2026-04-22T04:38:43.000Z",
+  "last_cycle": "2034ip",
+  "last_hb": 8,
+  "last_hb_at": "2026-04-24T04:33:15.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 1,
@@ -191,7 +194,7 @@
     },
     {
       "id": "f4ea75c1",
-      "title": "JingSwap.com — Swap Bitcoin to USDC fully on-chain",
+      "title": "JingSwap.com \u2014 Swap Bitcoin to USDC fully on-chain",
       "sourced_by": "sm-pitch-then-correction",
       "attributable_to_swarm": true,
       "pitched_via": "Rapha-btc/jingswap-contract#3",
@@ -204,9 +207,9 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-24T03:35:00Z",
+  "last_cycle_at": "2026-04-24T04:32:51Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
-  "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
+  "pitch_validator": "scripts/lint-pitches.py \u2014 caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
   "ic_pool_filled": 5,
   "ic_pool_capacity": 5,
