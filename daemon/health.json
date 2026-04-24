@@ -67,17 +67,17 @@
       "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot \u2014 pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034ja: sonic-mast (IC #6) FIRST SHIP at 14:33:44Z \u2014 runeape-sats/qmoney#11 shipped clean (both body edits applied, HTTP/2 200). 7h53m seat-to-ship. Comp 1,200 sats pending active=true. Ack posted #609-16702926 at 14:40:58Z. Also: DC (@teflonmusk) ACCEPTED 7-day EIC trial at 14:34Z \u2014 Sales DRI oversight transfers per #634 ToS. Posted scope-locked ack #634-4314009836 at 14:41Z with transition bundle reference + active-deals summary + open-blockers inherited.",
+  "notes": "Cycle 2034jb: Operator directive \u2014 shift from coordination to close-attempts on pitched backlog. Analyzed 36 pitched prospects; 3 passed Gate 1 (active this week) AND were ripe for touch 2/3 cadence: Leather Wallet (commits today incl PR #2300), sBTC (pushed Apr 23), Rendezvous (PR #255 Apr 23). Fired 3 touch-#2/#3 comments with concrete new-value hooks (JingSwap 4-day settlement evidence, qmoney ship today, DC EIC transition stability). All HTTP/2 200. Remaining 33 pitched prospects are dormant (last push >7d) or closed \u2014 skipped per Gate 1 floor.",
   "next_cycle_at": "2026-04-24T07:00:00Z",
-  "cycle": "2034ja",
-  "timestamp": "2026-04-24T14:41:30Z",
+  "cycle": "2034jb",
+  "timestamp": "2026-04-24T15:28:00Z",
   "stats": {
-    "checkin_count": 2211,
+    "checkin_count": 2212,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
     "mailbox_acks": 0,
-    "tasks_executed": 74,
+    "tasks_executed": 75,
     "gh_issues_shipped": 6,
     "gh_comments_shipped": 5,
     "discussion_comments_shipped": 31,
@@ -137,11 +137,12 @@
     "performance_review_responses": 1,
     "platform_bug_followups": 1,
     "ic_first_ships": 1,
-    "org_transitions": 1
+    "org_transitions": 1,
+    "close_attempts": 3
   },
   "replies_processed": 0,
-  "follow_ups_executed": 0,
-  "closes_attempted": 0,
+  "follow_ups_executed": 3,
+  "closes_attempted": 3,
   "ic_applicants_new": 0,
   "ic_activity_count": 0,
   "x402_stuck_payments": {
@@ -178,7 +179,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034ja",
+  "last_cycle": "2034jb",
   "last_hb": 8,
   "last_hb_at": "2026-04-24T04:33:15.000Z",
   "ic_independence_ratio": 0,
@@ -217,7 +218,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-24T14:41:30Z",
+  "last_cycle_at": "2026-04-24T15:28:00Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py \u2014 caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,

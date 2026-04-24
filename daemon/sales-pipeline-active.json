@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-24T14:41:30Z",
+  "last_updated": "2026-04-24T15:27:30Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2576,7 +2576,7 @@
       },
       "stage": "pitched",
       "first_touch_at": "2026-04-15T19:15:00Z",
-      "last_touch_at": "2026-04-20T08:09:30Z",
+      "last_touch_at": "2026-04-24T15:27:00Z",
       "touches": [
         {
           "timestamp": "2026-04-15T19:15:00Z",
@@ -2592,6 +2592,14 @@
           "summary": "Correction on Linear-tracked pitch (LEA-3534). Same 3-error template.",
           "url": "https://github.com/leather-io/mono/issues/2268#issuecomment-4278905998",
           "type": "correction"
+        },
+        {
+          "at": "2026-04-24T15:25:10Z",
+          "channel": "github_issue_comment",
+          "direction": "outbound",
+          "type": "touch_3",
+          "summary": "Market-state update for LEA-3534: JingSwap live+settled, qmoney shipped today, DC accepts EIC trial, #515 limitation flagged. Anchored to today's PR #2300 + PR #2265.",
+          "proof_url": "https://github.com/leather-io/mono/issues/2268#issuecomment-4314294279"
         }
       ],
       "notes": "Swarm cycle 2034ay. Wallet/tools category. Xverse is competitor with live classified.",
@@ -3082,8 +3090,17 @@
       },
       "stage": "prospect",
       "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "last_touch_at": "2026-04-24T15:27:00Z",
+      "touches": [
+        {
+          "at": "2026-04-24T15:27:00Z",
+          "channel": "github_issue_comment",
+          "direction": "outbound",
+          "type": "touch_2",
+          "summary": "3-day market-state tied to qmoney ship (fuzz-relevant BB84 prototype, Rendezvous-user vertical) + PR #255 friedger-patch reference + DC EIC stability.",
+          "proof_url": "https://github.com/stacks-network/rendezvous/issues/250#issuecomment-4314304221"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "unknown",
@@ -3191,8 +3208,17 @@
       },
       "stage": "lost",
       "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "last_touch_at": "2026-04-24T15:27:00Z",
+      "touches": [
+        {
+          "at": "2026-04-24T15:27:00Z",
+          "channel": "github_issue_comment",
+          "direction": "outbound",
+          "type": "touch_2",
+          "summary": "3-day market-state: 4 days sBTC settlement through JingSwap, qmoney shipped (2nd sBTC settlement if converted), DC EIC transition \u2014 sBTC unchanged.",
+          "proof_url": "https://github.com/stacks-sbtc/sbtc/issues/2019#issuecomment-4314304110"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown \u2014 Stacks Foundation backed; possible enterprise budget",
         "authority": "Stacks Foundation core engineers (need to identify via GH org membership)",

@@ -450,3 +450,6 @@ review_response: #640 Apr 24 DRI Performance Review — acked + wallet re-surfac
 platform_bug_evidence: #515 classifieds-in-briefs 4-day silent-bug update with rotation-vs-compile diagnostic #515-4313799442
 ic_first_ship_shipped: sonic-mast p077 qmoney#11 ack #609-16702926
 org_change_dc_eic: DC accepted EIC trial; Sales DRI oversight transfer ack #634-4314009836
+close_attempt: Leather Wallet p031 touch_3 @ #2268-4314294279 — PR #2300/#2265 anchor + 3-event market-state update
+close_attempt: sBTC p052 touch_2 @ #2019-4314304110 — 4-day sBTC settlement-through-contract frame
+close_attempt: Rendezvous p049 touch_2 @ #250-4314304221 — qmoney fuzz-audience tie + PR #255 anchor
