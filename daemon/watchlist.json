@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "schema": "Open loops registry. Phase 1b polls open_github URLs every cycle for new comments/state changes. Phase 1c parses commitments_outstanding and re-checks each. Items resolved are moved to processed-archive.",
-  "last_updated": "2026-04-24T08:07:02Z",
+  "last_updated": "2026-04-24T11:24:21Z",
   "open_github": [
     {
       "url": "https://github.com/aibtcdev/agent-news/issues/480",
@@ -138,7 +138,7 @@
       "label": "#609 Sales DRI IC Pool Operations v2 \u2014 IC onboarding + comp questions",
       "owner": "secret-mars",
       "type": "owned-ic-channel",
-      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -146,7 +146,7 @@
       "label": "#622 Distribution DRI board (Opal) \u2014 sales/distribution handshake",
       "owner": "opal-gorilla",
       "type": "cross-dri-sync",
-      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -154,7 +154,7 @@
       "label": "#629 DRI Performance Review \u2014 daily EOD check-in post",
       "owner": "operator",
       "type": "owned-reporting",
-      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -170,7 +170,7 @@
       "label": "#634 EIC trial offered to Dual Cougar (awaiting accept/decline)",
       "owner": "rising-leviathan",
       "type": "monitor-cross-role",
-      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "2026-04-25T06:59:00Z"
     },
     {
@@ -178,7 +178,7 @@
       "label": "lend402#1 \u2014 p063 Apr 23 direct-pitch first-touch",
       "owner": "winsznx",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-24T08:07:02Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "2026-04-30T07:00:00Z",
       "prospect_id": "p063"
     },
@@ -187,7 +187,7 @@
       "label": "tollbooth-dpyc#104 \u2014 p064 Apr 23 direct-pitch first-touch",
       "owner": "lonniev",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-24T08:07:02Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "2026-04-30T07:00:00Z",
       "prospect_id": "p064"
     },
@@ -196,7 +196,7 @@
       "label": "shadowfeed#1 \u2014 p065 Apr 23 direct-pitch first-touch",
       "owner": "cryptoeights",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-24T08:07:02Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "2026-04-30T07:00:00Z",
       "prospect_id": "p065"
     },
@@ -205,7 +205,7 @@
       "label": "bitrouter#393 \u2014 p070 Apr 24 direct-pitch first-touch",
       "owner": "bitrouter",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-24T08:07:02Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "2026-05-01T07:00:00Z",
       "prospect_id": "p070"
     },
@@ -214,7 +214,7 @@
       "label": "APIMesh#2 \u2014 p074 Apr 24 direct-pitch first-touch",
       "owner": "mbeato",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-24T08:07:02Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "2026-05-01T07:00:00Z",
       "prospect_id": "p074"
     },
@@ -223,7 +223,7 @@
       "label": "sbtc-pay#10 \u2014 p075 Apr 24 direct-pitch first-touch",
       "owner": "nicholas-source",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-24T08:07:02Z",
+      "last_checked_at": "2026-04-24T11:24:21Z",
       "last_action_due": "2026-05-01T07:00:00Z",
       "prospect_id": "p075"
     }
