@@ -441,3 +441,6 @@ cold_pitched: p074 mbeato/APIMesh#2 @ 2026-04-24T07:02:16Z
 cold_pitched: p075 nicholas-source/sbtc-pay#10 @ 2026-04-24T07:02:18Z
 unlock_fired: Apr 24 PT 3/3 direct first-touches at 07:02Z (2m14s post-boundary)
 ic_seat_activated: sonic-mast IC #6 @ 06:41Z + welcome post #609-16699166
+ic_correction: Arc permission-first framing flagged pre-ship #609-16699933
+ic_prospect_approved: Arc BlockRun.ai 5/5 gates PASS (revised draft required)
+pipeline_hygiene: sync p063/p064/p065 from full to active pipeline

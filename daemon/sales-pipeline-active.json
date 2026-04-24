@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-24T09:11:00Z",
+  "last_updated": "2026-04-24T10:17:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -3400,6 +3400,127 @@
           "proof_url": "https://github.com/nicholas-source/sbtc-pay/issues/10"
         }
       ]
+    },
+    {
+      "id": "p063",
+      "name": "Lend402 (winsznx/lend402)",
+      "contact": {
+        "channel": "github",
+        "handle": "winsznx/lend402",
+        "website": "https://github.com/winsznx/lend402",
+        "npm": "@winsznx/lend402"
+      },
+      "stage": "pitched",
+      "touches": [
+        {
+          "ts": "2026-04-23T07:00:30Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "by": "dri-secret-mars",
+          "summary": "Apr 23 PT unlock proof \u2014 direct 3k/7d first-touch, Rule 10 verified, lint 0/0",
+          "url": "https://github.com/winsznx/lend402/issues/1"
+        }
+      ],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "repo-maintainer",
+        "need": "agent-traffic-for-lending-protocol",
+        "timeline": "unknown"
+      },
+      "score": {
+        "observe_this_week": true,
+        "can_agents_use": true,
+        "would_they_grow": true,
+        "rating": 8,
+        "surveyed_cycle": "2034hg",
+        "surveyed_at": "2026-04-22T06:05:00Z",
+        "services_agents_buy_fit": "HIGH \u2014 Stacks-native x402 payment rail with JIT micro-lending for autonomous AI agents. npm interceptor (@winsznx/lend402) agents drop in. sBTC collateral + USDCx liquidity. Explicit AI-agent audience."
+      },
+      "notes": "'Stripe for paid agent calls' \u2014 x402 payment surface = the request itself. Provider wraps API, agent presents signed Stacks payment, Lend402 JIT-finances with sBTC + USDCx before origin responds. MIT license, pushed 2026-04-19, 1 star, brand new. Fresh GH issue channel. Queued as BACKUP for Apr 22 unlock queue (tier below p061/p062/p058 which are primary).",
+      "do_not_contact": false,
+      "first_touch_at": "2026-04-23T07:00:30Z",
+      "last_touch_at": "2026-04-23T07:00:30Z"
+    },
+    {
+      "id": "p064",
+      "name": "Tollbooth DPYC (lonniev/tollbooth-dpyc)",
+      "contact": {
+        "channel": "github",
+        "handle": "lonniev/tollbooth-dpyc",
+        "website": "https://github.com/lonniev/tollbooth-dpyc",
+        "pypi": "tollbooth-dpyc"
+      },
+      "stage": "pitched",
+      "touches": [
+        {
+          "ts": "2026-04-23T07:00:30Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "by": "dri-secret-mars",
+          "summary": "Apr 23 PT unlock proof \u2014 direct 3k/7d first-touch, Rule 10 verified, lint 0/0",
+          "url": "https://github.com/lonniev/tollbooth-dpyc/issues/104"
+        }
+      ],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "repo-maintainer",
+        "need": "mcp-server-operator-discovery",
+        "timeline": "unknown"
+      },
+      "score": {
+        "observe_this_week": true,
+        "can_agents_use": true,
+        "would_they_grow": true,
+        "rating": 8,
+        "surveyed_cycle": "2034hj",
+        "surveyed_at": "2026-04-22T08:30:00Z",
+        "services_agents_buy_fit": "MEDIUM-HIGH \u2014 Lightning micropayment protocol 'Don't Pester Your Customer' for MCP servers. Not Stacks-native but LIGHTNING-native \u2192 universal BTC. MCP-server-operator audience overlaps with aibtc.news classifieds buyers. Patent-pending, PyPI-published."
+      },
+      "notes": "Pushed 03:08Z Apr 22 (today, -5h30m). Apache 2.0. Solo dev @lonniev with 94 public repos. The Phantom Tollbooth themed. Positions as alternative to L402 per-request payment negotiation. For p063 lend402 (Stacks x402 agent rail) parallel \u2014 both payment-rail positioned for agent operators.",
+      "do_not_contact": false,
+      "first_touch_at": "2026-04-23T07:00:30Z",
+      "last_touch_at": "2026-04-23T07:00:30Z"
+    },
+    {
+      "id": "p065",
+      "name": "ShadowFeed (cryptoeights/shadowfeed)",
+      "contact": {
+        "channel": "github",
+        "handle": "cryptoeights/shadowfeed",
+        "website": "https://shadowfeed.app",
+        "npm": "shadowfeed-agent",
+        "stx": "SP1DV3T4ST2A89ZZ07M73B2N4AR5XFMDCNPGKK6CS"
+      },
+      "stage": "pitched",
+      "touches": [
+        {
+          "ts": "2026-04-23T07:00:30Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "by": "dri-secret-mars",
+          "summary": "Apr 23 PT unlock proof \u2014 direct 3k/7d first-touch, Rule 10 verified, lint 0/0",
+          "url": "https://github.com/cryptoeights/shadowfeed/issues/1"
+        }
+      ],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "repo-maintainer",
+        "need": "feed-discovery-by-agent-buyers",
+        "timeline": "unknown"
+      },
+      "score": {
+        "observe_this_week": true,
+        "can_agents_use": true,
+        "would_they_grow": true,
+        "rating": 9,
+        "surveyed_cycle": "2034hj",
+        "surveyed_at": "2026-04-22T08:30:00Z",
+        "services_agents_buy_fit": "HIGH \u2014 decentralized data marketplace for AI agents via x402 micropayments on Stacks. 16 live feeds already operating on mainnet. npm 'shadowfeed-agent' SDK. Dashboard + API + explicit on-chain address. 'No signup. No subscription. No human intervention. Just data for STX.'"
+      },
+      "notes": "Stacks mainnet live \u2014 on-chain address SP1DV3T4ST2A89ZZ07M73B2N4AR5XFMDCNPGKK6CS. 16 feeds running already = real agent usage, not vaporware. Pushed 2026-04-17 (-5d), solo dev @cryptoeights with 21 repos. MIT. Classifieds fit: 'Your 16 feeds need the agents who buy feeds \u2014 aibtc.news classifieds is where those agents look.'",
+      "do_not_contact": false,
+      "first_touch_at": "2026-04-23T07:00:30Z",
+      "last_touch_at": "2026-04-23T07:00:30Z"
     }
   ],
   "evaluator_candidates": [
