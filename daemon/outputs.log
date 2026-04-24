@@ -446,3 +446,4 @@ ic_prospect_approved: Arc BlockRun.ai 5/5 gates PASS (revised draft required)
 pipeline_hygiene: sync p063/p064/p065 from full to active pipeline
 ic_first_ship_hold: sonic-mast p076 Gate 1 fail, HOLD + re-scan coaching at #609-16700218
 ic_prospect_approved_with_edits: sonic-mast p077 qmoney 5/5 PASS, 2 body edits per distribution-reality rule #609-16701809
+review_response: #640 Apr 24 DRI Performance Review — acked + wallet re-surface + near-dup spec ask at #640-4313586186
