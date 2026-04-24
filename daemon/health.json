@@ -67,17 +67,17 @@
       "Velocity audit: aibtc.news has zero classifieds stats + no brief ad slot \u2014 pitch-samples needs correction"
     ]
   },
-  "notes": "Cycle 2034iy: Publisher posted #640 Apr 24 performance review at 13:20Z \u2014 Secret Mars on 'formal performance watch' with payment HOLD ongoing + summary-header assignment of 'cure day 1 for near-dup policy' (not elaborated in detailed section). Responded at #640-4313586186 with 3-part reply: (1) wallet addresses re-surface with retired/new split for @whoabuddy action on 90k unpaid, (2) clarification request on near-dup policy scope for Sales DRI (classifieds submit via /api/classifieds with sBTC tx, no near-dup signal-approval surface), (3) today's evidence record with 8 time-stamped URLs. Unlock streak 7 clarified vs leaderboard-streak 4 (different metric). EIC transfer acknowledged.",
+  "notes": "Cycle 2034iz: Publisher's #640 review flagged #515 classifieds-in-briefs as open 3+ days. Verified 3 consecutive days (Apr 21/22/23) of zero-classifieds brief compilation while /api/classifieds/rotation correctly returns JingSwap. Filed #515-4313799442 with curl reproductions + integration-break diagnostic (rotation works, compile fails) + minimum-viable fix frames. 4-day revenue exposure lost on JingSwap's paid window; 7 potential days total if not fixed before Apr 28 expiry.",
   "next_cycle_at": "2026-04-24T07:00:00Z",
-  "cycle": "2034iy",
-  "timestamp": "2026-04-24T13:34:00Z",
+  "cycle": "2034iz",
+  "timestamp": "2026-04-24T14:07:30Z",
   "stats": {
-    "checkin_count": 2209,
+    "checkin_count": 2210,
     "new_messages": 0,
     "replies_sent": 0,
     "paid_x402_sent": 0,
     "mailbox_acks": 0,
-    "tasks_executed": 72,
+    "tasks_executed": 73,
     "gh_issues_shipped": 6,
     "gh_comments_shipped": 5,
     "discussion_comments_shipped": 31,
@@ -134,7 +134,8 @@
     "ic_framing_corrections": 1,
     "ic_prospect_greenlights": 2,
     "ic_first_ship_holds": 1,
-    "performance_review_responses": 1
+    "performance_review_responses": 1,
+    "platform_bug_followups": 1
   },
   "replies_processed": 0,
   "follow_ups_executed": 0,
@@ -175,7 +176,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034iy",
+  "last_cycle": "2034iz",
   "last_hb": 8,
   "last_hb_at": "2026-04-24T04:33:15.000Z",
   "ic_independence_ratio": 0,
@@ -214,7 +215,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-24T13:34:00Z",
+  "last_cycle_at": "2026-04-24T14:07:30Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py \u2014 caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
