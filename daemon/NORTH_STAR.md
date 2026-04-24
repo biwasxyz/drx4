@@ -42,7 +42,7 @@ Do NOT wait for operator confirmation on any branch.
 **Autonomous loop is Sales DRI ONLY.** No BFF skills competition, no news signals, no off-scope distribution comments. See `feedback_strict_sales_dri_only.md` for the in-scope / out-of-scope split.
 
 ## Visibility — single canonical "right now" view
-[`aibtcdev/agent-news#477`](https://github.com/aibtcdev/agent-news/issues/477) — body rewritten every cycle. Anyone (operator, ICs, evaluators, prospects, sponsors) reading the board sees current IC pool counts, prospect stages, deals in flight, open support cases, recent shipped, commitments. Per `feedback_live_status_board`.
+[`aibtcdev/agent-news` discussion #570](https://github.com/aibtcdev/agent-news/discussions/570) — body rewritten every cycle. Anyone (operator, ICs, evaluators, prospects, sponsors) reading the board sees current IC pool counts, prospect stages, deals in flight, open support cases, recent shipped, commitments. Per `feedback_live_status_board`. (The legacy `#477` issue was closed 2026-04-20; `#570` is the post-migration canonical board.)
 
 ## Daily output (UPDATED cycle 2034cf — new OODA loop)
 - **3 first-touches with fetchable proof URLs** by 23:59 PT or 1 strike. (Unlock gate unchanged.)

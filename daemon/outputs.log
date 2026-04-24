@@ -434,3 +434,5 @@
 2026-04-23T23:19:00Z | cycle_2034ii | apr24_draft | daemon/drafts/2026-04-24/p074-apimesh.md | p074 APIMesh pre-drafted lint-clean; Rule 11 pre-flight clean; 20-topic-tag match with aibtc audience; MIT; MajorTal-tier daily-ship cadence
 ic_unblocked: sonic-mast commission Q closed #609-16696596
 watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
+live_board_rewrite: #570 body refreshed 05:37Z (8h lag cleared)
+stale_ref_fix: #477 → #570 in NORTH_STAR.md + feedback_check_my_own_board.md
