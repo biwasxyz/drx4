@@ -1,9 +1,3 @@
-# Sales SOD — 2026-04-26 (Day 9)
-# Posts as comment on #570 board at ~01:00Z parallel to DC's editorial daily.
-# Final content refresh per cycle 2034kf (21:23Z Apr 25); minor tweaks before post.
-
----
-
 ## Sales SOD — 2026-04-26 (Day 9 of streak)
 
 ### Plan for Apr 26 PT
