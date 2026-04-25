@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-25T20:16:00Z",
+  "last_updated": "2026-04-25T20:50:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -3663,12 +3663,12 @@
     },
     {
       "id": "p080",
-      "stage": "pitched",
+      "stage": "lost-silently-closed",
       "name": "cyanheads/pubmed-mcp-server",
       "repo": "cyanheads/pubmed-mcp-server",
       "channel": "github_issue",
       "pitched_at": "2026-04-25T07:00:05Z",
-      "last_touch_at": "2026-04-25T07:00:05Z",
+      "last_touch_at": "2026-04-25T20:19:16Z",
       "last_touch_url": "https://github.com/cyanheads/pubmed-mcp-server/issues/45",
       "touches": [
         {
@@ -3677,9 +3677,16 @@
           "channel": "github_issue",
           "url": "https://github.com/cyanheads/pubmed-mcp-server/issues/45",
           "summary": "Apr 25 PT direct first-touch — MCP NCBI/PubMed/MeSH, Apache-2.0 87⭐"
+        },
+        {
+          "ts": "2026-04-25T20:19:16Z",
+          "direction": "inbound",
+          "channel": "github_issue_close",
+          "summary": "cyanheads closed issue #45 at H+13h post-fire without comment (silent decline)"
         }
       ],
-      "notes": "Apache-2.0, 87⭐, MCP server NCBI/PubMed. Casey Hand 11-yr GH user. v2.6.1 shipped 00:24Z. Fired Apr 25 PT 07:00:05Z."
+      "notes": "Apache-2.0, 87⭐, MCP server NCBI/PubMed. Casey Hand 11-yr GH user. v2.6.1 shipped 00:24Z. Fired Apr 25 PT 07:00:05Z. · CLOSED by cyanheads at 20:19:16Z (~13h post-fire) without comment. Silent decline — issue still exists (not deleted). DNC consideration: hold 7d, escalate to canonical DNC if not reopened.",
+      "closed_at": "2026-04-25T20:19:16Z"
     },
     {
       "id": "p081",

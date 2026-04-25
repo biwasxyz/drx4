@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-25T20:16:00Z",
+  "last_updated": "2026-04-25T20:50:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -4209,10 +4209,10 @@
       "id": "p080",
       "name": "cyanheads/pubmed-mcp-server",
       "repo": "cyanheads/pubmed-mcp-server",
-      "stage": "pitched",
+      "stage": "lost-silently-closed",
       "sourced_by": "sm-direct",
       "ab_bucket": "apr25-direct-pitch",
-      "last_touch_at": "2026-04-25T07:00:05Z",
+      "last_touch_at": "2026-04-25T20:19:16Z",
       "touches": [
         {
           "at": "2026-04-25T07:00:05Z",
@@ -4220,8 +4220,16 @@
           "direction": "outbound",
           "summary": "Direct pitch 3k/7d — first-touch via fresh GH issue (MCP NCBI/PubMed/MeSH, Apache-2.0 87⭐)",
           "proof_url": "https://github.com/cyanheads/pubmed-mcp-server/issues/45"
+        },
+        {
+          "ts": "2026-04-25T20:19:16Z",
+          "direction": "inbound",
+          "channel": "github_issue_close",
+          "summary": "cyanheads closed issue #45 at H+13h post-fire without comment (silent decline)"
         }
-      ]
+      ],
+      "closed_at": "2026-04-25T20:19:16Z",
+      "notes": " · CLOSED by cyanheads at 20:19:16Z (~13h post-fire) without comment. Silent decline — issue still exists (not deleted). DNC consideration: hold 7d, escalate to canonical DNC if not reopened."
     },
     {
       "id": "p081",

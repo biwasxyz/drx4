@@ -504,3 +504,5 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-25T20:16:35Z cycle=2034kd event=deep_tess_intake_received msgId=msg_1777147454228 stage_advance=pitched-warm-genesis-blocked-to-closing
 2026-04-25T20:16:35Z cycle=2034kd event=free_reply_sent recipient=Deep_Tess at=2026-04-25T20:15:07Z chars=414
 2026-04-25T20:16:35Z cycle=2034kd event=board_rewrite scope=close_in_progress_banner
+2026-04-25T20:49:59Z cycle=2034ke event=dt_clarifying_reply chars=376 reason=copy_url_ambiguity
+2026-04-25T20:49:59Z cycle=2034ke event=p080_silent_close target=cyanheads/pubmed-mcp-server H_post_fire=13h
