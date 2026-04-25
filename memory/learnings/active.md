@@ -2,6 +2,24 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Issue deletion = strongest silent decline signal (cycle 2034jq — 2026-04-25)
+
+p081 memorycrystal/memorycrystal/issues/2 deleted by repo owner ~4h after fire (2026-04-25T11:13:45Z). URL still HTTP/2 200 (renders GitHub deleted-issue page) but content is gone. Repo state: active, not archived, has_issues=true, push 11:13:45Z matches deletion timestamp.
+
+This is a stronger negative signal than "closed as spam" or "no reply" — recipient went out of their way to scrub from public history. Likely tells:
+- 1mo-old org / 1-person dev → no comms protocol, default = delete-don't-engage
+- Repo is plugin for OpenClaw; "classifieds placement" pitch may have looked like ad spam to a developer-tools maintainer
+- Or the pitch tone/length was off-pattern for their issue tracker
+
+**Rule: detect deleted issues at next-cycle boot via `gh api repos/{owner}/{repo}/issues/{n}` returning HTTP 410 status**, not via direct curl (which returns 200 to the deleted-page). Proof-file hygiene means the gh-api check is the canonical health probe.
+
+**How to apply:**
+- Boot sweep: for every fired GH-issue proof in the last 7d, run `gh api repos/{owner}/{repo}/issues/{n}` and check HTTP status. 410 = deleted = mark prospect `lost-deleted-by-recipient` and annotate proof file.
+- Going forward: do NOT re-pitch a deleted-issue prospect within 90 days. They actively removed your reach; they're DNC by behavior.
+- Treat 1mo-old orgs as higher deletion risk in qualification (consider downgrading "growth mode" weight when org age <30d + maintainer is solo).
+
+The Apr 25 unlock count is unaffected (proof was valid at fire time + the URL still 200s), but the prospect-side outcome is closed-decline.
+
 ## briefing 0/3 false-negative — strict-format proof line dependency (cycle 2034jn — 2026-04-25)
 
 `scripts/sales-status.sh` (called by `briefing.sh`) counts daily proofs by parsing strict-format lines:

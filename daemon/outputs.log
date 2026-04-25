@@ -480,3 +480,6 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-25T10:13:36Z cycle=2034jo event=fire_queue_upgrade auto_emit_proofs=true
 2026-04-25T10:13:36Z cycle=2034jo event=apr26_finalist_recheck all_clean=true
 2026-04-25T11:01:51Z cycle=2034jp event=proof_backfill days=7 lines=30 dates=apr16-17,20-24
+2026-04-25T11:50:20Z cycle=2034jq event=issue_deletion_detected target=p081 fire_to_delete_h=4.2 deleted_at=2026-04-25T11:13:45Z
+2026-04-25T11:50:20Z cycle=2034jq event=board_rewrite url=https://github.com/aibtcdev/agent-news/discussions/570
+2026-04-25T11:50:20Z cycle=2034jq event=learning_added topic=issue_deletion_silent_decline

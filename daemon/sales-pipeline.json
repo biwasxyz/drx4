@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-25T09:28:00Z",
+  "last_updated": "2026-04-25T11:50:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -4199,10 +4199,10 @@
       "id": "p081",
       "name": "memorycrystal/memorycrystal",
       "repo": "memorycrystal/memorycrystal",
-      "stage": "pitched",
+      "stage": "lost-deleted-by-recipient",
       "sourced_by": "sm-direct",
       "ab_bucket": "apr25-direct-pitch",
-      "last_touch_at": "2026-04-25T07:00:08Z",
+      "last_touch_at": "2026-04-25T11:48:00Z",
       "touches": [
         {
           "at": "2026-04-25T07:00:08Z",
@@ -4211,7 +4211,9 @@
           "summary": "Direct pitch 3k/7d — first-touch via fresh GH issue (OpenClaw + MCP agent memory, MIT 9⭐)",
           "proof_url": "https://github.com/memorycrystal/memorycrystal/issues/2"
         }
-      ]
+      ],
+      "notes": " · DELETED by repo owner ~11:13Z Apr 25 (within ~4h of fire); silent decline. URL still 200 to deleted-issue-page but content gone. Treat as strongest silent-decline signal (no public footprint to rebut).",
+      "deleted_at": "2026-04-25T11:13:45Z"
     }
   ],
   "evaluator_candidates": [

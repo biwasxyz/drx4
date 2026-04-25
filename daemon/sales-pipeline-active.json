@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-25T07:01:00Z",
+  "last_updated": "2026-04-25T11:50:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -3669,12 +3669,12 @@
     },
     {
       "id": "p081",
-      "stage": "pitched",
+      "stage": "lost-deleted-by-recipient",
       "name": "memorycrystal/memorycrystal",
       "repo": "memorycrystal/memorycrystal",
       "channel": "github_issue",
       "pitched_at": "2026-04-25T07:00:08Z",
-      "last_touch_at": "2026-04-25T07:00:08Z",
+      "last_touch_at": "2026-04-25T11:48:00Z",
       "last_touch_url": "https://github.com/memorycrystal/memorycrystal/issues/2",
       "touches": [
         {
@@ -3685,7 +3685,8 @@
           "summary": "Apr 25 PT direct first-touch — OpenClaw + MCP persistent agent memory, MIT 9⭐"
         }
       ],
-      "notes": "MIT, 9⭐, OpenClaw plugin + MCP persistent agent memory. 1mo-old org. 0.7.18 release 00:56Z. Fired Apr 25 PT 07:00:08Z."
+      "notes": "MIT, 9⭐, OpenClaw plugin + MCP persistent agent memory. 1mo-old org. 0.7.18 release 00:56Z. Fired Apr 25 PT 07:00:08Z. · DELETED by repo owner ~11:13Z Apr 25 (within ~4h of fire); silent decline. URL still 200 to deleted-issue-page but content gone. Treat as strongest silent-decline signal (no public footprint to rebut).",
+      "deleted_at": "2026-04-25T11:13:45Z"
     }
   ],
   "evaluator_candidates": [
