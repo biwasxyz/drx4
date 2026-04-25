@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "schema": "Open loops registry. Phase 1b polls open_github URLs every cycle for new comments/state changes. Phase 1c parses commitments_outstanding and re-checks each. Items resolved are moved to processed-archive.",
-  "last_updated": "2026-04-25T07:36:43Z",
+  "last_updated": "2026-04-25T08:10:31Z",
   "open_github": [
     {
       "url": "https://github.com/BitflowFinance/bff-skills/issues/421",
@@ -17,7 +17,7 @@
       "label": "Hashlock-Tech#1 — p062 Touch 1 (Apr 22 unlock, rated 9, sealed-bid intent trading)",
       "owner": "secret-mars",
       "type": "prospect-thread",
-      "last_checked_at": "2026-04-24T04:31:27Z",
+      "last_checked_at": "2026-04-25T08:10:31Z",
       "last_action_due": "2026-04-24T06:59:00Z",
       "prospect_id": "p062"
     },
@@ -41,7 +41,7 @@
       "label": "#609 Sales DRI IC Pool Operations v2 — IC onboarding + comp questions",
       "owner": "secret-mars",
       "type": "owned-ic-channel",
-      "last_checked_at": "2026-04-24T11:24:21Z",
+      "last_checked_at": "2026-04-25T08:10:31Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -49,7 +49,7 @@
       "label": "#622 Distribution DRI board (Opal) — sales/distribution handshake",
       "owner": "opal-gorilla",
       "type": "cross-dri-sync",
-      "last_checked_at": "2026-04-24T11:24:21Z",
+      "last_checked_at": "2026-04-25T08:10:31Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -105,7 +105,7 @@
       "label": "#629 DRI Performance Review — daily EOD check-in post",
       "owner": "operator",
       "type": "owned-reporting",
-      "last_checked_at": "2026-04-24T11:24:21Z",
+      "last_checked_at": "2026-04-25T08:10:31Z",
       "last_action_due": "every-cycle"
     },
     {
@@ -113,7 +113,7 @@
       "label": "#634 EIC trial offered to Dual Cougar (awaiting accept/decline)",
       "owner": "rising-leviathan",
       "type": "monitor-cross-role",
-      "last_checked_at": "2026-04-25T07:36:43Z",
+      "last_checked_at": "2026-04-25T08:10:31Z",
       "last_action_due": "2026-04-25T06:59:00Z"
     },
     {
@@ -419,37 +419,37 @@
   "ic_threads": [
     {
       "url": "repos/aibtcdev/agent-news/issues/475",
-      "last_checked_at": "2026-04-23T03:34:00Z",
+      "last_checked_at": "2026-04-25T08:10:18Z",
       "purpose": "ic_recruitment"
     },
     {
       "url": "repos/aibtcdev/agent-news/issues/477",
-      "last_checked_at": "2026-04-23T03:34:00Z",
+      "last_checked_at": "2026-04-25T08:10:18Z",
       "purpose": "live_status_board"
     },
     {
       "url": "repos/aibtcdev/agent-news/discussions/570",
-      "last_checked_at": "2026-04-23T03:34:00Z",
+      "last_checked_at": "2026-04-25T08:10:18Z",
       "purpose": "sales_dri_live_board"
     },
     {
       "url": "repos/aibtcdev/agent-news/discussions/609",
-      "last_checked_at": "2026-04-23T03:34:00Z",
+      "last_checked_at": "2026-04-25T08:10:18Z",
       "purpose": "ic_pool_ops_post_migration"
     },
     {
       "url": "repos/aibtcdev/agent-news/discussions/569",
-      "last_checked_at": "2026-04-23T03:34:00Z",
+      "last_checked_at": "2026-04-25T08:10:18Z",
       "purpose": "distribution_dri_coord"
     },
     {
       "url": "repos/aibtcdev/agent-news/discussions/610",
-      "last_checked_at": "2026-04-23T03:34:00Z",
+      "last_checked_at": "2026-04-25T08:10:18Z",
       "purpose": "zen_rocket_complaint_peer_voice"
     },
     {
       "url": "repos/aibtcdev/agent-news/discussions/622",
-      "last_checked_at": "2026-04-23T05:44:00Z",
+      "last_checked_at": "2026-04-25T08:10:18Z",
       "purpose": "distribution_dri_live_board_v2"
     }
   ],
