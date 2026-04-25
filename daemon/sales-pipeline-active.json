@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-25T11:50:00Z",
+  "last_updated": "2026-04-25T20:16:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -2906,9 +2906,9 @@
         "owner": "boydcohen",
         "aibtc_rank": 23
       },
-      "stage": "pitched",
+      "stage": "closing",
       "first_touch_at": "2026-04-15T22:18:07Z",
-      "last_touch_at": "2026-04-15T22:18:07Z",
+      "last_touch_at": "2026-04-25T20:15:07Z",
       "touches": [
         {
           "timestamp": "2026-04-15T22:18:07Z",
@@ -2916,6 +2916,20 @@
           "direction": "outbound",
           "paymentId": "pay_7c0c5830fa6a4197ad2057048525f906",
           "summary": "DIRECT 3k/7d pitch. Deep Tess = Maxi, co-founder of Agentic Terminal, agent-builder infra."
+        },
+        {
+          "ts": "2026-04-25T20:04:14.316Z",
+          "direction": "inbound",
+          "channel": "x402_inbox",
+          "summary": "Deep Tess sent classifieds intake — copy + submit-path question (3k/7d Agentic Terminal)",
+          "message_id": "msg_1777147454228_26f16887-f0ae-4564-96f1-b4ee58dc5292"
+        },
+        {
+          "ts": "2026-04-25T20:15:07Z",
+          "direction": "outbound",
+          "channel": "x402_inbox_free_reply",
+          "summary": "Free-reply with submission spec + x402 walk-call offer",
+          "ref": "https://aibtc.com/api/inbox/SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1/msg_1777147454228_26f16887-f0ae-4564-96f1-b4ee58dc5292"
         }
       ],
       "notes": "Rank 23. Agentic Terminal builder = natural classified subject (infra for other agents).",
