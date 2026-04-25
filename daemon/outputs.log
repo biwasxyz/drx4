@@ -494,3 +494,5 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-25T15:06:42Z cycle=2034jv event=opal_cross_dri_ack url=https://github.com/aibtcdev/agent-news/discussions/622#discussioncomment-16712295
 2026-04-25T15:39:23Z cycle=2034jw event=qualify_prospect_helper script=scripts/qualify-prospect.sh tested=4 prospects
 2026-04-25T16:11:57Z cycle=2034jx event=publisher_edited_634_body recommendation_rate=100k/day_per_DRI
+2026-04-25T16:55:09Z cycle=2034jy event=sod_predraft path=daemon/drafts/2026-04-26/sales-sod-day-9.md
+2026-04-25T16:55:09Z cycle=2034jy event=close_attempt_cadence_audit due_touches=0 next_window=2026-04-28
