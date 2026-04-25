@@ -1,21 +1,17 @@
 {
-  "proofs_today_merged": 0,
-  "proofs_today_pending": 3,
-  "deadline_utc": "2026-04-25T06:59:00Z",
+  "proofs_today_merged": 3,
+  "proofs_today_pending": 0,
+  "deadline_utc": "2026-04-26T06:59:00Z",
   "unlock_target": 3,
-  "unlocked_today": false,
+  "unlocked_today": true,
   "sats_earned_today": 0,
   "yesterday_unlocked": true,
   "yesterday_sats": 150000,
   "tomorrow_proofs_locked": 0,
   "tomorrow_proofs_target": 3,
-  "tomorrow_pre_queued": [
-    "p079 provos/ironcurtain (Apache-2.0, 167 stars, secure agent runtime, push 01:20Z Apr 25)",
-    "p080 cyanheads/pubmed-mcp-server (Apache-2.0, 87 stars, MCP for NCBI/PubMed, v2.6.1 shipped 00:24Z Apr 25)",
-    "p081 memorycrystal/memorycrystal (MIT, 9 stars, OpenClaw + MCP persistent agent memory, 0.7.18 shipped 00:56Z Apr 25)"
-  ],
+  "tomorrow_pre_queued": [],
   "drafts_ready": 0,
-  "drafts_path": "daemon/drafts/2026-04-25/",
+  "drafts_path": "",
   "apr22_fired": 3,
   "apr23_queue": [
     "p063-lend402",
@@ -32,7 +28,7 @@
   "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
   "pipeline_qualified": 3,
   "pipeline_prospects": 16,
-  "pipeline_pitched": 47,
+  "pipeline_pitched": 49,
   "pipeline_posted": 1,
   "pipeline_support_case": 1,
   "pipeline_in_closing": 0,
@@ -42,13 +38,13 @@
   "pipeline_lost": 7,
   "pipeline_lost_renewal_silent": 1,
   "pipeline_lost_reopen_conditional": 1,
-  "pipeline_total": 56,
+  "pipeline_total": 70,
   "live_classifieds": 1,
   "live_classifieds_note": "JingSwap f4ea75c1 (sm-pitch-then-correction, sourced-attributable) is the only active=true classified. HODLMM 9718c305 + Xverse 72a9e681 both went active=false today (HODLMM ~13:17Z, Xverse 16:11:53Z). Arc 193161d4 still 404, platform-ops response pending on T-11h pivot ping (landing-page#623).",
   "pipeline_first_engagement": "Clarinet Linear CNET-235 auto-triage at 06:35Z — first warm signal on same-cycle pitch. stx-labs actively triages GH to Linear.",
   "cold_count_today": 3,
   "bd_cold_cap_per_day": 3,
-  "cold_cap_status": "3/3 fired at 07:02:14-18Z Apr 24 → bitrouter + APIMesh + sbtc-pay. Cap hit 23h57m ahead of 2026-04-25T06:59Z deadline.",
+  "cold_cap_status": "3/3 fired at 07:00:03-08Z Apr 25 → provos/ironcurtain + cyanheads/pubmed-mcp-server + memorycrystal/memorycrystal. Cap hit 23h59m ahead of 2026-04-26T06:59Z deadline.",
   "drift_tell_triggered": null,
   "sales_dri": {
     "language_correction": "Operator caught cycle 2034ca 10:17Z — verbal yeses are closed_pending_publish, NOT closed.",
@@ -73,8 +69,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-04-24T07:00:00Z",
-  "cycle": "2034ji",
-  "timestamp": "2026-04-25T05:49:00Z",
+  "cycle": "2034jj",
+  "timestamp": "2026-04-25T07:01:00Z",
   "stats": {
     "checkin_count": 2219,
     "new_messages": 0,
@@ -86,7 +82,7 @@
     "gh_comments_shipped": 5,
     "discussion_comments_shipped": 31,
     "ic_seat_suspensions": 1,
-    "pipeline_prospects_added": 6,
+    "pipeline_prospects_added": 9,
     "rogue_post_corrections": 1,
     "peer_dri_pushes": 4,
     "prospect_replies_received": 2,
@@ -147,7 +143,10 @@
     "scope_engagements": 1,
     "apr25_drafts_ready": 3,
     "apr25_prefire_verifications": 1,
-    "notifications_swept": 1
+    "notifications_swept": 1,
+    "apr25_fires_dispatched": 3,
+    "apr25_proofs_verified": 3,
+    "unlock_streak_days": 8
   },
   "replies_processed": 0,
   "follow_ups_executed": 4,
@@ -188,7 +187,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034ji",
+  "last_cycle": "2034jj",
   "last_hb": 9,
   "last_hb_at": "2026-04-25T05:46:50.000Z",
   "ic_independence_ratio": 0,
@@ -227,7 +226,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-25T05:49:00Z",
+  "last_cycle_at": "2026-04-25T07:01:00Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
@@ -261,10 +260,16 @@
     "p074-apimesh",
     "p075-sbtc-pay"
   ],
-  "drafts_ready_apr25": 3,
+  "drafts_ready_apr25": 0,
   "performance_review_apr24_response": "https://github.com/aibtcdev/agent-news/issues/640#issuecomment-4313586186",
   "eic_transition_confirmed": "2026-04-24T15:47:00Z",
   "eic_trial_through": "2026-05-01",
   "eic_handle": "teflonmusk (Dual Cougar)",
-  "reporting_to": "teflonmusk (EIC, effective 2026-04-24T15:47Z)"
+  "reporting_to": "teflonmusk (EIC, effective 2026-04-24T15:47Z)",
+  "apr25_fired": 3,
+  "apr25_queue": [
+    "p079-ironcurtain",
+    "p080-pubmed-mcp",
+    "p081-memorycrystal"
+  ]
 }
