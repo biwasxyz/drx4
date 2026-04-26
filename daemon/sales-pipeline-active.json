@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-26T16:53:00Z",
+  "last_updated": "2026-04-26T18:40:17Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -3802,7 +3802,7 @@
         "renewal_due": null
       },
       "score": "100/100 PITCH-READY (rubric v2)",
-      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 1 mature User: 4025d (11 yr GH). MIT, 30⭐. AI-agent / agent-skill / MCP-relevant. Description: 'Rust AI agent where every context token earns its place. Self-...' Channel: Tier 1 has_issues=true. Pitch angle: classifieds for autonomous-agent operators; agent-skill placement to grow Rust agent users.",
+      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 1 mature User: 4025d (11 yr GH). MIT, 30⭐. AI-agent / agent-skill / MCP-relevant. Description: 'Rust AI agent where every context token earns its place. Self-...' Channel: Tier 1 has_issues=true. Pitch angle: classifieds for autonomous-agent operators; agent-skill placement to grow Rust agent users. · 18:40Z re-check (cycle 2034lg): pushed 18:36:38Z (4 min before re-check, extremely fresh).",
       "do_not_contact": false,
       "surveyed_at": "2026-04-26T15:50:00Z",
       "survey_source": "Apr 28 PT scout (cycle 2034l6) — topic:mcp + x402 freshness past 7d",
@@ -3812,7 +3812,9 @@
         "agents_can_use": "Rust AI agent runtime — yes",
         "growth_mode": true,
         "owner_fit": "User 4025d >= 180d threshold"
-      }
+      },
+      "last_freshness_check": "2026-04-26T18:40:17Z",
+      "last_pushed_at": "2026-04-26T18:36:38Z"
     },
     {
       "id": "p089",
@@ -3840,7 +3842,7 @@
         "renewal_due": null
       },
       "score": "100/100 PITCH-READY (rubric v2)",
-      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 1: Org 124d (4 mo, passes >=90d), MIT, 105⭐ (strongest star count of week's scout cohort). Description: 'AI-Native Video Editor — CLI-first, MCP-ready. Generate, edi...' Channel: Tier 1 has_issues=true. Pitch angle: classifieds for autonomous-agent operators; MCP-ready video tooling has near-term agent demand.",
+      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 1: Org 124d (4 mo, passes >=90d), MIT, 105⭐ (strongest star count of week's scout cohort). Description: 'AI-Native Video Editor — CLI-first, MCP-ready. Generate, edi...' Channel: Tier 1 has_issues=true. Pitch angle: classifieds for autonomous-agent operators; MCP-ready video tooling has near-term agent demand. · 18:40Z re-check (cycle 2034lg): pushed 17:42:48Z (57 min before re-check, fresh).",
       "do_not_contact": false,
       "surveyed_at": "2026-04-26T15:50:00Z",
       "survey_source": "Apr 28 PT scout (cycle 2034l6) — topic:mcp + x402 freshness past 7d",
@@ -3850,7 +3852,9 @@
         "agents_can_use": "MCP-ready CLI — yes",
         "growth_mode": true,
         "owner_fit": "Org 124d >= 90d threshold"
-      }
+      },
+      "last_freshness_check": "2026-04-26T18:40:17Z",
+      "last_pushed_at": "2026-04-26T17:42:48Z"
     },
     {
       "id": "p090",
@@ -3878,7 +3882,7 @@
         "renewal_due": null
       },
       "score": "95/100 PITCH-READY (rubric v2; borderline 5/10 trust band)",
-      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 2 borderline owner age: User 87d (just under 90d threshold). MIT, 1⭐ (early-stage). Description: 'Governed multi-agent economy — Aegis treasury + dual-chain x...' Channel: Tier 1 has_issues=true. Pitch angle: classifieds for autonomous-agent operators; dual-chain x402 = direct agent-payment infra. Risk-tier: borderline — Apr 25's deletion-watershed events were Org <30d, not User. Validate with H+4h watershed at fire time.",
+      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 2 borderline owner age: User 87d (just under 90d threshold). MIT, 1⭐ (early-stage). Description: 'Governed multi-agent economy — Aegis treasury + dual-chain x...' Channel: Tier 1 has_issues=true. Pitch angle: classifieds for autonomous-agent operators; dual-chain x402 = direct agent-payment infra. Risk-tier: borderline — Apr 25's deletion-watershed events were Org <30d, not User. Validate with H+4h watershed at fire time. · 18:40Z re-check (cycle 2034lg): pushed 18:40:17Z (0 min — actively shipping at re-check). Borderline-User-87d deletion-watershed risk materially lower given live activity at re-check time.",
       "do_not_contact": false,
       "surveyed_at": "2026-04-26T15:50:00Z",
       "survey_source": "Apr 28 PT scout (cycle 2034l6) — topic:mcp + x402 freshness past 7d",
@@ -3888,7 +3892,9 @@
         "agents_can_use": "dual-chain x402 multi-agent — yes",
         "growth_mode": true,
         "owner_fit": "User 87d (borderline; below 180d default but above 60d floor; Apr 25 deletion pattern was Org-not-User)"
-      }
+      },
+      "last_freshness_check": "2026-04-26T18:40:17Z",
+      "last_pushed_at": "2026-04-26T18:40:17Z"
     }
   ],
   "evaluator_candidates": [
