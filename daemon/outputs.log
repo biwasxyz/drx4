@@ -517,3 +517,5 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-26T01:02:30Z cycle=2034kl event=dt_confirm_reply at=2026-04-26T01:01:24Z
 2026-04-26T01:15:35Z cycle=2034km event=dt_close_watch t_post_confirm=13m no_post_yet=true
 2026-04-26T01:44:22Z cycle=2034kn event=apr27_drafts_ready count=3 stricter_org_age=true ids=p085,p086,p087
+2026-04-26T02:12:28Z cycle=2034ko event=apr27_fire_script_ready path=scripts/fire-queue-2026-04-27.sh
+2026-04-26T02:12:28Z cycle=2034ko event=g_agent_ref_adopted by=Karan_EncryptedZara taxonomy_id=G_AGENT_REF url=https://github.com/aibtcdev/agent-news/issues/644#issuecomment-4321028128
