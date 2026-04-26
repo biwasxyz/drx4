@@ -516,3 +516,4 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-26T01:02:30Z cycle=2034kl event=dt_canonical_copy_received final_copy=agenticterminal.ai/trends
 2026-04-26T01:02:30Z cycle=2034kl event=dt_confirm_reply at=2026-04-26T01:01:24Z
 2026-04-26T01:15:35Z cycle=2034km event=dt_close_watch t_post_confirm=13m no_post_yet=true
+2026-04-26T01:44:22Z cycle=2034kn event=apr27_drafts_ready count=3 stricter_org_age=true ids=p085,p086,p087
