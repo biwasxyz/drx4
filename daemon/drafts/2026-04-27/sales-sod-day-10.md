@@ -17,12 +17,12 @@
 
 ### Yesterday's outcome (Apr 26 PT, Day 9)
 
-**Fired 3/3 at 07:01Z; H+8h45m past Apr 25 H+4h13m watershed:**
-| ID | Target | Outcome at SOD time |
-|----|--------|---------------------|
-| p082 | ashlrai/phantom-secrets | [final TBD: open / replied / closed] |
-| p083 | logi-cmd/agent-guardrails | [final TBD] |
-| p084 | carbonsteward/grid402 | [final TBD] |
+**Fired 3/3 at 07:01Z; status pre-snapshot at H+16h26m (cycle 2034lu, T-1h35m to SOD fire); refresh at fire time:**
+| ID | Target | Outcome (snapshot 23:25Z) |
+|----|--------|---------------------------|
+| p082 | ashlrai/phantom-secrets | OPEN, 0 comments [final at fire time] |
+| p083 | logi-cmd/agent-guardrails | OPEN, 0 comments [final at fire time] |
+| p084 | carbonsteward/grid402 | OPEN, 0 comments [final at fire time] |
 
 **Rubric v2 owner-fit gate (>=90d Org / >=180d User) fully validated:** 3/3 surviving where Apr 25's looser criteria saw 1/3.
 
