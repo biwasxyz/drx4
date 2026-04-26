@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-26T07:02:00Z",
+  "last_updated": "2026-04-26T18:59:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -4330,6 +4330,108 @@
           "proof_url": "https://github.com/carbonsteward/grid402/issues/1"
         }
       ]
+    },
+    {
+      "id": "p088",
+      "name": "bug-ops/zeph",
+      "contact": {
+        "channel": "github",
+        "handle": "bug-ops",
+        "url": "https://github.com/bug-ops/zeph",
+        "btc_address": null
+      },
+      "stage": "prospect",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "solo maintainer (Andrei G)",
+        "need": "agent-skill discovery / Rust agent users",
+        "timeline": "active (push <24h, 30 commits past 7d)"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
+      "score": "100/100 PITCH-READY (rubric v2)",
+      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 1 mature User: 4025d (11 yr GH). MIT, 30⭐. Pitch angle: classifieds for autonomous-agent operators; agent-skill placement to grow Rust agent users.",
+      "do_not_contact": false,
+      "surveyed_at": "2026-04-26T15:50:00Z",
+      "survey_source": "Apr 28 PT scout (cycle 2034l6)",
+      "queued_for_next_cold_slot": "2026-04-28T07:00:00Z",
+      "last_pushed_at": "2026-04-26T18:36:38Z",
+      "last_freshness_check": "2026-04-26T18:40:17Z"
+    },
+    {
+      "id": "p089",
+      "name": "vericontext/vibeframe",
+      "contact": {
+        "channel": "github",
+        "handle": "vericontext",
+        "url": "https://github.com/vericontext/vibeframe",
+        "btc_address": null
+      },
+      "stage": "prospect",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "Org team (vericontext)",
+        "need": "MCP-ready CLI agent users",
+        "timeline": "active (push <24h, 30 commits past 7d)"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
+      "score": "100/100 PITCH-READY (rubric v2)",
+      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 1: Org 124d, MIT 105⭐ (strongest star count of week scout cohort). MCP-ready CLI for video editing.",
+      "do_not_contact": false,
+      "surveyed_at": "2026-04-26T15:50:00Z",
+      "survey_source": "Apr 28 PT scout (cycle 2034l6)",
+      "queued_for_next_cold_slot": "2026-04-28T07:00:00Z",
+      "last_pushed_at": "2026-04-26T17:42:48Z",
+      "last_freshness_check": "2026-04-26T18:40:17Z"
+    },
+    {
+      "id": "p090",
+      "name": "ghost-clio/aegis-mesh",
+      "contact": {
+        "channel": "github",
+        "handle": "ghost-clio",
+        "url": "https://github.com/ghost-clio/aegis-mesh",
+        "btc_address": null
+      },
+      "stage": "prospect",
+      "first_touch_at": null,
+      "last_touch_at": null,
+      "touches": [],
+      "bant_plus": {
+        "budget": "unknown",
+        "authority": "solo (User 87d)",
+        "need": "dual-chain x402 multi-agent economy buyers",
+        "timeline": "active (push <24h, actively shipping at re-check)"
+      },
+      "deal": {
+        "listing_url": null,
+        "sats_paid": 0,
+        "posted_at": null,
+        "renewal_due": null
+      },
+      "score": "95/100 PITCH-READY (rubric v2; borderline 5/10 trust band)",
+      "notes": "Surveyed cycle 2034l6 (Apr 28 PT scout). Tier 2 borderline owner age: User 87d. MIT, 1⭐ early-stage. Dual-chain x402 multi-agent economy. Risk note: User 87d below 180d default; H+4h watershed validation at fire time. cycle 2034lg re-check: actively shipping at moment of re-check (push 18:40:17Z = 0m), materially reduces deletion risk.",
+      "do_not_contact": false,
+      "surveyed_at": "2026-04-26T15:50:00Z",
+      "survey_source": "Apr 28 PT scout (cycle 2034l6)",
+      "queued_for_next_cold_slot": "2026-04-28T07:00:00Z",
+      "last_pushed_at": "2026-04-26T18:40:17Z",
+      "last_freshness_check": "2026-04-26T18:40:17Z"
     }
   ],
   "evaluator_candidates": [
