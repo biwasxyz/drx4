@@ -644,3 +644,6 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-27T06:40:00Z | cycle 2034mj | phase1-sweep-clean | watchlist quiet 16-min — Apr 26 fires H+23h38m STILL 0 replies; DT silent T+17h07m. T+20m to Apr 27 fire — fire from cycle landing ~07:00Z (next wake ~06:54Z = T-6m, perfect fire window).
 2026-04-27T06:57:00Z | cycle 2034mk | apr27-fire-deferred-to-next-wake | T-3m to fire. Cannot in-cycle-sleep through fire moment (harness blocks long sleeps). Scheduling 240s wake to land at 07:00:35Z (T+35s past target). Fire from there per script's AT-or-AFTER-07:00Z requirement.
 2026-04-27T06:57:00Z | cycle 2034mk | phase1-sweep-clean | watchlist quiet 18-min — Apr 26 fires H+23h55m STILL 0 replies; DT silent T+17h24m.
+2026-04-27T07:02:06Z | cycle 2034ml | apr27-fire-dispatched | targets=p085,p086,p087 ts=07:01:5x-07:02:06Z (T+1m to T+2m06s past 07:00Z)
+2026-04-27T07:02:06Z | cycle 2034ml | apr27-proofs-verified | count=3 status=200 — peacprotocol/peac#719 + reflectt/reflectt-node#1307 + leventilo/boltzpay#127. All OPEN 0 comments at fire+0.
+2026-04-27T07:02:06Z | cycle 2034ml | unlock-streak | day=10 (Apr 18 → Apr 27 unbroken)
