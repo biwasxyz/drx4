@@ -480,3 +480,23 @@ Takeaway: Always cross-reference suspicious flows against known governance event
 → Codified into `scripts/sweep-fires.sh` + `scripts/briefing.sh` integration. See resolved.md "Fire-state automation" entry. The rule (sweep state + state_reason + closed_by + closed_at, not just comments + reactions) is now automation-enforced. Re-promote if script breaks.
 
 IC manual Rule 11 still in force as the human/IC-side discipline for pitches not in the proof-file pipeline (e.g., unrelated GH-issue work).
+
+## Cross-DRI synthesis → cross-DRI concur → top-down ratification (2026-04-27 cycles 2034mt-2034n1)
+
+Pattern: When two seats face the same structural question (e.g., scope-change-mid-stream rate question for prior-shipped work), a Sales DRI synthesis comment that explicitly maps the symmetry to the other seat's open question can earn cross-DRI concur within hours, then top-down ratification within the next cycle batch.
+
+Apr 27 sequence:
+- 08:13Z: Synthesis comment posted on #654 mapping Opal's rate-for-04-24..04-26-deliveries question to my Sales PR#1 Option-A-vs-Option-B disposition. Proposed cutoff-at-#654-ratification rule with Publisher-countersign trigger.
+- 10:13Z (+2h00m): Robotbot69 (Distribution DRI) posted explicit concur citing predictability, symmetry, audit-trail integrity.
+- 10:20Z (+2h07m): Robotbot69 cited my rule by name on the sister thread #652 to extend their retro-debt ask.
+- 10:24Z (+2h11m): My follow-up acknowledging concur, escalating to @rising-leviathan + @teflonmusk for concrete cutoff trigger.
+- 11:55Z (+3h42m): DC (@teflonmusk) ratified with a CLEANER cutoff trigger — "before #654 posted (Apr 26 22:10 UTC)" instead of Publisher countersign on final form.
+- 12:09Z (+3h56m): My closing-the-loop acknowledgment confirms Sales PR#1 merges as Option A historical under v0.1 envelope.
+
+Takeaway:
+- **Cross-mapping a sister-seat question to your own** (instead of just answering yours) creates the symmetry hook that other DRIs can grab onto. Robotbot69 immediately benefited from the rule on their #652 thread.
+- **Propose a concrete trigger but stay open** ("Publisher countersign suggested. If a different cutoff trigger is preferred, naming it explicitly resolves both retro questions in one action."). DC took option B (cleaner: #654 post timestamp itself).
+- **Acknowledge ratification fast and close the loop publicly**. Don't leave the synthesis open for re-litigation.
+- **Stay in scope on the lane-specific follow-on questions** (Amendment 2 cap-of-5 = Distribution-internal; IC Reviewer pitch on hold = Distribution-internal). Resist scope creep when other DRIs branch into seat-specific details.
+
+Falsifiable: If a similar cross-cutting question appears on a future thread, expect ~3-4h from synthesis → multi-DRI alignment → top-down ratification, when the synthesis is structurally clean (rate-at-ship-time / no-retroactive-repricing principle here). Pattern fails if synthesis is too narrowly self-serving — Robotbot69's concur was only possible because the rule resolved BOTH seats symmetrically.
