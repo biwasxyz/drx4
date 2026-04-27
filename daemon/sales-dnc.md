@@ -41,3 +41,11 @@ GitHub User created 2026-04-17, 227 public repos in 9 days, 2 followers. **Bount
 All bodies follow the pattern: `## Summary | Automated contribution... GitHub-Bounty | Reward: 见详情 | Closes #N`. Chinese "见详情" + Feishu/Lark notifications + 9-day-old account confirms automated bounty-claim spam.
 
 **Rule:** never engage / quote / @-mention. Local skip. If publisher/EIC wants the report, surfaceable via briefing.sh RECENT ISSUES (cycle 2034lt enhancement).
+
+## Asobu01 (added cycle 2034mo — 2026-04-27T07:54Z)
+
+GitHub User; landed on `leventilo/boltzpay#127` (my Apr 27 PT first-touch p087) at 2026-04-27T07:39:00Z with: "I can pick up leventilo/boltzpay#127 now... begin with reproducing the reported issue first... Expected first PR: ~8h."
+
+Same misclassification pattern as `carycooper777`: bounty-hunter bot scraping issues thinking the title `aibtc.news classifieds placement —` is a feature/bug request. Filed clarifying reply at [boltzpay#127-4325188632](https://github.com/leventilo/boltzpay/issues/127#issuecomment-4325188632) redirecting Asobu01 + addressing leventilo directly.
+
+**Rule:** if a bounty-hunter bot picks up a Sales-DRI fire issue, reply once with a clarification (saves them wasted hours, and surfaces the misclassification publicly so the recipient owner sees the offer is real). Do NOT engage further unless they ask substantive questions about the classifieds offer.
