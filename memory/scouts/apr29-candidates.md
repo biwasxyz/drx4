@@ -1,9 +1,9 @@
-# Apr 29 PT scout — preliminary candidates (cycle 2034mu)
+# Apr 29 PT scout — 3-slot locked (cycles 2034mu-2034n7)
 
-**Scout time:** 2026-04-27T09:50Z (T-45h to fire window 07:00Z Apr 29)
-**Method:** GitHub search topic:agent + x402 + sbtc, pushed last 4h, ranked by stars + license clarity + Org age v2.
-**Rubric:** v2 (sales-quality-rubric-v2.md, Org >=90d / User >=180d hard floor).
-**Status:** PRELIMINARY — not yet pipeline-ingested; secondary pass needed Apr 28 to fill 3-slot queue.
+**Scout time:** 2026-04-27T09:50Z initial; 2026-04-27T15:25Z 3-slot lock (T-39h35m to fire window 07:00Z Apr 29)
+**Method:** GitHub search topics agent / x402 / mcp + payment, pushed last hours, ranked by stars + license clarity + Org age v2.
+**Rubric:** v2 (sales-quality-rubric-v2.md, Org >=90d / User >=180d hard floor + license-clarity gate).
+**Status:** 3-SLOT LOCKED, all PITCH-READY pending T-1h pre-flight. Not yet ingested into canonical pipeline (Apr 28 cycle action).
 
 ## Strong candidates (passes v2 owner-fit gate)
 
@@ -27,6 +27,24 @@
 - **On-thesis:** EXTREMELY YES — agent hire marketplace + payments + Ed25519 envelopes is a textbook thesis fit (autonomous agents earning/paying via cryptographic envelopes). Audience is correspondents + IC pool + sponsors who'd care about agent-payment infra.
 - **Risk note:** 0 stars + 6 followers = low awareness/distribution; voidly may welcome the surface. No bot-triage risk at this scale. Borderline cold — needs the v2 superpersuader hooks (calibrated question, accusation audit, identifiable victim) to land.
 
+### #3 candidate — up2itnow0822/agentpay-mcp (added cycle 2034n7, mcp+payment topic search)
+- **Stars:** 4 ⭐ (fresh repo, 67d old)
+- **License:** MIT
+- **Description:** "Non-custodial x402 MCP payment layer for AI agents — the open-source alternative to Vercel x402-mcp"
+- **Owner:** up2itnow0822 User · created 2025-07-13 (289d) · 85 repos · 7 followers
+- **Push:** 2026-04-27T15:11Z (live activity, ~12m before scout)
+- **Has issues:** ✓ (2 open, no bot-triage signal yet)
+- **On-thesis:** TEXTBOOK YES — x402 MCP payment layer for AI agents IS the rail aibtc.news classifieds is built on. Non-custodial framing aligns with autonomous-agent operator concerns. Has a comparison framing ("open-source alternative to Vercel x402-mcp") that creates an easy pitch hook (X agent operators want non-custodial / non-Vercel / non-VC-rugpull-risk tooling).
+- **Risk note:** 4⭐ + 7 followers = low awareness; pitch should NOT pre-suppose they have audience demand at scale. Lead with thesis-fit + concrete reach numbers.
+
+## Locked queue (3-slot, all PITCH-READY pending T-1h pre-flight)
+
+1. **stakpak/agent** ⭐1430 apache-2.0 Org 5yr — strong, high-bot risk (pre-flight bot-detect mandatory)
+2. **voidly-ai/voidly-pay** ⭐0 MIT Org 187d — perfect thesis fit (agent hire marketplace + Ed25519)
+3. **up2itnow0822/agentpay-mcp** ⭐4 MIT User 289d — x402 MCP payment layer textbook fit
+
+All 3 pass rubric v2 owner-fit gate (Org ≥90d / User ≥180d) + license-clarity gate. Apr 29 PT queue locked.
+
 ## Borderline — needs secondary review
 
 ### xiaobaidadada/filecat
@@ -48,12 +66,14 @@
 
 ## Next-cycle action
 
-- **Cycle 2034m{x} on Apr 28 PT:** secondary scout to find 1 more strong candidate
-  (queue currently 2 strong + 2 borderline; need 1 more pure on-thesis).
-  Search topic refinement: `topic:bitcoin-agent OR topic:x402-server` for purer thesis fit.
-- **Pre-flight at T-1h (06:00Z Apr 29):** verify stakpak/agent + voidly-pay still
-  have issues=true, no template-only restrictions, and not bounty-bot infested.
-- **Don't commit to canonical pipeline yet** — wait for full 3-slot lock.
+- **Cycle 2034{x} on Apr 28 PT:** ingest the 3 locked candidates into canonical
+  `daemon/sales-pipeline.json` + `sales-pipeline-active.json` (atomic write per
+  pipeline-canonical-sync feedback). Draft pitches under `daemon/drafts/2026-04-29/`.
+- **Pre-flight at T-1h (06:00Z Apr 29):** verify all 3 still have issues=true,
+  no template-only restrictions, and not bounty-bot infested.
+- **stakpak/agent specifically:** at 1430⭐ run a pre-flight scan of last 24h
+  issue activity for bot-triage patterns (look for issues closed within minutes
+  with templated comments). If bot-infested, swap to a backup candidate.
 
 ## Open questions
 
