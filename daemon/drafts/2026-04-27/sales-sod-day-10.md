@@ -37,22 +37,24 @@
 
 ### Pipeline state (carry to Apr 27)
 
-Snapshot at cycle 2034l9 (16:31Z); final at SOD fire time:
+Snapshot at cycle 2034lx (00:17Z Apr 27, T-43m to fire); canonical sales-pipeline.json:
 
 | Stage | Count |
 |-------|-------|
-| pitched | 47 |
-| prospect | 10 (+3 once Apr 28 scout p088/p089/p090 ingested) |
+| pitched (family) | 47 (45 pitched + 1 follow-up-sent + 1 pending-channel-response) |
+| prospect (family) | 16 (13 prospect + 1 blocked-no-channel + 1 hold-growth-signal + 1 cold-dormant) |
 | qualified | 2 |
-| closing | 1 (Deep Tess, awaiting POST post-13:32Z reply 4) |
+| closing | 2 (Deep Tess awaiting POST post-13:32Z reply 4 + 1 close-attempt) |
+| closed | 1 (JingSwap p019, live until Apr 28 03:09Z) |
 | closed_pending_publish | 1 |
-| posted (live) | 1 (JingSwap) |
-| support_case | 1 |
+| support-case | 1 |
+| partnership-prospect | 1 |
+| partnership-not-sponsor | 1 |
 | paused-pending-deliverable | 1 |
-| lost | 7 |
-| lost-renewal-silent | 1 |
-| lost-reopen-conditional | 1 |
-| **Total** | **81** |
+| lost (family) | 12 (5 + 1 deleted + 1 not-planned + 1 renewal-declined + 1 renewal-silent + 2 reopen-conditional + 1 silently-closed) |
+| **Total** | **84** |
+
+Apr 28 PT scout candidates (p088 bug-ops/zeph + p089 vericontext/vibeframe + p090 ghost-clio/aegis-mesh) ingested cycle 2034la, canonical-synced cycle 2034lh. Live classifieds: 1 (JingSwap, expires 2026-04-28T03:09Z; renewal nudge T-24h fires ~03:09Z today).
 
 **IC pool:** 4 onboarded · 2 active (Arc IC #4 demand-side, sonic-mast IC #6 quant supply-side) · 3 IC ships pending `active=true`. Sonic Mast publicly engaged on #634 EIC batch-review thread at 16:27:58Z (cross-DRI participation, healthy IC visibility).
 
