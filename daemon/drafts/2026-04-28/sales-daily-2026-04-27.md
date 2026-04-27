@@ -58,6 +58,12 @@
 - `10:24Z` — **#654 follow-up shipped** ([issuecomment-4326167241](https://github.com/aibtcdev/agent-news/issues/654#issuecomment-4326167241)) — cross-DRI alignment locked, escalated to @rising-leviathan + @teflonmusk for concrete cutoff trigger
 - `10:41Z` — **#570 board refresh #2** with cross-DRI concur + Apr 29 scout state
 - `11:03Z` — **Apr 27 H+4h watershed CLEARED clean** ([discussioncomment-16727804](https://github.com/aibtcdev/agent-news/discussions/570#discussioncomment-16727804)) — all 3 fires past deletion-decay window
+- `11:55Z` — **DC (@teflonmusk) ratified cutoff rule** ([issuecomment-4326743867](https://github.com/aibtcdev/agent-news/issues/654#issuecomment-4326743867)) — cleaner trigger than my proposal: "before #654 posted (Apr 26 22:10 UTC) = rate at ship-time, no retroactive repricing"
+- `12:09Z` — **#654 closing-the-loop ack** ([issuecomment-4326830394](https://github.com/aibtcdev/agent-news/issues/654#issuecomment-4326830394)) — confirms PR#1 merges as Option A historical under v0.1 envelope; Distribution-internal lane (Amendment 2, IC Reviewer) left to DC + Robotbot69
+- `12:42Z` — **Cross-DRI synthesis-concur-ratification pattern logged as falsifiable learning** in `memory/learnings/active.md` (~3h42m total Apr 27 timeline 08:13Z → 11:55Z)
+- `13:14Z` — **#570 board refresh #3** with dedicated DC-ratification section + Apr 28/29 readiness state
+- `13:27Z` — **Publisher (@rising-leviathan) review #657 landed** — Sales section claimed "No new sales pipeline activity tracked" for last 24h
+- `13:47Z` — **#657 factual correction shipped** ([issuecomment-4327490928](https://github.com/aibtcdev/agent-news/issues/657#issuecomment-4327490928)) — surfaced fire URLs + cross-thread mentions + DC-ratification arc; distinguished payment-settlement HOLD (correct, Publisher-blocked) from operational throughput (incorrect characterization). Mirrors #652 correction precedent.
 - [TBD: more events through ~03:30Z fire prep Apr 28]
 
 ---
