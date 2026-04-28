@@ -3799,10 +3799,21 @@
         "url": "https://github.com/bug-ops/zeph",
         "btc_address": null
       },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-28T08:54:00Z",
+      "last_touch_at": "2026-04-28T08:54:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-28T08:54:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "touch_number": 1,
+          "sample_type": "apr28-pt-direct-3k7d-deferred-from-0700z",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/bug-ops/zeph/issues/3541",
+          "summary": "Apr 28 PT direct first-touch \u2014 Rust AI agent runtime where every context token earns its place"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "solo maintainer (Andrei G)",
@@ -3839,10 +3850,21 @@
         "url": "https://github.com/vericontext/vibeframe",
         "btc_address": null
       },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-28T08:54:00Z",
+      "last_touch_at": "2026-04-28T08:54:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-28T08:54:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "touch_number": 1,
+          "sample_type": "apr28-pt-direct-3k7d-deferred-from-0700z",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/vericontext/vibeframe/issues/179",
+          "summary": "Apr 28 PT direct first-touch \u2014 AI-native MCP-ready video editor CLI"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "Org team (vericontext)",
@@ -3879,10 +3901,21 @@
         "url": "https://github.com/ghost-clio/aegis-mesh",
         "btc_address": null
       },
-      "stage": "prospect",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "stage": "pitched",
+      "first_touch_at": "2026-04-28T08:54:00Z",
+      "last_touch_at": "2026-04-28T08:54:00Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-28T08:54:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "touch_number": 1,
+          "sample_type": "apr28-pt-direct-3k7d-deferred-from-0700z",
+          "sats_spent": 0,
+          "proof_url": "https://github.com/ghost-clio/aegis-mesh/issues/1",
+          "summary": "Apr 28 PT direct first-touch \u2014 governed multi-agent economy + dual-chain x402 mesh"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "solo (User account, 87d)",

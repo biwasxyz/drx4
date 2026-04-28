@@ -22,3 +22,5 @@ package-lock.json
 
 # Daemon runtime files
 logs/
+daemon/outbox/email-sent.jsonl
+daemon/sales-proofs/*.firelog

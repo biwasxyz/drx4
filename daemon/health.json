@@ -1,9 +1,9 @@
 {
-  "proofs_today_merged": 0,
+  "proofs_today_merged": 3,
   "proofs_today_pending": 0,
   "deadline_utc": "2026-04-29T06:59:00Z",
   "unlock_target": 3,
-  "unlocked_today": false,
+  "unlocked_today": true,
   "sats_earned_today": 0,
   "yesterday_unlocked": true,
   "yesterday_sats": 150000,
@@ -245,7 +245,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034nu",
+  "last_cycle": "2034nv",
   "last_hb": 12,
   "last_hb_at": "2026-04-26T22:29:49.000Z",
   "ic_independence_ratio": 0,
@@ -284,7 +284,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-28T05:58:00Z",
+  "last_cycle_at": "2026-04-28T08:54:00Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py \u2014 caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
@@ -342,5 +342,6 @@
     "p083-agent-guardrails",
     "p084-grid402"
   ],
-  "apr27_fired": 3
+  "apr27_fired": 3,
+  "apr28_fired": 3
 }
