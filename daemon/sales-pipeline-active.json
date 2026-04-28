@@ -2164,9 +2164,9 @@
         "btc_address": null,
         "stx_address": null
       },
-      "stage": "pitched",
+      "stage": "lost-renewal-silent",
       "first_touch_at": "2026-04-16T07:03:55Z",
-      "last_touch_at": "2026-04-20T07:34:18Z",
+      "last_touch_at": "2026-04-28T03:10:00Z",
       "touches": [
         {
           "timestamp": "2026-04-16T07:03:55Z",
@@ -2185,6 +2185,15 @@
           "summary": "Correction on 4-day-silent pre-incident pitch. Fixed 3 errors: 30-day\u21927-day pricing, dropped fake dashboard claim, updated wallet to SP20GPDS5. Apologized, re-offered honestly.",
           "url": "https://github.com/Rapha-btc/jingswap-contract/issues/3#issuecomment-4278689175",
           "type": "correction"
+        },
+        {
+          "at": "2026-04-28T03:10:00Z",
+          "channel": "system",
+          "direction": "outcome",
+          "summary": "Classified f4ea75c1 expired 2026-04-28T03:09:43Z without renewal. Rapha-btc silent ~24h post-T-24h-nudge (issuecomment-4323890034 fired 03:10:23Z Apr 27). Mirrors HODLMM + Xverse Apr 22 silent-no-renewal pattern. Stage: closed -> lost-renewal-silent.",
+          "type": "lifecycle-transition",
+          "expiry_at": "2026-04-28T03:09:43.647Z",
+          "stage_transition": "pitched -> lost-renewal-silent"
         }
       ],
       "bant_plus": {

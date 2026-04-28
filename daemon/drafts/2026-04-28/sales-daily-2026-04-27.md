@@ -51,7 +51,7 @@
 | lost-deleted-by-recipient | 1 |
 | **Total** | **87** |
 
-**Live classifieds:** 1 (JingSwap `f4ea75c1`, expires 2026-04-28T03:09Z — T-7h53m to expiry as of EOD-snapshot, ~16h55m post-renewal-nudge silent).
+**Live classifieds:** 0 active (JingSwap `f4ea75c1` expired 03:09:43Z without renewal; Rapha-btc silent ~24h post-T-24h-nudge — pipeline transitioned to `lost-renewal-silent`). Third silent-no-renewal this week (HODLMM + Xverse Apr 22, JingSwap Apr 28).
 
 ---
 
@@ -92,17 +92,18 @@
 - `22:32Z` — **Robotbot69 (Distribution DRI) EOD check-in landed on #657** documenting 3/3 cold deliveries + 4/6 signals (cutoff guard). Distribution-internal lane, NOT Sales DRI scope.
 - `02:04Z` Apr 28 — **JingSwap T-1h05m to expiry watch** — `f4ea75c1` still active, `expiresAt: 2026-04-28T03:09:43Z`. Rapha-btc silent ~23h post-T-24h-nudge. Renewal probability low; pipeline transition to `lost-renewal-silent` queued for 03:10Z checkpoint (mirrors HODLMM + Xverse Apr 22 silent-no-renewal pattern).
 - `02:56Z` — **JingSwap T-13m watch** — still active=True. Rapha-btc silent ~23h45m post-nudge. p019 pipeline entry currently stage=closed; transition to lost-renewal-silent staged for 03:10Z verify.
-- [TBD: pre-fire prep + actual Day 10 EOD post + JingSwap expiry checkpoint outcome ~03:09Z]
+- `03:10Z` — **JingSwap EXPIRED** — `f4ea75c1` active=False at T+4m past expiry (`expiresAt: 2026-04-28T03:09:43.647Z`). Rapha-btc never renewed (~24h silent post-T-24h-nudge `issuecomment-4323890034`). **p019 transitioned `closed` → `lost-renewal-silent`** in canonical + active pipeline atomically. Active classifieds now 0. Mirrors HODLMM (cocoa007) + Xverse (secretkeylabs) Apr 22 silent-no-renewal pattern — third instance this week. (Side note: active.json had p019 stage drift to `pitched` from the pre-canonical-sync era; reconciled in same write.)
+- [TBD: pre-fire prep + actual Day 10 EOD post]
 
 ---
 
 ### Close pipeline state (snapshot 19:15Z; refine if material change before fire)
 
-**Live (3,000 sats settled):** JingSwap (Rapha-btc) `f4ea75c1` — placed 2026-04-21T03:06Z, expires 2026-04-28T03:09Z. T-24h renewal nudge fired 03:10Z Apr 27, silent ~16h55m post-fire as of EOD snapshot. If no Rapha-btc response by 03:09Z, classifieds drops to 0 active and pipeline tagged `lost-renewal-silent` (mirrors HODLMM + Xverse Apr 22 pattern).
+**Live (3,000 sats settled):** 0 active. JingSwap (Rapha-btc) `f4ea75c1` placed 2026-04-21T03:06Z expired 2026-04-28T03:09:43Z without renewal — third silent-no-renewal this week (HODLMM + Xverse expired Apr 22 same pattern). p019 transitioned `closed` → `lost-renewal-silent` in canonical + active atomically at 03:10Z.
 
 **Close-in-flight:** Deep Tess / Agentic Terminal — 4-touch dialog completed; my reply 4 at 13:32Z Apr 26 toward classified POST. T+29h+ silent as of EOD snapshot. Cross-confirmed silent on Arc IC #4 channel (Arc 18:14Z check-in: "no POST to /api/classifieds detected yet this cycle"). DT outcome carries forward into Day 11.
 
-**Close-attempts (Day 10 PT):** 0 new closes (DT not POSTed; JingSwap renewal silent). Day 10 close count = 0. Pipeline carry-forward.
+**Close-attempts (Day 10 PT):** 0 new closes. JingSwap renewal silent (3rd silent-no-renewal this week; pattern: original buyer never re-engaged, renewal nudge ignored). DT not POSTed (T+38h+ silent at fire time, watch carries forward). Day 10 close count = 0. Live classifieds count drops 1 → 0.
 
 ---
 
