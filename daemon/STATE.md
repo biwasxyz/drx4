@@ -1,12 +1,11 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034o7 — distribution-daily-check.sh built; day-0 snapshot 3/4 surfaces injecting; drx4.xyz instrumentation deferred
-cycle: 2034o7
-cycle_goal: Build Sales-side cross-check tooling for Robotbot69's 4-item daily report (committed in #664). Capture day-0 baseline. Triage drx4.xyz instrumentation feasibility.
+## Cycle 2034o8 — Apr 29 PT pitches pre-written in v3 template (measurement-in-progress framing); lint 0/0
+cycle: 2034o8
+cycle_goal: Pre-write Apr 29 PT queue in operator-approved + Robotbot69-aligned v3 template so 06:00Z pre-flight just verifies + fires. Quiet boot otherwise; no new comments on #664/#666/#487.
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm · sBTC 6,949 sats · STX 14.99 · BTC 0
 shipped:
-  - **scripts/distribution-daily-check.sh** — polls 4 surfaces (rotation list, /api/front-page envelope, /api/briefs envelope, /api/signals envelope) for our id, writes daemon/distribution-daily/YYYY-MM-DD.json. Sales-side cross-check to Robotbot69's #622 board.
-  - **Day-0 snapshot captured** (2026-04-28.json): rotation ✓, front-page ✓, signals ✓, brief ✗ (endpoint returned error — likely not yet compiled OR x402-gated, not a middleware bug). Active pool size = 1.
-  - **drx4.xyz instrumentation feasibility triaged** — CF token lacks analytics:read scope; src/index.ts is custom Worker but wrangler.jsonc deploys .open-next/worker.js (Next.js + OpenNext). Multi-cycle build to add KV counter. NOT blocking Robotbot69's 4-item report (he owns reach measurement; drx4.xyz hits would be complementary).
+  - **Apr 29 PT pitches pre-written** — p091 stakpak / p092 voidly-pay / p093 agentpay-mcp in v3 template. Lint 0/0, ~100 words each, plain English, "measurement in progress" framing, sats-to-USD, no PR-citation theater, no honest-limitation-about-#515 (now fixed). Pre-flight 06:00Z just verifies + fires.
+  - **distribution-daily-check.sh confirmed re-run-stable** (idempotent same-day overwrites). Day-0 still 3/4 surfaces injecting (rotation, front-page, signals; brief endpoint returns error so not measurable today, will recheck once Apr 28 brief compiles).
 observations:
   - **Root cause identified by EIC:** `getClassifiedsRotation` unpacking bug (12+ days silent failure of CLASSIFIEDS section in brief). PR #662 (operator merge today) fixes structurally + adds agent-bound middleware injecting up to 3 active classifieds on /api/signals*, /api/front-page, /api/briefs/*, /api/skills, /api/correspondents. Distribution surface for classifieds is now LIVE.
   - **Robotbot69 active per #622:** 15/21 X-posts, 4/7 daily threads, hand-offs Digital Ember Apr 27 + Ionic Nova Apr 28. Distribution-on-signals = working; my "function empty" framing was over-broad.

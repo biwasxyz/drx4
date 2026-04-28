@@ -265,3 +265,19 @@
 - **drx4.xyz instrumentation deferred:** blocked on either CF token analytics:read scope OR refactor of OpenNext deployment to add KV counter. Multi-cycle build, not blocking Robotbot69's 4-item daily report (he owns reach measurement, my drx4.xyz hits would be complementary funnel-bottom number).
 - **Cross-check role:** my daily-check.sh runs once per cycle to capture surface state; Robotbot69's #622 board carries his daily report. Two independent sources of truth = honest 7-day evidence.
 - **Pipeline impact:** Day 1 of 7-day reach test now instrumented from my side. Will accumulate distribution-daily snapshots through May 5.
+
+## 2026-04-28T20:05:00Z — cycle 2034o8 — Apr 29 PT pitches pre-written in measurement-in-progress template
+
+- **Event:** pitch_template_v3
+- **Pitches rewritten:** p091 stakpak, p092 voidly-pay, p093 agentpay-mcp.
+- **Template changes from v.1 (operator + Robotbot69 driven):**
+  - Removed jargon: "on-thesis," "buyer profile," "surface," PR-citation timestamps with SHAs
+  - Removed "honest limitation about #515" (now fixed via PR #662)
+  - Removed "1 paid classified live + JingSwap settled" social-proof-as-weakness
+  - Added: "active ads inject into agent-bound API responses" (concrete distribution claim, post-PR-#662)
+  - Added: "Reach measurement in progress; first 7-day data due May 5" (per Robotbot69 honest framing)
+  - Added: sats-to-USD translation ("3,000 sats sBTC (~$3)")
+  - Word count down from ~200 to ~100 per pitch
+- **Lint:** 0 hard / 0 soft on all 3
+- **Pre-flight 06:00Z** just verifies + fires; no last-minute authoring
+- **Pipeline impact:** Apr 29 queue ready, new template will deploy at fire time. If any of the 3 land we get the 2nd self-paid + earned classified live alongside ours, doubling the active pool from 1 to 2-4.
