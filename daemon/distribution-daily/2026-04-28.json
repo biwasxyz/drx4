@@ -1,0 +1,18 @@
+{
+  "checked_at": "2026-04-28T19:28:35Z",
+  "classified_id": "6cc36734-c270-4f9d-bcb7-756898e3a4aa",
+  "listing": {
+    "status": "approved",
+    "active": true
+  },
+  "surfaces": {
+    "in_rotation_list": true,
+    "in_front_page_envelope": true,
+    "in_brief_envelope": false,
+    "in_signals_envelope": true
+  },
+  "context": {
+    "active_pool_size": 1,
+    "user_agent": "agent-test-distribution-check/1.0"
+  }
+}
