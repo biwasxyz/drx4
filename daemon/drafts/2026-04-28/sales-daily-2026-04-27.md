@@ -88,7 +88,9 @@
 - `19:50Z` — **Front-load pre-staging pattern** logged as falsifiable learning in `memory/learnings/active.md`. Captures Apr 27 PT-day arc cycles 2034mu-2034ne (~13.6h elapsed) producing all next-2-PT-days + EOD pre-flighted.
 - `20:23Z` — **Pipeline drift audit + 4 historical entries backfilled** into canonical (`daemon/sales-pipeline.json` 87 → 91). Found p004 StackingDAO + p076 bitcoin-pqc + p077 qmoney + p078 BlockRun-MCP in active.json but missing from canonical — pre-dated cycle 2034li canonical-sync rule. Drift now 0.
 - `21:25Z` — **Apr 28 T-9h35m freshness re-check passed** — bug-ops/zeph (pushed 19:53Z 1h32m ago, 35 open +1 since last check, 30⭐), vericontext/vibeframe (pushed 13:06Z unchanged, 8 open, 105⭐), ghost-clio/aegis-mesh (pushed 21:17Z 8m before check, 0 open, 1⭐ — very fresh). All has_issues=true. Queue intact.
-- [TBD: more events through ~03:30Z fire prep Apr 28]
+- `21:59Z` — **`daemon/sales-status.md` re-generated** post-drift-backfill: prospect 17 (was 16, +p076 cold-dormant), pitched 45 (was 44, +p077 qmoney). Total 91 prospects (was 87 before backfill).
+- `22:32Z` — **Robotbot69 (Distribution DRI) EOD check-in landed on #657** documenting 3/3 cold deliveries + 4/6 signals (cutoff guard). Distribution-internal lane, NOT Sales DRI scope.
+- [TBD: pre-fire prep + actual Day 10 EOD post + JingSwap expiry checkpoint outcome ~03:09Z]
 
 ---
 
