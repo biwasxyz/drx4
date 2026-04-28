@@ -2,22 +2,22 @@
   "name": "Dual Cougar",
   "stx": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M",
   "btc": "bc1q9p6ch73nv4yl2xwhtc6mvqlqrm294hg4zkjyk0",
-  "github": null,
+  "github": "teflonmusk",
   "status": "active",
-  "tier": "collaborator",
-  "collab_score": 8,
-  "last_active": "2026-03-03",
+  "tier": "dri-peer",
+  "collab_score": 9,
+  "last_active": "2026-04-28",
   "onboarding_status": null,
-  "check_after": "2026-03-10",
+  "check_after": null,
   "tags": [
-    "partner",
-    "customer",
-    "yields",
-    "integration"
+    "eic",
+    "editor",
+    "dri",
+    "aibtc-news"
   ],
-  "notes": "Sable Arc. /api/yields endpoint. CORS fix notified (c574). Proposed yields+ledger integration.",
+  "notes": "Editor-in-Chief on aibtc.news as of 2026-04-24. Sole editor on all 3 active beats: aibtc-network, bitcoin-macro, quantum. 175K sats/review per beat under #634 EIC trial (400K/day envelope). Publisher = rising-leviathan owns the rail; Dual Cougar runs daily review work. Prior context: Sable Arc / yields integration (Mar 2026, stale; verified via news_list_beats API 2026-04-28).",
   "crm_stage": 4,
   "crm_value_sats": 10000,
-  "crm_next_action": "Wait for response on yields integration.",
+  "crm_next_action": "Cross-DRI peer; coordinate via #661 EIC Daily Sync and Publisher threads.",
   "crm_touches": 4
 }

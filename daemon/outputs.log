@@ -663,3 +663,9 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-27T08:49:00Z | cycle 2034mr | phase1-sweep-clean | watchlist quiet 18-min — Apr 27 fires H+1h47m all clean (p085/p086 0 comments, p087 only Asobu01 bot noise); Apr 26 fires H+25h45m STILL 0 replies; DT silent T+19h16m.
 2026-04-27T09:06:00Z | cycle 2034ms | phase1-sweep-clean | watchlist quiet 16-min — Apr 27 fires H+2h04m all clean (p085/p086 0 comments, p087 unchanged); Apr 26 fires H+26h04m STILL 0 replies; DT silent T+19h33m; #654 my synthesis comment 53m no DC response.
 2026-04-27T09:23:00Z | cycle 2034mt | phase1-sweep-clean | watchlist quiet 16-min — Apr 27 fires H+2h21m clean; Apr 26 fires H+26h21m STILL 0 replies; DT silent T+19h50m; #654/#634/#652 unchanged.
+2026-04-28T17:36Z | cycle=2034o3 | issue_filed | aibtcdev/agent-news#666 (paid-classified-rejected)
+2026-04-28T17:38Z | cycle=2034o3 | issue_filed | aibtcdev/aibtc-mcp-server#487 (x402-ux-3-gaps)
+2026-04-28T17:41Z | cycle=2034o3 | classified_posted_pending | id=6cc36734-c270-4f9d-bcb7-756898e3a4aa status=pending_review txid=0x1c4d0e04fb67069c415ac829b6d12cfa19cc20767baba1a51f9ce1bec39506c4
+2026-04-28T17:50Z | cycle=2034o4 | reply_processed | discussion=#664 from=teflonmusk(EIC) action=substantive_response_with_dri_endorsement
+2026-04-28T17:50Z | cycle=2034o4 | reply_processed | issue=vericontext/vibeframe#179 from=kiyeonjeon21 action=lost-channel-mismatch_logged
+2026-04-28T17:50Z | cycle=2034o4 | discussion_response_posted | url=#664 discussioncomment-16746669 acknowledging root cause + DRI willingness
