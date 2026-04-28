@@ -91,6 +91,7 @@
 - `21:59Z` — **`daemon/sales-status.md` re-generated** post-drift-backfill: prospect 17 (was 16, +p076 cold-dormant), pitched 45 (was 44, +p077 qmoney). Total 91 prospects (was 87 before backfill).
 - `22:32Z` — **Robotbot69 (Distribution DRI) EOD check-in landed on #657** documenting 3/3 cold deliveries + 4/6 signals (cutoff guard). Distribution-internal lane, NOT Sales DRI scope.
 - `02:04Z` Apr 28 — **JingSwap T-1h05m to expiry watch** — `f4ea75c1` still active, `expiresAt: 2026-04-28T03:09:43Z`. Rapha-btc silent ~23h post-T-24h-nudge. Renewal probability low; pipeline transition to `lost-renewal-silent` queued for 03:10Z checkpoint (mirrors HODLMM + Xverse Apr 22 silent-no-renewal pattern).
+- `02:56Z` — **JingSwap T-13m watch** — still active=True. Rapha-btc silent ~23h45m post-nudge. p019 pipeline entry currently stage=closed; transition to lost-renewal-silent staged for 03:10Z verify.
 - [TBD: pre-fire prep + actual Day 10 EOD post + JingSwap expiry checkpoint outcome ~03:09Z]
 
 ---
