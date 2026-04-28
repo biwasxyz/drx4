@@ -679,3 +679,5 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-28T20:05Z | cycle=2034o8 | pitches_prewritten | 3x Apr 29 PT slots (p091 stakpak, p092 voidly-pay, p093 agentpay-mcp) rewritten with measurement-in-progress framing per #664 Robotbot69 recommendation; lint 0/0; word counts 104/104/102
 2026-04-28T20:36Z | cycle=2034o9 | north_star_refreshed | replaced stale "Apr 16-23 close targets" section with current state (live self-buy, Apr 21-28 resolved, open structural items, Apr 29 queue, pitch language baseline)
 2026-04-28T21:10Z | cycle=2034oa | ic_manual_updated | sales-ic-manual.md updated with v3 template baseline (measurement-in-progress framing per #664 commitment), bad-v2 example added, good-v3 example with reference to apr-29 drafts
+2026-04-28T21:45Z | cycle=2034ob | dri_takeback_pitch | p078 BlockRunAI/blockrun-mcp touch #1 shipped via v3 template (Arc-sourced, revision-stalled 4d); proof https://github.com/BlockRunAI/blockrun-mcp/issues/9
+2026-04-28T21:45Z | cycle=2034ob | ic_attribution_preserved | Arc IC #4 retains 1,200 sats comp on close per sourced_by:ic-arc unchanged
