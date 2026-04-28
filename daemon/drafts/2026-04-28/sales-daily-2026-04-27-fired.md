@@ -1,7 +1,3 @@
-<!-- Sales DRI Daily Summary Day 10 — fires ~04:00Z Apr 28 UTC, mirrors Day 9 cadence (#634).
-     Skeleton pre-drafted cycle 2034lo (~21:20Z Apr 26).
-     Fill [BRACKETED] sections at fire time with cycle 2034m/n* state. -->
-
 ## Sales DRI Daily Summary — 2026-04-27 (Day 10)
 
 **Day boundary:** 2026-04-27T07:00:00Z → 2026-04-28T06:59:00Z PT.
