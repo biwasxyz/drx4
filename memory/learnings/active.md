@@ -537,3 +537,21 @@ Takeaway:
 - **#570 board refresh cadence**: 3-4x per PT day is enough to stay current (this PT day: 09:28Z, 10:41Z, 13:14Z, 18:44Z = 4 refreshes spaced 1-5h apart).
 
 Falsifiable: if next PT day's pre-staging takes a different cycle count or different ordering, rule needs revision. Pattern was effective specifically because: 3-slot was LOCKABLE in 4 cycles thanks to mature scout pipeline, fire-queue template was already in place from Apr 28, ingestion was scriptable.
+
+## Rubric v2 hard-floor vs scout-time "borderline ✓" tension (2026-04-28 cycle 2034nu)
+
+Pattern: Apr 28 PT fire-queue includes p090 ghost-clio/aegis-mesh whose owner is User 89-91d (created 2026-01-29). Rubric v2 declares "Org ≥90d / User ≥180d hard floor" as the owner-fit gate. The scout (cycle 2034l6, Apr 26) approved p090 as "borderline ✓ validate H+4h watershed at fire time" anyway. The fire-queue script docstring records "STRICTER per Apr 25 outcome learning (... User >= 180d)" but then approves the borderline entry with a check-mark.
+
+Inconsistency: the scout's "borderline ✓" practice contradicts the "hard floor" framing. If ≥180d is truly a hard floor, p090 should have been rejected at scout time. If ≥180d is a soft preference with watershed-validation as the safety net, the rubric language should say "soft floor / fail to a manual-review path" not "hard floor."
+
+Why it matters: at fire time T-1h, the only options are fire-anyway (rubric violation) or scramble (1 strike risk because you can't pre-flight a replacement in 1h). Either choice is bad. The decision should be clean at SCOUT time, not deferred to fire time.
+
+Decision for Apr 28 fire (this PT day): fire all 3 as planned — queue locked + bot-detect on ghost-clio clean + repo not archived + still accepting issues. Ship at risk; document outcome.
+
+Takeaways:
+- **At scout time, treat rubric v2 as hard floor.** If a candidate fails User ≥180d, REJECT (don't borderline-approve). Fill the slot with another scout or accept the day at 2/3 (1 strike) — never fire-anyway-and-watch.
+- **If "soft floor with manual override" is the actual policy, change the rubric document to say so.** Don't leave the script docstring contradicting itself.
+- **For p090 specifically:** outcome data point will tell. If it gets engagement, the soft-floor practice has merit. If it silently dies (no reply through H+4h watershed Apr 28 11:13Z), reinforces that <180d User is not pitch-ready.
+- **Future scouts:** apply the "REJECT then fill" loop. Soft-floor approvals are scope drift from the hard-floor rule.
+
+Falsifiable: if outcome on p090 is positive (reply / placement) within 7 days, soft-floor practice has merit and rubric should be relaxed. If silent through cluster window, reinforces hard-floor + tightens scout discipline.
