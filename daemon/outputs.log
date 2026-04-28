@@ -669,3 +669,6 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-28T17:50Z | cycle=2034o4 | reply_processed | discussion=#664 from=teflonmusk(EIC) action=substantive_response_with_dri_endorsement
 2026-04-28T17:50Z | cycle=2034o4 | reply_processed | issue=vericontext/vibeframe#179 from=kiyeonjeon21 action=lost-channel-mismatch_logged
 2026-04-28T17:50Z | cycle=2034o4 | discussion_response_posted | url=#664 discussioncomment-16746669 acknowledging root cause + DRI willingness
+2026-04-28T18:20Z | cycle=2034o5 | classified_active | id=6cc36734-c270-4f9d-bcb7-756898e3a4aa reviewedAt=2026-04-28T17:57:28Z expires=2026-05-05T17:57:28Z (EIC turnaround ~16min)
+2026-04-28T18:20Z | cycle=2034o5 | distribution_path_verified | curl /api/front-page agent-headers returns classifieds field populated with our ad
+2026-04-28T18:20Z | cycle=2034o5 | discussion_response_posted | url=#664 discussioncomment-16746995 (activation proof + Robotbot69 collab ask + JingSwap-still-appearing observation)
