@@ -3989,10 +3989,18 @@
         "url": "https://github.com/stakpak/agent",
         "btc_address": null
       },
-      "stage": "prospect",
+      "stage": "pitched",
       "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "last_touch_at": "2026-04-29T07:03:00Z",
+      "touches": [
+        {
+          "at": "2026-04-29T07:03:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/stakpak/agent/issues/715",
+          "summary": "Apr 29 PT v3 first-touch — stakpak/agent open-source agent ships code on autopilot, MCP-aware release pipeline (1448 stars)"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "Org maintainers (5yr GH)",
@@ -4012,7 +4020,11 @@
       "survey_source": "Apr 29 PT scout (cycles 2034mv-2034n7)",
       "queued_for_next_cold_slot": "2026-04-29T07:00:00Z",
       "last_pushed_at": "2026-04-27T12:14:18Z",
-      "last_freshness_check": "2026-04-27T15:25:00Z"
+      "last_freshness_check": "2026-04-27T15:25:00Z",
+      "pitched_at": "2026-04-29T07:03:00Z",
+      "pitch_proof_url": "https://github.com/stakpak/agent/issues/715",
+      "next_touch_at": "2026-05-06T07:03:00Z",
+      "pitch_template_version": "v3"
     },
     {
       "id": "p092",
@@ -4023,10 +4035,18 @@
         "url": "https://github.com/voidly-ai/voidly-pay",
         "btc_address": null
       },
-      "stage": "prospect",
+      "stage": "pitched",
       "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "last_touch_at": "2026-04-29T07:03:00Z",
+      "touches": [
+        {
+          "at": "2026-04-29T07:03:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/voidly-ai/voidly-pay/issues/17",
+          "summary": "Apr 29 PT v3 first-touch — voidly-pay agent-payments rail, off-chain credit + hire-and-release escrow"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "Org maintainers (187d, 18 repos)",
@@ -4046,7 +4066,11 @@
       "survey_source": "Apr 29 PT scout (cycle 2034mw)",
       "queued_for_next_cold_slot": "2026-04-29T07:00:00Z",
       "last_pushed_at": "2026-04-27T15:21:19Z",
-      "last_freshness_check": "2026-04-27T15:25:00Z"
+      "last_freshness_check": "2026-04-27T15:25:00Z",
+      "pitched_at": "2026-04-29T07:03:00Z",
+      "pitch_proof_url": "https://github.com/voidly-ai/voidly-pay/issues/17",
+      "next_touch_at": "2026-05-06T07:03:00Z",
+      "pitch_template_version": "v3"
     },
     {
       "id": "p093",
@@ -4057,10 +4081,18 @@
         "url": "https://github.com/up2itnow0822/agentpay-mcp",
         "btc_address": null
       },
-      "stage": "prospect",
+      "stage": "pitched",
       "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "last_touch_at": "2026-04-29T07:03:00Z",
+      "touches": [
+        {
+          "at": "2026-04-29T07:03:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/up2itnow0822/agentpay-mcp/issues/13",
+          "summary": "Apr 29 PT v3 first-touch — agentpay-mcp non-custodial x402 MCP payment layer"
+        }
+      ],
       "bant_plus": {
         "budget": "unknown",
         "authority": "User maintainer (289d GH, 85 repos)",
@@ -4080,7 +4112,11 @@
       "survey_source": "Apr 29 PT scout (cycle 2034n7)",
       "queued_for_next_cold_slot": "2026-04-29T07:00:00Z",
       "last_pushed_at": "2026-04-27T15:11:30Z",
-      "last_freshness_check": "2026-04-27T15:25:00Z"
+      "last_freshness_check": "2026-04-27T15:25:00Z",
+      "pitched_at": "2026-04-29T07:03:00Z",
+      "pitch_proof_url": "https://github.com/up2itnow0822/agentpay-mcp/issues/13",
+      "next_touch_at": "2026-05-06T07:03:00Z",
+      "pitch_template_version": "v3"
     }
   ],
   "evaluator_candidates": [

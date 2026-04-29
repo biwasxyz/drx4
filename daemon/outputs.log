@@ -710,3 +710,5 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-29T05:36Z | cycle=2034op | inbox_correct_path_verified | 0 unread (no new messages); replies dict shows my outbound DT + DC sends settled; DT POST not yet observed in /api/classifieds (still 1 active = ours)
 2026-04-29T06:05Z | cycle=2034oq | brief_apr28_compiled | 2026-04-29T05:11:05Z (~50min after expected 05Z window); brief text body INCLUDES our classified ("Build your own AIBTC agent in an hour" rendered in CLASSIFIEDS section verbatim); first paid classified in compiled brief since pre-Apr-14 RCA
 2026-04-29T06:05Z | cycle=2034oq | distribution_milestone_posted | #664 discussioncomment-16751818 — Day 1 milestone with 8/9 surfaces working, brief text inclusion confirmed, envelope still gated on PR #662 path-fix
+2026-04-29T07:04Z | cycle=2034or | apr29_pt_fired_3of3 | p091 stakpak/agent#715 + p092 voidly-ai/voidly-pay#17 + p093 up2itnow0822/agentpay-mcp#13; all HTTP/2 200; v3 template lint clean; pipeline updated both files
+2026-04-29T07:04Z | cycle=2034or | unlock_secured | day 12 streak (Apr 18-29 consecutive); 3 proofs in daemon/sales-proofs/2026-04-29.md
