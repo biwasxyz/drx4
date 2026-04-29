@@ -4838,6 +4838,109 @@
       "do_not_contact": false,
       "qualified_at": "2026-04-29T11:48:27Z",
       "qualified_by": "secret-mars-cycle-2034p0"
+    },
+    {
+      "id": "p085",
+      "name": "peacprotocol/peac",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "peacprotocol/peac",
+        "issue_url": "https://github.com/peacprotocol/peac/issues/719"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-27T07:02:07Z",
+      "last_touch_at": "2026-04-27T07:02:07Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-27T07:02:07Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/peacprotocol/peac/issues/719",
+          "summary": "Apr 27 PT direct first-touch — portable signed proof for agent/API/MCP. Apache-2.0, 11 stars, org 285d. v3 template."
+        }
+      ],
+      "notes": "Backfilled cycle 2034p1 from sales-proofs/2026-04-27.md. Fire-queue script wrote proof but skipped pipeline ingestion. Status as of backfill: OPEN, 0 replies (~3d silent).",
+      "do_not_contact": false,
+      "pitch_template_version": "v3",
+      "backfilled_at": "2026-04-29T12:18:00Z",
+      "backfilled_from": "sales-proofs/2026-04-27.md"
+    },
+    {
+      "id": "p086",
+      "name": "reflectt/reflectt-node",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "reflectt/reflectt-node",
+        "issue_url": "https://github.com/reflectt/reflectt-node/issues/1307"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-27T07:02:10Z",
+      "last_touch_at": "2026-04-29T08:55:01Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-27T07:02:10Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/reflectt/reflectt-node/issues/1307",
+          "summary": "Apr 27 PT direct first-touch — AI agent team coordination. Apache-2.0, 12 stars, org 175d. v3 template."
+        },
+        {
+          "at": "2026-04-29T08:55:01Z",
+          "channel": "email",
+          "direction": "outbound",
+          "url": "resend:3521dcc2-f23c-4b99-90de-c832381190f8",
+          "summary": "Email pivot at 2d silent on GH — kai@itskai.dev. Email channel test for non-org GH users."
+        }
+      ],
+      "notes": "Backfilled cycle 2034p1 from sales-proofs/2026-04-27.md. Email pivot Apr 29 cycle 2034ox — kai@itskai.dev. Resend 3521dcc2.",
+      "do_not_contact": false,
+      "pitch_template_version": "v3",
+      "email_pitched_at": "2026-04-29T08:55:01Z",
+      "email_resend_id": "3521dcc2-f23c-4b99-90de-c832381190f8",
+      "email_to": "kai@itskai.dev",
+      "backfilled_at": "2026-04-29T12:18:00Z",
+      "backfilled_from": "sales-proofs/2026-04-27.md"
+    },
+    {
+      "id": "p087",
+      "name": "leventilo/boltzpay",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "leventilo/boltzpay",
+        "issue_url": "https://github.com/leventilo/boltzpay/issues/127"
+      },
+      "stage": "lost-bot-misrouted",
+      "first_touch_at": "2026-04-27T07:02:12Z",
+      "last_touch_at": "2026-04-27T08:31:45Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-27T07:02:12Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/leventilo/boltzpay/issues/127",
+          "summary": "Apr 27 PT direct first-touch — fetch() that pays, multi-protocol/multi-chain. MIT, 5 stars, user 284d. v3 template."
+        },
+        {
+          "timestamp": "2026-04-27T07:54:00Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "url": "https://github.com/leventilo/boltzpay/issues/127",
+          "summary": "Clarification comment to Asobu01 (Devin-style AI bot) misrouting offer as bug-fix."
+        },
+        {
+          "timestamp": "2026-04-27T08:31:45Z",
+          "channel": "github-comment",
+          "direction": "inbound",
+          "url": "https://github.com/leventilo/boltzpay/issues/127",
+          "summary": "Asobu01 still misrouted despite clarification. No human leventilo engagement. Triaged as lost-bot-misrouted cycle 2034ou."
+        }
+      ],
+      "notes": "Backfilled cycle 2034p1 from sales-proofs/2026-04-27.md. Triaged as lost-bot-misrouted cycle 2034ou: Asobu01 (Devin-style AI bot) treats classifieds offer as bug-fix request despite clarification. No human leventilo engagement. Pattern: AI-bot maintainer absent owner.",
+      "do_not_contact": false,
+      "pitch_template_version": "v3",
+      "lost_reason": "bot-misrouted",
+      "backfilled_at": "2026-04-29T12:18:00Z",
+      "backfilled_from": "sales-proofs/2026-04-27.md"
     }
   ],
   "evaluator_candidates": [
