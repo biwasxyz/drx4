@@ -1,10 +1,11 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034p4 — Operator visibility gap fixed: send-mail.py auto-BCC + DMARC ask filed
-cycle: 2034p4
-cycle_goal: Address operator "I don't see it being sent" — add auto-BCC of every outbound to biwas2059@gmail.com so operator sees on Gmail app. DMARC missing on drx4.xyz blocks Gmail inbox-placement; operator handling DNS edit (CF token here is zone:read only).
+## Cycle 2034p5 — email-status.sh shipped (deliverability snapshot tool)
+cycle: 2034p5
+cycle_goal: Build operator-facing deliverability tool to complement BCC fix. DMARC still pending operator DNS edit. All other channels quiet.
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm · sBTC 6,949 sats · STX 14.99 · BTC 0
 shipped:
-  - **send-mail.py auto-BCC operator** — every outbound now BCC's biwas2059@gmail.com so operator sees the send on Gmail app (no Resend dashboard login needed). One-line change: added `BCC_OPERATOR` constant + `"bcc": [BCC_OPERATOR]` in payload. Verified live with test send Resend `8f1cf34b`.
+  - **email-status.sh** — concise deliverability snapshot tool. Reads `daemon/outbox/email-sent.jsonl` + queries Resend per-id for last_event status. Prints sent_at / to / type / resend_status table + daily count. Operator can run `bash scripts/email-status.sh 20` anytime for visibility without Resend dashboard. Live test shows 8/10 most recent confirmed delivered (2 "unknown" = Resend API caching quirk on recent IDs).
+  - **send-mail.py auto-BCC operator** prev cycle — every outbound now BCC's biwas2059@gmail.com.
   - **Diagnosed operator "no visibility"** — Resend HTTPS API sends don't appear in any Gmail "Sent" folder because Gmail isn't the SMTP path. Resend confirmed delivery for all 6 prospect emails today + the 3 Apr 28 tests; emails are landing but Gmail is sorting brand-new sender to Spam/Promotions. DMARC missing on drx4.xyz is the upstream cause.
   - **DMARC ask filed to operator** — `_dmarc.drx4.xyz TXT v=DMARC1; p=none;` (rua optional). CF API token here is zone:read only, no DNS:edit; operator handles DNS edit in CF dashboard. Will recheck and re-test deliverability once added.
   - **Apr 30 fire script HARDENED** prev cycle — 4 silent-failure bugs caught + fixed pre-deploy.
@@ -33,7 +34,7 @@ commitments_outstanding:
   - **Publish 7-day reach data on #664** when slot expires 2026-05-05T17:57:28Z; update pitch templates from observed evidence
   - **Update IC manuals** post-7-day window with observed pitch language
   - **Continue daily distribution snapshot** through May 5
-next: ScheduleWakeup 1800s. Watching for: (a) operator confirms DMARC TXT added so I can re-test deliverability; (b) Robotbot69 day-1 reach reply ~18:00Z (~4h); (c) Apr 29 PT 7h silent; (d) Gmail batch 14h+ window for replies.
+next: ScheduleWakeup 1800s. Watching for: (a) DMARC TXT in DNS (still missing per dig); (b) Robotbot69 day-1 reach reply ~18:00Z (~3.5h); (c) Apr 29 PT 8h silent; (d) Gmail 15h+ window.
 
 this_week_close_target: JingSwap CLOSED + renewal-nudge fired · Apr 26-29 PT FIRED 12/12 · 4 watershed-clear days · #654 cutoff rule RATIFIED · #657 review correction shipped · 6+ learnings logged · EMAIL CHANNEL UNPAUSED + 6 nurture re-engages in 26h (vibeframe + JingSwap + reflectt + StackingDAO + elizaOS + Arkadiko) · #661 wallet attestation shipped · #664 EIC RCA + DRI endorsement + Robotbot69 day-1 cadence committed · PR #662 distribution middleware LIVE on 7/8 surfaces · Apr 28 brief CLASSIFIEDS text-body inclusion VERIFIED (first since Apr 14) · Day 1+2 distribution snapshots captured · Pipeline guard installed (pre-commit Section 4) · NORTH_STAR refreshed
 close_target_deadline: 2026-04-30T06:59:00Z
