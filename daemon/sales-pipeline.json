@@ -2669,7 +2669,7 @@
       },
       "stage": "pitched",
       "first_touch_at": "2026-04-15T18:51:00Z",
-      "last_touch_at": "2026-04-15T18:51:00Z",
+      "last_touch_at": "2026-04-29T10:44:38Z",
       "touches": [
         {
           "timestamp": "2026-04-15T18:51:00Z",
@@ -2677,10 +2677,20 @@
           "direction": "outbound",
           "url": "https://github.com/arkadiko-dao/arkadiko/issues/617",
           "summary": "DIRECT 3k/7d pitch. Cited PR #616 stake-registry fix."
+        },
+        {
+          "at": "2026-04-29T10:44:38Z",
+          "channel": "email",
+          "direction": "outbound",
+          "url": "resend:d039f8d2-7c6f-4be5-9e39-0293273fd635",
+          "summary": "Email re-engage at exact 14d silent threshold; founder email from arkadiko-dao commits; emphasizes PR #662 distribution + brief CLASSIFIEDS restoration"
         }
       ],
       "notes": "Swarm batch cycle 2034aw3. USDA/DIKO defi category.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "email_pitched_at": "2026-04-29T10:44:38Z",
+      "email_resend_id": "d039f8d2-7c6f-4be5-9e39-0293273fd635",
+      "email_to": "me@macx.im"
     },
     {
       "id": "p031",
