@@ -689,3 +689,4 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-28T23:27Z | cycle=2034oe | tooling_fixed | distribution-daily-check.sh now polls correct singular path + adds latest-brief fallback + diagnostic context (compiled state, latest date)
 2026-04-29T00:02Z | cycle=2034of | day1_snapshot | 2026-04-29.json captured (3/4 same as day 0); date rolled mid-cycle at 00:00Z
 2026-04-29T00:02Z | cycle=2034of | report_template_scaffolded | distribution-daily/REPORT-TEMPLATE.md ready for May 5 fill-in-blanks publish (table per day, methodology, drx4.xyz hits placeholder, cross-DRI section, pitch-update commitment)
+2026-04-29T00:35Z | cycle=2034og | tooling_extended | distribution-daily-check.sh now captures X-Classifieds-Injected response header from PR #662 middleware (front_page + signals); diagnostic distinguishes "lost random draw" from "middleware did not run"

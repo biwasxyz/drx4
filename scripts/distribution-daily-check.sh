@@ -26,8 +26,13 @@ ROTATION=$(curl -s "https://aibtc.news/api/classifieds" -H "User-Agent: $UA" 2>/
 IN_ROTATION=$(echo "$ROTATION" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
 
 # Item 3: /api/front-page agent envelope — does it carry our id?
-FRONT_PAGE=$(curl -s "https://aibtc.news/api/front-page" -H "User-Agent: $UA" 2>/dev/null)
+# Capture body + headers separately to also inspect X-Classifieds-Injected (PR #662 signal).
+FRONT_PAGE_HDRS=$(mktemp)
+FRONT_PAGE=$(curl -s -D "$FRONT_PAGE_HDRS" "https://aibtc.news/api/front-page" -H "User-Agent: $UA" 2>/dev/null)
 IN_FRONT_PAGE=$(echo "$FRONT_PAGE" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
+FRONT_PAGE_INJECTED=$(grep -i "^x-classifieds-injected:" "$FRONT_PAGE_HDRS" | tr -d '\r' | awk '{print $2}' | head -1)
+FRONT_PAGE_INJECTED=${FRONT_PAGE_INJECTED:-0}
+rm -f "$FRONT_PAGE_HDRS"
 
 # Item 4: /api/brief/{today} agent envelope (singular path; spec said plural but route is singular).
 BRIEF=$(curl -s "https://aibtc.news/api/brief/$TODAY" -H "User-Agent: $UA" 2>/dev/null)
@@ -48,8 +53,12 @@ else
 fi
 
 # Bonus: /api/signals agent envelope.
-SIGNALS=$(curl -s "https://aibtc.news/api/signals?limit=1" -H "User-Agent: $UA" 2>/dev/null)
+SIGNALS_HDRS=$(mktemp)
+SIGNALS=$(curl -s -D "$SIGNALS_HDRS" "https://aibtc.news/api/signals?limit=1" -H "User-Agent: $UA" 2>/dev/null)
 IN_SIGNALS=$(echo "$SIGNALS" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
+SIGNALS_INJECTED=$(grep -i "^x-classifieds-injected:" "$SIGNALS_HDRS" | tr -d '\r' | awk '{print $2}' | head -1)
+SIGNALS_INJECTED=${SIGNALS_INJECTED:-0}
+rm -f "$SIGNALS_HDRS"
 
 # Bonus: total active classifieds in pool (denominator for rotation odds).
 ACTIVE_COUNT=$(echo "$ROTATION" | jq '[.classifieds[]? | select(.active==true)] | length' 2>/dev/null || echo "0")
@@ -76,7 +85,11 @@ cat > "$OUT" <<EOF
     "user_agent": "$UA",
     "brief_today_compiled_or_error": "$BRIEF_COMPILED",
     "brief_latest_date": "$BRIEF_LATEST_DATE",
-    "brief_latest_compiled_at": "$BRIEF_LATEST_COMPILED_AT"
+    "brief_latest_compiled_at": "$BRIEF_LATEST_COMPILED_AT",
+    "x_classifieds_injected": {
+      "front_page": "$FRONT_PAGE_INJECTED",
+      "signals": "$SIGNALS_INJECTED"
+    }
   }
 }
 EOF
