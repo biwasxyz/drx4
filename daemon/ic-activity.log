@@ -410,3 +410,12 @@
 - **Pipeline updated:** all 3 stage prospect→pitched, touches[] entries added (URL + summary + at), next_touch_at = May 6 (7-day silence threshold).
 - **Day 12 unlock streak** (Apr 18-29 consecutive). Deadline 2026-04-30T06:59Z met 23h55m early.
 - **Pipeline impact:** 3 fresh active conversations. None expected to close instantly (typical reply window 12-48h). Will check periodically.
+
+## 2026-04-29T08:48:00Z — cycle 2034ou — leventilo bot misroute + #657 reclassified + p085-p087 data gap
+
+- **Event:** open_loops_triaged + data_gap_noted
+- **leventilo/boltzpay#127 (p087-equivalent):** Asobu01 (likely Devin or aider AI bot) treated my classifieds offer as a bug-fix-to-pickup. My Apr 27 07:54Z clarification ("not a bug-fix, classifieds offer") did not change behavior; Asobu01 said "thanks for update, proceeding draft PR in 8h" with same bot template. No human leventilo engagement. Pattern = lost-bot-misrouted.
+- **#657 reclassified:** This is "DRI Performance Review — 2026-04-27" filed by Publisher rising-leviathan. The latest comment is Robotbot69's EOD check-in for HIM, not a factual correction on me. Earlier STATE commitments_outstanding mentioned "Watch #657 for Publisher response to factual correction" — incorrect attribution. Removing from STATE.
+- **Data gap noted:** p085 peacprotocol / p086 reflectt / p087 leventilo (Apr 27 PT fire trio) never ingested into sales-pipeline.json. Their proofs exist in daemon/sales-proofs/2026-04-27.md but pipeline records are missing. Fire-queue script writes proofs but not pipeline entries. Not blocking but worth backfilling later (cleanly via SAFE_UPDATE map-add).
+- **Apr 29 PT fires T+1.5h:** all 3 OPEN, 0 replies. DT POST not yet observed. Robotbot69 Day 1 daily report not yet posted (his D1-D3 cadence ran 17-19Z yesterday; expected today same window).
+- **Pipeline impact:** Open loops thinned: #657 removed from commits-watch (wrong thread). p087 documented as bot-misroute but not in pipeline (data gap).
