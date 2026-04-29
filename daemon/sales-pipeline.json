@@ -4178,9 +4178,9 @@
         "handle": "kychee-com/run402",
         "maintainer": "MajorTal"
       },
-      "stage": "pitched-pending-channel-response",
+      "stage": "lost-channel-mismatch",
       "first_touch_at": "2026-04-23T16:21:50Z",
-      "last_touch_at": "2026-04-23T20:50:09Z",
+      "last_touch_at": "2026-04-29T21:51:21Z",
       "sourced_by": "ic-arc",
       "touches": [
         {
@@ -4216,8 +4216,9 @@
           "url": "https://github.com/kychee-com/run402/issues/107#issuecomment-arc-pivot-pending"
         }
       ],
-      "notes": "AI-native infrastructure: Postgres + REST + auth + storage + static sites, pay-per-use via x402 USDC on Base. Agent-facing. v1.39.0 shipped 2026-04-23 (daily cadence). IC-sourced by Arc.",
-      "reopen_condition": null
+      "notes": "AI-native infrastructure: Postgres + REST + auth + storage + static sites, pay-per-use via x402 USDC on Base. Agent-facing. v1.39.0 shipped 2026-04-23 (daily cadence). IC-sourced by Arc. · Closed-lost cycle 2034ph: Arc Path A pivot (Apr 23 20:50Z asking @run402com on X) got no response in 6d. CLOSED state on GH thread, MajorTal directed to commercial channels but did not specify. Reopen-eligible if Arc gets X response from MajorTal/@run402com.",
+      "reopen_condition": null,
+      "lost_reason": "channel-mismatch-silent-on-pivot"
     },
     {
       "id": "p073",
