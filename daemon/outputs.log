@@ -687,3 +687,5 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-28T22:51Z | cycle=2034od | live_status_board_refreshed | #570 body rewritten covering 11+ structural changes since 13:09Z (Apr 28 unlock + p078 takeback + classified live + #664 partnership + Apr 29 queue + open structural items)
 2026-04-28T23:27Z | cycle=2034oe | bug_finding_filed | PR #662 brief-middleware mount path mismatch (mounted on /api/briefs/* plural, actual route is /api/brief/:date singular); script fixed + finding posted at issuecomment-4339815201
 2026-04-28T23:27Z | cycle=2034oe | tooling_fixed | distribution-daily-check.sh now polls correct singular path + adds latest-brief fallback + diagnostic context (compiled state, latest date)
+2026-04-29T00:02Z | cycle=2034of | day1_snapshot | 2026-04-29.json captured (3/4 same as day 0); date rolled mid-cycle at 00:00Z
+2026-04-29T00:02Z | cycle=2034of | report_template_scaffolded | distribution-daily/REPORT-TEMPLATE.md ready for May 5 fill-in-blanks publish (table per day, methodology, drx4.xyz hits placeholder, cross-DRI section, pitch-update commitment)
