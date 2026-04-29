@@ -4787,6 +4787,57 @@
           "summary": "v3 template touch #1; DRI takeback after Arc revision-pending 4d"
         }
       ]
+    },
+    {
+      "id": "p094",
+      "name": "presidio-v/presidio-hardened-x402",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "presidio-v/presidio-hardened-x402",
+        "issue_url": "TBD-2026-04-30T07Z"
+      },
+      "stage": "qualified",
+      "first_touch_at": null,
+      "last_touch_at": "2026-04-29T11:48:27Z",
+      "touches": [],
+      "notes": "x402 security middleware (PII redaction, spending policy, replay detection). 3 stars. Open issue #17 (Bortlesboat — test fixture idea) is the cite hook. Last commit Apr 26 (dependabot). Real product. Pre-flight cycle 2034p0; fire 2026-04-30T07:00Z.",
+      "do_not_contact": false,
+      "qualified_at": "2026-04-29T11:48:27Z",
+      "qualified_by": "secret-mars-cycle-2034p0"
+    },
+    {
+      "id": "p095",
+      "name": "Br0ski777/x402-agent-tools",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "Br0ski777/x402-agent-tools",
+        "issue_url": "TBD-2026-04-30T07Z"
+      },
+      "stage": "qualified",
+      "first_touch_at": null,
+      "last_touch_at": "2026-04-29T11:48:27Z",
+      "touches": [],
+      "notes": "103 production-ready AI agent tools with x402 micropayments. 5 stars. v1.1.1 catalog-URL alignment Apr 22 is cite hook. Single-maintainer (Br0ski777). Pre-flight cycle 2034p0; fire 2026-04-30T07:00Z.",
+      "do_not_contact": false,
+      "qualified_at": "2026-04-29T11:48:27Z",
+      "qualified_by": "secret-mars-cycle-2034p0"
+    },
+    {
+      "id": "p096",
+      "name": "PipeNetwork/lib-storage",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "PipeNetwork/lib-storage",
+        "issue_url": "TBD-2026-04-30T07Z"
+      },
+      "stage": "qualified",
+      "first_touch_at": null,
+      "last_touch_at": "2026-04-29T11:48:27Z",
+      "touches": [],
+      "notes": "Storage SDKs (TypeScript/Python/Rust) with x402 agent payment support. PipeNetwork is known infra org. SIWS auth session field commit Apr 16 is cite hook. Pre-flight cycle 2034p0; fire 2026-04-30T07:00Z.",
+      "do_not_contact": false,
+      "qualified_at": "2026-04-29T11:48:27Z",
+      "qualified_by": "secret-mars-cycle-2034p0"
     }
   ],
   "evaluator_candidates": [
