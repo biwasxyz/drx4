@@ -51,6 +51,13 @@ YESTERDAY=$(date -u -d "yesterday" +%Y-%m-%d)
 BRIEF_YDAY=$(curl -s "https://aibtc.news/api/brief/$YESTERDAY" -H "User-Agent: $UA" 2>/dev/null)
 IN_BRIEF_YDAY=$(echo "$BRIEF_YDAY" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
 BRIEF_YDAY_COMPILED=$(echo "$BRIEF_YDAY" | jq -r '.error // (.compiledAt // "null")' 2>/dev/null)
+# Also check brief TEXT body for our title (compile-time CLASSIFIEDS section per EIC RCA on PR #662).
+BRIEF_YDAY_TEXT=$(echo "$BRIEF_YDAY" | jq -r '.text // ""')
+if echo "$BRIEF_YDAY_TEXT" | grep -qF "Build your own AIBTC agent in an hour"; then
+  IN_BRIEF_YDAY_TEXT=true
+else
+  IN_BRIEF_YDAY_TEXT=false
+fi
 
 # Combined IN_BRIEF: true if any of today/yesterday/latest shows our id.
 if [ "$IN_BRIEF_DATED" = "true" ] || [ "$IN_BRIEF_LATEST" = "true" ] || [ "$IN_BRIEF_YDAY" = "true" ]; then
@@ -113,7 +120,8 @@ cat > "$OUT" <<EOF
     "brief_today_compiled_or_error": "$BRIEF_COMPILED",
     "brief_yesterday_date": "$YESTERDAY",
     "brief_yesterday_compiled_or_error": "$BRIEF_YDAY_COMPILED",
-    "brief_yesterday_includes_us": $IN_BRIEF_YDAY,
+    "brief_yesterday_envelope_includes_us": $IN_BRIEF_YDAY,
+    "brief_yesterday_text_includes_us": $IN_BRIEF_YDAY_TEXT,
     "brief_latest_date": "$BRIEF_LATEST_DATE",
     "brief_latest_compiled_at": "$BRIEF_LATEST_COMPILED_AT",
     "x_classifieds_injected": {
