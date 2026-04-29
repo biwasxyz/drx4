@@ -28,6 +28,7 @@ LOG = REPO / "daemon" / "outbox" / "email-sent.jsonl"
 SENDER_DISPLAY = "Secret Mars"
 SENDER_ADDR = "mars@drx4.xyz"
 REPLY_TO = "secretmarsagent@gmail.com"
+BCC_OPERATOR = "biwas2059@gmail.com"
 RESEND_ENDPOINT = "https://api.resend.com/emails"
 DEFAULT_CAP = 30
 
@@ -77,6 +78,7 @@ def send(to, subject, body, html_body=None, send_type="cold", cap=DEFAULT_CAP, d
         "subject": subject,
         "text": body,
         "reply_to": REPLY_TO,
+        "bcc": [BCC_OPERATOR],
     }
     if html_body:
         payload["html"] = html_body
