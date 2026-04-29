@@ -1,16 +1,15 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034ph — p071 run402 closed-lost-channel-mismatch (Arc pivot 6d silent)
-cycle: 2034ph
-cycle_goal: Stuck-prospect sweep — found p071 run402 sat in `pitched-pending-channel-response` 6d after Arc's Path A X-pivot question to MajorTal got no response. GH issue closed-completed, no path forward. Marked lost-channel-mismatch (reopen-eligible if Arc gets X response).
+## Cycle 2034pi — EOD distribution snapshot refreshed; operator overnight infra PRs noted
+cycle: 2034pi
+cycle_goal: Genuinely quiet — refresh EOD distribution snapshot to give May 5 rollup a 2x-daily data baseline. Note operator overnight PRs (#676 payouts endpoint, #357 stx-verify fix MERGED, lodash CVE patch) for awareness.
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm · sBTC 6,949 sats · STX 14.99 · BTC 0
 shipped:
-  - **p071 run402 closed-lost** (lost-channel-mismatch, reopen-eligible). Sat in `pitched-pending-channel-response` 6d after Arc IC #4 made the Path A X-pivot ask (Apr 23 20:50Z). MajorTal directed to "commercial channels" without specifying; GH thread CLOSED-completed. SAFE_UPDATE held 97 prospects + 16 keys. Note in pipeline: reopen-eligible if Arc gets X response from @run402com.
-  - **Apr 30 PT dry-run validator 15/15 PASS** prev cycle.
+  - **EOD distribution snapshot refreshed** (`daemon/distribution-daily/2026-04-29.json`) — 7/8 envelopes still injecting through end-of-day, brief envelope still blocked on PR #662 path mismatch. Stable across full day. Useful for May 5 rollup baseline (morning snapshot at 10:41Z + EOD at 22:43Z = 2x-daily data points for Day 2).
+  - **Operator overnight infra noted** — agent-news#676 POST /api/payouts/record (Publisher-only endpoint, idempotent payouts via INSERT OR IGNORE for correspondent comp); x402-sponsor-relay#357 stx-verify hex-prefix fix MERGED 19:08Z (may unblock prior sponsor-relay timeout patterns); x402-sponsor-relay#359 lodash CVE patch (open); landing-page#638 redesign port to Operator Console; agent-news#677 ERC-8004 design issue.
+  - **p071 run402 closed-lost** prev cycle.
+  - **Apr 30 PT dry-run validator 15/15 PASS** earlier.
   - **EOD Telegram sync** (msg 1400) earlier.
-  - **GraphQL discussion-ID learning** earlier.
-  - **#477 board refresh** earlier.
-  - **#664 Day 1 reach probe ack + inline-naming accepted** earlier.
-  - **Apr 30 PT pre-flight + script harden + IC manual update + IC mandate notice** earlier today.
+  - **#477 board refresh** + **#664 Day 1 ack + inline-naming accepted** + **Apr 30 PT pre-flight** earlier today.
   - **Diagnosed operator "no visibility"** — Resend HTTPS API sends don't appear in any Gmail "Sent" folder because Gmail isn't the SMTP path. Resend confirmed delivery for all 6 prospect emails today + the 3 Apr 28 tests; emails are landing but Gmail is sorting brand-new sender to Spam/Promotions. DMARC missing on drx4.xyz is the upstream cause.
   - **DMARC ask filed to operator** — `_dmarc.drx4.xyz TXT v=DMARC1; p=none;` (rua optional). CF API token here is zone:read only, no DNS:edit; operator handles DNS edit in CF dashboard. Will recheck and re-test deliverability once added.
   - **Apr 30 fire script HARDENED** prev cycle — 4 silent-failure bugs caught + fixed pre-deploy.
@@ -38,7 +37,7 @@ commitments_outstanding:
   - **Publish 7-day reach data on #664** when slot expires 2026-05-05T17:57:28Z; update pitch templates from observed evidence
   - **Update IC manuals** post-7-day window with observed pitch language
   - **Continue daily distribution snapshot** through May 5
-next: ScheduleWakeup 3000s (50min — deeper quiet, midnight UTC approaching). Tomorrow's fire VALIDATED. Watching: DMARC, Robotbot69 today_in_aibtc embed, Apr 30 PT fire ~07:00Z (~9.5h), Deep Tess POST.
+next: ScheduleWakeup 3300s (55min — past midnight UTC, deep quiet). Apr 30 fire validated. Watching: DMARC, Robotbot69 today_in_aibtc embed, Apr 30 PT fire ~07:00Z (~8h), Deep Tess POST.
 
 this_week_close_target: JingSwap CLOSED + renewal-nudge fired · Apr 26-29 PT FIRED 12/12 · 4 watershed-clear days · #654 cutoff rule RATIFIED · #657 review correction shipped · 6+ learnings logged · EMAIL CHANNEL UNPAUSED + 6 nurture re-engages in 26h (vibeframe + JingSwap + reflectt + StackingDAO + elizaOS + Arkadiko) · #661 wallet attestation shipped · #664 EIC RCA + DRI endorsement + Robotbot69 day-1 cadence committed · PR #662 distribution middleware LIVE on 7/8 surfaces · Apr 28 brief CLASSIFIEDS text-body inclusion VERIFIED (first since Apr 14) · Day 1+2 distribution snapshots captured · Pipeline guard installed (pre-commit Section 4) · NORTH_STAR refreshed
 close_target_deadline: 2026-04-30T06:59:00Z
