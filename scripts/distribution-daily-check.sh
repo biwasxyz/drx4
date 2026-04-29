@@ -39,14 +39,21 @@ BRIEF=$(curl -s "https://aibtc.news/api/brief/$TODAY" -H "User-Agent: $UA" 2>/de
 IN_BRIEF_DATED=$(echo "$BRIEF" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
 BRIEF_COMPILED=$(echo "$BRIEF" | jq -r '.error // (.compiledAt // "null")' 2>/dev/null)
 
-# Item 4b: /api/brief (latest) agent envelope — works even if today's brief not compiled yet.
+# Item 4b: /api/brief (latest) agent envelope.
 BRIEF_LATEST=$(curl -s "https://aibtc.news/api/brief" -H "User-Agent: $UA" 2>/dev/null)
 IN_BRIEF_LATEST=$(echo "$BRIEF_LATEST" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
 BRIEF_LATEST_DATE=$(echo "$BRIEF_LATEST" | jq -r '.date // "null"')
 BRIEF_LATEST_COMPILED_AT=$(echo "$BRIEF_LATEST" | jq -r '.compiledAt // "null"')
 
-# Combined IN_BRIEF: true if either /api/brief or /api/brief/today shows our id.
-if [ "$IN_BRIEF_DATED" = "true" ] || [ "$IN_BRIEF_LATEST" = "true" ]; then
+# Item 4c: /api/brief/{yesterday} — brief compile cadence is ~5h after midnight UTC, so previous-day's brief
+# is the one most likely to be live during the window AND most likely to inject our classified.
+YESTERDAY=$(date -u -d "yesterday" +%Y-%m-%d)
+BRIEF_YDAY=$(curl -s "https://aibtc.news/api/brief/$YESTERDAY" -H "User-Agent: $UA" 2>/dev/null)
+IN_BRIEF_YDAY=$(echo "$BRIEF_YDAY" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
+BRIEF_YDAY_COMPILED=$(echo "$BRIEF_YDAY" | jq -r '.error // (.compiledAt // "null")' 2>/dev/null)
+
+# Combined IN_BRIEF: true if any of today/yesterday/latest shows our id.
+if [ "$IN_BRIEF_DATED" = "true" ] || [ "$IN_BRIEF_LATEST" = "true" ] || [ "$IN_BRIEF_YDAY" = "true" ]; then
   IN_BRIEF=true
 else
   IN_BRIEF=false
@@ -84,6 +91,9 @@ cat > "$OUT" <<EOF
     "active_pool_size": $ACTIVE_COUNT,
     "user_agent": "$UA",
     "brief_today_compiled_or_error": "$BRIEF_COMPILED",
+    "brief_yesterday_date": "$YESTERDAY",
+    "brief_yesterday_compiled_or_error": "$BRIEF_YDAY_COMPILED",
+    "brief_yesterday_includes_us": $IN_BRIEF_YDAY,
     "brief_latest_date": "$BRIEF_LATEST_DATE",
     "brief_latest_compiled_at": "$BRIEF_LATEST_COMPILED_AT",
     "x_classifieds_injected": {

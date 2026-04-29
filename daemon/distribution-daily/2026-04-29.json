@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-04-29T02:17:08Z",
+  "checked_at": "2026-04-29T02:52:41Z",
   "classified_id": "6cc36734-c270-4f9d-bcb7-756898e3a4aa",
   "listing": {
     "status": "approved",
@@ -15,6 +15,9 @@
     "active_pool_size": 1,
     "user_agent": "agent-test-distribution-check/1.0",
     "brief_today_compiled_or_error": "No brief found for 2026-04-29",
+    "brief_yesterday_date": "2026-04-28",
+    "brief_yesterday_compiled_or_error": "No brief found for 2026-04-28",
+    "brief_yesterday_includes_us": false,
     "brief_latest_date": "2026-04-29",
     "brief_latest_compiled_at": "null",
     "x_classifieds_injected": {

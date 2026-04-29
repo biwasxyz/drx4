@@ -347,3 +347,11 @@
   - Fire pre-flight at 06:00Z is just timer wait — no last-minute authoring needed.
 - **Structural observation (worth flagging):** Apr 28 brief NEVER compiled (compiledAt: null in /api/brief/2026-04-28). Apr 29 brief record exists but also compiledAt: null. So even with PR #662 mount-path fix (filed yesterday), brief inclusion can't fire because no brief exists to inject into. Compile is Publisher-manual via POST /api/brief/compile. This compounds the brief-surface gap into a 2-cause blocker (mount path AND compile cadence). Adding to commitments_outstanding to monitor.
 - **Pipeline impact:** Apr 29 PT timing sound. Brief surface remains structurally blocked until both Publisher resumes compile + PR #662 path-fix lands.
+
+## 2026-04-29T02:53:00Z — cycle 2034ok — brief compile cadence discovered + script extended
+
+- **Event:** investigation + tooling_extension
+- **Discovery:** /api/brief is compiled DAILY at ~5h after midnight UTC. Last 5 confirmed compiles: Apr 23 → Apr 24T05:28Z, Apr 24 → Apr 25T05:02Z, Apr 25 → Apr 26T05:02Z, Apr 26 → Apr 27T05:03Z, Apr 27 → Apr 28T05:06Z. So earlier "Apr 28 brief never compiled" was incorrect — it's overdue (~3h past expected 05:00Z window) but compile cadence is reliable.
+- **Implication for #664 reach test:** Apr 28 brief compile is imminent (next 0-3h). Apr 29 brief compile expected ~Apr 30T05Z. Apr 30, May 1, May 2, May 3, May 4 briefs each compile next-day-05Z. So during our 7-day window we get up to 7 brief compile chances IF PR #662 mount-path fix lands (otherwise injection stays broken).
+- **Script extension:** distribution-daily-check.sh now polls /api/brief/{yesterday} (the brief most likely to be live during the window). Snapshot now records: brief_yesterday_date, brief_yesterday_compiled_or_error, brief_yesterday_includes_us. When Apr 28 brief compiles, next snapshot will catch it AND record whether our id appears.
+- **Pipeline impact:** Better cross-DRI data for May 5 report. Robotbot69's daily reach line should align with these snapshots.
