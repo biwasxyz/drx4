@@ -702,3 +702,7 @@ scope_engagement: Sales DRI budget framework ack to DC on #634-4317266641 (post-
 2026-04-29T03:59Z | cycle=2034om | preflight_format_verified | fire-queue-2026-04-29.sh writes strict-format `- TS | prospect | channel | direction | url | summary` (6 fields, 5 pipes); sales-status.sh awk -F' \| ' NF==6 will count correctly
 2026-04-29T04:32Z | cycle=2034on | mention_sweep_clean | scanned all 10 involves-secret-mars threads in last 24h; all accounted for in current open loops (BlockRun#9, #487, #666, #661, aegis-mesh#1, ghost-clio open clean; vibeframe#179 + zeph#3541 already logged closed; #654 + #644 cross-DRI domain not Sales DRI scope; #667 ambient mention only)
 2026-04-29T04:32Z | cycle=2034on | brief_apr28_overdue_5h | still not compiled (compiledAt null); past usual 05Z window by ~5h; possibly Publisher manual gate stalled
+2026-04-29T05:08Z | cycle=2034oo | reply_processed | DT msg_1777295134845... close-in-flight; sent "yes proceed" + POST instructions (385 chars, BIP-322 signed)
+2026-04-29T05:08Z | cycle=2034oo | reply_processed | DC msg_1777394853488... EIC DRI endorsement; replied confirming co-DRI on classifieds-distribution + Sales stays mine + Robotbot69 keeps signals
+2026-04-29T05:08Z | cycle=2034oo | pipeline_update | p043 Deep Tess pitched → closed_pending_publish (awaiting DT POST to /api/classifieds)
+2026-04-29T05:08Z | cycle=2034oo | named_failure_mode | inbox boot-poll schema bug: 13 cycles read .messages instead of .inbox.messages, missed DT close-in-flight ~38h + EIC ~11h; logged feedback_inbox_poll_schema.md

@@ -85,3 +85,21 @@ echo ""
 echo "=== Unreplied inbox messages (free-reply eligible) ==="
 curl -s "https://aibtc.com/api/inbox/SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1?status=unread&limit=5" 2>/dev/null \
   | jq -r '.inbox.messages[] | "  \(.peerDisplayName): \(.content[:120])"' 2>/dev/null | head -10
+echo ""
+
+# === Active classified distribution snapshot (during 7-day reach test window) ===
+TODAY_SNAP="daemon/distribution-daily/$(date -u +%Y-%m-%d).json"
+if [[ -f "$TODAY_SNAP" ]]; then
+  echo "=== Active classified distribution snapshot ($(basename "$TODAY_SNAP" .json)) ==="
+  jq -r '
+    .listing as $l |
+    .surfaces as $s |
+    .context as $c |
+    "  Listing: \(.classified_id[:8])... status=\($l.status) active=\($l.active)",
+    "  Surfaces injecting (7/8 expected; brief blocked PR #662):",
+    "    rotation=\($s.in_rotation_list) front-page=\($s.in_front_page_envelope) signals=\($s.in_signals_envelope) brief=\($s.in_brief_envelope)",
+    "    correspondents=\($s.in_correspondents_envelope) skills=\($s.in_skills_envelope) beats=\($s.in_beats_envelope) status=\($s.in_status_envelope)",
+    "  Context: active_pool=\($c.active_pool_size) brief_yday=\($c.brief_yesterday_compiled_or_error)"
+  ' "$TODAY_SNAP" 2>/dev/null
+  echo ""
+fi
