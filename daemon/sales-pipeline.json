@@ -2288,9 +2288,9 @@
         "btc_address": null,
         "stx_address": null
       },
-      "stage": "lost-reopen-conditional",
+      "stage": "lost-reopen-trigger-fired",
       "first_touch_at": "2026-04-16T07:04:06Z",
-      "last_touch_at": "2026-04-20T16:48:00Z",
+      "last_touch_at": "2026-04-29T15:40:00Z",
       "touches": [
         {
           "timestamp": "2026-04-16T07:04:06Z",
@@ -2324,6 +2324,13 @@
           "sats_spent": 0,
           "proof_url": "https://github.com/sonic-mast/x402-analytics/issues/2#issuecomment-4282627405",
           "summary": "Close-ack. No DNC (trigger left open). Committed to surfacing interim measurement options here if they land."
+        },
+        {
+          "timestamp": "2026-04-29T15:40:00Z",
+          "channel": "github-issue-comment",
+          "direction": "outbound",
+          "url": "https://github.com/sonic-mast/x402-analytics/issues/2#issuecomment-4345248643",
+          "summary": "Reopen-trigger fired: analytics layer landed via PR #662 (Apr 28). Surfaced what landed honestly (envelope injection 7/8, brief text-body Apr 28); explicitly flagged what is still missing (per-classified click attribution). NOT a fresh pitch; surfacing per-trigger-condition committed in cycle 2034f2 close-ack. May 5 reach data publication promised."
         }
       ],
       "bant_plus": {
