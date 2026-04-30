@@ -27,6 +27,10 @@ echo "=== IC POOL STATUS ==="
 bash scripts/ic-status.sh 2>/dev/null || echo "(ic-status.sh not available)"
 echo ""
 
+echo "=== IC EMAIL SETUP STATUS ==="
+bash scripts/ic-email-status.sh 2>/dev/null || echo "(ic-email-status.sh not available)"
+echo ""
+
 echo "=== RECENT ISSUES on aibtcdev/agent-news (last 5 created) ==="
 gh api "repos/aibtcdev/agent-news/issues?per_page=5&sort=created&direction=desc&state=all" --jq '.[] | "  #\(.number) \(.title[0:60]) — \(.user.login) \(.created_at)"' 2>/dev/null || echo "(api unreachable)"
 echo ""
