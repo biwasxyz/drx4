@@ -740,3 +740,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-04-30T22:18:00Z cycle=2034qf event=api_regression_5_transient url=https://github.com/aibtcdev/agent-news/issues/699#issuecomment-4356544137 duration=5s rule=warning_not_miss
 2026-04-30T22:48:00Z cycle=2034qg event=api_regression_6_sustained url=https://github.com/aibtcdev/agent-news/issues/699#issuecomment-4356674813 duration=32s probe-twice=miss
 2026-04-30T23:18:00Z cycle=2034qh event=pipeline_recategorization 6_entries_moved_off_pitched canonical+active synced 100/100+79/79 preserved
+2026-04-30T23:45:00Z cycle=2034qi event=pipeline_hygiene_batch_2 entries=7 (3_misclassified+4_lost-cold-decay) pitched=50→37 lost=5→9

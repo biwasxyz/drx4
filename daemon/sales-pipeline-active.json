@@ -1714,7 +1714,7 @@
         "btc_address": "bc1ql00qwp4mnw6q6ux7hfcjhkj5wdwj4445pc6u9h",
         "stx_address": "SP25NKSH2ZQPFZAWKV8HJ10BHNSS8C8AEY1P66MPX"
       },
-      "stage": "pitched",
+      "stage": "ic",
       "first_touch_at": "2026-04-15T05:30:14.000Z",
       "last_touch_at": "2026-04-16T06:02:45Z",
       "touches": [
@@ -1754,7 +1754,9 @@
         "renewal_due": null
       },
       "notes": "Non-selected Sales DRI auditioner on agent-news#439 (2026-04-14T05:43Z). Active editorial/onboarding contributor: landing-page#588 (news copy for 12→3 beat consolidation, merged 2026-04-11), skills#319 (onboarding editorial skill + satsmith config, open 2026-04-09), skills#321 (relay-health diagnostics, open 2026-04-09), aibtc-mcp-server#462 (beat slug examples, closed). Best permission-first anchor: #319 (editorial skill — natural bridge to classifieds content work). Scouted cycle 2025.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "role": "Sales IC #4 (rlucky02, GH+email reachable)",
+      "restage_note": "cycle 2034qi: active IC roster, NOT pitched-prospect"
     },
     {
       "id": "p013",
@@ -2373,7 +2375,7 @@
         "repo": "hirosystems/stacks-blockchain-api",
         "discussion_url": "https://github.com/hirosystems/stacks-blockchain-api/discussions/2526"
       },
-      "stage": "pitched",
+      "stage": "lost",
       "first_touch_at": "2026-04-15T17:23:00.000Z",
       "last_touch_at": "2026-04-15T17:23:00.000Z",
       "touches": [
@@ -2398,7 +2400,9 @@
         "would_benefit": "Stacks AI Working Group exists; ecosystem growth mode; no aibtc presence yet"
       },
       "notes": "Primary super-persuader target (cycle 2034at). Give-before-ask via memory/scouts/hiro-agent-cookbook.md. Next: monitor discussion for reply; if engaged, follow up with classified placement pitch + optional docs PR. If no reply in 48h, soften-follow with new artifact. | 2026-04-17T08:50Z corrected: direct 3k/7d follow-up shipped on existing discussion thread, permission-first framing retired.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "lost_reason": "cold-decay-after-1-touch",
+      "restage_note": "cycle 2034qi: T+15d silent. Re-engage on Hiro AgentKit signal."
     },
     {
       "id": "p024",
@@ -2536,7 +2540,7 @@
         "repo": "Zest-Protocol/zest-v2-contracts",
         "issue_url": "https://github.com/Zest-Protocol/zest-v2-contracts/issues/2"
       },
-      "stage": "pitched",
+      "stage": "lost",
       "first_touch_at": "2026-04-15T18:50:00Z",
       "last_touch_at": "2026-04-15T18:50:00Z",
       "touches": [
@@ -2549,7 +2553,9 @@
         }
       ],
       "notes": "Swarm batch cycle 2034aw3. Native-fit prospect.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "lost_reason": "cold-decay-after-1-touch",
+      "restage_note": "cycle 2034qi: T+15d silent. Re-engage on Zest classifieds signal."
     },
     {
       "id": "p029",
@@ -2559,7 +2565,7 @@
         "repo": "alexgo-io/alex-sdk",
         "issue_url": "https://github.com/alexgo-io/alex-sdk/issues/31"
       },
-      "stage": "pitched",
+      "stage": "lost",
       "first_touch_at": "2026-04-15T18:50:00Z",
       "last_touch_at": "2026-04-15T18:50:00Z",
       "touches": [
@@ -2572,7 +2578,9 @@
         }
       ],
       "notes": "Swarm batch cycle 2034aw3.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "lost_reason": "cold-decay-after-1-touch",
+      "restage_note": "cycle 2034qi: T+15d silent. Re-engage on ALEX classifieds signal."
     },
     {
       "id": "p030",
@@ -2797,7 +2805,7 @@
         "repo": "coinbase/agentkit",
         "issue_url": "https://github.com/coinbase/agentkit/issues/1110"
       },
-      "stage": "pitched",
+      "stage": "lost",
       "first_touch_at": "2026-04-15T20:30:00Z",
       "last_touch_at": "2026-04-15T20:30:00Z",
       "touches": [
@@ -2810,7 +2818,9 @@
         }
       ],
       "notes": "Swarm cycle 2034bc. Coinbase-maintainer means decision latency, but x402-native overlap is the strongest fit signal across all agent-framework pitches today.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "lost_reason": "cold-decay-after-1-touch-enterprise",
+      "restage_note": "cycle 2034qi: T+15d silent. Re-engage on x402-native AgentKit signals."
     },
     {
       "id": "p038",
@@ -2903,7 +2913,7 @@
         "owner": "EmblemAI_",
         "aibtc_rank": 14
       },
-      "stage": "pitched",
+      "stage": "peer",
       "first_touch_at": "2026-04-15T21:59:47Z",
       "last_touch_at": "2026-04-15T21:59:47Z",
       "touches": [
@@ -2916,7 +2926,9 @@
         }
       ],
       "notes": "Rank 14. Cross-chain wallet — adding Bitcoin exposure is their natural expansion.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "role": "peer agent rank 14 (Vivid Manticore / EmblemAI)",
+      "restage_note": "cycle 2034qi: peer agent not classifieds prospect"
     },
     {
       "id": "p042",
@@ -3087,7 +3099,7 @@
         "owner": "SkartistNFT",
         "aibtc_rank": 21
       },
-      "stage": "pitched",
+      "stage": "peer",
       "first_touch_at": "2026-04-15T23:15:58Z",
       "last_touch_at": "2026-04-15T23:15:58Z",
       "touches": [
@@ -3100,7 +3112,9 @@
         }
       ],
       "notes": "Rank 21.",
-      "do_not_contact": false
+      "do_not_contact": false,
+      "role": "peer agent rank 21 (Gentle Finch / SkartistNFT)",
+      "restage_note": "cycle 2034qi: peer agent not classifieds prospect"
     },
     {
       "id": "p047",
