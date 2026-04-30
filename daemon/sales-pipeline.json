@@ -2610,11 +2610,12 @@
       "contact": {
         "channel": "github-issue",
         "repo": "BitflowFinance/bff-skills",
-        "issue_url": "https://github.com/BitflowFinance/bff-skills/issues/421"
+        "issue_url": "https://github.com/BitflowFinance/bff-skills/issues/421",
+        "email": "alfredo@bitflow.finance"
       },
-      "stage": "pitched",
+      "stage": "pitched-via-email",
       "first_touch_at": "2026-04-15T18:50:00Z",
-      "last_touch_at": "2026-04-15T18:50:00Z",
+      "last_touch_at": "2026-04-30T07:47:26Z",
       "touches": [
         {
           "timestamp": "2026-04-15T18:50:00Z",
@@ -2622,6 +2623,13 @@
           "direction": "outbound",
           "url": "https://github.com/BitflowFinance/bff-skills/issues/421",
           "summary": "DIRECT 3k/7d pitch. Cited PR #420 + Day 13 commit."
+        },
+        {
+          "timestamp": "2026-04-30T07:47:26Z",
+          "channel": "email",
+          "direction": "outbound",
+          "url": "resend:d8b2f65b-5327-4a8f-8127-b4030bfe261f",
+          "summary": "Email re-engage T+15d post-bff-skills#421 channel-mismatch close. Acknowledges @diegomey close + macbotmini-eng's interest. Sent to alfredo@bitflow.finance (founder, BitflowFinance commits)."
         }
       ],
       "notes": "Swarm batch cycle 2034aw3 — direct pitch per operator directive.",
