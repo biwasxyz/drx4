@@ -1,0 +1,34 @@
+=== Fire script pre-flight: 2026-04-30 PT ===
+Time: 2026-04-30T03:54:39Z
+
+1. Drafts present + non-empty
+  ✓ p094-presidio.md                                   845 chars
+  ✓ p095-x402-agent-tools.md                           832 chars
+  ✓ p096-pipenetwork.md                                852 chars
+
+2. Title/Body parses cleanly
+  ✓ p094-presidio.md parser                            title: 'Paid ad slot on aibtc.news?...' body: 795 chars
+  ✓ p095-x402-agent-tools.md parser                    title: 'Paid ad slot on aibtc.news?...' body: 782 chars
+  ✓ p096-pipenetwork.md parser                         title: 'Paid ad slot on aibtc.news?...' body: 802 chars
+
+3. Lint clean
+  ✓ lint-pitches.py                                    
+scanned 3 file(s) · 0 hard · 0 soft
+
+4. Pipeline state
+  ✓ pipeline length                                    97 prospects, 16 top-level keys
+  ✓ p094/p095/p096 in qualified                        all 3 ready for fire-and-advance
+
+5. Target repos accessible (last commit < 30d)
+  ✓ presidio-v/presidio-hardened-x402                  last push 2026-04-26
+  ✓ Br0ski777/x402-agent-tools                         last push 2026-04-22
+  ✓ PipeNetwork/lib-storage                            last push 2026-04-16
+
+6. Auth + tooling
+  ✓ GH_TOKEN/PAT                                       available via env or .env
+  ✓ fire script executable                             +x bit set
+  ✓ fire script syntax                                 bash -n passes
+
+===
+RESULT: 15 passed, 0 failed
+Tomorrow's PT fire is READY. Run: bash scripts/fire-queue-2026-04-30.sh
