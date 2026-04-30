@@ -2756,11 +2756,12 @@
       "contact": {
         "channel": "github-issue",
         "repo": "leather-io/mono",
-        "issue_url": "https://github.com/leather-io/mono/issues/2268"
+        "issue_url": "https://github.com/leather-io/mono/issues/2268",
+        "email": "contact@leather.io"
       },
-      "stage": "pitched",
+      "stage": "pitched-via-email",
       "first_touch_at": "2026-04-15T19:15:00Z",
-      "last_touch_at": "2026-04-20T08:09:30Z",
+      "last_touch_at": "2026-04-30T10:52:08Z",
       "touches": [
         {
           "timestamp": "2026-04-15T19:15:00Z",
@@ -2777,6 +2778,13 @@
           "url": "https://github.com/leather-io/mono/issues/2268#issuecomment-4278905998",
           "type": "correction",
           "timestamp": "2026-04-20T08:09:29Z"
+        },
+        {
+          "timestamp": "2026-04-30T10:52:08Z",
+          "channel": "email",
+          "direction": "outbound",
+          "url": "resend:8d49efe1-b4a7-4f88-b50c-a5d04fc9c6a6",
+          "summary": "Email re-engage T+10d post-correction. Sent to contact@leather.io (org-domain from terms page). Cross-channel from leather-io/mono#2268 + Linear LEA-3534."
         }
       ],
       "notes": "Swarm cycle 2034ay. Wallet/tools category. Xverse is competitor with live classified.",

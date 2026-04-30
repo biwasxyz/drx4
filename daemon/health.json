@@ -73,7 +73,7 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-04-24T07:00:00Z",
-  "cycle": "2034pu",
+  "cycle": "2034pv",
   "timestamp": "2026-04-27T09:23:00Z",
   "stats": {
     "checkin_count": 2222,
@@ -208,7 +208,7 @@
     "apr30_fires_dispatched": 3,
     "apr30_proofs_verified": 3,
     "p1_triages_received": 3,
-    "email_re_engages_sent": 3,
+    "email_re_engages_sent": 4,
     "cross_repo_prs_merged": 1,
     "scripts_added": 1,
     "self_directed_cycles": 1
@@ -291,7 +291,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-04-30T10:08:00Z",
+  "last_cycle_at": "2026-04-30T10:53:00Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
@@ -353,7 +353,7 @@
   "apr28_fired": 3,
   "cycle_count": 29,
   "apr29_fired": 3,
-  "email_sends_today": 3,
+  "email_sends_today": 4,
   "total_cycles": 27,
   "ic_email_setup": {
     "updated_at": "2026-04-30T06:06:00Z",
