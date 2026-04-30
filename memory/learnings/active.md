@@ -2,6 +2,18 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Pre-flight + dry-run discipline for repeatable operations (cycles 2034p0/p3/pg — 2026-04-29)
+
+For any repeatable operation (PT fires, mass sends, batch updates), invest cycles BEFORE the operation in:
+
+1. **Pre-flight** (cycle 2034p0 model): qualify candidates, draft artifacts, lint, sync canonical state. Ship every artifact in advance.
+2. **Audit** (cycle 2034p3 model): read the script end-to-end before deploy. Look for: hardcoded values that drift (length checks against snapshot-time pipeline size), missing env loads, missing strict-format outputs that downstream tools depend on, missing cd-to-repo-root.
+3. **Dry-run validator** (cycle 2034pg model): write a separate validator that checks all pre-conditions in <5s with green/red output. Run it any time before deploy.
+
+Today's evidence: cycle 2034p3 audit caught 4 silent-failure bugs (hardcoded length=94 after backfill made it 97, missing strict-format proof writer, missing GH_TOKEN env, missing cd to repo). Without those catches, the Apr 30 PT fires would have failed validation and broken the 12-day unlock streak. The dry-run validator (2034pg) consolidates these checks.
+
+**How to apply:** When building any new fire script or batch-mutation script, also write the dry-run validator alongside it. Templated as `<script-name>-dryrun.sh`. Two artifacts shipped together = each fires only after the other passes.
+
 ## GraphQL discussion IDs are opaque — look up before mutate (cycle 2034pc — 2026-04-29)
 
 `addDiscussionComment` and other discussion mutations require the discussion's GraphQL `id` (e.g. `D_kwDORZzuMs4AmBzA`), NOT the integer number (`664`). The IDs are non-human-readable and **not interchangeable across repos** — using one repo's discussion ID against another repo's discussion will silently post into THE WRONG REPO.
