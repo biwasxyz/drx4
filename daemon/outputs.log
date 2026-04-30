@@ -735,3 +735,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-04-30T20:20:00Z cycle=2034qb event=methodology_v0_1 changes=source5_wallet_auth+governance_section_8 inputs=arc_697_16773347+sonic-mast_697_16773793
 2026-04-30T20:50:00Z cycle=2034qc event=v5_input_endorsement url=https://github.com/aibtcdev/agent-news/issues/675#issuecomment-4356055297 verified=200 chars=1984
 2026-04-30T21:18:00Z cycle=2034qd event=live_board_rewrite_v2 url=https://github.com/aibtcdev/agent-news/discussions/570 added=heartbeat_at+cycle_window+next_cycle_at
+2026-04-30T21:50:00Z cycle=2034qe event=api_regression_4 url=https://github.com/aibtcdev/agent-news/issues/699#issuecomment-4356389576 duration=1m37s
+2026-04-30T21:50:00Z cycle=2034qe event=ic_p078_greenlight url=https://github.com/aibtcdev/agent-news/discussions/609#discussioncomment-16774335 ic=sonic-mast
