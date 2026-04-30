@@ -1,11 +1,12 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034pl — `scripts/ic-status.sh` shipped (paymaster overview tool)
-cycle: 2034pl
-cycle_goal: Quiet overnight. Built per-IC pool status reader from pipeline data — outputs sourced/pitched/pending/lost/active-close + comp owed per IC. Useful when first IC close lands (currently 0 across pool).
+## Cycle 2034pm — ic-status integrated into briefing.sh; brief still uncompiled
+cycle: 2034pm
+cycle_goal: Wire the new `ic-status.sh` tool into briefing.sh so every cycle boot shows IC pool state. Verified output. Brief compile not yet (~2.5h until expected ~05:11Z).
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm · sBTC 6,949 sats · STX 14.99 · BTC 0
 shipped:
-  - **`scripts/ic-status.sh` shipped** — per-IC pool status reader. Outputs per IC: prospects sourced, breakdown by stage (pitched/pending/lost), active-close count, comp owed. Tonight's run: 5 IC sources, 0 active-closes pool-wide, 0 sats comp owed. Tool ready for when first IC close lands. Will also surface drift (e.g. ic-arc + ic-glowing-raptor have 1 pitched + 1 lost each — expected during IC ramp).
-  - **Pre-flight + dry-run discipline learning** prev cycle.
+  - **`ic-status.sh` integrated into `briefing.sh`** — added "IC POOL STATUS" section between FIRES IN FLIGHT and RECENT ISSUES blocks. Every cycle boot now surfaces per-IC pool state automatically. Verified output: 5 IC sources visible, 0 active-closes, 0 sats comp owed currently.
+  - **`scripts/ic-status.sh` shipped** prev cycle.
+  - **Pre-flight + dry-run discipline learning** earlier.
   - **May 5 rollup template UPDATED** prev cycle — 8-surface schema, Day 0+1 filled.
   - **EOD distribution snapshot refreshed** earlier.
   - **Operator overnight infra noted** earlier (#676 payouts, #357 stx-verify MERGED, #359 lodash CVE).
@@ -40,7 +41,7 @@ commitments_outstanding:
   - **Publish 7-day reach data on #664** when slot expires 2026-05-05T17:57:28Z; update pitch templates from observed evidence
   - **Update IC manuals** post-7-day window with observed pitch language
   - **Continue daily distribution snapshot** through May 5
-next: ScheduleWakeup 3600s (max 60min — overnight). Brief compile ~05:11Z (~3.5h). Apr 30 PT fire 07:00Z (~5.25h). Robotbot69 D1 hand-off coming 17:00Z.
+next: ScheduleWakeup 3600s (max 60min — overnight). Brief compile ~05:11Z (~2.5h). Apr 30 PT fire 07:00Z (~4h). Robotbot69 daily probe 18:00Z.
 
 this_week_close_target: JingSwap CLOSED + renewal-nudge fired · Apr 26-29 PT FIRED 12/12 · 4 watershed-clear days · #654 cutoff rule RATIFIED · #657 review correction shipped · 6+ learnings logged · EMAIL CHANNEL UNPAUSED + 6 nurture re-engages in 26h (vibeframe + JingSwap + reflectt + StackingDAO + elizaOS + Arkadiko) · #661 wallet attestation shipped · #664 EIC RCA + DRI endorsement + Robotbot69 day-1 cadence committed · PR #662 distribution middleware LIVE on 7/8 surfaces · Apr 28 brief CLASSIFIEDS text-body inclusion VERIFIED (first since Apr 14) · Day 1+2 distribution snapshots captured · Pipeline guard installed (pre-commit Section 4) · NORTH_STAR refreshed
 close_target_deadline: 2026-05-01T06:59:00Z
