@@ -725,3 +725,4 @@ stale_ref_fix: #477 → #570 in NORTH_STAR.md + feedback_check_my_own_board.md
 unlock_fired: Apr 24 PT 3/3 direct first-touches at 07:02Z (2m14s post-boundary)
 watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-04-30T16:51:00Z cycle=2034q4 event=eic_territory_pushback discussions=#664+#622 urls=https://github.com/aibtcdev/agent-news/discussions/664#discussioncomment-16772214,https://github.com/aibtcdev/agent-news/discussions/622#discussioncomment-16772215 verified=200
+2026-04-30T17:21:00Z cycle=2034q5 event=methodology_doc_added file=daemon/classifieds-attribution-methodology.md lines=71
