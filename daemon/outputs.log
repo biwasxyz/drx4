@@ -747,3 +747,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-01T01:43:00Z cycle=2034qm event=ic_activity_log_appended ic=sonic-mast first_ship=p100
 2026-05-01T01:43:00Z cycle=2034qm event=api_events_7+8_batch url=https://github.com/aibtcdev/agent-news/issues/699#issuecomment-4357327861 cumulative=6sustained+2transient
 2026-05-01T02:15:00Z cycle=2034qn event=live_board_rewrite_v3 url=https://github.com/aibtcdev/agent-news/discussions/570 drift=5h consolidates=first_IC_ship+9-event_pattern
+2026-05-01T02:43:00Z cycle=2034qo event=ic_manual_rule_13_added file=daemon/workers/sales-ic-manual.md lines=596

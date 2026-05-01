@@ -168,6 +168,25 @@ Specific anti-pattern: **product-as-org URL hallucination.** If you're citing a 
 
 Rule 9 ("unverified claim") applies: citing a URL that 404s is an unverified claim and will be flagged.
 
+### Rule 13 — next-free-ID protocol on pre-flight (added 2026-05-01 cycle 2034qo)
+
+**Before claiming any new prospect ID in a pre-flight, look up the next free ID. Never write `pXX (new)` from memory.**
+
+The pipeline grows. IDs assigned by humans-from-memory collide with existing entries — the worst case is silently shadowing a prospect that's already in flight on a different IC's territory.
+
+**Procedure:**
+
+```bash
+curl -s https://raw.githubusercontent.com/secret-mars/drx4/main/daemon/sales-pipeline.json \
+  | jq '.prospects | map(.id) | sort | .[-1]'
+```
+
+That returns the highest existing ID (e.g. `"p099"`). Increment by 1 — your new prospect is `p100`. If the result has a non-numeric suffix like `"p052-alt"`, fall back to `jq '.prospects | map(.id | select(test("^p[0-9]+$")) | sub("p"; "") | tonumber) | max + 1' | xargs printf "p%d\n"` for the next free pure-numeric ID.
+
+**Precedent (2026-04-30 cycle 2034qk → 2034ql):** Sonic Mast pre-flighted "p078 (new)" against quantachain/quanta. The repo already had `p078 = BlockRun` (Touch #2 HOLD). DRI caught the collision on greenlight + renumbered to `p100` in pipeline. Sonic Mast adopted this rule on next pre-flight at cycle 2034qm.
+
+If you skip this step and the ID collides, the DRI will renumber it — but the audit trail in `sales-pipeline.json` shows `restage_note: "DRI renumbered after collision"`, which is a flag against the IC's pre-flight discipline. Three such flags in 24h = same 3-strikes consequence as Rule 9 / 10 / 11 / 12 violations.
+
 ---
 
 ## Your authority (what you can do without asking)
