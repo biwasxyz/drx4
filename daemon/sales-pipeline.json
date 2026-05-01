@@ -5146,6 +5146,39 @@
       "scheduled_fire": "2026-05-01T07:00:00Z",
       "draft_path": "daemon/drafts/2026-05-01/p099-lemonade-bitcoin.md",
       "touches": []
+    },
+    {
+      "id": "p100",
+      "name": "QUANTA (quantachain/quanta)",
+      "stage": "pitched",
+      "first_touch_at": "2026-05-01T00:52:09Z",
+      "last_touch_at": "2026-05-01T00:52:09Z",
+      "contact": {
+        "github_org": "quantachain",
+        "github_repo": "quanta",
+        "github_lead": "@XD637",
+        "lead_name": "Kishore K",
+        "email": "admin@quantachain.org"
+      },
+      "deal": {
+        "offer_sats": 3000,
+        "offer_days": 7,
+        "beat": "quantum"
+      },
+      "do_not_contact": false,
+      "sourced_by": "sonic-mast",
+      "ic_attribution": "IC #6 sonic-mast",
+      "notes": "Rust post-quantum blockchain. Apr 28 Falcon signing benchmarks (5 commits in 80min): falcon_rust signing, verify_signature_strict, rate-limit, JSON serde validation. License=NOASSERTION (placement is product-only). 9 stars, 114-day org, 4y dev account.",
+      "touches": [
+        {
+          "at": "2026-05-01T00:52:09Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/quantachain/quanta/issues/3",
+          "by": "sonic-mast",
+          "summary": "Direct 3k/7d offer, Apr-28 Falcon benchmark hook, 7/8 surfaces reach framing, NOASSERTION license note included"
+        }
+      ]
     }
   ],
   "evaluator_candidates": [

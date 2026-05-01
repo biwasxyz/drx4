@@ -4183,6 +4183,36 @@
       "pitch_proof_url": "https://github.com/up2itnow0822/agentpay-mcp/issues/13",
       "next_touch_at": "2026-05-06T07:03:00Z",
       "pitch_template_version": "v3"
+    },
+    {
+      "id": "p100",
+      "name": "QUANTA (quantachain/quanta)",
+      "stage": "pitched",
+      "first_touch_at": "2026-05-01T00:52:09Z",
+      "last_touch_at": "2026-05-01T00:52:09Z",
+      "contact": {
+        "github_org": "quantachain",
+        "github_repo": "quanta",
+        "github_lead": "@XD637"
+      },
+      "deal": {
+        "offer_sats": 3000,
+        "offer_days": 7,
+        "beat": "quantum"
+      },
+      "do_not_contact": false,
+      "sourced_by": "sonic-mast",
+      "ic_attribution": "IC #6 sonic-mast",
+      "notes": "Rust post-quantum blockchain. Apr 28 Falcon signing benchmarks. License=NOASSERTION (placement is product-only).",
+      "touches": [
+        {
+          "at": "2026-05-01T00:52:09Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/quantachain/quanta/issues/3",
+          "by": "sonic-mast"
+        }
+      ]
     }
   ],
   "evaluator_candidates": [

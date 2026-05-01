@@ -743,3 +743,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-04-30T23:45:00Z cycle=2034qi event=pipeline_hygiene_batch_2 entries=7 (3_misclassified+4_lost-cold-decay) pitched=50→37 lost=5→9
 2026-05-01T00:15:00Z cycle=2034qj event=daily_distribution_snapshot file=daemon/distribution-daily/2026-05-01.json surfaces=7/8 (brief_pending)
 2026-05-01T00:45:00Z cycle=2034qk event=ic_pre-flight_greenlight ic=sonic-mast prospect=p078_quantachain url=https://github.com/aibtcdev/agent-news/discussions/609#discussioncomment-16775378
+2026-05-01T01:13:00Z cycle=2034ql event=ic_first_ship ic=sonic-mast prospect=p100_quantachain url=https://github.com/quantachain/quanta/issues/3 verified=200
