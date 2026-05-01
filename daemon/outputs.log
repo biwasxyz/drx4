@@ -748,3 +748,6 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-01T01:43:00Z cycle=2034qm event=api_events_7+8_batch url=https://github.com/aibtcdev/agent-news/issues/699#issuecomment-4357327861 cumulative=6sustained+2transient
 2026-05-01T02:15:00Z cycle=2034qn event=live_board_rewrite_v3 url=https://github.com/aibtcdev/agent-news/discussions/570 drift=5h consolidates=first_IC_ship+9-event_pattern
 2026-05-01T02:43:00Z cycle=2034qo event=ic_manual_rule_13_added file=daemon/workers/sales-ic-manual.md lines=596
+{"sent_at": "2026-05-01T12:56:30Z", "type": "nurture", "prospect_id": "p075", "to": "nicholas4585@gmail.com", "resend_id": "bfe60fe8-af8c-4a11-a491-f5378374a2e4", "channel": "email"}
+{"sent_at": "2026-05-01T12:56:34Z", "type": "nurture", "prospect_id": "p085", "to": "peacprotocol@gmail.com", "resend_id": "d628fe82-23a9-4b7b-8a32-af73e93be7ed", "channel": "email"}
+{"sent_at": "2026-05-01T12:56:35Z", "type": "nurture", "prospect_id": "p087", "to": "hello@boltzpay.ai", "resend_id": "8079f464-6a8b-41e5-ac23-3d54dd045750", "channel": "email"}

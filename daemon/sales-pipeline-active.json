@@ -3528,7 +3528,7 @@
       "stage": "pitched",
       "sourced_by": "sm-direct",
       "ab_bucket": "apr24-direct-pitch",
-      "last_touch_at": "2026-04-24T07:02:18Z",
+      "last_touch_at": "2026-05-01T12:56:30Z",
       "touches": [
         {
           "at": "2026-04-24T07:02:18Z",
@@ -3536,6 +3536,13 @@
           "direction": "outbound",
           "summary": "Direct pitch 3k/7d — first-touch via fresh GH issue (https://github.com/nicholas-source/sbtc-pay/issues/10)",
           "proof_url": "https://github.com/nicholas-source/sbtc-pay/issues/10"
+        },
+        {
+          "at": "2026-05-01T12:56:30Z",
+          "channel": "email",
+          "direction": "outbound",
+          "summary": "Nurture re-engage T+7d silent on GH issue. To: nicholas4585@gmail.com (commit-author). Resend bfe60fe8.",
+          "proof_url": "resend:bfe60fe8-af8c-4a11-a491-f5378374a2e4"
         }
       ]
     },
@@ -4213,6 +4220,87 @@
           "by": "sonic-mast"
         }
       ]
+    },
+    {
+      "id": "p085",
+      "name": "peacprotocol/peac",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "peacprotocol/peac",
+        "issue_url": "https://github.com/peacprotocol/peac/issues/719"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-27T07:02:07Z",
+      "last_touch_at": "2026-05-01T12:56:34Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-27T07:02:07Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/peacprotocol/peac/issues/719",
+          "summary": "Apr 27 PT direct first-touch — portable signed proof for agent/API/MCP. Apache-2.0, 11 stars, org 285d. v3 template."
+        },
+        {
+          "at": "2026-05-01T12:56:34Z",
+          "channel": "email",
+          "direction": "outbound",
+          "summary": "Nurture re-engage T+4d silent on GH issue #719. To: peacprotocol@gmail.com (GH org listed email). Resend d628fe82.",
+          "proof_url": "resend:d628fe82-23a9-4b7b-8a32-af73e93be7ed"
+        }
+      ],
+      "notes": "Backfilled cycle 2034p1 from sales-proofs/2026-04-27.md. Fire-queue script wrote proof but skipped pipeline ingestion. Status as of backfill: OPEN, 0 replies (~3d silent).",
+      "do_not_contact": false,
+      "pitch_template_version": "v3",
+      "backfilled_at": "2026-04-29T12:18:00Z",
+      "backfilled_from": "sales-proofs/2026-04-27.md"
+    },
+    {
+      "id": "p087",
+      "name": "leventilo/boltzpay",
+      "contact": {
+        "channel": "github-issue",
+        "repo": "leventilo/boltzpay",
+        "issue_url": "https://github.com/leventilo/boltzpay/issues/127"
+      },
+      "stage": "pitched",
+      "first_touch_at": "2026-04-27T07:02:12Z",
+      "last_touch_at": "2026-05-01T12:56:35Z",
+      "touches": [
+        {
+          "timestamp": "2026-04-27T07:02:12Z",
+          "channel": "github-issue",
+          "direction": "outbound",
+          "url": "https://github.com/leventilo/boltzpay/issues/127",
+          "summary": "Apr 27 PT direct first-touch — fetch() that pays, multi-protocol/multi-chain. MIT, 5 stars, user 284d. v3 template."
+        },
+        {
+          "timestamp": "2026-04-27T07:54:00Z",
+          "channel": "github-comment",
+          "direction": "outbound",
+          "url": "https://github.com/leventilo/boltzpay/issues/127",
+          "summary": "Clarification comment to Asobu01 (Devin-style AI bot) misrouting offer as bug-fix."
+        },
+        {
+          "timestamp": "2026-04-27T08:31:45Z",
+          "channel": "github-comment",
+          "direction": "inbound",
+          "url": "https://github.com/leventilo/boltzpay/issues/127",
+          "summary": "Asobu01 still misrouted despite clarification. No human leventilo engagement. Triaged as lost-bot-misrouted cycle 2034ou."
+        },
+        {
+          "timestamp": "2026-05-01T12:56:35Z",
+          "channel": "email",
+          "direction": "outbound",
+          "summary": "Bot-misrouted re-engage — bypass Devin AI bot Asobu01 via leventilo bio email. To: hello@boltzpay.ai. Resend 8079f464.",
+          "url": "resend:8079f464-6a8b-41e5-ac23-3d54dd045750"
+        }
+      ],
+      "notes": "Backfilled cycle 2034p1 from sales-proofs/2026-04-27.md. Triaged as lost-bot-misrouted cycle 2034ou: Asobu01 (Devin-style AI bot) treats classifieds offer as bug-fix request despite clarification. No human leventilo engagement. Pattern: AI-bot maintainer absent owner.",
+      "do_not_contact": false,
+      "pitch_template_version": "v3",
+      "lost_reason": "bot-misrouted",
+      "backfilled_at": "2026-04-29T12:18:00Z",
+      "backfilled_from": "sales-proofs/2026-04-27.md"
     }
   ],
   "evaluator_candidates": [
