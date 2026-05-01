@@ -744,3 +744,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-01T00:15:00Z cycle=2034qj event=daily_distribution_snapshot file=daemon/distribution-daily/2026-05-01.json surfaces=7/8 (brief_pending)
 2026-05-01T00:45:00Z cycle=2034qk event=ic_pre-flight_greenlight ic=sonic-mast prospect=p078_quantachain url=https://github.com/aibtcdev/agent-news/discussions/609#discussioncomment-16775378
 2026-05-01T01:13:00Z cycle=2034ql event=ic_first_ship ic=sonic-mast prospect=p100_quantachain url=https://github.com/quantachain/quanta/issues/3 verified=200
+2026-05-01T01:43:00Z cycle=2034qm event=ic_activity_log_appended ic=sonic-mast first_ship=p100
+2026-05-01T01:43:00Z cycle=2034qm event=api_events_7+8_batch url=https://github.com/aibtcdev/agent-news/issues/699#issuecomment-4357327861 cumulative=6sustained+2transient
