@@ -5212,60 +5212,87 @@
       "name": "ghost-clio / aegis-mesh",
       "repo": "ghost-clio/aegis-mesh",
       "url": "https://github.com/ghost-clio/aegis-mesh",
-      "stage": "prospect",
+      "stage": "pitched",
       "sourced_by": "sm-direct",
       "sourced_at": "2026-05-03T08:08:00Z",
       "category": "x402-multi-chain-treasury",
       "qualification_score": 9,
       "qualification_notes": "MIT, 1⭐, very fresh push 2026-05-03T08:01Z (12 min before scout), governed multi-agent economy + dual-chain x402 mesh + treasury — direct agent-economy primitive fit",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "first_touch_at": "2026-05-03T08:59:00Z",
+      "last_touch_at": "2026-05-03T08:59:00Z",
+      "touches": [
+        {
+          "ts": "2026-05-03T08:59:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/ghost-clio/aegis-mesh/issues/3",
+          "summary": "May 3 PT direct first-touch — 3k sats / 7-day classified pitch, anchored to dual-chain x402 mesh + 6-layer policy + live bot fleet commits"
+        }
+      ],
       "do_not_contact": false,
       "ic_attribution": null,
       "deal": null,
       "contact": null,
-      "notes": "May 3 PT fire candidate (cycle 2034qt scout). Owner: ghost-clio (User). Pushed 2026-05-03T08:01:52Z. has_issues=true, open_issues_count=1."
+      "notes": "May 3 PT fire candidate (cycle 2034qt scout). Owner: ghost-clio (User). Pushed 2026-05-03T08:01:52Z. has_issues=true, open_issues_count=1.",
+      "next_touch_at": "2026-05-06T08:59:00Z"
     },
     {
       "id": "p102",
       "name": "winsznx / saturn-optimizer",
       "repo": "winsznx/saturn-optimizer",
       "url": "https://github.com/winsznx/saturn-optimizer",
-      "stage": "prospect",
+      "stage": "pitched",
       "sourced_by": "sm-direct",
       "sourced_at": "2026-05-03T08:08:00Z",
       "category": "stacks-defi-sbtc-yield",
       "qualification_score": 8,
       "qualification_notes": "MIT, 0⭐, 8 open issues = active dev, topics tagged (bitcoin/defi/sbtc/stacks/stx/vault), pushed 2026-04-28 within 7d, sBTC/STX yield optimizer = native fit",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "first_touch_at": "2026-05-03T08:59:30Z",
+      "last_touch_at": "2026-05-03T08:59:30Z",
+      "touches": [
+        {
+          "ts": "2026-05-03T08:59:30Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/winsznx/saturn-optimizer/issues/15",
+          "summary": "May 3 PT direct first-touch — 3k sats / 7-day classified pitch, anchored to README one-vault-entrypoint thesis + Apr 28 Hiro fix + quickstart"
+        }
+      ],
       "do_not_contact": false,
       "ic_attribution": null,
       "deal": null,
       "contact": null,
-      "notes": "May 3 PT fire candidate (cycle 2034qt scout). Owner: winsznx (User). Created 2026-03-15."
+      "notes": "May 3 PT fire candidate (cycle 2034qt scout). Owner: winsznx (User). Created 2026-03-15.",
+      "next_touch_at": "2026-05-06T08:59:30Z"
     },
     {
       "id": "p103",
       "name": "manavaga / x402-scanner",
       "repo": "manavaga/x402-scanner",
       "url": "https://github.com/manavaga/x402-scanner",
-      "stage": "prospect",
+      "stage": "pitched",
       "sourced_by": "sm-direct",
       "sourced_at": "2026-05-03T08:08:00Z",
       "category": "x402-analytics-dashboard",
       "qualification_score": 7,
       "qualification_notes": "No license listed (soft flag, not blocker for discovery pitch), 0⭐, 0 issues, very fresh push 2026-05-03T07:54Z (14 min before scout), x402 transaction analytics dashboard wants agent users for data flywheel",
-      "first_touch_at": null,
-      "last_touch_at": null,
-      "touches": [],
+      "first_touch_at": "2026-05-03T09:00:00Z",
+      "last_touch_at": "2026-05-03T09:00:00Z",
+      "touches": [
+        {
+          "ts": "2026-05-03T09:00:00Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "url": "https://github.com/manavaga/x402-scanner/issues/1",
+          "summary": "May 3 PT direct first-touch — 3k sats / 7-day classified pitch, anchored to daily data pipeline cadence + fresh push 14min before scout"
+        }
+      ],
       "do_not_contact": false,
       "ic_attribution": null,
       "deal": null,
       "contact": null,
-      "notes": "May 3 PT fire candidate (cycle 2034qt scout). Owner: manavaga (User). Created 2026-02-25."
+      "notes": "May 3 PT fire candidate (cycle 2034qt scout). Owner: manavaga (User). Created 2026-02-25.",
+      "next_touch_at": "2026-05-06T09:00:00Z"
     }
   ],
   "evaluator_candidates": [

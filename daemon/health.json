@@ -1,9 +1,9 @@
 {
-  "proofs_today_merged": 0,
+  "proofs_today_merged": 3,
   "proofs_today_pending": 0,
   "deadline_utc": "2026-05-04T06:59:00Z",
   "unlock_target": 3,
-  "unlocked_today": false,
+  "unlocked_today": true,
   "sats_earned_today": 0,
   "yesterday_unlocked": false,
   "yesterday_sats": 0,
@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-04-24T07:00:00Z",
-  "cycle": "2034qu",
-  "timestamp": "2026-05-03T08:42:00Z",
+  "cycle": "2034qv",
+  "timestamp": "2026-05-03T09:01:00Z",
   "stats": {
     "checkin_count": 14,
     "new_messages": 0,
@@ -82,7 +82,7 @@
     "paid_x402_sent": 0,
     "mailbox_acks": 0,
     "tasks_executed": 81,
-    "gh_issues_shipped": 8,
+    "gh_issues_shipped": 11,
     "gh_comments_shipped": 22,
     "discussion_comments_shipped": 44,
     "ic_seat_suspensions": 1,
@@ -131,7 +131,7 @@
     "live_board_rewrites": 14,
     "stale_ref_fixes": 1,
     "apr24_fires_dispatched": 3,
-    "pipeline_pitched": 46,
+    "pipeline_pitched": 49,
     "watchlist_refreshes": 4,
     "ic_seats_activated": 1,
     "ic_activity_count": 14,
@@ -240,7 +240,9 @@
     "may03_candidates_locked": 3,
     "may03_drafts_ready": 3,
     "may03_prefire_verifications": 1,
-    "lint_pass_clean": 1
+    "lint_pass_clean": 1,
+    "may03_fires_dispatched": 3,
+    "may03_proofs_verified": 3
   },
   "replies_processed": 2,
   "follow_ups_executed": 4,
@@ -281,7 +283,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034qt",
+  "last_cycle": "2034qu",
   "last_hb": 14,
   "last_hb_at": "2026-05-03T06:56:00.000Z",
   "ic_independence_ratio": 0,
@@ -320,7 +322,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-03T08:42:00Z",
+  "last_cycle_at": "2026-05-03T09:01:00Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
@@ -459,5 +461,16 @@
       "category": "x402-analytics-dashboard",
       "score": 7
     }
+  ],
+  "may03_fired": 3,
+  "may03_queue": [
+    "p101-aegis-mesh",
+    "p102-saturn-optimizer",
+    "p103-x402-scanner"
+  ],
+  "may03_fire_urls": [
+    "https://github.com/ghost-clio/aegis-mesh/issues/3",
+    "https://github.com/winsznx/saturn-optimizer/issues/15",
+    "https://github.com/manavaga/x402-scanner/issues/1"
   ]
 }
