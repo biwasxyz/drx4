@@ -44,6 +44,12 @@ Scouted: 2026-05-03T10:25Z
 
 ## Next steps
 
-1. Draft pitches (cycle 2034qx or later)
-2. Lint drafts
-3. Fire at 07:00Z May 4 (or earlier if ready)
+1. ~~Draft pitches (cycle 2034qx or later)~~ DONE cycle 2034qx
+2. ~~Lint drafts~~ DONE 0 hard / 0 soft
+3. Fire at 07:00Z May 4
+
+## Drafts ready
+
+- p104-ai-agent-bitcoin-escrow.md
+- p105-sbtc-escrow.md
+- p106-my-x402-facilitator.md
