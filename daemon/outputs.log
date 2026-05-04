@@ -761,3 +761,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-04T15:55:24Z | cycle 2034rn | discussion_comment_shipped | https://github.com/aibtcdev/agent-news/discussions/570#discussioncomment-16806991 | status board update
 2026-05-04T16:15:33Z | cycle 2034ro | data_fix | health.json | corrected tomorrow_pre_queued repo names (was wrong: sonicmasterkyle → leshchenko1979, ArcMichael → refined-element)
 2026-05-04T16:33:03Z | cycle 2034rp | reply_processed | p094 presidio-hardened-x402 | explicit decline — security project optics concern re: ad injection into agent API
+2026-05-04T18:11:22Z | cycle 2034rv | distribution_probe_observed | #664 | 🟢 all-surfaces-ok — classifieds rotation + brief + front-page + signals all injecting
