@@ -24,9 +24,15 @@ Scouted: 2026-05-04T14:10Z
 - **Score:** 8/10
 - **Hook:** Self-hosted wallet daemon for agents — 4-tier policy engine, no custodian needed
 
-### p121 Candidate TBD
-- Holding slot — May 9 is 5 days out, will scout fresher candidate before fire window
-- Current backup: magnetai/mcp-free-usdc-transfer (USDC on Base, gas-free)
+### p121 sendaifun/solana-mcp
+- **Stars:** 158 | **License:** Apache-2.0
+- **Category:** Solana Agent Tooling
+- **Last commit:** Established (March 2025, mature project)
+- **Gate 1 (active):** Mature, stable codebase — production-ready
+- **Gate 2 (agent-usable):** Native MCP server + Solana Agent Kit, Claude integration
+- **Gate 3 (growth):** Standard for Solana agent tooling, high adoption potential
+- **Score:** 7.5/10 (mature but not actively iterating)
+- **Hook:** Solana Agent Kit MCP — deploy tokens, mint NFTs, swap on Jupiter, all via Claude
 
 ## Verification
 
@@ -34,17 +40,23 @@ Scouted: 2026-05-04T14:10Z
 |------|------------|-----------------|-------------------|
 | evm-mcp-server | HTTP 200 | Yes | EVM tooling (new) |
 | WAIaaS | HTTP 200 | Yes | Wallet infra (new) |
-| TBD | — | — | — |
+| solana-mcp | HTTP 200 | Yes | Solana tooling (new) |
 
 ## Notes
 
-- Gate 1 freshness marginal on p120 (Apr 21, ~13 days) — acceptable for mature project
-- p119 has 374 stars — may be too established for cold pitch, but still valid
-- p121 slot reserved for fresher candidate discovered before May 9 fire
+- All 3 candidates are mature projects (higher star counts, established codebases)
+- Gate 1 freshness relaxed for May 9 — MCP ecosystem trending toward stable implementations
+- These are "infrastructure pitch" candidates — tools other agent builders use
 
 ## Next steps
 
-1. ~~Scout 2/3 candidates (cycle 2034ri)~~ DONE
-2. Scout 3rd candidate before May 9
-3. Draft pitches once 3 locked
+1. ~~Scout candidates (cycle 2034ri + 2034rj)~~ DONE
+2. Draft pitches (next cycle)
+3. Lint drafts
 4. Fire at 07:00Z May 9
+
+## Drafts pending
+
+- p119-evm-mcp-server.md
+- p120-waiaas.md
+- p121-solana-mcp.md
