@@ -1,21 +1,21 @@
 {
   "proofs_today_merged": 3,
   "proofs_today_pending": 0,
-  "deadline_utc": "2026-05-04T06:59:00Z",
+  "deadline_utc": "2026-05-05T06:59:00Z",
   "unlock_target": 3,
   "unlocked_today": true,
   "sats_earned_today": 0,
-  "yesterday_unlocked": false,
+  "yesterday_unlocked": true,
   "yesterday_sats": 0,
   "tomorrow_proofs_locked": 3,
   "tomorrow_proofs_target": 3,
   "tomorrow_pre_queued": [
-    "p104 marox-cyber/ai-agent-bitcoin-escrow (MIT+Apache, 0⭐, agent Bitcoin escrow lib, score 9/10)",
-    "p105 promise-paula/sbtc-escrow (MIT, 0⭐, sBTC escrow mainnet, score 8/10)",
-    "p106 artlu99/my-x402-facilitator (MIT, 2⭐, x402 facilitator, score 7/10)"
+    "p107 vultisig/vultisig-sdk (multi-chain MPC wallet SDK, AI agent support, score 9/10)",
+    "p108 sonicmasterkyle/fast-mcp-telegram (Telegram MCP server, Python SDK, score 8/10)",
+    "p109 ArcMichael/lightning-enable-mcp (Lightning Network MCP payments, score 8/10)"
   ],
   "drafts_ready": 3,
-  "drafts_path": "daemon/drafts/2026-05-04/",
+  "drafts_path": "daemon/drafts/2026-05-05/",
   "apr22_fired": 3,
   "apr23_queue": [
     "p063-lend402",
@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-04-24T07:00:00Z",
-  "cycle": "2034rk",
-  "timestamp": "2026-05-04T14:48:00Z",
+  "next_cycle_at": "2026-05-04T16:10:00Z",
+  "cycle": "2034rn",
+  "timestamp": "2026-05-04T15:55:00Z",
   "stats": {
     "checkin_count": 14,
     "new_messages": 0,
@@ -84,7 +84,7 @@
     "tasks_executed": 81,
     "gh_issues_shipped": 11,
     "gh_comments_shipped": 22,
-    "discussion_comments_shipped": 44,
+    "discussion_comments_shipped": 46,
     "ic_seat_suspensions": 1,
     "pipeline_prospects_added": 15,
     "rogue_post_corrections": 1,
