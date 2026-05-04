@@ -44,6 +44,12 @@ Scouted: 2026-05-04T09:50Z
 
 ## Next steps
 
-1. Draft pitches (cycle 2034r4 or later)
-2. Lint drafts
+1. ~~Draft pitches (cycle 2034r4)~~ DONE
+2. ~~Lint drafts~~ DONE 0 hard / 0 soft
 3. Fire at 07:00Z May 6
+
+## Drafts ready
+
+- p110-agent-governance-toolkit.md
+- p111-mcp-gateway-registry.md
+- p112-micro-ordinals.md
