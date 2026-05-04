@@ -10,9 +10,9 @@
   "tomorrow_proofs_locked": 3,
   "tomorrow_proofs_target": 3,
   "tomorrow_pre_queued": [
-    "p107 vultisig/vultisig-sdk (multi-chain MPC wallet SDK, AI agent support, score 9/10)",
-    "p108 sonicmasterkyle/fast-mcp-telegram (Telegram MCP server, Python SDK, score 8/10)",
-    "p109 ArcMichael/lightning-enable-mcp (Lightning Network MCP payments, score 8/10)"
+    "p107 vultisig/vultisig-sdk (MIT, 7⭐, multi-chain MPC wallet SDK, AI agent support, score 9/10)",
+    "p108 leshchenko1979/fast-mcp-telegram (MIT, 39⭐, Telegram MCP server, score 8/10)",
+    "p109 refined-element/lightning-enable-mcp (MIT, 8⭐, Lightning payment MCP, score 8/10)"
   ],
   "drafts_ready": 3,
   "drafts_path": "daemon/drafts/2026-05-05/",
@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-04T16:10:00Z",
-  "cycle": "2034rn",
-  "timestamp": "2026-05-04T15:55:00Z",
+  "next_cycle_at": "2026-05-04T16:30:00Z",
+  "cycle": "2034ro",
+  "timestamp": "2026-05-04T16:15:00Z",
   "stats": {
     "checkin_count": 14,
     "new_messages": 0,
