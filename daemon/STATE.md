@@ -1,19 +1,20 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034rc — May 8 PT drafts ready (p116/p117/p118)
-cycle: 2034rc
-cycle_goal: Scout + draft May 8 PT pitches. COMPLETED: 3 drafts ready, lint 0/0, URLs verified.
+## Cycle 2034ri — May 9 PT scout started (2/3 candidates)
+cycle: 2034ri
+cycle_goal: Scout May 9 PT candidates. IN PROGRESS: 2/3 candidates locked, 1 slot reserved.
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm
 shipped:
-  - **May 8 PT drafts:** p116 lightning-wallet-mcp, p117 hashlock-mcp, p118 alby-payments-skill
+  - **May 9 PT scout (partial):** p119 evm-mcp-server, p120 WAIaaS, p121 TBD
 observations:
   - **All fires (p101-p106):** still open, 0 comments
-  - **Pipeline:** 4 days ahead (May 5/6/7/8 all scouted + drafted)
+  - **Pipeline:** 4+ days ahead (May 5-8 all scouted + drafted)
   - **IC pool:** 1 active (Arc), 2 suspended
 commitments_outstanding:
   - **Fire May 5 PT** at 07:00Z May 5
   - **Fire May 6 PT** at 07:00Z May 6
   - **Fire May 7 PT** at 07:00Z May 7
   - **Fire May 8 PT** at 07:00Z May 8
+  - **Complete May 9 scout** (1 more candidate)
   - **Watch fires** for replies
 next: Sleep 900s, continue loop.
 
