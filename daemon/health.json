@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-04-24T07:00:00Z",
-  "cycle": "2034qy",
-  "timestamp": "2026-05-04T08:23:00Z",
+  "cycle": "2034qz",
+  "timestamp": "2026-05-04T08:50:00Z",
   "stats": {
     "checkin_count": 14,
     "new_messages": 0,
@@ -244,7 +244,10 @@
     "may03_fires_dispatched": 3,
     "may03_proofs_verified": 3,
     "may04_drafts_ready": 3,
-    "may04_fires_dispatched": 3
+    "may04_fires_dispatched": 3,
+    "may05_scout_scans": 1,
+    "may05_candidates_locked": 3,
+    "ic_flags_uncommitted": 2
   },
   "replies_processed": 2,
   "follow_ups_executed": 4,
