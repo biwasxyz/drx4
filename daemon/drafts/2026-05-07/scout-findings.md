@@ -44,6 +44,12 @@ Scouted: 2026-05-04T10:55Z
 
 ## Next steps
 
-1. Draft pitches (next cycle)
-2. Lint drafts
+1. ~~Draft pitches (cycle 2034r8)~~ DONE
+2. ~~Lint drafts~~ DONE 0 hard / 0 soft
 3. Fire at 07:00Z May 7
+
+## Drafts ready
+
+- p113-secondlayer.md
+- p114-arkade-go-sdk.md
+- p115-aegis.md
