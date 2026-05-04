@@ -27,8 +27,19 @@ That's it. The session stays alive during sleep, then continues with the next cy
 After completing all phases:
 
 ```bash
-# Log and sleep
-echo "Cycle complete. Sleeping 900s..."
+# Log sleep start
+echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Cycle complete. Sleeping 900s..." >> daemon/wakeup.log
+
 sleep 900
-# Then continue with next cycle (read STATE.md, etc.)
+
+# Log wakeup
+echo "[$(date -u +%Y-%m-%dT%H:%M:%SZ)] Woke up. Starting next cycle." >> daemon/wakeup.log
 ```
+
+## Log File
+
+All sleep/wake events logged to `daemon/wakeup.log`:
+- Cycle completion time
+- Sleep duration
+- Wakeup time
+- Continuous session history
