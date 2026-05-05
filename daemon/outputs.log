@@ -764,3 +764,6 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-04T18:11:22Z | cycle 2034rv | distribution_probe_observed | #664 | 🟢 all-surfaces-ok — classifieds rotation + brief + front-page + signals all injecting
 2026-05-04T20:01:18Z | cycle 2034s2 | reply_processed | p052 stacks-sbtc/sbtc | polite decline — issue tracker for dev tasks, not classifieds
 2026-05-04T20:52:00Z | cycle 2034s5 | reply_processed | p079 provos/ironcurtain | decline — worthiness test failed, reputation demerit recorded
+2026-05-05T06:56:31Z | cycle 2034t4 | gh_issue_shipped | https://github.com/vultisig/vultisig-sdk/issues/404 | p107 May 5 PT first-touch
+2026-05-05T06:57:05Z | cycle 2034t4 | gh_issue_shipped | https://github.com/leshchenko1979/fast-mcp-telegram/issues/42 | p108 May 5 PT first-touch
+2026-05-05T06:57:42Z | cycle 2034t4 | gh_issue_shipped | https://github.com/refined-element/lightning-enable-mcp/issues/25 | p109 May 5 PT first-touch

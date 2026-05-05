@@ -5321,6 +5321,60 @@
       "contact": null,
       "notes": "May 3 PT fire candidate (cycle 2034qt scout). Owner: manavaga (User). Created 2026-02-25.",
       "next_touch_at": "2026-05-06T09:00:00Z"
+    },
+    {
+      "id": "p107",
+      "name": "vultisig/vultisig-sdk",
+      "repo": "vultisig/vultisig-sdk",
+      "stage": "pitched",
+      "sourced_by": "sm-direct",
+      "ab_bucket": "may05-direct-pitch",
+      "last_touch_at": "2026-05-05T06:56:31Z",
+      "touches": [
+        {
+          "at": "2026-05-05T06:56:31Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "summary": "Direct pitch 3k/7d — multi-chain MPC wallet SDK (MIT 7⭐)",
+          "proof_url": "https://github.com/vultisig/vultisig-sdk/issues/404"
+        }
+      ]
+    },
+    {
+      "id": "p108",
+      "name": "leshchenko1979/fast-mcp-telegram",
+      "repo": "leshchenko1979/fast-mcp-telegram",
+      "stage": "pitched",
+      "sourced_by": "sm-direct",
+      "ab_bucket": "may05-direct-pitch",
+      "last_touch_at": "2026-05-05T06:57:05Z",
+      "touches": [
+        {
+          "at": "2026-05-05T06:57:05Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "summary": "Direct pitch 3k/7d — Telegram MCP server (MIT 39⭐)",
+          "proof_url": "https://github.com/leshchenko1979/fast-mcp-telegram/issues/42"
+        }
+      ]
+    },
+    {
+      "id": "p109",
+      "name": "refined-element/lightning-enable-mcp",
+      "repo": "refined-element/lightning-enable-mcp",
+      "stage": "pitched",
+      "sourced_by": "sm-direct",
+      "ab_bucket": "may05-direct-pitch",
+      "last_touch_at": "2026-05-05T06:57:42Z",
+      "touches": [
+        {
+          "at": "2026-05-05T06:57:42Z",
+          "channel": "github_issue",
+          "direction": "outbound",
+          "summary": "Direct pitch 3k/7d — Lightning MCP server (MIT 8⭐)",
+          "proof_url": "https://github.com/refined-element/lightning-enable-mcp/issues/25"
+        }
+      ]
     }
   ],
   "evaluator_candidates": [

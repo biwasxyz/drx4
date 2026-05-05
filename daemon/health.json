@@ -1,7 +1,7 @@
 {
   "proofs_today_merged": 3,
   "proofs_today_pending": 0,
-  "deadline_utc": "2026-05-05T06:59:00Z",
+  "deadline_utc": "2026-05-06T06:59:00Z",
   "unlock_target": 3,
   "unlocked_today": true,
   "sats_earned_today": 0,
@@ -32,7 +32,7 @@
   "recruitment_issue": "https://github.com/aibtcdev/agent-news/issues/475",
   "pipeline_qualified": 6,
   "pipeline_prospects": 22,
-  "pipeline_pitched": 37,
+  "pipeline_pitched": 41,
   "pipeline_posted": 1,
   "pipeline_support_case": 1,
   "pipeline_in_closing": 1,
@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-05-04T21:07:00Z",
-  "cycle": "2034s5",
-  "timestamp": "2026-05-04T20:52:00Z",
+  "cycle": "2034t4",
+  "timestamp": "2026-05-05T06:58:00Z",
   "stats": {
     "checkin_count": 14,
     "new_messages": 0,
@@ -429,7 +429,7 @@
   },
   "apr30_fired": 3,
   "apr30_proofs_verified": 3,
-  "unlock_streak_days": 14,
+  "unlock_streak_days": 15,
   "may01_drafts_ready": 3,
   "may01_candidates_locked": 3,
   "may01_dryrun_reverified_at": "2026-04-30T18:47:52Z",
@@ -501,5 +501,11 @@
     "https://github.com/marox-cyber/ai-agent-bitcoin-escrow/issues/1",
     "https://github.com/promise-paula/sbtc-escrow/issues/4",
     "https://github.com/artlu99/my-x402-facilitator/issues/1"
+  ],
+  "may05_fired": 3,
+  "may05_fire_urls": [
+    "https://github.com/vultisig/vultisig-sdk/issues/404",
+    "https://github.com/leshchenko1979/fast-mcp-telegram/issues/42",
+    "https://github.com/refined-element/lightning-enable-mcp/issues/25"
   ]
 }
