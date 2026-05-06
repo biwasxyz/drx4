@@ -1,7 +1,7 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034t9 — May 10 PT scout complete
-cycle: 2034t9
-cycle_goal: Scout May 10 candidates + observation
+## Cycle 2034ta — May 10 PT drafts complete
+cycle: 2034ta
+cycle_goal: Draft May 10 pitches
 wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm
 shipped:
   - **p110:** microsoft/agent-governance-toolkit#1760 — governance toolkit (11k+ stars)
@@ -13,8 +13,8 @@ observations:
   - **p112 micro-ordinals:** CLOSED by @paulmillr at H+43m (silent close)
   - **May 6 fires:** 1 CLOSED, 2 OPEN
 shipped_this_cycle:
-  - **May 10 scout complete:** 3 candidates locked (moor, firma, openclaw-keeperlink)
-  - Scout findings written to daemon/drafts/2026-05-10/scout-findings.md
+  - **May 10 drafts complete:** p116 moor, p117 firma, p118 openclaw-keeperlink
+  - All 3 repos verified HTTP 200, lint 0/0
 commitments_outstanding:
   - **Watch fires** p110-p112 for replies
   - **May 7 PT deadline:** 2026-05-07T06:59:00Z — drafts ready
