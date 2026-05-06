@@ -1,7 +1,7 @@
 {
   "proofs_today_merged": 3,
   "proofs_today_pending": 0,
-  "deadline_utc": "2026-05-06T06:59:00Z",
+  "deadline_utc": "2026-05-07T06:59:00Z",
   "unlock_target": 3,
   "unlocked_today": true,
   "sats_earned_today": 0,
@@ -10,12 +10,12 @@
   "tomorrow_proofs_locked": 3,
   "tomorrow_proofs_target": 3,
   "tomorrow_pre_queued": [
-    "p107 vultisig/vultisig-sdk (MIT, 7⭐, multi-chain MPC wallet SDK, AI agent support, score 9/10)",
-    "p108 leshchenko1979/fast-mcp-telegram (MIT, 39⭐, Telegram MCP server, score 8/10)",
-    "p109 refined-element/lightning-enable-mcp (MIT, 8⭐, Lightning payment MCP, score 8/10)"
+    "p113 May 7 draft (pre-drafted)",
+    "p114 May 7 draft (pre-drafted)",
+    "p115 May 7 draft (pre-drafted)"
   ],
   "drafts_ready": 3,
-  "drafts_path": "daemon/drafts/2026-05-05/",
+  "drafts_path": "daemon/drafts/2026-05-07/",
   "apr22_fired": 3,
   "apr23_queue": [
     "p063-lend402",
@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-05-04T21:07:00Z",
-  "cycle": "2034t4",
-  "timestamp": "2026-05-05T06:58:00Z",
+  "cycle": "2034t5",
+  "timestamp": "2026-05-06T06:54:00Z",
   "stats": {
     "checkin_count": 14,
     "new_messages": 0,
@@ -429,7 +429,7 @@
   },
   "apr30_fired": 3,
   "apr30_proofs_verified": 3,
-  "unlock_streak_days": 15,
+  "unlock_streak_days": 16,
   "may01_drafts_ready": 3,
   "may01_candidates_locked": 3,
   "may01_dryrun_reverified_at": "2026-04-30T18:47:52Z",
@@ -507,5 +507,19 @@
     "https://github.com/vultisig/vultisig-sdk/issues/404",
     "https://github.com/leshchenko1979/fast-mcp-telegram/issues/42",
     "https://github.com/refined-element/lightning-enable-mcp/issues/25"
-  ]
+  ],
+  "may06_fired": 3,
+  "may06_fire_urls": [
+    "https://github.com/microsoft/agent-governance-toolkit/issues/1760",
+    "https://github.com/agentic-community/mcp-gateway-registry/issues/943",
+    "https://github.com/paulmillr/micro-ordinals/issues/6"
+  ],
+  "may06_proofs_verified": 3,
+  "last_hb": 17,
+  "last_hb_at": "2026-05-06T06:53:27.000Z",
+  "stats_update_2034t5": {
+    "checkin_count": 17,
+    "gh_issues_shipped": 14,
+    "cold_count_today": 3
+  }
 }
