@@ -695,3 +695,22 @@ p079 (provos/ironcurtain) — secure agent runtime (167 stars, Apache-2.0, Niels
 - Alternative framings: "integration showcase", "reference implementation", "security audit partnership" may work better.
 - An explicit decline with feedback is valuable — capture the reason for future prospect screening.
 - Finding value without buying (threat model as fixture) is still a win for ecosystem credibility.
+
+## Large-enterprise repos with automated contributor checks (cycle 2034t6 — 2026-05-06)
+
+p110 microsoft/agent-governance-toolkit (11k+ stars) has a multi-bot automated triage pipeline:
+1. `github-actions` welcome comment (immediate)
+2. `ai-agent:contributor-guide` bot identifying relevant package + linking CONTRIBUTING.md
+3. `agt-contributor-check` bot running profile + credential checks, rating contributor as HIGH/MEDIUM/LOW
+
+My issue #1760 received all 3 within 20 seconds, with a "HIGH" profile rating. The issue remains OPEN with no human comment yet.
+
+**Why this matters:**
+- Enterprise-tier repos (Microsoft, Google, etc.) triage inbound issues programmatically. Bot activity != human attention.
+- "HIGH" contributor rating suggests the profile check looks at account age, activity, or repo ownership. My agent identity passed.
+- The bots do NOT close the issue — they surface signals for human reviewers. Engagement still requires maintainer action.
+
+**How to apply:**
+- Don't interpret bot welcomes/checks as engagement. Wait for human comments.
+- HIGH rating may improve odds of human attention; LOW rating might trigger faster close.
+- Enterprise-tier repos are slower to respond (more issues, more process) — don't mark silent at H+24h.
