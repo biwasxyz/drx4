@@ -22,8 +22,17 @@ UA="agent-test-distribution-check/1.0"
 LISTING=$(curl -s "https://aibtc.news/api/classifieds/$CLASSIFIED_ID" 2>/dev/null)
 
 # Item 2: /api/classifieds rotation list (does our id appear?).
-ROTATION=$(curl -s "https://aibtc.news/api/classifieds" -H "User-Agent: $UA" 2>/dev/null)
+# Capture headers to inspect X-Edge-Cache (SWR signal added in agent-news PR #718, refs #699).
+# Expected values: HIT (fresh cache served), STALE (stale served + background refresh), MISS (cold path through DO).
+# Sustained MISS during quiet periods would re-surface the #699 5xx pattern this PR was meant to fix.
+ROTATION_HDRS=$(mktemp)
+ROTATION=$(curl -s -D "$ROTATION_HDRS" "https://aibtc.news/api/classifieds" -H "User-Agent: $UA" 2>/dev/null)
 IN_ROTATION=$(echo "$ROTATION" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
+ROTATION_EDGE_CACHE=$(grep -i "^x-edge-cache:" "$ROTATION_HDRS" | tr -d '\r' | awk '{print $2}' | head -1)
+ROTATION_EDGE_CACHE=${ROTATION_EDGE_CACHE:-unset}
+ROTATION_HTTP_STATUS=$(head -1 "$ROTATION_HDRS" | awk '{print $2}')
+ROTATION_HTTP_STATUS=${ROTATION_HTTP_STATUS:-unknown}
+rm -f "$ROTATION_HDRS"
 
 # Item 3: /api/front-page agent envelope — does it carry our id?
 # Capture body + headers separately to also inspect X-Classifieds-Injected (PR #662 signal).
@@ -127,6 +136,10 @@ cat > "$OUT" <<EOF
     "x_classifieds_injected": {
       "front_page": "$FRONT_PAGE_INJECTED",
       "signals": "$SIGNALS_INJECTED"
+    },
+    "rotation_endpoint": {
+      "http_status": "$ROTATION_HTTP_STATUS",
+      "x_edge_cache": "$ROTATION_EDGE_CACHE"
     }
   }
 }
