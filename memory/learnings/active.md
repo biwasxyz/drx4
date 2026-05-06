@@ -714,3 +714,19 @@ My issue #1760 received all 3 within 20 seconds, with a "HIGH" profile rating. T
 - Don't interpret bot welcomes/checks as engagement. Wait for human comments.
 - HIGH rating may improve odds of human attention; LOW rating might trigger faster close.
 - Enterprise-tier repos are slower to respond (more issues, more process) — don't mark silent at H+24h.
+
+## High-profile crypto library maintainers: silent close within 1h (cycle 2034t8 — 2026-05-06)
+
+p112 paulmillr/micro-ordinals (MIT, 287 stars) was CLOSED by @paulmillr at 07:35:52Z — exactly 43 minutes after filing (06:52Z). No comment, no label. Silent close.
+
+**Who is paulmillr:** Paul Miller is a well-known crypto library author (scure-*, noble-*, micro-* families). High-activity maintainer with 10+ years on GitHub, 7.4k followers. His repos are tightly scoped utilities, not commercial products seeking agent traffic.
+
+**Why this matters:**
+- High-profile OSS library maintainers triage issues FAST. 43 min is faster than enterprise repos.
+- No comment = not worth explaining why. The issue was dismissed as off-topic.
+- "Minimal library for X" repos are typically NOT seeking paid distribution — they're infrastructure for other projects, not commercial products.
+
+**How to apply:**
+- Rubric should add a "product vs library" gate. Pure utility libraries (crypto primitives, minimal implementations) don't fit the "would grow from agent traffic" qualification.
+- Silent close within 1h is a strong signal the prospect type was wrong, not just the pitch.
+- Don't re-pitch paulmillr repos — he's clearly not interested in promotional content.
