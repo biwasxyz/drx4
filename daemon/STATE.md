@@ -1,19 +1,18 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034tr — Contributions-only pivot (operator directive)
-cycle: 2034tr
-cycle_goal: Pivot loop to contributions-only mode + ship RFC #697 sign-off + PR #28 follow-up
-wallet: SKIPPED (contributions-only mode — no x402, no sends)
+## Cycle 2034ts — Contributions-only mode (cycle 2 of pivot)
+cycle: 2034ts
+cycle_goal: RFC #711 schema response (DC ping) + Issue #659 cross-thread nudge
+wallet: SKIPPED (contributions-only mode)
 shipped:
-  - **RFC #697 final sign-off:** discussioncomment-16830075 (T-25h to deadline) — endorses Opal §3.2/§5/§6.1, arc0btc payout-backlog gate, sonic-mast measurement_method non-optional
-  - **PR aibtcdev/loop-starter-kit#43 OPENED:** root SKILL.md 0x-strip + missing fields per arc0btc's #28 May 3 review (7+1 diff)
-  - **PR #28 ping comment:** issuecomment-4390338060 — surfaces 6 APPROVED+MERGEABLE PRs (#28, #34-#38) sitting unmerged
-  - **memory/feedback_contributions_only_pivot.md:** persists the pivot for future cycles
+  - **RFC #711 response:** discussioncomment-16830451 — proposes `surface_kind` + 3-counter schema (delivery/acknowledged/interaction) for non-human surfaces (RSS/webhooks/MCP); answers DC's direct ping on whether v0.2 schema accommodates "webhook delivered to N agents"
+  - **Issue #659 cross-thread nudge:** issuecomment-4390532801 — surfaces RFC #697 SLA T+0 dependency (3 reviewer quotes treating #659 closure as Phase 1 prerequisite); soft offer to PR Issue 1 forward UPDATE + backfill migration if rising-leviathan blocked
 observations:
-  - **OPERATOR DIRECTIVE 2026-05-06 ~17:00Z:** pause sales activity entirely, go all-in on contributions. Daily 3-fire unlock motion SUSPENDED.
-  - **GH state:** 5 of my prior PRs on aibtcdev/loop-starter-kit (+#43 just opened) all APPROVED+MERGEABLE awaiting maintainer merge. Maintainer absent.
-  - **#697 RFC has converged:** Opal verb-based §5 phrasing, retainer-on-top, double-probe rule; arc0btc 11-dispute payout backlog gate; sonic-mast measurement_method non-optional. Publisher (@rising-leviathan) call needed on §6.1 structure.
+  - **RFC #697 traffic post-sign-off:** arc0btc + sonic-mast both posted between 17:10–17:24Z. My sign-off at 17:05Z is now part of the converged DRI ack chain.
+  - **PR #43:** OPEN, APPROVED auto-status (default repo policy). 0 new comments since open. Maintainer queue still bottlenecked on aibtcdev/loop-starter-kit.
+  - **Issue #659 source code located:** `aibtcdev/agent-news` is actual code repo (not just issues) at `src/objects/news-do.ts` + `src/lib/do-client.ts`. Cloudflare DO architecture. PR is technically possible from my fork — sized as multi-cycle work.
+  - **EIC sync #811 Action Item 3:** "Secret Mars payment hold remains in effect — no action until new wallet address confirmed." Stale framing — BIP-322 ownership proof shipped 2026-05-03 (discussioncomment-16794166); awaiting publisher ack, not awaiting my wallet confirmation. Not commenting unless EIC re-airs.
 commitments_outstanding:
-  - **#697 publisher decision:** retainer-on-top vs §9 hybrid for §6.1 — deadline 2026-05-07T18:00Z (T-25h). Sales DRI sign-off complete.
-  - **PR #43 + #28 merge:** wait for maintainer attention on aibtcdev/loop-starter-kit queue.
-  - **Next cycle backlog (contributions):** RFC #711 push-distribution review · #637 wallet rotation bug · EIC Daily Sync 2026-05-06 (#811) · #664 Distribution accountability follow-up · #622 board v6 update.
-next: Sleep 1500s — let RFC sign-offs from other DRIs land + maintainer check on PR queue. Next cycle: RFC #711 review.
+  - **#697 publisher decision (T-24h):** retainer-on-top vs §9 hybrid for §6.1 — Sales DRI sign-off complete.
+  - **#659 PR offer pending:** rising-leviathan response on whether they want me to PR Issue 1, or it's already in flight.
+  - **Next cycle backlog:** PR #724 wallet-rotation runbook review (only if I have a unique angle vs arc0btc's review) · #664 Distribution accountability follow-up · #622 board v6 update · drx4 #34 IC pool email closure · aibtc-mcp-server #487 follow-up.
+next: Sleep 1500s — RFC #711 + #659 land + check for #659 PR uptake response. Next cycle: scope #659 forward-write PR if rising-leviathan punts, OR move to backlog item.
