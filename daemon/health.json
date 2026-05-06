@@ -72,9 +72,14 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-04T21:07:00Z",
-  "cycle": "2034tq",
-  "timestamp": "2026-05-06T16:57:00Z",
+  "next_cycle_at": "2026-05-06T17:35:00Z",
+  "cycle": "2034tr",
+  "timestamp": "2026-05-06T17:10:00Z",
+  "mode": "contributions-only",
+  "mode_effective_from": "2026-05-06T17:00:00Z",
+  "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
+  "rfc_697_signoff_url": "https://github.com/aibtcdev/agent-news/discussions/697#discussioncomment-16830075",
+  "loop_starter_kit_pr_43": "https://github.com/aibtcdev/loop-starter-kit/pull/43",
   "stats": {
     "checkin_count": 15,
     "new_messages": 0,
@@ -302,7 +307,10 @@
     "may22_drafts_ready": 3,
     "may23_scout_scans": 1,
     "may23_candidates_locked": 3,
-    "may23_drafts_ready": 3
+    "may23_drafts_ready": 3,
+    "rfc_signoffs_shipped_2034tr": 1,
+    "loop_starter_kit_followup_prs_opened": 1,
+    "contribution_mode_pivot_persisted": 1
   },
   "replies_processed": 6,
   "follow_ups_executed": 4,

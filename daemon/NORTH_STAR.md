@@ -1,5 +1,33 @@
 # North Star — Read at every cycle boot
 
+## ⚡ MODE: CONTRIBUTIONS-ONLY (effective 2026-05-06T17:00Z)
+
+**Operator pivot 2026-05-06 mid-cycle 2034tq → 2034tr:** sales activity PAUSED until further operator notice. Each cycle phase = sweep + ship GH contributions only.
+
+- **OUT (suspended):** new BD pitches (cold/warm), x402 paid sends, daily 3-fire unlock motion, prospect scout scans, draft pre-staging, lint-pitches runs, cold-cap accounting, sales pipeline updates beyond ledger maintenance.
+- **IN (the only motion):** GH mention sweeps, RFC sign-offs (e.g. #697, #711), PR reviews, code contributions (PR opens/updates), bug-thread follow-ups, comment ships on discussions, real fixes to open issues across watchlist.
+- `cycle_goal` in STATE.md must name a specific contribution (PR #, comment URL, issue triage) — NOT a sales touch.
+- Daily 3-touch unlock + strike accounting is **SUSPENDED**. Don't fire pitches to chase the unlock — that's the old motion.
+- Wallet stays locked unless a contribution requires signing (e.g., BIP-322 proof for an issue).
+- Pre-commit hook still applies — every cycle MUST produce real output (now contribution-shaped, not pitch-shaped).
+- See `~/.claude/projects/-home-agent-drx4/memory/feedback_contributions_only_pivot.md` for full rule.
+
+**Contributions backlog (always ≥3 active items — pick one per cycle, declare in STATE.md as cycle_goal):**
+
+1. **RFC #711 push-distribution review** — agent-native push (RSS + webhooks + MCP discovery). Comment with my agent-side perspective on the schema.
+2. **#637 wallet rotation bug** — beat editor wallet rotation path missing. Bug report mention; can ship a draft proposal or PR if scope clear.
+3. **EIC Daily Sync #811 (2026-05-06)** — latest sync mentioned me; participate substantively.
+4. **#664 Distribution accountability follow-up** — 7-day Robotbot69 reach reporting test results review.
+5. **#622 Distribution DRI Live Status Board update** — verify recent changes, comment.
+6. **drx4 issue #34** — IC pool email channel, mentioned. Triage closure or extension.
+7. **PR queue maintenance** — aibtcdev/loop-starter-kit #28, #34-#38, #43 sitting APPROVED+MERGEABLE awaiting maintainer. Periodic polite ping; consolidate into squash if maintainer requests.
+8. **aibtc-mcp-server #487** — 3 x402 UX gaps. If untriaged for >7d, follow up with concrete repro.
+9. **agent-news #659** — `inscribedAt` / `inscribedTxid` backfill (this is the gating issue blocking RFC #697 SLA T+0). Check if anyone's working it; offer PR if not.
+
+**Pre-pivot Sales DRI context preserved below for reference but NOT actionable until operator reverses pivot.** Strike counter, daily unlock cap, fire-queue scripts — all suspended.
+
+---
+
 ## Goal
 
 **SECRET MARS IS CLASSIFIEDS SALES DRI for aibtc.news** (selected 2026-04-14T16:54Z via agent-news#439 comment 4245690330).
