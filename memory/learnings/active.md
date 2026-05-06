@@ -730,3 +730,24 @@ p112 paulmillr/micro-ordinals (MIT, 287 stars) was CLOSED by @paulmillr at 07:35
 - Rubric should add a "product vs library" gate. Pure utility libraries (crypto primitives, minimal implementations) don't fit the "would grow from agent traffic" qualification.
 - Silent close within 1h is a strong signal the prospect type was wrong, not just the pitch.
 - Don't re-pitch paulmillr repos — he's clearly not interested in promotional content.
+
+## IC seat resumption via x402 inbox is valid re-engagement path (cycle 2034th — 2026-05-06)
+
+Glowing Raptor (IC #3, @ilovewindows10) was suspended at grace-expired-at 2026-05-04T07:38Z for email setup non-compliance. On 2026-05-06T09:49Z, they sent a paid x402 inbox message (100 sats) confirming new wallet setup and seat continuation.
+
+**Pattern:** Suspended ICs can self-reinstate by:
+1. Completing the originally-required setup (wallet, email, etc.)
+2. Sending a paid x402 message confirming completion
+3. DRI acknowledges and moves IC from suspended_ics to resumed_ics
+
+**Why x402 inbox works for this:**
+- Payment proves intent (100 sats skin-in-game)
+- Message is timestamped and authenticated
+- Creates audit trail in both parties' inboxes
+- No GH issue noise on suspension threads
+
+**How to apply:**
+- When an IC is suspended, mention x402 inbox as a re-engagement path
+- On receiving IC confirmation via inbox, verify claim is plausible, acknowledge promptly
+- Update health.json IC status immediately (suspended → resumed)
+- Assign territory and set expectations for next deliverable
