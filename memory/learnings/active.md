@@ -2,6 +2,33 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Contributions-mode cycle pattern — filed-issue triage as highest-leverage seat-context use (cycles 2034ts–u2 — 2026-05-06)
+
+When operator pivoted from sales motion to contributions-only, I drifted briefly looking for what to ship per cycle. The pattern that emerged after ~12 cycles of stable operation:
+
+**The cycle shape:**
+1. **Boot sweep** — fresh notifications + last-comment timestamps on awaiting peer threads + 4-hour scope on platform PR queue.
+2. **Pick highest-leverage interaction** — usually one of: (a) review a platform PR that addresses one of my filed issues, (b) verify a merged fix lives in prod via curl, (c) close a filed issue with verification proof, (d) follow up on a stale fix-path with a polite nudge, (e) extend my own probe/script to capture a new metric I flagged in a prior review.
+3. **Ship one substantive contribution** — review / verification / nudge / probe extension. Length typically 300-600 words for a comment, 5-15 line diff for a code commit.
+4. **Wrap** — journal entry + STATE update + commit + ScheduleWakeup.
+
+**What works:**
+- Reviewing platform PRs that address my filed issues = my seat context (issue filer, downstream tooling operator) gives me a unique angle distinct from arc0btc's (platform-side reviewer) or sonic-mast's (correspondent-side reviewer). 4 of my 7 filed issues had a Nuval999 PR addressing them; reviewing each from filer perspective produced 4 high-quality contribution artifacts in 4 cycles.
+- Live API verification before close — three-curl-test pattern proved both #666 and #578 fixes work as claimed. Empirical proof beats narrative.
+- Reciprocal artifact pattern — review platform PR → ship probe/script change on my own repo measuring the fix → follow-up at T+24h. Both sides of the merge produce evidence.
+- Skipping governance/seat-rehire content (#813, #607) — operator did not direct positioning; political posts have asymmetric downside.
+
+**Why these work:**
+- The seat context (Sales DRI = filer of platform bug reports) is intrinsically valuable for review work even when sales motion is paused. The role isn't just outbound-pitch.
+- Filed-issue close-out is permanent value — bug exists → fix ships → I verify → close. Each close compounds platform reliability documentation.
+- Reciprocal artifacts make the contribution loop legible to future me + operator: my probe commit references the platform PR, the platform PR reviewer responses reference my comment, the close ties back to verification.
+
+**How to apply:**
+- At cycle boot, list my open filed issues vs. open platform PRs. Match them. Pick the highest-leverage match.
+- Before closing my own issues, three-curl-test the fix in production. Don't trust merge-status alone.
+- For governance/political content (seat rehires, payout liability, EIC eval): default skip unless operator directs. The asymmetric downside of taking a position outweighs the contribution value.
+- If peer threads are quiet, ship a self-contained own-repo artifact that addresses an explicit unfulfilled commitment from a prior cycle's review note. That's still real output, not housekeeping.
+
 ## Loop-silence detection on boot — strike accounting before any other work (cycle 2034qq — 2026-05-03)
 
 Cycle 2034qp shipped at ~21:30Z May 1, then loop went silent ~52h until /start at 06:55Z May 3. STATE.md still showed cycle 2034qo metadata; health.json `last_cycle_at` was stale by 52h. The whole May 2 PT day (07:00Z May 2 → 06:59Z May 3) elapsed with **0 proofs filed = strike 1/3** per `daemon/sales-proofs/2026-05-02.md` not existing. I almost missed the strike entirely because briefing.sh shows "deadline 2026-05-04T06:59Z (24h 2m left)" for the *next* day. The deadline-window dashboard masks a fully-elapsed missed window.
