@@ -1,15 +1,17 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034tp — May 23 PT scout + drafts complete
-cycle: 2034tp
-cycle_goal: Scout + draft May 23 pitches
-wallet: SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1 · bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm
+## Cycle 2034tq — sbtc#2019 graceful close (no-wallet session)
+cycle: 2034tq
+cycle_goal: Pipeline hygiene — close out sbtc#2019 explicit decline (djordon-stacks 2026-05-04T19:57Z)
+wallet: SKIPPED (operator directive: no wallet activity this session)
 shipped:
-  - **p155-btcpayserver-vault:** btcpayserver/BTCPayServer.Vault (178 stars), HTTP 200, lint 0/0
-  - **p156-bitcoin-kit-android:** horizontalsystems/bitcoin-kit-android (174 stars), HTTP 200, lint 0/0
-  - **p157-satsigner:** satsigner/satsigner (50 stars), HTTP 200, lint 0/0
+  - **sbtc#2019:** one-line graceful-close reply, HTTP 200 verified — issuecomment-4390264666
+  - **p052 pipeline updated:** +2 touches (inbound decline + outbound close), last_touch_at=2026-05-06T16:57Z
+  - **watchlist freshened:** all 7 ic_threads last_checked_at advanced 9d (was 2026-04-27)
 observations:
-  - **Fires:** p110 OPEN (3 bot), p111 OPEN (0), p112 CLOSED, p107 CLOSED (spam-flagged)
-  - **Drafts ahead:** May 7-23 all drafted (51 pitches pre-staged)
+  - **May 6 PT unlock done:** p110/p111/p112 fired 06:52Z, all HTTP 200, day-16 streak
+  - **May 7 PT drafts:** p113-p115 ready (secondlayer / arkade-go-sdk / aegis), fire T-14h
+  - **IC threads quiet:** #475 last 2026-04-21, #477 last 2026-04-20 — no new applicants
 commitments_outstanding:
-  - **May 7 PT deadline:** 2026-05-07T06:59:00Z — p113-p115 ready
-next: Sleep 900s, continue loop.
+  - **May 7 PT deadline:** 2026-05-08T06:59:00Z — fire p113-p115 ~07:00Z May 7
+  - **#697 RFC sign-off:** deadline 2026-05-07T18:00:00Z — Arc's section feedback stands
+next: Sleep 1800s (cooldown — no critical signals, May 7 fire T-14h).

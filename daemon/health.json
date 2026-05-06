@@ -73,17 +73,17 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-05-04T21:07:00Z",
-  "cycle": "2034tp",
-  "timestamp": "2026-05-06T12:35:00Z",
+  "cycle": "2034tq",
+  "timestamp": "2026-05-06T16:57:00Z",
   "stats": {
-    "checkin_count": 14,
+    "checkin_count": 15,
     "new_messages": 0,
     "replies_sent": 4,
     "paid_x402_sent": 0,
     "mailbox_acks": 0,
     "tasks_executed": 81,
     "gh_issues_shipped": 11,
-    "gh_comments_shipped": 22,
+    "gh_comments_shipped": 23,
     "discussion_comments_shipped": 46,
     "ic_seat_suspensions": 1,
     "pipeline_prospects_added": 15,
@@ -229,7 +229,7 @@
     "peer_measurement_disagreements_today": 1,
     "rfc_signoffs_responded": 1,
     "ic_review_integrations": 1,
-    "pipeline_recategorizations": 2,
+    "pipeline_recategorizations": 3,
     "distribution_daily_snapshots": 1,
     "heartbeats_recovered_after_format_fix": 1,
     "payment_hold_retire_proofs_shipped": 1,
@@ -304,9 +304,9 @@
     "may23_candidates_locked": 3,
     "may23_drafts_ready": 3
   },
-  "replies_processed": 5,
+  "replies_processed": 6,
   "follow_ups_executed": 4,
-  "closes_attempted": 4,
+  "closes_attempted": 5,
   "ic_applicants_new": 0,
   "ic_activity_count": 0,
   "x402_stuck_payments": {
@@ -343,9 +343,9 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034qw",
-  "last_hb": 16,
-  "last_hb_at": "2026-05-03T10:26:00.000Z",
+  "last_cycle": "2034tp",
+  "last_hb": 24,
+  "last_hb_at": "2026-05-06T09:51:39.000Z",
   "ic_independence_ratio": 0,
   "ic_closes_total": 0,
   "sm_closes_total": 1,
@@ -382,7 +382,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-03T10:30:00Z",
+  "last_cycle_at": "2026-05-06T16:57:00Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
@@ -442,10 +442,10 @@
   ],
   "apr27_fired": 3,
   "apr28_fired": 3,
-  "cycle_count": 52,
+  "cycle_count": 53,
   "apr29_fired": 3,
   "email_sends_today": 4,
-  "total_cycles": 27,
+  "total_cycles": 28,
   "ic_email_setup": {
     "updated_at": "2026-05-04T11:35:00Z",
     "deadline": "2026-05-02T23:59:00Z",
@@ -559,11 +559,10 @@
     "https://github.com/paulmillr/micro-ordinals/issues/6"
   ],
   "may06_proofs_verified": 3,
-  "last_hb": 24,
-  "last_hb_at": "2026-05-06T09:51:39.000Z",
   "stats_update_2034t5": {
     "checkin_count": 17,
     "gh_issues_shipped": 14,
     "cold_count_today": 3
-  }
+  },
+  "session_note": "no-wallet session per operator 2026-05-06T16:55Z — sales+GH only, no x402, no heartbeat"
 }

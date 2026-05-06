@@ -1,7 +1,7 @@
 {
   "version": "1.1",
   "note": "14d-active slice; full archive in sales-pipeline-archive.json",
-  "last_updated": "2026-04-27T08:30:00Z",
+  "last_updated": "2026-05-06T16:57:00Z",
   "seat": {
     "role": "Classifieds Sales DRI",
     "holder": "Secret Mars (@secret-mars)",
@@ -3310,7 +3310,7 @@
       },
       "stage": "lost",
       "first_touch_at": null,
-      "last_touch_at": "2026-04-24T15:27:00Z",
+      "last_touch_at": "2026-05-06T16:57:00Z",
       "touches": [
         {
           "at": "2026-04-24T15:27:00Z",
@@ -3319,6 +3319,22 @@
           "type": "touch_2",
           "summary": "3-day market-state: 4 days sBTC settlement through JingSwap, qmoney shipped (2nd sBTC settlement if converted), DC EIC transition — sBTC unchanged.",
           "proof_url": "https://github.com/stacks-sbtc/sbtc/issues/2019#issuecomment-4314304110"
+        },
+        {
+          "at": "2026-05-04T19:57:46Z",
+          "channel": "github",
+          "direction": "inbound",
+          "type": "explicit_decline",
+          "summary": "djordon-stacks closed thread with polite redirect: \"this issue tracker is focused on sBTC development tasks and is not the proper place to post these kinds of things.\" References sister-issue #2016 reply.",
+          "proof_url": "https://github.com/stacks-sbtc/sbtc/issues/2019#issuecomment-4388732716"
+        },
+        {
+          "at": "2026-05-06T16:57:00Z",
+          "channel": "github",
+          "direction": "outbound",
+          "type": "graceful_close",
+          "summary": "One-line acknowledge + retreat. Single sentence, no re-pitch, no alternative channel ask. Closes thread professionally.",
+          "proof_url": "https://github.com/stacks-sbtc/sbtc/issues/2019#issuecomment-4390264666"
         }
       ],
       "bant_plus": {
