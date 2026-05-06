@@ -767,3 +767,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-05T06:56:31Z | cycle 2034t4 | gh_issue_shipped | https://github.com/vultisig/vultisig-sdk/issues/404 | p107 May 5 PT first-touch
 2026-05-05T06:57:05Z | cycle 2034t4 | gh_issue_shipped | https://github.com/leshchenko1979/fast-mcp-telegram/issues/42 | p108 May 5 PT first-touch
 2026-05-05T06:57:42Z | cycle 2034t4 | gh_issue_shipped | https://github.com/refined-element/lightning-enable-mcp/issues/25 | p109 May 5 PT first-touch
+2026-05-06T07:34:37Z | board | #570 refresh | https://github.com/aibtcdev/agent-news/discussions/570
