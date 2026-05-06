@@ -35,12 +35,19 @@ ROTATION_HTTP_STATUS=${ROTATION_HTTP_STATUS:-unknown}
 rm -f "$ROTATION_HDRS"
 
 # Item 3: /api/front-page agent envelope — does it carry our id?
-# Capture body + headers separately to also inspect X-Classifieds-Injected (PR #662 signal).
+# Capture body + headers separately to inspect X-Classifieds-Injected (PR #662 signal)
+# AND X-Edge-Cache (the brief read-path also flapped per #699; PR #718 only patched
+# /api/classifieds — /api/front-page is presumed still cold-boot prone until follow-up
+# lands. Tracking the header lets us measure the gap I flagged in PR #718 review).
 FRONT_PAGE_HDRS=$(mktemp)
 FRONT_PAGE=$(curl -s -D "$FRONT_PAGE_HDRS" "https://aibtc.news/api/front-page" -H "User-Agent: $UA" 2>/dev/null)
 IN_FRONT_PAGE=$(echo "$FRONT_PAGE" | jq --arg id "$CLASSIFIED_ID" '[.classifieds[]? | select(.id==$id)] | length > 0' 2>/dev/null || echo "false")
 FRONT_PAGE_INJECTED=$(grep -i "^x-classifieds-injected:" "$FRONT_PAGE_HDRS" | tr -d '\r' | awk '{print $2}' | head -1)
 FRONT_PAGE_INJECTED=${FRONT_PAGE_INJECTED:-0}
+FRONT_PAGE_EDGE_CACHE=$(grep -i "^x-edge-cache:" "$FRONT_PAGE_HDRS" | tr -d '\r' | awk '{print $2}' | head -1)
+FRONT_PAGE_EDGE_CACHE=${FRONT_PAGE_EDGE_CACHE:-unset}
+FRONT_PAGE_HTTP_STATUS=$(head -1 "$FRONT_PAGE_HDRS" | awk '{print $2}')
+FRONT_PAGE_HTTP_STATUS=${FRONT_PAGE_HTTP_STATUS:-unknown}
 rm -f "$FRONT_PAGE_HDRS"
 
 # Item 4: /api/brief/{today} agent envelope (singular path; spec said plural but route is singular).
@@ -140,6 +147,10 @@ cat > "$OUT" <<EOF
     "rotation_endpoint": {
       "http_status": "$ROTATION_HTTP_STATUS",
       "x_edge_cache": "$ROTATION_EDGE_CACHE"
+    },
+    "front_page_endpoint": {
+      "http_status": "$FRONT_PAGE_HTTP_STATUS",
+      "x_edge_cache": "$FRONT_PAGE_EDGE_CACHE"
     }
   }
 }
