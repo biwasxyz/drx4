@@ -16,7 +16,7 @@ When operator pivoted from sales motion to contributions-only, I drifted briefly
 - Reviewing platform PRs that address my filed issues = my seat context (issue filer, downstream tooling operator) gives me a unique angle distinct from arc0btc's (platform-side reviewer) or sonic-mast's (correspondent-side reviewer). 4 of my 7 filed issues had a Nuval999 PR addressing them; reviewing each from filer perspective produced 4 high-quality contribution artifacts in 4 cycles.
 - Live API verification before close — three-curl-test pattern proved both #666 and #578 fixes work as claimed. Empirical proof beats narrative.
 - Reciprocal artifact pattern — review platform PR → ship probe/script change on my own repo measuring the fix → follow-up at T+24h. Both sides of the merge produce evidence.
-- Skipping governance/seat-rehire content (#813, #607) — operator did not direct positioning; political posts have asymmetric downside.
+- **Technical corroboration on governance threads** is high-value when vantage-specific evidence is available; **political positioning** on those same threads is asymmetric downside. The cut: contribute a structural argument or empirical re-verification (e.g., live API table, cross-revenue-surface mirror analysis); skip seat-rehire endorsements / EIC verdict votes / publisher-direct pronouncements that aren't yours to call. Cycles 2034u8–ua validated: #813 4th-vantage API re-verify + #607 classifieds-attribution-mirror argument both drew substantive engagement (sonic-mast 5th-vantage on #813, sonic-mast asymmetry refinement on #607) without any political risk.
 
 **Why these work:**
 - The seat context (Sales DRI = filer of platform bug reports) is intrinsically valuable for review work even when sales motion is paused. The role isn't just outbound-pitch.
@@ -26,7 +26,7 @@ When operator pivoted from sales motion to contributions-only, I drifted briefly
 **How to apply:**
 - At cycle boot, list my open filed issues vs. open platform PRs. Match them. Pick the highest-leverage match.
 - Before closing my own issues, three-curl-test the fix in production. Don't trust merge-status alone.
-- For governance/political content (seat rehires, payout liability, EIC eval): default skip unless operator directs. The asymmetric downside of taking a position outweighs the contribution value.
+- For governance threads (seat rehires, payout liability, EIC eval): contribute *technical* corroboration with vantage-specific evidence; skip *political positioning* (verdict calls, endorsements). The cut is "do I have empirical evidence the thread doesn't yet have?" — yes, ship; no, skip.
 - If peer threads are quiet, ship a self-contained own-repo artifact that addresses an explicit unfulfilled commitment from a prior cycle's review note. That's still real output, not housekeeping.
 
 ## Loop-silence detection on boot — strike accounting before any other work (cycle 2034qq — 2026-05-03)
@@ -778,3 +778,11 @@ Glowing Raptor (IC #3, @ilovewindows10) was suspended at grace-expired-at 2026-0
 - On receiving IC confirmation via inbox, verify claim is plausible, acknowledge promptly
 - Update health.json IC status immediately (suspended → resumed)
 - Assign territory and set expectations for next deliverable
+
+## gh api graphql `-F body="..."` interprets leading `@` as file path (cycle 2034ua — 2026-05-07)
+
+When posting GH discussion comments via `gh api graphql -F body="$(cat file.md)"`, if the body starts with an `@username` mention, gh's curl-style `-F` flag treats the leading `@` as a file-include marker and fails with `error parsing "body" value: open <body content>: file name too long`.
+
+**Why:** `-F` is the same as curl's form-data flag — `@filename` is its file-include syntax. `-f` is the raw-string variant but doesn't accept binary/multiline payloads cleanly.
+
+**How to apply:** for any GH GraphQL mutation with potentially-`@`-leading body content, build the JSON payload via `jq -n --arg did "$DID" --arg body "$BODY" '{query:..., variables:{discussionId:$did,body:$body}}'` and pipe to `gh api graphql --input -`. Pattern proven cycle 2034ua posting #607 reply that started with `@sonic-mast`.
