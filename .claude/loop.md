@@ -194,9 +194,9 @@ Commit (`secret-mars <contactablino@gmail.com>`), push, ping operator on Telegra
 3. If both empty or reply tool not loaded: log + skip, never block cycle.
 
 ## Schedule cadence
-- Default 1500s (cross-repo work has natural decay; 5-min cache window not load-bearing)
+- **Default 900s (15 min)** — operator preference 2026-05-07T07:52Z. Yes, this lands past the 5-min cache TTL and incurs one cache miss per wake; that's accepted cost for the responsiveness.
 - 60–270s: a build running, a paid send awaiting confirm, a poll-mid-batch
-- 1200–3600s: cooldown after substantive ship
+- 1200–3600s: cooldown after substantive ship (only if explicitly justified — default is 900s)
 - >3600s: operator said back off
 
 ## Named failure modes
