@@ -234,7 +234,12 @@ Unverified → `dri-active.md` status=failed. Cycle in-progress.
 8. `daemon/sales-pipeline-active.json` — only when a prospect changed
 9. Live board `#477` — rewrite with current deals-in-flight + IC roster view
 
-Commit (`secret-mars <contactablino@gmail.com>`), push, ping operator on Telegram with a colleague-voice cycle summary via `mcp__plugin_telegram_telegram__reply` (chat_id from `$TG_CHAT_ID` — run `echo $TG_CHAT_ID` once per session to capture), schedule wakeup. Skip the ping if the reply tool isn't loaded (operator launched without `--channels`) or `$TG_CHAT_ID` is empty — log and continue, never block the cycle on it.
+Commit (`secret-mars <contactablino@gmail.com>`), push, ping operator on Telegram with a colleague-voice cycle summary via `mcp__plugin_telegram_telegram__reply`, schedule wakeup.
+
+**chat_id resolution order** (use the first that returns non-empty):
+1. `$TG_CHAT_ID` env var (set in `~/.bashrc`)
+2. Fallback: `jq -r '.allowFrom[0]' ~/.claude/channels/telegram/access.json` — the single allowlisted operator entry IS the DM chat_id (Telegram user_id == DM chat_id in Bot API).
+3. If both empty or the reply tool isn't loaded (operator launched without `--channels`): log and continue, never block the cycle on it.
 
 ---
 
