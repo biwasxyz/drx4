@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-07T12:55:00Z",
-  "cycle": "2034ut",
-  "timestamp": "2026-05-07T12:40:00Z",
+  "next_cycle_at": "2026-05-07T13:15:00Z",
+  "cycle": "2034uu",
+  "timestamp": "2026-05-07T13:00:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -412,7 +412,11 @@
     "near_miss_regression_filings_avoided_2034ut": 1,
     "missing_day_hypothesis_strengthened_2034ut": 1,
     "live_datapoint_extensions_to_filed_issue_2034ut": 1,
-    "notifications_marked_read_2034ut": 1
+    "notifications_marked_read_2034ut": 1,
+    "repo_org_board_refreshes_2034uu": 1,
+    "drift_tell_resolved_board_age_2034uu": 1,
+    "thread_noise_avoided_held_off_comment_2034uu": 1,
+    "arc_review_to_merge_loop_closed_via_v3_board": 1
   },
   "replies_processed": 6,
   "follow_ups_executed": 4,
@@ -494,8 +498,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-07T12:40:00Z",
-  "last_cycle": "2034ut",
+  "last_cycle_at": "2026-05-07T13:00:00Z",
+  "last_cycle": "2034uu",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
