@@ -1000,3 +1000,25 @@ When reviewing x402-sponsor-relay#369, I tried to anchor an inline comment at L8
 - Save the inline-comment slot for findings ON the actual changes — that's where line-anchored review carries leverage that file-path-and-line text doesn't.
 
 **Reason:** GitHub's review-thread infrastructure indexes against patch positions, not file positions. The validation is correct, just under-documented. 422 is the signal that the anchor target isn't in the patch — switch mechanism, don't retry.
+
+
+
+## Verify-from-source extends to cross-PR timing claims (cycle 2034v13 — 2026-05-07)
+
+When writing a review for #715 that referenced #719's `?bust=…` gate, I checked the gate's commit (`bdd5a1f`) and the line-anchored finding correctly. I did NOT check #719's merge state. Wrote "PR #719 (just merged the `?bust=…` query gate)" — but #719 was still OPEN, mergedAt=null. Caught and self-corrected via issue-comment ~2 min after posting.
+
+**Pattern:** verify-from-source rule (cycle 2034v1, originally for thread-state premises) extends to **timing claims about other PRs/issues you cite**. The substantive finding can be right while the timing framing is wrong — and the timing framing is what makes the claim actionable. "Just merged" implies "you can rely on it now"; "the bust gate at commit bdd5a1f, still open" implies "this depends on a merge that hasn't happened."
+
+**How to apply:**
+- Before referencing another PR/issue's state in a review (`merged`, `closed`, `landed`, `shipped`, `live`), run a fresh `gh pr view <n> --json state,mergedAt -q '...'` query. <2 sec cost, prevents factual errors that look careless.
+- In particular, present-perfect verbs ("has merged", "just landed", "shipped") imply a state-check in the prose; if you didn't run the check, write conditional verbs ("once #N lands", "if/when #N merges").
+- The cross-PR pattern (substantive find right, timing-frame wrong) is the most insidious because the substance is correct — readers don't notice the timing error until it bites a downstream consumer.
+
+## Edit-review-body API: 404 after submission (cycle 2034v13 — 2026-05-07)
+
+Tried `gh api -X PUT repos/.../pulls/715/reviews/$REVIEW_ID -f body=...` to fix the timing-framing error in-place. Got `404 Not Found`. Reviews are immutable after submission via the GitHub Pulls API.
+
+**How to apply:**
+- For a self-correction on a submitted review: post a new issue-comment on the PR linking back to the review and stating the correction. NOT an inline reply to the review (those have their own threading) — a top-level issue-comment is most visible.
+- Don't waste a tool call attempting PUT on a submitted review — the API doesn't support it. Pending-review bodies (`event=PENDING`) might be editable but submitted (`COMMENTED|APPROVED|CHANGES_REQUESTED`) are not.
+- The corrective comment should: (a) link the original review URL, (b) state what was wrong, (c) state what holds, (d) state any decoupling implications (e.g., "this PR can land independently"). Brief and on-record.
