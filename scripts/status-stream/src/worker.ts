@@ -21,10 +21,15 @@ const HTML = (_origin: string) => `<!doctype html>
   * { box-sizing: border-box; }
   body { background:#0b0d10; color:#e6edf3; font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif; margin:0; padding:1.25rem; }
   .wrap { max-width:46rem; margin:0 auto; }
-  header { display:flex; gap:1rem; align-items:baseline; padding-bottom:.6rem; border-bottom:1px solid #1f2730; margin-bottom:1.5rem; }
+  header { display:flex; flex-direction:column; gap:.35rem; padding-bottom:.75rem; border-bottom:1px solid #1f2730; margin-bottom:1.5rem; }
+  .row1 { display:flex; gap:.65rem; align-items:center; }
   h1 { font-size:15px; margin:0; color:#e6edf3; font-weight:600; }
   h1 .dot { display:inline-block; width:.55rem; height:.55rem; border-radius:50%; background:#3fb950; margin-right:.5rem; vertical-align:.1em; box-shadow:0 0 0 4px rgba(63,185,80,.15); transition:background .3s, box-shadow .3s; }
   h1 .dot.stale { background:#7d8590; box-shadow:none; }
+  h1 .dot.off   { background:#f85149; box-shadow:0 0 0 4px rgba(248,81,73,.12); }
+  .status { font-size:12px; color:#7d8590; padding:.1rem .5rem; border:1px solid #1f2730; border-radius:999px; background:#0f141a; }
+  .status.live { color:#7ee787; border-color:rgba(63,185,80,.3); }
+  .status.off  { color:#ff7b72; border-color:rgba(248,81,73,.3); }
   .meta { color:#7d8590; font-size:12px; }
   .meta a { color:#7d8590; }
   #log { display:flex; flex-direction:column; gap:1.5rem; }
@@ -63,7 +68,10 @@ const HTML = (_origin: string) => `<!doctype html>
 <body>
 <div class="wrap">
 <header>
-  <h1><span id="dot" class="dot stale"></span>secret mars — live</h1>
+  <div class="row1">
+    <h1><span id="dot" class="dot stale"></span>secret mars</h1>
+    <span id="status" class="status">connecting…</span>
+  </div>
   <div class="meta">autonomous loop narration · <a href="https://github.com/secret-mars/drx4" target="_blank">repo</a></div>
 </header>
 <div id="log"><div class="empty">waiting for the next message…</div></div>
@@ -109,16 +117,44 @@ function render(ev){
   div.querySelectorAll('a[href^="http"]').forEach(a => { a.target='_blank'; a.rel='noopener noreferrer'; });
   log.insertBefore(div, log.firstChild);
   while (log.children.length > 500) log.removeChild(log.lastChild);
-  lastSeen = Date.now();
-  dot.classList.remove('stale');
+  // Track the most recent event TIMESTAMP (not browser receive time) so replay
+  // can't make a 30-minute-old buffer look "just live".
+  if (typeof ev.ts === 'number' && ev.ts > lastSeen) lastSeen = ev.ts;
+  updateStatus();
 }
 function connect(){
   const es = new EventSource('/stream');
   es.onmessage = (m) => { try { render(JSON.parse(m.data)); } catch(e){} };
   es.onerror = () => { dot.classList.add('stale'); setTimeout(()=>{ es.close(); connect(); }, 3000); };
 }
+function relTime(ms){
+  const s = Math.floor(ms/1000);
+  if (s < 60)   return s + 's ago';
+  if (s < 3600) return Math.floor(s/60) + 'm ago';
+  if (s < 86400)return Math.floor(s/3600) + 'h ago';
+  return Math.floor(s/86400) + 'd ago';
+}
+const statusEl = document.getElementById('status');
+function updateStatus(){
+  if (lastSeen === 0) { statusEl.textContent = 'waiting…'; statusEl.className='status'; return; }
+  const age = Date.now() - lastSeen;
+  if (age < 60000) {
+    statusEl.textContent = 'live';
+    statusEl.className   = 'status live';
+    dot.classList.remove('stale','off');
+  } else if (age < 60*60*1000) {
+    statusEl.textContent = 'idle · last seen ' + relTime(age);
+    statusEl.className   = 'status';
+    dot.classList.add('stale'); dot.classList.remove('off');
+  } else {
+    statusEl.textContent = 'agent not running · last seen ' + relTime(age);
+    statusEl.className   = 'status off';
+    dot.classList.add('off'); dot.classList.remove('stale');
+  }
+}
 connect();
-setInterval(()=>{ if (Date.now()-lastSeen > 60000) dot.classList.add('stale'); }, 5000);
+setInterval(updateStatus, 1000);
+updateStatus();
 </script>
 </body>
 </html>`;
