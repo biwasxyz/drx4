@@ -1,25 +1,34 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034uc — Contributions-only mode (cycle 22 of pivot)
+## Cycle 2034uc — Pivot to cross-repo contributions (sales fully retired 2026-05-07T06:35Z)
 cycle: 2034uc
-cycle_goal: Respond to arc0btc's filing-cost asymmetry follow-up on #607 (Phase 3 step 6 — inbound reply quoting my framing); fold in operator-caught notification-hygiene fix
-wallet: UNLOCKED (operator supplied password mid-session 2026-05-07T06:21Z; mode still contributions-only — wallet stays available but no x402/cold-pitch use; persisted to .wallet-password gitignored 600)
+cycle_goal: Operator retired Sales DRI motion entirely; agent pivots to cross-repo contribution work across aibtc ecosystem. Goal of this cycle: rebuild loop infra (loop.md / NORTH_STAR / repo-org-board / arc-coordination) and learn from operator's two course-corrections on framing.
+wallet: UNLOCKED (mainnet, secret mars v2; password persisted to .wallet-password gitignored 600). STX 14.99 / sBTC 7,049 sats / BTC L1 0/0.
 shipped:
-  - **agent-news#607 comment 16836604 (06:17:43Z May 7):** Sales DRI parallel data point on Publisher-response-latency. arc0btc cited my floor-is-lower framing + put a 100-sats-per-x402-gate concrete number on the correspondent filing-cost. I ship the parallel: my BIP-322 + Stacks payment-hold-retire proofs to #720 (2026-05-03T07:20Z) have been unacked by Publisher T+~4d. Same Publisher-response-latency cell as arc0btc's "11 disputes, no Publisher response since April 26" — different revenue surface, same Publisher-side mailbox. Reinforces structural argument without diluting his framing on the asymmetry itself. Verified URL 200.
-  - **memory/learnings/active.md (2026-05-07T06:18Z):** Notification mark-read hygiene rule. Operator caught: `gh api notifications` entries don't auto-clear; same notifications kept showing up across cycles, draining attention. Rule: after Phase 1 sweep, run `gh api notifications --method PUT -f last_read_at=$(date -u ...)` to mark all read AFTER processing. Cleared 35+ unread → 0.
-  - **wallet unlocked + .wallet-password persisted:** Operator delivered password in chat 2026-05-07T06:21Z. Saved single-line, no-newline, 600 perms, gitignored — future sessions auto-unlock per CLAUDE.md.
+  - **agent-news#607 comment 16836604 (06:17Z May 7):** Sales DRI parallel on Publisher-response-latency to arc0btc's filing-cost asymmetry. URL verified 200.
+  - **`.claude/loop.md` rewritten:** Sales DRI loop replaced by cross-repo contribution OODA. Boot reads STATE/health/repo-org-board; Phase 1 sweeps cross-repo (notifications + per-repo PR queue + new issues + stalled threads); Phase 3 priority order: inbound reply / PR review / severe-issue file / arc commitment / stalled-thread / cross-repo route / board refresh / Bitflow trade / backlog. Sales DRI artifacts listed as historical (preserved, not loaded). NO role labels in body — "agent" only.
+  - **`daemon/NORTH_STAR.md` rewritten:** Goal + watched-repo canonical list + 15-item backlog + drift tells redefined. Sales-mode preamble entirely removed. Mode header explicitly says "no role label."
+  - **`daemon/repo-org-board.md` v1:** Cross-repo state of all watched aibtcdev/* + partner repos. Local visibility only.
+  - **`daemon/arc-coordination.md` opened:** Local log (not public thread) of arc thread overlaps + commitments.
+  - **`memory/learnings/active.md`:** Three new lessons — notification mark-read, code-review/Bitflow expansion, manager-pivot + role-label retraction.
+  - **wallet unlocked + .wallet-password persisted; balances reconciled in health.json.**
+operator_corrections_this_cycle:
+  - **06:35Z** — "remove sales entirely... act like a manager who manages all the repos" (broader pivot, manager-feel as aspirational)
+  - **06:46Z** — "no need to act and explicitly say repo manager you are a code reviewr writer programmer everything don't mention repo org manager mode" (don't take on a title)
+  - **06:48Z** — "no not developer you are an agent" (not "developer" either)
+  - **06:50Z** — operator deleted agent-news#814 (the meta coordination issue I filed). Lesson: don't file manifesto-style coordination issues; coordinate through existing thread responses.
 observations:
-  - **#607 thread continues stacking evidence:** arc0btc 05:47Z added 100-sats-per-x402-gate floor + cited "11 disputes, no Publisher response since April 26." Three correspondents now corroborate (sonic-mast, arc0btc, me). RFC §6.1 five questions remain load-bearing items awaiting Publisher.
-  - **#811 dashboard correction quiet (~30 min):** No response yet from rising-leviathan / teflonmusk / Robotbot69 on canonical-thread re-pointing.
-  - **#697 §6.1 verdict deadline T-11h42m (mid-cycle 2026-05-07T18:00Z):** still pending Publisher.
-  - **#813 / #711 / #659 quiet** since last cycle.
+  - Two role-label scrubs + one issue deletion in 15 min = clear signal: operator wants me to BE the agent doing work, not announce a role or scope. The substance (cross-repo work, code reviews, code commits, issue files) is right; the framing is wrong when it gets self-titling.
+  - **#607**: 3 corroborations stacked, awaiting Publisher §6.1 movement.
+  - **#697**: T-11h to deadline.
+  - **#811 dashboard correction**: ~65 min, no Publisher/EIC response.
 commitments_outstanding:
-  - **#697 deadline 2026-05-07T18:00Z (T-11h42m):** publisher §6.1 decision.
+  - **#697 deadline 2026-05-07T18:00Z (T-11h):** publisher §6.1 decision.
   - **#811 dashboard fix:** awaiting Publisher response.
-  - **#720 payment-hold-retire proof ack:** still pending Publisher + EIC, T+~4d.
+  - **#720 payment-hold-retire proof ack:** T+~4d, still pending.
   - **#659 PR:** awaiting arc0btc.
   - **#723/#724:** awaiting Nuval999.
   - **#480 close:** awaiting whoabuddy chore #381.
-  - **#515 close:** procedural — fix shipped + verified.
-  - **#813 follow-up:** Publisher to call EIC trial verdict per ThankNIXlater's ask.
-  - **#607 follow-up:** RFC owner (Ololadestephen) + Publisher to consolidate corroboration mass into a verdict.
-next: Sleep 1500s. Cycle 2034ud target: poll #607 for further movement (Publisher / Ololadestephen ideally weighing in now that 3 corroborations + concrete numbers stacked); poll #811 for response to dashboard correction; poll #697 for §6.1 verdict (deadline mid-cycle); if quiet, take #622 weekly-report Sales-DRI vantage from NORTH_STAR backlog. Phase 1 must end with `gh api notifications --method PUT` mark-read.
+  - **#515 close:** procedural.
+  - **#813 follow-up:** Publisher EIC trial verdict.
+  - **#607 follow-up:** RFC owner + Publisher consolidation.
+next: Sleep 1500s. Cycle 2034ud target: poll #607 / #811 / #697 / #813 for movement; if quiet, ship the FIRST cross-repo PR review (target: a Nuval999 PR on agent-news classifieds layer, e.g. #732 / #729 / #728 / #727; or any peer PR on aibtc-mcp-server). Phase 1 ends with `gh api notifications --method PUT` mark-read. NO role labels on any artifact; just ship the work.

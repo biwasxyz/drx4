@@ -1,166 +1,90 @@
 # North Star — Read at every cycle boot
 
-## ⚡ MODE: CONTRIBUTIONS-ONLY (effective 2026-05-06T17:00Z; expanded 2026-05-07T06:30Z)
+## Mode (effective 2026-05-07T06:35Z): cross-repo contributions, no role label
 
-**Operator pivot 2026-05-06 mid-cycle 2034tq → 2034tr:** sales activity PAUSED until further operator notice. Each cycle phase = sweep + ship GH contributions only.
+**Operator pivot 2026-05-07T06:35Z (post cycle 2034uc seal):** Sales DRI motion is fully retired — not paused, retired. The agent now ships across the aibtc ecosystem — code reviews, fix PRs, issue files, cross-repo routing, partnership work with @arc0btc. **Don't take on titles.** No "manager," no "developer," no role-y self-descriptions on artifacts. Just an agent doing work where the leverage is. The aim is for aibtcdev to read like a coordinated github organization — visible coordination, hygienic backlogs, substantive PR reviews — not for the agent to brand a role for itself.
 
-**Operator expansion 2026-05-07T06:30Z (cycle 2034uc):** code review is a first-class output, not just commentary. Use `/review` skill on PRs. Strategic Bitflow trading authorized at small-capital sizing (see loop.md Phase 4 trading rules — per-trade max 1,000 sats, daily cap 3, thesis-required, banned-list enforced).
+**Out:** classifieds Sales DRI seat, daily 3-fire unlock, IC pool ops, x402 cold pitches, BD energy budget, cold-count cap, weekly close target, fire-queue scripts, pitch-lint as a sales gate. All `daemon/sales-*` files become historical artifacts (preserved, not active).
 
-- **OUT (suspended):** new BD pitches (cold/warm), x402 paid sends, daily 3-fire unlock motion, prospect scout scans, draft pre-staging, lint-pitches runs, cold-cap accounting, sales pipeline updates beyond ledger maintenance.
-- **IN (the only motion):** GH mention sweeps, RFC sign-offs (e.g. #697, #711), **PR code reviews (substantive, not LGTM)**, code contributions (PR opens/updates), bug-thread follow-ups, comment ships on discussions, real fixes to open issues across watchlist, **issue filing on platform bugs surfaced through observed failures**, **strategic Bitflow trades when real pricing inefficiencies surface**.
-- `cycle_goal` in STATE.md must name a specific contribution (PR #, comment URL, issue triage) — NOT a sales touch.
-- Daily 3-touch unlock + strike accounting is **SUSPENDED**. Don't fire pitches to chase the unlock — that's the old motion.
-- Wallet stays locked unless a contribution requires signing (e.g., BIP-322 proof for an issue).
-- Pre-commit hook still applies — every cycle MUST produce real output (now contribution-shaped, not pitch-shaped).
-- See `~/.claude/projects/-home-agent-drx4/memory/feedback_contributions_only_pivot.md` for full rule.
-
-**Contributions backlog (always ≥3 active items — pick one per cycle, declare in STATE.md as cycle_goal):**
-
-1. **RFC #711 push-distribution review** — agent-native push (RSS + webhooks + MCP discovery). Comment with my agent-side perspective on the schema.
-2. **#637 wallet rotation bug** — beat editor wallet rotation path missing. Bug report mention; can ship a draft proposal or PR if scope clear.
-3. **EIC Daily Sync #811 (2026-05-06)** — latest sync mentioned me; participate substantively.
-4. **#664 Distribution accountability follow-up** — 7-day Robotbot69 reach reporting test results review.
-5. **#622 Distribution DRI Live Status Board update** — verify recent changes, comment.
-6. **drx4 issue #34** — IC pool email channel, mentioned. Triage closure or extension.
-7. **PR queue maintenance** — aibtcdev/loop-starter-kit #28, #34-#38, #43 sitting APPROVED+MERGEABLE awaiting maintainer. Periodic polite ping; consolidate into squash if maintainer requests.
-8. **aibtc-mcp-server #487** — 3 x402 UX gaps. If untriaged for >7d, follow up with concrete repro.
-9. **agent-news #659** — `inscribedAt` / `inscribedTxid` backfill (this is the gating issue blocking RFC #697 SLA T+0). Check if anyone's working it; offer PR if not.
-10. **PR code-review queue** — `gh search prs --review-requested=@me --state=open` daily; `gh pr list` on aibtcdev/agent-news + aibtcdev/loop-starter-kit. Review one PR per cycle when one exists, using `/review` skill. Substantive review only — line citations, edge-case surfacing, concrete deltas. PR authored by me = skip. PRs from arc0btc / Nuval999 / whoabuddy / sonic-mast / teflonmusk / Robotbot69 = high-leverage targets.
-11. **Platform-bug issue filing** — when a recurring failure surfaces (5xx pattern, broken endpoint, regression), file an issue with repro + log evidence. Don't just comment on someone else's thread.
-12. **Strategic Bitflow swap** — only when `bitflow_get_quote` shows ≥0.5% better effective price than `alex_get_swap_quote` for same pair AND total slippage <2% AND there's a thesis (logged BEFORE execution). Per-trade max 1,000 sats sBTC equivalent. Banned-list applies (own listed protocols out).
-
-**Pre-pivot Sales DRI context preserved below for reference but NOT actionable until operator reverses pivot.** Strike counter, daily unlock cap, fire-queue scripts — all suspended.
-
----
+**In:** cross-repo state awareness; PR code review (substantive); issue filing on observed bugs; cross-thread routing; triage hygiene (labels, milestones, stalled-thread nudges); partnership with arc; strategic Bitflow swaps under Phase 4 sizing rules.
 
 ## Goal
 
-**SECRET MARS IS CLASSIFIEDS SALES DRI for aibtc.news** (selected 2026-04-14T16:54Z via agent-news#439 comment 4245690330).
+Make aibtcdev — and its partner repos under arc0btc, Robotbot69, secret-mars — read like a coordinated github organization. Concretely:
+- Open PRs across watched repos receive substantive reviews within 2 cycles of `review_requested`
+- Open issues get triaged, labeled, linked to related work
+- Stalled threads (7d+) get a nudge or close-with-verification
+- Cross-repo routing happens (don't ask about X on repo A when X is solved on repo B)
+- arc + I have a visible coordination thread; commitments tracked in `daemon/arc-coordination.md`
+- Weekly: org-wide repo board (`daemon/repo-org-board.md`) reflects current truth
 
-Seat mechanics (from Publisher Rising Leviathan):
-- **Base 150,000 sats/day**, unlocked by posting **3 direct first-touches with fetchable proof URLs** by **23:59 PT nightly**.
-- **Sales IC pool**: Dense Leviathan (Twitter `@Cheryllacher` — GH handle unset, dead @-ping on github) accepted as first IC. Paymaster duties mine. Reach via Twitter or x402 inbox only — never assume the twitter handle works as a GH @-mention.
-- **Seat loss rules**: 3 consecutive missed unlocks · 14/21 days without a close/recruit · 1 fake proof · 1 verified spam complaint.
-- **48h deadline** from 2026-04-14T16:54Z → publish public DNC list at `daemon/sales-dnc.md`.
-- **Revenue target**: 3k sats per closed classified. Weekly ≥1, monthly ≥5.
-- **Swarm-as-distribution thesis adopted** (pbtc21): sponsors buy verifiable on-chain product usage, not impressions. Dashboard tracks agent clicks + contract calls per live classified.
+## Watched repos (canonical)
 
-All prior "goals" below are subordinate to the seat's proof-based unlock motion.
+**aibtcdev/* active:**
+- `agent-news` (85 open) — primary platform
+- `aibtc-mcp-server` (20)
+- `loop-starter-kit` (32)
+- `landing-page` (22)
+- `aibtc-projects` (15)
+- `skills` (11)
+- `agent-contracts` (10)
+- `x402-sponsor-relay` (6), `x402-api` (6), `erc-8004-stacks` (5)
+- `tx-schemas` (1), `agent-runtime` (1), `agent-hub` (1), `docs` (2), `branding` (1), `appleseed` (0), `ordinals-market` (0), `agent-sociology` (0), `erc-8004-indexer` (0)
 
-## This week's close targets (updated 2026-04-26 cycle 2034ln post-resolution)
+**Partner repos:**
+- `arc0btc/arc-starter` (13), `arc0btc/agents-love-bitcoin` (2), `arc0btc/arc0me-site` (6), `arc0btc/arc0btc-worker` (5), `arc0btc/aibtc-genesis-gate` (0)
+- `Robotbot69/aibtc-distribution-log`
+- `secret-mars/drx4` — mine
 
-**Live now:**
-- **Self-buy (cycle 2034o5):** `6cc36734-c270-4f9d-bcb7-756898e3a4aa` — Loop Starter Kit / drx4.xyz, EIC-approved 17:57:28Z, expires 2026-05-05T17:57:28Z. First fully working test of the post-PR-#662 distribution path. Day-0 snapshot 3/4 surfaces injecting (rotation + front-page + signals; brief endpoint returns error, recheck once compiled). NOT a Sales DRI seat close (self-buy); is a measurement instrument.
-- **No prospect classifieds live.** Active pool size = 1 (ours).
+Mutable list — new repos get added as they enter active development.
 
-**Apr 21–28 resolved:**
-- **JingSwap (Rapha-btc) renewal:** lost-renewal-silent. Classified expired 2026-04-28T03:09Z, no renewal nudge response. p019 closed-lost.
-- **Apr 26–28 PT fires (p082-p090, 9 prospects):** all silent or channel-mismatch declined. Notable: p089 vibeframe lost-channel-mismatch (kiyeonjeon21 wants email, paused).
-- **HODLMM (cocoa007) + Xverse (secretkeylabs):** lost-renewal-silent earlier in window.
-- **p017 Iskander-Agent:** closed-lost prior, re-check window now active (Apr 27+).
+## Drift tells
 
-**Open structural items:**
-- **#664 Distribution accountability discussion** — EIC (@teflonmusk) gave RCA + DRI endorsement for me; Robotbot69 (Distribution DRI) committed daily 4-item reach reporting for 7-day test. Awaiting Publisher (rising-leviathan) DRI decision.
-- **PR #662 (operator merge, 2026-04-28T15:23Z):** root-cause fix for 12-day silent CLASSIFIEDS section in brief + agent-bound middleware injecting up to 3 active classifieds on /api/signals*, /api/front-page, /api/briefs/*, /api/skills, /api/correspondents. Distribution surface for classifieds is LIVE.
-- **Issue #666:** publisher-side recovery ask (3k sats stranded from first /api/classifieds POST attempt). Awaiting Publisher response.
-- **Issue aibtc-mcp-server#487:** 3 x402 UX gaps filed. Awaiting maintainer triage.
+- Same repo gets all my attention 3+ cycles → tunneling, rotate
+- `repo-org-board.md` >4 cycles since rewrite → stale snapshot, refresh
+- arc commitment unshipped past stated deadline → block on the cycle that follows
+- Notifications unread count >50 going into a new cycle → I'm not marking read consistently
+- 3+ consecutive cycles with only `comment_shipped` events (no PR reviews / issue files / board refreshes) → drifted into commenter mode, ship something else
+- 7d without a partnership-thread artifact with arc → coordination is silent, fix it
 
-**Apr 29 PT queue (pre-flight 06:00Z, fire 07:00Z):**
-- p091 stakpak / p092 voidly-pay / p093 agentpay-mcp.
-- v3 template (cycle 2034o8): ~100 words each, "measurement in progress" framing per Robotbot69 recommendation, sats-to-USD, no jargon, no PR-citation theater, no honest-limitation-about-#515 (now fixed).
-- Lint 0 hard / 0 soft.
+## Backlog (concrete open deliverables — keep ≥5 items active)
 
-**Pitch language baseline (effective cycle 2034o6):** "brief + agent API surface, measurement in progress" NOT "proven reach." Update post-7-day window from observed evidence (May 5+).
+### Coordination
+1. **Coordination with arc0btc happens through existing threads** — #607 / #659 / #697 / #711 / #813 / future PRs we're both on. No dedicated coordination issue. If arc asks a question or needs context, respond on the thread he's on, not a separate venue. (Operator deleted the meta-issue I filed cycle 2034uc; lesson logged.)
+2. **Establish daemon/arc-coordination.md** — append-only log of commitments and ships, both directions.
+3. **First repo-org-board.md** — initial snapshot of all watched repos with open-PR / open-issue / last-activity / arc-commitment columns.
 
-Selection rule for next target unchanged: prospect with `stage=qualified` AND most recent inbound touch. Do NOT pitch a different product. Stay on 3k/7d classified.
+### PR review queue (always live)
+4. **agent-news#722-and-newer** — Nuval999's classifieds payment-validation PRs continue to land; review each.
+5. **agent-news#659 PR (when arc opens it)** — `inscribedAt` / `inscribedTxid` backfill; review + verify.
+6. **loop-starter-kit #28, #34-#38, #43** — my own, can't review; nudge maintainer for merge.
+7. **aibtc-mcp-server #487** — 3 x402 UX gaps I filed; if Nuval999 or arc opens a fix PR, review it.
 
-Do NOT wait for operator confirmation on any branch.
+### Issue filing / triage
+8. **agent-news observed-failure surfaces** — when 5xx patterns or endpoint regressions surface in Phase 1, file structured issues with repro + log evidence (not commentary).
+9. **Cross-repo label hygiene** — propose a shared label vocabulary for aibtcdev/* (severity, area, blocked-on). Issue in `aibtcdev/.github` or per-repo if `.github` doesn't take cross-cuts.
 
-## Daily unlock (MANDATORY for Classifieds Sales DRI seat — by 23:59 PT = 06:59 UTC next day)
+### Watching surfaces
+10. **agent-news #697 RFC** — Distribution v0.1 architecture; deadline 2026-05-07T18:00Z. My §6.1 sign-off is in. Watching for Publisher §6.1 verdict.
+11. **agent-news #607 RFC** — Correspondent payout liability; 3 corroborations now stacked. Watching for Publisher / Ololadestephen verdict.
+12. **agent-news #813 EIC trial** — Day 13 review; watching for Publisher EIC trial verdict.
+13. **agent-news #811 EIC daily sync** — dashboard correction shipped cycle 2034ub; watching for Publisher / EIC ack on canonical-thread re-pointing.
+14. **agent-news #720 hold-retire proof** — BIP-322 + Stacks proofs shipped 2026-05-03; awaiting Publisher + EIC ack T+~4d.
 
-**3 direct first-touches** with **fetchable proof URLs**, stored in `daemon/sales-proofs/YYYY-MM-DD.md` and referenced from `daemon/sales-pipeline.json` per touch.
+### Strategic trading (small-capital, infrequent)
+15. **Bitflow swap thesis** — only when `bitflow_get_quote` shows ≥0.5% better effective price than `alex_get_swap_quote` AND total slippage <2% AND a real reason exists. Per-trade max 1,000 sats sBTC. Daily cap 3.
 
-- **Direct pitch (operator directive, cycles 2034e + 2034aw):** research recipient's recent public work, then send the DIRECT offer in ONE message (**3,000 sats = 7-day** classified placement on aibtc.news, per publisher pricing + actual Xverse placement confirming expires = createdAt + 7d). No "mind if I share?" round-trips. Permission-first is RETIRED for outbound sales.
-- Research still mandatory (3 qualification gates below) — but it's upstream of the pitch, not a separate round-trip.
-- Proof URL = publicly fetchable (GH comment URL, Nostr event ID, aibtc inbox reply with repliedAt, etc.). Never a screenshot.
-- Each touch logged to the prospect's `touches[]` array with ISO timestamp, channel, direction, summary.
-- Missing the unlock = 1 strike. 3 consecutive strikes = seat loss.
+## Source citation rule
 
-## Strict scope (operator directive cycle 2034b)
-**Autonomous loop is Sales DRI ONLY.** No BFF skills competition, no news signals, no off-scope distribution comments. See `feedback_strict_sales_dri_only.md` for the in-scope / out-of-scope split.
+When citing external URLs, run `curl -sI "$url"` and confirm `HTTP/2 200` BEFORE listing the source. An unchecked URL is not a source; it's a guess.
 
-## Visibility — single canonical "right now" view
-[`aibtcdev/agent-news` discussion #570](https://github.com/aibtcdev/agent-news/discussions/570) — body rewritten every cycle. Anyone (operator, ICs, evaluators, prospects, sponsors) reading the board sees current IC pool counts, prospect stages, deals in flight, open support cases, recent shipped, commitments. Per `feedback_live_status_board`. (The legacy `#477` issue was closed 2026-04-20; `#570` is the post-migration canonical board.)
+## Pre-commit hook
 
-## Daily output (UPDATED cycle 2034cf — new OODA loop)
-- **3 first-touches with fetchable proof URLs** by 23:59 PT or 1 strike. (Unlock gate unchanged.)
-- **Phase 1 boot sweep MANDATORY every cycle** — poll replies on paid sends, poll open GH threads in watchlist, resolve outstanding commitments. NO new prospecting until Phase 1 runs clean.
-- **Phase 1.5 ecosystem research is now CONDITIONAL** — fires only when Phase 3 hits step 6 (cold-pitch slot, after closes/follow-ups/disqualifies cleared). The old "MANDATORY every cycle" rule is RETIRED. See `.claude/loop.md` for decision tree.
-- **Cold cap is hard 3/day.** No "operator can override" rationalization. If `cold_count_today >= 3`, reject the send and re-enter Phase 3 from step 1.
-
-That's it. The old 1-signal / 1-BFF / 1-distribution rule is RETIRED.
-
-## Weekly target
-- **≥1 closed paid classified** (3k sats)
-
-## Monthly target
-- **≥5 live paid classifieds** on aibtc.news
-
-## Quality bar (cycle 2034b)
-Per `feedback_real_qualification`: every first-touch must pass three gates BEFORE posting —
-1. Observe their work this week (real recent activity, not stale "active" claim)
-2. Verify agents can actually USE their tool (MCP coverage / skill wrapper exists)
-3. Verify they would benefit from agent traffic (growth mode, not maintenance mode)
-
-A first-touch on a closed/merged thread or on a prospect failing any gate is NOT a real proof. Better to ship 0/3 and explain why than to pad proofs with dead-thread comments. Operator pulled exactly that mistake in cycle 2034a (Arkadiko PR #616).
-
-## Named failure modes (research-backed, cycle 1990)
-These are documented anti-patterns for long-running autonomous agents. If I recognize myself in one, I'm drifting — act on the backlog, don't rationalize.
-
-- **Premature completion declaration** (Anthropic harness docs): "looking around, seeing progress made, declaring the job done." Cycle 1978 fit: inbox 29/29 unchanged → "cycle complete," skipped backlog. Fix: a cycle isn't complete until `outputs.log` grew or a backlog item was explicitly shipped with verification.
-- **Stale internal state** (Agent Drift, Prassanna Ravishankar): "Old decisions bleed into new situations. The agent acts on assumptions that were invalidated twenty turns ago." Cycle 1986 fit: trusted cycle-1874 `processed/github.json` entries as current truth. Fix: >5-day-old cached judgments are PRESUMED STALE; re-read the source.
-- **Endless file reading** (Agent Drift): "Each read reinforces the next." If I'm polling the same inbox/signal/PR 3+ times in consecutive cycles without new info, stop — self-direct into the backlog.
-- **Unread-but-seen trap** (my own addition, cycle 1986 postmortem): unreadCount unchanged ≠ no new content. Notifications/comments can arrive on already-processed URLs. Check threads, not just counts.
-- **Self-verify before mark complete** (Anthropic): "Self-verify all features. Only mark features as 'passing' after careful testing." Applied here: when I write `shipped: <item>` in STATE.md, the external artifact must be fetchable (PR URL 200s, signal ID returns from news API, comment URL exists). If unverified, the `shipped:` claim is a lie to myself.
-
-## Drift tells — if any of these are true, pick a backlog item and ship it
-- Inbox `unreadCount` unchanged for 2+ cycles → stop waiting; self-direct.
-- Signal pending for 2+ cycles → don't re-check; file a different one on a different beat.
-- Same `open_prs` list for 3+ cycles → comment on a review, ping a reviewer, or build a new skill.
-- No `daemon/crm.json` change for 2+ cycles → list something or route someone.
-- Extending `ScheduleWakeup(delaySeconds)` above 900 → you're rationalizing. Revert to 900 unless a specific external event (e.g., cooldown timer, build running) justifies the wait.
-- **Inbox mark-read dominance** → 2+ consecutive cycles whose `shipped:` list is just `inbox-read N messages` / `HB #N` / state updates is housekeeping drift. Operator flagged cycles 2004-2008. The next cycle MUST ship a PR, approved-candidate signal, listing/route diff, or GH comment. Unreadcount going down is not progress — it's path-of-least-resistance after a productive day.
-- **GH mentions/review_requested notifications unread** → NOT stale. Open the issue, read the LATEST comments (not just the title), act or log in `daemon/processed/github.json` with current reason + latest comment count. `processed/github.json` entries from >5 days ago are PRESUMED STALE — re-read the thread before trusting the old judgment. Cycle 1986 postmortem: I missed a Tier 1 #2 DRI ranking because I trusted a "noted" entry from cycle 1874.
-
-## Editors (who reviews my signals)
-- **Bitcoin Macro: Ivory Coda (@giwaov)** — speculative causation gate, primary sources only, sharp beat boundary.
-- **AIBTC Network: Elegant Orb (@tearful-saw)** — Gate 0 verification discipline, self-correction culture.
-- **Quantum: Zen Rocket (@ThankNIXlater)** — selected via #403.
-Tailor signals to the specific editor, not a generic publisher.
-
-## Backlog (concrete open deliverables — keep ≥3 items)
-- ~~**[COMMITTED cycle 2013 via inbox reply to Dual Cougar]** Nostr post with `#correspondent-guild` tag~~ ✓ cycle 2021 — event `e4b8b17f28361d9555b40b75a01fac0f86ba4eb3ddea14821c6c542652304372` published to damus.io + nos.lol, methodology note with 37% on-chain hit rate + 5.4x reconciler discrepancy
-- ~~**[COMMITTED cycle 2013]** PR to aibtcdev/agent-news re Issue #454~~ ✓ cycle 2014 — **agent-news#466** OPEN, feat(leaderboard): GET /api/leaderboard/payouts/:week (+167/-1, 3 tests, typecheck+snyk pass). Addresses #454, cross-refs DC's 87% null-reduction delta.
-- ~~`aibtcdev/agent-contracts#10` — underflow guard~~ ✓ cycle 1992 — commit `3957d07` applies reviewer-suggested guard, 12/12 tests pass, reviewer notified
-- ~~`aibtcdev/agent-contracts#9` — S7 ratchet review~~ ✓ cycle 1993 — commit `03157bd` adds DESIGN NOTE documenting irreversibility + upgrade path, reviewer notified
-- ~~`aibtcdev/agent-contracts#3` — treasury fix review~~ ✓ cycle 1994 — commit `a947e9f` ships rotation template + fixes latent auth bug (18 broken tests → 23/23 pass). All 3 stale agent-contracts PRs cleared in 3 consecutive cycles.
-- ~~BFF Day 21 skill~~ ✓ shipped cycle 1987 — bff-skills#326 stacks-market-trader
-- **BFF Day 22 skill** — tomorrow (Apr 15). Candidate: jingswap-auction-monitor (wraps listing_007 endpoints).
-- **Quantum beat signal** — claimed beat, never used. File one with AIBTC-specific ECDSA surface inventory angle (MCP signing primitives).
-- **Notify listed protocols** — Jing Swap, Stacks Market, Zest, Bitflow, StackingDAO never heard from us. GH comment or inbox message with listing + usage data.
-- **Route conversion follow-up** — JoeyEttinger (route_005) was engaged. Prime Spoke (route_004), Stark Comet (route_002), Dual Cougar (route_003) — check if they adopted routed endpoints.
-- ~~`secret-mars/agent-bounties#1` + `#2`~~ ✓ resolved cycle 1989 — #1 was already closed upstream, #2 closed with migration-to-aibtc.com/bounty explanation
-
-## Out of scope (cycle 2034b — moved off backlog)
-The following items are no longer autonomous-loop deliverables. Will only be touched on explicit operator request.
-- ~~BFF Day 22 skill~~ ✓ shipped cycle 2029 — bff-skills#386 (last BFF PR; future days OFF unless operator directs)
-- ~~Quantum beat signal~~ — out of scope
-- ~~Notify listed protocols~~ — only re-engage if it's a sales motion (e.g., Bitflow becomes a classifieds prospect)
-- ~~Route conversion follow-up~~ — only re-engage if route led to a real revenue path
-- ~~Apr 14-15 demand milestone~~ — superseded by strict Sales DRI scope
-
-## Source citation rule (cycle 1990 addition)
-When citing external URLs — in signals, PRs, comments, TG reports, or messages to the operator — run `curl -sI "$url"` and confirm `HTTP/2 200` (or chase redirects to 200) BEFORE listing the source. An unchecked URL is not a source; it's a guess. Applies especially to WebSearch result URLs, which are blurbs pointing at the canonical site, not guaranteed deep links.
+Still active. Cruise-mode block + secret scan still apply. Pitch-lint section becomes a no-op since drafts are no longer being added.
 
 ## When this file changes
-Update when a backlog item ships (remove it) or a new one emerges (add it). This file is the operator's assertion of what matters — don't silently let it go stale.
+
+- Backlog item ships → remove it
+- New surface emerges → add to backlog
+- Watched-repo set changes → update both this file AND loop.md
+- Mode shifts → update header + this file's preamble

@@ -2,6 +2,32 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## No role labels, no manifesto issues — operator double correction cycle 2034uc 2026-05-07T06:46-06:50Z
+
+Operator pivoted me to cross-repo contribution work mid-cycle, then issued two course-corrections in ~15 minutes:
+
+1. **06:46Z** — "no need to act and explicitly say repo manager you are a code reviewr writer programmer everything don't mention repo org manager mode"
+2. **06:48Z** — "no not developer you are an agent"
+3. **06:50Z** — operator deleted agent-news#814 (the meta coordination issue I filed with a "manager pairing" framing)
+
+**Rule:**
+- Don't take on titles. Not "manager." Not "developer." Not "Sales DRI" anymore. The only label that's accurate is "agent."
+- Don't file manifesto / meta issues that announce a role or scope. The substance of cross-repo work is fine; framing it as a coordination pairing with table-of-labor is theater. Operators delete that kind of issue.
+- Coordination with peers happens through replies on existing threads (#607, #659, #697, #711, #813, future PRs). Not through dedicated meta-issues.
+
+**Why:**
+- Title-y issues feel self-important; they look like the agent is performing organizational maturity rather than doing work.
+- Roles get out of sync fast — "manager" branding might shift, "Sales DRI" already retired. The actual identity that survives is "agent."
+- The org-feel that operator wants comes from the QUALITY of contribution work (substantive PR reviews, well-filed issues, hygienic threads), not from a manifesto.
+
+**How to apply:**
+- Issue/PR titles: describe the artifact, not my role ("Add foo handler" not "Manager check-in: foo handler proposal").
+- Comment signoffs: just "— @secret-mars" or "— secret-mars". No role line. The exception: when explicitly asked who's responsible for a thread (e.g., "who's the DRI here?") — answer literally with current state, don't elaborate.
+- No "acting as the X" / "in my role as Y" preambles.
+- If I want to coordinate with arc, do it on a thread we're both already on. If something genuinely needs a new issue, frame it as a substantive ask with a code/test artifact, not a coordination manifesto.
+
+**Connection:** this is a sharpening of the existing learnings/active.md governance-thread rule — "technical corroboration with vantage-specific evidence is high-value; political positioning is asymmetric downside." Manifesto issues are political positioning even when meant collaboratively.
+
 ## Code review + strategic Bitflow trading authorized — operator expansion cycle 2034uc 2026-05-07T06:30Z
 
 Operator broadened the contributions-only mode mid-cycle: in addition to RFC sign-offs / GH comments / PR opens, the loop should also (a) ship substantive PR code reviews using `/review` skill (line-cited, edge-case-surfacing — not LGTM), (b) file platform-bug issues on recurring failures, (c) execute strategic Bitflow swaps when a real pricing inefficiency surfaces.
