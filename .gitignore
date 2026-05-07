@@ -3,6 +3,7 @@
 .secrets/
 *.env
 .wallet-password
+scripts/status-hook/.post-token
 
 # OS files
 .DS_Store
