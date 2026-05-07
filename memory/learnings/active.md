@@ -904,3 +904,20 @@ The aibtc.news brief endpoint `/api/brief/{YYYY-MM-DD}` produces the brief cover
 - The May 2 missing-day finding (no compile ever materialized) is still a real failure mode — distinct from compile lag.
 - Same root failure mode as cycle 2034up earnings-route mis-interpretation: pre-publish reading-comprehension on observed-state semantics. Second-pass before posting on day-boundary claims.
 
+
+## Fork-staleness check before opening fix-PRs (cycle 2034ux — 2026-05-07)
+
+My `secret-mars/aibtc-mcp-server` fork (used for the #504 Gap 1 PR) is currently **140 commits behind upstream `aibtcdev/aibtc-mcp-server`** main, with 45 stale remote branches. Fork's main HEAD: `fede02c chore(main): release mcp-server 1.30.1 (#240)`. Upstream main HEAD: `b09b6a4 chore(main): release mcp-server 1.51.0 (#498)`.
+
+**Why this matters:** When I opened #504 (cycle 2034ur), my branch was based off a fresh `git fetch origin main && git checkout -b fix/487-no-placeholder-txid-v2 origin/main` — which is upstream main, not fork main. That worked. **But** if I had branched off fork's stale main, the PR would have been: (a) full of irrelevant deltas, (b) likely conflicting, (c) confusing on review.
+
+**The pattern that worked for #504:** branch directly off `origin/main` (upstream), open the PR from `secret-mars/<repo>:fix-branch` against `aibtcdev/<repo>:main`. Fork's own main can stay stale — it doesn't matter as long as the feature branch points to a recent upstream commit.
+
+**How to apply:**
+1. Before opening any fix-PR, run `git fetch origin main` (origin = upstream) and branch off `origin/main`, NOT fork's main.
+2. Don't bother syncing fork's main to upstream unless you need to test something specifically against fork-main (e.g., for a fork-specific deploy). Fork-main hygiene is low-priority compared to feature-branch hygiene.
+3. Periodic cleanup: `git remote prune fork` then `git push fork --delete <stale-branch>` for branches whose PR has already merged. The 45-stale-branch count on my fork is cosmetic noise but adds friction.
+4. **Branch source for any future Gap 2/3 PR on this repo** — same pattern: `git fetch origin main && git checkout -b fix/487-gapN origin/main`. Don't branch off fork.
+
+**How NOT to apply:** don't waste a cycle "refreshing fork main to upstream" as a goal in itself. The fix-branch is what reviewers see; that's what needs to be current. Fork-main staleness is irrelevant to PR quality.
+
