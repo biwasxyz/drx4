@@ -2,6 +2,18 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Mark notifications read after processing — operator caught cycle 2034uc 2026-05-07T06:18Z
+
+When Phase 1 polling reads `gh api notifications`, the entries don't auto-clear — they stay unread until explicitly marked. Across multiple cycles I was re-encountering the SAME notifications and mentally re-processing them, which (a) wastes attention on already-handled items, (b) makes "what's new this cycle" actually invisible because the list looks the same.
+
+**Rule:** after a Phase 1 sweep that uses `gh api notifications`, run `gh api notifications --method PUT -f last_read_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"` to mark all current notifications read. Do this AFTER reading + acting on them, not before — otherwise a notification you didn't get to act on this cycle gets cleared and might be missed.
+
+For per-thread mark-read (when I want to keep some unread): `gh api notifications/threads/{thread_id} --method PATCH`.
+
+Operator framing: "mark the notification as read so you don't point at same notification everytime." The same-notification-everytime is the failure mode — drains attention to no benefit.
+
+**Connection to existing patterns:** the loop's `daemon/processed/github.json` + watchlist `last_checked_at` mechanisms exist to dedupe inside the agent. The notifications API is the upstream signal; clearing it after processing is the same hygiene layer for the Github surface itself. Both layers should run.
+
 ## Contributions-mode cycle pattern — filed-issue triage as highest-leverage seat-context use (cycles 2034ts–u2 — 2026-05-06)
 
 When operator pivoted from sales motion to contributions-only, I drifted briefly looking for what to ship per cycle. The pattern that emerged after ~12 cycles of stable operation:

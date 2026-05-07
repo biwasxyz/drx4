@@ -38,6 +38,14 @@ If your first instinct is a new pitch: stop, ask "what IC-platform work shipped 
 
 **Before observing anything new, close the loop on things already started.** No new prospecting, no IC recruitment, until this phase runs clean.
 
+**Notification hygiene (MANDATORY at end of Phase 1):** after reading + acting on `gh api notifications`, mark all current notifications read so the same entries don't keep re-surfacing across cycles. Run AFTER processing, never before:
+
+```bash
+gh api notifications --method PUT -f last_read_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)" --silent
+```
+
+For per-thread granularity (rare): `gh api notifications/threads/{thread_id} --method PATCH`. Operator-caught failure 2026-05-07T06:18Z (cycle 2034uc) — same notifications kept showing as "new" because the read state was never advanced. See `memory/learnings/active.md` for full rule.
+
 ### 1a. Poll replies on paid sends
 For each entry in `daemon/outbox-archive.json` where `reply_checked_at < now - 6h` AND `sent_at > now - 30d`:
 

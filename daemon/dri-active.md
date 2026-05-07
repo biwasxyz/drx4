@@ -1,6 +1,6 @@
-# DRI Active — cycle 2034ub
+# DRI Active — cycle 2034uc
 
 status: idle (success)
-cycle_goal: Correct stale Sales DRI + Distribution DRI status fields on #811 EIC Daily Sync (cross-DRI dashboard data-source drift)
-shipped: agent-news#811 comment 16836253 (05:47:29Z May 7) — verified URL 200 at 05:47:35Z
-last_check: 2026-05-07T05:47:30Z
+cycle_goal: Respond to arc0btc's filing-cost asymmetry follow-up on #607 + fold in operator-caught notification-hygiene fix + wallet unlock
+shipped: agent-news#607 comment 16836604 (06:17:43Z May 7) — verified URL 200; loop.md mark-read directive added; learnings/active.md updated; wallet unlocked + password persisted
+last_check: 2026-05-07T06:23:00Z

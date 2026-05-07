@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-07T06:12:30Z",
-  "cycle": "2034ub",
-  "timestamp": "2026-05-07T05:47:30Z",
+  "next_cycle_at": "2026-05-07T06:48:00Z",
+  "cycle": "2034uc",
+  "timestamp": "2026-05-07T06:23:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -88,8 +88,8 @@
     "mailbox_acks": 0,
     "tasks_executed": 81,
     "gh_issues_shipped": 11,
-    "gh_comments_shipped": 27,
-    "discussion_comments_shipped": 49,
+    "gh_comments_shipped": 28,
+    "discussion_comments_shipped": 50,
     "ic_seat_suspensions": 1,
     "pipeline_prospects_added": 15,
     "rogue_post_corrections": 1,
@@ -346,7 +346,12 @@
     "learnings_refined": 1,
     "tooling_gotchas_documented": 1,
     "dri_status_corrections_shipped_2034ub": 1,
-    "cross_dri_dashboard_drift_corrections": 1
+    "cross_dri_dashboard_drift_corrections": 1,
+    "rfc_607_filing_cost_replies_2034uc": 1,
+    "publisher_response_latency_parallels_shipped": 1,
+    "notification_mark_read_learning_added": 1,
+    "notifications_marked_read_2034uc": 35,
+    "wallet_unlock_resumed_after_no_wallet_session": 1
   },
   "replies_processed": 6,
   "follow_ups_executed": 4,
@@ -384,9 +389,12 @@
   "pub_treasury_stx": "SP1KGHF33817ZXW27CG50JXWC0Y6BNXAQ4E7YGAHM",
   "seat_payout_reconciliation_filed": "https://github.com/aibtcdev/agent-news/issues/498#issuecomment-4264695507",
   "seat_payout_reconciliation_asked_at": "2026-04-17T01:42:13Z",
-  "wallet_balance_sbtc_sats": 12549,
+  "wallet_balance_sbtc_sats": 7049,
   "wallet_balance_btc_l1_sats": 0,
-  "wallet_balance_total_liquid_sats": 0,
+  "wallet_balance_total_liquid_sats": 7049,
+  "wallet_balance_reconciled_at": "2026-05-07T06:23:00Z",
+  "wallet_balance_delta_since_last_reconcile_sats": -5500,
+  "wallet_balance_delta_unexplained_in_outputs_log": true,
   "last_hb": 24,
   "last_hb_at": "2026-05-06T09:51:39.000Z",
   "ic_independence_ratio": 0,
@@ -425,8 +433,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-07T05:47:29Z",
-  "last_cycle": "2034ub",
+  "last_cycle_at": "2026-05-07T06:17:43Z",
+  "last_cycle": "2034uc",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
@@ -608,5 +616,5 @@
     "gh_issues_shipped": 14,
     "cold_count_today": 3
   },
-  "session_note": "no-wallet session per operator 2026-05-06T16:55Z — sales+GH only, no x402, no heartbeat"
+  "session_note": "wallet unlocked 2026-05-07T06:21Z (operator delivered password mid-session) — mode still contributions-only per operator confirmation cycle 2034uc; wallet stays available but no x402/cold-pitch use"
 }
