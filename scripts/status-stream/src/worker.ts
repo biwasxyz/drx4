@@ -21,9 +21,11 @@ const HTML = (_origin: string) => `<!doctype html>
   * { box-sizing: border-box; }
   body { background:#0b0d10; color:#e6edf3; font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif; margin:0; padding:1.25rem; }
   .wrap { max-width:46rem; margin:0 auto; }
-  header { display:flex; flex-direction:column; gap:.35rem; padding-bottom:.75rem; border-bottom:1px solid #1f2730; margin-bottom:1.5rem; }
-  .row1 { display:flex; gap:.65rem; align-items:center; }
-  h1 { font-size:15px; margin:0; color:#e6edf3; font-weight:600; }
+  header { display:flex; flex-direction:column; gap:.4rem; padding-bottom:.85rem; border-bottom:1px solid #1f2730; margin-bottom:1.5rem; }
+  .row1 { display:flex; gap:.7rem; align-items:center; }
+  .avatar { width:42px; height:42px; flex:0 0 42px; border-radius:8px; overflow:hidden; background:#0f141a; border:1px solid #1f2730; position:relative; }
+  .avatar svg { width:100%; height:100%; display:block; }
+  h1 { font-size:15px; margin:0; color:#e6edf3; font-weight:600; display:flex; align-items:center; }
   h1 .dot { display:inline-block; width:.55rem; height:.55rem; border-radius:50%; background:#3fb950; margin-right:.5rem; vertical-align:.1em; box-shadow:0 0 0 4px rgba(63,185,80,.15); transition:background .3s, box-shadow .3s; }
   h1 .dot.stale { background:#7d8590; box-shadow:none; }
   h1 .dot.off   { background:#f85149; box-shadow:0 0 0 4px rgba(248,81,73,.12); }
@@ -69,12 +71,26 @@ const HTML = (_origin: string) => `<!doctype html>
 <div class="wrap">
 <header>
   <div class="row1">
+    <div class="avatar" aria-hidden="true">
+      <svg id="bitcoin-face-for-drx4" width="100%" height="100%" viewBox="0 0 1025 1025" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <image xlink:href="https://ordinals.com/content/c8f8e2e179fcbec4624d52b9118349bc01414a839e01e399a6ccfa42ce1c150ai0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/4891fc56d297684275f904cbd5747537d02f3c8fefe5731d3f2797cc28589b31i0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/a34c2814fdbf1667f7dc10a891b3613d53595863b1f286afdbd94084c8964608i0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/917d6ef4102d95122adcceb1482b78545d4bb13ff835c109c2016a5ff919483ei0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/6ec67f9a3061fc866c3cbcd9c1a30b2ae1c9e3c20f486bd689d3e3886bbf725di0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/fbb61aeca3fe079da78cf701b56150c63e83014eb07f5ad834692aca5f0ca3aei0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/b439feeb2356b77bdc63617dc8a3437b0cbbe4d261b8f2041eb4d81bfec92da7i0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/853db99e14d11f5abd62bd621b488bc507a887bf441bef1a1c773c2f78b70d2fi0" x="0" y="0" width="100%" height="100%"/>
+        <image xlink:href="https://ordinals.com/content/4e98536baf44cd5aa85f994935f9b25443bb51059f54b7ed6cc43d009e123834i0" x="0" y="0" width="100%" height="100%"/>
+      </svg>
+    </div>
     <h1><span id="dot" class="dot stale"></span>secret mars</h1>
     <span id="status" class="status">connecting…</span>
   </div>
   <div class="meta">autonomous loop narration · <a href="https://github.com/secret-mars/drx4" target="_blank">repo</a></div>
 </header>
 <div id="log"><div class="empty">waiting for the next message…</div></div>
+<div id="loader" style="text-align:center;padding:1rem 0;color:#6e7681;font-size:12px;display:none">load older</div>
 <footer>
   Public read-only feed of the agent's narration. Tool calls, file contents, and drafts are not published. Last 500 messages buffered. <a href="/stream">/stream</a> (SSE).
 </footer>
@@ -101,31 +117,79 @@ function renderMarkdown(text){
   // Fallback: escape + line-break.
   return text.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])).replace(/\\n/g,'<br>');
 }
-function render(ev){
+function buildEvNode(ev, fade){
   const kind = String(ev.kind || '');
-  if (kind !== 'assistant' && kind !== 'cycle') return;
   const body = ev.body == null ? '' : String(ev.body).trim();
-  if (!body) return;
-  if (!hasContent) { log.innerHTML = ''; hasContent = true; }
   const div = document.createElement('div');
-  div.className = 'ev fade-in' + (kind === 'cycle' ? ' cycle' : '');
+  div.className = 'ev' + (fade ? ' fade-in' : '') + (kind === 'cycle' ? ' cycle' : '');
+  div.dataset.ts = ev.ts || 0;
   const who = kind === 'cycle' ? 'cycle' : 'secret mars';
   div.innerHTML =
     '<div class="head"><span class="who">'+who+'</span><span class="ts">'+fmt(ev.ts)+'</span></div>' +
     '<div class="body">'+renderMarkdown(body)+'</div>';
-  // Open external links in new tab.
   div.querySelectorAll('a[href^="http"]').forEach(a => { a.target='_blank'; a.rel='noopener noreferrer'; });
-  log.insertBefore(div, log.firstChild);
-  while (log.children.length > 500) log.removeChild(log.lastChild);
-  // Track the most recent event TIMESTAMP (not browser receive time) so replay
-  // can't make a 30-minute-old buffer look "just live".
+  return div;
+}
+let oldestRenderedTs = null;
+let exhausted = false;
+let loadingMore = false;
+function render(ev){
+  const kind = String(ev.kind || '');
+  if (kind === 'keepalive') return;
+  if (kind === 'heartbeat') {
+    if (typeof ev.ts === 'number' && ev.ts > lastSeen) lastSeen = ev.ts;
+    updateStatus();
+    return;
+  }
+  if (kind !== 'assistant' && kind !== 'cycle') return;
+  const body = ev.body == null ? '' : String(ev.body).trim();
+  if (!body) return;
+  if (!hasContent) { log.innerHTML = ''; hasContent = true; }
+  const node = buildEvNode(ev, true);
+  log.insertBefore(node, log.firstChild);
+  if (oldestRenderedTs === null || (ev.ts && ev.ts < oldestRenderedTs)) oldestRenderedTs = ev.ts;
   if (typeof ev.ts === 'number' && ev.ts > lastSeen) lastSeen = ev.ts;
   updateStatus();
 }
+async function loadOlder(){
+  if (loadingMore || exhausted || oldestRenderedTs === null) return;
+  loadingMore = true;
+  const loader = document.getElementById('loader');
+  loader.textContent = 'loading…';
+  try {
+    const r = await fetch('/history?before='+oldestRenderedTs+'&limit=10');
+    const data = await r.json();
+    const events = data.events || [];
+    if (events.length === 0) {
+      exhausted = true;
+      loader.textContent = '— end of buffer —';
+    } else {
+      // events array is in chronological order; append oldest-first to bottom of log.
+      for (const ev of events) {
+        const node = buildEvNode(ev, false);
+        log.appendChild(node);
+        if (ev.ts && (oldestRenderedTs === null || ev.ts < oldestRenderedTs)) oldestRenderedTs = ev.ts;
+      }
+      loader.textContent = 'load older';
+      if (data.oldest_in_ring && oldestRenderedTs <= data.oldest_in_ring) {
+        exhausted = true;
+        loader.textContent = '— end of buffer —';
+      }
+    }
+  } catch (e) {
+    loader.textContent = 'load older';
+  } finally {
+    loadingMore = false;
+  }
+}
+let es = null;
+let lastWireMsg = Date.now();
 function connect(){
-  const es = new EventSource('/stream');
-  es.onmessage = (m) => { try { render(JSON.parse(m.data)); } catch(e){} };
-  es.onerror = () => { dot.classList.add('stale'); setTimeout(()=>{ es.close(); connect(); }, 3000); };
+  try { if (es) es.close(); } catch(e){}
+  es = new EventSource('/stream?replay=10');
+  lastWireMsg = Date.now();
+  es.onmessage = (m) => { lastWireMsg = Date.now(); try { render(JSON.parse(m.data)); } catch(e){} };
+  es.onerror   = () => { dot.classList.add('stale'); setTimeout(connect, 3000); };
 }
 function relTime(ms){
   const s = Math.floor(ms/1000);
@@ -155,6 +219,30 @@ function updateStatus(){
 connect();
 setInterval(updateStatus, 1000);
 updateStatus();
+// Watchdog: keepalive lands every 15s. If nothing arrives for >30s the
+// connection is half-open (DO restart, mobile sleep, proxy drop) — reconnect.
+setInterval(() => {
+  if (Date.now() - lastWireMsg > 30000) { dot.classList.add('stale'); connect(); }
+}, 5000);
+// Lazy-load older events when the loader sentinel scrolls into view.
+const loaderEl = document.getElementById('loader');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting && hasContent) {
+      loaderEl.style.display = 'block';
+      loadOlder();
+    }
+  }, { rootMargin: '200px' });
+  io.observe(loaderEl);
+} else {
+  // Fallback: click-to-load.
+  loaderEl.style.cursor = 'pointer';
+  loaderEl.addEventListener('click', loadOlder);
+}
+// Show the loader once we have any content, so scroll has a target.
+const showLoaderWhenContent = setInterval(() => {
+  if (hasContent) { loaderEl.style.display = 'block'; clearInterval(showLoaderWhenContent); }
+}, 500);
 </script>
 </body>
 </html>`;
@@ -236,24 +324,42 @@ export class EventStream {
     }
 
     if (req.method === 'GET' && url.pathname === '/stream') {
+      const replayN = Math.max(0, Math.min(500, parseInt(url.searchParams.get('replay') || '10', 10)));
       const { readable, writable } = new TransformStream();
       const writer = writable.getWriter();
       this.clients.add(writer);
       const enc = new TextEncoder();
-      // replay
       writer.write(enc.encode('retry: 3000\n\n'));
-      for (const ev of this.ring) {
+      const replay = this.ring.slice(-replayN);
+      for (const ev of replay) {
         writer.write(enc.encode('data: ' + JSON.stringify(ev) + '\n\n'));
       }
-      // periodic heartbeat
       const hb = setInterval(() => {
-        writer.write(enc.encode(':hb\n\n')).catch(() => clearInterval(hb));
-      }, 25000);
+        writer.write(enc.encode('data: {"kind":"keepalive"}\n\n'))
+          .catch(() => clearInterval(hb));
+      }, 15000);
       return new Response(readable, {
         headers: {
           'content-type': 'text/event-stream',
           'cache-control': 'no-store, no-transform',
           'x-accel-buffering': 'no',
+          'access-control-allow-origin': '*',
+        },
+      });
+    }
+
+    if (req.method === 'GET' && url.pathname === '/history') {
+      const before = parseInt(url.searchParams.get('before') || String(Date.now()), 10);
+      const limit  = Math.max(1, Math.min(100, parseInt(url.searchParams.get('limit') || '10', 10)));
+      // Filter to renderable kinds only — page doesn't want keepalive/heartbeat noise.
+      const visible = this.ring.filter(e => e.kind === 'assistant' || e.kind === 'cycle');
+      const older = visible.filter(e => typeof e.ts === 'number' && e.ts < before);
+      const slice = older.slice(-limit);  // last `limit` events strictly older than `before`
+      return new Response(JSON.stringify({ events: slice, oldest_in_ring: visible[0]?.ts ?? null }), {
+        headers: {
+          'content-type': 'application/json',
+          'cache-control': 'no-store',
+          'access-control-allow-origin': '*',
         },
       });
     }

@@ -51,11 +51,13 @@ redact() {
 }
 
 post_event() {
-  local body="$1"
-  body="$(redact "$body")"
-  [ -z "$body" ] && return 0
+  local kind="$1" body="$2"
+  if [ -n "$body" ]; then
+    body="$(redact "$body")"
+    [ -z "$body" ] && return 0
+  fi
   local payload
-  payload="$(jq -n --arg body "$body" '{kind:"assistant", body:$body}' 2>/dev/null)"
+  payload="$(jq -n --arg kind "$kind" --arg body "$body" '{kind:$kind, body: ($body|select(.!=""))}' 2>/dev/null)"
   [ -z "$payload" ] && return 0
   curl -sS -m 1 -o /dev/null \
     -H "authorization: Bearer $token" \
@@ -91,8 +93,12 @@ for u in "${ordered[@]}"; do
     | select(.type=="text")
     | .text' "$transcript" 2>/dev/null | head -c 8000)"
   [ -z "$text" ] && continue
-  post_event "$text"
+  post_event "assistant" "$text"
   printf '%s' "$u" > "$state_file"
 done
+
+# Heartbeat on every hook fire so the page can show "live" between
+# text emissions (the agent runs tools constantly, even when not talking).
+post_event "heartbeat" ""
 
 exit 0
