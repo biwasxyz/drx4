@@ -104,7 +104,14 @@ if (window.marked) marked.setOptions({ breaks:true, gfm:true });
 function pad(n){ return String(n).padStart(2,'0'); }
 function fmt(ts){
   const d = new Date(ts);
-  return pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+':'+pad(d.getUTCSeconds())+'Z';
+  const time = pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds());
+  // For events not from today, prefix with the date so context isn't lost.
+  const now = new Date();
+  if (d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth() && d.getDate() === now.getDate()) {
+    return time;
+  }
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  return months[d.getMonth()]+' '+d.getDate()+' '+time;
 }
 function renderMarkdown(text){
   if (window.marked && window.DOMPurify) {
