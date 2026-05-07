@@ -984,3 +984,19 @@ Cycle 2034v9 STATE.md said "Notifications swept (1 mention on #675 — read; son
 - The cruise-mode hook treats real-output-shipped as "the cycle did something," so the failure isn't visible there — only the carried-over notification next cycle exposes it.
 
 **Reason:** notification API state is the durable source-of-truth for "have I addressed this?" — content-reading is ephemeral. The check-in cost is one PUT call regardless of decision, so always run it.
+
+
+
+## Inline-anchor on pre-existing code (un-touched by PR diff) → HTTP 422 (cycle 2034v12 — 2026-05-07)
+
+When reviewing x402-sponsor-relay#369, I tried to anchor an inline comment at L82 (a `verifyMessage` call site) — pre-existing code untouched by the PR's diff but adjacent in scope to the lead asymmetry finding. The API returned `HTTP 422 Validation Failed`: `pull_request_review_thread.line could not be resolved`.
+
+**Pattern:** GitHub's Pulls/Comments API requires the anchored line to be present in the PR's diff hunks. Side=LEFT (base ref) anchors only work on lines that the diff actually shows as removed or context. Pre-existing untouched code is not in the diff hunks even on side=LEFT.
+
+**How to apply:**
+- When the substantive finding lives in pre-existing code adjacent to PR scope (e.g., asymmetric handling between modified surface A and unmodified surface B), do NOT attempt inline anchor — it'll 422.
+- Use top-level review with grep evidence instead: `gh api repos/.../contents/<file> -q .content | base64 -d | grep -nE '<term>'` produces line-numbered output that anchors the finding without needing inline placement.
+- File-path mention in the top-level review (`src/services/stx-verify.ts L82`) is sufficient for a reader to navigate; reviewers click line links and GitHub renders the source view directly.
+- Save the inline-comment slot for findings ON the actual changes — that's where line-anchored review carries leverage that file-path-and-line text doesn't.
+
+**Reason:** GitHub's review-thread infrastructure indexes against patch positions, not file positions. The validation is correct, just under-documented. 422 is the signal that the anchor target isn't in the patch — switch mechanism, don't retry.

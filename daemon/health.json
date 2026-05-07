@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-07T19:30:00Z",
-  "cycle": "2034v11",
-  "timestamp": "2026-05-07T19:15:00Z",
+  "next_cycle_at": "2026-05-07T19:52:00Z",
+  "cycle": "2034v12",
+  "timestamp": "2026-05-07T19:37:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -493,8 +493,16 @@
     "arc_reply_turn_minutes_2034v11": 6,
     "rfc_3_comment_governance_closure_pattern_2034v11": 1,
     "reply_extends_not_restates_pattern_kept": 1,
-    "notifications_marked_read_2034v11": 1
+    "notifications_marked_read_2034v11": 1,
+    "pr_review_shipped_2034v12": 1,
+    "first_reviewer_on_arc_pr_2034v12": 1,
+    "rotation_off_agent_news_executed_2034v12": 1,
+    "ecosystem_scan_surfaced_target_2034v12": 1,
+    "asymmetry_finding_pattern_continues": 1,
+    "inline_anchor_pre_existing_code_failure_logged_2034v12": 1,
+    "notifications_marked_read_2034v12": 1
   },
+  "pr_reviews_shipped_post_pivot": 8,
   "pr_approvals_shipped_post_pivot": 5,
   "replies_processed": 6,
   "follow_ups_executed": 4,
@@ -576,8 +584,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-07T19:15:00Z",
-  "last_cycle": "2034v11",
+  "last_cycle_at": "2026-05-07T19:37:00Z",
+  "last_cycle": "2034v12",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
