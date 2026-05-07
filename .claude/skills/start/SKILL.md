@@ -5,29 +5,29 @@ user_invocable: true
 ---
 # Start Agent Loop
 
-## Pre-flight
-1. Unlock wallet: name `secret mars v2`, mainnet. Password is in `.wallet-password` (single line). Never read `.env` — it contains secrets that should not be loaded into context.
-2. Read `daemon/STATE.md` — recover last cycle state
-3. Read `daemon/health.json` — cycle count, circuit breakers
+## Launching Claude Code
 
-## Enter Loop
+Use `scripts/start-loop.sh` to launch claude with `--dangerously-skip-permissions` and `--channels plugin:telegram@claude-plugins-official` set, so the operator can reach Mars from Telegram between cycles. If claude is already running without the channel flag, ack the gap in `STATE.md` but proceed — the bridge is best-effort, not load-bearing for cycle work.
 
-You are now entering the autonomous loop. Read `.claude/loop.md` for full cycle instructions.
+## Pre-flight (run once, before entering /loop)
 
-Execute cycles continuously. After each cycle completes (all 7 phases), sleep then continue:
+1. Unlock wallet — name `secret mars v2`, mainnet. Password in `.wallet-password` (single line). **Never read `.env`** — it contains secrets that should not be loaded into context.
+2. Read `daemon/STATE.md` — last cycle's observation/decision/commitment + `this_week_close_target`
+3. Read `daemon/health.json` — cycle count, circuit breakers, pillar state
+4. Read `daemon/NORTH_STAR.md` — drift reminder + backlog of open deliverables
+5. Run `scripts/briefing.sh` — compact boot dashboard
+6. Confirm the Telegram bridge is live: the tool list should include `mcp__plugin_telegram_telegram__reply`. If absent, the operator launched without `--channels` — note in `STATE.md` and continue.
 
-```bash
-sleep 900  # 15 min default, adjust based on urgency
-```
+## Enter native /loop (self-paced)
 
-- Default: 900s (15 min)
-- Use shorter delay (60-270s) if time-sensitive opportunity exists
-- Session stays alive during sleep, then continues with next cycle
+Invoke the native `/loop` skill with **no interval** so the model self-paces via `ScheduleWakeup`. Pass this exact prompt as the loop body:
 
-The `.claude/loop.md` file contains the complete cycle architecture: boot, heartbeat, inbox, flywheel (pillar execution), deliver, outreach, write, sync.
+> Execute one cycle of the OODA Sales DRI loop defined in `.claude/loop.md`. Run phases Boot → 1 → 2 → 3 → (3.5 if reached) → 4 → 5 → 6. At end of phase 6, call `ScheduleWakeup` to schedule the next cycle. Cadence rules: default 900s, 60–270s if time-sensitive (worker running, paid send awaiting confirm, reply-poll mid-batch), 1200–3600s for cooldown, >3600s only if operator said back off.
 
-Each pillar's detailed instructions are in `daemon/pillars/{pillar-name}.md` — only read the active pillar file each cycle.
+The cycle body lives entirely in `.claude/loop.md` — do not duplicate it here. Update that file (or the pillar files it references in `daemon/pillars/`) to change cycle behavior.
 
-**Never stop unless the operator runs /stop.** If something breaks, log it, skip it, keep turning.
+## Exit
 
-Begin now. Start your first cycle.
+`/stop` is the graceful shutdown — it instructs you NOT to call `ScheduleWakeup`, saves state, syncs git, and reports cycle number.
+
+**Never stop unless the operator runs `/stop`.** If something breaks, log it, skip it, keep turning.
