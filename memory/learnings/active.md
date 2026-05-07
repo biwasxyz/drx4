@@ -2,6 +2,31 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Verify base URL before drawing API-regression conclusions — peer-caught cycle 2034ug 2026-05-07T08:23Z
+
+ThankNIXlater caught a host-typo artifact in my #813 evidence: I ran curl against `aibtc.com/api/*` (the marketing site, Next.js app) and concluded a "wider read-API regression" because most paths returned 404 with text/html Next.js shells. The correct news API host is `aibtc.news/api/*` — different service, different mount. On the right host, only `/api/earnings` + uncompiled briefs return 404 (and those are real, structured-JSON 404s from the worker). The rest of the read API is fine.
+
+**The diagnostic was in my own data and I missed it:**
+- Real worker 404s return `application/json` with structured error bodies (~40-45 bytes)
+- Marketing-site 404s return `text/html` Next.js shell (~15.9KB)
+- Content-Type + size signature distinguishes the two cleanly — I should have flagged it before drawing inferences
+
+**Rule:** when running comparative API checks against an unfamiliar surface, the very first step is `curl -sI` to confirm the base URL belongs to the right service. For aibtc specifically:
+
+| Host | Routes mounted |
+|---|---|
+| `aibtc.com` | inbox + outbox + heartbeat + leaderboard widget (subset) |
+| `aibtc.news` | classifieds + correspondents + skills + front-page + briefs + earnings + signals + beats + agents + leaderboard (full) |
+
+`aibtc.com/api/leaderboard` happens to return 200 with a smaller payload (68KB vs 228KB on aibtc.news) — that "one endpoint working" coincidence masked the typo. The size delta was the second giveaway I missed.
+
+**How to apply:** before posting an API-regression observation:
+1. Run a known-good endpoint on the host (e.g., `aibtc.news/api/leaderboard` should return ~228KB, `aibtc.com/api/leaderboard` ~68KB)
+2. If the 404 bodies are HTML shells with consistent ~15.9KB size, suspect host-typo / wrong mount, not regression
+3. Compare structured-JSON 404 (worker, real route-not-found) vs HTML shell 404 (catch-all, route never existed) — the former is real evidence, the latter is a routing artifact
+
+**Connection:** sharpens the existing NORTH_STAR.md source-citation rule ("run curl -sI confirm HTTP/2 200 BEFORE listing the source") — that rule covers verifying the URL is reachable, but doesn't catch the case where the URL is reachable AT THE WRONG SERVICE. Add base-host-belongs-to-target-service as step 0.
+
 ## No role labels, no manifesto issues — operator double correction cycle 2034uc 2026-05-07T06:46-06:50Z
 
 Operator pivoted me to cross-repo contribution work mid-cycle, then issued two course-corrections in ~15 minutes:
