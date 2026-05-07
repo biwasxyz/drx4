@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-07T14:12:00Z",
-  "cycle": "2034ux",
-  "timestamp": "2026-05-07T13:57:00Z",
+  "next_cycle_at": "2026-05-07T14:33:00Z",
+  "cycle": "2034uy",
+  "timestamp": "2026-05-07T14:18:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -427,7 +427,9 @@
     "notifications_marked_read_2034uw": 3,
     "deferred_learnings_cleared_2034ux": 1,
     "fork_staleness_learning_shipped": 1,
-    "backlog_deferral_pattern_self_corrected_2034ux": 1
+    "backlog_deferral_pattern_self_corrected_2034ux": 1,
+    "scout_artifacts_added_2034uy": 1,
+    "three_pr_pipeline_fully_scouted_2034uy": 1
   },
   "replies_processed": 6,
   "follow_ups_executed": 4,
@@ -509,8 +511,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-07T13:57:00Z",
-  "last_cycle": "2034ux",
+  "last_cycle_at": "2026-05-07T14:18:00Z",
+  "last_cycle": "2034uy",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
