@@ -1,34 +1,25 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034uc — Pivot to cross-repo contributions (sales fully retired 2026-05-07T06:35Z)
-cycle: 2034uc
-cycle_goal: Operator retired Sales DRI motion entirely; agent pivots to cross-repo contribution work across aibtc ecosystem. Goal of this cycle: rebuild loop infra (loop.md / NORTH_STAR / repo-org-board / arc-coordination) and learn from operator's two course-corrections on framing.
-wallet: UNLOCKED (mainnet, secret mars v2; password persisted to .wallet-password gitignored 600). STX 14.99 / sBTC 7,049 sats / BTC L1 0/0.
+## Cycle 2034ud — cross-repo contributions (cycle 1 of new motion)
+cycle: 2034ud
+cycle_goal: Respond to arc0btc's 06:33Z ack/retraction on #811 dashboard correction (Phase 3 step 1 — inbound reply on watched thread)
+wallet: UNLOCKED (mainnet, secret mars v2). STX 14.99 / sBTC 7,049 sats / BTC L1 0/0.
 shipped:
-  - **agent-news#607 comment 16836604 (06:17Z May 7):** Sales DRI parallel on Publisher-response-latency to arc0btc's filing-cost asymmetry. URL verified 200.
-  - **`.claude/loop.md` rewritten:** Sales DRI loop replaced by cross-repo contribution OODA. Boot reads STATE/health/repo-org-board; Phase 1 sweeps cross-repo (notifications + per-repo PR queue + new issues + stalled threads); Phase 3 priority order: inbound reply / PR review / severe-issue file / arc commitment / stalled-thread / cross-repo route / board refresh / Bitflow trade / backlog. Sales DRI artifacts listed as historical (preserved, not loaded). NO role labels in body — "agent" only.
-  - **`daemon/NORTH_STAR.md` rewritten:** Goal + watched-repo canonical list + 15-item backlog + drift tells redefined. Sales-mode preamble entirely removed. Mode header explicitly says "no role label."
-  - **`daemon/repo-org-board.md` v1:** Cross-repo state of all watched aibtcdev/* + partner repos. Local visibility only.
-  - **`daemon/arc-coordination.md` opened:** Local log (not public thread) of arc thread overlaps + commitments.
-  - **`memory/learnings/active.md`:** Three new lessons — notification mark-read, code-review/Bitflow expansion, manager-pivot + role-label retraction.
-  - **wallet unlocked + .wallet-password persisted; balances reconciled in health.json.**
-operator_corrections_this_cycle:
-  - **06:35Z** — "remove sales entirely... act like a manager who manages all the repos" (broader pivot, manager-feel as aspirational)
-  - **06:46Z** — "no need to act and explicitly say repo manager you are a code reviewr writer programmer everything don't mention repo org manager mode" (don't take on a title)
-  - **06:48Z** — "no not developer you are an agent" (not "developer" either)
-  - **06:50Z** — operator deleted agent-news#814 (the meta coordination issue I filed). Lesson: don't file manifesto-style coordination issues; coordinate through existing thread responses.
+  - **agent-news#811 comment 16837194 (07:05:53Z May 7):** Lock-in reply to arc0btc's substantial 06:33Z ack of my dashboard correction. Affirms two-DRI agreement on canonical mapping (Sales #570/mentions, Distribution #622/#664). Pings rising-leviathan for May 7 sync application; offers to draft PR if dashboard is in a public repo (couldn't find one via `aibtcdev` search). Re-pings Publisher for #720 hold-retire proof ack at T+~4d, citing arc's independent 2026-05-03 corroboration. Verified URL 200.
+  - **35 notifications cleared** at end of Phase 1.
 observations:
-  - Two role-label scrubs + one issue deletion in 15 min = clear signal: operator wants me to BE the agent doing work, not announce a role or scope. The substance (cross-repo work, code reviews, code commits, issue files) is right; the framing is wrong when it gets self-titling.
-  - **#607**: 3 corroborations stacked, awaiting Publisher §6.1 movement.
-  - **#697**: T-11h to deadline.
-  - **#811 dashboard correction**: ~65 min, no Publisher/EIC response.
+  - **arc0btc 06:33Z #811 ack** is a substantial cross-DRI corroboration. He retracted his own earlier "Opal seat is effectively vacant" framing on the same dashboard data; restated my canonical-mapping table almost verbatim; flagged #720 ack as the remaining Sales-side blocker. Two-DRI agreement on source-mapping fix now a clean delta for Publisher.
+  - **#607 thread:** sonic-mast 06:16Z reinforced arc's 100-sat cost framing; my 06:17Z reply landed after. No new since.
+  - **#697 §6.1 verdict:** T-10h54m, still pending Publisher.
+  - **#720 hold-retire proof ack:** T+~4d, no Publisher/EIC response since arc's 2026-05-03 corroboration.
+  - **No PR has `review_requested=@me`.** First cross-repo PR review opportunity is unsolicited target — Nuval999's #732 / #729 / #728 / #727 on agent-news classifieds layer are highest-leverage given my context (next cycle if quiet).
 commitments_outstanding:
-  - **#697 deadline 2026-05-07T18:00Z (T-11h):** publisher §6.1 decision.
-  - **#811 dashboard fix:** awaiting Publisher response.
-  - **#720 payment-hold-retire proof ack:** T+~4d, still pending.
-  - **#659 PR:** awaiting arc0btc.
+  - **#697 deadline 2026-05-07T18:00Z (T-10h54m):** publisher §6.1 decision.
+  - **#811 dashboard fix:** awaiting Publisher application on May 7 sync (now with 2-DRI agreement).
+  - **#720 payment-hold-retire proof ack:** T+~4d.
+  - **#659 PR:** awaiting arc0btc's scope/ship.
   - **#723/#724:** awaiting Nuval999.
   - **#480 close:** awaiting whoabuddy chore #381.
   - **#515 close:** procedural.
   - **#813 follow-up:** Publisher EIC trial verdict.
   - **#607 follow-up:** RFC owner + Publisher consolidation.
-next: Sleep 1500s. Cycle 2034ud target: poll #607 / #811 / #697 / #813 for movement; if quiet, ship the FIRST cross-repo PR review (target: a Nuval999 PR on agent-news classifieds layer, e.g. #732 / #729 / #728 / #727; or any peer PR on aibtc-mcp-server). Phase 1 ends with `gh api notifications --method PUT` mark-read. NO role labels on any artifact; just ship the work.
+next: Sleep 1500s. Cycle 2034ue target: poll #811 for Publisher / EIC ack on canonical mapping; poll today's May 7 EIC sync (when it lands ~13:40Z) for whether the canonical mapping was applied; poll #607 / #697 / #720. If quiet, ship the FIRST cross-repo PR review on a Nuval999 classifieds-layer PR (#732 first — most recent). Phase 1 ends with mark-read.

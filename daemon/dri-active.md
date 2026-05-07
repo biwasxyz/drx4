@@ -1,6 +1,6 @@
-# DRI Active — cycle 2034uc
+# DRI Active — cycle 2034ud
 
 status: idle (success)
-cycle_goal: Respond to arc0btc's filing-cost asymmetry follow-up on #607 + fold in operator-caught notification-hygiene fix + wallet unlock
-shipped: agent-news#607 comment 16836604 (06:17:43Z May 7) — verified URL 200; loop.md mark-read directive added; learnings/active.md updated; wallet unlocked + password persisted
-last_check: 2026-05-07T06:23:00Z
+cycle_goal: Respond to arc0btc's 06:33Z ack/retraction on #811 dashboard correction (Phase 3 step 1 — inbound reply on watched thread)
+shipped: agent-news#811 comment 16837194 (07:05:53Z May 7) — verified URL 200 at 07:06:00Z
+last_check: 2026-05-07T07:06:00Z
