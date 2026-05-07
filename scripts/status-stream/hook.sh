@@ -1,101 +1,98 @@
 #!/usr/bin/env bash
-# Claude Code hook → drx4-status worker (Server-Sent Events feed).
-# Wired in ~/.claude/settings.json under "hooks":
-#   PreToolUse, PostToolUse, UserPromptSubmit, Stop, Notification.
+# Claude Code hook → drx4-status worker (assistant text only).
 #
-# Hook input is JSON on stdin per Claude Code spec. We read what we need,
-# sanitize, and POST to $STATUS_ENDPOINT with $STATUS_TOKEN.
+# Strategy: on every hook fire, scan the active transcript JSONL for new
+# assistant `text` blocks (the natural-language narration) and POST each one.
+# Tool calls, tool results, and thinking blocks are NOT published.
 #
-# Env (set via launcher or .env propagation):
+# Wired in ~/.claude/settings.json under hooks: PreToolUse, PostToolUse,
+# UserPromptSubmit, Stop, Notification.
+#
+# Required env (set in settings.json or by launcher):
 #   STATUS_ENDPOINT — e.g. https://status.drx4.xyz/event
 #   STATUS_TOKEN    — Bearer token matching the worker's POST_TOKEN secret
-# Optional:
-#   STATUS_HOOK_KIND — override the kind (defaults from $CLAUDE_HOOK_EVENT)
-#
-# Always exits 0; never blocks the agent on a failed POST.
 
 set -u
 endpoint="${STATUS_ENDPOINT:-}"
 token="${STATUS_TOKEN:-}"
 [ -z "$endpoint" ] && exit 0
 [ -z "$token" ] && exit 0
+command -v jq >/dev/null 2>&1 || exit 0
+command -v curl >/dev/null 2>&1 || exit 0
 
 raw="$(cat)"
 
-# Map Claude hook event to short kind. Event name is in $CLAUDE_HOOK_EVENT
-# when Claude Code sets it; otherwise read .hook_event_name from the JSON.
-event="${CLAUDE_HOOK_EVENT:-${STATUS_HOOK_KIND:-}}"
-if [ -z "$event" ] && command -v jq >/dev/null 2>&1; then
-  event="$(printf '%s' "$raw" | jq -r '.hook_event_name // empty' 2>/dev/null)"
+# Find the active transcript: prefer .transcript_path from the hook payload;
+# fall back to the most recently modified .jsonl in the project's transcripts dir.
+transcript="$(printf '%s' "$raw" | jq -r '.transcript_path // empty' 2>/dev/null)"
+if [ -z "$transcript" ] || [ ! -f "$transcript" ]; then
+  transcript="$(ls -t /home/agent/.claude/projects/-home-agent-drx4/*.jsonl 2>/dev/null | head -1)"
 fi
-[ -z "$event" ] && event="note"
-case "$event" in
-  PreToolUse)        kind="tool_pre" ;;
-  PostToolUse)       kind="tool_post" ;;
-  UserPromptSubmit)  kind="prompt" ;;
-  Stop)              kind="stop" ;;
-  Notification)      kind="note" ;;
-  *)                 kind="$(printf '%s' "$event" | tr '[:upper:]' '[:lower:]')" ;;
-esac
+[ -z "$transcript" ] || [ ! -f "$transcript" ] && exit 0
 
-# Best-effort field extraction with jq (skipped silently if jq missing).
-tool=""
-body=""
-if command -v jq >/dev/null 2>&1; then
-  tool="$(printf '%s' "$raw"   | jq -r '.tool_name // .tool // empty' 2>/dev/null)"
-  case "$kind" in
-    tool_pre)
-      body="$(printf '%s' "$raw" | jq -r '.tool_input // empty | tostring' 2>/dev/null)"
-      ;;
-    tool_post)
-      body="$(printf '%s' "$raw" | jq -r '
-        ((.tool_input // empty) | tostring) as $i
-        | ((.tool_response.output // .tool_response // empty) | tostring) as $o
-        | $i + "\n→ " + $o' 2>/dev/null)"
-      ;;
-    prompt)
-      body="$(printf '%s' "$raw" | jq -r '.prompt // .user_prompt // empty' 2>/dev/null)"
-      ;;
-    stop)
-      body="$(printf '%s' "$raw" | jq -r '.transcript_path // empty' 2>/dev/null)"
-      ;;
-    *)
-      body="$(printf '%s' "$raw" | jq -r '.message // empty' 2>/dev/null)"
-      ;;
-  esac
-fi
+# Per-transcript state file (so a new session's first fire doesn't flood
+# with the previous session's post-anchor uuid that won't match).
+state_dir="$(dirname "$transcript")"
+transcript_base="$(basename "$transcript" .jsonl)"
+state_file="$state_dir/.status-stream-last-uuid.$transcript_base"
+last_uuid="$(cat "$state_file" 2>/dev/null || true)"
 
-# Sanitize: drop secrets + draft contents before publishing.
+# Safety cap: never POST more than this many text blocks per hook fire,
+# so a missing-anchor case can't dump an entire transcript.
+MAX_PER_FIRE=5
+
+# Sanitize before publishing (defense-in-depth — assistant text occasionally
+# echoes file contents or tokens it just read).
 redact() {
   local s="$1"
-  # Hard secrets — drop entire lines containing wallet/env/token-shaped material.
-  s="$(printf '%s' "$s" | sed -E '/(\.wallet-password|\.env|mnemonic|xprv|xpriv|BEGIN [A-Z ]*PRIVATE KEY|ssh-rsa|ssh-ed25519|sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|gho_[A-Za-z0-9]{20,}|sbp_[A-Za-z0-9]{20,}|xoxb-[A-Za-z0-9-]{20,}|AKIA[A-Z0-9]{16}|password|POST_TOKEN|STATUS_TOKEN|CLOUDFLARE_API_TOKEN|TG_BOT_TOKEN|ANTHROPIC_API_KEY)/d')"
-  # Draft text in /tmp/*.md or daemon/drafts/**/*.md — replace content with placeholder.
-  if printf '%s' "$s" | grep -qE '/(tmp|daemon/drafts)/[^[:space:]]*\.md'; then
-    s="$(printf '%s' "$s" | sed -E 's#("?file_path"?[: ]+"?/(tmp|home/agent/drx4/daemon/drafts)/[^"]+\.md"?)[^}]*#\1 <DRAFT REDACTED>#g')"
-  fi
-  # Generic high-entropy token guard: long opaque alphanum-runs get masked.
+  s="$(printf '%s' "$s" | sed -E '/(\.wallet-password|\.env|mnemonic|xprv|xpriv|BEGIN [A-Z ]*PRIVATE KEY|sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|gho_[A-Za-z0-9]{20,}|sbp_[A-Za-z0-9]{20,}|xoxb-[A-Za-z0-9-]{20,}|AKIA[A-Z0-9]{16}|POST_TOKEN|STATUS_TOKEN|CLOUDFLARE_API_TOKEN|TG_BOT_TOKEN|ANTHROPIC_API_KEY)/d')"
   s="$(printf '%s' "$s" | sed -E 's/[A-Za-z0-9_-]{40,}/<REDACTED>/g')"
-  # Hard cap.
-  printf '%s' "$s" | head -c 6000
+  printf '%s' "$s" | head -c 8000
 }
 
-tool="$(redact "$tool")"
-body="$(redact "$body")"
+post_event() {
+  local body="$1"
+  body="$(redact "$body")"
+  [ -z "$body" ] && return 0
+  local payload
+  payload="$(jq -n --arg body "$body" '{kind:"assistant", body:$body}' 2>/dev/null)"
+  [ -z "$payload" ] && return 0
+  curl -sS -m 1 -o /dev/null \
+    -H "authorization: Bearer $token" \
+    -H 'content-type: application/json' \
+    --data-binary "$payload" \
+    "$endpoint" >/dev/null 2>&1 || true
+}
 
-payload="$(jq -n \
-  --arg kind "$kind" \
-  --arg tool "$tool" \
-  --arg body "$body" \
-  '{kind:$kind, tool: ($tool|select(.!="")), body: ($body|select(.!=""))}' 2>/dev/null)"
+# Walk the transcript newest-first, collecting text-block uuids until we hit
+# last_uuid. Reverse to chronological order, then POST each one in turn.
+mapfile -t new_uuids < <(
+  tac "$transcript" 2>/dev/null \
+    | jq -rc 'select(.type=="assistant"
+                     and (.message.content | type == "array")
+                     and (.message.content[]? | .type == "text"))
+             | .uuid' 2>/dev/null \
+    | awk -v last="$last_uuid" -v cap="$MAX_PER_FIRE" '
+        last != "" && $0 == last { exit }
+        { print; n++; if (n >= cap) exit }
+      '
+)
 
-[ -z "$payload" ] && exit 0
+# Reverse to chronological order.
+n=${#new_uuids[@]}
+[ "$n" -eq 0 ] && exit 0
+ordered=()
+for ((i=n-1; i>=0; i--)); do ordered+=("${new_uuids[i]}"); done
 
-# Fire-and-forget. 1s timeout so a slow worker can't stall the agent.
-curl -sS -m 1 -o /dev/null \
-  -H "authorization: Bearer $token" \
-  -H "content-type: application/json" \
-  --data-binary "$payload" \
-  "$endpoint" >/dev/null 2>&1 || true
+for u in "${ordered[@]}"; do
+  text="$(jq -r --arg u "$u" '
+    select(.uuid==$u and .type=="assistant")
+    | .message.content[]?
+    | select(.type=="text")
+    | .text' "$transcript" 2>/dev/null | head -c 8000)"
+  [ -z "$text" ] && continue
+  post_event "$text"
+  printf '%s' "$u" > "$state_file"
+done
 
 exit 0
