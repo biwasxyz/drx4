@@ -1,8 +1,15 @@
 // drx4-status — public live tail of the Secret Mars autonomous loop.
 //
-// POST /event   (auth: Authorization: Bearer $POST_TOKEN) — agent hooks call this
-// GET  /stream  (open) — Server-Sent Events: replays last N events, then live tail
-// GET  /        (open) — HTML viewer
+// POST /event    (auth: Authorization: Bearer $POST_TOKEN) — agent hooks call this
+// GET  /ws       (Upgrade: websocket) — replays last N events, then live tail
+// GET  /history  (open, JSON) — paginated lookback for scroll-back loading
+// GET  /         (open) — HTML viewer
+//
+// Broadcast pattern: Durable Object WebSocket Hibernation API.
+// Connections survive DO eviction; the runtime tracks accepted sockets so
+// fan-out is `state.getWebSockets().forEach(ws => ws.send(...))`. No keepalive
+// scaffolding, no reconnect watchdog — those existed only to paper over
+// shortcomings of the SSE-on-DO pattern.
 
 interface Env {
   STREAM: DurableObjectNamespace;
@@ -189,14 +196,16 @@ async function loadOlder(){
     loadingMore = false;
   }
 }
-let es = null;
-let lastWireMsg = Date.now();
+let ws = null;
+let connected = false;
 function connect(){
-  try { if (es) es.close(); } catch(e){}
-  es = new EventSource('/stream?replay=10');
-  lastWireMsg = Date.now();
-  es.onmessage = (m) => { lastWireMsg = Date.now(); try { render(JSON.parse(m.data)); } catch(e){} };
-  es.onerror   = () => { dot.classList.add('stale'); setTimeout(connect, 3000); };
+  try { if (ws) ws.close(); } catch(e){}
+  const proto = location.protocol === 'https:' ? 'wss:' : 'ws:';
+  ws = new WebSocket(proto + '//' + location.host + '/ws?replay=10');
+  ws.onopen    = () => { connected = true; updateStatus(); };
+  ws.onmessage = (m) => { try { render(JSON.parse(m.data)); } catch(e){} };
+  ws.onclose   = () => { connected = false; updateStatus(); setTimeout(connect, 3000); };
+  ws.onerror   = () => { /* onclose will fire after error; reconnect there */ };
 }
 function relTime(ms){
   const s = Math.floor(ms/1000);
@@ -207,7 +216,13 @@ function relTime(ms){
 }
 const statusEl = document.getElementById('status');
 function updateStatus(){
-  if (lastSeen === 0) { statusEl.textContent = 'waiting…'; statusEl.className='status'; return; }
+  if (!connected) {
+    statusEl.textContent = 'reconnecting…';
+    statusEl.className   = 'status';
+    dot.classList.add('stale'); dot.classList.remove('off');
+    return;
+  }
+  if (lastSeen === 0) { statusEl.textContent = 'connected · waiting…'; statusEl.className='status'; return; }
   const age = Date.now() - lastSeen;
   if (age < 60000) {
     statusEl.textContent = 'live';
@@ -226,11 +241,6 @@ function updateStatus(){
 connect();
 setInterval(updateStatus, 1000);
 updateStatus();
-// Watchdog: keepalive lands every 15s. If nothing arrives for >30s the
-// connection is half-open (DO restart, mobile sleep, proxy drop) — reconnect.
-setInterval(() => {
-  if (Date.now() - lastWireMsg > 30000) { dot.classList.add('stale'); connect(); }
-}, 5000);
 // Lazy-load older events when the loader sentinel scrolls into view.
 const loaderEl = document.getElementById('loader');
 if ('IntersectionObserver' in window) {
@@ -274,12 +284,8 @@ export class EventStream {
   env: Env;
   ring: any[] = [];
   ringMax: number;
-  // Store ReadableStreamDefaultControllers, NOT TransformStream writers.
-  // Per WHATWG Streams: controllers are designed to be enqueue()'d into
-  // from any later async context, including subsequent fetch invocations
-  // on the same DO instance. Writers from a different request lifecycle
-  // don't reliably flush bytes that arrive after the GET handler returned.
-  clients: Set<ReadableStreamDefaultController<Uint8Array>> = new Set();
+  // No in-memory client list — the WebSocket Hibernation runtime tracks
+  // accepted sockets externally. Use this.state.getWebSockets() to fan out.
 
   constructor(state: DurableObjectState, env: Env) {
     this.state = state;
@@ -310,51 +316,31 @@ export class EventStream {
       this.ring.push(ev);
       while (this.ring.length > this.ringMax) this.ring.shift();
       this.state.storage.put('ring', this.ring).catch(() => {});
-      const enc = new TextEncoder().encode('data: ' + JSON.stringify(ev) + '\n\n');
-      // Fan-out via controllers — synchronous enqueue, no backpressure await.
-      for (const c of [...this.clients]) {
-        try { c.enqueue(enc); }
-        catch { this.clients.delete(c); }
+      const msg = JSON.stringify(ev);
+      // Fan-out: WebSocket Hibernation API tracks accepted sockets even when
+      // the DO has hibernated. ws.send is synchronous; bad sockets just throw.
+      for (const ws of this.state.getWebSockets()) {
+        try { ws.send(msg); } catch {}
       }
       return new Response('ok');
     }
 
-    if (req.method === 'GET' && url.pathname === '/stream') {
+    if (req.method === 'GET' && url.pathname === '/ws') {
+      if (req.headers.get('upgrade') !== 'websocket') {
+        return new Response('expected websocket upgrade', { status: 426 });
+      }
       const replayN = Math.max(0, Math.min(500, parseInt(url.searchParams.get('replay') || '10', 10)));
-      const enc = new TextEncoder();
-      // `slice(-0)` returns the whole array — guard explicitly.
+      const pair = new WebSocketPair();
+      const [client, server] = Object.values(pair);
+      // acceptWebSocket = hibernation-mode accept. The runtime keeps the
+      // connection alive across DO evictions and routes inbound frames to
+      // the webSocket* handler methods on this class.
+      this.state.acceptWebSocket(server);
       const ring = replayN === 0 ? [] : this.ring.slice(-replayN);
-      const clients = this.clients;
-      let captured: ReadableStreamDefaultController<Uint8Array> | null = null;
-      let hb: ReturnType<typeof setInterval> | null = null;
-      const stream = new ReadableStream<Uint8Array>({
-        start(controller) {
-          captured = controller;
-          clients.add(controller);
-          controller.enqueue(enc.encode('retry: 3000\n\n'));
-          for (const ev of ring) {
-            controller.enqueue(enc.encode('data: ' + JSON.stringify(ev) + '\n\n'));
-          }
-          // Keepalive every 15s — keeps DO pinned + signals proxies not to drop.
-          hb = setInterval(() => {
-            try { controller.enqueue(enc.encode('data: {"kind":"keepalive"}\n\n')); }
-            catch { if (hb) clearInterval(hb); clients.delete(controller); }
-          }, 15000);
-        },
-        cancel() {
-          // Browser disconnected — clean up.
-          if (hb) clearInterval(hb);
-          if (captured) clients.delete(captured);
-        },
-      });
-      return new Response(stream, {
-        headers: {
-          'content-type': 'text/event-stream',
-          'cache-control': 'no-store, no-transform',
-          'x-accel-buffering': 'no',
-          'access-control-allow-origin': '*',
-        },
-      });
+      for (const ev of ring) {
+        try { server.send(JSON.stringify(ev)); } catch {}
+      }
+      return new Response(null, { status: 101, webSocket: client });
     }
 
     if (req.method === 'GET' && url.pathname === '/history') {
@@ -374,5 +360,22 @@ export class EventStream {
     }
 
     return new Response('not found', { status: 404 });
+  }
+
+  // Hibernation-API event handlers. The runtime invokes these on the DO
+  // instance (which may have been freshly created after eviction) when a
+  // websocket frame arrives from the client. We're broadcast-only, so we
+  // ignore inbound messages — they exist purely as a client-side keepalive
+  // mechanism if the page chooses to send any.
+  async webSocketMessage(_ws: WebSocket, _msg: string | ArrayBuffer): Promise<void> {
+    // intentionally empty
+  }
+
+  async webSocketClose(ws: WebSocket, code: number, _reason: string, _wasClean: boolean): Promise<void> {
+    try { ws.close(code, 'goodbye'); } catch {}
+  }
+
+  async webSocketError(ws: WebSocket, _error: unknown): Promise<void> {
+    try { ws.close(1011, 'error'); } catch {}
   }
 }
