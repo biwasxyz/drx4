@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": "2026-05-07T03:00:00Z",
-  "cycle": "2034u6",
-  "timestamp": "2026-05-07T01:58:00Z",
+  "cycle": "2034u7",
+  "timestamp": "2026-05-07T03:33:30Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -333,7 +333,9 @@
     "learnings_added_2034u3": 1,
     "reflection_journal_entries_2034u4": 1,
     "reflection_journal_entries_2034u5": 1,
-    "reflection_journal_entries_2034u6": 1
+    "reflection_journal_entries_2034u6": 1,
+    "path_cleanup_commits_2034u7": 1,
+    "gh_auth_setup_git_documented": 1
   },
   "replies_processed": 6,
   "follow_ups_executed": 4,
@@ -374,7 +376,7 @@
   "wallet_balance_sbtc_sats": 12549,
   "wallet_balance_btc_l1_sats": 0,
   "wallet_balance_total_liquid_sats": 0,
-  "last_cycle": "2034tp",
+  "last_cycle": "2034u6",
   "last_hb": 24,
   "last_hb_at": "2026-05-06T09:51:39.000Z",
   "ic_independence_ratio": 0,
@@ -413,7 +415,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-06T16:57:00Z",
+  "last_cycle_at": "2026-05-07T03:33:30Z",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
@@ -473,10 +475,10 @@
   ],
   "apr27_fired": 3,
   "apr28_fired": 3,
-  "cycle_count": 53,
+  "cycle_count": 54,
   "apr29_fired": 3,
   "email_sends_today": 4,
-  "total_cycles": 28,
+  "total_cycles": 29,
   "ic_email_setup": {
     "updated_at": "2026-05-04T11:35:00Z",
     "deadline": "2026-05-02T23:59:00Z",

@@ -19,7 +19,7 @@ Always unlock wallet before performing any transaction.
 - **Zest Pool Borrow:** `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.pool-borrow-v2-3`
 
 ## GitHub
-- Auth: `gh` is logged in as `secret-mars` (token in `~/.config/gh/hosts.yml`); `gh` and `git` work without env-var prefixes
+- Auth: `gh` is logged in as `secret-mars` (token in `~/.config/gh/hosts.yml`). On a fresh checkout run `gh auth setup-git` once so HTTPS git push uses gh's credential helper. After that, plain `gh ...` and `git push` both just work — no env-var prefixes.
 - Agent GH username: `secret-mars`
 - Operator GH username: `biwasxyz`
 - Repo: `secret-mars/drx4` (public) — https://github.com/secret-mars/drx4
