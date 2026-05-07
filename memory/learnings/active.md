@@ -931,3 +931,40 @@ My `secret-mars/aibtc-mcp-server` fork (used for the #504 Gap 1 PR) is currently
 
 **How NOT to apply:** don't waste a cycle "refreshing fork main to upstream" as a goal in itself. The fix-branch is what reviewers see; that's what needs to be current. Fork-main staleness is irrelevant to PR quality.
 
+
+
+## Bitflow MCP get_quote/swap broken — bypass via direct on-chain core contract (cycle 2034v5 — 2026-05-07)
+
+`mcp__aibtc__bitflow_get_quote` and `mcp__aibtc__bitflow_swap` BOTH return the literal string `"No route found for token-X -> token-Y"` for every pair tested (sBTC↔STX, sBTC→aeUSDC, sBTC→VELAR, sBTC→stSTX, STX→aeUSDC, STX→sBTC). Tested base/human units across 1000/2000/10000 base + 0.00001/1/5 human. Consistent.
+
+Meanwhile, the discovery-side Bitflow MCP tools all work:
+- `bitflow_get_tokens` → 202 valid tokens
+- `bitflow_get_swap_targets(token-sbtc)` → 82 targets including STX
+- `bitflow_get_routes(sbtc, stx)` → returns 2 routes (BITFLOW_XYK_XY_2 + VELAR_UNIV2V2_PATH)
+- `bitflow_get_ticker` → confirms real on-chain pools (e.g. `xyk-pool-sbtc-stx-v-1-1` has $718,335 USD TVL, last trade <30 min ago)
+
+Working bypass — operator directive 2026-05-07T16:54Z: "use api.hiro.so instead of node.bitflowapis.finance". Decoded as: bypass the Bitflow MCP entirely, hit the pool's on-chain core contract directly via Hiro's API.
+
+**The path** (proven on tx 0x62b795f8b8952ec8991bf3ed49ef5afac11e439e1d564fd86750d97b9e6927c8, block 7888941, zero slippage):
+1. `mcp__aibtc__call_read_only_function` on `SM1793C4R5PZ4NS4VQ4WMP7SKKYVH8JZEWSZ9HCCR.xyk-core-v-1-2` function `get-dy` — returns expected output amount.
+2. Compute `min-dy = expected * (1 - slippage)`.
+3. `mcp__aibtc__call_contract` on same core contract function `swap-x-for-y` with args (pool-trait, x-token-trait, y-token-trait, x-amount, min-dy).
+
+**Function ABI** (from `get_contract_info` on core):
+- `swap-x-for-y(pool-trait principal, x-token-trait principal, y-token-trait principal, x-amount uint, min-dy uint)`
+- `swap-y-for-x(pool-trait principal, x-token-trait principal, y-token-trait principal, y-amount uint, min-dx uint)` (reverse direction)
+- `get-dy(pool-trait, x-token-trait, y-token-trait, x-amount)` — read-only quote
+- `get-dx(pool-trait, x-token-trait, y-token-trait, y-amount)` — reverse quote
+
+**Pool resolution** — to find the pool contract for a pair, query `bitflow_get_ticker` (still works) and pull `pool_id` for the pair you want. The pool's `core-address` field (via `get-pool` read-only) names the core contract. Most Bitflow xyk pools route through `SM1793C4R5PZ4NS4VQ4WMP7SKKYVH8JZEWSZ9HCCR.xyk-core-v-1-2`.
+
+**Pool y-token nuance** — for the sBTC↔STX pool, the y-token is `SM1793C4R5PZ4NS4VQ4WMP7SKKYVH8JZEWSZ9HCCR.token-stx-v-1-2` (a wstx wrapper). On swap completion the wrapped balance auto-unwraps to native STX in the receiver wallet — verified by `get_stx_balance` showing native STX +3.181 after the swap. So no separate unwrap step needed for STX-denominated outputs.
+
+**Post-condition mode** — using `'allow'` was safe for this single-call swap with bounded risk (1000 sats max loss). For larger trades, use `'deny'` mode with explicit FT post-condition: `{type: 'ft', principal: <my-addr>, asset: 'SM3VDXK3WZZSA84XXFKAFAF15NNZX32CTSG82JFQ4.sbtc-token', assetName: <FT-name>, conditionCode: 'eq', amount: <sats>}`. The asset-name for sBTC SIP-010 token needs verification before committing to deny mode.
+
+**Wallet auto-lock** — wallet auto-locks between calls (observed twice this session). Need to call `wallet_unlock` immediately before each `call_contract` — chain them in the same tool batch when possible.
+
+**How to apply:**
+- For trading-competition swaps, default to the on-chain Hiro path until the Bitflow MCP get_quote bug is fixed.
+- File this as an aibtcdev MCP server bug (the get_routes/get_swap_targets/get_ticker say a route exists but get_quote/swap reject it; they're different code paths internally and the latter is broken).
+- Phase 4 quote-compare gate (Bitflow vs ALEX) is moot if Bitflow's quote is broken — use the on-chain quote directly + verify it's reasonable against ticker last-price. (For this trade, get-dy returned 318,385 STX/sBTC vs ticker 317,654 STX/sBTC — 0.23% over, within market microstructure noise.)
