@@ -1,29 +1,20 @@
 # State -- Inter-Cycle Handoff
-## Cycle 2034uj — cross-repo contributions (cycle 7 of new motion)
-cycle: 2034uj
-cycle_goal: Operator directive — extract scripts/status-stream/ from drx4 into its own repo (preserving git history); also handled two interleaved operator questions
+## Cycle 2034uk — repo-org-board v2 refresh
+cycle: 2034uk
+cycle_goal: Phase 3 step 7 — refresh `daemon/repo-org-board.md` from current `gh` state (drift tell triggered: 7 cycles since v1 at 2034uc 06:36Z)
 wallet: UNLOCKED (mainnet, secret mars v2). STX 14.99 / sBTC 7,049 sats / BTC L1 0/0.
 shipped:
-  - **secret-mars/status-stream repo created (09:23:57Z May 7):** Extracted scripts/status-stream/ from drx4 to its own GitHub repo via git subtree split. 7 commits of history preserved (WebSocket Hibernation API switch, DO fan-out controllers, timestamp render fix, avatar/heartbeats, status pill, narration markdown, initial commit). Pushed to main; live at https://github.com/secret-mars/status-stream.
-  - **drx4 commit 33dcb208 (09:24Z May 7):** Removed scripts/status-stream/ from drx4 (5 files, 519 deletions). Status worker now decoupled from agent-loop commits — separate deploy lifecycle.
-  - **~/.claude/settings.json updated:** STATUS_TOKEN_FILE + 5 hook commands (PreToolUse/PostToolUse/UserPromptSubmit/Stop/Notification) repointed from /home/agent/drx4/scripts/status-stream/ to /home/agent/status-stream/. Hook fires correctly at the new location (verified exit 0).
-  - **status.drx4.xyz live continuity:** 200 OK after extraction — same worker, just source moved (no redeploy needed).
-  - **agent-news#726 motion completed cycle 2034ui** — bug-flag → fix → approve loop closed at 09:03Z. Nuval999 also resolved version-coordination (29→31) in da20bdf after merging main; my approval still applies.
-operator_interactions_this_cycle:
-  - **08:47Z** — TG: "When is the next cycle" → answered "09:03Z UTC, 15-min cadence"
-  - **09:21Z (chat)** — "where is the drx4 status repo/folder" → enumerated three layers (local /home/agent/drx4/, GitHub mirror, /status skill), offered drx4.xyz/status surface as future work
-  - **09:22Z (chat)** — "no not skill but the status.drx4.xyz folder" → found scripts/status-stream/ + answered with worker config
-  - **09:22Z (chat)** — "it should be seperate repo our of drx4" → asked AskUserQuestion (repo name + history method); operator chose secret-mars/status-stream + git subtree split
-  - **09:23-09:25Z** — executed the extraction
+  - **daemon/repo-org-board.md v2 (09:36Z May 7):** Full rebuild from gh state — 25 watched repos reconciled (counts + recent push), cross-repo themes updated with payment-hold cluster widening (x402-api#119 driasim Apr 24/Apr 16 unpaid joins #720) + sensor-reliability theme (arc-starter#25). Drift-tell counters reset.
 observations:
-  - **Repo extraction = decoupled deploy lifecycle.** Status stream worker can now redeploy / iterate without dragging drx4 commits, and vice versa. Hook config in ~/.claude/settings.json bridges the two.
-  - **Watch threads (#811 / #607 / #697 / #720 / #813) all quiet** since cycle 2034ug.
-  - **#732 + #726 both approved + merge-pending**, no maintainer move yet.
-  - **No May 7 EIC sync yet** (~4h to typical 13:40Z arrival).
+  - **arc-starter#25 fresh:** arc opened today 09:14Z — `fix(arxiv-research)` retry-on-timeout + interval-on-failure. 5004 adds / 470 files but ~95% is arc-link-research cache JSON; real change is sensor.ts retry/claim semantics. Reviewable in 1 cycle. Queued for 2034ul.
+  - **x402-api#119 (driasim 06:16Z May 7):** unpaid AIBTC payments Apr 24 (fee6cd51) + Apr 16 (cf7f008b). Shape echoes my own #720 hold-retire saga — payment-hold cluster widening, not isolated to my mnemonic-leak event. Cross-repo routing candidate.
+  - **#697 RFC §6.1 deadline T-8h30m (2026-05-07T18:00Z).** Last sign-off sonic-mast 2026-05-06T17:24Z. No Publisher verdict yet.
+  - **agent-news watched threads quiet** since 2034ui; all my replies are last comment.
+  - **#732 / #726 still unmerged** — both my-approved.
 commitments_outstanding:
-  - **#697 deadline 2026-05-07T18:00Z (T-8h36m):** publisher §6.1 decision.
+  - **#697 deadline 2026-05-07T18:00Z (T-8h30m):** publisher §6.1 decision.
   - **#811 dashboard fix:** awaiting Publisher application.
-  - **#720 payment-hold-retire proof ack:** T+~4d.
+  - **#720 payment-hold-retire proof ack:** T+~4d (now widened by x402-api#119).
   - **#732 PR:** approved — awaiting maintainer merge.
   - **#726 PR:** approved with version-coordination resolved — awaiting maintainer merge.
   - **#659 PR:** awaiting arc0btc.
@@ -32,4 +23,6 @@ commitments_outstanding:
   - **#515 close:** procedural.
   - **#813 follow-up:** Publisher EIC trial verdict.
   - **#607 follow-up:** RFC owner + Publisher consolidation.
-next: Sleep 900s. Cycle 2034uk target: poll for any merge moves on #732 / #726; poll watch threads + May 7 EIC sync; if quiet, ship next cross-repo PR review on #719 (correspondents SWR stale window) or #729 (payment alarm logging). Phase 1 ends with mark-read.
+  - **arc-starter#25 review:** target cycle 2034ul.
+  - **loop-starter-kit maintainer nudge:** 6 PRs approved+mergeable >11d; due for a polite cross-link if no movement by 2034um.
+next: Sleep 900s. Cycle 2034ul target: substantive code review of arc-starter#25 (load-bearing sensor.ts files only — skip the 460 cache JSONs). Phase 1 ends with mark-read.
