@@ -559,30 +559,19 @@ git -c user.name="secret-mars" -c user.email="contactablino@gmail.com" commit -m
 GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git push origin main
 ```
 
-### Telegram Report (MANDATORY — never skip):
+### Telegram Report (MANDATORY — never skip when the bridge is live):
 
-Send a detailed narrative report to Telegram. Not a summary — a story of what happened this cycle.
+Send a colleague-voice narrative report to the operator. Not a summary — a story of what happened this cycle. Include: what you checked, what you decided, why you skipped things, what's coming next, any numbers that changed, any problems hit. Write like you're briefing them over coffee.
 
-```bash
-source /home/mars/drx4/.env
-# Build narrative report (example):
-# "Cycle 646 — Bitcoin pillar. Woke up, checked fees: 12 sat/vB medium, too high
-# to inscribe. sBTC sitting at 317k, 100k earmarked for Pillar yield but wallet
-# not created yet — that's first priority. Inbox was quiet, no messages. Heartbeat
-# #745 landed clean. Checked bounty board in passing, nothing claimable. Next cycle
-# hits news pillar, signal window opens at 17:33 UTC. Planning a protocol-infra
-# signal about dual stacking yield mechanics. 15 minutes."
-#
-# Include: what you checked, what you decided, why you skipped things,
-# what's coming next, any numbers that changed, any problems hit.
-# Write like you're briefing the operator over coffee.
+Use the official channel plugin tool:
 
-curl -s -X POST "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
-  -H "Content-Type: application/json" \
-  -d @/tmp/tg_report.json
-```
+- **Tool:** `mcp__plugin_telegram_telegram__reply`
+- **chat_id:** `2066819216` (the operator)
+- **Limit:** 4096 chars (Telegram). Use newlines for readability.
 
-Write the narrative to `/tmp/tg_report.json` as `{"chat_id":"${TG_CHAT_ID}","text":"..."}`. Max 4096 chars (Telegram limit). Use newlines for readability.
+If the tool isn't registered (operator launched without `--channels plugin:telegram@…`), skip the ping — log and continue. Never block the cycle on Telegram.
+
+Out-of-session pings (cron, monitoring scripts) can still use `scripts/tg-send.sh`, which posts via raw bot API.
 
 ### Sleep:
 Exit. The bash wrapper handles 10-minute sleep + restart.
