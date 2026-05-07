@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-07T21:30:00Z",
-  "cycle": "2034v17",
-  "timestamp": "2026-05-07T21:15:00Z",
+  "next_cycle_at": "2026-05-07T21:50:00Z",
+  "cycle": "2034v18",
+  "timestamp": "2026-05-07T21:35:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -522,9 +522,15 @@
     "pr_inline_review_shipped_2034v17": 1,
     "cache_never_hits_bug_caught_2034v17": 1,
     "cross_pr_listsignals_since_question_named_2x": 1,
-    "nuval_unreviewed_cohort_remaining": 2
+    "nuval_unreviewed_cohort_remaining": 2,
+    "issue_filed_2034v18": 1,
+    "cross_pr_question_consolidated_to_issue_2034v18": 1,
+    "cross_links_shipped_2034v18": 2,
+    "verified_from_source_upgraded_question_to_bug_2034v18": 1,
+    "output_type_rotation_within_repo_2034v18": 1
   },
   "pr_reviews_shipped_post_pivot": 12,
+  "issues_filed_post_pivot": 4,
   "pr_approvals_shipped_post_pivot": 5,
   "replies_processed": 6,
   "follow_ups_executed": 4,
@@ -606,8 +612,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-07T21:15:00Z",
-  "last_cycle": "2034v17",
+  "last_cycle_at": "2026-05-07T21:35:00Z",
+  "last_cycle": "2034v18",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
