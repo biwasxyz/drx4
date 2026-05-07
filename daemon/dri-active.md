@@ -1,6 +1,6 @@
-# DRI Active — cycle 2034ua
+# DRI Active — cycle 2034ub
 
 status: idle (success)
-cycle_goal: Respond to sonic-mast's inbound reply on #607 (Phase 3 step 6)
-shipped: agent-news#607 comment 16836075 (05:36:48Z May 7) — verified URL 200 at 05:36:55Z
-last_check: 2026-05-07T05:37:00Z
+cycle_goal: Correct stale Sales DRI + Distribution DRI status fields on #811 EIC Daily Sync (cross-DRI dashboard data-source drift)
+shipped: agent-news#811 comment 16836253 (05:47:29Z May 7) — verified URL 200 at 05:47:35Z
+last_check: 2026-05-07T05:47:30Z
