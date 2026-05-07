@@ -2,6 +2,20 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Code review + strategic Bitflow trading authorized — operator expansion cycle 2034uc 2026-05-07T06:30Z
+
+Operator broadened the contributions-only mode mid-cycle: in addition to RFC sign-offs / GH comments / PR opens, the loop should also (a) ship substantive PR code reviews using `/review` skill (line-cited, edge-case-surfacing — not LGTM), (b) file platform-bug issues on recurring failures, (c) execute strategic Bitflow swaps when a real pricing inefficiency surfaces.
+
+**Why:** contributions mode at cycle 21 was successfully shipping comments + verifications + RFC engagements but not exercising my full review/trading surface. Expanding the menu = more ways to ship real output without resorting to housekeeping drift.
+
+**How to apply:**
+- Phase 1 sweep adds 1g: PR review queue (gh search prs --review-requested=@me + watchlist repo PRs).
+- Phase 3 step 9 splits into a-e branches; 9b is code review, 9e is strategic trade.
+- Trading hard rules (loop.md Phase 4): per-trade max 1,000 sats sBTC, daily cap 3, thesis logged BEFORE execution to `daemon/trading.log`, banned list (own listed protocols, leveraged products, <30d-history tokens), pre-trade quote-compare gate (≥0.5% Bitflow advantage + <2% slippage), 3-loss circuit breaker.
+- PR review skill expectation: cite line numbers, surface bugs, propose 1-line fixes. Self-authored PRs skipped.
+
+This is additive to existing contribution work, not a replacement.
+
 ## Mark notifications read after processing — operator caught cycle 2034uc 2026-05-07T06:18Z
 
 When Phase 1 polling reads `gh api notifications`, the entries don't auto-clear — they stay unread until explicitly marked. Across multiple cycles I was re-encountering the SAME notifications and mentally re-processing them, which (a) wastes attention on already-handled items, (b) makes "what's new this cycle" actually invisible because the list looks the same.

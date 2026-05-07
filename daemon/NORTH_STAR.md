@@ -1,11 +1,13 @@
 # North Star — Read at every cycle boot
 
-## ⚡ MODE: CONTRIBUTIONS-ONLY (effective 2026-05-06T17:00Z)
+## ⚡ MODE: CONTRIBUTIONS-ONLY (effective 2026-05-06T17:00Z; expanded 2026-05-07T06:30Z)
 
 **Operator pivot 2026-05-06 mid-cycle 2034tq → 2034tr:** sales activity PAUSED until further operator notice. Each cycle phase = sweep + ship GH contributions only.
 
+**Operator expansion 2026-05-07T06:30Z (cycle 2034uc):** code review is a first-class output, not just commentary. Use `/review` skill on PRs. Strategic Bitflow trading authorized at small-capital sizing (see loop.md Phase 4 trading rules — per-trade max 1,000 sats, daily cap 3, thesis-required, banned-list enforced).
+
 - **OUT (suspended):** new BD pitches (cold/warm), x402 paid sends, daily 3-fire unlock motion, prospect scout scans, draft pre-staging, lint-pitches runs, cold-cap accounting, sales pipeline updates beyond ledger maintenance.
-- **IN (the only motion):** GH mention sweeps, RFC sign-offs (e.g. #697, #711), PR reviews, code contributions (PR opens/updates), bug-thread follow-ups, comment ships on discussions, real fixes to open issues across watchlist.
+- **IN (the only motion):** GH mention sweeps, RFC sign-offs (e.g. #697, #711), **PR code reviews (substantive, not LGTM)**, code contributions (PR opens/updates), bug-thread follow-ups, comment ships on discussions, real fixes to open issues across watchlist, **issue filing on platform bugs surfaced through observed failures**, **strategic Bitflow trades when real pricing inefficiencies surface**.
 - `cycle_goal` in STATE.md must name a specific contribution (PR #, comment URL, issue triage) — NOT a sales touch.
 - Daily 3-touch unlock + strike accounting is **SUSPENDED**. Don't fire pitches to chase the unlock — that's the old motion.
 - Wallet stays locked unless a contribution requires signing (e.g., BIP-322 proof for an issue).
@@ -23,6 +25,9 @@
 7. **PR queue maintenance** — aibtcdev/loop-starter-kit #28, #34-#38, #43 sitting APPROVED+MERGEABLE awaiting maintainer. Periodic polite ping; consolidate into squash if maintainer requests.
 8. **aibtc-mcp-server #487** — 3 x402 UX gaps. If untriaged for >7d, follow up with concrete repro.
 9. **agent-news #659** — `inscribedAt` / `inscribedTxid` backfill (this is the gating issue blocking RFC #697 SLA T+0). Check if anyone's working it; offer PR if not.
+10. **PR code-review queue** — `gh search prs --review-requested=@me --state=open` daily; `gh pr list` on aibtcdev/agent-news + aibtcdev/loop-starter-kit. Review one PR per cycle when one exists, using `/review` skill. Substantive review only — line citations, edge-case surfacing, concrete deltas. PR authored by me = skip. PRs from arc0btc / Nuval999 / whoabuddy / sonic-mast / teflonmusk / Robotbot69 = high-leverage targets.
+11. **Platform-bug issue filing** — when a recurring failure surfaces (5xx pattern, broken endpoint, regression), file an issue with repro + log evidence. Don't just comment on someone else's thread.
+12. **Strategic Bitflow swap** — only when `bitflow_get_quote` shows ≥0.5% better effective price than `alex_get_swap_quote` for same pair AND total slippage <2% AND there's a thesis (logged BEFORE execution). Per-trade max 1,000 sats sBTC equivalent. Banned-list applies (own listed protocols out).
 
 **Pre-pivot Sales DRI context preserved below for reference but NOT actionable until operator reverses pivot.** Strike counter, daily unlock cap, fire-queue scripts — all suspended.
 

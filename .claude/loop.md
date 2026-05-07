@@ -120,6 +120,23 @@ Parse `commitments_outstanding` from last STATE.md. For each:
 
 **If Phase 1 surfaces any IC activity, that generally outranks new prospecting in Phase 2 priority. A warm IC is worth ten cold candidates.**
 
+### 1g. PR review queue (contributions-mode primary, sales-mode background)
+
+Operator directive 2026-05-07T06:30Z (cycle 2034uc): in contributions mode, **code review is a first-class output**, not pipeline hygiene. Sweep open PRs:
+
+```bash
+# review-requested where I'm the requested reviewer
+gh search prs --review-requested=@me --state=open --json url,title,repository,updatedAt --limit 20
+
+# unreviewed PRs in watchlist repos that touch issues I filed/own
+gh pr list --repo aibtcdev/agent-news --state=open --json number,title,author,updatedAt,labels --limit 20
+gh pr list --repo aibtcdev/loop-starter-kit --state=open --json number,title,author,updatedAt --limit 20
+```
+
+For each candidate PR — load via `/review` skill, ship a substantive review (not just LGTM): cite line numbers, surface edge cases, propose concrete deltas. Use `gh pr review --comment` (or `--approve` / `--request-changes` per access) and one inline comment minimum if substance warrants. PRs I authored are out (can't review own); PRs that touch my filed issues + PRs from arc0btc / Nuval999 / whoabuddy / sonic-mast that overlap classifieds-attribution / distribution / payout surfaces are highest leverage.
+
+For platform-wide bug surface: when Phase 1 reads notifications and surfaces a recurring failure on someone else's code (e.g. `/api/brief/X` 404 patterns, x402 5xx), file an issue with repro + log evidence rather than just commenting. `gh issue create` with structured body.
+
 ---
 
 ## Phase 2 — Orient
@@ -172,7 +189,14 @@ Decision tree, in order. Stop at the first match:
 
 8. **Cold count today < 3 AND Phase 1.5 surfaced a candidate passing all 3 gates?** → ONE cold pitch. Stop.
 
-9. **None of the above?** → pipeline hygiene: lost-deal postmortem, IC playbook update, pitch-sample refinement.
+9. **Contributions-mode override (operator pivot 2026-05-06T17:00Z effective):** if no Phase 1 inbound action above and pivot is active, the priority order shifts to:
+   a. Inbound reply on a watched RFC / issue / PR thread → respond. Stop.
+   b. Open PR with review_requested=@me OR PR from peer DRI on a watched surface → ship a substantive `/review`-skill code review. Stop.
+   c. Issue I filed with new comment from reviewer → respond / verify-and-close. Stop.
+   d. Open NORTH_STAR backlog item (≥3 always live) → ship one. Stop.
+   e. Strategic Bitflow trade if a real pricing inefficiency surfaced + size fits capital (see Phase 4 trading rules). Stop.
+
+10. **None of the above (sales mode only)?** → pipeline hygiene: lost-deal postmortem, IC playbook update, pitch-sample refinement.
 
 Write decision to `daemon/dri-active.md`.
 
@@ -213,6 +237,28 @@ Full BD skill frame — 3x value before 1x ask, superpersuader layer (max 3/5 el
 **If a prior permission-first pitch needs fixing:** edit the original GH issue/comment/discussion body in-place to a direct offer. DO NOT post a new follow-up saying "retiring the permission-first framing" — that exposes process drama to the prospect. One clean direct message, not two messages where the second narrates the first's mistake.
 
 **Before any paid x402 send: re-check `cold_count_today` vs cap. If `>= 3` and this would be new cold: REJECT, re-enter Phase 3 from step 1. The cap is not a suggestion.**
+
+### For code review (Phase 3 step 9b)
+
+Invoke `/review` skill on the PR diff. Review must:
+- Cite specific lines + surface concrete bugs / edge cases / regressions, not vibes
+- Include one suggestion the author can apply with a one-line fix
+- Use `gh pr review` with `--comment` body + one inline comment via `gh pr review --body` and `gh api repos/{owner}/{repo}/pulls/{n}/comments` for line-level
+- For platform-side PRs touching my filed issues: explicitly cite the filed-issue # and what the PR fixes / leaves open
+
+If the PR diff is >500 lines, scope review to the most-load-bearing file (usually the new logic, not migrations / tests). Don't pad.
+
+### For strategic Bitflow trading (Phase 3 step 9e)
+
+Operator authorization 2026-05-07T06:30Z: small-capital DEX swaps allowed when there's a real pricing inefficiency surfaced through `tenero_*` / `bitflow_get_quote` / `alex_get_swap_quote` data. **Hard sizing rules** at current capital (sBTC 7,049 sats + STX 14.99):
+- Per-trade max: **1,000 sats sBTC equivalent** (≈14% of liquid; loses are recoverable from a single classified-revenue event)
+- Daily trade count cap: **3** swaps; logged in `daemon/trading.log` with quote, expected slippage, executed price, P&L within 1h
+- No tokens with <30d trading history. No memecoin lottery tickets. No trades against my own listed protocols (conflict — JingSwap, Stacks Market, Zest, Bitflow, StackingDAO).
+- **Pre-trade checklist:** `bitflow_get_quote` → compare with `alex_get_swap_quote` for the same pair; only execute if Bitflow's effective price is ≥0.5% better AND total slippage <2%. If either gate fails: skip, log skip reason.
+- Strategic = the trade has a thesis (e.g., "sBTC/STX repair an arb gap arc0btc surfaced") not "feels right." Thesis goes in `daemon/trading.log` BEFORE execution.
+- After execution: `tx_status_deep` until confirmed; reconcile `health.json.wallet_balance_sbtc_sats` + `wallet_balance_stx`.
+- Banned: leverage products, perpetuals, anything where notional > capital. We're spot-only.
+- Stop after 3 consecutive losing trades; pause trading until operator unblocks.
 
 ---
 
