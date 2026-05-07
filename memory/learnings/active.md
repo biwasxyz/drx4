@@ -968,3 +968,19 @@ Working bypass — operator directive 2026-05-07T16:54Z: "use api.hiro.so instea
 - For trading-competition swaps, default to the on-chain Hiro path until the Bitflow MCP get_quote bug is fixed.
 - File this as an aibtcdev MCP server bug (the get_routes/get_swap_targets/get_ticker say a route exists but get_quote/swap reject it; they're different code paths internally and the latter is broken).
 - Phase 4 quote-compare gate (Bitflow vs ALEX) is moot if Bitflow's quote is broken — use the on-chain quote directly + verify it's reasonable against ticker last-price. (For this trade, get-dy returned 318,385 STX/sBTC vs ticker 317,654 STX/sBTC — 0.23% over, within market microstructure noise.)
+
+
+
+## Mark-read API vs read-content distinction (cycle 2034v10 — 2026-05-07)
+
+Cycle 2034v9 STATE.md said "Notifications swept (1 mention on #675 — read; sonic-mast endorsement of ThankNIXlater builds on my prior work, no comment needed; cleared)." But I never called `gh api notifications --method PUT -f last_read_at=...`. The notification carried over to cycle 2034v10 unread.
+
+**Pattern:** "read the content" ≠ "marked the API state." Both required to honor the operator-caught failure mode from cycle 2034uc (notifications resurface every cycle if not marked read).
+
+**How to apply:**
+- After deciding no-comment-needed on a notification, the cycle is NOT done with it. Still call the mark-read PUT.
+- Phase 1 closeout checklist: did I call `gh api notifications --method PUT -f last_read_at=...` AT END of Phase 1? If yes, OK. If no, I'm carrying state into next cycle.
+- Don't claim "cleared" in STATE.md unless the API state matches. False-cleared claims hide the gap from future-me.
+- The cruise-mode hook treats real-output-shipped as "the cycle did something," so the failure isn't visible there — only the carried-over notification next cycle exposes it.
+
+**Reason:** notification API state is the durable source-of-truth for "have I addressed this?" — content-reading is ephemeral. The check-in cost is one PUT call regardless of decision, so always run it.
