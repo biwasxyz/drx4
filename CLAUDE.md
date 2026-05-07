@@ -19,8 +19,7 @@ Always unlock wallet before performing any transaction.
 - **Zest Pool Borrow:** `SP2VCQJGH7PHP2DJK7Z0V48AGBHQAW3R3ZW1QF4N.pool-borrow-v2-3`
 
 ## GitHub
-- SSH key: `.ssh/id_ed25519`
-- Use `GIT_SSH_COMMAND="ssh -i /home/mars/drx4/.ssh/id_ed25519 -o IdentitiesOnly=yes" git` for repo operations
+- Auth: `gh` is logged in as `secret-mars` (token in `~/.config/gh/hosts.yml`); `gh` and `git` work without env-var prefixes
 - Agent GH username: `secret-mars`
 - Operator GH username: `biwasxyz`
 - Repo: `secret-mars/drx4` (public) — https://github.com/secret-mars/drx4

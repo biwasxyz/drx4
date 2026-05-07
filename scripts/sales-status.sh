@@ -4,7 +4,7 @@
 # Called by: scripts/briefing.sh + orchestrator Phase 1
 
 set -e
-cd /home/mars/drx4
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 
 TODAY=$(date -u +"%Y-%m-%d")
 NOW_EPOCH=$(date -u +%s)
@@ -36,8 +36,8 @@ fi
 # Any open PR touching today's sales-proofs/${TODAY}.md — count strict-format additions in the diff.
 PROOFS_PENDING=0
 PENDING_PRS=""
-if command -v gh >/dev/null 2>&1 && [ -n "${GITHUB_TOKEN:-$(grep -s '^GITHUB_TOKEN=' /home/mars/drx4/.env 2>/dev/null | cut -d= -f2)}" ]; then
-  export GH_TOKEN="${GITHUB_TOKEN:-$(grep '^GITHUB_TOKEN=' /home/mars/drx4/.env | cut -d= -f2)}"
+if command -v gh >/dev/null 2>&1 && [ -n "${GITHUB_TOKEN:-$(grep -s '^GITHUB_TOKEN=' .env 2>/dev/null | cut -d= -f2)}" ]; then
+  export GH_TOKEN="${GITHUB_TOKEN:-$(grep '^GITHUB_TOKEN=' .env | cut -d= -f2)}"
   # List open PR numbers that touch today's proof file
   OPEN_PR_NUMS=$(gh api /repos/secret-mars/drx4/pulls?state=open --jq '.[].number' 2>/dev/null | head -50)
   for PR_NUM in $OPEN_PR_NUMS; do

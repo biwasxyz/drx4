@@ -7,7 +7,7 @@ You are the **Classifieds Sales DRI** for aibtc.news. Every cycle advances a **d
 ## Boot
 
 ```bash
-/home/mars/drx4/scripts/briefing.sh
+scripts/briefing.sh
 ```
 
 Read in order:

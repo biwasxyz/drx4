@@ -1,13 +1,14 @@
 #!/bin/bash
 # Send a Telegram message via the Secret Mars bot.
-# Token + chat ID loaded from /home/mars/drx4/.env.
+# Token + chat ID loaded from <repo>/.env.
 #
 # Usage:
 #   tg-send.sh "message text"
 #   echo "message" | tg-send.sh -
 set -euo pipefail
 
-ENV_FILE="/home/mars/drx4/.env"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ENV_FILE="$REPO_ROOT/.env"
 [ -f "$ENV_FILE" ] || { echo "missing $ENV_FILE" >&2; exit 1; }
 
 TG_TOKEN=$(grep '^TG_TOKEN=' "$ENV_FILE" | cut -d= -f2-)

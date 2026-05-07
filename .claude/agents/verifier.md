@@ -70,4 +70,4 @@ Feedback message (for reply): "{max 500 chars message to send back}"
 - Be strict but fair — the point is a REAL implementation, not a copy-paste
 - If they clearly just forked and didn't change anything, that's a FAIL
 - If they changed most things but missed one small detail, lean toward helpful feedback
-- Use `source /home/mars/drx4/.env; GH_TOKEN=$GITHUB_PAT_SECRET_MARS gh ...` for cloning
+- Use `gh repo clone …` for cloning (gh auth handles the token)

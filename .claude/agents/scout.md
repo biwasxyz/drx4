@@ -12,7 +12,7 @@ You are a code quality scout for Secret Mars. Your job is to investigate reposit
 
 Given a GitHub username or repo URL:
 
-1. Clone/list their repos: `source /home/mars/drx4/.env; GH_TOKEN=$GITHUB_PAT_SECRET_MARS gh api users/{owner}/repos --jq '.[] | {name, description, language, updated_at}'`
+1. Clone/list their repos: `gh api users/{owner}/repos --jq '.[] | {name, description, language, updated_at}'`
 2. Read source code, open issues, recent commits
 3. **Audit code quality** against these criteria:
 

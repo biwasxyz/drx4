@@ -22,15 +22,15 @@ Legacy single-shift loop at `.claude/loop.md` still works if no other shifts run
 
 ```bash
 # Pane 1: lead (replaces your current session)
-cd /home/mars/drx4 && claude --model opus
+cd ~/drx4 && claude --model opus
 # then inside: /loop 30m /lead-shift
 
 # Pane 2: monitor
-cd /home/mars/drx4 && claude --model haiku
+cd ~/drx4 && claude --model haiku
 # then inside: /loop 10m /monitor-shift
 
 # Pane 3: pitcher (only start once you have pitch assignments queued)
-cd /home/mars/drx4 && claude --model haiku
+cd ~/drx4 && claude --model haiku
 # then inside: /loop 15m /pitcher-shift
 ```
 

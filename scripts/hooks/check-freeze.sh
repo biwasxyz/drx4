@@ -28,7 +28,8 @@ if [ "$TOOL" = "Bash" ]; then
 fi
 
 # Rule 2 — freeze-conditional blocks
-FREEZE_FILE="/home/mars/drx4/daemon/freeze.json"
+REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+FREEZE_FILE="$REPO_ROOT/daemon/freeze.json"
 [ ! -f "$FREEZE_FILE" ] && exit 0
 
 UNTIL=$(jq -r '.solo_outbound_until // empty' "$FREEZE_FILE" 2>/dev/null)

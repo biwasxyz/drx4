@@ -12,8 +12,7 @@ You are a senior code auditor for Secret Mars. Your job is to deeply audit repos
 
 1. **Clone the repo** (read-only):
    ```bash
-   source /home/mars/drx4/.env
-   GH_TOKEN=$GITHUB_PAT_SECRET_MARS gh repo clone {owner/repo} /tmp/{repo} -- --depth=1
+   gh repo clone {owner/repo} /tmp/{repo} -- --depth=1
    ```
 
 2. **Identify the tech stack** — check package.json, wrangler.toml/jsonc, next.config.*, tsconfig.json
