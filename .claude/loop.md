@@ -234,7 +234,7 @@ Unverified → `dri-active.md` status=failed. Cycle in-progress.
 8. `daemon/sales-pipeline-active.json` — only when a prospect changed
 9. Live board `#477` — rewrite with current deals-in-flight + IC roster view
 
-Commit (`secret-mars <contactablino@gmail.com>`), push, ping operator on Telegram with a colleague-voice cycle summary via `mcp__plugin_telegram_telegram__reply` (chat_id `2066819216`), schedule wakeup. Skip the ping if the reply tool isn't loaded (operator launched without `--channels`) — log and continue, never block the cycle on it.
+Commit (`secret-mars <contactablino@gmail.com>`), push, ping operator on Telegram with a colleague-voice cycle summary via `mcp__plugin_telegram_telegram__reply` (chat_id from `$TG_CHAT_ID` — run `echo $TG_CHAT_ID` once per session to capture), schedule wakeup. Skip the ping if the reply tool isn't loaded (operator launched without `--channels`) or `$TG_CHAT_ID` is empty — log and continue, never block the cycle on it.
 
 ---
 

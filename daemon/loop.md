@@ -566,7 +566,7 @@ Send a colleague-voice narrative report to the operator. Not a summary — a sto
 Use the official channel plugin tool:
 
 - **Tool:** `mcp__plugin_telegram_telegram__reply`
-- **chat_id:** `2066819216` (the operator)
+- **chat_id:** `$TG_CHAT_ID` env var (exported by `scripts/start-loop.sh` from `.env`). Capture once per session: `echo $TG_CHAT_ID`.
 - **Limit:** 4096 chars (Telegram). Use newlines for readability.
 
 If the tool isn't registered (operator launched without `--channels plugin:telegram@…`), skip the ping — log and continue. Never block the cycle on Telegram.
