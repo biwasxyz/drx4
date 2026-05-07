@@ -43,10 +43,26 @@ MAX_PER_FIRE=5
 
 # Sanitize before publishing (defense-in-depth — assistant text occasionally
 # echoes file contents or tokens it just read).
+#
+# Two layers:
+#   1. Drop whole lines that mention known-secret keywords or token formats.
+#   2. Redact any remaining 40+-char alphanumeric run, EXCEPT public on-chain
+#      identifiers (Stacks addresses, BTC bech32 addresses, 64-hex txids) —
+#      those are safe to publish and the loop narrates them constantly.
 redact() {
   local s="$1"
   s="$(printf '%s' "$s" | sed -E '/(\.wallet-password|\.env|mnemonic|xprv|xpriv|BEGIN [A-Z ]*PRIVATE KEY|sk-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|gho_[A-Za-z0-9]{20,}|sbp_[A-Za-z0-9]{20,}|xoxb-[A-Za-z0-9-]{20,}|AKIA[A-Z0-9]{16}|POST_TOKEN|STATUS_TOKEN|CLOUDFLARE_API_TOKEN|TG_BOT_TOKEN|ANTHROPIC_API_KEY)/d')"
-  s="$(printf '%s' "$s" | sed -E 's/[A-Za-z0-9_-]{40,}/<REDACTED>/g')"
+  if command -v perl >/dev/null 2>&1; then
+    s="$(printf '%s' "$s" | perl -pe '
+      BEGIN { our @stash = (); }
+      s{(?<![A-Za-z0-9_-])(?:(?:SP|SM|ST|SN)[0-9A-Z]{37,40}|bc1[a-z0-9]{8,87}|(?:0x)?[a-f0-9]{64})(?![A-Za-z0-9_-])}{ push @::stash, $&; "\x01@{[$#::stash]}\x01" }ge;
+      s/[A-Za-z0-9_-]{40,}/<REDACTED>/g;
+      s/\x01(\d+)\x01/$::stash[$1]/g;
+    ')"
+  else
+    # Fallback: aggressive scrub if perl is unavailable.
+    s="$(printf '%s' "$s" | sed -E 's/[A-Za-z0-9_-]{40,}/<REDACTED>/g')"
+  fi
   printf '%s' "$s" | head -c 8000
 }
 
