@@ -274,7 +274,12 @@ export class EventStream {
   env: Env;
   ring: any[] = [];
   ringMax: number;
-  clients: Set<WritableStreamDefaultWriter> = new Set();
+  // Store ReadableStreamDefaultControllers, NOT TransformStream writers.
+  // Per WHATWG Streams: controllers are designed to be enqueue()'d into
+  // from any later async context, including subsequent fetch invocations
+  // on the same DO instance. Writers from a different request lifecycle
+  // don't reliably flush bytes that arrive after the GET handler returned.
+  clients: Set<ReadableStreamDefaultController<Uint8Array>> = new Set();
 
   constructor(state: DurableObjectState, env: Env) {
     this.state = state;
@@ -304,48 +309,45 @@ export class EventStream {
       };
       this.ring.push(ev);
       while (this.ring.length > this.ringMax) this.ring.shift();
-      // Persist ring async (don't block POST on storage roundtrip).
       this.state.storage.put('ring', this.ring).catch(() => {});
-      const line = 'data: ' + JSON.stringify(ev) + '\n\n';
-      const enc = new TextEncoder().encode(line);
-      // Fan-out: fire-and-forget per writer, with a per-write timeout so a
-      // dead/half-open SSE connection can't wedge the whole DO.
-      const writeWithTimeout = (w: WritableStreamDefaultWriter, ms: number) => {
-        return Promise.race([
-          w.write(enc),
-          new Promise<void>((_, reject) => setTimeout(() => reject(new Error('timeout')), ms)),
-        ]);
-      };
-      const dead: WritableStreamDefaultWriter[] = [];
-      await Promise.allSettled(
-        [...this.clients].map(async (w) => {
-          try { await writeWithTimeout(w, 1500); }
-          catch { dead.push(w); }
-        })
-      );
-      for (const w of dead) {
-        this.clients.delete(w);
-        try { await w.close(); } catch {}
+      const enc = new TextEncoder().encode('data: ' + JSON.stringify(ev) + '\n\n');
+      // Fan-out via controllers — synchronous enqueue, no backpressure await.
+      for (const c of [...this.clients]) {
+        try { c.enqueue(enc); }
+        catch { this.clients.delete(c); }
       }
       return new Response('ok');
     }
 
     if (req.method === 'GET' && url.pathname === '/stream') {
       const replayN = Math.max(0, Math.min(500, parseInt(url.searchParams.get('replay') || '10', 10)));
-      const { readable, writable } = new TransformStream();
-      const writer = writable.getWriter();
-      this.clients.add(writer);
       const enc = new TextEncoder();
-      writer.write(enc.encode('retry: 3000\n\n'));
-      const replay = this.ring.slice(-replayN);
-      for (const ev of replay) {
-        writer.write(enc.encode('data: ' + JSON.stringify(ev) + '\n\n'));
-      }
-      const hb = setInterval(() => {
-        writer.write(enc.encode('data: {"kind":"keepalive"}\n\n'))
-          .catch(() => clearInterval(hb));
-      }, 15000);
-      return new Response(readable, {
+      // `slice(-0)` returns the whole array — guard explicitly.
+      const ring = replayN === 0 ? [] : this.ring.slice(-replayN);
+      const clients = this.clients;
+      let captured: ReadableStreamDefaultController<Uint8Array> | null = null;
+      let hb: ReturnType<typeof setInterval> | null = null;
+      const stream = new ReadableStream<Uint8Array>({
+        start(controller) {
+          captured = controller;
+          clients.add(controller);
+          controller.enqueue(enc.encode('retry: 3000\n\n'));
+          for (const ev of ring) {
+            controller.enqueue(enc.encode('data: ' + JSON.stringify(ev) + '\n\n'));
+          }
+          // Keepalive every 15s — keeps DO pinned + signals proxies not to drop.
+          hb = setInterval(() => {
+            try { controller.enqueue(enc.encode('data: {"kind":"keepalive"}\n\n')); }
+            catch { if (hb) clearInterval(hb); clients.delete(controller); }
+          }, 15000);
+        },
+        cancel() {
+          // Browser disconnected — clean up.
+          if (hb) clearInterval(hb);
+          if (captured) clients.delete(captured);
+        },
+      });
+      return new Response(stream, {
         headers: {
           'content-type': 'text/event-stream',
           'cache-control': 'no-store, no-transform',
