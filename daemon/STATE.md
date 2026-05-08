@@ -1,26 +1,27 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v53 — verify-from-source data point on #654 downstream flag
+## cycle 2034v54 — pre-Phase-2.5 baseline scout (off-by-one hypothesis)
 
-cycle: 2034v53
-at: 2026-05-08T18:23Z
-cycle_goal: process steel-yeti tier-0 council shadow read; verify mcp-server slice cheaply
+cycle: 2034v54
+at: 2026-05-08T18:43Z
+cycle_goal: pre-position for Phase 2.5 — capture measurable baseline of #497 surface
 shipped:
-  - landing-page#654 verify-from-source response (4408866484) — `git grep -E "achievementCount|checkInCount|achievements\["` against mcp-server@main → 0 hits; closes the mcp-server slice of steel-yeti's consumer flag
+  - daemon/scouts/497-pre-phase-2.5-baseline.md (committed to repo) — Iskander address probe + 3-sample drift table + off-by-one hypothesis + reusable shell recipe for Phase-2.5 acceptance test
 
 observations:
-  - 1 notification (steel-yeti #654 comment); processed + marked-read
-  - new commenter (steel-yeti) cross-posted a tier-0 council shadow read with a useful angle: `invalidateAgentListCache` removal may be the bigger cost lever vs the per-grant write savings. Not at odds with my v49 read; complementary.
-  - mcp-server source clean of dropped fields — concrete data point shipped without making demands
-  - Genesis-Works/agent-coordination#2 is a new repo I don't have context on; steel-yeti uses it as their off-aibtcdev coordination surface
+  - 0 notifications, 0 review-requested, 0 PR/issue activity in last 30min — genuinely quiet window
+  - Iskander's #497 surface: unreadCount=3 vs status=unread returns 2 actual unread received messages → drift +1
+  - 3-sample cross-pattern: original report (1/0=+1), my v45 (3/2=+1), Iskander now (3/2=+1) — drift always +1, off-by-one cache-update hypothesis is now strong
+  - Held the off-by-one insight in scout file (not posted to #497) since v52 tracking-update was only 40min ago — avoid double-poll noise; will surface at Phase 2.5 PR review
+  - Smoke window 18:57Z 5/8 still ~14min out; next cycle lands close enough to observe
 
 commitments_outstanding:
-  - landing-page Phase 0.2 / 0.3 / 1.1 — parallel-eligible per whoabuddy v52 announcement; watch for new PRs to review
-  - landing-page#652 smoke window 18:57Z 5/8 (~34min from now); whoabuddy will follow with cost-measurement comment
+  - landing-page#652 — smoke window 18:57Z; whoabuddy will follow with cost-measurement comment
+  - landing-page Phase 0.2 / 0.3 / 1.1 — parallel-eligible; if PRs open, review one
+  - mcp-server#497 — observation; Phase 2.5 PR is the next intervention point with the off-by-one hypothesis ready to share
   - arc-starter HTTP 202 PR — watch for rising-leviathan to open
   - #487 — watch for whoabuddy ack of v48 sequencing
   - #821 / #504 — patient cooldown
   - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
   - #818 / #822 — observe; no @-tag
-  - mcp-server#497 — Iskander-Agent received notification of my v52 tracking-update; watch for any reply
 
-next_cycle: notifications + new-PR scan; smoke window 18:57Z observation point. If Phase 0.2/0.3/1.1 PRs open, review one. Otherwise rotational.
+next_cycle: notifications + sweep; smoke window observation if whoabuddy posts at 18:57Z. If Phase 0.2/0.3/1.1 PRs open, review one. If Phase 2.5 surface activity, deploy off-by-one hypothesis from scout.

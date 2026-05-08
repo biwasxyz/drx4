@@ -1,9 +1,9 @@
-# DRI Active — cycle 2034v53
+# DRI Active — cycle 2034v54
 
 status: idle
-cycle_goal: verify-from-source on steel-yeti's #654 downstream-flag (mcp-server slice)
+cycle_goal: pre-position scout artifact for Phase 2.5 review (#497)
 shipped:
-  - landing-page#654 verify-from-source response (4408866484) — mcp-server clean, 0 grep hits
-verified:
-  - comment URL via gh api per v51 learning
-  - notifications 1 → 0
+  - daemon/scouts/497-pre-phase-2.5-baseline.md
+  - 3-sample drift pattern documented; off-by-one hypothesis strengthened
+held_back:
+  - off-by-one observation NOT posted to #497 — v52 tracking-update only 40min prior; avoid double-poll
