@@ -1,31 +1,29 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v66 — #664 MERGED (8min loop) + #665 RFC APPROVE (dev-council pattern)
+## cycle 2034v67 — #666 APPROVE (DEPLOY_ENV migration verified on #664 mark-read code)
 
-cycle: 2034v66
-at: 2026-05-08T22:58Z
-cycle_goal: process #664 merge + substantive review of Phase 1.1 RFC
+cycle: 2034v67
+at: 2026-05-08T23:31Z
+cycle_goal: substantive review of #666 hardening bundle covering migration of my #664 mark-read fail-closed semantics
 shipped:
-  - landing-page#665 APPROVE review (4255894751) — pile-on-avoidance on arc + 9 bot findings; unique value adds: empirical #497 closure validation via v54/v55 scout (3-sample +1 drift), Phase 2.5 dual-write needs reply-write coverage, open-question votes (Q1 view, Q2 defer, Q3 ship-90d-TTL-with-3.3), link-rot suggestion
-  - arc-coordination.md +2 entries (#664 8min loop + #665 dev-council pattern)
-  - repo-org-board.md landing-page row reflects today's full Phase 0 + Phase 1.1 ship pipeline
+  - landing-page#666 APPROVE review (4255991429) — pile-on-avoidance on arc + 3 bot reviews + whoabuddy fixup commit 2d86f59 (already addressed Codex P1+P2 + arc top-level + arc preview-services nit). Unique value adds: 4-row matrix verifying NODE_ENV→DEPLOY_ENV migration of MY #664 mark-read code (preview now strictly more secure: fail-CLOSED was fail-OPEN), fail-safe-default note on `!== undefined` form for future env values (e.g., "staging"), test-refactor benefit (real PATCH handler catches reordering my v65 simulate would miss + +1 preview-env test), Phase 1.2 D1 read-ahead (codify `failClosedOnBindingError` helper now to extend later).
 
 observations:
-  - **#664 MERGED at 22:45:50Z** — open 22:38Z → arc APPROVE 22:42Z (4min) → whoabuddy APPROVE 22:45:31Z (3min) → merge 19s later. **8-minute open-to-merge record.** All v62/v63/v64 declared decisions landed verbatim.
-  - **#665 RFC: whoabuddy explicitly invoked "dev-council pattern" tagging arc + me.** Phase 0 PR contributions earned the seat at the design-review table.
-  - arc + 2 bots covered most of the schema/doc concerns I'd raise; my review focused on unique value (empirical #497 validation + reply-write path callout)
-  - v54/v55 scout file (off-by-one hypothesis) cited as RFC-relevant evidence
-  - whoabuddy merging Phase 0 PRs at remarkable cadence today: 5 merges in ~5 hours (#654 17:57Z, #656 19:45Z, #658 20:20Z, #662 22:15Z, #664 22:45Z)
+  - **whoabuddy hot iteration**: #663 follow-up bundle merged 22:15Z → #664 (mine) merged 22:45Z → #666 opened 23:14Z addressing #663 review feedback → fixup commit 2d86f59 23:23Z addressing Codex P1+P2 inline. Sub-hour cycle from review→PR→fixup.
+  - **arc dev-council role active**: arc APPROVED with 4 substantive [suggestion]s (top-level DEPLOY_ENV, DRY 4× catch, preview services comment, void pattern). 3 of 4 already addressed by whoabuddy fixup; DRY remains as my read-ahead suggestion.
+  - **My #664 code modified by #666**: NODE_ENV → DEPLOY_ENV migration in `app/api/inbox/[address]/[messageId]/route.ts:122-127`. Fail-closed surface EXPANDED (was prod-only, now prod+preview). My v65 8-test simulate-helper deleted, replaced with real PATCH handler exercise + 1 new preview-env test. Strictly improved coverage.
+  - **Bot reviews trend**: 3 bots (Copilot + Codex + arc not technically bot but acts) on #666 within 3min of open. Codex's P1 was the highest-impact finding; whoabuddy fixed in 22min.
 
 commitments_outstanding:
-  - landing-page#665 RFC — observation; arc + my APPROVE; whoabuddy may merge or push fix-up commit addressing arc/bot findings
+  - landing-page#666 — observation; arc APPROVE + my APPROVE + whoabuddy responses + Copilot/Codex non-blocking. Likely merge soon (5-PR-in-5h cadence today).
+  - landing-page#665 RFC — still open; arc + my APPROVE shipped v66; watch for whoabuddy merge or fix-up commit
   - landing-page#663 follow-up bundle — still open
-  - landing-page Phase 1.2 (migrations) - next; PRs likely tomorrow per migration-plan table
+  - landing-page Phase 1.2 (migrations) - next; my DEPLOY_ENV/DRY suggestion is read-ahead for that PR
   - landing-page Phase 0.5 — pending (Bitflow upstream side-issues)
-  - mcp-server#497 — observation; Phase 2.5 read-flip is the load-bearing fix; v54/v55 scout has reusable acceptance test recipe
+  - mcp-server#497 — observation; v54/v55 scout has acceptance test recipe
   - arc-starter HTTP 202 PR — watch rising-leviathan
   - #487 — watch whoabuddy ack
   - #821 / #504 — patient cooldown
   - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
   - #818 / #822 — observe; no @-tag
 
-next_cycle: notifications + sweep; if #665 merges, watch for Phase 1.2 migration PRs. If whoabuddy pushes fixup commit on #665 addressing arc's `from_address` split or bot findings, observe + re-approve if shape changes substantively.
+next_cycle: notifications + sweep; if #666 merges, watch for Phase 1.2 migration PR opening (likely tomorrow). If whoabuddy pushes another fixup addressing arc's DRY suggestion (helper extraction), observe + ack alignment with my Phase 1.2 read-ahead.
