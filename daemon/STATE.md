@@ -1,23 +1,25 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v57 — #656 TOCTOU self-correction + v50 learning refinement
+## cycle 2034v58 — landing-page#658 APPROVE+inline (arc's TOCTOU + corrupt-entry fix)
 
-cycle: 2034v57
-at: 2026-05-08T19:38Z
-cycle_goal: process steel-yeti council shadow + correct v56 review miss
+cycle: 2034v58
+at: 2026-05-08T19:58Z
+cycle_goal: review #658 — arc's fix that addresses BOTH the TOCTOU bots+steel-yeti caught AND my v56 corrupt-entry inline observation
 shipped:
-  - landing-page#656 TOCTOU acknowledgment + race-walkthrough + practical mitigation suggestion (4409328116)
-  - memory/learnings/active.md — v57 refinement of v50 learning: review bots (Copilot, Codex) are NOT skippable, only status/CI bots are
+  - landing-page#658 APPROVE review (4254965095) — TOCTOU shrunk to near-zero residual window, corrupt-entry mirrors getCachedAgentList:71-72 consistency
+  - inline at agent-list.test.ts:128 (3211016948) — test gap for second-read-returns-null edge case + ready-to-paste vitest snippet
+  - repo-org-board.md landing-page row updated
+  - notifications 2 → 0
 
 observations:
-  - **v56 review missed a TOCTOU race that Copilot (19:17Z) AND Codex P2 (19:19:02Z) AND steel-yeti (19:26Z) all flagged independently** — I shipped APPROVE 17 seconds after Codex's review without reading bot reviews
-  - Root cause: v50 learning was too broad ("bot comments can be skipped on first pass" — but Copilot/Codex are substantive review bots, not deploy/CI bots)
-  - arc APPROVED #656 at 19:21Z, 2min after my APPROVE — neither of us caught the TOCTOU; bots did
-  - Self-correction shipped + learning refined; #656 still has 2 human approvals + maintainer call on whether to ship-as-is or apply BUILDING_KEY pre-check
-  - Iskander-Agent's #497 is not affected by v56 miss; #656 is Phase 0.2 cache work, not unreadCount
+  - **#656 MERGED 19:45Z** (review-to-merge in 26min from my v56 APPROVE)
+  - **#657 follow-up issue** opened by whoabuddy 19:44Z; #658 PR by arc at 19:52Z implementing it
+  - arc's #658 closes BOTH issues raised across the v56-v57 thread: TOCTOU optimistic re-check + corrupt-entry early delete (my v56 inline became the second acceptance criterion)
+  - v57 refined process applied cleanly: pulled top-level + inline + reviews state on #658 — only Cloudflare deploy bot (status), no review bots yet
+  - Cycle-time pattern: smoke close 19:02Z → Phase 0.2 issue 19:09Z → Phase 0.2 PR 19:14Z → APPROVE 19:19Z → merge 19:45Z → follow-up issue 19:44Z → fix-PR 19:52Z → APPROVE 19:58Z = 56min total Phase-0.2 + follow-up loop
 
 commitments_outstanding:
-  - landing-page#656 — watch for whoabuddy decision (ship-as-is vs apply mitigation)
-  - landing-page Phase 0.3 + 1.1 — still parallel-eligible; watch for new PRs (whoabuddy iteration cadence is high)
+  - landing-page#658 — watch for whoabuddy/Copilot/Codex review + merge
+  - landing-page Phase 0.3 + 1.1 — still parallel-eligible
   - mcp-server#497 — observation; off-by-one hypothesis ready for Phase 2.5 PR
   - arc-starter HTTP 202 PR — watch rising-leviathan
   - #487 — watch whoabuddy ack of v48 sequencing
@@ -25,4 +27,4 @@ commitments_outstanding:
   - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
   - #818 / #822 — observe; no @-tag
 
-next_cycle: notifications + sweep WITH refined v50/v57 learning applied (read bot reviews fully). If new PR opens, demonstrate refined process.
+next_cycle: notifications + sweep; whoabuddy iteration cadence is high — Phase 0.3 PR likely soon. v57 refined process (read all bot reviews) holds.
