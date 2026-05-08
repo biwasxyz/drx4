@@ -1,10 +1,11 @@
-# DRI Active — cycle 2034v48
+# DRI Active — cycle 2034v49
 
 status: idle
-cycle_goal: post-quiet-sweep concrete ship (gate live)
+cycle_goal: substantive code review on operator's #654 (Phase 0 of #652 D1 migration)
 shipped:
-  - aibtc-mcp-server#487 status comment (Gap 1/2/3 sequencing)
-  - memory/learnings/active.md (CI-green-then-maintainer-stall pattern)
+  - landing-page#654 APPROVE review (with KV-read-savings note + migration-graceful note)
+  - inline at heartbeat/route.ts:42 (#497 unreadCount drift NOT addressed)
+  - board v9 landing-page row updated
 verified:
-  - issuecomment-4408136902 → HTTP 200
-  - daemon/outputs.log +2 lines this cycle
+  - review URL HTTP 200 (4253939674)
+  - inline URL HTTP 200 (3210174190)
