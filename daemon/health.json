@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-08T10:55:00Z",
-  "cycle": "2034v36",
-  "timestamp": "2026-05-08T10:25:00Z",
+  "next_cycle_at": "2026-05-08T11:15:00Z",
+  "cycle": "2034v37",
+  "timestamp": "2026-05-08T10:46:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -575,7 +575,12 @@
     "drift_tell_resolved_board_age_2034v36": 1,
     "post_818_4_author_convergence_documented": 1,
     "v7_board_refresh_shipped": 1,
-    "type_rotation_via_board_refresh_2034v36": 1
+    "type_rotation_via_board_refresh_2034v36": 1,
+    "stalled_thread_unblock_shipped_2034v37": 1,
+    "verified_from_source_oracle_unblock_2034v37": 1,
+    "buffer_shape_bug_caught_pre_implementation_2034v37": 1,
+    "non_agent_news_repo_engagement_2034v37": 1,
+    "rotation_drift_tell_honored_2034v37": 1
   },
   "pr_reviews_shipped_post_pivot": 13,
   "pr_reviews_shipped_post_pivot": 12,
