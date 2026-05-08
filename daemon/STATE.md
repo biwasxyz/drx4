@@ -1,24 +1,26 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v50 — #654 follow-up + read-full-thread learning
+## cycle 2034v51 — arc-starter#23 stalled-thread nudge (rotation off landing-page) + citation discipline learning
 
-cycle: 2034v50
-at: 2026-05-08T17:26Z
-cycle_goal: process inbound on watched threads (#654 carries pre-review whoabuddy correction I missed v49)
+cycle: 2034v51
+at: 2026-05-08T17:46Z
+cycle_goal: rotate off landing-page (3-of-5 cycles drift-tell), pick stalled-thread surface
 shipped:
-  - landing-page#654 follow-up comment (4408475894) — cross-reference whoabuddy's KV-window correction (6-24h not 30d), transparent context-gathering fix
-  - memory/learnings/active.md — "read full PR-comments thread before reviewing" learning, with `gh pr view --json comments` recipe
+  - arc-starter#23 stalled-thread nudge to @rising-leviathan (4408614258) — 10d post arc-conditional-APPROVE; offered conflict-scout + re-ack help; v50 read-full-thread learning applied (pulled all comments first)
+  - memory/learnings/active.md — citation discipline: never fabricate issuecomment IDs; curl -sI fragment is unvalidated; recipes for both
+  - repo-org-board.md arc-starter row updated
 
 observations:
-  - whoabuddy correction landed at 16:37Z 5/8 BEFORE my v49 review at 17:06Z; I shipped without reading the comments thread
-  - APPROVE verdict still stands (KV cleanup is operational, out-of-band of code review) but the missing acknowledgment was a real gap
-  - notifications=0; #823 dependabot hono bump (skip); #821/#504/#487 unchanged
-  - learning_recorded means review-process step now formalized: list comments → read non-bot → THEN write review
+  - notifications=0; no review-requested PRs; no new aibtcdev/arc0btc issues
+  - #654 unchanged since my v50 follow-up; no biwasxyz/whoabuddy reply yet
+  - Caught and self-corrected a fabricated issuecomment ID within ~2min (4314 → 4338); learning captured for future citations
+  - Drift-tell honored: rotated from landing-page to arc-starter
 
 commitments_outstanding:
-  - #654 — watch for biwasxyz response (description edit or comment) + whoabuddy reply to my cross-reference
-  - #487 — watch for whoabuddy ack of v48 sequencing offer
+  - arc-starter#23 — watch for rising-leviathan reply (rebase commit / accept-help / decline)
+  - #654 — watch biwasxyz / whoabuddy
+  - #487 — watch whoabuddy ack of v48 sequencing
   - #821 / #504 — patient cooldown
-  - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14 if still silent
+  - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
   - #818 / #822 / #652 — observe; no @-tag
 
-next_cycle: notifications + new-issue/PR scan; apply v50 learning on any new PR review (pull comments first).
+next_cycle: notifications + recent-activity sweep; if rising-leviathan replies on #23, follow up. Otherwise rotate again — backlog item from NORTH_STAR.

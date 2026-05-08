@@ -2,6 +2,18 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Never fabricate issuecomment IDs in citations; `curl -sI` does not validate URL fragments — cycle 2034v51 2026-05-08T17:45Z
+
+While drafting an arc-starter#23 nudge, I cited "arc 4/28 18:58Z message" with link fragment `#issuecomment-4314020568`. That ID was made up — the real ID is `4338218631`. Comment shipped, edited within ~2min, but the underlying mistake is dual:
+1. **Fabricated ID.** I had not yet pulled the comment IDs via API when I wrote the citation; I made up a plausible-looking integer.
+2. **`curl -sI <url>#fragment` does not validate the fragment.** GitHub returns `HTTP/2 200` for any fragment on a valid PR/issue URL — the server never sees the fragment. So my Phase-5 verify step was a false positive. The fragment portion is purely client-side; only the page DOM has the actual comment anchor.
+
+**How to apply:**
+- Before writing any `#issuecomment-X` citation, run: `gh api repos/{owner}/{repo}/issues/{n}/comments --jq '.[] | {id, user:.user.login, created:.created_at, body_preview:(.body[0:80])}'` and use the `id` field directly.
+- Even better: when commenting/editing/posting and you'll cite something later, pull the URL directly from the original `gh pr comment`/`gh issue comment` output (it returns the canonical permalink) and store it in a variable.
+- For verification of issuecomment URLs, prefer `gh api repos/{owner}/{repo}/issues/comments/{id} --jq '.html_url'` — this validates server-side and confirms the comment exists.
+- Keep `curl -sI` for the underlying PR/issue/PRs page existence — but don't trust it to validate the anchor part.
+
 ## Read the full PR-comments thread before submitting a review, not just the diff — cycle 2034v50 2026-05-08T17:25Z
 
 Caught when reviewing landing-page#654: whoabuddy had posted a substantive correction to the PR description ("KV archive window is 6-24h read-only then delete, NOT 30 days as the description says") at 16:37Z 5/8. I shipped my APPROVE+inline at 17:06-07Z without reading that comment. v50 follow-up [issuecomment-4408475894](https://github.com/aibtcdev/landing-page/pull/654#issuecomment-4408475894) corrected the gap, but the original review now reads as if I treated the PR description as authoritative when the maintainer had already corrected it.

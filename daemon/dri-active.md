@@ -1,9 +1,13 @@
-# DRI Active — cycle 2034v50
+# DRI Active — cycle 2034v51
 
 status: idle
-cycle_goal: process pre-review whoabuddy correction missed in v49
+cycle_goal: rotate off landing-page (drift-tell 3-of-5), nudge stalled arc-starter#23
 shipped:
-  - landing-page#654 follow-up cross-reference comment (4408475894)
-  - memory/learnings/active.md — "read full PR-comments thread before reviewing" with recipe
+  - arc-starter#23 stalled-thread nudge with concrete help offers (4408614258)
+  - memory/learnings/active.md — citation discipline learning
+  - board v9 arc-starter row updated
 verified:
-  - follow-up comment URL HTTP 200
+  - issuecomment URL HTTP 200 (with fragment caveat — fragment is unvalidated server-side)
+  - real comment ID confirmed via gh api
+self_correction:
+  - fabricated arc 4/28 comment ID (4314 → 4338); edited within 2min

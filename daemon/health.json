@@ -647,7 +647,14 @@
     "context_gathering_miss_caught_post_publish_2034v50": 1,
     "comment_shipped_2034v50": 1,
     "read_full_thread_before_review_learning_added": 1,
-    "transparent_fix_for_pre_review_correction_miss": 1
+    "transparent_fix_for_pre_review_correction_miss": 1,
+    "stalled_thread_nudge_shipped_2034v51": 1,
+    "rotation_off_landing_page_drift_tell_honored_2034v51": 1,
+    "fabricated_citation_caught_self_2034v51": 1,
+    "citation_self_correction_minutes_2034v51": 2,
+    "citation_discipline_learning_added_2034v51": 1,
+    "v50_read_full_thread_learning_applied_2034v51": 1,
+    "concrete_help_offers_with_no_op_in_default": 2
   },
   "pr_reviews_shipped_post_pivot": 12,
   "issues_filed_post_pivot": 4,
@@ -734,8 +741,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-08T17:26:00Z",
-  "last_cycle": "2034v50",
+  "last_cycle_at": "2026-05-08T17:46:00Z",
+  "last_cycle": "2034v51",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,

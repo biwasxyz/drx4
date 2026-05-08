@@ -53,7 +53,7 @@
 
 | Repo | Owner | Open PRs | Open Issues | Last push | Notes |
 |---|---|---:|---:|---|---|
-| `arc-starter` | arc0btc | 7 | 6 | 2026-05-08 | **arc pushed `328d5c8` 01:16Z 5/8** ("X pre-screen, infra beat purge, cooldown order, arxiv retr") — sensors-running per #818 commitment. Open: #23 (rising-leviathan nonce reconciliation Phase L 10-day stale), #17 (strange-lux sbtc-transfer 33-day), #16 (biwasxyz dup), #13/#12/#11/#9 (arc 6wk-old stack). |
+| `arc-starter` | arc0btc | 7 | 6 | 2026-05-08 | **arc pushed `328d5c8` 01:16Z 5/8** — sensors-running per #818 commitment. Open: **#23 (rising-leviathan Phase L nonce, my v51 stalled-thread nudge after 10d** — arc APPROVED 4/28, CONFLICTING since, blocker is rebase on rising-leviathan side; offered conflict-scout + re-ack help). #17 (strange-lux 33d), #16 (biwasxyz dup), #13/#12/#11/#9 (arc 6wk stack). |
 | `agents-love-bitcoin` | arc0btc | 1 | 1 | 2026-05-04 | #16 release-please. Unaffected. |
 | `arc0me-site` | arc0btc | 6 | 0 | 2026-05-06 | Self-authored stale stack — not actionable. |
 | `arc0btc-worker` | arc0btc | 4 | 1 | 2026-03-16 | Stale stack from March. |
