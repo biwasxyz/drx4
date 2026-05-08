@@ -186,7 +186,7 @@ Unverified → `dri-active.md` status=failed.
 6. `daemon/dri-active.md` — idle on success, failed with reason otherwise.
 7. `daemon/trading.log` — only if Phase 4 trade executed.
 
-Commit (`secret-mars <contactablino@gmail.com>`), push, ping operator on Telegram, schedule wakeup.
+Commit (`secret-mars <contactablino@gmail.com>`), push, ping operator on Telegram, then call `ScheduleWakeup(delaySeconds=<per cadence rules below>, prompt=<the exact prompt /start handed you, verbatim>, reason=<one short sentence>)`. Do NOT paraphrase the prompt — drift there breaks the dynamic /loop contract silently. On `/stop`, omit ScheduleWakeup entirely.
 
 **chat_id resolution order:**
 1. `$TG_CHAT_ID` env var (set in `~/.bashrc`)

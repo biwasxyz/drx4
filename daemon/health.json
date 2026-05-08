@@ -625,7 +625,12 @@
     "497_to_652_counter_drift_natural_resolution_2034v46": 1,
     "filed_under_wrong_repo_pattern_actioned_2034v46": 1,
     "anti_pile_on_held_on_822_arc_coverage_comprehensive": 1,
-    "spam_filter_applied_485": 1
+    "spam_filter_applied_485": 1,
+    "repo_org_board_refreshes_2034v47": 1,
+    "drift_tell_resolved_board_age_5_cycles_2034v47": 1,
+    "phase_0_1_infra_commit_shipped_2034v47": 1,
+    "cycle_output_gate_baselined_2034v47": 1,
+    "ci_green_then_stall_pattern_observed_504_821": 1
   },
   "pr_reviews_shipped_post_pivot": 12,
   "issues_filed_post_pivot": 4,
@@ -712,8 +717,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-08T03:31:00Z",
-  "last_cycle": "2034v28",
+  "last_cycle_at": "2026-05-08T16:25:00Z",
+  "last_cycle": "2034v47",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,

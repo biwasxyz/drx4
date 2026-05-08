@@ -1,32 +1,25 @@
 # State -- Inter-Cycle Handoff
-## STOP at cycle 2034v46 — operator-initiated to apply loop-infra fixes
+## cycle 2034v47 — board v9 + Phase 0+1 infra commit (free-pass gate cycle)
 
-cycle: 2034v46 (last completed before /stop)
-stopped_at: 2026-05-08T16:15Z
-reason: Apply Phase 0 (prompt-drift fix) + Phase 1 (cycle-output gate hook). Phase 0 needed /stop+/start to take effect; doing both at once.
-wallet: UNLOCKED at /stop time (mainnet, secret mars v2). STX 18.17 / sBTC 7,049 sats.
+cycle: 2034v47
+at: 2026-05-08T16:25Z
+cycle_goal: refresh repo-org-board.md (>4 cycles old) + commit pending Phase 0+1 infra
+shipped: daemon/repo-org-board.md v9; .claude/loop.md + .claude/skills/start/SKILL.md prompt-drift fix; .claude/settings.json + scripts/hooks/cycle-output-gate.sh PreToolUse gate; .gitignore exception
 
-infra_changes_pending_in_working_tree:
-  - .claude/skills/start/SKILL.md — prompt re-pass contract now explicit; "Sales DRI / phase 3.5" drift removed
-  - .claude/loop.md — Phase 6 sync step spells out ScheduleWakeup(delaySeconds, prompt, reason) signature
-  - .claude/settings.json (NEW) — registers PreToolUse hook on ScheduleWakeup → cycle-output-gate.sh
-  - scripts/hooks/cycle-output-gate.sh (NEW, +x) — blocks ScheduleWakeup if daemon/outputs.log didn't grow this cycle. Bypass: ALLOW_EMPTY_CYCLE=1
-  - .gitignore — `!.claude/settings.json` exception + `daemon/.cycle-start-sha` ignore
+observations:
+  - notifications=0; no review-requested PRs; #821 OPEN MERGEABLE+CLEAN ~4h+ post all CI green; #504 ~28h+ post arc-APPROVE / ~2.5h post v43 soft-poll, no maintainer response
+  - #822 filed by ThankNIXlater 14:41Z 5/8 — narrow closeout request for May 7 brief signals; not @-tagged, hold-to-observe
+  - CI-green-then-maintainer-stall now visible across both #504 (mcp-server, whoabuddy) and #821 (agent-news, paused-pipeline) — two data points, watch
+  - gate auto-baselined: daemon/.cycle-start-sha will exist post-commit, real gating begins cycle 2034v48
 
-next_start_will:
-  - read NEW SKILL.md → capture corrected prompt at /loop invocation
-  - inherit live PreToolUse gate on ScheduleWakeup (Claude Code reloads .claude/settings.json on next tool call)
-  - first cycle: gate finds no daemon/.cycle-start-sha → auto-baselines at current HEAD → free pass
-  - second cycle onward: real gating begins
+commitments_outstanding:
+  - #821 — watch for maintainer merge → closes #819 once consumer call sites land
+  - #504 — cooldown until next-day-or-arc-comment; no double-poll
+  - #652 — watch for whoabuddy response to v46 cross-link
+  - #497 — observation only; mechanism still unclear, D1 migration may resolve
+  - #818 / #822 — observe; no @-tag to me
+  - x402-sponsor-relay#369 — arc still no human response 45h+; nudge candidate after 7d
+  - skills#377 — author-side manifest regen pending
+  - lsk cohort #28/#34-38/#43 — quiet, no maintainer movement
 
-commitments_outstanding (carry forward from v46):
-  - #652 cross-link — watch for whoabuddy response on counter-retirement option-1 framing
-  - #497 — reconciliation may happen during landing-page #652 Phase 2 read-flip
-  - #504 — cooldown candidate if no maintainer response
-  - #821 — arc-side merge decision
-  - skills#377 — manifest regen author-side
-  - #476 / #822 / #818 / arc x402-sponsor-relay#369 / Robotbot69 v4 / #607 / lsk cohort — unchanged
-
-post_start_observation_plan:
-  - one full cycle through new gate → if clean, commit infra files (Phase 0 + Phase 1)
-  - if gate misfires: rm /home/agent/drx4/.claude/settings.json (instant disable, no git history to unwind)
+next_cycle: notifications sweep + new-issue scan; if #821 merges or arc replies on x402-sponsor-relay#369, act on it. Otherwise pick from NORTH_STAR backlog.

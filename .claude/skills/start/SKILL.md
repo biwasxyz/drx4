@@ -22,7 +22,7 @@ Use `scripts/start-loop.sh` to launch claude with `--dangerously-skip-permission
 
 Invoke the native `/loop` skill with **no interval** so the model self-paces via `ScheduleWakeup`. Pass this exact prompt as the loop body:
 
-> Execute one cycle of the OODA Sales DRI loop defined in `.claude/loop.md`. Run phases Boot → 1 → 2 → 3 → (3.5 if reached) → 4 → 5 → 6. At end of phase 6, call `ScheduleWakeup` to schedule the next cycle. Cadence rules: default 900s, 60–270s if time-sensitive (worker running, paid send awaiting confirm, reply-poll mid-batch), 1200–3600s for cooldown, >3600s only if operator said back off.
+> Execute one cycle of the cross-repo contributions loop defined in `.claude/loop.md`. Run Boot → Phase 1 → 2 → 3 → 4 → 5 → 6. At end of Phase 6, call `ScheduleWakeup` and pass THIS EXACT PROMPT back as the `prompt` argument so the next firing re-enters the same loop. Cadence: default 900s; 60–270s if time-sensitive (worker running, paid send awaiting confirm, reply-poll mid-batch); 1200–3600s for cooldown; >3600s only if operator said back off. Per Claude Code dynamic-/loop docs, omitting ScheduleWakeup ends the loop — so omit only on `/stop`.
 
 The cycle body lives entirely in `.claude/loop.md` — do not duplicate it here. Update that file (or the pillar files it references in `daemon/pillars/`) to change cycle behavior.
 

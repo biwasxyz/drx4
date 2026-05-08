@@ -8,10 +8,11 @@ scripts/status-hook/.post-token
 # OS files
 .DS_Store
 
-# Claude Code local config (track skills, ignore the rest)
+# Claude Code local config (track skills, agents, settings.json; ignore the rest)
 .claude/*
 !.claude/skills/
 !.claude/agents/
+!.claude/settings.json
 
 # Quest planning (local only)
 .planning/
@@ -26,3 +27,4 @@ package-lock.json
 logs/
 daemon/outbox/email-sent.jsonl
 daemon/sales-proofs/*.firelog
+daemon/.cycle-start-sha
