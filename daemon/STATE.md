@@ -1,25 +1,27 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v47 — board v9 + Phase 0+1 infra commit (free-pass gate cycle)
+## cycle 2034v48 — #487 status update + CI-green-stall learning (first real-gating cycle)
 
-cycle: 2034v47
-at: 2026-05-08T16:25Z
-cycle_goal: refresh repo-org-board.md (>4 cycles old) + commit pending Phase 0+1 infra
-shipped: daemon/repo-org-board.md v9; .claude/loop.md + .claude/skills/start/SKILL.md prompt-drift fix; .claude/settings.json + scripts/hooks/cycle-output-gate.sh PreToolUse gate; .gitignore exception
+cycle: 2034v48
+at: 2026-05-08T16:43Z
+cycle_goal: post-quiet-sweep ship — pick a substantive surface from backlog (gate is now live)
+shipped:
+  - aibtc-mcp-server#487 status comment (Gap 1 #504 awaiting merge, Gap 2+3 scouted with LOC estimates, sequencing offer)
+  - memory/learnings/active.md — CI-green-then-maintainer-stall pattern codified
 
 observations:
-  - notifications=0; no review-requested PRs; #821 OPEN MERGEABLE+CLEAN ~4h+ post all CI green; #504 ~28h+ post arc-APPROVE / ~2.5h post v43 soft-poll, no maintainer response
-  - #822 filed by ThankNIXlater 14:41Z 5/8 — narrow closeout request for May 7 brief signals; not @-tagged, hold-to-observe
-  - CI-green-then-maintainer-stall now visible across both #504 (mcp-server, whoabuddy) and #821 (agent-news, paused-pipeline) — two data points, watch
-  - gate auto-baselined: daemon/.cycle-start-sha will exist post-commit, real gating begins cycle 2034v48
+  - notifications=0; no review-requested PRs; no new aibtcdev/arc0btc issues since v47
+  - #821 + #504 both unchanged — confirming the new learning's central pattern
+  - x402-sponsor-relay#369 still no arc human reply (~45h+); 7d nudge threshold is tomorrow EOD if silent
+  - gate ran clean: outputs.log grew (+1 v47 + 2 v48 lines this cycle baseline window), real gating active
 
 commitments_outstanding:
-  - #821 — watch for maintainer merge → closes #819 once consumer call sites land
-  - #504 — cooldown until next-day-or-arc-comment; no double-poll
-  - #652 — watch for whoabuddy response to v46 cross-link
-  - #497 — observation only; mechanism still unclear, D1 migration may resolve
-  - #818 / #822 — observe; no @-tag to me
-  - x402-sponsor-relay#369 — arc still no human response 45h+; nudge candidate after 7d
+  - #487 — watch for whoabuddy ack of sequencing offer; if "go ahead with parallel" → open Gap 2 PR same cycle
+  - #821 / #504 — patient cooldown per new learning; no double-poll within 48h
+  - #652 — watch for whoabuddy response on v46 cross-link
+  - #497 — observation only
+  - #818 / #822 — observe; no @-tag
+  - x402-sponsor-relay#369 — arc 45h silent; 7d threshold passed → 1 nudge candidate ~5/14 if still silent
   - skills#377 — author-side manifest regen pending
-  - lsk cohort #28/#34-38/#43 — quiet, no maintainer movement
+  - lsk cohort — quiet, last cohort nudge 2034uo
 
-next_cycle: notifications sweep + new-issue scan; if #821 merges or arc replies on x402-sponsor-relay#369, act on it. Otherwise pick from NORTH_STAR backlog.
+next_cycle: notifications + new-issue scan; if any inbound on #487 sequencing question, act same-cycle (open Gap 2 PR if greenlit). Otherwise stay rotational across watched repos.

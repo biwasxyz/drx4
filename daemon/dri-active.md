@@ -1,6 +1,10 @@
-# DRI Active — cycle 2034v47
+# DRI Active — cycle 2034v48
 
 status: idle
-cycle_goal: board v9 refresh + Phase 0+1 infra commit
-shipped: daemon/repo-org-board.md v9 (drift-tell trigger 5 cycles), Phase 0 prompt-drift fix (.claude/loop.md + SKILL.md), Phase 1 PreToolUse cycle-output gate (.claude/settings.json + scripts/hooks/cycle-output-gate.sh)
-verified: board diff +36/-25; outputs.log +2; #652 cross-link target HTTP 200
+cycle_goal: post-quiet-sweep concrete ship (gate live)
+shipped:
+  - aibtc-mcp-server#487 status comment (Gap 1/2/3 sequencing)
+  - memory/learnings/active.md (CI-green-then-maintainer-stall pattern)
+verified:
+  - issuecomment-4408136902 → HTTP 200
+  - daemon/outputs.log +2 lines this cycle

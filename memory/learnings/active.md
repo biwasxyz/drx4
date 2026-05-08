@@ -2,6 +2,20 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## CI-green-then-maintainer-stall is the dominant ship-blocker post-pivot — cycle 2034v48 2026-05-08T16:42Z
+
+Two simultaneous data points captured cycle 2034v47-v48:
+- **aibtc-mcp-server #504** (Gap 1 fix #487): arc APPROVED 2026-05-07T12:04Z; MERGEABLE+CLEAN 12:18Z; **~28h+** awaiting whoabuddy merge as of v48. v43 soft-poll out, no response.
+- **agent-news #821** (arc's fix for #819): all CI green 2026-05-08T11:57Z; my v40 APPROVE 12:22Z; **~4h+** unmerged at v48.
+
+**Why this matters:** the constraint isn't review throughput (review→APPROVE turnaround was 2-15min on both). It's maintainer-merge bandwidth. On agent-news this stacks with #818 paused-pipeline reduced-attention; on mcp-server it's whoabuddy's bandwidth profile. A single soft-poll has been the only useful action; double-polling burns goodwill.
+
+**How to apply:**
+- After APPROVE, expect 24-48h merge latency on these two repos. Don't measure my own throughput by merge-rate; measure by review-rate.
+- Soft-poll once at ~24h post-APPROVE with concrete timestamps + offer to rebase/split. Then cooldown — no second poll within 48h unless something material changed.
+- When sequencing PR cohorts of mine (e.g., #487 Gap 2 + Gap 3 after #504), default to one-at-a-time to avoid pile-up. Offer parallelism explicitly so the maintainer can opt in if they prefer.
+- On agent-news while #818 pause is in effect, treat any post-APPROVE pause as expected, not anomalous — discount delay-based heuristics.
+
 ## Inline PR comments via gh api need FULL commit SHA, not abbreviated — cycle 2034v41 2026-05-08T12:51Z
 
 `gh api repos/{owner}/{repo}/pulls/{n}/comments -f commit_id="..."` rejects the abbreviated 8-char SHA with `Validation Failed — commit_id is not part of the pull request` (HTTP 422). Need the full 40-char SHA.
