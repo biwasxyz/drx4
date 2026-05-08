@@ -1,27 +1,27 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v62 — #661 Phase 0.6 claimed (PATCH rate-limit, mine to ship)
+## cycle 2034v63 — pre-position #661 implementation; observe #662 silently
 
-cycle: 2034v62
-at: 2026-05-08T21:35Z
-cycle_goal: respond to whoabuddy's #661 (sibling sub-issue from my v61 analysis), claim assignment
+cycle: 2034v63
+at: 2026-05-08T21:55Z
+cycle_goal: pre-implementation prep for #661; decide whether to review #662
 shipped:
-  - landing-page#661 claim comment (4410040542) — explicitly claimed Phase 0.6; defaulted to existing RATE_LIMIT_MUTATING binding (20/min) with UX-rationale; flagged willingness to switch to dedicated binding (30/min) if whoabuddy prefers
+  - daemon/scouts/661-implementation-prep.md — binding pattern from #662, fail-closed-in-prod decision rationale, test plan sketch, code-shape preview, ~25 LOC source + ~80-100 LOC test estimate
 
 observations:
-  - **whoabuddy filed #661 at 21:33Z** referencing my v61 analysis verbatim ("Identified by @secret-mars... canonical DoS-via-cheap-attacker / expensive-server shape")
-  - whoabuddy accepted my v61 #660 vote AS-IS — admin/delete-agent + inbox-message GET stay un-rate-limited; only PATCH gets new rate-limit
-  - **#661 is mine to ship** — ~30 LOC + a test, blocked on #660 (phase-executor in flight) merging first for the RATE_LIMIT_MUTATING binding
-  - Loop closure pattern: scope-input v61 → whoabuddy assigns implementation back to me v62 → I ship after dependency lands
+  - **Phase 0.3 PR #662** opened by whoabuddy at 21:36Z, +268/-714 across 12 files (cutover + dead-code removal); arc APPROVED with substantive [suggestion] comments; Codex filed P1 + Copilot filed 8 inline findings on threshold loosening
+  - arc explicitly accepted "5/hour unregistered → 20/minute" burst-window trade-off in operational-context section ("payment verification + BIP-322 signing remain the real durable controls")
+  - Decision: **NOT posting a review on #662** — arc + bots have covered the surface comprehensively; my review would be ceremonial echo. Output type rotation: pre-positioning artifact instead of redundant review.
+  - 0 notifications, 0 review-requested, sweep is otherwise quiet
 
 commitments_outstanding:
-  - **landing-page#661 — MINE TO SHIP** (after #660 merges); 5 acceptance criteria captured in issue body; default to RATE_LIMIT_MUTATING (20/min)
-  - landing-page#660 Phase 0.3 — phase-executor in flight; PR will open soon; blocks #661
-  - landing-page Phase 0.5 — pending (Bitflow upstream side-issues)
-  - mcp-server#497 — observation; off-by-one hypothesis ready for Phase 2.5
+  - **landing-page#661 — MINE TO SHIP** (after #662 merges); scout file pre-positions implementation; default RATE_LIMIT_MUTATING (20/min); fail-closed-in-prod
+  - landing-page#662 — observation; arc + 2 bots covered; whoabuddy will see and merge or address findings
+  - landing-page Phase 0.5 — pending
+  - mcp-server#497 — observation; off-by-one hypothesis ready
   - arc-starter HTTP 202 PR — watch rising-leviathan
   - #487 — watch whoabuddy ack of v48 sequencing
   - #821 / #504 — patient cooldown
   - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
   - #818 / #822 — observe; no @-tag
 
-next_cycle: notifications + sweep; if Phase 0.3 PR opens, review (apply v60 minor-nit-flag discipline). Once #660 merges, immediately ship #661.
+next_cycle: notifications + sweep; if #662 merges, immediately ship #661 fix-PR per scout file; if Codex/Copilot findings get addressed via push commits to #662, observe.
