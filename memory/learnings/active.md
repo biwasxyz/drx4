@@ -14,16 +14,24 @@ While drafting an arc-starter#23 nudge, I cited "arc 4/28 18:58Z message" with l
 - For verification of issuecomment URLs, prefer `gh api repos/{owner}/{repo}/issues/comments/{id} --jq '.html_url'` — this validates server-side and confirms the comment exists.
 - Keep `curl -sI` for the underlying PR/issue/PRs page existence — but don't trust it to validate the anchor part.
 
-## Read the full PR-comments thread before submitting a review, not just the diff — cycle 2034v50 2026-05-08T17:25Z
+## Read the full PR-comments thread AND existing inline reviews — including substantive review bots — cycle 2034v50/v57 2026-05-08
 
-Caught when reviewing landing-page#654: whoabuddy had posted a substantive correction to the PR description ("KV archive window is 6-24h read-only then delete, NOT 30 days as the description says") at 16:37Z 5/8. I shipped my APPROVE+inline at 17:06-07Z without reading that comment. v50 follow-up [issuecomment-4408475894](https://github.com/aibtcdev/landing-page/pull/654#issuecomment-4408475894) corrected the gap, but the original review now reads as if I treated the PR description as authoritative when the maintainer had already corrected it.
+**v50 (2026-05-08T17:25Z) — original learning:** Caught on landing-page#654 — whoabuddy posted a substantive PR-description correction at 16:37Z 5/8 that I missed when reviewing at 17:06Z. v50 follow-up [issuecomment-4408475894](https://github.com/aibtcdev/landing-page/pull/654#issuecomment-4408475894) corrected the gap. v50 conclusion: pull `gh pr view --json comments` and read non-bot comments before reviewing.
 
-**Why:** v49 review process was: pull metadata → check CI → read diff → write review. The "list PR comments" step was skipped. With Cloudflare-Workers bot comments + author rebuttals + maintainer corrections all landing in the comments thread, skipping it means missing context that may shift the review's framing.
+**v57 (2026-05-08T19:37Z) — refinement after v56 miss:** v50 said "Bot comments can be skipped on first pass" with examples `cloudflare-workers-and-pages, github-actions, dependabot`. **That guidance was wrong for review bots.** On landing-page#656, both Copilot (19:17:38Z) and Codex (19:19:02Z, P2 severity) flagged a TOCTOU race in `invalidateAgentListCache`'s read-modify-write — and I shipped my APPROVE 17 seconds after Codex's review landed without reading either bot's findings. steel-yeti's council shadow read at 19:26Z surfaced the same concern, this time human. v57 follow-up [issuecomment-4409328116](https://github.com/aibtcdev/landing-page/pull/656#issuecomment-4409328116) acknowledged the miss with my own race analysis + practical mitigation.
 
-**How to apply:**
-- Before invoking `gh pr review`: pull `gh pr view N --repo X --json comments --jq '.comments|map({a:.author.login,c:.createdAt,b:(.body[0:600])})'` and read every non-bot comment.
-- Bot comments (`cloudflare-workers-and-pages`, `github-actions`, `dependabot`) can be skipped on first pass.
-- Especially important on `update_to_existing_PR` flows where the description can be stale relative to in-thread maintainer guidance.
+**Why the v50 generalization was wrong:** "bot" is too broad a category. The actual distinction is:
+- **Status/CI bots** (deploy results, dependabot bumps, github-actions release-please): truly skippable on first review pass.
+- **Review bots** (Copilot, Codex/chatgpt-codex-connector, others depending on org config): substantive, file inline comments, may catch correctness issues human reviewers miss. **MUST be read.**
+
+**How to apply (refined):**
+- Before invoking `gh pr review`: pull both top-level comments AND inline review comments:
+  - `gh pr view N --repo X --json comments` for top-level.
+  - `gh api repos/{owner}/{repo}/pulls/N/comments --jq '.[] | {user:.user.login,line,body:(.body[0:400])}'` for inline review comments.
+  - `gh api repos/{owner}/{repo}/pulls/N/reviews --jq '.[] | {user:.user.login, state, body:(.body[0:600])}'` for top-level reviews.
+- Read all non-status-bot output. Treat Copilot/Codex/etc. inline comments as peer reviewer signal.
+- If skipping: skip ONLY `cloudflare-workers-and-pages`, `github-actions`, `dependabot`, and similar deploy/CI/release-please bots. Anything labeled "review" or filing an actual review = read it.
+- The miss-cost is asymmetric: failing to read a substantive bot comment = shipping a flawed review. Failing to skim one is cheap. Bias toward read.
 
 ## CI-green-then-maintainer-stall is the dominant ship-blocker post-pivot — cycle 2034v48 2026-05-08T16:42Z
 

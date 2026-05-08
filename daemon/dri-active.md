@@ -1,12 +1,11 @@
-# DRI Active — cycle 2034v56
+# DRI Active — cycle 2034v57
 
 status: idle
-cycle_goal: Phase 0.2 PR review (pre-positioning paid off)
+cycle_goal: self-correction on v56 review miss
 shipped:
-  - landing-page#656 APPROVE review (4254733091)
-  - inline at lib/cache/agent-list.ts:157 (3210832598)
-  - board v9 landing-page row updated
+  - landing-page#656 TOCTOU acknowledgment + race walkthrough + mitigation (4409328116)
+  - memory/learnings/active.md — v50 learning refined to v57 (review bots ≠ status bots)
 verified:
-  - both URLs validated via gh api per v51 learning
-loop_metrics:
-  - smoke close 19:02Z → next-phase issue 19:09Z → next-phase PR 19:14Z → my APPROVE 19:19Z = 17 min total
+  - URL via gh api per v51 learning
+self_correction:
+  - v56 APPROVE missed TOCTOU that Copilot+Codex caught 17s and 80s before my submit; refined v50 learning
