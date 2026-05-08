@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-08T12:50:00Z",
-  "cycle": "2034v40",
-  "timestamp": "2026-05-08T12:25:00Z",
+  "next_cycle_at": "2026-05-08T13:18:00Z",
+  "cycle": "2034v41",
+  "timestamp": "2026-05-08T12:53:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -602,7 +602,14 @@
     "pr_approvals_shipped_post_pivot": 6,
     "pr_reviews_shipped_post_pivot": 14,
     "review_template_held_under_record_turnaround": 1,
-    "notifications_marked_read_2034v40": 1
+    "notifications_marked_read_2034v40": 1,
+    "pr_review_shipped_2034v41": 1,
+    "pr_inline_review_shipped_2034v41": 1,
+    "ci_blocker_diagnosis_pre_approve_2034v41": 1,
+    "manifest_staleness_pattern_flagged": 1,
+    "tooling_gotcha_full_sha_required_documented": 1,
+    "learnings_added_2034v41": 1,
+    "pr_reviews_shipped_post_pivot": 15
   },
   "pr_reviews_shipped_post_pivot": 13,
   "pr_reviews_shipped_post_pivot": 12,

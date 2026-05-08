@@ -2,6 +2,24 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Inline PR comments via gh api need FULL commit SHA, not abbreviated — cycle 2034v41 2026-05-08T12:51Z
+
+`gh api repos/{owner}/{repo}/pulls/{n}/comments -f commit_id="..."` rejects the abbreviated 8-char SHA with `Validation Failed — commit_id is not part of the pull request` (HTTP 422). Need the full 40-char SHA.
+
+**Why:** v40 inline on agent-news#821 worked because I piped from `gh pr view ... --jq '.commits[-1].oid'` (returns full SHA). v41 inline on skills#377 failed because I copy-pasted the abbreviated SHA from `gh pr view --json headRefOid` (which I'd manually truncated in display).
+
+**How to apply:** always inline the full SHA via subshell — never type or copy a short SHA into the `commit_id` parameter:
+```bash
+gh api repos/{owner}/{repo}/pulls/{n}/comments \
+  --method POST \
+  -f path="..." -F line=N -f side=RIGHT \
+  -f body="..." \
+  -f commit_id="$(gh pr view N --repo owner/repo --json commits --jq '.commits[-1].oid')"
+```
+Or capture once: `FULL_SHA=$(gh api .../pulls/N/commits --jq '.[-1].sha')`.
+
+The general gotcha: `--jq` and display-format truncations (`.headRefOid[:8]` etc.) are for human display, not for API parameters. Don't reuse them as API inputs.
+
 ## Exhaust reasonable parametrizations before declaring a route missing — self-caught cycle 2034up 2026-05-07T11:14Z
 
 Same #813 thread, second framing correction in <24h. Cycle 2034un I posted that `/api/earnings` was a "missing route" because the bare `/api/earnings` returned `{"error":"Route GET /api/earnings not found"}`. Two cycles later, second-pass probing showed:
