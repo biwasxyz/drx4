@@ -202,3 +202,22 @@
 - [issues/497#issuecomment-4408753199](https://github.com/aibtcdev/aibtc-mcp-server/issues/497#issuecomment-4408753199) (mine v52 18:03Z): cross-link the tracking trio back to #497 itself so the bug-thread is self-documenting from the comment forward.
 **Cycle time:** PR-open→approve: 1h25m. APPROVE→whoabuddy-reply: 50m. APPROVE→merge: 51m.
 **Loop posture:** Operator-authored PR with substantive review surfacing forward-looking concern; maintainer reply pinned the concern to a specific umbrella-phase + close-trigger commitment; cross-link back to the issue makes the resolution path self-documenting. Forward-looking observation pattern paid off — instead of LGTM padding, the inline created a tracking record across three repos.
+
+---
+## 2026-05-08T19:14–20:20Z — landing-page#656/#658 Phase 0.2 mark-stale loop (whoabuddy↔me↔arc, 56-min total)
+**Direction:** whoabuddy (ship Phase 0.2) → me (review) → bots+steel-yeti (TOCTOU surface) → me (self-correct) → arc (fix-PR) → me (review) → whoabuddy (merge)
+**Artifacts:**
+- [pulls/656](https://github.com/aibtcdev/landing-page/pull/656) (whoabuddy 19:14Z): mark-stale `invalidateAgentListCache` (+22/-3, 1 file).
+- [pulls/656#pullrequestreview-4254733091](https://github.com/aibtcdev/landing-page/pull/656#pullrequestreview-4254733091) (mine v56 19:19Z, APPROVE+inline at L157 corrupt-entry observation). Missed TOCTOU race that Copilot (19:17Z) + Codex P2 (19:19:02Z) both caught 17s before my submit; missed because v50 learning generalized "bot comments skippable" too broadly.
+- [arc APPROVE 19:21Z](https://github.com/aibtcdev/landing-page/pull/656#pullrequestreview-4254823461) (also missed TOCTOU in approve-pass).
+- [steel-yeti council shadow](https://github.com/aibtcdev/landing-page/pull/656#issuecomment-4409260...) 19:26Z surfaced TOCTOU + corrupt-entry handling + cost-gate framing.
+- [pulls/656#issuecomment-4409328116](https://github.com/aibtcdev/landing-page/pull/656#issuecomment-4409328116) (mine v57 19:38Z): TOCTOU acknowledgment + race walkthrough + practical mitigation; v50 learning refined to v57 (review bots vs status bots distinction codified).
+- whoabuddy merge of #656 at 19:45:29Z (review-to-merge 26min).
+- whoabuddy [#657 follow-up issue](https://github.com/aibtcdev/landing-page/issues/657) 19:44Z: explicit acceptance criteria for optimistic re-check + corrupt-entry early delete.
+- arc [#658 fix-PR](https://github.com/aibtcdev/landing-page/pull/658) 19:52Z: implements both #657 asks + 6-test scaffold, +150/0 across 2 files. "Generated with Claude Code."
+- [pulls/658#pullrequestreview-4254965095](https://github.com/aibtcdev/landing-page/pull/658#pullrequestreview-4254965095) (mine v58 19:58Z, APPROVE+inline at test L128 second-read-null edge case). Caught the v58 test gap + v57 process applied cleanly. Missed: parseSnapshot double-call on happy path (whoabuddy flagged), test constants hardcoded vs imported (steel-yeti flagged at 20:09Z).
+- [steel-yeti council shadow on #658](https://github.com/aibtcdev/landing-page/pull/658#issuecomment-4409...) 20:09Z: 2 of 3 points redundant with my v58 inline (test-gap), 1 new (constants duplication drift risk).
+- [whoabuddy APPROVE on #658](https://github.com/aibtcdev/landing-page/pull/658#pullrequestreview-4254...) 20:19:48Z: faithful-implementation framing, only flagged parseSnapshot double-call as minor non-blocking.
+- whoabuddy merge of #658 at 20:20:02Z (14 seconds after own approve). #657 auto-closed.
+**Cycle time:** Whole loop = **56 min** (smoke close 19:02Z → #658 merge 20:20Z including issue-file + 2 PRs + 4 reviews). My v56 APPROVE → #656 merge: 26min. #656 merge → #658 fix-PR open: 7min. #658 open → my APPROVE: 6min. arc TOCTOU fix → whoabuddy merge: 28min.
+**Loop posture:** 4-author convergence on a phased D1 migration (whoabuddy-driven, arc-as-secondary-author, me-as-reviewer, bots+steel-yeti as parallel-correctness signal). Demonstrated value of: pre-positioning scout files before phase-staged work, refined v57 review-bot-discipline, self-correcting within minutes of catching a missed concern, and silent-observe when echoing would just add noise. Reviewer-pattern note: my v56-v58 reviews under-flagged minor style nits (parseSnapshot double-call, constants hardcoded) that competent reviewers caught — bias-toward-correctness comes at a small style-coverage cost.

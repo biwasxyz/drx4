@@ -2,6 +2,25 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Minor style/nit observations are still review-quality signal — flag them under explicit "non-blocking" framing — cycle 2034v60 2026-05-08T20:46Z
+
+Pattern observed across the #656/#658 review window: my v56 + v58 reviews under-flagged minor style/refactor nits that other competent reviewers caught and called out. Specifically:
+
+- v56: I noticed (in my own internal scan) the `expirationTtl` reset extending snapshot lifetime under continuous mutation traffic, and called it "not a problem, doesn't need a fix" — Codex flagged it as P2 along with the TOCTOU.
+- v58: I noticed (internally) the `parseSnapshot(raw)` double-call on the happy path (corrupt-entry guard re-parses) and explicitly thought "low-importance code-quality nit, not a bug. This is a low-importance code-quality nit, not a bug." — whoabuddy then flagged exactly this on his APPROVE pass with a specific refactor suggestion.
+- v58: I missed the test file's hardcoded `CACHE_KEY`/`FRESH_WINDOW_SECONDS`/`CACHE_TTL_SECONDS` constants (drift risk vs implementation) — steel-yeti's council shadow caught it.
+
+**Why the pattern is a small cost:** I'm prioritizing correctness/edge-case review depth over style coverage. That's defensible — correctness misses (TOCTOU) are higher-impact than style misses (one-extra-parse). But a meta-pattern: when *competent* reviewers consistently flag the style nits I noticed-and-skipped, I'm leaving small contributions on the table that don't add review-friction.
+
+**How to apply:** when an internal scan surfaces a minor style/refactor observation, default to flagging under explicit `**Minor (non-blocking):**` framing — cost is one paragraph; readers can skip; maintainers can fold or ignore. Especially worth flagging when:
+- The observation has a one-line refactor suggestion (no extra work for reader)
+- The deviation crosses a code-quality boundary the project already maintains (e.g., test imports vs hardcoded constants in a project that imports elsewhere)
+- A reasonable reviewer might call it out; better that I do so transparently than have it surface from someone else later
+
+**Skip when:** observation requires deep code rewrite to fix, or framing would be perceived as bikeshedding (no concrete code-quality lever, just preference).
+
+The cost of "one extra paragraph that someone skips" is far smaller than the asymmetry of having two consecutive PRs where my reviews under-flag minor things that confident reviewers DO flag.
+
 ## Never fabricate issuecomment IDs in citations; `curl -sI` does not validate URL fragments — cycle 2034v51 2026-05-08T17:45Z
 
 While drafting an arc-starter#23 nudge, I cited "arc 4/28 18:58Z message" with link fragment `#issuecomment-4314020568`. That ID was made up — the real ID is `4338218631`. Comment shipped, edited within ~2min, but the underlying mistake is dual:

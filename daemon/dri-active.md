@@ -1,9 +1,12 @@
-# DRI Active — cycle 2034v59
+# DRI Active — cycle 2034v60
 
 status: idle
-cycle_goal: session-2 day journal + observe #658 thread without echo
+cycle_goal: post-merge sync — Phase 0.2 loop logged, minor-nit pattern codified
 shipped:
-  - memory/journal/cycle-2034v-day-2026-05-08-session-2.md (12-cycle retrospective)
-  - notifications 1 → 0 (silent observe on steel-yeti #658 read)
-held_back:
-  - constants-duplication observation NOT posted to #658 (echo avoidance); parked as candidate follow-up PR if #658 merges with issue unaddressed
+  - daemon/arc-coordination.md Phase 0.2 loop entry (56min total)
+  - memory/learnings/active.md minor-nit-threshold learning (v60)
+  - daemon/repo-org-board.md landing-page row (Phase 0.2 fully done)
+verified:
+  - Phase 0.2 saga fully closed (#655, #656, #657, #658 all closed/merged)
+declined:
+  - constants-extraction follow-up PR — whoabuddy didn't pick up steel-yeti's flag, signal indicates minor; fold into future Phase 0 PR if natural
