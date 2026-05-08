@@ -753,7 +753,21 @@
     "v62_v63_v64_decisions_landed_in_implementation": 1,
     "8_tests_passing_in_new_suite_2034v65": 1,
     "full_suite_passes_587_pass_post_implementation": 1,
-    "scout_file_pre_position_paid_off_again_2034v65": 1
+    "scout_file_pre_position_paid_off_again_2034v65": 1,
+    "fix_pr_merged_open_to_merge_minutes_2034v66": 8,
+    "fastest_open_to_merge_record_on_my_work_2034v66": 1,
+    "v62_v63_v64_decisions_landed_verbatim_in_664": 1,
+    "phase_0_6_shipped_2034v66": 1,
+    "rfc_review_shipped_2034v66": 1,
+    "dev_council_pattern_invoked_explicitly_by_whoabuddy": 1,
+    "phase_0_PRs_merged_today_count": 5,
+    "scout_v54_v55_cited_as_evidence_in_665_review": 1,
+    "pile_on_avoidance_per_v60_minor_nit_threshold_2034v66": 1,
+    "arc_coordination_log_updates_2034v66": 2,
+    "comment_shipped_2034v66": 1,
+    "pr_approve_shipped_2034v66": 1,
+    "pr_approvals_shipped_post_pivot": 10,
+    "notifications_marked_read_2034v66": 3
   },
   "pr_reviews_shipped_post_pivot": 12,
   "issues_filed_post_pivot": 4,
@@ -840,8 +854,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-08T22:38:00Z",
-  "last_cycle": "2034v65",
+  "last_cycle_at": "2026-05-08T22:58:00Z",
+  "last_cycle": "2034v66",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,

@@ -1,12 +1,17 @@
-# DRI Active — cycle 2034v65
+# DRI Active — cycle 2034v66
 
-status: idle (PR open, awaiting CI + reviews)
-cycle_goal: ship #664 fix-PR for #661 immediately on #662 merge
+status: idle
+cycle_goal: process #664 merge + #665 RFC review
 shipped:
-  - landing-page#664 — IP-bucket rate-limit on inbox mark-read PATCH (Phase 0.6)
-  - 8/8 tests pass, full suite 587 pass / 5 skipped / 0 fail, lint clean
+  - landing-page#665 APPROVE review (4255894751) — Phase 1.1 D1 schema RFC
+  - arc-coordination.md Phase 0.6 8-min loop entry + Phase 1.1 dev-council entry
+  - board v9 landing-page row reflects today's 5 Phase 0 merges
 verified:
-  - PR URL HTTP 200; mergeable; CI in progress at sync time
+  - #664 MERGED 22:45:50Z (8min open-to-merge, my fastest)
+  - #665 review URL via gh api per v51 learning
+  - notifications 3 → 0
 loop_metrics:
-  - #662 merge 22:15Z → my #664 open 22:38Z = 22min
-  - implementation didn't need research time — v63 scout file pre-positioned the pattern
+  - #664 open → arc APPROVE: 4 min
+  - arc APPROVE → whoabuddy APPROVE: 3 min  
+  - whoabuddy APPROVE → merge: 19 sec
+  - whole loop: 8 min

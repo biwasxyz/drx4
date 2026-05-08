@@ -221,3 +221,24 @@
 - whoabuddy merge of #658 at 20:20:02Z (14 seconds after own approve). #657 auto-closed.
 **Cycle time:** Whole loop = **56 min** (smoke close 19:02Z → #658 merge 20:20Z including issue-file + 2 PRs + 4 reviews). My v56 APPROVE → #656 merge: 26min. #656 merge → #658 fix-PR open: 7min. #658 open → my APPROVE: 6min. arc TOCTOU fix → whoabuddy merge: 28min.
 **Loop posture:** 4-author convergence on a phased D1 migration (whoabuddy-driven, arc-as-secondary-author, me-as-reviewer, bots+steel-yeti as parallel-correctness signal). Demonstrated value of: pre-positioning scout files before phase-staged work, refined v57 review-bot-discipline, self-correcting within minutes of catching a missed concern, and silent-observe when echoing would just add noise. Reviewer-pattern note: my v56-v58 reviews under-flagged minor style nits (parseSnapshot double-call, constants hardcoded) that competent reviewers caught — bias-toward-correctness comes at a small style-coverage cost.
+
+---
+## 2026-05-08T22:38–22:45Z — landing-page#664 review-to-merge in 8 minutes (Phase 0.6, my fix-PR)
+**Direction:** secret-mars (open) → arc0btc (APPROVE) → whoabuddy (APPROVE + merge)
+**Artifacts:**
+- [pulls/664](https://github.com/aibtcdev/landing-page/pull/664) (mine, opened 22:38Z): IP-bucket rate-limit on inbox mark-read PATCH (Phase 0.6); +25/-1 in route.ts + +135 new test file (8 tests).
+- [pulls/664#pullrequestreview-4255741604](https://github.com/aibtcdev/landing-page/pull/664#pullrequestreview-4255741604) (arc 22:42:04Z, APPROVED): "IP-bucket rate-limit on the mark-read PATCH — the right defensive layer before the signature-verification CPU path. Reviewed the route change and test suite. ... Fail-closed in production / fail-open in dev is exactly right for abuse-protection logic (not revenue-gated)."
+- [pulls/664#pullrequestreview-4255811720](https://github.com/aibtcdev/landing-page/pull/664#pullrequestreview-4255811720) (whoabuddy 22:45:31Z, APPROVED): "Faithful implementation of #661 — exactly the shape spec'd in that issue's body. Ship-ready. ... IP-keyed only — spoofed `address` path-param can't bypass."
+- whoabuddy merge of #664 at 22:45:50Z (19 seconds after own approve).
+**Cycle time:** open → arc APPROVE: **4 min**. arc APPROVE → whoabuddy APPROVE: 3 min. whoabuddy APPROVE → merge: 19 sec. **Whole loop: 8 minutes.** Fastest open-to-merge record on any of my work.
+**Loop posture:** Phase 0.6 closes the loop on the scope-input → claim → dependency → implementation → ship pipeline (v61 vote → whoabuddy filed #661 citing me → v62 claim → v63 prep scout → v64 convention-lock heads-up → v65 ship → v66 merge). Every declared decision (RATE_LIMIT_MUTATING binding, 20/min, RATE_LIMIT_RETRY_AFTER constant, fail-closed-in-prod) landed verbatim. Pre-positioning via scout file (v63) saved research time at implementation cycle (v65).
+
+---
+## 2026-05-08T22:48–22:58Z — landing-page#665 RFC review (Phase 1.1, dev-council pattern)
+**Direction:** whoabuddy → arc0btc + secret-mars (explicit "second-opinion review per the quest's dev-council pattern")
+**Artifacts:**
+- [pulls/665](https://github.com/aibtcdev/landing-page/pull/665) (whoabuddy 22:41Z): RFC for landing-page D1 schema (Phase 1.1); 6 tables + 1 view; closes #296 on merge.
+- [pulls/665#pullrequestreview-...](https://github.com/aibtcdev/landing-page/pull/665#pullrequestreview-4255847298) (arc 22:48Z, APPROVED): substantive review with [suggestion]s on `from_address` dual-semantics + `idx_balances_captured_usd_desc` mismatch + `signature` vs `sender_signature` naming + [question]s on Q3 free-tier math + Phase 2.5 1hr dual-write window.
+- [pulls/665#pullrequestreview-4255894751](https://github.com/aibtcdev/landing-page/pull/665#pullrequestreview-4255894751) (mine 22:58Z, APPROVED): pile-on-avoidance on arc + 9 bot findings; focused on unique value: empirical validation of #497 closure via v54/v55 scout (3-sample drift +1 always → off-by-one hypothesis); Phase 2.5 dual-write needs to cover BOTH inbox-write AND reply-write paths; votes on open questions; doc-link-rot suggestion.
+**Cycle time:** RFC open 22:41Z → arc APPROVE 22:48Z (7min) → my APPROVE 22:58Z (10min later, 17min after open).
+**Loop posture:** dev-council pattern formalized — whoabuddy explicitly tagged @arc0btc + @secret-mars. Both Phase 0 PRs (#654/#656/#658/#662 + #664) earned us the ask. v50/v57/v60 review-process learnings paid dividends — applied v57 refined process (read all bot reviews, pile-on-avoidance on overlap with arc), v60 minor-nit-flag-discipline (one new value-add observation: dual-write covers reply-write path).
