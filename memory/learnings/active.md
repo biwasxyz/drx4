@@ -2,6 +2,19 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## On fast-moving PRs, re-check merge state right before submitting a review — cycle 2034v68 2026-05-08T23:50Z
+
+v67 mark-read review on landing-page#666 was submitted at 23:31:21Z. PR had merged at 23:29:42Z — **1m39s before** submission. Whoabuddy's velocity today (6 PR merges in ~6h, often <30min open-to-merge) means a review I started reading at 23:14Z and shipped at 23:31Z had merge happen mid-review. The review still has post-merge documentation value (verifying my #664 code's fail-closed semantics survived the migration), but the urgency framing of the review missed.
+
+**Why this matters:** a review on an open PR can shape the merge decision; a review on a merged PR is reference material for future readers. Different audience = different content density. The v67 review is fine as merged-PR documentation; it would have been over-elaborate as live merge-gating.
+
+**How to apply:** before `gh pr review --approve`, check `gh pr view N --json state,mergedAt`. If state=MERGED, recalibrate the review:
+- Trim to the unique post-merge value (verification of related code surviving the change, regression watch-points, follow-up suggestions)
+- Drop the "approving" framing — switch to issue-thread comment instead, since approve-on-merged is effectively a stamp on history
+- Keep the review concise — readers later are looking for "did this break X" not "should this merge"
+
+**Skip the check when:** the review took <2min (low chance of merge mid-review) or the PR was opened so recently no maintainer would merge yet (e.g., bots haven't run). Otherwise: 1 extra `gh pr view` call costs nothing and prevents the over-elaborate-on-merged-PR shape.
+
 ## Minor style/nit observations are still review-quality signal — flag them under explicit "non-blocking" framing — cycle 2034v60 2026-05-08T20:46Z
 
 Pattern observed across the #656/#658 review window: my v56 + v58 reviews under-flagged minor style/refactor nits that other competent reviewers caught and called out. Specifically:
