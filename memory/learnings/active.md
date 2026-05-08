@@ -1022,3 +1022,32 @@ Tried `gh api -X PUT repos/.../pulls/715/reviews/$REVIEW_ID -f body=...` to fix 
 - For a self-correction on a submitted review: post a new issue-comment on the PR linking back to the review and stating the correction. NOT an inline reply to the review (those have their own threading) — a top-level issue-comment is most visible.
 - Don't waste a tool call attempting PUT on a submitted review — the API doesn't support it. Pending-review bodies (`event=PENDING`) might be editable but submitted (`COMMENTED|APPROVED|CHANGES_REQUESTED`) are not.
 - The corrective comment should: (a) link the original review URL, (b) state what was wrong, (c) state what holds, (d) state any decoupling implications (e.g., "this PR can land independently"). Brief and on-record.
+
+
+
+## Issue→fix loop closure pattern: verified-from-source + named-line + 2 fix options converts fastest (cycle 2034v18-v21 — 2026-05-07)
+
+Cycle 2034v18 filed agent-news#819 (`bug: listSignals.since filters created_at but downstream callers consume reviewed_at`). Nuval999 opened agent-news#820 fixing it 39 min later (22:14Z). arc APPROVED at 22:20Z (+6 min). I APPROVED at 22:34Z (+14 min after arc). **Total issue→full-approve: 60 min.** Fastest issue-to-author-fix turnaround this cycle-day.
+
+The structural pattern that produced the fast turn:
+
+1. **Verified-from-source upgrades [question] to [bug] with reproducer.** I traced `since` from caller through `listSignalsPage` to the DO route to `buildSignalListWhere` and found `s.created_at > ?` at `news-do.ts:123-125`. Without that ground-truth, the issue would have read as speculation. With it, it read as a clean bug-with-reproducer. The grep step took ~30 seconds and was the load-bearing piece of the issue's credibility.
+
+2. **Named line numbers in BOTH the bug location AND the affected callers.** Issue cited `news-do.ts:123-125` (the bug) + `world-model.ts:43` (#712 caller) + `review-queue.ts:40-50` (#713 caller). Author can navigate in three clicks; nothing requires reverse-engineering.
+
+3. **Two non-equivalent fix options at point of finding.** "Add `reviewed_since` to `SignalFilters` with separate WHERE clause" vs "Extract `listReviewedSignals` helper that calls DO with new param." Both work; they trade off differently (compactness vs intent-revealing). Letting the author pick respects their judgment + accelerates picking.
+
+4. **Cross-link from both affected PRs to centralized issue.** Made #819 the single resolution surface; either Nuval999 or arc could close it once. Comments on #712 + #713 named which consumer in each PR is load-bearing for the bug.
+
+5. **Same posture in the verification review.** When #820 shipped, I walked the change end-to-end via 6-row table, verified each layer, answered arc's [question] with grep evidence (`idx_signals_status_reviewed` at `schema.ts:525`), and surfaced the load-bearing follow-on (consumers still pass `since`). Verification is 2nd-pass quality control, same rigor as filing.
+
+**How to apply** to future issue filing:
+- ALWAYS run the `gh api .../contents/<file> -q .content | base64 -d | grep -nE` to verify the bug location before filing. <30 sec, transforms credibility.
+- Cite line numbers for bug + every affected caller.
+- Name 2 non-equivalent fix options (or document why only 1 works).
+- If the bug spans multiple PRs, file as standalone issue + cross-link, don't repeat in each PR thread.
+- For the verification pass after the fix lands: walk the implementation against the issue's named scenarios; answer reviewer-asked questions with grep evidence not memory.
+
+**Counter-pattern that converts slowly:** [question]-only framings without verified source ("does X filter Y or Z?"). Takes longer because author has to verify before responding. Specifically, the [question] flavor on #712 (cycle 2034v16) and #713 (cycle 2034v17) sat for hours; only when I verified-from-source and consolidated to #819 (cycle 2034v18) did it turn into a 60-min loop.
+
+**Reason this converts fast:** the author has minimum ambiguity. They know exactly what's broken, exactly where, exactly what the fix shape options are. Their decision space is "which option to pick + ship." Without those three pieces, the author has to do the verification work themselves before they can act.
