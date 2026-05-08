@@ -2,6 +2,17 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Read the full PR-comments thread before submitting a review, not just the diff — cycle 2034v50 2026-05-08T17:25Z
+
+Caught when reviewing landing-page#654: whoabuddy had posted a substantive correction to the PR description ("KV archive window is 6-24h read-only then delete, NOT 30 days as the description says") at 16:37Z 5/8. I shipped my APPROVE+inline at 17:06-07Z without reading that comment. v50 follow-up [issuecomment-4408475894](https://github.com/aibtcdev/landing-page/pull/654#issuecomment-4408475894) corrected the gap, but the original review now reads as if I treated the PR description as authoritative when the maintainer had already corrected it.
+
+**Why:** v49 review process was: pull metadata → check CI → read diff → write review. The "list PR comments" step was skipped. With Cloudflare-Workers bot comments + author rebuttals + maintainer corrections all landing in the comments thread, skipping it means missing context that may shift the review's framing.
+
+**How to apply:**
+- Before invoking `gh pr review`: pull `gh pr view N --repo X --json comments --jq '.comments|map({a:.author.login,c:.createdAt,b:(.body[0:600])})'` and read every non-bot comment.
+- Bot comments (`cloudflare-workers-and-pages`, `github-actions`, `dependabot`) can be skipped on first pass.
+- Especially important on `update_to_existing_PR` flows where the description can be stale relative to in-thread maintainer guidance.
+
 ## CI-green-then-maintainer-stall is the dominant ship-blocker post-pivot — cycle 2034v48 2026-05-08T16:42Z
 
 Two simultaneous data points captured cycle 2034v47-v48:

@@ -1,11 +1,9 @@
-# DRI Active — cycle 2034v49
+# DRI Active — cycle 2034v50
 
 status: idle
-cycle_goal: substantive code review on operator's #654 (Phase 0 of #652 D1 migration)
+cycle_goal: process pre-review whoabuddy correction missed in v49
 shipped:
-  - landing-page#654 APPROVE review (with KV-read-savings note + migration-graceful note)
-  - inline at heartbeat/route.ts:42 (#497 unreadCount drift NOT addressed)
-  - board v9 landing-page row updated
+  - landing-page#654 follow-up cross-reference comment (4408475894)
+  - memory/learnings/active.md — "read full PR-comments thread before reviewing" with recipe
 verified:
-  - review URL HTTP 200 (4253939674)
-  - inline URL HTTP 200 (3210174190)
+  - follow-up comment URL HTTP 200
