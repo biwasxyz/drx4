@@ -1,10 +1,10 @@
-# DRI Active — cycle 2034v63
+# DRI Active — cycle 2034v64
 
 status: idle (waiting on dependency)
-cycle_goal: pre-position #661 implementation
+cycle_goal: relay non-echo council findings before #662 merge
 shipped:
-  - daemon/scouts/661-implementation-prep.md (~5-min lookup ready when #662 merges)
-queued:
-  - Phase 0.6 fix-PR — blocked on #662 merge for binding wrangler config + cloudflare-env types
-deliberate_choice:
-  - skipped #662 review (arc APPROVE + Codex P1 + 8 Copilot inline already comprehensive; my review would be echo)
+  - landing-page#662 pre-merge heads-up (4410223730) — 2 verified, 1 refuted, 1 unverified
+verified:
+  - URL via gh api per v51 learning
+loop_metrics:
+  - my v62 claim → council 21:55Z → whoabuddy iterates 22:07-08Z → my heads-up 22:14Z

@@ -1,27 +1,28 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v63 — pre-position #661 implementation; observe #662 silently
+## cycle 2034v64 — #662 pre-merge heads-up (council findings beyond #663)
 
-cycle: 2034v63
-at: 2026-05-08T21:55Z
-cycle_goal: pre-implementation prep for #661; decide whether to review #662
+cycle: 2034v64
+at: 2026-05-08T22:14Z
+cycle_goal: surface non-echo steel-yeti findings to whoabuddy before #662 merges
 shipped:
-  - daemon/scouts/661-implementation-prep.md — binding pattern from #662, fail-closed-in-prod decision rationale, test plan sketch, code-shape preview, ~25 LOC source + ~80-100 LOC test estimate
+  - landing-page#662 pre-merge heads-up comment (4410223730) — verified 2 of steel-yeti's findings hold (resetAt public-contract delta; retry-after convention drift); refuted 1 (txid-recovery Retry-After pre-existing); declared #661 will use the constant convention
 
 observations:
-  - **Phase 0.3 PR #662** opened by whoabuddy at 21:36Z, +268/-714 across 12 files (cutover + dead-code removal); arc APPROVED with substantive [suggestion] comments; Codex filed P1 + Copilot filed 8 inline findings on threshold loosening
-  - arc explicitly accepted "5/hour unregistered → 20/minute" burst-window trade-off in operational-context section ("payment verification + BIP-322 signing remain the real durable controls")
-  - Decision: **NOT posting a review on #662** — arc + bots have covered the surface comprehensively; my review would be ceremonial echo. Output type rotation: pre-positioning artifact instead of redundant review.
-  - 0 notifications, 0 review-requested, sweep is otherwise quiet
+  - whoabuddy pushed `b4cd1c63` "docs(rate-limit): correct comments per arc0btc + copilot review" at 22:08Z addressing arc + copilot doc-correction nits
+  - whoabuddy filed #663 "Phase 0.3 follow-ups" at 22:07Z bundling 4 substantive copilot findings (env separation, NODE_ENV detection, validation bucket naming, test handler exercise) — copilot-only scope by design ("ship #662 clean")
+  - steel-yeti's council shadow read at 21:55Z raised 4 findings; #663 doesn't include them (copilot-only). 2 of 4 verified valid by me (resetAt removal, retry-after convention drift); 1 refuted (txid-recovery Retry-After was pre-existing missing); 1 unverified (test coverage asymmetry, lower-priority)
+  - The relay role (council findings → triage thread) is light-touch coordination value-add; framed as fold-in-question not advocacy
+  - 0 notifications, 0 review-requested, only #662/#663 active
 
 commitments_outstanding:
-  - **landing-page#661 — MINE TO SHIP** (after #662 merges); scout file pre-positions implementation; default RATE_LIMIT_MUTATING (20/min); fail-closed-in-prod
-  - landing-page#662 — observation; arc + 2 bots covered; whoabuddy will see and merge or address findings
-  - landing-page Phase 0.5 — pending
-  - mcp-server#497 — observation; off-by-one hypothesis ready
+  - landing-page#662 — watch for whoabuddy decision on resetAt + convention drift (fold-into-662 or scope-expand-663); merge expected after triage
+  - landing-page#661 — MINE TO SHIP (after #662 merges); will use RATE_LIMIT_RETRY_AFTER constant per heads-up
+  - landing-page#663 — observation; if whoabuddy expands scope to include resetAt, watch for sub-issues to claim; otherwise wait
+  - mcp-server#497 — observation; off-by-one ready
   - arc-starter HTTP 202 PR — watch rising-leviathan
-  - #487 — watch whoabuddy ack of v48 sequencing
+  - #487 — watch whoabuddy ack
   - #821 / #504 — patient cooldown
   - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
   - #818 / #822 — observe; no @-tag
 
-next_cycle: notifications + sweep; if #662 merges, immediately ship #661 fix-PR per scout file; if Codex/Copilot findings get addressed via push commits to #662, observe.
+next_cycle: notifications + sweep; if #662 merges, immediately ship #661 fix-PR per scout file (using RATE_LIMIT_RETRY_AFTER constant convention).
