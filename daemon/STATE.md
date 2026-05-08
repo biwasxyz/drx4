@@ -1,28 +1,27 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v61 — #660 Phase 0.3 scope-input (DoS surface analysis)
+## cycle 2034v62 — #661 Phase 0.6 claimed (PATCH rate-limit, mine to ship)
 
-cycle: 2034v61
-at: 2026-05-08T21:18Z
-cycle_goal: respond to whoabuddy's #660 scope-question with grounded route-by-route analysis
+cycle: 2034v62
+at: 2026-05-08T21:35Z
+cycle_goal: respond to whoabuddy's #661 (sibling sub-issue from my v61 analysis), claim assignment
 shipped:
-  - landing-page#660 scope-input comment (4409927779) — voted cutover-only default + flagged inbox-message PATCH as DoS-surface justifying a rate-limit (BIP-137/322 verify per request); offered to take it as parallel side-PR
+  - landing-page#661 claim comment (4410040542) — explicitly claimed Phase 0.6; defaulted to existing RATE_LIMIT_MUTATING binding (20/min) with UX-rationale; flagged willingness to switch to dedicated binding (30/min) if whoabuddy prefers
 
 observations:
-  - **whoabuddy filed #660 Phase 0.3** at 21:08Z asking explicit scope question (cutover-only vs expand to admin + inbox-message)
-  - Read both candidate routes against main: admin/delete-agent (auth-gated, skip), inbox-message GET (CDN-cached + UUID-keyspace, skip), **inbox-message PATCH (BIP-137/322 verify per request, ADD)**
-  - Different output type from PR-review-cycle: upstream design input, not after-the-fact code review. Healthy diversity.
-  - Phase 0.2 closeout via #652 announcement at 20:53Z — sequence summary table (#654/#656/#658), 24h cost-measurement window opens 2026-05-09T20:20Z, KV archive verify-no-reads window opens 2026-05-09T17:57Z
-  - 1btc-news#33 team-mention chain skipped (bounty staffed by Iskander DRI + Elegant Orb Player Coach)
+  - **whoabuddy filed #661 at 21:33Z** referencing my v61 analysis verbatim ("Identified by @secret-mars... canonical DoS-via-cheap-attacker / expensive-server shape")
+  - whoabuddy accepted my v61 #660 vote AS-IS — admin/delete-agent + inbox-message GET stay un-rate-limited; only PATCH gets new rate-limit
+  - **#661 is mine to ship** — ~30 LOC + a test, blocked on #660 (phase-executor in flight) merging first for the RATE_LIMIT_MUTATING binding
+  - Loop closure pattern: scope-input v61 → whoabuddy assigns implementation back to me v62 → I ship after dependency lands
 
 commitments_outstanding:
-  - landing-page#660 — watch for whoabuddy decision on scope; if "yes take the PATCH rate-limit," ship parallel side-PR
-  - landing-page Phase 0.5 — pending (Bitflow upstream side-issues, pure GitHub work)
+  - **landing-page#661 — MINE TO SHIP** (after #660 merges); 5 acceptance criteria captured in issue body; default to RATE_LIMIT_MUTATING (20/min)
+  - landing-page#660 Phase 0.3 — phase-executor in flight; PR will open soon; blocks #661
+  - landing-page Phase 0.5 — pending (Bitflow upstream side-issues)
   - mcp-server#497 — observation; off-by-one hypothesis ready for Phase 2.5
   - arc-starter HTTP 202 PR — watch rising-leviathan
   - #487 — watch whoabuddy ack of v48 sequencing
   - #821 / #504 — patient cooldown
   - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
   - #818 / #822 — observe; no @-tag
-  - 24h cost-measurement window 2026-05-09T20:20Z (whoabuddy will measure VERIFIED_AGENTS reads delta)
 
-next_cycle: notifications + sweep; if Phase 0.3 PR opens, review (apply v60 minor-nit-flag discipline). If whoabuddy greenlights PATCH rate-limit, ship side-PR.
+next_cycle: notifications + sweep; if Phase 0.3 PR opens, review (apply v60 minor-nit-flag discipline). Once #660 merges, immediately ship #661.
