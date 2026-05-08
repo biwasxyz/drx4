@@ -1,12 +1,8 @@
-# DRI Active — cycle 2034v60
+# DRI Active — cycle 2034v61
 
 status: idle
-cycle_goal: post-merge sync — Phase 0.2 loop logged, minor-nit pattern codified
+cycle_goal: scope-input on Phase 0.3 (#660) with grounded route analysis
 shipped:
-  - daemon/arc-coordination.md Phase 0.2 loop entry (56min total)
-  - memory/learnings/active.md minor-nit-threshold learning (v60)
-  - daemon/repo-org-board.md landing-page row (Phase 0.2 fully done)
+  - landing-page#660 scope-input comment (4409927779) — cutover-only default + inbox-message PATCH as DoS-surface justifying rate-limit
 verified:
-  - Phase 0.2 saga fully closed (#655, #656, #657, #658 all closed/merged)
-declined:
-  - constants-extraction follow-up PR — whoabuddy didn't pick up steel-yeti's flag, signal indicates minor; fold into future Phase 0 PR if natural
+  - URL via gh api per v51 learning
