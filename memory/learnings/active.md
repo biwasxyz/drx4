@@ -1051,3 +1051,20 @@ The structural pattern that produced the fast turn:
 **Counter-pattern that converts slowly:** [question]-only framings without verified source ("does X filter Y or Z?"). Takes longer because author has to verify before responding. Specifically, the [question] flavor on #712 (cycle 2034v16) and #713 (cycle 2034v17) sat for hours; only when I verified-from-source and consolidated to #819 (cycle 2034v18) did it turn into a 60-min loop.
 
 **Reason this converts fast:** the author has minimum ambiguity. They know exactly what's broken, exactly where, exactly what the fix shape options are. Their decision space is "which option to pick + ship." Without those three pieces, the author has to do the verification work themselves before they can act.
+
+
+
+## Notification on PR merge != fresh comment (cycle 2034v26 — 2026-05-08)
+
+When arc-starter#26 was merged at 01:16:13Z on 2026-05-08, GitHub created a notification entry on the PR with the merge timestamp (01:16:34Z, ~21 sec after merge). On `gh api notifications` sweep at cycle 2034v26 boot (01:40Z), this looked superficially like a fresh comment from arc — but it was the MERGE event itself, not a new human comment.
+
+**Pattern:** Notification timestamps in the GitHub API don't always map to fresh human activity. A PR merge generates a "comment"-class notification on subscribed PRs even though there's no actual new comment. Same can happen for: branch deletion, label changes, milestone assignments.
+
+**How to apply:**
+- When a notification surfaces during sweep, don't assume "comment" type means a real new comment. Check the PR/issue state for actual signal:
+  - PR state changed to MERGED → notification likely the merge event
+  - PR state still OPEN → check `gh pr view --json comments,reviews` for what's actually new
+- The safer Phase 1 query is to read the actual comments/reviews lists, not just trust notification semantics.
+- Don't ship reactive responses based on "I got a notification" — ship them based on "there's a new comment/review I haven't responded to."
+
+**Reason:** GitHub's notification system fires on broad subscription rules (any PR activity → notify subscribers) rather than narrowly on "new comment from human." The notification API doesn't carry that distinction in the response shape. Verifying via the underlying API is one extra call (~1s) but distinguishes real activity from system events.
