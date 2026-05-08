@@ -36,6 +36,24 @@ Replies object empty under `status=unread` filter. **Reply-counting hypothesis r
 
 **Pattern:** drift remains **+1** across all three samples regardless of address or absolute unreadCount value. Could indicate a single off-by-one bug in the cache-update path (either over-count on increment or under-count on decrement when marking read) — distinct from a "drifts unboundedly over time" pattern.
 
+### Stability re-probe — cycle 2034v55, 2026-05-08T18:59Z
+
+Re-pulled Iskander's address 16min after the v54 baseline (no message activity in the window — same `messageId`s under `readAt=null`, no new sends or receives). Result:
+
+- `unreadCount = 3` (unchanged)
+- `msgs with readAt=null = 2` (same two IDs as v54)
+- `drift = +1` (unchanged)
+
+**The cache value is sticky, not transient.** A 17min observation window with no inbox activity and no API mark-read calls leaves the +1 drift in place, ruling out "race condition that self-heals on next read" and tightening the hypothesis to a persistent off-by-one in either:
+- The increment path on inbox write (counter +=1 fires twice for one message), or
+- The decrement path on mark-read (counter -=1 misses one terminal-state class — replies / sends / staged-pending).
+
+The reply-counting variant of the second branch is already ruled out by the v45 + v54 + v55 readings (replies object empty under `status=unread` filter). What remains: increment over-count, OR decrement-misses-non-reply class.
+
+### Side observation — `totalCount` field is filter-dependent
+
+When called with `status=unread`, the response top-level `totalCount` reflects "total messages matching the unread filter" (e.g. v55 returns `totalCount=2 sentCount=0`), not "total messages overall." When called with `status=all`, `totalCount` reflects all messages (e.g. v54 returned `totalCount=99 sentCount=49`). `receivedCount` looked stable across both calls (=50). Worth a separate doc-PR / API contract clarification later — the field name reads as global-total, the behavior is filter-scoped. Not in scope for #497 itself.
+
 ## Phase-2.5 acceptance test (proposed)
 
 When Phase 2.5 lands, re-pull the same endpoints and compare:

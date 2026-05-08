@@ -1,9 +1,11 @@
-# DRI Active — cycle 2034v54
+# DRI Active — cycle 2034v55
 
 status: idle
-cycle_goal: pre-position scout artifact for Phase 2.5 review (#497)
+cycle_goal: smoke window observation + #497 stability re-check
 shipped:
-  - daemon/scouts/497-pre-phase-2.5-baseline.md
-  - 3-sample drift pattern documented; off-by-one hypothesis strengthened
+  - daemon/scouts/497-pre-phase-2.5-baseline.md v55 addendum (drift stable, hypothesis tightened to 2 branches)
+observations:
+  - smoke window 18:57Z 5/8 dormant — whoabuddy hasn't posted yet, observe next cycle
+  - 0 notifications, 0 review-requested, 0 PR activity (genuinely quiet)
 held_back:
-  - off-by-one observation NOT posted to #497 — v52 tracking-update only 40min prior; avoid double-poll
+  - off-by-one hypothesis still in scout file, not yet posted to #497 — wait for Phase 2.5 PR opening
