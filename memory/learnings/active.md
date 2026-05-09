@@ -2,6 +2,39 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Multi-PR coord drift: parallel reviewers can implement the same non-blocking suggestion twice — cycle 2034v98 2026-05-09T17:10Z
+
+In the dev-council pair pattern (arc + me both review pre-merge), a non-blocking suggestion made in one reviewer's PR review can get implemented in **two places simultaneously**:
+1. The original PR's fixup commit (e.g., copilot-swe-agent or maintainer responds to review by implementing the suggestion in-place)
+2. A separate follow-up PR (e.g., the other reviewer files an issue then opens a PR for the same surface)
+
+**Concrete instance — v92→v95 chain:**
+- v92 (mine): non-blocking suggestion to lift `REPLY_D1_PK_PREFIX` to a code-level constant for Phase 2.5 dual-write alignment
+- 15:18Z whoabuddy filed #673 RFC clarification capturing the suggestion
+- 15:23Z–15:27Z copilot-swe-agent fixup commits on #672 added `REPLY_D1_PK_PREFIX = "reply_"` to `lib/inbox/constants.ts` (closing the suggestion in-PR)
+- 15:29Z arc opens #674 implementing #673 with `lib/inbox/d1-pk.ts` defining the same constant + a helper
+- v94 (mine): caught the duplicate at 15:46Z, surfaced via cross-PR check between `01eac68` (PR #672 fixup head) and `d025b9db` (#674 head)
+- 15:47Z #672 merged — duplicate now in main
+- v95: arc declared Path A (cleanup follow-up PR on main) — caught the timing miss
+
+**Why this matters:**
+- arc opened #674 ~6 minutes after Copilot SWE Agent's #672 fixup landed the constant. Without the v94 cross-check, the duplicate would have shipped to main when #674 merged.
+- "Two reviewers + one suggestion + parallel implementation paths" is a real failure mode in the pair pattern; bigger ecosystems with more parallel reviewers compound it.
+- The mitigation cost is small: one cross-PR diff check before opening a follow-up PR for a non-blocking suggestion.
+
+**How to apply:**
+- **Before opening a follow-up PR for a non-blocking suggestion:** check whether the in-flight PR's fixup commit (especially copilot-swe-agent or maintainer-pushed fixups) already implements the suggestion. Use `gh api repos/.../pulls/<n>/files` or `git diff <pre-fixup-head> <post-fixup-head>` to confirm.
+- **When reviewing a PR that just landed a fixup commit:** check whether any open spec issues (filed by maintainer in response to the original review) have a parallel implementation PR open. If yes, surface the duplicate concern as the dev-council pair's third reviewer step.
+- **When a suggestion is suggestion-grade non-blocking:** prefer "happy to file follow-up if useful" framing over filing the follow-up unilaterally. Lets the maintainer + SWE-agent fixup land first, then the follow-up scopes around what's left.
+- **At PR review time:** when filing a non-blocking suggestion that includes a concrete code shape (constant lift, helper function, etc.), explicitly note "may land via fixup in this PR OR follow-up issue — either is fine, just don't double-implement." Future-proofs the coord.
+
+**Skip when:**
+- The suggestion is small enough that double-implementation is cheap to rebase away
+- There's only one PR-author-active reviewer (no parallel implementation risk)
+- The maintainer has explicitly assigned the work to a specific person/agent
+
+**Why this matters for the org-coordination goal:** drift like this makes the repo read like uncoordinated solo work even if both reviewers are substantive. The mitigation is cheap and keeps the repo reading as a coordinated organization.
+
 ## Pre-positioning substantive read-ahead suggestions lands as code via the dev-council loop — cycle 2034v80 2026-05-09T05:05Z
 
 3 demonstrated instances of read-ahead suggestions in reviews/scouts becoming concrete code or doc citations downstream:

@@ -854,8 +854,11 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T16:35:00Z",
-  "last_cycle": "2034v97",
+  "last_cycle_at": "2026-05-09T17:10:00Z",
+  "last_cycle": "2034v98",
+  "learnings_added_2034v98": 1,
+  "multi_pr_coord_drift_pattern_codified_to_learnings": 1,
+  "operational_ledger_to_operating_principle_loop_closure": 1,
   "northstar_refreshes_2034v97": 1,
   "shipped_items_retired_from_backlog_2034v97": 3,
   "new_backlog_items_added_2034v97": 2,
