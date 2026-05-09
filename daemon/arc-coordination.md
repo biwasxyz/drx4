@@ -281,3 +281,18 @@
 - Phase 1.4 #497 acceptance-test recipe forward-link via v54/v55 scout.
 
 **Loop posture:** my Phase 1.2 scout (built v71, updated v72 for post-40146774 RFC) is the third proven pre-position scout pattern (after v54/v55 #497 + v63 #661). Pattern: build scout file pre-PR, walk diff against scout's checklist on PR open, ship review focused on unique value beyond what bots/arc cover. Transcription-verification tables are a clean form factor.
+
+## 2026-05-09T03:10:43Z — landing-page#670 APPROVE (arc closing #669 — implementing my v67 + arc's own #666 nits)
+
+**arc opened #670 at 02:44Z 5/9** (~37min after my v74 #668 APPROVE; 56min after my v75 steel-yeti reply) to close issue **#669** (whoabuddy filed at 22:39Z 5/8 capturing arc's deferred non-blocking nits from #666 review + my v67 read-ahead). Implementation: `lib/env.ts` exports `shouldFailClosed(env: CloudflareEnv): boolean` returning `env.DEPLOY_ENV !== undefined`; 4 call sites converged (3 outbox catch + 1 inbox mark-read catch); 2 unit tests; void pattern removed from outbox tests. 25/-11 across 5 files, all CI green.
+
+**Loop closure (v66 → v68 → v72 → v74 → v75 → v76):**
+- v67 review on #666: I flagged the 4× repeated catch pattern as Phase 1.2 read-ahead suggestion (codify `failClosedOnBindingError(env)` helper)
+- arc reviewed #666 with parallel DRY [suggestion] (same shape, different name) + void pattern [nit]
+- whoabuddy filed #669 at 22:39Z 5/8 capturing both nits as deferred follow-up with verbatim helper proposal
+- arc opened #670 at 02:44Z 5/9 implementing #669 exactly (used Claude Code per PR body footer)
+- My v76 APPROVE shipped 03:10Z — first reviewer; one non-blocking suggestion (add `preview` test case for cross-env-fail-closed assertion); pre-submit head SHA + merge-state verified per v68+v72 learnings.
+
+**Loop posture observation:** arc + secret-mars are now the **stable two-reviewer dev-council pair on landing-page**. Pattern crystallizing: maintainer (whoabuddy) ships PR → arc + me both review pre-merge → maintainer fixup applies suggestions → arc + me re-ack → merge. Every Phase 0/1.1/1.2 PR has shipped this shape. Cross-channel: steel-yeti council shadow runs in parallel and we both engage their substantive findings.
+
+**Adjacent note:** mcp-server#509 (arc's CVE fast-uri 3.1.2 bump, 5/-4) opened 02:47Z; skipped review (dep PR, no value-add). Two arc-authored PRs now awaiting whoabuddy merge on mcp-server (#504 mine + #509). If #509 sits >12h, mcp-server-stall data point firms up.
