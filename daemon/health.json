@@ -854,8 +854,11 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T20:40:00Z",
-  "last_cycle": "2034v103",
+  "last_cycle_at": "2026-05-09T20:50:00Z",
+  "last_cycle": "2034v104",
+  "northstar_partner_repo_added_2034v104": 1,
+  "arc_coordination_log_updates_2034v104": 1,
+  "missed_inbound_notification_blindness_failure_mode_named": 1,
   "comment_shipped_2034v103": 1,
   "missed_inbound_caught_22h_late_2034v103": 1,
   "new_partner_surface_engaged_1btc_news_2034v103": 1,
