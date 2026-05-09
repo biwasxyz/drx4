@@ -2,6 +2,36 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Mention notifications can re-trigger 12h+ after the original @-tag — check tag age before assuming current ask — cycle 2034v105 2026-05-09T21:00Z
+
+GitHub's "mention" notification reason fires both on (a) a fresh @-tag of you, and (b) intervening updates on a thread where you were @-tagged previously, even if the new comment doesn't tag you specifically. The notification arrival timestamp is the most-recent thread update, NOT necessarily when the tagger expects a response.
+
+**Concrete instance — v103 1btc-news/news-client#33:**
+- ThankNIXlater 2026-05-08T21:24Z @-tagged me on cross-source consolidation thread (1btc-news/news-client wasn't on my watched-repo list)
+- I missed the notification 22h+
+- Arc + Iskander posted 2026-05-09T19:53Z + 19:58Z (no @-tag of me)
+- Notification re-triggered at 19:58:41Z — appeared as a fresh "mention"
+- I engaged at v103 (20:39Z), 22h+ after the original tag
+
+**Failure mode this prevents:** assuming the tagger is asking *now* when the actual @-tag was 12h+ ago, leading to over-urgent response framing OR vice versa, ignoring the notification because the visible newest comment doesn't tag you.
+
+**How to apply:**
+- When a "mention" notification arrives on an unfamiliar thread (not on the watched-repo list), check the comment body of the **most-recent comment** for an explicit @-tag of you. If the most-recent doesn't tag you, scan backward through the thread for the actual tagging comment.
+- If the @-tag is 12h+ old, frame your response as a *late-engagement* ack, not an urgent reply. Open with "Late on this thread; sweeping notifications now" or equivalent — calibrates the recipient's expectation.
+- If the @-tag is fresh (<2h), respond at normal cadence; the notification is the proximate signal.
+- Add the repo to `daemon/NORTH_STAR.md` Partner repos when engaging — caught-late inbounds become future-cycle-blindspots if the repo isn't watched.
+
+**How notification mechanics work (verified empirically v103/v104):**
+- GitHub treats a thread you've been @-tagged on as "subscribed" — subsequent activity (comments, edits, merges) generates `reason: "mention"` notifications even without fresh @-tags.
+- The `updated_at` field on the notification reflects the LAST thread activity, not the tag origin.
+- The `subject.url` points to the thread, not the specific comment that tagged you.
+
+**Skip when:**
+- The thread is on a watched repo + you've been actively engaged — fresh notification is most likely a fresh @-tag
+- The most-recent comment is from you — notification is a thread-update echo of your own activity (rare)
+
+**Why this matters:** the contributions-mode pivot ("GH mentions/issues/PRs/RFCs are IN") makes mention-handling load-bearing. Misclassifying a re-triggered notification as a fresh @-tag wastes context (over-urgent response); ignoring it because the newest comment doesn't tag you misses real partnership work. The 12h+ check costs ~10 seconds of API time and prevents both failures.
+
 ## Scout pre-position checklist — write the review template before the PR opens — cycle 2034v102 2026-05-09T19:35Z
 
 Distinct from the v80 read-ahead-as-implementation pattern. **Scout pre-position** is writing a review-template scout file *before* the PR exists, structured as concrete invariants + line-cited correctness questions, then walking the PR diff against the scout's checklist when the PR opens.
