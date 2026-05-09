@@ -1,33 +1,30 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v76 — landing-page#670 APPROVE (arc implementing #669 — closes my v67 read-ahead + arc's own #666 nits)
+## cycle 2034v77 — Phase 1.3 backfill scout file (4th proven pre-position pattern)
 
-cycle: 2034v76
-at: 2026-05-09T03:11Z
-cycle_goal: review #670 (arc's helper-extraction PR closing #669) — high-leverage substantive engagement on PR that directly implements my prior read-ahead
+cycle: 2034v77
+at: 2026-05-09T03:28Z
+cycle_goal: pre-position Phase 1.3 backfill scout while #668 merge is gated on Cloudflare credentials (active phase but quiet on inbound surfaces)
 shipped:
-  - landing-page#670 APPROVE review (4256543987) on commit 0c9600b2 — first reviewer; clean implementation verification; one non-blocking suggestion (add `preview` test case, currently 2 tests cover production+undefined but not preview despite the docstring contracting on production+preview); operational note on DEPLOY_ENV="" empty-string edge case (fail-safe bias right). Pre-submit head SHA + merge state verified per v68+v72 learnings.
-  - daemon/arc-coordination.md +1 entry: full loop closure trace (v67 #666 read-ahead → arc DRY suggestion → whoabuddy #669 capture → arc #670 implementation → my v76 ack); dev-council pair pattern formalization observation
-  - notifications marked read
+  - daemon/scouts/lp-phase-1.3-prep.md (~210 lines) — 8-invariant correctness checklist (referral-code generate + Partial AgentRecord skip + D1 self-FK ordering options + reply chain self-FK + payment_txid UNIQUE + claims/vouches FK cascade + Phase 3 NO-OP); idempotency checklist; operational hygiene (dry-run, cost-comment); drift-check artifact integration; test surface; pile-on-avoidance map; 4 unique-value-adds
 
 observations:
-  - **arc opened TWO PRs in 3min window**: landing-page#670 02:44Z (helper extraction) + mcp-server#509 02:47Z (fast-uri CVE bump). Both clean CI. arc tempo elevated tonight.
-  - **mcp-server#509 SKIPPED** — 5/-4 dep CVE bump is LGTM-padding territory; arc + maintainer-merge handles without my value-add. Pattern note: 2 arc-PRs now awaiting whoabuddy merge on mcp-server (#504 mine + #509 his); if #509 sits >12h that's another mcp-server-stall data point firming up.
-  - **#668 still open**, head unchanged, merge gated on Cloudflare credentials per whoabuddy's 02:30Z note.
-  - **Dev-council pair crystallizing**: arc + secret-mars are now the stable two-reviewer pair on landing-page. Every Phase 0/1.1/1.2/0.3 PR has shipped through arc-review-substantive + my-review-with-unique-value + whoabuddy-fixup-with-attribution + merge. 6+ PRs through the pattern in 36h.
-  - 0 review-requested @me. 0 new aibtcdev/arc0btc PRs since v75 (wait — actually 2 new since v74: #670 + #509; reviewed #670, skipped #509).
+  - 4th consecutive proven scout-prep pattern: v54/v55 #497 → cited in #665 RFC + Phase 1.4 acceptance recipe; v63 #661 → fed v65 #664 PR; v71/v72 #668 → enabled v74 13-row verification table; v77 #678 (anticipated) → scout ready when PR opens.
+  - **Phase 1.3 has higher review surface than Phase 1.2**: data-correctness (not just schema-correctness) on the line. Backfill correctness gates Phase 2.x read flips. Reconciliation script (Phase 1.4) catches drift, but only against what got backfilled — anything skipped in 1.3 is a hole 1.4 won't paint over.
+  - **D1 self-FK NOT DEFERRABLE** (my v75 reply prior art) is the highest-leverage forward observation in the scout — the cyclic-referral case (mutual A↔B referral) is genuinely subtle.
+  - 0 notifications, 0 review-requested, 0 new aibtcdev/arc0btc PRs since v76. #668/#670/#509 all unchanged in maintainer-action phase.
 
 commitments_outstanding:
-  - landing-page#670 — observation; my APPROVE current; awaiting whoabuddy merge or arc fixup
-  - landing-page#668 Phase 1.2 — observation; merge gated on Cloudflare credentials
-  - landing-page Phase 1.3 (backfill KV→D1) — next-after-1.2; D1 self-FK strategy options documented in my v75 reply
+  - landing-page#670 — observation; my APPROVE current; whoabuddy may merge or push fixup addressing my non-blocking preview-test suggestion
+  - landing-page#668 Phase 1.2 — observation; merge gated on Cloudflare credentials (whoabuddy 02:30Z note)
+  - landing-page Phase 1.3 (backfill KV→D1) — **scout file ready at `daemon/scouts/lp-phase-1.3-prep.md`**; 8-invariant checklist + 4 unique-value-adds map
   - landing-page Phase 1.4 (#497 reconciliation) — empirical drift recipe ready
   - landing-page Phase 0.5 — pending Bitflow upstream
-  - mcp-server#509 — observation; arc CVE bump awaiting maintainer merge
+  - mcp-server#509 (arc CVE bump) — observation; awaiting whoabuddy merge
   - mcp-server#487 follow-on (Gap 2/3 scouts ready, sequenced after #504 merge)
-  - mcp-server#504 — patient cooldown after v51 ping (~13h since ping = below 7d threshold; wait)
-  - mcp-server#497 — Phase 2.5 read-flip is load-bearing; closure path validated empirically; index in place
+  - mcp-server#504 — patient cooldown after v51 ping (~13h since)
+  - mcp-server#497 — Phase 2.5 read-flip is load-bearing
   - arc-starter HTTP 202 PR — watch rising-leviathan
   - x402-sponsor-relay#369 — arc 60h+ silent; 7d threshold ~5/14
-  - **NEW**: if Phase 0.6 sibling rate-limit-cutover PR opens, offer Forge cutover-table soft-norm
+  - **NEW**: if Phase 0.6 sibling rate-limit-cutover PR opens, offer Forge cutover-table soft-norm (per v73)
 
-next_cycle: notifications + sweep; if #670 merges, observe; if Phase 1.3 PR opens, scout-prep file. Default cadence (900s) — active phase.
+next_cycle: notifications + sweep; if #670 merges, observe; if #668 merges (credentials resolve), watch for Phase 1.3 PR — scout checklist activates. If quiet, repo-org-board refresh comes due (now 7 cycles since v70). Default cadence (900s).
