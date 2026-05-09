@@ -2,6 +2,43 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Scout pre-position checklist — write the review template before the PR opens — cycle 2034v102 2026-05-09T19:35Z
+
+Distinct from the v80 read-ahead-as-implementation pattern. **Scout pre-position** is writing a review-template scout file *before* the PR exists, structured as concrete invariants + line-cited correctness questions, then walking the PR diff against the scout's checklist when the PR opens.
+
+**4 standalone instances proven by v100:**
+
+1. **v54/v55 → v66 RFC + v90 reality-check + v96 re-probe + v100 forward-link** — `daemon/scouts/497-pre-phase-2.5-baseline.md`. The 3-sample drift table baseline (cached `unreadCount=3` vs filtered `totalCount=2` = +1 drift) became the Phase 1.4 acceptance test recipe in landing-page#665 RFC merged at `40146774`. Scout outlived 5 cycles of refinement (v54 build → v55 stability re-probe → v90 + #672 reality-check → v96 22h-later reproduction → v100 Phase 2.5 forward-link).
+2. **v71/v72 → v74 review** — `daemon/scouts/lp-phase-1.2-prep.md`. Built pre-#668-open with schema-vs-RFC verification table; updated v72 for post-`40146774` RFC head (column renames, payment state expansion, region command shape, Decision 6); enabled v74 13-row schema-vs-fixup transcription verification table (zero drift). Direct review-template-to-review pipeline.
+3. **v77 → v90 reality-check + v92 #672 review** — `daemon/scouts/lp-phase-1.3-prep.md`. Built 8-invariant correctness checklist + idempotency/operational/test-surface/pile-on-avoidance maps; updated v90 with empirical reality-check section pinning to mergeCommit `dd001e8`; enabled v92 review where 2 Tier 1 + 2 Tier 2 + reply-PK position findings landed (+ v92 unique catch on `msg.replyTo` dropped + REPLY_D1_PK_PREFIX constant lift both shipped verbatim in fixup).
+4. **v100 Phase 2.5 + v101 cleanup PR pre-stage** — `daemon/scouts/lp-phase-2.5-prep.md` + `daemon/scouts/lp-reply-pk-prefix-cleanup-2034v101.md`. Built before the PRs even open; scout becomes firable when PR lands or when cleanup is needed post-#674-merge.
+
+**What makes a scout pre-position effective:**
+- **Built BEFORE the PR opens**, not after. The discipline of pre-positioning forces enumeration of correctness invariants from RFC + parent-PR + prior-art context, not from the PR's own framing.
+- **Concrete invariants with verification checklists**, not prose. Each invariant has a line like `[ ] Script imports/uses the existing generateAndStoreReferralCode (or its generator) — not a parallel reimplementation that could drift on collision-retry semantics`. Reviewable boolean — easy to walk against PR diff.
+- **Cited prior art** — the scout cites the RFC sections, related-PR commit SHAs, and previous scout files. Each citation is a v68/v72 head-SHA-pre-submit checkpoint waiting to happen.
+- **Acceptance test recipe with empirical baseline** — when applicable, the scout includes a 2+ sample baseline (e.g., v54/v55 + v96 +1 drift). Post-flip verification compares against the baseline.
+- **Forward-link to next-phase work** — the scout names what Phase X+1 will need this scout's output for. Prevents scope-creep at review time + sets up next scout naturally.
+
+**How to apply:**
+- When an RFC migration plan has phased PRs (Phase 0 → 1.1 → 1.2 → ...), pre-position a scout for the next-likely-phase BEFORE the PR opens. ~1-3 day lead time is the sweet spot.
+- When a parent PR defines a contract (function signature, schema, helper), pre-position scouts for downstream consumers' likely correctness questions.
+- When a prior-PR review surfaces a non-blocking suggestion, pre-position a scout for either (a) the implementation PR if you offered to file it, or (b) the cleanup PR if it requires a follow-up.
+- Walk the scout against the PR diff at PR-open. The scout becomes the review's structure; the diff becomes the data. Unique value-adds emerge naturally where the diff diverges from scout assumptions.
+
+**Skip when:**
+- The PR is mechanical (dependency bump, release PR, isolated bug fix) — scout overhead dwarfs review value
+- The next phase isn't yet visible (RFC hasn't been written, or migration plan isn't published)
+- You don't have the prior-art context to enumerate concrete invariants — scout would be speculative
+
+**Why this matters:** the dev-council pair pattern + maintainer-merge cadence creates a window where the second reviewer's substantive value depends on having concrete checklists rather than re-deriving invariants from PR body alone. Pre-position scouts compress the review-time cost of doing substantive review by 5-10x. Without pre-position, the second reviewer is reactive — waiting for PR + reading + thinking. With pre-position, the review is "walk the scout against the PR diff" which is fast, structured, and reliably surfaces unique value-adds.
+
+**Distinct from v80 (read-ahead-as-implementation):**
+- v80: a *suggestion* in a PR review becomes code in the next PR (e.g., "non-blocking: codify failClosedOnBindingError helper" → arc files #669 → arc opens #670 implementing). Reverse direction (review → code).
+- This (scout pre-position): a *checklist artifact* is built before the PR opens, becomes review template when PR opens. Forward direction (template → review).
+
+Both are pre-positioning, but at different layers. The scout pre-position pattern has 4 standalone instances; the v80 read-ahead pattern has 3 distinct instances; some surfaces invoke both (v77 scout + v67 read-ahead together fed v92 #672 review with high density of unique findings).
+
 ## Multi-PR coord drift: parallel reviewers can implement the same non-blocking suggestion twice — cycle 2034v98 2026-05-09T17:10Z
 
 In the dev-council pair pattern (arc + me both review pre-merge), a non-blocking suggestion made in one reviewer's PR review can get implemented in **two places simultaneously**:
