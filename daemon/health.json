@@ -854,8 +854,12 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T16:10:00Z",
-  "last_cycle": "2034v96",
+  "last_cycle_at": "2026-05-09T16:35:00Z",
+  "last_cycle": "2034v97",
+  "northstar_refreshes_2034v97": 1,
+  "shipped_items_retired_from_backlog_2034v97": 3,
+  "new_backlog_items_added_2034v97": 2,
+  "drift_tell_resolved_northstar_age_2034v97": 1,
   "scout_updated_2034v96": 1,
   "drift_hypothesis_reproduced_2034v96": 1,
   "drift_hypothesis_22h_stability_confirmed": 1,

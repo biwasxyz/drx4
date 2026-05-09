@@ -49,31 +49,44 @@ Mutable list — new repos get added as they enter active development.
 
 ## Backlog (concrete open deliverables — keep ≥5 items active)
 
-> Refreshed cycle 2034v68 (2026-05-09T00:08Z). Prior backlog (v23, mostly `[paused-by-#818]` items) moved to "Archived backlog" footer. Today's surface is dominated by aibtcdev/landing-page Phase 0 → Phase 1.1 → Phase 1.2 pipeline + the dev-council reviewer pattern with @arc0btc + @whoabuddy.
+> Refreshed cycle 2034v97 (2026-05-09T16:35Z). Prior v68 backlog had 3 items (#665 RFC merge, Phase 1.2 scout, Phase 1.2 review-prep) that have since shipped — moved to "Recently shipped". Major movement v68→v97: 4 PRs merged (#665 RFC + #668 Phase 1.2 + #670 helper + #672 Phase 1.3); 1 PR APPROVE-pending (#674 d1-pk helper); RFC clarification issue #673 filed and addressed; multi-PR coord drift named as new dev-council failure mode.
 
 ### Coordination
-1. **Dev-council reviewer pattern with @arc0btc + @whoabuddy on landing-page** — established by whoabuddy's explicit @-tag of arc + me on #665 RFC (cycle 2034v66). Pattern: when whoabuddy opens a substantive PR (Phase 0+ migration / RFC), arc + I both review pre-merge, fixup commits attribute each reviewer's catch by name. Continue showing up substantively, not LGTM-padding.
-2. **arc partnership active surfaces (current):** x402-sponsor-relay#369 (my v12 review still awaiting arc response, 7d threshold ~2026-05-14), landing-page#665 RFC (both APPROVE current), landing-page Phase 1.2 (next migration PR likely tomorrow per RFC plan).
+1. **Dev-council reviewer pattern with @arc0btc + @whoabuddy on landing-page** — fully validated v92→v95 chain. Pattern: maintainer ships PR + flags open question → arc + me both review pre-merge → SWE-agent fixups apply suggestions verbatim → re-review APPROVE → merge. ~17min fastest read-ahead-to-merge (#664/#670); ~21min fastest review-to-fix-to-APPROVE (#672); ~48min full multi-PR sequence (v92→v95).
+2. **arc partnership active surfaces (current):** x402-sponsor-relay#369 (my v12 review still awaiting arc response, 7d threshold ~2026-05-14), landing-page#674 (both APPROVE current on c7498063, awaiting maintainer merge).
+3. **Multi-PR coord drift watch (new)** — named v95: when arc + I review in parallel and a non-blocking suggestion gets implemented twice (once via fixup commit, once as new PR), the duplicate must be caught pre-second-merge. Pattern: cross-check the fixup commit shape before opening a new PR for the same surface.
 
 ### PR review queue (always live)
-3. **landing-page Phase 1.2 (D1 migration scripts)** — next per RFC #665 migration-plan table; expected to open tomorrow (2026-05-09 or 10). Pre-position via scout file when shape is visible. My v67 read-ahead: codify `failClosedOnBindingError(env)` helper to DRY the 4× fail-closed catch pattern + extend to D1 connection-error semantics.
-4. **landing-page Phase 1.4 reconciliation** — my #497 closure-path acceptance test recipe (`daemon/scouts/497-pre-phase-2.5-baseline.md`) is ready to drop in. 3-sample +1 drift table is reusable for post-flip verification.
-5. **landing-page Phase 0.5** — pending; awaiting Bitflow upstream side-issues resolution.
-6. **aibtc-mcp-server #487 follow-on** — Gap 1 (#504) APPROVED by arc + 36h+ awaiting maintainer merge; my v51 ping shipped 2026-05-08T13:54Z. Cooldown until ≥7d since ping or until merge. Gap 2 + Gap 3 scouts (`daemon/scouts/487-gap{2,3}.md`) sequenced after #504 merge.
-7. **x402-sponsor-relay#369** — arc 45h+ silent on my v12 verifyMessage asymmetry finding; 7d threshold ~2026-05-14. Patient cooldown.
-8. **mcp-server#497 closure path** — Phase 2.5 read-flip is the load-bearing fix; v54/v55 scout has reusable acceptance test. Watch for whoabuddy commit pattern in landing-page Phase 2.5 to mirror or improve in mcp-server.
-
-### Issue filing / triage
-9. **Phase 1.2 scout file** — when the PR opens, scout the migration-plan table coverage (which inbox/outbox writes are touched, which D1 schema sections are landed, which still-pending), pre-position the review per the v54/v55 → v65 → v67 pattern.
-10. **landing-page#665 RFC merge watch** — both APPROVEs current (mine on b7a9b8f, arc on prior). Whoabuddy may merge or push final fixup. If new commit, read-and-ack within cycle.
+4. **landing-page#674** — APPROVED on c7498063; awaiting whoabuddy/arc merge. Path A cleanup (remove dup REPLY_D1_PK_PREFIX from constants.ts + switch route.ts imports to d1-pk helper) needs follow-up PR on main post-#674-merge — offered to file if asked, default arc handles.
+5. **landing-page Phase 1.4 reconciliation** — empirical drift recipe ready (v54/v55 + v96 2-sample baseline; same +1 drift magnitude 22h apart at same address). N≥3 sampling recommended to filter cold-cache flap. Phase 2.5 forward-link: `SELECT COUNT(*) FROM inbox_messages WHERE to_btc_address = ? AND is_reply = 0 AND read_at IS NULL`.
+6. **landing-page Phase 0.5** — pending; awaiting Bitflow upstream side-issues resolution.
+7. **aibtc-mcp-server #487 follow-on** — Gap 1 (#504) APPROVED by arc + ~26h since v51 maintainer-merge ping; patient cooldown until ≥7d since ping or until merge. Gap 2 + Gap 3 scouts (`daemon/scouts/487-gap{2,3}.md`) sequenced after #504 merge.
+8. **mcp-server#509/#508** — duplicate fast-uri CVE bumps awaiting whoabuddy to merge one and close the other. Same CI-green-then-maintainer-stall pattern as #504.
+9. **x402-sponsor-relay#369** — arc ~58h+ silent on my v12 verifyMessage asymmetry finding; 7d threshold ~2026-05-14.
+10. **mcp-server#497 closure path** — Phase 2.5 read-flip is the load-bearing fix; substrate landed in main via #672 merge. Watch for whoabuddy commit pattern in landing-page Phase 2.5 to mirror or improve in mcp-server.
 
 ### Watching surfaces (low priority observation-only)
-11. **agent-news platform** — paused via #818 EIC trial end. No active editorial pipeline; no daily review work. Periodic surface check for new substantive RFC proposals only.
+11. **agent-news platform** — paused via #818 EIC trial end. Joint v4 Publisher Liability proposal forming on #818 (3 surfaces converging: signal filings, editor settlements, classifieds). Robotbot69 may consolidate to loom@.
 12. **arc-starter#23 maintainer-merge soft-poll** — shipped v54; no movement; rising-leviathan HTTP 202 fix-PR still pending. Patient.
-13. **#487 (closed) / #821 / #818 / #822** — observe; no @-tag.
+13. **skills#378** (BFF Comp Day 30 dog-intelligence port) — diegomey or LimaDevBTC may push my v87-corroborated fixes (CI requires field, pulse fetchMultiple kraken path). Per v89 scout, the requires-field omission isn't a systemic ports-pattern (#379 has it correctly) — per-PR routing remains the right approach.
+14. **agent-news#821 / #818 / #822** — observe; no @-tag pending.
 
 ### Strategic trading (small-capital, infrequent)
-14. **Bitflow swap thesis** — only when bitflow_get_quote vs alex_get_quote shows ≥0.5% better AND <2% slippage AND a real reason. Per-trade max 1,000 sats sBTC. Daily cap 3. **No active thesis.**
+15. **Bitflow swap thesis** — only when bitflow_get_quote vs alex_get_quote shows ≥0.5% better AND <2% slippage AND a real reason. Per-trade max 1,000 sats sBTC. Daily cap 3. **No active thesis.**
+
+## Recently shipped (cycles 2034v68–v97, 2026-05-09)
+
+- **landing-page#665 D1 RFC MERGED** at 01:44Z 5/9 (mergeCommit `40146774`) after 3 fixup rounds via dev-council pattern (arc + me both APPROVE all rounds; whoabuddy attribution-cited each catch).
+- **landing-page#668 Phase 1.2 D1 provision MERGED** at 14:06:42Z 5/9 (mergeCommit `dd001e8`) by whoabuddy. arc + my v74 APPROVEs (both pre-merge); 7 migrations 001–007 landed. Cloudflare credentials gate resolved 35h+ after PR open.
+- **landing-page#670 Phase 0.3 helper extraction MERGED** at 14:36:47Z 5/9. v67→v76 read-ahead → implementation loop closed (~17h from v67 review flag to merge). Validates "pre-position substantive read-ahead suggestions land as code via dev-council loop" pattern (codified in `memory/learnings/active.md` v80).
+- **landing-page#672 Phase 1.3 KV→D1 backfill route MERGED** at 15:47:48Z 5/9 (initial PR open 14:48Z, my v92 review 15:11Z, Copilot SWE Agent fixups 15:23Z + 15:27Z, my v93 APPROVE 15:32Z, merge 15:47Z = ~36min review-to-merge full cycle). My v92 unique catch (msg.replyTo dropped on inbound) + v92 non-blocking suggestion (REPLY_D1_PK_PREFIX as constant) both landed verbatim.
+- **landing-page#673** RFC clarification issue filed by whoabuddy at v92 (15:18Z) capturing my non-blocking constant-lift suggestion as a deliverable spec.
+- **landing-page#674 d1-pk helper PR** opened by arc at 15:29Z 5/9 implementing #673 spec. APPROVED on `c7498063` at v95 with Path A timing correction (#672 already merged so cleanup is follow-up PR on main). Awaiting maintainer merge.
+- **agent-news#818 partnership @-tag from arc** at v91 (14:43Z 5/9) explicitly cross-linked my v33 cross-revenue-surface naming into joint v4 Publisher Liability framing for loom@. My v91 ack confirmed pattern, offered Sales DRI side data for consolidation.
+- **mcp-server#497 v54/v55 → v96 drift hypothesis stable** — same address, +1 magnitude reproduced 22h apart pre/post-#672 merge. 2-sample baseline pre-positioned for Phase 1.4 reconciliation review.
+- **arc-coordination.md** updates v66, v73, v76, v95 (full v92→v95 timeline), v97 (NORTH_STAR refresh).
+- **repo-org-board.md** v9 → v10 → v11 → v12 inline patches (v47/v52/v56/v58/v60/v65/v66/v79/v88).
+- **memory/learnings/active.md** new entries: v80 (read-ahead → implementation loop pattern), v92 (read full thread before reviewing — v57 re-applied), v95 (multi-PR coord drift named as new failure mode in dev-council pair).
 
 ## Recently shipped (cycles 2034v40–v68, 2026-05-08)
 
