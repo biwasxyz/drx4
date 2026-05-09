@@ -162,3 +162,38 @@ My unique value-add for Phase 1.3:
 - Is it run via `wrangler d1 execute` with embedded SQL, or via a Worker calling D1 from a script context, or via an admin API endpoint?
 - Does it run against staging first or directly to production? Staging-first is the safe default; absence of staging means the dry-run flag is even more load-bearing.
 - Is there a Phase 1.3 sub-issue with the chosen self-FK strategy documented (per my v75 reply suggestion)?
+
+---
+
+## Phase 1.2 #668 merged — empirical reality check (cycle 2034v90, 2026-05-09T14:25Z)
+
+**Merged at:** 2026-05-09T14:06:42Z by @whoabuddy. mergeCommit `dd001e80b388b85c2d58a91b6b63a42e5f68d0e8`. base: `main`. Read-through of `migrations/{001..007}.sql` at merge-state confirms / refines scout assumptions:
+
+### Confirmed (no scout edit needed)
+- **001 agents**: `referral_code TEXT NOT NULL UNIQUE` ✓ (scout #1). Self-FK `referred_by_btc → btc_address` with explicit "Cycle is intentional" comment ✓ (scout #3). Indexes match RFC.
+- **003 inbox_messages**: `is_reply` discriminator + CHECK constraint enforcing `(is_reply=0 AND from_stx_address NOT NULL AND from_btc_address IS NULL) OR (is_reply=1 AND from_btc_address NOT NULL AND from_stx_address IS NULL)` lands exactly as scout #4 anticipated. `idx_inbox_payment_txid` UNIQUE WHERE NOT NULL ✓ (scout #5, permanent, replaces 90d KV TTL).
+- **003 inbox_messages**: `bitcoin_signature` is the single column for both inbound + reply paths, generic-named for future BIP-340/Schnorr without rename — matches scout's expected column.
+- **003 self-FK on `reply_to_message_id → inbox_messages.message_id`** — same NOT-DEFERRABLE constraint as agents.referred_by_btc (scout #4 reply-chain ordering).
+- **004 vouches**: composite PK `(referrer_btc, referee_btc)` + double FK to agents — backfill ordering is agents-before-vouches (scout assumed FK ordering).
+- **002 claims**: `status TEXT NOT NULL CHECK (status IN ('pending', 'verified', 'rewarded', 'failed'))` — backfill must produce one of those 4 values (scout did NOT enumerate; minor refinement: claims with status outside this set will fail INSERT, so backfill needs CHECK-aware filtering or normalization).
+
+### New observations (scout did NOT anticipate)
+1. **005 swaps + 006 balances are NOT in Phase 1.3 backfill scope** per migration comments: "Populated by Phase 3.1 verifier; empty until Phase 3 ships" / "Populated by Phase 3.3 5-minute cron". This narrows Phase 1.3 to: **agents + claims + inbox_messages (inbound + replies) + vouches**. Swaps `FOREIGN KEY (sender) REFERENCES agents(stx_address)` becomes a Phase 3.x ordering concern, not 1.3.
+2. **003 inbox_messages `payment_status` CHECK is `(payment_status IN (...) OR payment_status IS NULL)`** — defensive form. SQLite `NULL IN (x)` returns NULL → CHECK passes already (NULL is treated as not-FALSE), but the explicit `OR IS NULL` is clearer + future-proof. No backfill bug, just a documentation note.
+3. **003 inbox_messages has `payment_terminal_reason TEXT` (mirroring `@aibtc/tx-schemas/core` TerminalReason) + `payment_error_code TEXT` + `payment_replacement_txid TEXT` (RBF tracking)** — scout #4 didn't enumerate these. Backfill must:
+   - Map KV InboxMessage payment fields to all 3 if present (legacy KV may only have `payment_status`; new fields will be NULL — safe).
+   - Handle the RBF/replacement case: if KV `inbox:redeemed-txid:{originalTxid}` is replaced via `payment_replacement_txid`, the UNIQUE index on `payment_txid` (WHERE NOT NULL) means the original or replacement is canonical, not both. Phase 1.3 must pick the active one.
+4. **001 agents has `last_identity_check TEXT` (nullable) and `last_active_at TEXT` (nullable)** — backfill likely populates these from KV's stored timestamps if present, else NULL. Not load-bearing but worth confirming the script doesn't accidentally populate them with `now()` at backfill time (would clobber real history).
+5. **001 agents `bns_name TEXT` (nullable)** — KV may or may not have BNS resolution stored; backfill should NOT trigger BNS lookups (operational hazard); just carry the column over.
+6. **007 view** (`registered_wallets_view.sql`, not pulled in this scout sweep) — Phase 1.3 backfill doesn't touch views; views are derived. Verify on PR open.
+
+### Refinements to scout invariants
+- **Invariant #4 inbox_messages reply chain**: confirmed self-FK is `reply_to_message_id → message_id`, NOT DEFERRABLE. Two-pass strategy applies: pass 1 inserts all inbound+replies with `reply_to_message_id = NULL` → pass 2 updates `reply_to_message_id` for replies once parents exist. Topological sort works if no reply cycles in source KV (likely safe; cycles would be data corruption).
+- **Invariant #2 partial AgentRecord**: `stx_address NOT NULL UNIQUE` AND `stx_public_key NOT NULL` AND `btc_public_key NOT NULL` AND `verified_at NOT NULL` AND `referral_code NOT NULL UNIQUE` — partial agents will fail INSERT on at least one of these constraints. The skip-partials strategy is enforced by the schema; backfill could safely INSERT-AND-CATCH if the cleaner enumerate-types path is too costly.
+
+### What this changes for review-prep
+The scout's 8 invariants remain load-bearing. The 6 new observations add 1-2 review hooks (CHECK-aware claims filtering; payment_replacement_txid RBF dedup logic). When Phase 1.3 PR opens, the review surface includes:
+- Verifying the 4-table scope is correct (agents + claims + inbox_messages + vouches; NOT swaps/balances/view)
+- Verifying `last_identity_check`/`last_active_at` carry-over semantics
+- Verifying RBF replacement_txid backfill picks the active txid
+

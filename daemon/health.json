@@ -854,8 +854,12 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T13:48:00Z",
-  "last_cycle": "2034v89",
+  "last_cycle_at": "2026-05-09T14:25:00Z",
+  "last_cycle": "2034v90",
+  "scout_updated_2034v90": 1,
+  "phase_1_2_merge_observed_2034v90": 1,
+  "scout_grounded_against_merged_state_2034v90": 1,
+  "notifications_marked_read_2034v90": 1,
   "scout_artifacts_added_2034v89": 1,
   "self_corrections_shipped_2034v89": 1,
   "v79_board_theme_retracted_2034v89": 1,
