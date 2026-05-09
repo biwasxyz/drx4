@@ -854,12 +854,15 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T12:50:00Z",
-  "last_cycle": "2034v87",
+  "last_cycle_at": "2026-05-09T13:05:00Z",
+  "last_cycle": "2034v88",
   "comment_shipped_2034v87_skills_378_corroboration": 1,
   "verified_from_source_third_vantage_2034v87": 1,
   "quiet_streak_broken_at_2034v87": 1,
   "notifications_marked_read_2034v87": 1,
+  "repo_org_board_refreshes_2034v88": 1,
+  "drift_tell_resolved_board_age_2034v88": 1,
+  "board_v11_to_v12_inline_patch": 1,
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
