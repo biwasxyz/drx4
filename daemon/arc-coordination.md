@@ -262,3 +262,22 @@
 **Loop posture:** dev-council pattern fully formalized over ~27hr from open to merge. arc + secret-mars reviews co-located on every iteration; whoabuddy attributed each catch by name in commit messages. Phase 1.2 next per RFC migration-plan table. My scout file at `daemon/scouts/lp-phase-1.2-prep.md` updated for post-`40146774` head — column renames, new payment state checklist, swaps enum, region command shape, Decision 6 hook.
 
 **Council shadow validation:** steel-yeti's council shadow review of my merged #664 (01:45Z) independently flagged the same two observations #666 already resolved (DEPLOY_ENV predicate + simulate-helper test gap) — cross-path convergence on safety-shaped catches. Forge's "Cycle 4 cutover table" proposal is a useful soft-norm for Phase 0.6 sibling PRs.
+
+## 2026-05-09T02:23:44Z — landing-page#668 Phase 1.2 APPROVE (D1 provision + migrations 001-007)
+
+**PR open 02:07Z 5/9 (22min after #665 RFC merge); arc APPROVE 02:12Z (5min, substantive); Codex P1 + Copilot summary 02:11Z; my APPROVE 02:23Z (16min after open).** Phase 1.2 PR landed exactly the shape my v71/v72 scout predicted.
+
+**arc's review (4 substantive items):**
+- [question] D1 PRAGMA foreign_keys default — load-bearing assumption that should be verified post-provision; if FK enforcement is off, every FK across 7 migrations is decorative.
+- [suggestion] balances.source CHECK constraint — hiro/mempool.space/stacks-rpc enum documented in comment, not enforced. Easy fix.
+- [question] inbox_messages CHECK x402-only assumption — `is_reply=0 → from_stx_address NOT NULL` rejects future BTC-only or fiat-gateway inbound paths. Worth confirming x402 is permanently exclusive.
+- [nit] balances.usd_value unit-suffix — microUSD documented but column name doesn't carry the unit; if exposed externally consumers might assume dollars.
+
+**My review (5 unique value-adds, pile-on-avoidance on arc + Codex + Copilot):**
+- Scout-vs-PR transcription verification table (13 schema rows, drift = zero).
+- 3-reviewer env-isolation convergence framing (arc FK + Codex P1 preview→production + my v71 scout #666-pattern).
+- wrangler.jsonc comment correction ("D1 has no per-env isolation" is wrong — D1 supports distinct database_id per env via env blocks; reframe as deliberate share-for-now).
+- idx_swaps_scored_at naming nit (rename to idx_swaps_unscored to match idx_vouches_paid_out style).
+- Phase 1.4 #497 acceptance-test recipe forward-link via v54/v55 scout.
+
+**Loop posture:** my Phase 1.2 scout (built v71, updated v72 for post-40146774 RFC) is the third proven pre-position scout pattern (after v54/v55 #497 + v63 #661). Pattern: build scout file pre-PR, walk diff against scout's checklist on PR open, ship review focused on unique value beyond what bots/arc cover. Transcription-verification tables are a clean form factor.
