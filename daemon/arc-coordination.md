@@ -310,3 +310,34 @@
 - **Dev-council pair pattern fully validated** with v90 + v91 dual-merge: 6+ landing-page PRs through arc+me pre-merge in 36h window (#664/#666/#665-RFC/#668/#670 + Phase 0.3 helper).
 - **arc partnership now wider than landing-page** — arc's #818 ack of cross-revenue-surface pattern + offer to contribute #607 ledger to joint loom@ proposal extends partnership into platform-state-rebuild discussions, not just code review. Sales DRI data (mine, smallest of 3 surfaces) acknowledged as a contribution.
 - **Phase 1.3 backfill PR not yet opened** at 14:50Z. Scout pre-positioned. Likely 1–3 days per RFC sequence.
+
+## 2026-05-09T16:00Z — landing-page #672 Phase 1.3 MERGED + #674 follow-on coord (cycles 2034v92–v95)
+
+**Phase 1.3 KV→D1 backfill route merged 15:47:48Z by @whoabuddy** on fixup head `01eac68`. Full timeline:
+
+- 14:48Z whoabuddy opens #672 with explicit @-tag for arc + me on reply-PK design choice
+- 14:53Z Codex review (P1 self-FK + P2 KV referral-lookup); 14:54Z Copilot review (4 inline)
+- 14:57Z arc APPROVES on `cc55845`
+- 15:11Z my v92 CHANGES_REQUESTED — 2 Tier 1 + 2 Tier 2 + reply-PK position; Tier 1 #1 dup w/ Codex P1 (self-acknowledged); Tier 1 #2 (msg.replyTo dropped) + REPLY_D1_PK_PREFIX constant lift = unique
+- 15:13Z my inline at `route.ts:411` for Tier 1 #2
+- 15:18Z whoabuddy ack + files #673 RFC clarification
+- 15:23Z + 15:27Z Copilot SWE Agent fixups `c777549` + `01eac68` (agents two-pass, replyTo bind, ON CONFLICT explicit, REPLY_D1_PK_PREFIX in constants.ts, KV reverse-lookup, STX→BTC resolution, +183 test lines)
+- 15:29Z arc opens #674 implementing #673 — `lib/inbox/d1-pk.ts` with constant + helper + tests + RFC doc
+- 15:32Z my v93 APPROVE on `01eac68` w/ verified-from-source line cites
+- 15:39Z steel-yeti council shadow on #674 (proposal #11)
+- 15:46Z my v94 COMMENT on #674 surfacing duplicate `REPLY_D1_PK_PREFIX` between #672 fixup (constants.ts) and #674 (d1-pk.ts); Path A preferred
+- 15:47Z **#672 MERGED** by whoabuddy (1min after my v94 COMMENT)
+- 15:50Z arc declares Path A on #674 (technically post-merge of #672 — Path A as #672-rebase moot)
+- 15:51Z arc pushes `c7498063` JSDoc fixup (caller contract + one-way derivation)
+- 15:59Z my v95 APPROVE on #674 `c7498063` w/ Path A timing correction (cleanup needs follow-up PR on main, not #672 rebase) + offer to file the cleanup PR myself
+
+**Loop closures captured:**
+- v67 → v76 read-ahead: `failClosedOnBindingError(env)` helper landed in #670 merged 14:36Z
+- v92 unique catch (msg.replyTo dropped on inbound) landed verbatim in #672 fixup `c777549` at `route.ts:489+509`
+- v92 non-blocking constant-lift suggestion → whoabuddy filed #673 → arc opened #674 implementing the helper module
+- Sub-loop v94 duplicate-detection caught a coord drift between two parallel PRs; Path A timing correction at v95 keeps the resolution path actionable
+
+**Loop posture observations:**
+- **Multi-PR coord drift is a new failure mode** in the dev-council pair pattern: two reviewers (arc + me) approving in parallel can author parallel implementations of overlapping fixes. The duplicate-constant detection at v94 was prevented from landing only because I ran the cross-check before #674 merged. Pattern lesson: when an RFC follow-up issue is filed for a non-blocking suggestion mid-PR, check whether the implementing fixup already covers it before opening a second PR.
+- **arc + me implementation-collision risk** is real: arc opened #674 ~6 min after Copilot SWE Agent's #672 fixup landed the constant. If I hadn't surfaced the duplicate at v94, the merge would have shipped the duplicate to main. arc-coordination.md should track which surfaces are "in-flight non-blocking suggestion → likely fixup" vs. "blocked, awaiting separate PR."
+- **Multi-cycle PR review chain v92→v93→v94→v95 in 48 min** — fastest dev-council-pair multi-PR sequence to date. Pattern: substantive review → maintainer ack + spec issue → SWE-agent fixup → re-review APPROVE → adjacent PR opens → cross-PR coord catch → resolution path declared → final APPROVE. Whole sequence trackable.
