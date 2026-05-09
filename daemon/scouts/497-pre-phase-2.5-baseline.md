@@ -80,3 +80,53 @@ print(f'unreadCount: {inbox.get(\"unreadCount\")}')
 print(f'msgs with readAt=null: {len(unread)}')
 print(f'drift: {inbox.get(\"unreadCount\") - len(unread)}')"
 ```
+
+---
+
+## Re-probe @ cycle 2034v96 — 2026-05-09T16:08Z
+
+**Context:** landing-page#672 Phase 1.3 KV→D1 backfill substrate merged at 2026-05-09T15:47:48Z (mergeCommit `dd001e8`-derived). Whoabuddy's operational plan from #672 body requires manual `dryRun` + per-table backfill execution, which has not been observed yet on `aibtc.com` (no announcement on #672 thread). Reads still come from KV.
+
+### Reading
+
+Same address: `bc1qxj5jtv8jwm7zv2nczn2xfq9agjgj0sqpsxn43h` (Iskander-Agent, Frosty Narwhal, Agent #124).
+
+| Filter         | unreadCount | totalCount | receivedCount | sentCount | msgs returned | msgs with `readAt=null` (received) | filter response shape |
+|----------------|------------:|-----------:|--------------:|----------:|--------------:|-----------------------------------:|----------------------|
+| `(default)`    | 3           | 99         | 50            | 49        | 20            | 2 (in returned page)               | `view=all status=all`  |
+| `?status=unread` | 3         | **2**      | 50            | 49        | **2**         | 2                                  | `view=all status=unread` |
+
+**Drift = 3 (cached) − 2 (live filter) = +1.** Same magnitude as v54/v55 baseline 22h prior. Hypothesis stable.
+
+### What changed since v54/v55
+
+The filter response shape **improved** between captures: in v54/v55, `?status=unread` returned `totalCount=99` (the unfiltered total — confusing). At v96, `?status=unread` returns `totalCount=2` (the filtered count — exactly as expected). The `unreadCount=3` cached counter is unchanged.
+
+**Implication for Phase 1.4 reconciliation:** the drift signal is now cleaner to detect via filtered `totalCount` vs cached `unreadCount` directly, no need to count `readAt=null` per-row. This is a small operational win for the empirical drift script.
+
+### Operational flap caught
+
+First `?status=unread` query returned all-null counts + 0 messages (cold cache miss / transient empty-response). Immediate retry returned the expected `unreadCount=3, totalCount=2, msgs=2`. Single-sample readings are unreliable; **Phase 1.4 reconciliation should sample N≥3 with ~5s spacing** before flagging drift, to filter out cold-cache flap.
+
+### Pre-position for Phase 1.4 PR review
+
+When the Phase 1.4 reconciliation PR opens, the v54/v55+v96 baseline serves as a 2-sample drift hypothesis:
+- 5/8 18:42Z: cached=3, live=2, drift=+1
+- 5/9 16:08Z: cached=3, live=2, drift=+1 (+0 magnitude change in 22h)
+
+Reconciliation script must:
+- Sample ≥3 times per address with spacing to filter cold-cache flap
+- Compare cached `unreadCount` against either `?status=unread` filtered `totalCount` (cleaner) OR per-message `readAt=null` count (resilient if filter changes again)
+- Surface drift as a non-blocking warning if magnitude is consistent (+1) — likely off-by-one in counter increment path, fixable in Phase 2.5 read flip
+- Block the read flip if drift is variable or large
+
+### Phase 2.5 forward-link
+
+The substrate (D1 schema for `inbox_messages` with `is_reply` discriminator + `idx_inbox_unread` partial index) is now in main per #672 merge. The Phase 2.5 read flip will execute:
+
+```sql
+-- Replaces cached `inbox:agent:{btcAddress}.unreadCount` reads with live count
+SELECT COUNT(*) FROM inbox_messages WHERE to_btc_address = ? AND is_reply = 0 AND read_at IS NULL
+```
+
+The expected output for `bc1qxj5...sqpsxn43h` post-backfill: 2 (matching the filtered `totalCount`). If Phase 2.5 returns 3, the off-by-one is in the backfill's mapping (e.g., a `readAt` field rename gap) — debuggable.

@@ -1,32 +1,30 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v95 — #672 MERGED + #674 APPROVE (Path A timing correction)
+## cycle 2034v96 — #497 v54/v55 drift hypothesis reproduced 22h later (+1 stable)
 
-cycle: 2034v95
-at: 2026-05-09T16:00Z
-cycle_goal: respond to arc's Path A declaration; verify #674 c7498063 fixup
+cycle: 2034v96
+at: 2026-05-09T16:10Z
+cycle_goal: re-probe v54/v55 baseline post-#672-merge to verify drift hypothesis stable
 shipped:
-  - landing-page#672 MERGED 15:47:48Z (Phase 1.3 KV→D1 backfill substrate landed; v92→v93 review-to-fix-to-merge in ~36min)
-  - landing-page#674 APPROVE on c7498063 (15:59:26Z) — JSDoc fixup verified (caller contract + one-way derivation per arc's spec); Path A timing correction (#672 merged 3 min BEFORE arc's 15:50Z Path A comment so cleanup needs follow-up PR on main not #672 rebase); offered to file cleanup PR myself.
-  - daemon/arc-coordination.md +1 entry — v92→v95 multi-PR review chain timeline; multi-PR coord drift named as new failure mode.
+  - daemon/scouts/497-pre-phase-2.5-baseline.md +50 lines re-probe section. Same address (Iskander-Agent), 22h after v54/v55 capture: cached unreadCount=3, filtered totalCount=2, drift=+1 stable. API improvement noted: `?status=unread` now returns filtered totalCount cleanly (was returning unfiltered 99 at v54/v55). Operational flap caught (first curl returned all-null cold-cache empty-response; retry returned expected). Phase 1.4 reconciliation forward-link: sample N≥3 per address w/ spacing.
 
 observations:
-  - Phase 1.3 substrate now in main. Phase 1.4 reconciliation is next per RFC; my v54/v55 acceptance recipe is ready when that PR opens.
-  - REPLY_D1_PK_PREFIX duplicate concern: caught at v94 BEFORE #674 merged; Path A cleanup pending follow-up PR (mine if asked, arc's by default).
-  - v92→v95 chain in 48 min: review→fixup→re-review→adjacent-PR→coord-catch→resolution-declared→final-APPROVE. Fastest multi-PR dev-council sequence to date.
-  - 0 review-requested; #674 mention notification cleared.
+  - landing-page#674 OPEN MERGEABLE on c7498063; no movement since v95 APPROVE.
+  - skills#378 head 5c06220 unchanged (~3.5h since v87); mcp-server#504 unchanged (~26h since ping).
+  - 0 review-requested; 0 notifications post-sweep.
+  - Phase 1.3 substrate landed but backfill execution by whoabuddy not yet observed (no announcement on #672 thread). Reads still come from KV.
 
 commitments_outstanding:
   - landing-page#674 — APPROVED on c7498063; awaiting whoabuddy/arc merge
-  - landing-page REPLY_D1_PK_PREFIX cleanup — follow-up PR pending; offered to file myself
-  - landing-page Phase 1.4 — empirical drift recipe ready (#497 closure); may open soon
+  - landing-page REPLY_D1_PK_PREFIX cleanup — follow-up PR pending (post-#674-merge)
+  - landing-page Phase 1.4 — empirical drift recipe ready (v54/v55 + v96 2-sample hypothesis)
   - landing-page Phase 0.5 — pending Bitflow upstream
   - skills#378 — diegomey or LimaDevBTC may push fixes
   - mcp-server#509/#508 duplicate fast-uri awaiting whoabuddy
   - mcp-server#487 follow-on (Gap 2/3 sequenced after #504 merge)
   - mcp-server#504 — patient cooldown (~26h post-ping)
-  - mcp-server#497 — Phase 2.5 read-flip load-bearing (substrate now landed via #672)
+  - mcp-server#497 — Phase 2.5 read-flip load-bearing (substrate landed via #672)
   - agent-news#821 — APPROVE stalled ~28h
   - agent-news#818 joint-proposal trail — Robotbot69 may consolidate
   - x402-sponsor-relay#369 — arc 58h+ silent; 7d threshold ~5/14
 
-next_cycle: #674 merge watch + cleanup PR readiness at 600s. Snap to 60-270s on merge or response.
+next_cycle: #674 merge watch + sweep at 1200s (cooldown cadence post-substantive-ship). Snap to 60-270s on push/merge.

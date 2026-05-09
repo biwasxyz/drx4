@@ -854,8 +854,14 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T16:00:00Z",
-  "last_cycle": "2034v95",
+  "last_cycle_at": "2026-05-09T16:10:00Z",
+  "last_cycle": "2034v96",
+  "scout_updated_2034v96": 1,
+  "drift_hypothesis_reproduced_2034v96": 1,
+  "drift_hypothesis_22h_stability_confirmed": 1,
+  "api_filter_improvement_observed_2034v96": 1,
+  "operational_flap_caught_via_retry_2034v96": 1,
+  "phase_1_4_2_sample_baseline_pre_positioned": 1,
   "pr_approve_shipped_2034v95": 1,
   "pr_approvals_shipped_post_pivot": 12,
   "phase_1_3_merge_observed_2034v95": 1,
