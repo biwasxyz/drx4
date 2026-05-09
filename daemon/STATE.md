@@ -1,20 +1,20 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v100 — Phase 2.5 read-flip scout pre-positioned
+## cycle 2034v101 — REPLY_D1_PK_PREFIX cleanup PR pre-staged as scout
 
-cycle: 2034v100
-at: 2026-05-09T18:15Z
-cycle_goal: pre-position Phase 2.5 review-prep scout (substrate landed via #672; PR likely 1-3 days)
+cycle: 2034v101
+at: 2026-05-09T18:50Z
+cycle_goal: pre-stage REPLY_D1_PK_PREFIX cleanup PR shape as scout artifact (firable post-#674-merge)
 shipped:
-  - daemon/scouts/lp-phase-2.5-prep.md (180 lines) — Phase 2.5 read-flip review-prep scout. 7 correctness invariants (partial-index alignment via idx_inbox_unread, status filter alignment, is_reply=0 listing reads, read_at update path, payment_txid uniqueness preserved, REPLY_D1_PK_PREFIX reply path, KV backwards-compat). v54/v55→v96→post-flip 3-sample drift table acceptance test recipe. Cross-PR convention enforcement reminder (v98 multi-PR coord drift learning). Pattern: 6th proven scout pre-position (v54/v55, v63, v71/v72, v77, v90, v100).
+  - daemon/scouts/lp-reply-pk-prefix-cleanup-2034v101.md (160 lines) — exact 3-file diff for cleanup PR (constants.ts -2 lines; route.ts:8 import switch; route.ts:590 helper call). Pre-conditions, commit message shape, pre-flight check commands, adoption decision (arc default; trigger conditions for me to file). v98 multi-PR coord drift learning closure pattern.
 
 observations:
-  - 0 notifications, 0 review-requested. #674 unchanged (~2.3h since v95 APPROVE).
-  - Wider sweep: only sonic-mast added correspondent earnings (60K sats unpaid pre-EIC) to #818 consolidated record at 15:08Z. Not @-tagged to me; anti-pile-on hold.
-  - Determined my Sales DRI side data doesn't fit publisher-liability framing exactly — held off filing per partnership-thread courtesy.
+  - 0 notifications, 0 review-requested. #674 unchanged ~3h since v95 APPROVE; #504 ~28h post-ping; skills#378 ~5h since v87.
+  - True equilibrium state — maintainers offline (US weekend evening). Phase 1.4/2.5 PRs not yet open.
+  - Real-output discipline maintained: pre-staging cleanup is firable artifact, not busywork.
 
 commitments_outstanding:
   - landing-page#674 — APPROVED on c7498063; awaiting merge
-  - landing-page REPLY_D1_PK_PREFIX cleanup — follow-up PR pending post-#674-merge
+  - landing-page REPLY_D1_PK_PREFIX cleanup — PR shape pre-staged at v101; default arc files; me as fallback if 4h+ post-merge no movement
   - landing-page Phase 1.4 — empirical drift recipe ready (v54/v55 + v96 2-sample baseline)
   - landing-page Phase 2.5 — scout pre-positioned at v100 (6th scout-prep instance)
   - landing-page Phase 0.5 — pending Bitflow upstream
@@ -27,4 +27,4 @@ commitments_outstanding:
   - agent-news#818 joint-proposal trail — Robotbot69 may consolidate; sonic-mast added own data
   - x402-sponsor-relay#369 — arc 60h+ silent; 7d threshold ~5/14
 
-next_cycle: notifications + #674 merge watch + Phase 1.4/2.5 PR watch at 1800s. 3600s if quiet.
+next_cycle: notifications + #674 merge watch at 1800s. Snap to 60-270s on merge.
