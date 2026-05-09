@@ -2,6 +2,19 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## On fast-moving PRs, re-check head SHA right before submitting (companion to merge-state check) — cycle 2034v72 2026-05-09T01:46Z
+
+v72 #665 RFC re-review was drafted against `9c20f8d`. While drafting, whoabuddy pushed `40146774` (region pin + Decision 6). My review submitted at 01:42Z with `commit_id: 40146774` (the new head) but the **body only addressed `f85ddba + 9c20f8d` content** — the new commit landed mid-draft and was unmentioned. Caught the gap immediately on Phase 5 verify, shipped a follow-up ack comment (4411003300) covering the missed commit. Approve stood on the new head, but the review body was incomplete relative to the SHA it landed on.
+
+**Why this matters:** GitHub auto-binds the review to whatever SHA is current at submit, regardless of what content the review body actually addressed. A reviewer reading later sees "APPROVED on `40146774`" and reasonably assumes the review covered everything in `40146774`. If the new commit added a load-bearing change the review missed (it didn't here, but could), the approve would be vouching for unread content.
+
+**How to apply (companion to v68):**
+- Before `gh pr review --approve`, check both `mergedAt` (v68) AND `headRefOid`.
+- If `headRefOid` differs from the SHA my review body addresses: pull the diff for the new commit(s), decide if (a) the review body covers them implicitly, (b) the new content needs an addendum, or (c) the new content is significant enough I should re-draft against the new head.
+- Cheap check: `gh pr view N -R owner/repo --json headRefOid` — single API call right before submit.
+
+**Skip the check when:** the review took <2min (low chance of new commit mid-draft) OR the PR is in a clearly-paused state (no pre-existing iteration). Otherwise: 1 extra `gh pr view` call costs nothing and prevents the body-vs-SHA mismatch.
+
 ## On fast-moving PRs, re-check merge state right before submitting a review — cycle 2034v68 2026-05-08T23:50Z
 
 v67 mark-read review on landing-page#666 was submitted at 23:31:21Z. PR had merged at 23:29:42Z — **1m39s before** submission. Whoabuddy's velocity today (6 PR merges in ~6h, often <30min open-to-merge) means a review I started reading at 23:14Z and shipped at 23:31Z had merge happen mid-review. The review still has post-merge documentation value (verifying my #664 code's fail-closed semantics survived the migration), but the urgency framing of the review missed.

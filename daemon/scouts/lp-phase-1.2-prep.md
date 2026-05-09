@@ -37,17 +37,22 @@ When the migration files land, verify each table against the RFC's normative sha
 
 ### `inbox_messages` (0003)
 - [ ] **`from_stx_address` + `from_btc_address` (split, per arc's fixup catch) + CHECK constraint enforcing exactly-one-populated** — if this lands as a single `from_address` column, that's the latent bug surface arc flagged getting reintroduced
-- [ ] **`bip137_signature` (single column, per arc's fixup catch)** — not `sender_signature` + `signature`
+- [ ] **`bitcoin_signature` (single column, vendor-neutral name, per `f85ddba`+`9c20f8d` rename)** — not `bip137_signature`, not `sender_signature`+`signature`. Comment should say "BIP-322 segwit-only (`bc1q` P2WPKH, `bc1p` P2TR); accommodates BIP-340 / Schnorr / taproot if added later."
 - [ ] `to_btc_address NOT NULL`
 - [ ] `is_reply BOOLEAN/INTEGER`
 - [ ] `read_at NULLABLE` (NULL = unread)
 - [ ] `payment_txid NULLABLE UNIQUE` (per fixup: permanent idempotency, was 90d KV TTL)
+- [ ] **NEW (per `f85ddba`)**: `payment_status` 4-value enum `pending | confirmed | failed | replaced | NULL` — with NULL = no payment associated (FREE_TIER msgs + replies). CHECK constraint preferred.
+- [ ] **NEW (per `f85ddba`)**: `payment_terminal_reason TEXT` — canonical `TerminalReason` from `@aibtc/tx-schemas/core`. CHECK constraint preferred (my v72 review nit, non-blocking).
+- [ ] **NEW (per `f85ddba`)**: `payment_error_code TEXT` — machine-readable, e.g. `INSUFFICIENT_FUNDS`. CHECK constraint preferred if set is bounded (my v72 review nit, non-blocking).
+- [ ] **NEW (per `f85ddba`)**: `payment_replacement_txid TEXT` — RBF/head-bump replacement on-chain id. Single forward pointer; deep RBF chains require relay logs (my v72 review nit, non-blocking).
 - [ ] `idx_inbox_unread (to_btc_address, is_reply, read_at)` partial WHERE `read_at IS NULL` — load-bearing for `SELECT COUNT(*)` that closes #497
 - [ ] FK `to_btc_address → agents.btc_address` (assuming sender doesn't need to be a registered agent)
 
 ### `swaps` (0004)
 - [ ] FK `sender → agents.stx_address`
 - [ ] Trading-comp verifier columns
+- [ ] **NEW (per `f85ddba`)**: `tx_status` 8-value CHECK enum: `success | abort_by_response | abort_by_post_condition | dropped_replace_by_fee | dropped_replace_across_fork | dropped_too_expensive | dropped_stale_garbage_collect | dropped_problematic` (full `TerminalFailureStatuses` set from `stacks-tx-verify.ts`). Pending swaps don't get rows — only terminal states persisted (per inline comment).
 
 ### `balances` (0005)
 - [ ] `(agent_address, token_id, captured_at)` composite key shape
@@ -90,11 +95,19 @@ If the PR ships with **shared `database_id`** across env.production and env.prev
 
 My v67 read-ahead suggested codifying `failClosedOnBindingError(env): boolean` as a helper to extend the DEPLOY_ENV gating to D1 connection errors. **Phase 1.2 doesn't add D1 read paths yet** — that's Phase 2.1. So the helper extraction is more naturally a Phase 2.1 review suggestion. Note here so I don't pre-emptively raise it on Phase 1.2.
 
-## Region documentation (per RFC Decision 4)
+## Region documentation (per RFC Decision 4, post-`40146774` resolved)
 
-> Action item for Phase 1.2: before provisioning the production D1 instance, identify the highest-traffic region (per-Workers-Analytics from `dash.cloudflare.com`) and provision D1 in the same region. Document the chosen region in `wrangler.jsonc` next to the D1 binding so future deploys don't accidentally relocate.
+Per RFC commit `40146774` (2026-05-09T01:38Z), Decision 4 is now resolved at the RFC layer:
 
-If the PR doesn't include a region comment in `wrangler.jsonc` next to the D1 binding, that's a non-blocking flag — a one-line `// Provisioned in <REGION> (highest-traffic per dash.cloudflare.com 2026-05-XX)` matters for ops continuity.
+> D1 provisioned in **us-west** (Cloudflare region hint **`wnam`**). Documented the wrangler create command (`wrangler d1 create landing-page --location wnam`) so future deploys don't accidentally relocate.
+
+Phase 1.2 verification reduces to: confirm `wrangler.jsonc` D1 binding includes a comment referencing `--location wnam` / `us-west` next to the binding, AND that the `database_id` matches the actual D1 instance created with that flag. If the PR ships a binding without the region comment, that's a non-blocking flag — but the RFC now provides the canonical command shape, so review friction drops.
+
+## Decision 6 (post-`40146774`) — Workers Paid + SpaceX-5 framing
+
+The RFC now declares the org is on Workers Paid ($5/mo) with D1 limits well above projected traffic. Schema discipline (6 tables, 90-day TTL sweep, per-PR cost comments) is framed as efficiency-as-discipline rather than free-tier-or-bust. Hooks into the existing >2× cost-divergence checkpoint trigger.
+
+Phase 1.2 review impact: the per-PR cost-measurement comment ("after applying these migrations, D1 row counts + write rate look like X") is now load-bearing not optional, since Workers Paid means cost is observable not gated. If the PR doesn't include a cost-measurement comment in the description, ask for one — non-blocking, but matches the established pattern from #654/#656/#658/#662.
 
 ## Migration apply mechanics
 
@@ -107,7 +120,7 @@ D1 migrations are typically applied via `wrangler d1 migrations apply landing-pa
 
 ## Phase 1.2 review focus (single-paragraph framing for the review)
 
-> Phase 1.2 is infrastructure-only — schema + D1 binding, no read or write flips, no production traffic touches D1 yet. The high-leverage review surface is **schema correctness vs. RFC post-fixup b7a9b8f** (especially the `from_address` split, `bip137_signature` collapse, dropped redundant indexes that fixup specifically corrected — easy to accidentally regress when transcribing RFC to migration files), **env isolation matching #666 ratelimits pattern** (distinct `database_id` per env), and **region documentation per RFC Decision 4** (one-line `wrangler.jsonc` comment). Phase 2.1 will be where the runtime semantics review surface opens up.
+> Phase 1.2 is infrastructure-only — schema + D1 binding, no read or write flips, no production traffic touches D1 yet. The high-leverage review surface is **schema correctness vs. RFC post-fixup b7a9b8f** (especially the `from_address` split, `bitcoin_signature` collapse, dropped redundant indexes that fixup specifically corrected — easy to accidentally regress when transcribing RFC to migration files), **env isolation matching #666 ratelimits pattern** (distinct `database_id` per env), and **region documentation per RFC Decision 4** (one-line `wrangler.jsonc` comment). Phase 2.1 will be where the runtime semantics review surface opens up.
 
 ## Pile-on-avoidance notes
 
