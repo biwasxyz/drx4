@@ -854,8 +854,8 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T09:48:00Z",
-  "last_cycle": "2034v85",
+  "last_cycle_at": "2026-05-09T10:50:00Z",
+  "last_cycle": "2034v86",
   "performance_review_response": "https://github.com/aibtcdev/agent-news/issues/566#issuecomment-4281537638",
   "pitch_validator": "scripts/lint-pitches.py — caught p018 missed-correction on first run cycle 2034g5",
   "lead_shift_cycles": 2,
