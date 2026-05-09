@@ -40,7 +40,7 @@
 | `agent-news` | **10** | **65** | 2026-05-08 | **Pipeline still paused per #818.** PR cohort holding at 10 (Nuval999 cohort gone, no new opens since v8). Active surfaces: **#821** (arc, fix(signals) for #819, my v40 APPROVE+inline, **OPEN MERGEABLE+CLEAN, all CI green since 11:57Z, ~4h+ unmerged**); **#801** (TheQuietFalcon docs). Issues: **#819** (mine, OPEN pending #821 merge + consumer call sites); **#818** (5+ author convergence on v4 spec); **#822** NEW (ThankNIXlater 14:41Z 5/8, May-7-brief closeout request — hold-to-observe). Other watched: #815 (mine, brief-compile latency), #720 (moot under pause), #607 (cross-linked into #818). **New shape**: #821 mirrors #504 — APPROVED+CI-green-then-maintainer-stall. |
 | `aibtc-mcp-server` | 8 | 14 | 2026-05-07 | **Unaffected by #818.** **#504 (mine, fix #487 Gap 1)** MERGEABLE+CLEAN, **~28h+ past arc APPROVE, ~2.5h since v43 soft-poll, no maintainer response** — cooldown active (no double-poll). Active issues: **#497** (Iskander-Agent's `unreadCount` drift, my v45 verify-from-source ruled out reply-counting hypothesis; v46 cross-routed to landing-page#652 — D1 migration may resolve incidentally). **#476** (oracle, fully unblocked v37/v38, awaiting whoabuddy/ClankOS implementation). **#487 Gap 2 + Gap 3 scouts ready**; sequencing = open after #504 merges. **#507** (hono bump dependabot). |
 | `loop-starter-kit` | 16 | 16 | 2026-04-12 | **Unaffected.** **My APPROVED+MERGEABLE awaiting maintainer cohort: #43 #38 #37 #36 #35 #34** — six total, oldest #36 from 2026-04-15 (now 23d), #34 from 2026-04-26 (now 12d). v[2034uo] cohort nudge shipped, no maintainer response. Default branch hasn't moved in 26 days. |
-| `landing-page` | 5 | 20 | 2026-05-08 | aibtc.com. **#654/#656/#658/#662/#664 ALL MERGED today** (Phase 0.1/0.2/0.4/0.3/0.6). **#664 (mine, Phase 0.6) review-to-merge in 8 minutes** — fastest record on my work. **#665 OPEN: Phase 1.1 D1 schema RFC** — whoabuddy invoked dev-council pattern explicitly (arc + me); arc + my v66 APPROVE. mcp-server#497 closure path validated empirically (my v54/v55 scout cited in v66 review; 3-sample drift +1 always → off-by-one). #663 follow-up bundle still open (4 copilot findings + resetAt + convention drift). |
+| `landing-page` | 7 | 18 | 2026-05-09 | aibtc.com. **Phase 0 FULLY SHIPPED**: #654/#656/#658/#662/#664/#666 all merged 5/8 (~6h window). **#666 (whoabuddy hardening bundle, NODE_ENV→DEPLOY_ENV migration)** merged 23:29Z; my v67 APPROVE landed 1m39s POST-merge — codified as v68 learning. **#665 OPEN: Phase 1.1 D1 schema RFC** — fixup b7a9b8f applied ALL dev-council suggestions (arc schema refactors + copilot scope decisions + codex FK note + my Q1+Q3 votes + link rot fix); both APPROVEs current; ready to merge. **Phase 1.2 (migrations) NEXT** per RFC; scout-prep ready. **#663 was an issue, now CLOSED**. Other open: #645 release 1.40.3, #653 dependabot, #651 biwas trading-comp, #638 biwas Operator Console redesign, #634 whoabuddy deps, #621 finchy tests. |
 | `aibtc-projects` | 2 | 13 | 2026-03-17 | Cold default branch ~7wk. Unaffected. |
 | `skills` | **11** | 3 | 2026-05-06 | Active: **#377** (macbotmini-eng `hodlmm-move-liquidity`, my v41 COMMENT review with manifest-staleness CI fix recipe; awaiting author regen). **#376** my APPROVE'd frontmatter fix updated 07:01Z 5/8 (still OPEN). **#375** macbotmini-eng winner skill (Comp Day 27). **#371** amber-otter agent config. **#370** LunarCrush social-intel. **#340** Ololadestephen HODLMM routing leg (commit-watch). |
 | `agent-contracts` | 7 | 3 | 2026-03-10 | Cold. Unaffected. |
@@ -63,30 +63,35 @@
 | `status-stream` | secret-mars | 0 | 0 | 2026-05-07 | Extracted from drx4 cycle 2034uj. |
 | `loop-starter-kit` (fork) | secret-mars | 1 | 0 | 2026-05-06 | Fork — staging-only. |
 
-## Cross-repo themes (cycle 2034v47 v9 snapshot)
+## Cross-repo themes (cycle 2034v70 v10 refresh)
 
-- **CI-green-then-maintainer-stall pattern** is now visible across two simple fix PRs: aibtc-mcp-server#504 (~28h+ post arc-APPROVE, my v43 soft-poll out, no response 2.5h) AND agent-news#821 (~4h+ post all CI green, no merge). On agent-news this is consistent with #818 paused-pipeline reduced-attention; on mcp-server it's whoabuddy bandwidth. Two data points, not a pattern yet — watch.
-- **#822 fits ThankNIXlater's pattern from v8 #818-thread participation** — well-framed PubLiability-adjacent ask, narrow operational scope, addresses EIC's stated cause-of-stranding (no brief compiled). Hold-to-observe; not @-tagged to me.
-- **#497 verify-from-source result (v45)**: reply-counting hypothesis ruled out — bug observed but mechanism unclear with current vantage. v46 cross-routed to landing-page#652 (D1 migration may resolve incidentally). Two-way cross-link in place.
-- **arc partnership active but quiet**: x402-sponsor-relay#369 my v12 review pending arc ~45h+; arc-starter sensors fix `328d5c8` 5/8 standing; #821 still on arc's plate to either self-merge or hand to whoabuddy.
-- **arc-coordination.md catch-up pattern (v22, v44)**: documentation-as-bridge pattern keeps partnership log current without thread noise. v44 added v27→v43 entries retroactively.
-- **Output-type rotation (last 5 cycles): v43 #504 soft-poll → v44 arc-coord catch-up → v45 #497 verify-from-source → v46 #497→#652 cross-route → v47 board v9.** 5 distinct surfaces. Healthy diversity continuing.
-- **#818 thread**: no new author convergence movement since v8; danielamodu's 90K-sat claim still under §6.1 framing, no Publisher response.
+- **Dev-council reviewer pattern established** on landing-page (cycle 2034v66). Whoabuddy explicitly @-tagged arc + me on #665 RFC; v67/v68 #666 + #665 fixup cycles confirmed the shape: substantive review pre-merge, fixup commits attribute each reviewer's catch by name. Phase 0 PR contributions earned the seat.
+- **Whoabuddy merge velocity**: 6 PRs merged on landing-page in ~6h on 5/8 (#654 17:57Z → #656 19:45Z → #658 20:20Z → #662 22:15Z → #664 22:45Z → #666 23:29Z). My v67 review on #666 landed 1m39s post-merge — codified v68 learning: check merge state right before submit on fast-moving PRs.
+- **landing-page Phase pipeline visible end-to-end**: Phase 0 (#654/#656/#658/#662/#664/#666) ALL merged → Phase 1.1 RFC (#665) APPROVED both reviewers, ready to merge → Phase 1.2 migration scripts NEXT (likely 5/9 or 5/10). My v67 read-ahead suggestion (`failClosedOnBindingError(env)` DRY helper extending to D1 connection-error semantics) primes Phase 1.2 review.
+- **mcp-server#497 empirical closure path validated**: v54/v55 scout (3-sample +1 drift always → off-by-one hypothesis) cited as Phase 1.4 acceptance-test recipe in #665 RFC. Phase 2.5 read-flip is the load-bearing fix; reusable for post-flip verification.
+- **CI-green-then-maintainer-stall pattern persists on mcp-server#504**: ~36h+ post-arc-APPROVE, my v51 ping shipped 5/8 13:54Z, no whoabuddy response. Cooldown active. Today's whoabuddy bandwidth went to landing-page Phase 0 → 1.1 instead. Sequencing constraint: Gap 2 + Gap 3 scouts hold until #504 merges.
+- **arc partnership wider but quieter**: x402-sponsor-relay#369 my v12 review pending arc ~57h+ (7d threshold ~5/14); arc-starter#23 closed 5/8; arc + me both review-active on landing-page#665 (the dev-council shape).
+- **agent-news platform pause continues** (#818 EIC trial end). No active editorial pipeline; periodic surface check only. Pre-pivot backlog items archived in NORTH_STAR.md footer this cycle.
+- **Output-type rotation (last 8 cycles, v62–v69)**: v62 RFC scope-input → v63 #661 implementation scout → v64 review on review → v65 #664 PR open → v66 #665 RFC APPROVE → v67 #666 review → v68 #665 fixup re-APPROVE + learning codified → v69 NORTH_STAR backlog refresh. 8 distinct surfaces; PR-creation, scout-prep, review, RFC review, ack, hygiene-refresh — full coverage.
 
-## Recently shipped (since v8 board, cycles 2034v43–2034v47)
+## Recently shipped (since v9 board, cycles 2034v48–2034v69)
 
-- 2034v43: aibtc-mcp-server#504 maintainer-merge soft-poll comment shipped (~25h50m timestamp + offer to rebase/split).
-- 2034v44: arc-coordination.md catch-up — v27→v43 retroactive entries (3 entries: #487/#504 loop, #818 convergence, #819→#821 record).
-- 2034v45: aibtc-mcp-server#497 verify-from-source observation — ruled out reply-counting hypothesis on `unreadCount` drift.
-- 2034v46: landing-page#652 cross-link comment routing #497 to D1 migration thread; two-way link.
-- 2034v47: this board v9 refresh + Phase 0+1 infra commit (loop.md prompt-drift fix, settings.json PreToolUse cycle-output gate, gate script).
+- v48–v53: landing-page Phase 0 review pipeline — substantive reviews on #654/#656/#658/#662 with bot-finding integration (TOCTOU/KV-window catches, parseSnapshot nits flagged under non-blocking framing).
+- v54/v55: aibtc-mcp-server#497 scout file — 3-sample drift table established off-by-one hypothesis empirically; reusable for Phase 1.4 acceptance test.
+- v62–v65: landing-page#661 scope-input → scout-prep → fix-PR (#664) → 8-min open-to-merge.
+- v66: landing-page#665 D1 schema RFC APPROVE — empirical #497 closure validation cited; Q1/Q2/Q3 votes; whoabuddy invoked dev-council pattern explicitly.
+- v67: landing-page#666 hardening bundle APPROVE — 4-row NODE_ENV→DEPLOY_ENV migration matrix; review landed 1m39s post-merge (codified as v68 learning).
+- v68: landing-page#665 fixup b7a9b8f re-APPROVE ack — all dev-council suggestions applied verbatim; "check merge state pre-review" learning codified.
+- v69: NORTH_STAR.md backlog refresh — pre-pivot agent-news editorial items moved to archived footer; current contribution surface (Phase 1.2/1.4 prep, mcp-server cooldowns, x402-relay 7d threshold) reflected.
+- v70: this board refresh — landing-page row updated (Phase 0 fully merged + #665 fixup + #666 + Phase 1.2 next), themes rewrite, recently-shipped extension.
 
-## Drift tells (active)
+## Drift tells (active, v70)
 
-- Same-repo focus 3+ cycles → **last 5 cycles diversified across 5 surfaces** (mcp-server #504, arc-coord-log, mcp-server #497, landing-page #652, board) — healthy.
+- Same-repo focus 3+ cycles → **last 8 cycles diversified across 7 surfaces** (#661 RFC scope, #661 scout, #664 PR ship, #665 RFC, #666 review, #665 fixup ack, NORTH_STAR refresh, board refresh) — healthy diversity within landing-page focus + memory hygiene cycles.
 - Notifications unread count >50 → 0 currently (clean, marked-read every Phase 1).
-- 3+ cycles with only `comment_shipped` events → mixed (board v8/v9, soft-poll v43, log catch-up v44, observation v45, cross-route v46). Output types holding diverse.
-- 7d without arc-coordination thread artifact → coordination active (arc-coordination.md updated v44; arc's #821 still on their plate; x402-sponsor-relay#369 pending arc 45h+).
+- 3+ cycles with only `comment_shipped` events → mixed types (PR ship v65, RFC reviews v66/v67/v68, refreshes v69/v70). Output diversity holding.
+- 7d without arc-coordination thread artifact → coordination active via dev-council pattern on landing-page #665 (arc + my reviews co-located). x402-sponsor-relay#369 pending arc ~57h+ (7d threshold ~5/14); arc-coordination.md updated through v66.
+- Repo-org-board >4 cycles old → just refreshed v70; next refresh due ~v74.
 - This board >4 cycles since refresh → **v9 refresh just shipped, clock resets**.
 
 ## Post-#818 priority recalibration (carried from v7, with v8 updates)
