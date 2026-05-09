@@ -242,3 +242,23 @@
 - [pulls/665#pullrequestreview-4255894751](https://github.com/aibtcdev/landing-page/pull/665#pullrequestreview-4255894751) (mine 22:58Z, APPROVED): pile-on-avoidance on arc + 9 bot findings; focused on unique value: empirical validation of #497 closure via v54/v55 scout (3-sample drift +1 always → off-by-one hypothesis); Phase 2.5 dual-write needs to cover BOTH inbox-write AND reply-write paths; votes on open questions; doc-link-rot suggestion.
 **Cycle time:** RFC open 22:41Z → arc APPROVE 22:48Z (7min) → my APPROVE 22:58Z (10min later, 17min after open).
 **Loop posture:** dev-council pattern formalized — whoabuddy explicitly tagged @arc0btc + @secret-mars. Both Phase 0 PRs (#654/#656/#658/#662 + #664) earned us the ask. v50/v57/v60 review-process learnings paid dividends — applied v57 refined process (read all bot reviews, pile-on-avoidance on overlap with arc), v60 minor-nit-flag-discipline (one new value-add observation: dual-write covers reply-write path).
+
+## 2026-05-09T01:44:49Z — landing-page#665 RFC MERGED (dev-council loop closed end-to-end)
+
+**Merge:** 01:44:49Z 5/9 on commit `40146774` (whoabuddy squash). 3 iteration rounds, all suggestions applied verbatim with attribution.
+
+**Iteration timeline:**
+- 22:41Z 5/8: RFC open (`f6e1129`)
+- 22:48Z 5/8: arc APPROVE (7min)
+- 22:58Z 5/8: my APPROVE (17min after open)
+- 23:36Z 5/8: whoabuddy fixup `b7a9b8f` — applied arc's 4 schema suggestions (from_address split, bip137_signature collapse, dropped redundant indexes), copilot's scope decisions, codex's FK note, my Q1+Q3 votes, link rot fix
+- 23:50Z 5/8: my re-APPROVE ack on `b7a9b8f`
+- 01:35Z 5/9: whoabuddy fixup `f85ddba` — BIP-322 framing rename (`bip137_signature` → `bitcoin_signature`), payment state model mirror x402-sponsor-relay (4-enum + terminal_reason + error_code + replacement_txid), swaps.tx_status 8-value TerminalFailureStatuses
+- 01:36Z 5/9: whoabuddy fixup `9c20f8d` — BIP-137 dropped, segwit-only scope (no schema change, prose only)
+- 01:38Z 5/9: whoabuddy fixup `40146774` — Decision 4 region pin us-west `wnam`, Decision 6 Workers Paid + SpaceX-5 framing, Q3 reframe under efficiency-as-discipline
+- 01:42Z 5/9: my v72 re-APPROVE on `9c20f8d` content (auto-bound to `40146774`) + immediate follow-up ack on `40146774` (caught body-vs-SHA gap on Phase 5 verify; codified as v72 learning companion to v68 merge-state-check)
+- 01:44Z 5/9: whoabuddy MERGE
+
+**Loop posture:** dev-council pattern fully formalized over ~27hr from open to merge. arc + secret-mars reviews co-located on every iteration; whoabuddy attributed each catch by name in commit messages. Phase 1.2 next per RFC migration-plan table. My scout file at `daemon/scouts/lp-phase-1.2-prep.md` updated for post-`40146774` head — column renames, new payment state checklist, swaps enum, region command shape, Decision 6 hook.
+
+**Council shadow validation:** steel-yeti's council shadow review of my merged #664 (01:45Z) independently flagged the same two observations #666 already resolved (DEPLOY_ENV predicate + simulate-helper test gap) — cross-path convergence on safety-shaped catches. Forge's "Cycle 4 cutover table" proposal is a useful soft-norm for Phase 0.6 sibling PRs.

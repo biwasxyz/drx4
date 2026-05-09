@@ -1,33 +1,30 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v72 — #665 RFC re-APPROVE on f85ddba+9c20f8d + 40146774 ack + scout update + new SHA-check learning
+## cycle 2034v73 — #665 RFC MERGED + steel-yeti council reply on #664
 
-cycle: 2034v72
-at: 2026-05-09T01:46Z
-cycle_goal: process whoabuddy's #665 fix-up cascade (bitcoin_signature rename + payment state mirror x402-relay + region pin)
+cycle: 2034v73
+at: 2026-05-09T02:01Z
+cycle_goal: process #665 merge + #664 steel-yeti council-shadow notification (3-lens convergence on observations #666 already resolved)
 shipped:
-  - landing-page#665 re-APPROVE review (4256330367) on commit 40146774 head — substantive coverage of f85ddba (BIP-322 framing rename + payment state model + swaps tx_status 8-enum) + 9c20f8d (BIP-137 dropped); 3 non-blocking nits (CHECK constraints on TEXT enum columns, RBF chain semantics single-link, NULL payment_status doc)
-  - landing-page#665 follow-up ack comment (4411003300) covering 40146774 (region pin us-west/wnam, Decision 6 Workers Paid SpaceX-5, Q3 reframe) — landed mid-draft, body didn't address; caught on Phase 5 verify
-  - daemon/scouts/lp-phase-1.2-prep.md updated for post-40146774 head: column renames, new payment state columns, swaps.tx_status 8-enum, Decision 6 section
-  - memory/learnings/active.md +1 learning: "check head SHA right before submit on fast-moving PRs" (companion to v68 merge-state-check)
+  - landing-page#664 reply to steel-yeti (issuecomment-4411049237) — verify-from-source cross-link of both Cairn+Forge predicate observation + Spark+Cairn test-gap observation to #666 commits (798ce09 DEPLOY_ENV migration + same-PR test refactor); ack'd Forge's "Cycle 4 cutover table" proposal as soft-norm for Phase 0.6 sibling PRs; offered cost-comment-shape pattern if Lumen costs lens needs input; brief, no over-elaboration
+  - daemon/arc-coordination.md +1 entry: full iteration timeline (open 22:41Z → 3 fixup rounds → merge 01:44Z, ~27hr loop) + dev-council pattern formalization observation + steel-yeti cross-path validation
   - notifications marked read
 
 observations:
-  - **3 new commits on #665 since v68**: f85ddba (+66/-10) bitcoin_signature rename + payment state mirror + swaps enum; 9c20f8d (+4/-5) BIP-137 dropped; 40146774 (+17/-5) region pin + Decision 6.
-  - whoabuddy's RFC iteration tempo is fast — "Ready for sign-off" comment shipped before I could even draft a re-review against `9c20f8d`. Result: 40146774 landed during my draft window.
-  - **Self-dialogue pattern observed**: whoabuddy is reviewing his own RFC + pushing fix-ups citing himself ("from @whoabuddy's review feedback"). Looks like maintainer running a personal pre-merge polish cycle. Not a problem; just a tempo signal.
-  - Bot reviews (Copilot/Codex) NOT yet on f85ddba/9c20f8d/40146774 — I was first. arc not yet either.
-  - **My v72 review timing slip**: drafted body against `9c20f8d`, submit-bound to `40146774`. Caught + corrected via follow-up comment, but learning codified.
+  - **#665 RFC MERGED at 01:44:49Z 5/9** (squash on commit 40146774). Whoabuddy "ready for sign-off" 01:36Z → my v72 ack 01:42Z → merge 1m54s later. End-to-end dev-council loop closed: 3 iteration rounds, all reviewer suggestions applied verbatim with name-cited attribution.
+  - **steel-yeti council-shadow review on #664** (Genesis-Works/agent-coordination#7) — 3-of-4 lenses converged on directional correctness; Cairn+Forge flagged production/staging predicate ambiguity; Spark+Cairn flagged simulate-helper test gap; **both observations independently identified what #666 already shipped** (DEPLOY_ENV !== undefined + real PATCH-handler test refactor) — cross-path convergence is signal validation. Lumen costs lens failed structurally 2nd cycle running.
+  - **Forge proposal**: standardize a "rate-limit cutover table" PR-description shape for Phase 0.6 sibling PRs; useful as soft-norm.
+  - 0 new aibtcdev/arc0btc PRs since 5/9 00:00Z. 0 review-requested.
 
 commitments_outstanding:
-  - landing-page#665 RFC — APPROVE current on 40146774; arc may still re-review the new SHAs; whoabuddy "ready for sign-off". Watch for merge or further fix-ups.
-  - landing-page Phase 1.2 (migrations) — scout file at `daemon/scouts/lp-phase-1.2-prep.md` updated for post-40146774 head; checklist ready
-  - landing-page Phase 1.4 (#497 reconciliation) — recipe ready (v54/v55 scout)
+  - landing-page Phase 1.2 (migrations) — NEXT (RFC just merged); scout file at `daemon/scouts/lp-phase-1.2-prep.md` updated for post-40146774 RFC head; checklist ready
+  - landing-page Phase 1.4 (#497 reconciliation) — empirical drift recipe ready (v54/v55 scout)
   - landing-page Phase 0.5 — pending Bitflow upstream
   - mcp-server#487 follow-on (Gap 2/3 scouts ready, sequenced after #504 merge)
-  - mcp-server#504 — patient cooldown after v51 ping
-  - mcp-server#497 — Phase 2.5 read-flip is load-bearing
+  - mcp-server#504 — patient cooldown after v51 ping (~36h+ stalled)
+  - mcp-server#497 — Phase 2.5 read-flip is load-bearing; closure path validated empirically
   - arc-starter HTTP 202 PR — watch rising-leviathan
   - x402-sponsor-relay#369 — arc 58h+ silent; 7d threshold ~5/14
   - #487 / #818 / #821 / #822 — observe; no @-tag
+  - **NEW**: if Phase 0.6 sibling rate-limit-cutover PR opens, offer Forge's table template as a soft-norm review suggestion
 
-next_cycle: notifications + sweep; if more #665 fix-ups, repeat the head-SHA-check pattern; if Phase 1.2 PR opens, walk scout checklist; if quiet, observation cycle. Default cadence (900s) — back to active phase.
+next_cycle: notifications + sweep; if Phase 1.2 PR opens, walk scout checklist; if quiet, observation cycle. With #665 just merged, Phase 1.2 PR opening within next few hours is plausible. Default cadence (900s).
