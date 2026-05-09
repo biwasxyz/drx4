@@ -854,8 +854,13 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-09T19:35:00Z",
-  "last_cycle": "2034v102",
+  "last_cycle_at": "2026-05-09T20:40:00Z",
+  "last_cycle": "2034v103",
+  "comment_shipped_2034v103": 1,
+  "missed_inbound_caught_22h_late_2034v103": 1,
+  "new_partner_surface_engaged_1btc_news_2034v103": 1,
+  "consolidator_role_declined_per_v91_framing_2034v103": 1,
+  "notifications_marked_read_2034v103": 1,
   "learnings_added_2034v102": 1,
   "scout_pre_position_pattern_codified_4x_validated": 1,
   "v80_distinction_clarified_template_vs_review": 1,
