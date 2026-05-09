@@ -2,6 +2,31 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Pre-positioning substantive read-ahead suggestions lands as code via the dev-council loop — cycle 2034v80 2026-05-09T05:05Z
+
+3 demonstrated instances of read-ahead suggestions in reviews/scouts becoming concrete code or doc citations downstream:
+
+1. **v67 #666 review** flagged `failClosedOnBindingError(env)` as Phase 1.2 read-ahead → arc independently flagged the same DRY pattern as #666 nit → whoabuddy filed #669 capturing both → arc opened #670 at v76 implementing exactly the proposed shape (helper in `lib/env.ts`, predicate `env.DEPLOY_ENV !== undefined`, 4 call sites converged, 2 unit tests). ~3 days from suggestion to landing as merged-pending code.
+2. **v54/v55 #497 scout file** (3-sample drift table, off-by-one hypothesis) → cited verbatim in landing-page#665 RFC migration-plan table as Phase 1.4 empirical acceptance test recipe. Pre-positioned scout became RFC-locked artifact.
+3. **v63 #661 implementation scout** (binding pattern, fail-closed semantics, test plan sketch, code-shape preview) → ~30min later directly fed v65 #664 PR creation. Same agent — but the discipline of writing the scout pre-implementation surfaced shape decisions earlier than improvising at code-time.
+
+**What makes a read-ahead actionable enough to land:**
+- **Concrete code shape**, not "consider X." A one-line function signature, a column-shape proposal, a callsite-substitution snippet — something the maintainer can copy-paste or hand to a tool.
+- **Non-blocking framing**: explicit `[non-blocking]`, `Phase X read-ahead`, or `follow-up suggestion`. Removes the gating concern; lowers the cost of agreeing.
+- **Forward link** to the phase / PR / scope where it'd naturally land. "Phase 1.2 / Phase 2.x / next sibling PR" anchors it in something already on the maintainer's roadmap.
+- **Cited prior art** from the codebase or current PR. "Same shape as `outbox/route.ts:62`" or "matches the #666 ratelimits pattern" lets the reviewer-author skip the "is this consistent with our conventions?" question.
+- **Filed in a maintainer-discoverable artifact**: PR review comment, scout file in a referenced repo, RFC review section. Not an internal-only note.
+
+**How to apply:**
+- When reviewing a substantive PR, scan for patterns the next phase will benefit from (helpers to extract, consolidations to make, test shapes to standardize) and propose them under `[non-blocking suggestion]` framing with concrete code.
+- When pre-positioning a scout file, include explicit "what I'd flag" entries with the rationale + cited prior art. The scout becomes a reusable forward link.
+- Keep read-ahead suggestions to 1–3 per review; saturating with too many dilutes the signal that any one is high-leverage.
+- Don't pad reviews with read-aheads when none are organically present. The pattern is "I notice this surfaces something Phase X will benefit from" — not "I should always include a read-ahead."
+
+**Why this matters:** the dev-council loop on landing-page (arc + secret-mars + whoabuddy) creates feedback latency of ~hours-to-days; pre-positioning means the next-phase work starts with the suggestion already in the air. Without pre-positioning, the same idea gets surfaced reactively after the next PR is opened — which costs an extra review round-trip. Three instances now is enough evidence that the pattern is reproducible, not coincidence.
+
+**Skip the read-ahead when:** the PR's scope is genuinely terminal (release PR, dep bump, isolated bug fix), the next phase isn't yet visible, or the maintainer hasn't earned trust on follow-through (read-aheads to maintainers who don't iterate are write-only).
+
 ## On fast-moving PRs, re-check head SHA right before submitting (companion to merge-state check) — cycle 2034v72 2026-05-09T01:46Z
 
 v72 #665 RFC re-review was drafted against `9c20f8d`. While drafting, whoabuddy pushed `40146774` (region pin + Decision 6). My review submitted at 01:42Z with `commit_id: 40146774` (the new head) but the **body only addressed `f85ddba + 9c20f8d` content** — the new commit landed mid-draft and was unmentioned. Caught the gap immediately on Phase 5 verify, shipped a follow-up ack comment (4411003300) covering the missed commit. Approve stood on the new head, but the review body was incomplete relative to the SHA it landed on.
