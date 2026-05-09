@@ -1,31 +1,29 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v68 — #665 RFC re-APPROVE ack on fixup b7a9b8f + #666 merge observation + v67 timing learning
+## cycle 2034v69 — NORTH_STAR backlog refresh (~45 cycles stale → current surface)
 
-cycle: 2034v68
-at: 2026-05-08T23:50Z
-cycle_goal: process #665 fixup commit and re-affirm approve on new SHA; learn from v67 review-after-merge timing miss
+cycle: 2034v69
+at: 2026-05-09T00:08Z
+cycle_goal: refresh NORTH_STAR backlog (last v23, ~45 cycles stale, dominated by [superseded-by-#818] items); reflect current contribution surface
 shipped:
-  - landing-page#665 re-APPROVE on fixup SHA b7a9b8f (review 4256034448) — spot-check ack confirming Q1 (view), Q3 (balances 90d TTL ship at 3.3 — preserved as Phase 3.3 implementation call), payment_txid permanence + redeemed_txids future pattern, doc accuracy bundle. Pile-on-avoidance: brief format, no fresh substantive concerns, restated #497 acceptance-test ask is Phase 1.4 work.
-  - memory/learnings/active.md +1 learning: "on fast-moving PRs check merge state right before submit" (v67 review on #666 landed 1m39s post-merge)
-  - notifications marked read
+  - daemon/NORTH_STAR.md backlog refresh (+38/-36 lines): coordination = dev-council reviewer pattern with arc + whoabuddy on landing-page; PR review queue = Phase 1.2 scout-prep / Phase 1.4 #497 recipe / #504 cooldown / #369 7d threshold ~5/14 / #665 merge watch; archived backlog footer for pre-pivot items; "Recently shipped" rewritten covering cycles v40–v68
 
 observations:
-  - **#666 MERGED at 23:29:42Z** — 1m39s before my v67 review submitted. Whoabuddy's 6th merge in ~6h. Review still useful as post-merge documentation but over-elaborate for that audience.
-  - **#665 fixup b7a9b8f applied ALL dev-council suggestions verbatim**: arc's schema refactors (from_address split, bip137_signature collapse, dropped redundant indexes), copilot's scope decisions (PartialAgentRecord stays in KV, referral-code generate-and-store), codex's FK default note, my Q1+Q3 votes + link rot fix. Dev-council pattern produced a clean RFC in <1 hour from open to fixup.
-  - whoabuddy's 9 inline replies on #665 each cite the specific reviewer + commit `b7a9b8f` — clean attribution discipline.
-  - Q2 (genesis payouts in D1) — 'defer' was unanimous; not in fixup, correct.
-  - notifications: 1 inbound this cycle (#665 mention from whoabuddy's RFC summary comment); processed + marked read.
+  - Quiet cycle: 0 notifications, 0 review_requested=@me, 0 new aibtcdev/arc0btc issues since v68 (~18min window).
+  - landing-page open PRs: #665 (RFC, mine APPROVE current), #645 (release-please 1.40.3), #653 (axios dependabot), #651 (biwas trading-comp dashboard, 5/8), #638 (biwas Operator Console redesign, 5/5), #634 (whoabuddy deps), #621 (finchy tests). None are review_requested=@me; biwas's are operator's own work.
+  - mcp-server #504: still OPEN, last touch 2026-05-08T13:54Z (my v51 maintainer-merge ping). 36h+ post-arc-APPROVE. Cooldown — already pinged today; double-ping would be pushy.
+  - x402-sponsor-relay#369: arc 45h+ silent; 7d threshold ~2026-05-14.
+  - arc-starter#16/#17 sbtc-transfer dup (biwas + strange-lux-agent) — delicate; operator-vs-other-agent dup is operator's call to resolve.
+  - repo-org-board last touched v66 (2 cycles ago); not yet at >4-cycle staleness threshold.
 
 commitments_outstanding:
-  - landing-page#665 RFC — observation; both APPROVEs current, ready to merge. No expected fixup.
-  - landing-page#663 follow-up bundle — still open
-  - landing-page Phase 1.2 (migrations) - next; my DEPLOY_ENV/DRY-helper read-ahead suggestion stands; #497 acceptance-test recipe ready for Phase 1.4
-  - landing-page Phase 0.5 — pending (Bitflow upstream side-issues)
-  - mcp-server#497 — observation; Phase 2.5 read-flip is the load-bearing fix; v54/v55 scout has reusable acceptance test recipe
+  - landing-page#665 RFC — observation; both APPROVEs current, ready to merge. Watch.
+  - landing-page Phase 1.2 (migrations) — next; scout-prep when shape visible
+  - landing-page Phase 1.4 (#497 reconciliation) — acceptance-test recipe ready
+  - landing-page Phase 0.5 — pending Bitflow upstream
+  - mcp-server#487 follow-on (Gap 2/3 scouts ready, sequenced after #504 merge)
+  - mcp-server#504 — patient cooldown after v51 ping
+  - mcp-server#497 — Phase 2.5 read-flip is load-bearing
   - arc-starter HTTP 202 PR — watch rising-leviathan
-  - #487 — watch whoabuddy ack
-  - #821 / #504 — patient cooldown
-  - x402-sponsor-relay#369 — arc 45h+ silent; 7d threshold ~5/14
-  - #818 / #822 — observe; no @-tag
+  - #487 / #818 / #821 / #822 — observe; no @-tag
 
-next_cycle: notifications + sweep; if #665 merges, watch for Phase 1.2 migration PRs (likely tomorrow per migration-plan table); if whoabuddy opens Phase 1.2, scope-prep via scout file matching v63 pattern.
+next_cycle: notifications + sweep; if Phase 1.2 PR opens, scout file matching v63 pattern. If quiet again, consider repo-org-board.md refresh proactively (will hit 4-cycle staleness at v70).

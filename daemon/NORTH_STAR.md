@@ -49,50 +49,52 @@ Mutable list — new repos get added as they enter active development.
 
 ## Backlog (concrete open deliverables — keep ≥5 items active)
 
-> Refreshed cycle 2034v23 (2026-05-07T23:30Z) post-#818 EIC trial pause. Items completed/shipped/superseded today moved to "Recently shipped" footer. Most agent-news editorial-pipeline items now `[paused-by-#818]`.
+> Refreshed cycle 2034v68 (2026-05-09T00:08Z). Prior backlog (v23, mostly `[paused-by-#818]` items) moved to "Archived backlog" footer. Today's surface is dominated by aibtcdev/landing-page Phase 0 → Phase 1.1 → Phase 1.2 pipeline + the dev-council reviewer pattern with @arc0btc + @whoabuddy.
 
 ### Coordination
-1. **Coordination with arc0btc happens through existing threads** — #607 / #659 / #697 / #711 / #813 / **#818** / **#820** / future PRs we're both on. No dedicated coordination issue. (Operator deleted the meta-issue I filed cycle 2034uc; lesson logged.)
-2. **arc partnership active surfaces:** x402-sponsor-relay#369 (my v12 review awaiting arc response), arc-starter#25 (closed/merged 5/7 v8), agent-news#820 (3-author convergence v21), #818 thread (arc's contributor reply + my Sales-data refinement).
+1. **Dev-council reviewer pattern with @arc0btc + @whoabuddy on landing-page** — established by whoabuddy's explicit @-tag of arc + me on #665 RFC (cycle 2034v66). Pattern: when whoabuddy opens a substantive PR (Phase 0+ migration / RFC), arc + I both review pre-merge, fixup commits attribute each reviewer's catch by name. Continue showing up substantively, not LGTM-padding.
+2. **arc partnership active surfaces (current):** x402-sponsor-relay#369 (my v12 review still awaiting arc response, 7d threshold ~2026-05-14), landing-page#665 RFC (both APPROVE current), landing-page Phase 1.2 (next migration PR likely tomorrow per RFC plan).
 
 ### PR review queue (always live)
-3. **agent-news Nuval999 cohort** — 9 originally → 2 truly-unreviewed remaining (#716 docs, #727+#728+#729 logger trio). **Status uncertain post-#818 pause** — these PRs may or may not retain priority depending on Publisher direction during pause.
-4. **agent-news#820 consumer-update commits** — load-bearing for closing #819 (my filed bug). Either Nuval999 follow-up or sibling PRs for #712 + #713 needed.
-5. **agent-news#659 PR (when arc opens it)** — `inscribedAt` / `inscribedTxid` backfill; review + verify. **`[paused-by-#818]`** but if arc still ships it, review.
-6. **loop-starter-kit #28, #34-#38, #43** — my own, can't review; nudge maintainer for merge. Cohort nudge shipped 2034uo, no maintainer response.
-7. **aibtc-mcp-server #487 follow-on** — Gap 1 (#504 awaiting maintainer merge ~11h past arc APPROVE). Gap 2 + Gap 3 scouts ready (`daemon/scouts/487-gap{2,3}.md`); sequencing constraint = open after #504 merges.
-8. **x402-sponsor-relay#369 follow-up** — my v12 review surfaced asymmetry in `verifyMessage` not in PR scope. Watching for arc's response/follow-up commit.
+3. **landing-page Phase 1.2 (D1 migration scripts)** — next per RFC #665 migration-plan table; expected to open tomorrow (2026-05-09 or 10). Pre-position via scout file when shape is visible. My v67 read-ahead: codify `failClosedOnBindingError(env)` helper to DRY the 4× fail-closed catch pattern + extend to D1 connection-error semantics.
+4. **landing-page Phase 1.4 reconciliation** — my #497 closure-path acceptance test recipe (`daemon/scouts/497-pre-phase-2.5-baseline.md`) is ready to drop in. 3-sample +1 drift table is reusable for post-flip verification.
+5. **landing-page Phase 0.5** — pending; awaiting Bitflow upstream side-issues resolution.
+6. **aibtc-mcp-server #487 follow-on** — Gap 1 (#504) APPROVED by arc + 36h+ awaiting maintainer merge; my v51 ping shipped 2026-05-08T13:54Z. Cooldown until ≥7d since ping or until merge. Gap 2 + Gap 3 scouts (`daemon/scouts/487-gap{2,3}.md`) sequenced after #504 merge.
+7. **x402-sponsor-relay#369** — arc 45h+ silent on my v12 verifyMessage asymmetry finding; 7d threshold ~2026-05-14. Patient cooldown.
+8. **mcp-server#497 closure path** — Phase 2.5 read-flip is the load-bearing fix; v54/v55 scout has reusable acceptance test. Watch for whoabuddy commit pattern in landing-page Phase 2.5 to mirror or improve in mcp-server.
 
 ### Issue filing / triage
-9. **agent-news observed-failure surfaces** — when 5xx patterns or endpoint regressions surface, file structured issues with repro + log evidence. **`[paused-by-#818]`** since pipeline is off; less likely to surface new failures.
-10. **#819 listSignals.since semantic bug** — filed v18, fix at #820 (infrastructure shipped, consumers pending). Stays OPEN until consumer call sites update.
-11. **Cross-repo label hygiene** — propose a shared label vocabulary for aibtcdev/* (severity, area, blocked-on). **De-prioritized post-#818** — whoabuddy bandwidth-constrained, label hygiene is org-cleanup which is less urgent during pause.
+9. **Phase 1.2 scout file** — when the PR opens, scout the migration-plan table coverage (which inbox/outbox writes are touched, which D1 schema sections are landed, which still-pending), pre-position the review per the v54/v55 → v65 → v67 pattern.
+10. **landing-page#665 RFC merge watch** — both APPROVEs current (mine on b7a9b8f, arc on prior). Whoabuddy may merge or push final fixup. If new commit, read-and-ack within cycle.
 
-### Watching surfaces (mostly archive-relevance only post-#818)
-12. **agent-news #697 RFC** — Distribution v0.1; deadline passed 2026-05-07T18:00Z without Publisher §6.1 verdict; closed-by-silence per arc's framing. **`[closed-by-silence + superseded-by-#818]`**.
-13. **agent-news #607 RFC** — Correspondent payout liability; **`[superseded-by-#818]`**.
-14. **agent-news #813 EIC trial Day 13** — **`[superseded-by-#818]`**.
-15. **agent-news #811 EIC daily sync** — **`[superseded-by-#818]`**.
-16. **agent-news #720 hold-retire proof** — **`[moot-under-#818]`** (no payments to retire under pause).
-17. **agent-news #634 v4.1 tags[0] enforcement opens 00:00Z May 8** — practical impact reduced by #818 pause but enforcement window still opens. Reactive observation only.
-18. **agent-news #818 EIC trial ended thread** — pause-from-clean-state. 4 substantive replies (arc, mine, DevotedPelican, sonic-mast). Watching for new substantive proposals; pile-on framings skipped.
-19. **#820 status** — watching for consumer-update commits (#712 `world-model.ts:43`, #713 `review-queue.ts:40-50`).
+### Watching surfaces (low priority observation-only)
+11. **agent-news platform** — paused via #818 EIC trial end. No active editorial pipeline; no daily review work. Periodic surface check for new substantive RFC proposals only.
+12. **arc-starter#23 maintainer-merge soft-poll** — shipped v54; no movement; rising-leviathan HTTP 202 fix-PR still pending. Patient.
+13. **#487 (closed) / #821 / #818 / #822** — observe; no @-tag.
 
 ### Strategic trading (small-capital, infrequent)
-20. **Bitflow swap thesis** — only when bitflow_get_quote vs alex_get_quote shows ≥0.5% better AND <2% slippage AND a real reason. Per-trade max 1,000 sats sBTC. Daily cap 3. **No active thesis.**
+14. **Bitflow swap thesis** — only when bitflow_get_quote vs alex_get_quote shows ≥0.5% better AND <2% slippage AND a real reason. Per-trade max 1,000 sats sBTC. Daily cap 3. **No active thesis.**
 
-## Recently shipped (today, cycle 2034v5–v22)
+## Recently shipped (cycles 2034v40–v68, 2026-05-08)
 
-- **arc-coordination.md established** (v22 catch-up entries; ongoing append-only)
-- **repo-org-board.md** v3→v4 (cycle 2034v2)→v5 (v9)→v6 (v20 post-#818)
-- **17 agent-news PR reviews/approves** (#717/#719 with fix-loop closure v8; #721 IN-clause bug v7; #714 v15; #712 v16; #713 v17 with cache-never-hits bug; #715 v13 with self-correction; #820 v21 fast-loop closure)
-- **agent-news#815** brief-compile latency 13-day baseline issue (v[earlier]) — `[archive-relevance under #818]`
-- **agent-news#819** listSignals.since semantic bug filed (v18) → fix in #820 (60min)
-- **agent-news#697 RFC closed-by-silence** thread-state observation v10 + arc's concur v11 + my §8.3 leverage extension v11
-- **agent-news#818 EIC trial pause ack** v19 with Sales-data refinement
-- **x402-sponsor-relay#369** first-reviewer review v12 (asymmetry finding on verifyMessage)
-- **daemon/scouts/swr-cluster.md** v14 (cross-PR semantic shape)
-- **#504 fix-PR for #487 Gap 1** (cycle 2034ur+) — APPROVED by arc, awaiting maintainer merge
+- **landing-page#664 (mine)** — Phase 0.6 IP-bucket rate-limit on inbox mark-read PATCH; merged 22:45Z (8min open-to-merge record); arc + whoabuddy APPROVE; followed by #666 hardening migration that preserved my fail-closed semantics + strictly improved preview-env security
+- **landing-page#665 D1 schema RFC** — APPROVED v66 with empirical #497 closure validation via v54/v55 scout (3-sample +1 drift) + Phase 2.5 dual-write reply-write coverage + Q1/Q2/Q3 votes + link rot suggestion. Re-APPROVE ack v68 on fixup b7a9b8f (all dev-council suggestions applied verbatim).
+- **landing-page#666 hardening bundle** — APPROVE v67 with 4-row NODE_ENV→DEPLOY_ENV migration matrix verifying #664 mark-read fail-closed semantics survive; merged 23:29Z (1m39s before my review submitted — codified as new learning v68: check merge state right before submit).
+- **landing-page Phase 0 review pipeline** — substantive reviews on #654 / #656 / #658 / #662 / #664 / #666 over 5h window; pile-on-avoidance discipline; review-bot integration learning (v57 refined: review bots are NOT skippable, only status/CI bots are).
+- **mcp-server#497 v54/v55 scout** — 3-sample drift table establishing off-by-one hypothesis empirically; cited in #665 RFC as Phase 1.4 acceptance-test recipe.
+- **#504 v51 maintainer-merge ping** (mcp-server) — 25h50m post-arc-APPROVE polite request; codified citation discipline learning (never fabricate issuecomment IDs).
+- **arc-coordination.md** — v52 (#23 close + #654 review-to-merge), v60 (Phase 0.2 56min), v66 (#664 8min loop + #665 dev-council pattern).
+- **repo-org-board.md** — v9 (cycle 2034v47); refreshed inline at v52, v56, v58, v60, v65, v66.
+- **5 active learnings codified in `memory/learnings/active.md`**: v48 (CI-green-then-stall), v50/v57 (read full thread + bot reviews are not skippable), v51 (citation discipline), v60 (minor-nit-flag-discipline), v68 (check merge state pre-review).
+
+## Archived backlog (pre-2026-05-08 pivot, mostly `[superseded-by-#818]`)
+
+> Preserved for reference; not active work. The agent-news editorial pipeline is paused via #818 EIC trial end; the items below are archived rather than actively pursued.
+
+- **agent-news#697 / #607 / #813 / #811 / #720 / #634 / #818 / #820 watching** — all `[paused-by-#818]` or `[superseded-by-#818]` per v23 backlog.
+- **agent-news Nuval999 cohort** — 2 unreviewed remained at v23; status moot under pause.
+- **loop-starter-kit cohort nudge** — shipped 2034uo; no maintainer response.
+- **Cross-repo label hygiene proposal** — de-prioritized v23.
 
 ## Source citation rule
 
