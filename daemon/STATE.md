@@ -1,23 +1,25 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v120 — #690 Phase 2.2 COMMENT review with substantive regression flag
+## cycle 2034v121 — #690 option B fixup-ack + Phase 2.2 closure
 
-cycle: 2034v120
-at: 2026-05-10T05:30Z
+cycle: 2034v121
+at: 2026-05-10T05:55Z
 status: idle (ScheduleWakeup queued)
-cycle_goal: Review whoabuddy's Phase 2.2 #690 (1015 lines) — turned out the v119 probe finding is now operationally blocking
+cycle_goal: Verify whoabuddy's Option B fixup on #690 + close partnership-thread loop on the v120 regression flag
 shipped:
-  - landing-page#690 pullrequestreview-4258930669 — COMMENT (not APPROVE) flagging 708-record consumer-visible regression: pre-flip /api/agents/[address] returns 200 level=2 for Iskander; post-flip would 404 hard (D1 row absent due to Phase 1.3 validation exclusion). Two operational options surfaced: (A) accept + doc + 708-record cleanup; (B) hybrid D1+KV fallback ~10 LOC. Plus 2 minor non-blocking obs (ClaimRecord.displayName drift, classifyAddress edge cases verified). Verified 200.
+  - landing-page#690 issuecomment-4414564970 — fixup-ack on 8f4813e (option B impl) + 490ede3 (doc fix). Verified each item from v120 review landed: option B chosen with explicit reasoning quoted; #691 filed (3-bucket cleanup triage); profile.kv_fallback_hit observability log; numeric-branch correctly excluded; code comments inline-cite #691. Declined typing-PR offer (claim.displayName drift has no observable effect). Acknowledged #692 deferred catches as reasonable scope; offered to take #692. Verified 200.
 observations:
-  - Phase 2.2 ramp: #689 issue 05:17Z → #690 PR 05:25Z (8 min) — fastest spec→PR yet
-  - V119 probe finding (Iskander absent from /api/agents list) was abstract/curious; on #690 it's concrete-blocking — singular endpoint regression hits 708 records hard
-  - Pattern: empirical-probe-leads-to-substantive-block. Complement to scout-pre-position: post-deploy-probe-pre-positions observations before next PR lands
-  - 8 distinct output types in 8 cycles (v113-v120) — no review-type tunneling
-  - 2-hour Phase 2 ramp: 2.0 docs (03:19Z) → 2.1 (04:42Z) → 2.2 PR open (05:25Z) → my COMMENT (05:30Z)
+  - #690 MERGED 05:48Z with combined approval (arc APPROVE + my v120 COMMENT-not-APPROVE resolved by Option B + #691 tracker)
+  - 30-min from PR-open (05:25Z) to merge (05:48Z) on a 1015-line PR with substantive concern surfaced + resolved in flight — fastest substantive-block-resolved cycle yet
+  - Whoabuddy filed #691 (708-record cleanup) + #692 (BNS resolver bug + enrichAgentProfile KV-read residual). Both pre-existing; #692 noted as not-introduced-by-Phase-2.2.
+  - Partnership-thread vocabulary: my "Option A vs B" framing became working decision shorthand (same v98 multi-PR coord drift pattern)
+  - Codex bot review caught the BNS direction-bug (separate axis from human reviewers) — v57/v68 review-bots-are-NOT-skippable lesson restated again
+  - Empirical-probe-leads-to-substantive-block pattern proven end-to-end: v119 list-endpoint observation → v120 singular-endpoint blocking concern → v121 closure with tracker
+  - Output-type rotation v113-v121: 9 distinct types in 9 cycles
 commitments_outstanding:
-  - landing-page#690 — awaiting whoabuddy/arc operational decision: A (doc + cleanup) vs B (hybrid fallback). Will flip to APPROVE once decision made + either doc or fallback lands.
-  - landing-page#688 — merged but v119 probe comment on list-endpoint validation-exclusion still awaiting whoabuddy response (now superseded by v120 #690 framing)
+  - landing-page#691 — 708-record cleanup triage (pending whoabuddy or me to start when bandwidth)
+  - landing-page#692 — BNS last-resort resolver bug + enrichAgentProfile KV-read residual (offered to take if useful)
   - landing-page#684 — path-A pagination sub-issue, queued
   - landing-page#674 + REPLY_D1_PK_PREFIX cleanup PR (v112 scope, ball still in arc's court)
   - mcp-server #487 Gap 2/3 / #504 / #509 (post-#508-close) — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (4d remaining)
-next: monitor #690 decision response (1200s cadence; whoabuddy active 5min ago — high-velocity window may surface decision fast)
+next: monitor whoabuddy response to my #692 take-it offer + watch for Phase 2.3 issue file (1200s cadence)
