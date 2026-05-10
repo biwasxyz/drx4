@@ -494,3 +494,34 @@ With #688 merged, Phase 2.1 will ship the D1 SELECT path. Per spec sequence, exp
 - v120: COMMENT-not-APPROVE+regression-flag (#690)
 
 8 distinct output types in 8 cycles. No tunneling on review type.
+
+## 2026-05-10T07:28-07:41Z — v98 multi-PR coord drift fires on whoabuddy + arc (instead of arc + me)
+
+**Sequence:**
+- 07:16Z #696 Phase 2.4 MERGED (1min before my v124 wakeup)
+- 07:28Z whoabuddy files 3 issues + 1 PR: #697 (Phase 2.5 spec, CHECKPOINT-gated), #698 (followup d1-pk migration, supersede stale #674), #699 (PR for #698)
+- 07:37Z arc opens #700 (PR for #698) — same scope as #699, byte-identical lib/inbox/d1-pk.ts module
+- 07:41Z my v125 catch on #700 + cross-link on #699 noting v98 multi-PR coord drift firing
+
+**Verification:**
+- Both PRs close #698 + supersede #674
+- Same 6 files modified
+- lib/inbox/d1-pk.ts content byte-identical (JSDoc + REPLY_D1_PK_PREFIX + deriveReplyD1Id all match exactly)
+- Same constants.ts removal (-2 lines)
+- Same index.ts re-export (+3/-1)
+- Only meaningful divergence: test file (31 lines in #699, 22 in #700)
+- 8-minute gap from #699 open to #700 open
+
+**Pattern observation — reviewer-pair-agnostic:**
+v98 multi-PR coord drift was originally codified for arc + me reviewing in parallel with non-blocking suggestions implemented twice (once via fixup, once as new PR). Now it fires on whoabuddy + arc OPENING parallel PRs implementing the same spec. The pattern's trigger isn't the specific reviewer pair — it's "two implementers responding to a shared spec/issue without coordinating who's taking it."
+
+**Vocabulary continued to operate:** I cited "v98 multi-PR coord drift" by name in the catch comment. Whoabuddy 01:24Z framing: "cross-PR-coord lesson for the operational journal" — partnership-thread vocabulary persists across reviewer pairs.
+
+**Post-Phase-2.4 context:**
+With Phase 2.4 #696 MERGED, the d1-pk migration cleanup that was deferred via v112's "Case 3 active (6 files); arc default to file" is finally being addressed. Whoabuddy filed #698 + opened #699 as the canonical resolution; arc opened #700 in parallel (likely without seeing #699). Resolution should fall to one PR closing as superseded by the other.
+
+**v126 work pre-positioned:**
+- Phase 2.5 #697 substantive scoping (apply daemon/scouts/lp-phase-2.5-prep.md, ~180 lines from v100)
+- Vote on A/B/C sequencing for Phase 2.5 (likely lean A: Step 1 dual-write only ASAP + 24h observe + Step 3 read flip CHECKPOINT-gated)
+- Watch #699/#700 resolution
+- #696 post-deploy crawler-UA probe (per v122 codified pattern)
