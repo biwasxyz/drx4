@@ -1,40 +1,18 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v112 — STOPPED (operator /stop after Phase 1.4 #678 merge)
+## cycle 2034v113 — Phase 1.4 #675 A-vs-B unblock review shipped
 
-cycle: 2034v112
-at: 2026-05-10T02:05Z
-status: STOPPED via operator /stop
-last_action: Phase 1.4 #678 MERGED ack + partnership-thread vocabulary shared (commit 12d67a0f)
-wallet: unlocked (will be locked on /stop completion)
-
-session_summary:
-  - 26 cycles run this session (v87 → v112), starting at 12:50Z 5/9 from v86 STATE handoff
-  - 4 PR merges observed: #665 RFC + #668 Phase 1.2 + #670 Phase 0.3 helper + #672 Phase 1.3 backfill + #678 Phase 1.4 reconcile (5 actually)
-  - 6 substantive PR reviews: #672 CR + APPROVE + inline + #674 COMMENT + APPROVE + #678 APPROVE
-  - 4 partnership-thread engagements: skills#378 corroboration + agent-news#818 ack + 1btc-news#33 ack + #678 post-merge ack
-  - 8 scouts/hygiene: board v12 + BFF requires retraction + Phase 1.3 reality-check + drift re-probe + Phase 2.5 scout + cleanup PR pre-stage + cleanup-scout #678 extension + day-3 journal
-  - 4 codified learnings: multi-PR coord drift v98 + scout pre-position v102 + notification-blindness v105 + ceiling-cadence v106
-  - 5 arc-coordination updates: v91 dual-merge + v95 multi-PR review chain + v97 NORTH_STAR + v104 1btc-news partner add + v110-v112 Phase 1.4 timeline
-  - All Phase 1 sub-phases complete in main: 0 + 0.3 + 1.1 + 1.2 + 1.3 + 1.4
-
-key_outcomes:
-  - v98 multi-PR coord drift codification → empirically validated v107 (#674 merge surface) + v110 (#678 pre-emptive catch)
-  - v98 vocabulary now partnership-thread shared (whoabuddy 01:24Z framing: "cross-PR-coord lesson for the operational journal")
-  - v54/v55 + v96 #497 drift baseline cited verbatim in #675 issue body
-  - v92 unique catches (msg.replyTo + REPLY_D1_PK_PREFIX constant lift) both landed verbatim in #672 fixup
-
-pending_for_next_resume:
-  - landing-page#674 — cleanup step 4 surfaced; ball in arc's court
-  - landing-page REPLY_D1_PK_PREFIX cleanup PR — Case 3 active (6 files); arc default to file
-  - landing-page Phase 2.5 read flips — scout pre-positioned at v100; substrate + reconcile gate now in main
-  - landing-page#679 — perf hardening deferred PR (whoabuddy planned)
-  - landing-page Phase 0.5 — pending Bitflow upstream
-  - skills#378 — diegomey/LimaDevBTC may push my v87-corroborated fixes
-  - mcp-server#509/#508 duplicate fast-uri awaiting whoabuddy
-  - mcp-server#487 follow-on (Gap 2/3 sequenced after #504 merge)
-  - mcp-server#504 — patient cooldown (~35h post-ping); 7d threshold ~5/15
-  - mcp-server#497 — Phase 2.5 read-flip load-bearing (substrate + reconcile gate landed)
-  - agent-news#818 / 1btc-news#33 — pending-sats consolidation; my data ready when Robotbot69 consolidates
-  - x402-sponsor-relay#369 — arc 67h+ silent; 7d threshold ~5/14
-
-resume_instruction: /start
+cycle: 2034v113
+at: 2026-05-10T02:25Z
+status: idle (ScheduleWakeup queued)
+cycle_goal: Reply substantively to whoabuddy's 02:18Z A-vs-B Phase 2 unblock @-mention on landing-page#675
+shipped: landing-page#675 issuecomment-4414239326 — Lean A production shape / B narrative gate-pass; 4 checks (artifact location, 2-row variance, A scope notes, replyTo↔toBtcAddress cross-repo lift); offered CLAUDE.md one-liner PR. Verified 200.
+observations:
+  - 4 PRs landed in 45min during operator-/stop window: #678 (01:25Z) + #680 (01:43Z) + #681 (01:56Z) + #682 (02:09Z) — 3 fix-ups chasing replyTo→toBtcAddress field-name bug
+  - phases/03-d1-backfill/2026-05-09T2330Z-backfill-production.md NOT in main per `gh api git/trees/main?recursive=1` — surfaced as gate-blocker for B
+  - inbox subrequest cap: ~12K subrequests vs 1000 cap (7763 inbox:message + 2540 inbox:reply + ~2540 STX→BTC)
+  - drift breakdown 2538 = 2529 FK fails + 7 UNIQUE replays + 2 STX unresolvable; 2540 - 2538 = 2 unaccounted ("small variance" caveat)
+commitments_outstanding:
+  - landing-page#675 — awaiting A-vs-B decision from whoabuddy + arc; cleanup CLAUDE.md PR offer
+  - landing-page#674 — cleanup step 4 + REPLY_D1_PK_PREFIX cleanup PR (still v112 scope)
+  - mcp-server#509/#508 / #487 / #504 / #497 / x402-sponsor-relay#369 / skills#378 — v112 carryover
+next: monitor #675 reply (~1200s cadence — arc may converge fast since both tagged); watch for #674 merge surface
