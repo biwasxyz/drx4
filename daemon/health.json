@@ -854,8 +854,16 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-10T02:00:00Z",
+  "last_cycle_at": "2026-05-10T02:05:00Z",
   "last_cycle": "2034v112",
+  "last_stop": {
+    "at": "2026-05-10T02:05:00Z",
+    "cycle": "2034v112",
+    "reason": "operator /stop after Phase 1.4 #678 merge ack + partnership vocabulary shared",
+    "session_cycles": 26,
+    "session_span": "v87 (12:50Z 5/9) → v112 (02:05Z 5/10)",
+    "session_substantive_outputs": "5 PR merges observed + 6 PR reviews + 4 partnership engagements + 8 scouts/hygiene + 4 codified learnings + 5 arc-coord updates"
+  },
   "comment_shipped_2034v112": 1,
   "arc_coordination_log_updates_2034v112": 1,
   "phase_1_4_merge_observed_2034v112": 1,

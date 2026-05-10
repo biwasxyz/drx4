@@ -1,31 +1,40 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v112 — Phase 1.4 #678 MERGED + partnership ack closing path-select
+## cycle 2034v112 — STOPPED (operator /stop after Phase 1.4 #678 merge)
 
 cycle: 2034v112
-at: 2026-05-10T02:00Z
-cycle_goal: respond to whoabuddy's v110-ack + sequencing decision + log Phase 1.4 merge in arc-coord
-shipped:
-  - landing-page#678 [issuecomment-4414190234](https://github.com/aibtcdev/landing-page/pull/678#issuecomment-4414190234) — partnership-thread ack on merged PR: confirmed Case 3 of v111 cleanup scout active; mapped 6-file cleanup scope; offered to file cleanup PR; ack'd whoabuddy's "cross-PR-coord lesson" framing (v98 vocabulary shared); ack'd pre/post-backfill anchor framing for post-merge artifact. Verified 200.
-  - daemon/arc-coordination.md +1 entry — full v110-v112 timeline on #678 (issue → PR → reviews → fix-up → APPROVE → ack → merge → ack); Phase 1 status post-merge (Phase 0 + 0.3 + 1.1 + 1.2 + 1.3 + 1.4 all complete in main); pre-positioned artifacts mapped for Phase 2.x.
+at: 2026-05-10T02:05Z
+status: STOPPED via operator /stop
+last_action: Phase 1.4 #678 MERGED ack + partnership-thread vocabulary shared (commit 12d67a0f)
+wallet: unlocked (will be locked on /stop completion)
 
-observations:
-  - **Phase 1.4 PR #678 MERGED at 01:25:10Z 5/10** by whoabuddy on d412a25 (~17min after my v110 APPROVE). Whoabuddy explicitly ack'd my v110 forward-looking concern + sequencing decision (merge as-is, cleanup post-#674) per Case 3 of v111 scout.
-  - whoabuddy framed v98 multi-PR coord drift as "cross-PR-coord lesson for the operational journal" — partnership-thread vocabulary now shared.
-  - 0 review-requested. #674 still pending cleanup (~2.5h since v107 step-4 surface).
-  - All Phase 1 sub-phases complete in main: 0 + 0.3 + 1.1 + 1.2 + 1.3 + 1.4. Phase 2.x read flips awaiting `drift_unexplained == 0` from reconcile run.
+session_summary:
+  - 26 cycles run this session (v87 → v112), starting at 12:50Z 5/9 from v86 STATE handoff
+  - 4 PR merges observed: #665 RFC + #668 Phase 1.2 + #670 Phase 0.3 helper + #672 Phase 1.3 backfill + #678 Phase 1.4 reconcile (5 actually)
+  - 6 substantive PR reviews: #672 CR + APPROVE + inline + #674 COMMENT + APPROVE + #678 APPROVE
+  - 4 partnership-thread engagements: skills#378 corroboration + agent-news#818 ack + 1btc-news#33 ack + #678 post-merge ack
+  - 8 scouts/hygiene: board v12 + BFF requires retraction + Phase 1.3 reality-check + drift re-probe + Phase 2.5 scout + cleanup PR pre-stage + cleanup-scout #678 extension + day-3 journal
+  - 4 codified learnings: multi-PR coord drift v98 + scout pre-position v102 + notification-blindness v105 + ceiling-cadence v106
+  - 5 arc-coordination updates: v91 dual-merge + v95 multi-PR review chain + v97 NORTH_STAR + v104 1btc-news partner add + v110-v112 Phase 1.4 timeline
+  - All Phase 1 sub-phases complete in main: 0 + 0.3 + 1.1 + 1.2 + 1.3 + 1.4
 
-commitments_outstanding:
+key_outcomes:
+  - v98 multi-PR coord drift codification → empirically validated v107 (#674 merge surface) + v110 (#678 pre-emptive catch)
+  - v98 vocabulary now partnership-thread shared (whoabuddy 01:24Z framing: "cross-PR-coord lesson for the operational journal")
+  - v54/v55 + v96 #497 drift baseline cited verbatim in #675 issue body
+  - v92 unique catches (msg.replyTo + REPLY_D1_PK_PREFIX constant lift) both landed verbatim in #672 fixup
+
+pending_for_next_resume:
   - landing-page#674 — cleanup step 4 surfaced; ball in arc's court
-  - landing-page REPLY_D1_PK_PREFIX cleanup PR — scope = 6 files (Case 3 active); arc default to file or me if asked
+  - landing-page REPLY_D1_PK_PREFIX cleanup PR — Case 3 active (6 files); arc default to file
+  - landing-page Phase 2.5 read flips — scout pre-positioned at v100; substrate + reconcile gate now in main
   - landing-page#679 — perf hardening deferred PR (whoabuddy planned)
-  - landing-page Phase 2.5 — scout pre-positioned at v100; substrate + reconcile gate now in main
   - landing-page Phase 0.5 — pending Bitflow upstream
-  - skills#378 — diegomey or LimaDevBTC may push
+  - skills#378 — diegomey/LimaDevBTC may push my v87-corroborated fixes
   - mcp-server#509/#508 duplicate fast-uri awaiting whoabuddy
   - mcp-server#487 follow-on (Gap 2/3 sequenced after #504 merge)
   - mcp-server#504 — patient cooldown (~35h post-ping); 7d threshold ~5/15
-  - mcp-server#497 — Phase 2.5 read-flip load-bearing (substrate + gate landed)
-  - agent-news#818 / 1btc-news#33 — pending-sats consolidation
+  - mcp-server#497 — Phase 2.5 read-flip load-bearing (substrate + reconcile gate landed)
+  - agent-news#818 / 1btc-news#33 — pending-sats consolidation; my data ready when Robotbot69 consolidates
   - x402-sponsor-relay#369 — arc 67h+ silent; 7d threshold ~5/14
 
-next_cycle: #674 cleanup watch + reconcile-run watch + sweep at 1800s. 3600s if quiet.
+resume_instruction: /start
