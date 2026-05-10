@@ -365,3 +365,41 @@
 - Added §11a "1btc-news/news-client#33" watching surface with action conditions
 
 **Loop posture observation 2:** missed 22h+ inbound is a notification-blindness failure mode. Mitigation: when I see a "mention" notification on a thread I haven't engaged with, check the comment body for explicit @-tag of me FIRST — if the @-tag is from a comment 12h+ ago, also check whether intervening updates re-triggered the notification surface (not the original tag). The "re-triggered" pattern is normal for active threads; doesn't mean the tagger is asking now.
+
+## 2026-05-10T02:00Z — landing-page Phase 1.4 #678 MERGED + cross-PR-coord lesson alignment (cycle 2034v110-v112)
+
+**Phase 1.4 PR #678 merged 2026-05-10T01:25:10Z** by whoabuddy on `d412a25`. Timeline:
+
+- 00:11Z 5/10 whoabuddy filed [#675](https://github.com/aibtcdev/landing-page/issues/675) Phase 1.4 spec issue, citing my v54/v55+v96 #497 scout
+- 00:18Z whoabuddy opened #678 implementation (~7min after issue)
+- 00:22-23Z arc APPROVED + Copilot/Codex commented (~4min after PR open)
+- 00:43Z my v109 spec review on #675 (4 spec observations + implementation offer)
+- 00:57Z whoabuddy fix-up `d412a25` addressing 8 of 11 review threads + 11 new tests + #679 perf hardening defer plan
+- 01:07Z my v110 APPROVE on `d412a25` with forward-looking REPLY_D1_PK_PREFIX concern (multi-PR coord drift caught pre-emptively per v98 learning)
+- 01:24Z whoabuddy explicit ack of v110 concern + sequencing decision (merge as-is, cleanup post-#674-merge per Case 3 of v111 scout)
+- 01:25Z #678 merged
+- 01:25Z my v111 cleanup scout extension (6-file scope, 4 merge-order cases)
+- 01:57Z my v112 partnership-thread ack closing the path-selection question
+
+**Key partnership lesson (whoabuddy framing 01:24Z):**
+
+> Logging this pattern as a cross-PR-coord lesson for the operational journal — same shape as the v98→v107 drift you caught in #674.
+
+The v98 multi-PR coord drift learning is now operating-vocabulary-shared between me and whoabuddy. Reduces future-cycle cost: when the same pattern surfaces, both reviewers anchor on the shared name + mitigation.
+
+**Phase 1 status post-#678 merge:**
+- ✅ Phase 0 (cleanup) — all 6 PRs merged 5/8
+- ✅ Phase 0.3 (helper) — #670 merged 14:36Z 5/9
+- ✅ Phase 1.1 (RFC #665) — merged 01:44Z 5/9
+- ✅ Phase 1.2 (#668 D1 + migrations) — merged 14:06Z 5/9
+- ✅ Phase 1.3 (#672 backfill route) — merged 15:47Z 5/9 + production backfill ran 23:55Z 5/9
+- ✅ Phase 1.4 (#678 reconcile route) — merged 01:25Z 5/10
+- 🟡 #674 + cleanup PR pending (multi-PR coord drift resolution)
+- ⏳ Phase 2.x read flips — substrate + reconcile gate now in main; awaiting `drift_unexplained == 0` from operational reconcile run
+
+**Pre-positioned for next phase:**
+- Phase 2.5 read-flip review-prep scout at v100 (`daemon/scouts/lp-phase-2.5-prep.md`, 180 lines)
+- v54/v55 + v96 + post-Phase-1.4-run 3-sample drift baseline ready for Phase 2.5 verification
+- Cleanup PR shape (6 files, Case 3) ready in v111 scout addendum
+
+**Loop posture observation:** v98 codification + v111 4-case merge-order analysis paid off. v107 caught the duplicate at #674 merge surface; v110 caught the same pattern pre-emptively in #678; whoabuddy explicitly framed it as a "cross-PR-coord lesson for the operational journal" — partnership-thread vocabulary now shared. Pattern is reproducible across PRs.
