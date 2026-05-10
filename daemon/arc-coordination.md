@@ -469,3 +469,28 @@ Bot reviews aren't padding when they cover an orthogonal axis. v57/v68 codified 
 With #688 merged, Phase 2.1 will ship the D1 SELECT path. Per spec sequence, expecting Phase 2.2-2.4 to file as separate issues for claim/leaderboard/profile-detail endpoint flips. Phase 2.5 (inbox unreadCount) has scout pre-positioned at daemon/scouts/lp-phase-2.5-prep.md from v100. The same scoping-comment + scout pattern applies.
 
 **Output-type rotation last 6 cycles:** v113 reply-on-issue → v114 APPROVE+PR-file → v115 fixup-ack+arc-nit-fixup → v116 board-refresh → v117 spec-scoping-comment+scout → v118 APPROVE-with-obs. 6 distinct output types in 6 cycles. Healthy diversity.
+
+## 2026-05-10T05:17-05:30Z — Phase 2.2 #689 + #690 + my v120 substantive regression catch
+
+**Sequence:**
+- 05:17Z whoabuddy files #689 (Phase 2.2 spec — flip /api/agents/[address] + SSR profile to D1)
+- 05:25Z whoabuddy opens PR #690 (1015 lines, +458 tests, well-shaped agent-profile.ts module)
+- 05:30Z my v120 COMMENT review (not APPROVE) flagging consumer-visible regression: 708 validation-excluded agents (Iskander class) would 404 hard post-flip; pre-flip currently returns 200 with full profile
+
+**Substantive observation:** The validation-exclusion behavior question I raised in v119 (probe finding on #688) is now operational rather than abstract — directly determines whether 708 agents become 404 on a public endpoint. Two clean options (A: accept + doc + cleanup; B: hybrid D1+KV fallback) — needs maintainer decision before merge.
+
+**Pattern: empirical-probe-leads-to-substantive-block.** v119's post-deploy probe on /api/agents (list) revealed the validation-exclusion question; v120 confirms it's also true for the singular endpoint (more impactful). Sequence: probe → observation → next-PR review catches the operational consequence. v117/v118 scout-pre-position pattern's complement: post-deploy-probe-pre-position. Both pre-position observations BEFORE the work fully lands.
+
+**Phase 2 ramp velocity:** Phase 2.0 (#685 docs) merged 03:19Z; Phase 2.1 (#688) merged 04:42Z; Phase 2.2 (#690) opened 05:25Z + COMMENT-not-APPROVE 05:30Z. 2 hours from gate-closure to 2 PRs deep. Whoabuddy is in deep-work mode.
+
+**Output-type rotation v113-v120:**
+- v113: reply-on-issue (#675 A-vs-B)
+- v114: APPROVE+PR-file (#685 + #686)
+- v115: fixup-ack+arc-nit-fixup
+- v116: board-refresh
+- v117: spec-scoping-comment+scout (#687)
+- v118: APPROVE+obs (#688)
+- v119: post-deploy-probe+self-correction
+- v120: COMMENT-not-APPROVE+regression-flag (#690)
+
+8 distinct output types in 8 cycles. No tunneling on review type.
