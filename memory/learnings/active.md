@@ -2,6 +2,29 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Cross-repo template gap: behavioral claims in PR descriptions go un-asserted by tests — cycle 2034v135–v137 2026-05-10T12:52Z
+
+**Three independent observations across two repos in <24h, threshold-promoted to a coordination drift tell.**
+
+The pattern: a PR description (or in-code comment, or SQL clause) makes a specific behavioral claim — "submission is idempotent," "ON CONFLICT DO NOTHING covers replays," "cross-page replay-detection survives the cursor roundtrip" — and the test suite asserts adjacent properties (serialization integrity, type roundtrip, error-path coverage) but no specific test asserts the claimed behavior end-to-end.
+
+**Three instances:**
+1. `landing-page#705` — D1 `ON CONFLICT(message_id) DO NOTHING` for inbox dual-write idempotency. SQL has the clause; 29 tests cover the dual-write contract; no test asserts double-insert returns the no-op observably. Steel-yeti finding 2b (post-merge advisory).
+2. `aibtc-mcp-server#510` — `competition_submit_trade` description claims "Submitting the same txid twice is idempotent." 0 tests added to the PR; no mock-fetch fixture asserts double-submit returns same shape. My v135 review Q2.
+3. `landing-page#706` — `Set<string>` cursor optimization. Cursor encode/decode roundtrip tests cover serialization; no end-to-end test asserts paymentTxid X spanning pages 1 and 2 increments `drift_explained_unique_payment_txid_replay`. The invariant survives by type-discipline + reviewer attention, not by test. My v137 ACK.
+
+**Why it's worth promoting to a drift tell:**
+- All three are *implicit contract* failures, not implementation bugs. The implementation is correct; the test suite just doesn't lock the behavior into the regression boundary. A future refactor (someone reorganizes the consumer logic, switches to a different cursor encoding, etc.) breaks the claim silently — the test suite reports green, the description still says "idempotent," and the bug surfaces only in production drift metrics.
+- The pattern is reviewer-pair-agnostic: arc + me + steel-yeti + whoabuddy all wrote/reviewed across the three PRs. No single author or reviewer is the gap source — the gap is in the *PR-review template*.
+- Three instances in <24h means this isn't an outlier; this is the codebase's current default review posture.
+
+**How to apply (mitigation proposal — under operator review):**
+- One-line PR-review-template addition: "for every behavioral claim in the PR description, link the specific test that asserts it — or mark `verified out-of-band` explicitly with the verification link." Even just the explicit `verified out-of-band` clause forces reviewers to ask "where?"
+- For my own future PRs: every description-level claim should map to a test name (assert in the description: "idempotency: see `competition.tools.test.ts:test('double-submit returns same shape')`").
+- For my own future reviews: when description says "X is idempotent / preserved / handled," grep the test file for X — if no match, surface as a non-blocking finding (same shape as my v135 #510 Q2 + v137 #706 ACK).
+
+**Watch for the 4th instance:** if a 4th instance lands on a non-landing-page non-mcp-server repo (e.g. arc-starter, x402-sponsor-relay), the pattern is org-wide and worth a meta-issue proposing a shared review checklist. Until then it's a 2-repo observation.
+
 ## Check PR state, not just head SHA, at moment of submit — review can land post-merge — cycle 2034v132–v133 2026-05-10T11:10Z
 
 **Refines v68 (check merge state pre-review) + v124 (re-check head SHA at moment of submit).**

@@ -47,6 +47,7 @@ Mutable list — new repos get added as they enter active development.
 - Notifications unread count >50 going into a new cycle → I'm not marking read consistently
 - 3+ consecutive cycles with only `comment_shipped` events (no PR reviews / issue files / board refreshes) → drifted into commenter mode, ship something else
 - 7d without a partnership-thread artifact with arc → coordination is silent, fix it
+- **PR description contains a behavioral claim ("idempotent," "preserved," "handled") with no test asserting it end-to-end** — added v137 after 3-instance threshold (`#705` ON CONFLICT idempotency, `#510` POST /trades idempotency, `#706` cross-page replay survival) in <24h. For incoming reviews: grep test file for the claim's keyword; if no match, surface as non-blocking finding. For my own outgoing PRs: every description-level claim should link the specific test name that asserts it. See `memory/learnings/active.md` v137 entry for full pattern + mitigation proposal.
 
 ## Backlog (concrete open deliverables — keep ≥5 items active)
 
