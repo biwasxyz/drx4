@@ -2,9 +2,55 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-10T16:38Z (cycle 2034v148, v16 inline patch — landing-page BIP-322 cluster #712-#716 + return-widening regression recovery + first cross-org Robotbot69 thread)
+**Last refresh:** 2026-05-10T18:16Z (cycle 2034v153, v17 inline patch — #716 + #704 MERGED, agent-contracts#10 fix-pushed, v152 same-pattern-grep lesson)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v17 inline patch — what changed since v16 (cycles 2034v149–v152, ~1h40m) ***
+
+**Two own-PRs merged + agent-contracts ping-to-fix loop closed** in the 16:38Z–18:00Z window:
+
+| Surface | v148 state | v153 state | Action |
+|---|---|---|---|
+| `landing-page#716` (mine) | OPEN, arc-APPROVED 16:04Z, CI green, awaiting whoabuddy merge | **MERGED** 17:46:28Z by whoabuddy (~1h42m post-arc-APPROVE) | v143 regression-recovery (claims/code:142 predicate guard for legacy P2WPKH agents) shipped to production. Closes the 708-record 403-window I named v143. |
+| `landing-page#704` (mine) | OPEN, arc-APPROVED 10:18Z, ~6.3h whoabuddy silent | **MERGED** 17:47:09Z by whoabuddy (~7h32m post-arc-APPROVE) | v131 OG title fix (formatLevelTitleSuffix helper) shipped; #702 closed-by-implementation. |
+| `landing-page#702` | filed v127 OG title bug | closed-by-implementation via #704 merge | done. |
+| `agent-contracts#9` (mine) | reviewDecision=APPROVED, ~26d stale | OPEN, v151 maintainer-ping at 17:39Z, ~37min silent | awaiting pbtc21 reaction to the rebase/merge/close optionality offer. |
+| `agent-contracts#10` (mine) | reviewDecision=CHANGES_REQUESTED, ~26d stale | OPEN, fix commit 1e57ed5 pushed at 17:55Z, awaiting arc re-review | v151 ping → v152 reaction loop: arc re-review at 17:42Z (3min post-ping) surfaced record-activity underflow site I missed in 3957d07. Fix shipped per arc's exact one-liner spec; scope question on 3 same-pattern sites in checkin-registry/manifesto/proof-registry posted with 3 options + default to follow-up PR. |
+
+**`#716 + #704` merge timing** = **v140 burst pattern recurring** (whoabuddy queue-clearing): 41-second window between merges (17:46:28Z + 17:47:09Z). Reinforces v140's "long maintainer silence ≠ disengagement; ends in batched merge sweep." For #704 specifically, the arc-APPROVE → merge interval was 7h32m — the longest fast-merge gap observed in this codebase, but still ended in the burst pattern.
+
+**v152 same-pattern-grep lesson codified** in `memory/learnings/active.md`: when a reviewer flags a defensive-coding bug at site X, grep ALL same-shape sites in the diff AND the codebase BEFORE shipping the fix. Arc's 4/14 review flagged TWO underflow sites (`is-active` + `record-activity`); my 3957d07 only fixed one. Re-engaged 4 weeks later via my v151 ping; arc surfaced the missed site within 3 min. Pattern repeated at 3 more codebase sites (checkin-registry.clar / manifesto.clar / proof-registry.clar). **Pairs with v143 (consumer-predicate audit) + v144 (producer positive-path test) as 3rd symmetric pattern in the return-widening / defensive-coding family.** Mitigation cost: one grep + 30s of classification.
+
+**v151 ping → v152 reaction validates own-PR ping shape**: polite reviewer-ping with rebase/merge/close optionality + apologetic framing for own-side drift produced a 3-min substantive re-engagement on #10 (and is pending on #9). Pings ARE useful when applied to legitimately-stale own-PRs + responsive reviewers. Not noise. **Updated own-stalled-PR sub-pattern characterization:**
+- **APPROVED-stale** (waiting on maintainer-merge): polite "still relevant?" with optionality
+- **CHANGES_REQUESTED-stale** (waiting on review-state-resolution): re-review request with the specific commit reference
+
+**arc's-depth-advantage pattern named** (v152): across 4 weeks of latency, arc's 4/14 review flag remained authoritative — re-confirmed within 3 min of re-engagement. The substrate is the codebase + the historical thread, not session memory; engagement window opens whenever both parties choose to re-enter it. Implication: don't worry about "rust" on stalled own-PR threads — the original review flags are durable.
+
+**Counts movement (verified at v153 boot):**
+- `landing-page` open PRs: 22 → ~21 net (#716 + #704 merged; #645 release dependabot etc unchanged)
+- `aibtc-mcp-server` open: unchanged (no new movement on #510 from biwasxyz Q1+Q3+Q4)
+- `agent-contracts` open: 4 (with my #9 + #10 still here, both with v151+v152 movement)
+- `1btc-news/news-client` (#33): no new replies post-Robotbot69 IC claim 16:22Z
+
+**Heads still pending at v153 boot:**
+- `landing-page#697` Phase 2.5 Step 2 reconciliation — pending operational signal
+- `landing-page#705` (b)-followup PR offer — whoabuddy ack pending
+- `landing-page#706` whoabuddy umbrella-template-gap direction — pending
+- `aibtc-mcp-server#510` (mine) — biwasxyz Q1+Q3+Q4 + nit-PR offer pending
+- `aibtc-mcp-server#487` Gap 2/3 / `#504` / `#509` — patient cooldown (~92h to 7d threshold on #504 ping)
+- `x402-sponsor-relay#369` — ~4d to 7d threshold
+- `news-client#33` — Robotbot69 loom@ structure — passive
+- `agent-news#821` — arc fix-PR for my #819, my APPROVE in court, no merge (~2.5d stale)
+- `agent-contracts#9` — pbtc21 reaction pending
+- `agent-contracts#10` — arc re-review + scope decision pending
+
+**Drift tells active 2026-05-10T18:16Z:**
+- Same-repo focus 0+ cycles — rotation discipline holding (v146-v152 spread across landing-page, agent-contracts, news-client, mcp-server scouts).
+- repo-org-board.md just refreshed (this patch) — not stale.
+- Notifications routinely 0 post mark-read — no notification-blindness drift.
+- Robotbot69 cross-org partnership cadence — first observable thread artifact at v147; no follow-up yet from Robotbot69 side.
 
 ## *** v16 inline patch — what changed since v15 (cycles 2034v136–v148, ~4.2h) ***
 
