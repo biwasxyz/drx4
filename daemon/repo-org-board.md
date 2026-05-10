@@ -2,9 +2,58 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-10T03:42Z (cycle 2034v116, v13 inline patch — drift-tell trigger: 28 cycles since v12 + Phase 1.4 closure milestone + 3-author dev-council pattern formalized)
+**Last refresh:** 2026-05-10T09:43Z (cycle 2034v130, v14 inline patch — drift-tell trigger: 14 cycles since v13 + Phase 2 ramp closure: 2.1/2.2/2.3/2.4 all merged + Path A pagination merged + Phase 2.5 spec filed)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v14 inline patch — what changed since v13 (cycles 2034v116–v129, ~6h) ***
+
+**Phase 2 ramp 2.0 → 2.4 merged + Path A pagination merged** in the v117–v128 window:
+
+- **Phase 2.0 docs** (#685) — diff-report artifact MERGED 03:19Z 5/10. Phase 1.4 zero-unexplained-drift gate satisfied. (covered in v13 patch.)
+- **Phase 2.1** (#688) `rebuildAgentListCache` D1 SELECT MERGED 04:42Z 5/10 with my v118 D1-result.success nit applied verbatim as fixup `1e8744df` ("secret-mars nit"). Phase 2.2 module surface (`classifyAddress` + `lookupProfileBy*` + `mapRowToAgentRecord` + `mapRowToClaimRecord` + `claimRecordToStatus`) created here, validated as right-shaped via 4× cross-handler reuse (#690 / #694 / #696 / #701 all import this module).
+- **Phase 2.2** (#690) `/api/agents/[address]` D1 flip MERGED 05:48Z 5/10 with my v120 substantive concern resolved via Option B (D1-first + KV fallback for ~708 validation-excluded agents per #691 cleanup tracker). 30-min from PR-open to merge with substantive concern surfaced + resolved in flight — fastest substantive-block-resolved cycle yet at the time.
+- **CLAUDE.md** (#686) `sample real KV records before locking specs` rule MERGED 03:51Z 5/10. Rule's first post-merge test fired at #687 spec scoping (catches: `a.referred_by` should be `a.referred_by_btc`). Same shape recurring lesson with skills `metadata.requires` (#376/#377/#378).
+- **Phase 2.3** (#694) middleware crawler-bot OG handler D1 flip MERGED 06:55Z 5/10 with `c869e16` post-merge fixup adding bc1p taproot handling (Codex P1 catch landed in 29-sec window between my v123 APPROVE submit + merge ack — v68 lesson refinement: re-check head SHA AT moment of submit).
+- **Phase 2.4** (#696) `/api/og/[address]` D1 flip MERGED 07:16Z 5/10 with taproot handled upfront from commit 1 (lesson-learned-forward from #694's c869e16 fix; ~25min from "lesson surfaced" to "applied to next PR's design").
+- **Path A pagination** (#701) cursor-based inbox reconcile MERGED 09:02Z 5/10. Direct implementation of my v113 #675 review scope notes folded via #684 spec; ~25h spec→merge interval; notes implemented verbatim (cursor pagination + `buildFullAgentsFromD1` + `agents.drift_unexplained === 0` pre-condition + inbox-only narrowing).
+- **d1-pk module migration** (#699) MERGED 07:43Z 5/10 — supersedes stale #674; v98 multi-PR coord drift catch on #700 duplicate by arc fired empirically (caught 1.5min before #699 merge).
+- **Phase 2.5** (#697) issue spec filed 07:28Z 5/10 — "revenue-surface CHECKPOINT", explicitly NOT spawning PR yet, awaiting maintainer A/B/C sequencing decision. My v126 vote A + v127 baseline-probe in court.
+- **OG title bug** (#702) filed by me 08:32Z 5/10 — empirical via v122-codified post-deploy-probe pattern; "Verified Agent Agent" doubled word for ~243 level=1 agents; 3 fix options analyzed with recommendation A.
+- **Followups filed by whoabuddy:** #691 (708-record cleanup triage), #692 (BNS resolver bug + enrichAgentProfile KV-read residual), #698 (d1-pk migration completion → resolved by #699 merge), #703 (txidCounts → Set<string> cursor optimization).
+
+**Counts drift since v13** (verified 2026-05-10T09:43Z):
+- agent-news: 11/65 unchanged
+- aibtc-mcp-server: 11/13 unchanged
+- landing-page: **8/24 → 7/28** (PRs −1 net via mergers minus opens; issues +4 from #691 + #692 + #697 + #702 + #703 + #698 - resolved -2)
+- skills: 13/3 unchanged
+- loop-starter-kit: 16/16 unchanged
+- x402-sponsor-relay: 2/5 unchanged (still no movement on #369; ~86h+ silent, 7d threshold ~5/14 = ~4d remaining)
+
+**Heads moved (since v13):** #685 / #686 / #688 / #690 / #694 / #696 / #699 / #701 all MERGED. 8 PR merges in ~6h via dev-council loop.
+
+**Heads still pending:**
+- landing-page#697 (Phase 2.5 spec, checkpoint-gated, no PR yet)
+- landing-page#702 (OG title bug, fix not started)
+- landing-page#703 (cursor optimization, my offer pending)
+- landing-page#691 (708-record cleanup, unstarted)
+- landing-page#692 (BNS resolver bug, my take-it offer ~5h silent)
+- landing-page#700 (duplicate of #699, closure pending)
+- mcp-server #504 / #487 / #509 / #508 — patient cooldown, all unmoved since 5/8-5/10
+- x402-sponsor-relay#369 — patient cooldown
+- skills#378 — pending LimaDevBTC/diegomey
+
+**Patterns codified during this window:**
+- **v122 post-deploy-probe** — empirical verification AFTER merge surfaces adjacent bugs (e.g., #702 OG title bug found while verifying #694 + #696 KV-fallback). Complement to scout-pre-position. Codified as learning entry.
+- **v128 framing→issue→implementation pipeline** — review notes folded into follow-up issue spec become the next PR's implementation guide. v113 #675 review → #684 spec → #701 PR with notes implemented verbatim. Codified as learning entry.
+- **v129 release-valves unification** — scout-pre-position + post-deploy-probe + framing→issue pipeline are 3 mechanically-different but substrate-same patterns. All pre-position substantive observations BEFORE the next PR review needs them.
+- **v98 multi-PR coord drift restated reviewer-pair-agnostic** — pattern fires on whoabuddy + arc OPENS (#699 vs #700) just as it fired on arc + me REVIEWS (v107/v110). Not specific to any reviewer pair — trigger is "two implementers responding to shared spec without coordinating who's taking it."
+- **v68 head-SHA-pre-submit refinement** — re-check head SHA AT moment of submit, not just at start of review. Triggered by #694 c869e16 landing 29sec before my v123 APPROVE.
+
+**Drift tells active 2026-05-10T09:43Z:**
+- Same-repo focus 7+ cycles (v117-v129 all landing-page) — drift-tell active but Phase 2 ramp justified the focus. v122/v127 cross-repo sweeps confirmed no actionable cross-repo work; v130 board refresh is the natural rotation move.
+- Output type rotation: 14 distinct types in 17 cycles (v113-v129) — healthy diversity within landing-page focus.
+- Notifications routinely 0 post mark-read — no notification-blindness drift.
 
 ## *** v13 inline patch — what changed since v12 (cycles 2034v88–v115, ~14.5h) ***
 
