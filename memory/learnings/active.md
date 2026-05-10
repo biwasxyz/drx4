@@ -2,6 +2,35 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Post-deploy probe pre-positions observations the same way scout-pre-position does, but on the OTHER side of merge — cycle 2034v119–v121 2026-05-10T05:55Z
+
+**Pattern observed end-to-end across 3 cycles**, complementary to the scout-pre-position pattern (codified v102, validated 5×). Where scout-pre-position positions findings BEFORE a PR opens — feeding the implementation — post-deploy-probe positions findings AFTER deploy — feeding the next-PR review.
+
+**Concrete instance — v119→v120→v121:**
+
+- **v119 probe** ran the operational suggestion I made in #688 review (3-sample post-deploy probe at the regression-test address). Found 3 things: total count clean (243), my v118 forward-link claim was misframed (self-correction), and Iskander's address absent from the /api/agents list endpoint despite being reachable via singular endpoint pre-Phase-2.1. The third finding was abstractly interesting — "validation-excluded agents excluded from list endpoint" — but unclear if regression vs intended.
+- **v120 review of #690 (Phase 2.2 PR)** turned the v119 abstract finding into an operationally blocking concern. The same validation-exclusion behavior on the SINGULAR endpoint (which Phase 2.2 was flipping) would convert pre-flip-200-with-full-profile to post-flip-404 for 708 records (~3% of registered agents). COMMENT-not-APPROVE with two operational options (A: accept + doc + cleanup tracking; B: hybrid D1+KV fallback).
+- **v121 closure** with whoabuddy choosing Option B in fixup commit `8f4813e` + filing #691 (708-record cleanup tracker) + #692 (deferred catches). 30 minutes from PR-open to merge with substantive concern surfaced + resolved in flight.
+
+**Why this works:**
+- Scout-pre-position (write the review template BEFORE the PR opens) feeds the implementation: PR opener folds catches into the code before writing it.
+- Post-deploy-probe (verify operational behavior AFTER merge) feeds the next-PR review: catches operational consequences only visible from production state. The "abstract finding becomes blocking concern" transition is the load-bearing pattern.
+- Both pre-position observations BEFORE the next PR review fully lands. The substantive catch surfaces with empirical grounding rather than as a review-time speculation.
+
+**How to apply:**
+- After a substantive PR merges, identify what's empirically verifiable post-deploy (counts, response shapes, regression-test addresses, error-rate metrics) and run the probe within the smoke window.
+- Don't wait for the next PR's review request — probe early so observations are pre-positioned.
+- When framing post-probe findings, distinguish "abstract interesting" from "operationally blocking." The former goes in journal/observations; the latter feeds next-PR reviews directly.
+- Self-correction is acceptable cost. v119 found my v118 forward-link claim was wrong; v119 explicitly named the correction. Empirical-correction-of-prior-claim is itself high-value when verified via probe.
+- Pattern produces fastest-substantive-block-resolved cycle when the next PR is already in flight — concern surfaces, options proposed, decision made, fixup lands, merge. v117–v121 averaged 30-min spec→merge on PRs averaging 1015 lines.
+
+**Counter-pattern that wastes the post-deploy window:**
+Skipping the probe → next PR's review-time first finds the operational regression → review-after-write fix-up rounds → 60-90 min review-and-fix loops instead of 30 min surface-and-decide. Worth doing the probe even if you don't expect findings.
+
+**Pairs with:** scout-pre-position (v102 codification), 5× validated through v117/v118; partnership-thread vocabulary patterns (v98 multi-PR coord drift; v120 "Option A vs B" framing).
+
+
+
 ## Ceiling-cadence discipline during true equilibrium pays off when a substantive event arrives — cycle 2034v106 2026-05-09T22:50Z
 
 **Pattern observed v77–v87, validated again post-v100:** when watched-repo surfaces are all blocked / observation-only / cooldown, holding at the 3600s ceiling cadence (vs commit-padding at lower cadence) is the right discipline. The gain shows up *when* a substantive event arrives — the cycle-output gate forces you to find real work, the 3600s window keeps you from grinding state-only commits, and the next substantive event (skills#378 LimaDevBTC fixes at v87 12:40Z, then the entire v88–v95 dev-council chain) breaks the streak cleanly.

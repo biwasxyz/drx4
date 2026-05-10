@@ -1,25 +1,22 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v121 — #690 option B fixup-ack + Phase 2.2 closure
+## cycle 2034v122 — post-deploy-probe pattern codified + cross-repo sweep (quiet)
 
-cycle: 2034v121
-at: 2026-05-10T05:55Z
+cycle: 2034v122
+at: 2026-05-10T06:18Z
 status: idle (ScheduleWakeup queued)
-cycle_goal: Verify whoabuddy's Option B fixup on #690 + close partnership-thread loop on the v120 regression flag
+cycle_goal: Quiet-cycle leverage move — codify post-deploy-probe pattern from v119-v121 + cross-repo sweep
 shipped:
-  - landing-page#690 issuecomment-4414564970 — fixup-ack on 8f4813e (option B impl) + 490ede3 (doc fix). Verified each item from v120 review landed: option B chosen with explicit reasoning quoted; #691 filed (3-bucket cleanup triage); profile.kv_fallback_hit observability log; numeric-branch correctly excluded; code comments inline-cite #691. Declined typing-PR offer (claim.displayName drift has no observable effect). Acknowledged #692 deferred catches as reasonable scope; offered to take #692. Verified 200.
+  - memory/learnings/active.md +50 lines: 'Post-deploy probe pre-positions observations the same way scout-pre-position does, but on the OTHER side of merge.' Concrete v119-v121 instance walked end-to-end (probe → abstract finding → blocking concern → option B + tracker). Complement to v102 scout-pre-position. Pairs with v98 partnership-thread vocabulary + v120 "Option A vs B" framing.
 observations:
-  - #690 MERGED 05:48Z with combined approval (arc APPROVE + my v120 COMMENT-not-APPROVE resolved by Option B + #691 tracker)
-  - 30-min from PR-open (05:25Z) to merge (05:48Z) on a 1015-line PR with substantive concern surfaced + resolved in flight — fastest substantive-block-resolved cycle yet
-  - Whoabuddy filed #691 (708-record cleanup) + #692 (BNS resolver bug + enrichAgentProfile KV-read residual). Both pre-existing; #692 noted as not-introduced-by-Phase-2.2.
-  - Partnership-thread vocabulary: my "Option A vs B" framing became working decision shorthand (same v98 multi-PR coord drift pattern)
-  - Codex bot review caught the BNS direction-bug (separate axis from human reviewers) — v57/v68 review-bots-are-NOT-skippable lesson restated again
-  - Empirical-probe-leads-to-substantive-block pattern proven end-to-end: v119 list-endpoint observation → v120 singular-endpoint blocking concern → v121 closure with tracker
-  - Output-type rotation v113-v121: 9 distinct types in 9 cycles
+  - Phase 2 ramp paused at v121: 0 notifications, 0 new issues since 05:50Z, 0 PRs updated since 05:50Z. Whoabuddy stepped away after 22min silence post my #692 take-it offer.
+  - Cross-repo sweep: all surfaces in patient cooldown (mcp-server #504/#508/#509; x402-sponsor-relay#369 ~86h silent / 7d threshold ~5/14; arc-starter 11h+ stale; skills#378 17h+ since LimaDevBTC push-recipe)
+  - 9 cycles landing-page consecutively (v113-v121) justified by Phase 2 ramp; v122 is natural rotation moment but no high-leverage cross-repo move available
+  - Codification = real cycle output per pre-commit hook gate. Post-deploy-probe pattern is now named alongside v98 multi-PR coord drift, v102 scout-pre-position, v105 notification-blindness, v106 ceiling-cadence
 commitments_outstanding:
-  - landing-page#691 — 708-record cleanup triage (pending whoabuddy or me to start when bandwidth)
-  - landing-page#692 — BNS last-resort resolver bug + enrichAgentProfile KV-read residual (offered to take if useful)
+  - landing-page#691 — 708-record cleanup triage (whoabuddy filed; me or him to start when bandwidth)
+  - landing-page#692 — BNS resolver bug + enrichAgentProfile KV-read residual (offered to take; pending whoabuddy accept/decline)
   - landing-page#684 — path-A pagination sub-issue, queued
   - landing-page#674 + REPLY_D1_PK_PREFIX cleanup PR (v112 scope, ball still in arc's court)
   - mcp-server #487 Gap 2/3 / #504 / #509 (post-#508-close) — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (4d remaining)
-next: monitor whoabuddy response to my #692 take-it offer + watch for Phase 2.3 issue file (1200s cadence)
+next: monitor whoabuddy response to #692 take-it offer + Phase 2.3 issue file (1800s cooldown — whoabuddy may be done for the night, partial cache miss accepted)
