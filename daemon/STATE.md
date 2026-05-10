@@ -1,27 +1,26 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v125 — v98 multi-PR coord drift catch on #699/#700
+## cycle 2034v126 — Phase 2.5 #697 substantive scoping + #700 closure
 
-cycle: 2034v125
-at: 2026-05-10T07:41Z
+cycle: 2034v126
+at: 2026-05-10T08:06Z
 status: idle (ScheduleWakeup queued)
-cycle_goal: Catch v98 multi-PR coord drift on duplicate PRs + scope decisions for Phase 2.5
+cycle_goal: Apply v100 scout to Phase 2.5 #697 spec + close v98 catch loop on #700
 shipped:
-  - landing-page#700 issuecomment-4414754564 + #699 issuecomment-4414754657 — v98 multi-PR coord drift CATCH on duplicate PRs. #699 (whoabuddy 07:29Z) + #700 (arc 07:37Z, 8-min gap) both close #698 + supersede #674; lib/inbox/d1-pk.ts content byte-identical; only test file differs (31 vs 22 lines). Pattern fires on reviewer-pair-agnostic basis (was arc+me, now whoabuddy+arc). Recommended close #700 in favor of #699; cherry-pick test delta if useful. Verified 200.
+  - landing-page#697 issuecomment-4414797572 — Phase 2.5 spec scoping. Vote A on sequencing (Step 1 dual-write ASAP + 24h observe + Step 3 read-flip checkpoint-gated). 6 read-flip correctness invariants from v100 scout mapped to Step 3. Acceptance recipe at v54/v55+v96+#685 baseline. 3 open scope questions surfaced (validation-excluded FK fail / reconciliation route invocation / cache key semantics agent-news#802 class). Offered to prep Step 1 PR. Verified 200.
+  - landing-page#700 issuecomment-4414797672 — closure note: #699 merged 07:43Z; #700 can close as superseded with credit. v98 catch loop closed.
 observations:
-  - #696 (Phase 2.4) MERGED 07:16Z (1min before v124 wakeup)
-  - Phase 2 ramp continued at high velocity: whoabuddy filed 3 issues + 1 PR at 07:28Z (#697 Phase 2.5 spec / #698 d1-pk migration followup / #699 d1-pk PR); arc opened #700 8min later in parallel
-  - #697 Phase 2.5 spec is "revenue-surface CHECKPOINT" — explicitly NOT spawning PR yet, awaiting A/B/C sequencing decision. My v100 scout pre-positioned at daemon/scouts/lp-phase-2.5-prep.md (~180 lines) ready for v126 substantive scoping
-  - v98 multi-PR coord drift now reviewer-pair-agnostic — pattern fires whenever two implementers respond to a shared spec without coordinating who's taking it. Vocabulary persists across reviewer pairs (whoabuddy 01:24Z framing "cross-PR-coord lesson for the operational journal" still operating)
-  - Phase 2 cycle count: v97 → v125 = 28 cycles; 9 PR-merge events (Phase 2.0/2.1/2.2/2.3/2.4 + #674 carryover via #699/#700 imminent + #696 merge)
-  - Output type rotation v113-v125: 12 distinct types in 13 cycles (v125 = coord_drift_catch + cross_link)
+  - #699 MERGED 07:43Z (1.5min after my v98 catch comment) — whoabuddy chose the canonical PR; v98 catch worked exactly as intended pre-second-merge
+  - 6th instance of scout-pre-position pattern (v54/v55→v66; v63→v65; v71/v72→v74; v77→v92; v117→v118; v100→v126). v100 scout was the largest pre-position to date (~165 lines from 2026-05-09T18:15Z) — applied 14h+ later when whoabuddy filed #697 spec.
+  - Phase 2.5 spec structure is 4-step (dual-write / observe / read-flip / write-flip) vs my v100 scout's single-PR assumption. Scout's correctness checklist still applies cleanly to Step 3.
+  - Phase 2.5 is "revenue-surface CHECKPOINT" — explicit maintainer sign-off required for read-flip + write-flip steps. My vote A surfaces Step 1 + Step 2 as non-checkpoint preliminaries.
+  - Output type rotation v113-v126: 13 distinct types in 14 cycles
 commitments_outstanding:
-  - landing-page#697 — Phase 2.5 spec (CHECKPOINT-gated; v126 substantive scoping queued via v100 scout)
-  - landing-page#699 vs #700 — duplicate cleanup (one closes; whoabuddy/arc decides)
-  - landing-page#696 — MERGED; post-deploy crawler-UA probe per v122 pattern queued
-  - landing-page#691 — 708-record cleanup triage (pending)
-  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~108min silent on take-it offer)
+  - landing-page#697 — Phase 2.5 spec; awaiting maintainer A/B/C sequencing decision; my vote A + scope observations + offer to prep Step 1 PR pending response
+  - landing-page#700 — duplicate; closure pending arc/whoabuddy
+  - landing-page#691 — 708-record cleanup triage (now intersects Phase 2.5 Step 1 FK-fail handling)
+  - landing-page#692 — BNS resolver + KV-read residual (offered to take; whoabuddy ~140min silent)
   - landing-page#684 — path-A pagination sub-issue, queued
-  - landing-page#674 — superseded by #699/#700
+  - landing-page#674 — superseded by #699 (now merged); auto-close pending
   - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (~4d remaining)
-next: v126 = #697 Phase 2.5 substantive scoping via v100 scout + watch #699/#700 resolution + post-deploy probe on #696 (1200s cadence)
+next: monitor #697 sequencing decision + post-deploy probe on #696 if/when bandwidth (1200s cadence)
