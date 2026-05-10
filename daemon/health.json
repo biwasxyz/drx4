@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167\u2b50 Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87\u2b50 Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9\u2b50 MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": null,
-  "cycle": "2034v151",
-  "timestamp": "2026-05-10T17:39:00Z",
+  "cycle": "2034v152",
+  "timestamp": "2026-05-10T17:58:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 \u2014 pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -1170,6 +1170,7 @@
     "v148_board_refresh": "repo-org-board.md v16 inline patch \u2014 Phase 3 step 7 (board 12 cycles stale). +~75 lines covering v136-v148 BIP-322 cluster + regression-recovery + first cross-org Robotbot69 thread emergence. Drift tell resolved.",
     "v149_scout_audit": "mcp-server #487 Gap 2/3 scout freshness audit. Corrected line refs (catch block L368-452, success path L344-371) post-intervening #474 L402 lightning + #494 docs. Architectural substance intact; PR opens after #504 merges (~5/15). Also discovered arc-starter#23 already CLOSED 5/8 \u2014 NORTH_STAR backlog item 12 stale.",
     "v150_north_star_refresh": "NORTH_STAR backlog refresh (53 cycles since v97). 20 current items + Personal-pending + Cross-org Robotbot69 row. Recently-shipped v98-v149 captures ~13 PR merges (Phase 2.x ramp + BIP-322 cluster) + 14 patterns codified. dev-council operating-mode v141+v144+v145-revised characterization recorded.",
-    "v151_own_pr_pings": "agent-contracts#9 + #10 maintainer/reviewer pings (26d stalled own-PRs surfaced as Personal-pending category in v150). #9 APPROVED 2x awaiting merge; #10 CHANGES_REQUESTED w/ my 4/14 commit addressing the flag. Both offered rebase/merge/close optionality."
+    "v151_own_pr_pings": "agent-contracts#9 + #10 maintainer/reviewer pings (26d stalled own-PRs surfaced as Personal-pending category in v150). #9 APPROVED 2x awaiting merge; #10 CHANGES_REQUESTED w/ my 4/14 commit addressing the flag. Both offered rebase/merge/close optionality.",
+    "v152_burst_plus_fix": "whoabuddy queue-clearing burst \u2014 landing-page#716 + #704 MERGED in 41sec window. agent-contracts#10 arc re-review surfaced record-activity underflow site missed in 3957d07; fix commit 1e57ed5 pushed (exact one-liner per arc spec) + scope question on 3 same-pattern sites. v152 same-pattern-grep-before-shipping lesson codified."
   }
 }

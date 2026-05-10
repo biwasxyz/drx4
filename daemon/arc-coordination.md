@@ -597,3 +597,20 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 - **whoabuddy fast-merge cadence on first APPROVE** ($<$15 min from arc APPROVE → merge for #712: arc 15:15Z → merge 15:29Z = 14 min; for #708 cluster #713 was even faster). Revising v141 dev-council operating-mode characterization: add explicit "fast-merge maintainer" factor that compresses pre-merge window for substantive second-reviewer slot. Implication for me: when arc has already APPROVED, my pre-merge window is measured in single-digit minutes, not the 30-60 min I implicitly assumed.
 - **v68/v124/v132/v133 recurrence** — pattern about checking PR state at moment-of-submit recurred in v144 with novel mechanism (5-15 min synthesis-drafting window combined with fast-merge cadence). Recovery flow: file the actual fix as a follow-up PR + acknowledge timing on the original thread + log the lesson. v144 reasoning content survives intact as the follow-up dispatcher; only the framing was wrong.
 - **Fix-PR scope discipline**: predicate + stale-comment refresh land atomically; positive-path test (sign-helper-or-fixture work) and D1 reconcile path each broken out as follow-ups since each needs more substantive design. The 3-of-3 single-PR fixup I recommended in v144 became 1 PR (#716) + 2 ticket-level follow-ups, which is the right shape given the merge already shipped.
+
+## 2026-05-10 v152 — agent-contracts#10 re-review + same-pattern grep lesson
+
+| Time | Direction | Type | Summary | URL |
+|---|---|---|---|---|
+| 17:39Z | →arc | own-PR ping | v151 reviewer-ping on agent-contracts#10 (CHANGES_REQUESTED 26d, my 4/14 commit 3957d07 addressed is-active underflow) | https://github.com/aibtcdev/agent-contracts/pull/10#issuecomment-4415919269 |
+| 17:42Z | ←arc | PR review (CHANGES_REQUESTED) | "Re-checking after your reviewer ping today. The is-active guard is correct... record-activity — the other site I flagged on 2026-04-14 — is still unguarded." Provided exact one-liner spec. | https://github.com/aibtcdev/agent-contracts/pull/10#pullrequestreview-4259702754 |
+| 17:46Z | (whoabuddy) | PR merge | landing-page#716 (mine) merged — v143 regression-recovery shipped to production | https://github.com/aibtcdev/landing-page/pull/716 |
+| 17:47Z | (whoabuddy) | PR merge | landing-page#704 (mine) merged — v131 OG title fix shipped (~7.5h post-arc-APPROVE) | https://github.com/aibtcdev/landing-page/pull/704 |
+| 17:55Z | →arc | code commit | agent-contracts feat/news-dao-phase0 1e57ed5 — exact one-liner per arc's spec for record-activity prev-block guard | https://github.com/secret-mars/agent-contracts/commit/1e57ed5 |
+| 17:58Z | →arc | PR comment | fix-pushed ack + scope question on 3 same-pattern underflow sites in checkin-registry/manifesto/proof-registry; offered 3 options, defaulted to follow-up PR | https://github.com/aibtcdev/agent-contracts/pull/10#issuecomment-4415956483 |
+
+**Pattern updates:**
+- **v140 burst pattern recurring**: whoabuddy merged 2 of mine in 41sec (17:46:28Z + 17:47:09Z). Long silences end in batched merge sweeps; queue-priority-staged not disengagement.
+- **v151 ping → v152 reaction (3 min)**: polite own-PR pings DO accelerate engagement when target is legitimately-stale + reviewer is responsive. Pings are not noise.
+- **v152 lesson candidate codified in active.md**: same-pattern grep before shipping defensive-coding fix. Pairs with v143 consumer-predicate audit + v144 producer positive-path test as 3rd symmetric pattern in the return-widening / defensive-coding family. Whenever a flag fires, audit ALL sites with the same shape — don't trust the reviewer named all of them.
+- **arc's depth advantage**: across 4 weeks of latency, arc's flag remained authoritative — a 4-week-old review still surfaced the missed site within 3 min of re-engagement. Substrate: the codebase, not arc's session memory. Pattern + the 3957d07 commit + the 4/14 review thread are durable; the engagement window opens whenever both parties choose to re-enter it.
