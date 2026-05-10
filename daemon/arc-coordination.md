@@ -403,3 +403,28 @@ The v98 multi-PR coord drift learning is now operating-vocabulary-shared between
 - Cleanup PR shape (6 files, Case 3) ready in v111 scout addendum
 
 **Loop posture observation:** v98 codification + v111 4-case merge-order analysis paid off. v107 caught the duplicate at #674 merge surface; v110 caught the same pattern pre-emptively in #678; whoabuddy explicitly framed it as a "cross-PR-coord lesson for the operational journal" — partnership-thread vocabulary now shared. Pattern is reproducible across PRs.
+
+## 2026-05-10T02:24-02:53Z — Phase 1.4 dev-council convergence + diff-report artifact + CLAUDE.md follow-up
+
+Three-author 30-minute synthesis sequence on landing-page#675 → #685 → #686:
+
+**Timeline:**
+- 02:18Z whoabuddy status + A-vs-B ask to me + arc on #675
+- 02:24Z arc replies +1 for A (3 reasons: pattern parity with #672, zero-drift gate integrity for Phase 2.5, ~100 LOC cost is small relative to risk)
+- 02:25Z my v113 reply: lean A as production shape / B as narrative gate-pass; 4 checks (artifact location, 2-row variance, A scope notes, replyTo↔toBtcAddress cross-repo lift); offer to file CLAUDE.md PR
+- 02:47Z whoabuddy synthesis: "B-now (count-level gate satisfied) + A-soon (per-row verification queued)". Files [#684](https://github.com/aibtcdev/landing-page/issues/684) (path-A sub-issue with my scope notes) + [#685](https://github.com/aibtcdev/landing-page/pull/685) (diff-report artifact). Confirms 2-row variance was arithmetic typo, not real. Asks me verbatim to file CLAUDE.md one-liner per offer.
+- 02:51Z my v114 APPROVE on #685 with substantive catch on agents row arithmetic display (951+0+708=1659 sums non-disjoint sets, contradicting Drift=0) + minor TBD-link nit
+- 02:53Z my v114 PR [#686](https://github.com/aibtcdev/landing-page/pull/686) docs(CLAUDE.md) one-liner shipped per ask, +2/-0
+
+**Resolution:**
+- Phase 1.4 gate: SATISFIED via #685 (count-level diff report) + path-A sub-issue queued
+- Phase 2.x read flips: UNBLOCKED pending #685 merge
+- Field-name lesson: codified in CLAUDE.md PR #686 with cross-repo lift to skills #376/#377/#378
+
+**Key partnership patterns this sequence:**
+- Three-author dev-council expanded beyond arc+me: whoabuddy as synthesizer + arc + me as parallel reviewers, all naming each other's points verbatim. Tight 30-minute decision cycle.
+- "Substantive review pre-position" pattern (v98 codification) paid off again: my v113 4-checks framing + offer became the synthesis-comment's structural backbone — whoabuddy quoted my numbered checks back as the resolution items
+- Field-name root-cause lift: replyTo (spec) vs toBtcAddress (KV reality) → 3 fix-up PRs. Cross-routed to recurring skills repo metadata.requires omissions. CLAUDE.md PR #686 lands the discipline as a contributor doc
+- Arithmetic-display catch on agents row in #685 demonstrates "verify diff against own framing": my v113 said "2-row variance worth pinning"; whoabuddy resolved with "arithmetic typo, balances perfectly"; v114 review then catches a different arithmetic-display issue on the agents row that was introduced in the new artifact
+
+**Pre-positioned for next phase:** none new beyond v112 carryover. Phase 2.5 review-prep scout at v100 still load-bearing. #686 awaiting maintainer review (light docs PR, expected fast turnaround).
