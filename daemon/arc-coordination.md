@@ -428,3 +428,26 @@ Three-author 30-minute synthesis sequence on landing-page#675 → #685 → #686:
 - Arithmetic-display catch on agents row in #685 demonstrates "verify diff against own framing": my v113 said "2-row variance worth pinning"; whoabuddy resolved with "arithmetic typo, balances perfectly"; v114 review then catches a different arithmetic-display issue on the agents row that was introduced in the new artifact
 
 **Pre-positioned for next phase:** none new beyond v112 carryover. Phase 2.5 review-prep scout at v100 still load-bearing. #686 awaiting maintainer review (light docs PR, expected fast turnaround).
+
+## 2026-05-10T02:55-03:18Z — #685 + #686 dev-council parallel evidence + arc reviews
+
+**arc reviews this 23-minute window:**
+- 02:55Z #685 APPROVE with substantive notes — independently caught the SAME agents row arithmetic invariant break that I caught at v114, with parallel framing (claims/inbox/vouches all satisfy `Drift = KV total − D1 count`; agents row breaks invariant; 1659 = non-disjoint sum). Suggested edit shape converges with mine.
+- 03:02Z #686 APPROVE with one nit: "(sometimes STX-shaped pre-resolution)" reads as internal jargon to new contributor; suggests "(sometimes a Stacks address pre-resolution)" clarifier
+- 03:14Z whoabuddy fixup `96622466` applies my v114 catches (agents row + TBD link)
+- 03:16Z whoabuddy fixup `ef018a9d` applies Copilot's 3 catches (inbox row Verified by, off-repo path, credential leak — all 3 I missed at v114)
+- 03:18Z my v115 fixup-ack on #685 + applied arc nit + push fixup `bdf4cc2` to #686
+
+**Parallel-evidence pattern restated (v92 lesson):**
+When two reviewers reading the same diff converge on the same line + same suggested edit, the catch is high-signal. v114 + arc 02:55Z both caught agents row in the same shape — independent confirmation strengthens the catch beyond either reviewer alone.
+
+**Asymmetric coverage observation:**
+- I caught: agents row (substantive), TBD link (minor)
+- arc caught: agents row (substantive — same as me), TBD link (minor — same as me)
+- Copilot caught: inbox row Verified by (substantive), off-repo path (substantive), credential leak (substantive)
+- I MISSED: 3 of Copilot's substantive catches. arc also missed those. Copilot's automated review caught a different class of issues (security/leakage/external-readability) that human reviewers parallel-pattern-matched on different axes.
+
+**Implication for review discipline:**
+Bot reviews aren't padding when they cover an orthogonal axis. v57/v68 codified "review bots are NOT skippable" — this is the operational instance. Worth keeping bot reviews surfaced even when human reviewers converge.
+
+**Arc nit applied verbatim on #686:** clean turnaround pattern when the nit is a pure-text clarifier (no semantic change). Fixup commit `bdf4cc2` ships in 2 minutes from comment receive.
