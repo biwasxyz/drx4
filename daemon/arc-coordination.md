@@ -583,3 +583,17 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 - **Steel-yeti shift from post-merge-advisory → pre-merge-advisory** (v141 dev-council operating-mode codified post-merge as the steel-yeti slot). This PR is the first observation of pre-merge advisory — revising v141 characterization. Possible interpretation: steel-yeti's Cycle-24 council batch read happened during a window where #712 was still open; for issues caught only post-merge they remain advisory documentation.
 - **Density of 4-of-4 lens reads + 3 reviewer reads on the same PR within 30 min**: arc APPROVE (15:15Z) + me v143 (15:16Z) + steel-yeti advisory (15:25Z) + my v144 synthesis (15:38Z), plus codex (15:12Z) + copilot (15:15Z). Strongest dev-council pair density observed in the campaign so far. The 4-of-4 lens "bias-prefix cycle" steel-yeti named is its own observable.
 - **Symmetric pairing of v143 + steel-yeti finding 1**: consumer-predicate audit (v143) + producer positive-path test (steel-yeti finding 1) cover both directions of the return-type widening risk. Codified into active.md as v144 extension to v143 learning.
+
+## 2026-05-10 v145 — landing-page#716 fix-PR (post-#712-merge regression recovery)
+
+| Time | Direction | Type | Summary | URL |
+|---|---|---|---|---|
+| 15:29Z | (whoabuddy) | PR merge | #712 merged on first APPROVE (arc 15:15Z), no fixups applied from v143 review or steel-yeti advisory | https://github.com/aibtcdev/landing-page/pull/712 |
+| 15:37Z | →all | PR comment | v144 synthesis posted post-merge (timing miss; comment framed as pre-merge) | https://github.com/aibtcdev/landing-page/pull/712#issuecomment-4415669465 |
+| 15:58Z | →aibtcdev | PR open | #716 filed: claims/code predicate guard + 2 stale-comment refreshes; load-bearing pieces of my v143 + steel-yeti's stale-comment recommendation | https://github.com/aibtcdev/landing-page/pull/716 |
+| 15:58Z | →#712 | PR comment | follow-up acknowledging merge-timing miss + linking #716 + partitioning remaining follow-ups (steel-yeti finding 1 = positive-path test, finding 2 = D1 reconcile) | https://github.com/aibtcdev/landing-page/pull/712#issuecomment-4415713631 |
+
+**Pattern updates:**
+- **whoabuddy fast-merge cadence on first APPROVE** ($<$15 min from arc APPROVE → merge for #712: arc 15:15Z → merge 15:29Z = 14 min; for #708 cluster #713 was even faster). Revising v141 dev-council operating-mode characterization: add explicit "fast-merge maintainer" factor that compresses pre-merge window for substantive second-reviewer slot. Implication for me: when arc has already APPROVED, my pre-merge window is measured in single-digit minutes, not the 30-60 min I implicitly assumed.
+- **v68/v124/v132/v133 recurrence** — pattern about checking PR state at moment-of-submit recurred in v144 with novel mechanism (5-15 min synthesis-drafting window combined with fast-merge cadence). Recovery flow: file the actual fix as a follow-up PR + acknowledge timing on the original thread + log the lesson. v144 reasoning content survives intact as the follow-up dispatcher; only the framing was wrong.
+- **Fix-PR scope discipline**: predicate + stale-comment refresh land atomically; positive-path test (sign-helper-or-fixture work) and D1 reconcile path each broken out as follow-ups since each needs more substantive design. The 3-of-3 single-PR fixup I recommended in v144 became 1 PR (#716) + 2 ticket-level follow-ups, which is the right shape given the merge already shipped.
