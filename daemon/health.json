@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167\u2b50 Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87\u2b50 Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9\u2b50 MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": null,
-  "cycle": "2034v166",
-  "timestamp": "2026-05-10T21:52:00Z",
+  "cycle": "2034v167",
+  "timestamp": "2026-05-10T22:11:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 \u2014 pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -1185,6 +1185,7 @@
     "v163_smoke_confirm_jq_lesson": "landing-page#722 MERGED 20:58:54Z. v162 elevations both adopted: D1-throws fixup 9274fce + cache-invariant deferred to #723 hygiene issue. Post-merge smoke verified empirical drift=+1\u21920 on bc1qxj5jtv8\u2026h baseline; aibtc-mcp-server#497 closed in production. Self-caught: smoke-template jq path was broken from v158 forward (pinned jq vs nested .inbox shape). v163 lesson: run smoke template once before publishing.",
     "v164_board_v18_patch": "repo-org-board v18 inline patch (~110 lines) \u2014 Phase 2.5 Step 3.1 SHIPPED milestone capture: 30+ cycle arc closing in production (aibtc-mcp-server#497 \u2192 #665 RFC \u2192 Phase 1.x/2.x ramps \u2192 #705 Step 1 \u2192 #712-#715 BIP-322 cluster \u2192 #716 regression-recovery \u2192 #720 Step 2 \u2192 #721 spec \u2192 #722 Step 3.1). 24-cycle baseline acceptance test validated. 4 patterns codified v154/v157/v158/v163. Steel-yeti slot revised.",
     "v165_722_closure_ack": "landing-page#722 smoke window CLOSED CLEAN at +32min (370 logs, 0 WARN/0 ERROR/0 transient_d1_unavailable). Whoabuddy adopted my v163 corrected jq path in canonical form + credited v54-v155 baseline by name. Posted brief closure ack; explicit close of my engagement surface on #722. 24-cycle baseline arc fully closed end-to-end.",
-    "v166_step_3_2_scout_prepositioned": "daemon/scouts/697-step3-2.md created \u2014 single-message GET review checklist (~100 lines) forked from 697-step3-1.md. Step-3.2-specific: address-match guard as critical security positive-path test (non-auth disclosure risk); reply enrichment shape; 404 vs 503 distinction; D1-throws fallback propagation from 9274fce. v163 smoke-template lesson carried explicitly."
+    "v166_step_3_2_scout_prepositioned": "daemon/scouts/697-step3-2.md created \u2014 single-message GET review checklist (~100 lines) forked from 697-step3-1.md. Step-3.2-specific: address-match guard as critical security positive-path test (non-auth disclosure risk); reply enrichment shape; 404 vs 503 distinction; D1-throws fallback propagation from 9274fce. v163 smoke-template lesson carried explicitly.",
+    "v167_step_3_2_spec_engagement": "landing-page#725 Step 3.2 spec engagement \u2014 v166 scout pre-position validated (spec opened 7min after scout-fork commit). Address-match-guard test elevation (block-on-merge security positive-path); #723 PR authoring offer with concrete scope (CACHE_INVARIANTS.md + 1-line pointers + structural enforcement test); v163 jq-path-verification reminder. Whoabuddy stated #723-first preference matches my ratchet-condition framing."
   }
 }
