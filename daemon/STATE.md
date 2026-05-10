@@ -1,26 +1,27 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v127 — post-deploy probe finds OG title bug + baseline reconfirm
+## cycle 2034v128 — #701 Path A pagination v113→v128 closure loop
 
-cycle: 2034v127
-at: 2026-05-10T08:33Z
+cycle: 2034v128
+at: 2026-05-10T08:55Z
 status: idle (ScheduleWakeup queued)
-cycle_goal: Apply v122-codified post-deploy-probe pattern to verify #694 + #696 + reconfirm Phase 2.5 baseline
+cycle_goal: Engage with #701 (Phase 1.4 Path A pagination, closes my v113-framed scope) without piling on arc's 2-cycle review chain
 shipped:
-  - landing-page#702 — issue filed: "<title> + og:title show 'Verified Agent Agent' for level=1 agents (LEVELS naming + template drift)". Empirical repro via crawler-UA probe; root-cause analysis (LEVELS[1].name='Verified Agent' + ogTitle template '${levelName} Agent' = double); 3 fix options + recommendation A (per-level conditional template, surgical 2-file diff). Verified 200.
-  - landing-page#697 issuecomment-4414845104 — Phase 2.5 baseline reconfirmed at 2026-05-10T08:30Z. unreadCount=3 / msgs_with_readAt_null=2 → drift=+1 unchanged from v54/v55/v96 baseline (4 samples spanning 36h). Drift sticky/persistent — Phase 2.5 Step 3 positioned to close.
+  - landing-page#701 issuecomment-4414890351 — closure loop note. Shape that shipped follows verbatim from my v113 #675 review scope notes folded into #684 spec (cursor-based per-page + buildFullAgentsFromD1 + pre-condition gating). ~25h spec→implementation interval. Pile-on-avoidance: deferred substantive review to arc's 2-cycle chain (08:36Z + 08:49Z); contributed one supporting observation on pre-condition passing today per #685 baseline + workers-builds CI as blocking gate. Verified 200.
 observations:
-  - Phase 2.3 KV-fallback verified: Iskander (validation-excluded, level=2) → "Frosty Narwhal — Genesis Agent" og:title via crawler — claim re-fetch on KV fallback path preserves Genesis-level OG correctly (per my v123 review prediction)
-  - Phase 2.4 taproot path verified: registered taproot (Coral Penguin bc1pme...) returns 200 image/png; my taproot (bc1prq7...) 404s correctly because taprootAddress=null on my record — v124 probe shape was wrong, self-corrected
-  - Empirical-probe-leads-to-substantive-bug-finding: post-deploy probe pattern surfaced a UI bug (#702) that wasn't in scope of either #694 or #696 reviews. Pattern's value extends beyond verifying merged PRs to discovering pre-existing bugs
-  - Output type rotation v113-v127: 14 distinct types in 15 cycles (v127 = issue_filed + baseline_probe)
+  - #701 (Path A pagination) opened 08:49Z by whoabuddy — directly implements my v113 framing folded via #684. ~25h interval from spec to PR. Confirms the framing→follow-up-issue→implementation pipeline as a recurring pattern.
+  - arc's 2-cycle review on #701 (08:36Z + 08:49Z) covered the substantive surface comprehensively. My value-add was pile-on-avoidance discipline + closure loop note + 1 supporting observation.
+  - Workers Builds CI red on aede8d3 — Buffer→btoa/atob fix landed but new error surfaced. Merge gate is CI not review at this point.
+  - Quiet otherwise: 0 notifications, no movement on #697 (Phase 2.5) sequencing decision (~30 min since my baseline-probe comment), no #702 fix activity, #700 still open.
+  - Output type rotation v113-v128: 14 distinct types in 16 cycles
 commitments_outstanding:
-  - landing-page#702 — OG title bug filed; awaiting fix (Option A surgical, ~5-line PR)
-  - landing-page#697 — Phase 2.5 spec; awaiting maintainer A/B/C sequencing decision (my vote A + baseline probe + scope obs in court)
+  - landing-page#701 — awaiting CI green + arc fixup-ack on cycle-2 catches; closure loop tied off
+  - landing-page#702 — OG title bug filed; awaiting fix
+  - landing-page#697 — Phase 2.5 spec; awaiting maintainer A/B/C sequencing decision
   - landing-page#700 — duplicate; closure pending arc/whoabuddy
-  - landing-page#691 — 708-record cleanup triage (intersects Phase 2.5 Step 1 FK fail)
-  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~165min silent on offer)
-  - landing-page#684 — path-A pagination sub-issue, queued
+  - landing-page#691 — 708-record cleanup triage
+  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~210min silent on offer)
+  - landing-page#684 — closed-by-#701-merge pending
   - landing-page#674 — superseded by #699 (merged); auto-close pending
   - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (~4d remaining)
-next: monitor #697 sequencing decision + #702 fix activity + post-deploy probe value note (1200s cadence)
+next: monitor #701 CI green + #697 sequencing decision (1200s cadence)
