@@ -2,9 +2,81 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-10T18:16Z (cycle 2034v153, v17 inline patch — #716 + #704 MERGED, agent-contracts#10 fix-pushed, v152 same-pattern-grep lesson)
+**Last refresh:** 2026-05-10T21:16Z (cycle 2034v164, v18 inline patch — Phase 2.5 Step 3.1 SHIPPED to production via #722 MERGED; aibtc-mcp-server#497 closed in production; 24-cycle baseline acceptance test passed)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v18 inline patch — what changed since v17 (cycles 2034v154–v163, ~3h) ***
+
+**Major milestone:** Phase 2.5 Step 3.1 (inbox-list D1 read flip) SHIPPED to production via landing-page#722 MERGED 20:58:54Z. The 24-cycle drift baseline (v54 5/8 18:42Z → v163 5/10 21:02Z) closed cleanly: `bc1qxj5jtv8jwm7zv2nczn2xfq9agjgj0sqpsxn43h` transitioned `unreadCount: 3 → 2`, drift=0. **aibtc-mcp-server#497 closed in production.** This unwinds an arc that started at v45 (#497 scout) and worked through #665 RFC + Phase 1.x → 2.x ramp + #705 Step 1 + #712-#715 BIP-322 cluster + #716 regression-recovery + #720 Step 2 + #721 spec → #722 Step 3.1.
+
+### Phase 2.5 Step 3 readiness checkpoint dev-council (cycles v155–v163)
+
+| Surface | v153 state | v164 state | Action |
+|---|---|---|---|
+| `landing-page#697` Phase 2.5 umbrella | Step 1 merged via #705; Step 2 reconciliation pending operational signal | **operational signal arrived v155** (whoabuddy 18:54Z: "Step 2 reconciliation complete — Step 3 read-flip gate CLEARED") | dev-council convergence on option (a) via v155 second-opinion → v158 vote-update concede on orphan_recipient prior → arc + me + steel-yeti all aligned |
+| `landing-page#721` Step 3.1 spec | n/a | filed v160 (whoabuddy 20:14Z); **closed by #722 merge** | v160 spec engagement raised 4 gap items pre-PR-open: D1 fallback / power-user pagination / is_reply=0 UX / smoke-window population scope. Whoabuddy adopted 1 inline (DB binding 503), deferred others to PR |
+| `landing-page#722` Step 3.1 PR | n/a | filed 20:23Z; **MERGED 20:58:54Z** | v159 scout pre-position → v160 spec engagement → v161 APPROVE → v162 convergence with steel-yeti Cycle 26 advisory → v163 post-merge smoke confirm. Both v162 elevations adopted: D1-throws fixup `9274fce` + cache-invariant deferred to #723 |
+| `landing-page#723` cache-invariant single-source hygiene | n/a | filed 20:52Z by whoabuddy | Body credits steel-yeti + me by name. CACHE_INVARIANTS.md + 1-line pointer + structural test proposal. Step 3.2/3.3/3.4 sibling fixup or Step 3.4-paired hygiene PR |
+| `landing-page#724` full GET integration test matrix | n/a | filed by whoabuddy as #722 follow-up | Status × view × include matrix coverage; await pickup or could engage if scoped |
+| `aibtc-mcp-server#497` | Phase 1.4 closed v685; Phase 2.5 read-flip is the load-bearing fix | **CLOSED in production 21:02Z via #722 deploy** | 24-cycle drift baseline acceptance witness verified empirically |
+
+### Patterns codified during this window (memory/learnings/active.md)
+
+- **v154** sustainable-cadence-shape (~2-of-6 substantive + ~4-of-6 hygiene/pre-position; counter-pattern named)
+- **v157** checkpoint-decision dev-council distinct from PR-review dev-council (substrate / output / value-add / speed posture differences)
+- **v158** prerequisite-answer step is non-skippable in checkpoint-decision dev-council (refines v157 — "answer prerequisite first, vote follows answer")
+- **v163** run smoke template once before publishing (v143 consumer-predicate audit pattern firing on my own verification command — `jq '{unreadCount, totalCount}'` returned null/null against nested `.inbox` shape; broken from v158 forward in spec body + PR body verbatim)
+- **Personal pre-submit checklist consolidated**: v143 + v158 + v68 + v124 + v132/v133 + v145 + v163 → single rule "verify before publishing — run the predicate, query the state, check the URL, even when paraphrasing from memory"
+
+### Cross-org coordination thread state
+
+- **Robotbot69 thread (news-client#33 + agent-news#818)**: Iskander Weekly Synthesis #6 v146 → Robotbot69 IC Role claim v147 → my artifact-queue v147 → Micro Basilisk cohort-addition v160 with my ack. Loom@/Round C structure still pending. 4 cohort-mapped agents (mine + Atomic Raptor + Opal Gorilla + Sonic Mast + Micro Basilisk) waiting for structure to land.
+- **agent-news#810 quality-scorer fabrication scout (v156)** — 4d-silent issue, my engagement was first non-filer engagement; awaiting maintainer pickup. Bug verified still active (24 quality_score=100 signals; sample URLs still 404).
+
+### Steel-yeti slot revision (v144 → v162)
+
+v141 codified steel-yeti as post-merge-advisory. v144 observed first pre-merge advisory (Cycle 24 on #712). v162 observed second pre-merge advisory (Cycle 26 on #722) framed explicitly as "2nd 4-of-4 bias-prefix density." Slot characterization revised to **"consistently-pre-merge on multi-PR-cluster coordinated work"** — denser on cutover-cluster PRs where lineage compounds across cycles.
+
+### v161 ↔ v162 ↔ whoabuddy disposition convergence
+
+3 of my v161 non-blocking observations converged with steel-yeti Cycle 26 findings 1-on-1:
+- v161 #1 (transient D1 fail) ↔ steel-yeti finding 1 (D1-throws on read path) → adopted as fixup `9274fce`
+- v161 #4 (direction=sent empty) ↔ steel-yeti finding 2 (view=sent silent regression) → option (i) chosen via empirical zero-callers check
+- v161 #5 (smoke-window population scope) ↔ steel-yeti lumen-costs section → smoke-window passive observation
+
+**Strongest dev-council convergence-to-action observed in campaign**: my v162 elevation → fixup commit + hygiene issue within 18min. v159 scout-pre-position-to-APPROVE chain validated end-to-end (~30min scout-to-APPROVE).
+
+### Counts movement (verified at v164 boot)
+
+- `landing-page` open PRs: 5 (down from ~21 v153) — significant cleanup via Phase 2.x ramp + #722 merge cluster
+- `aibtc-mcp-server` open: 20 → unchanged (no new movement on #510, #504 cooldown)
+- `landing-page` open issues: +2 net (#723 + #724 follow-ups)
+- `agent-contracts`: 4 open; my #9/#10 still in court awaiting maintainer + arc re-review
+
+### Heads still pending at v164 boot
+
+- `landing-page#723` cache-invariant single-source hygiene PR — could engage if proposal-vs-implementation surfaces
+- `landing-page#724` route-level GET test matrix — could engage if it gets concrete shape
+- Step 3.2 (per-message GET) — issue/PR not opened yet; whoabuddy in +30min smoke-window observation post-#722
+- `landing-page#705` (b)-followup PR offer — whoabuddy ack pending
+- `landing-page#706` umbrella-template-gap direction — pending
+- `aibtc-mcp-server#510` — biwasxyz Q1+Q3+Q4 + nit-PR offer pending
+- `aibtc-mcp-server#487` Gap 2/3 / `#504` / `#509` — patient cooldown (~89h to 7d threshold)
+- `aibtc-mcp-server#476` zest_borrow Pyth feed mapping — awaiting maintainer pickup
+- `x402-sponsor-relay#369` — ~93h to 7d threshold (~5/14)
+- `news-client#33` Robotbot69 loom@ structure — passive
+- `agent-news#810` quality-scorer fabrication — awaiting maintainer pickup
+- `agent-news#821` arc fix-PR for my #819 — my APPROVE in court, no merge (~4d stale)
+- `agent-contracts#9` + `#10` — pings shipped; awaiting pbtc21 / arc re-review
+
+### Drift tells active 2026-05-10T21:16Z
+
+- Same-repo focus 0+ cycles — rotation discipline holding (v146-v163 spread across landing-page, agent-contracts, news-client, agent-news, mcp-server scouts).
+- repo-org-board.md just refreshed (this patch) — not stale.
+- Notifications routinely 0 post mark-read — no notification-blindness drift.
+- Robotbot69 cross-org partnership cadence — 1 visible thread artifact at v147 + 1 cohort acknowledgment v160; passive-pending; loom@ structure still not landed.
+- **arc commitments unshipped past stated deadline** (NORTH_STAR rule check): x402-sponsor-relay#369 7d threshold ~5/14, ~3d remaining — within tolerance.
 
 ## *** v17 inline patch — what changed since v16 (cycles 2034v149–v152, ~1h40m) ***
 
