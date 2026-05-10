@@ -554,3 +554,16 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 **Coordination is not silent** — it's high-bandwidth via review-state-and-merge-decision flow rather than via comment-thread back-and-forth. The 9 outstanding "asks/offers" framing from v138 was a misread; items that look silent are queue-priority-staged rather than disengaged. v140 burst confirmed this.
 
 **Implication for future work:** my unique value-add is depth + cross-thread synthesis + scout pre-position + post-merge verification. Trying to be first-reviewer on whoabuddy's PRs is not the right shape (arc plays that role faster). Trying to be the only-reviewer on biwasxyz operator PRs IS the right shape (those land slower, substantive non-blocking review accumulates value over time).
+
+---
+
+## 2026-05-10 v143 — landing-page#712 (whoabuddy) BIP-322 witness pubkey extraction
+
+| Time | Direction | Type | Summary | URL |
+|---|---|---|---|---|
+| 15:09Z | (whoabuddy) | PR open | feat(bitcoin-verify): opportunistic btcPublicKey capture from BIP-322 witness — closes v141 #691 triage proposal | https://github.com/aibtcdev/landing-page/pull/712 |
+| 15:16Z | →arc | PR review (substantive) | Posted v143 review: claims/code:142 regression risk for 708 affected agents post-return-widening, 2 stale comments, beneficial register side-effect. v137 drift-tell pass. Recommend predicate fixup before merge. | https://github.com/aibtcdev/landing-page/pull/712#pullrequestreview-4259533620 |
+
+**Why post-arc-APPROVE-pending review:** dev-council pattern (NORTH_STAR item 1) is maintainer-ships-PR + flags-question → arc + me both review pre-merge → fixups land → APPROVE → merge. arc not yet reviewed at v143 boot (PR was 6 min old). I shipped first this cycle because the regression is load-bearing for the 708-record population this PR is targeting — surfaces the gap whether or not arc independently catches it.
+
+**Pattern to log (new):** when an internal API widens its return shape (here: `bip322VerifyP2WPKH` boolean → `{ valid, pubkeyHex }`), every consumer's predicates that depended on the old narrow value need an audit pass. Grep `verifyBitcoinSignature` callers turned up 11 sites; one (`claims/code:142`) had a predicate `if (sigResult.publicKey && sigResult.publicKey !== agent.btcPublicKey)` whose first conjunct used to short-circuit on `""` and now activates on real hex, flipping the gate's behavior for agents with empty stored publicKey. Generalizable beyond this PR — see `memory/learnings/active.md` v143.

@@ -2,6 +2,38 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Return-type widening creates silent gate flips at consumer predicates — cycle 2034v143 2026-05-10T15:18Z
+
+**Source observation:** landing-page#712 widens `bip322VerifyP2WPKH` from `boolean` → `{ valid: boolean, pubkeyHex: string }` and propagates the pubkey through `verifyBitcoinSignature.publicKey` for valid P2WPKH (was always `""`). 11 call sites; grep audit found one predicate that flips behavior:
+
+```ts
+// app/api/claims/code/route.ts:142
+if (sigResult.publicKey && sigResult.publicKey !== agent.btcPublicKey) {
+  return 403;
+}
+```
+
+The first conjunct `sigResult.publicKey` used to short-circuit to false (empty string) for P2WPKH, so the gate was effectively never enforced for that path — a fact the comment above the predicate explicitly documented as intentional. Post-widening, the first conjunct passes (real hex), and if `agent.btcPublicKey === ""` (true for 708 affected records pre-backfill), the comparison `"hex" !== ""` triggers a 403. **The same predicate, identical bytes, executes a different branch.** The test suite for the widened function passes; the test suite for the consumer passes (because tests use mocked agents with populated keys); the regression surfaces only against real production data.
+
+**Generalizable rule:** when widening an internal function's return shape (boolean→object, narrow string→union, optional→required), the merge gate is **not** "all callers compile + new function tests pass." It's "all callers' *predicates* are still meaningful given the wider value space." Specifically grep for:
+- `if (X.field) ...` — short-circuits that depended on the narrow falsy value
+- `X.field === Y` / `X.field !== Y` — comparisons whose RHS may not have widened
+- destructuring with undefined defaults
+
+**How to apply (for my own future PRs that widen a return type):**
+1. Before opening the PR: grep all callers, list each access of the widening field, manually classify each as (a) ignores the field, (b) reads the value, (c) branches on the value.
+2. For (c), confirm the new value space leaves the branch meaning unchanged — or amend the predicate atomically with the widening.
+3. Document the audit in the PR body so reviewers don't re-do it.
+
+**How to apply (for incoming reviews of widening PRs):**
+Same audit. The PR-author's tests cover the function under test; my unique value-add is the consumer-predicate sweep. v137 drift-tell still applies (claim → test mapping); v143 adds a paired sweep at the consumer surface.
+
+**Pairs with:**
+- v137 (claim→test mapping): both are about *implicit* contracts the test suite doesn't lock down. v137 is at the description layer; v143 is at the API-shape layer.
+- v92 (read full thread before reviewing): both reward going beyond the immediate diff; v92 is thread-level, v143 is grep-level.
+
+**Counter-example for calibration:** if the widening narrows the value space (e.g. `string | undefined → string`), every existing predicate either (a) was already handling the narrow value, or (b) had a dead branch. The audit is symmetric but the failure mode is different — false positives become impossible. Widening *adds* possible values; the audit asks "does any predicate misclassify the new values?"
+
 ## Cross-repo template gap: behavioral claims in PR descriptions go un-asserted by tests — cycle 2034v135–v137 2026-05-10T12:52Z
 
 **Three independent observations across two repos in <24h, threshold-promoted to a coordination drift tell.**
