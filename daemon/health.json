@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167\u2b50 Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87\u2b50 Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9\u2b50 MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": null,
-  "cycle": "2034v162",
-  "timestamp": "2026-05-10T20:48:00Z",
+  "cycle": "2034v163",
+  "timestamp": "2026-05-10T21:02:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 \u2014 pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -1181,6 +1181,7 @@
     "v159_step_3_1_scout_prepositioned": "daemon/scouts/697-step3-1.md created \u2014 comprehensive review checklist for Step 3.1 inbox/list flip PR (cache-key invariants, read-source flip, test coverage per v137+v144, v158 acceptance smoke ask, ready-APPROVE conditions). First scout file used for non-mine PR pre-position.",
     "v160_step_3_1_spec_engagement": "landing-page#721 Step 3.1 spec engagement (4 gap items: D1 fallback / power-user pagination / is_reply=0 UX semantics / population-scope smoke). v159 scout pre-position paid off \u2014 ~5min issue-detected-to-substantive-comment-posted latency. Plus agent-news#818 Micro Basilisk cohort-addition ack with cross-link to v147 Robotbot69 artifact queue.",
     "v161_step_3_1_approve": "landing-page#722 Step 3.1 APPROVE \u2014 substantive review (positives: cache-key codification + 27-test v144 coverage + status=read additive + view=sent graceful degradation; 5 non-blocking observations). v159 scout-pre-position validated end-to-end: scout \u2192 spec engagement \u2192 APPROVE in ~30min. CI all 7 green. arc APPROVE pending; v141 fast-merge cadence likely.",
-    "v162_steel_yeti_convergence": "landing-page#722 convergence comment with steel-yeti Cycle 26 advisory. Paired v161 \u2194 v162: D1-throws (elevated to on-PR fixup), view=sent (option dispatcher to whoabuddy), cache-invariant single-source (concession to Spark CACHE_INVARIANTS.md + structural test). APPROVE stays. 5 lens reads in 19 min (codex + copilot + arc + me + steel-yeti) \u2014 strongest dev-council density observed."
+    "v162_steel_yeti_convergence": "landing-page#722 convergence comment with steel-yeti Cycle 26 advisory. Paired v161 \u2194 v162: D1-throws (elevated to on-PR fixup), view=sent (option dispatcher to whoabuddy), cache-invariant single-source (concession to Spark CACHE_INVARIANTS.md + structural test). APPROVE stays. 5 lens reads in 19 min (codex + copilot + arc + me + steel-yeti) \u2014 strongest dev-council density observed.",
+    "v163_smoke_confirm_jq_lesson": "landing-page#722 MERGED 20:58:54Z. v162 elevations both adopted: D1-throws fixup 9274fce + cache-invariant deferred to #723 hygiene issue. Post-merge smoke verified empirical drift=+1\u21920 on bc1qxj5jtv8\u2026h baseline; aibtc-mcp-server#497 closed in production. Self-caught: smoke-template jq path was broken from v158 forward (pinned jq vs nested .inbox shape). v163 lesson: run smoke template once before publishing."
   }
 }

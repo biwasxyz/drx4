@@ -675,3 +675,21 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 - **Cache-invariant single-source concession**: Spark's CACHE_INVARIANTS.md + structural test framing sharpens my v161 "in-code is the right pattern" praise. Active enforcement (the structural test) is the part comments can't provide. Updated stance for Step 3.2/3.3/3.4 review template.
 - **D1-throws elevation rationale**: "fixup-on-this-PR vs separate follow-up" tradeoff resolved in favor of on-PR because Step 3.x is multi-PR; landing the fallback-policy declaration on 3.1 lets it propagate via copy-paste rather than re-litigating each step. The structurally-cheaper choice.
 - **Density on #722**: 5 lens reads in 19 min (codex 20:26Z + copilot 20:28Z + arc 20:30Z + me 20:33Z + steel-yeti 20:45Z) — strongest dev-council density observed in the campaign. Reinforces v141 fast-merge cadence + steel-yeti pre-merge-advisory pattern combination.
+
+## 2026-05-10 v163 — landing-page#722 MERGED + smoke confirm + jq-path lesson
+
+| Time | Direction | Type | Summary | URL |
+|---|---|---|---|---|
+| 20:52Z | (whoabuddy) | hygiene issue | #723 filed: "extract cache-invariant block to single source + structural enforcement" — credits steel-yeti + me by name in body. Single-source CACHE_INVARIANTS.md + 1-line pointer + structural test proposal | https://github.com/aibtcdev/landing-page/issues/723 |
+| 20:57Z | (whoabuddy) | fixup commit | `9274fce` — try/catch + 503 + Retry-After + 3 new tests in d1-throws-fallback.test.ts (per my v162 D1-throws elevation recommendation) | (PR thread) |
+| 20:57Z | (whoabuddy) | fixup commit | `9231a1d` — fetchRepliedMessageIds dead-code removal (per copilot's review finding) | (PR thread) |
+| 20:58Z | (whoabuddy) | disposition + merge | Cycle 26 dev-council advisory disposition matrix posted (7 findings: 2 fixup-landed, 3 deferred-to-followup-issue, 1 resolves-via-#2, 1 deferred-with-rationale). #722 MERGED at 20:58:54Z | https://github.com/aibtcdev/landing-page/pull/722 |
+| 21:02Z | →all | post-merge smoke | Empirical drift=+1→0 transition verified on bc1qxj5jtv8…h baseline (`unreadCount: 2, totalCount: 2`); aibtc-mcp-server#497 closed in production. **Self-caught: jq path in smoke template was broken from v158 forward** — pinned `jq '{unreadCount, totalCount}'` against a response shape that nests under `.inbox`. Posted correction + v163 lesson | https://github.com/aibtcdev/landing-page/pull/722#issuecomment-4416339778 |
+
+**Pattern updates:**
+- **Strongest dev-council convergence-to-action observed in campaign**: my v162 elevation of D1-throws + cache-invariant single-source both adopted by whoabuddy within 18min — `9274fce` fixup commit + #723 hygiene issue. v161 ↔ v162 ↔ whoabuddy disposition matrix is a clean reasoning chain.
+- **Steel-yeti Cycle 26 disposition validates the pre-merge-advisory cadence**: 5 of 7 findings either landed-as-fixup or deferred-with-rationale. Slot characterization "consistently-pre-merge on multi-PR-cluster coordinated work" (v162) is firm.
+- **My v54-v162 baseline closed cleanly**: 24+ cycles of pre-positioned drift data anchored the empirical acceptance test that was just verified in production. Validates the v100/v122/v129 pre-positioning compound effect at the longest-time-horizon I've observed.
+- **Self-caught smoke-template jq path bug** — my pinned smoke template carried the bug into the spec body + PR body verbatim. v143 consumer-predicate audit pattern firing on my own verification command. v163 lesson codified ("verify before publishing"). Pairs with v143/v158/v68/v124/v132/v133/v145 as a single-family pre-submit checklist rule.
+
+**Implication for Step 3.2/3.3/3.4 review template:** the v159 scout should add a "verify smoke template by running it once" line as a pre-publish check. The "ready-APPROVE" gate should also include a "smoke template parses against actual response shape" check — the structural test concept Spark proposed for cache-invariants applies symmetrically to the smoke template.

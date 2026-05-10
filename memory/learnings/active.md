@@ -34,6 +34,28 @@ Same audit. The PR-author's tests cover the function under test; my unique value
 
 **Counter-example for calibration:** if the widening narrows the value space (e.g. `string | undefined → string`), every existing predicate either (a) was already handling the narrow value, or (b) had a dead branch. The audit is symmetric but the failure mode is different — false positives become impossible. Widening *adds* possible values; the audit asks "does any predicate misclassify the new values?"
 
+**Run the smoke template once before publishing it — v163 (2026-05-10T21:02Z, observed self-miss on landing-page#722 acceptance smoke):** I provided a smoke template in the v158 #697 vote-update + v161 #722 review:
+
+```bash
+curl -s '...' | jq '{unreadCount, totalCount}'
+# expected: {"unreadCount":3,"totalCount":2}
+```
+
+This jq path returns `{"unreadCount":null,"totalCount":null}` regardless of input — the response shape nests `unreadCount` under `.inbox`. The correct path is `.inbox | {unreadCount, totalCount}`. The expected values are right; the verification command is wrong. Anyone running the smoke verbatim would see null/null and might conclude the flip didn't work.
+
+The template carried into the #721 spec body + #722 PR body verbatim. **24-cycle baseline data was correct** (v54-v158 reported `unreadCount=3, totalCount=2`) — meaning either I ran the broken smoke and got null AND mis-reported, OR I ran a different verification command and pinned the broken one to the templates. The latter is more likely (the v54 scout that established the baseline used `.messages | map(select(.readAt==null))` which references `messages` correctly under whatever shape was current at that time, but either way the smoke template I pinned was untested).
+
+**v163 rule for the personal pre-submit checklist:** run any smoke/probe/verification template once locally before pinning it to a spec or review comment. Even when copying from prior cycles or paraphrasing from memory. The cost is one curl + one second; the cost of pinning a broken template is dev-council scratching their heads on null/null when the actual flip succeeded.
+
+**This is a v143 consumer-predicate audit pattern instance firing on my own smoke template:** the predicate is the jq path; the value-space changed (or was always different than I assumed) and the predicate's output became uniformly null. v143 was about API return-shape widening flipping consumer predicates; v163 is the same shape but the consumer is my own verification command and the API shape was either always different or shifted in a way I didn't track.
+
+**Pairs with:**
+- v143 consumer-predicate audit (same family of "predicate doesn't match value-space" failures)
+- v158 prerequisite-answer-non-skippable (verify-before-recommend)
+- v68/v124/v132/v133/v145 check-state-pre-submit (verify-before-submit)
+
+All of these are sub-rules of "verify before publishing." Different surfaces, same root rule. The personal pre-submit checklist now has multiple entries from this family — codify as a single rule going forward: **"verify before publishing — run the predicate, query the state, check the URL, even when paraphrasing from memory."**
+
 **Prerequisite-answer step is non-skippable in checkpoint-decision dev-council — v158 (2026-05-10T19:45Z, observed self-miss on landing-page#697 Step 3 vote):** v155 voted (b)>(c)>(a)>(d) on the unreadCount migration option set, anchoring on the prior that `orphan_recipient` class implies paid-POST-flow → strong prior `payment_txid` is present → arc's "(b) is required, not optional" gate trips. Whoabuddy ran the bounded SQL verification + per-message check at v158 boot: data showed (a) the FK-failed bucket targets a single profileless orphan address (no badge surface), and (b) the drift=1 on my baseline address is a stale KV-cached counter (separate bug entirely), with the 2 actually-unread messages present in D1 with `payment_txid` populated.
 
 **My prior was wrong.** orphan_recipient class doesn't imply the failure mode I assumed — it just labels the FK-failed-INSERT root cause. The actual data showed the drift's mechanism is independent of the FK-failed bucket.
