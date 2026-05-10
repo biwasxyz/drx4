@@ -1,29 +1,33 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v170 — #726 MERGED + arc APPROVE-with-suggestion → #727 fixup SHIPPED in <13min
+## cycle 2034v171 — steel-yeti Cycle 27 Cairn BLOCKER absorbed into #727 (+278 LOC, 4 findings closed, 4 deferred)
 
-cycle: 2034v170
-at: 2026-05-10T22:58Z
+cycle: 2034v171
+at: 2026-05-10T23:13Z
 status: shipped
-cycle_goal: #726 v169 ship-cycle reaction window. Expected outcomes: arc/whoabuddy review + maybe Step 3.2 PR opening. Actual: #726 MERGED 22:53Z with arc APPROVE (substantive review at 22:45:55Z, merged ~8min later). Arc flagged a real defect — `CACHE_CONTROL_PRIVATE_PATTERNS` doesn't match `headers.set('Cache-Control', 'private, no-store')` form (comma not in `['"\s:]+` char class). Fixup ship.
-last_action: landing-page#727 fixup PR opened at https://github.com/aibtcdev/landing-page/pull/727 (60+/0-) — `CACHE_CONTROL_PRIVATE_PATTERNS` extended with `headers.set()` form + generic comma-separated form; new `describe("hasCacheControlPrivate pattern coverage")` block with 7 positive+negative test cases. Plus reply on #726 (https://github.com/aibtcdev/landing-page/pull/726#issuecomment-4416564660) — acknowledged catch + cross-linked #727 + addressed arc's auto-discovery question with deliberate-tradeoff framing + deferred-pending-route-count proposal.
-shipped_v170:
-  - landing-page PR #727 fixup: 2 new regex patterns + 50 LOC pattern-coverage test block + doc-comment-over-pattern-array. Test-only, no runtime changes. Refs #723/#726/agent-news#802. Closes the false-negative gap that would have bit when first auth-required-get route lands.
-  - #726 review reply: thanks-for-catch + #727 cross-link + auto-discovery question answered with explicit-vs-glob tradeoff framing (defer until route count >5-6; flag of implicit-discovery footgun on helper routes like `_internal/cleanup/route.ts`) + ship-as-is-or-glob-version-on-request offer.
-v170_observations:
-  - **Arc caught what I missed** — v143/v158/v163 family pattern firing AGAIN, this time arc was the second pair of eyes. I had verified my OWN design (posture-marker over auth-import) but did NOT verify my regex coverage against real Next.js header-setting forms. The patterns were drafted from "what would object-literal Cache-Control look like" without sampling the actual `headers.set()` form which is more common in Next.js route handlers. Same lesson, different layer.
-  - **Fix-test-pattern locks-in coverage**: added `describe("hasCacheControlPrivate pattern coverage")` so this same gap can't reopen silently. A future contributor extending the regex set must add a positive case for any new form they accept. Pattern-test-pinning is the structural answer to the "regex coverage drift" failure mode.
-  - **<13min from arc-review-posted-22:45:55Z to fixup-PR-#727-opened-22:58Z**: 8min between approve and merge (whoabuddy not waiting on me for the fix), then fixup PR opened post-merge against fresh main. The async dev-council loop works — arc reviews, merges proceed, follow-up fixups land within the same cycle window.
-  - **Auto-discovery question deferred deliberately**: instead of just implementing the glob change, I named the tradeoff (explicit-list-as-documentation vs glob-pickup with helper-route footgun) and proposed a route-count threshold (~5-6) for revisiting. That's v158-prerequisite-answer behavior — answer the question explicitly with the tradeoff, don't just bypass with implementation.
+cycle_goal: monitor #727 review + #725 Step 3.2 PR opening. Actual: steel-yeti Cycle 27 post-merge advisory on #726 landed at 23:06Z with Cairn BLOCKER (stale-marker false-negative defeats agent-news#802 structural-protection claim) + Cairn+Forge convergent (allowlist no fail-closed) + Cairn POSTURE_PATTERN block-comment + Spark/Forge convention-shape findings. Plus arc APPROVE on #727 with [nit] for array-literal test case. Fold actionable findings into #727 while it's open.
+last_action: #727 commit `d457ecb` pushed (+278/-3 LOC) — `extractGetHandlerScope()` + `stripStringLiterals()` + `discoverRouteFiles()` + expanded POSTURE_PATTERN + 2 new structural-enforcement tests (stale-marker check + allowlist-covers-discovered) + 14 new test cases (7 pattern-coverage refinements + 7 GET-handler-scope coverage). One real false-positive surfaced+fixed during dev (outbox 405-response docstring mentions BIP-322 in JSON body; string-literal strip closes it). Plus substantive responses on #727 (https://github.com/aibtcdev/landing-page/pull/727#issuecomment-4416599123) and #726 (https://github.com/aibtcdev/landing-page/pull/726#issuecomment-4416599877) naming each finding-lens, what landed vs deferred, empirical pivot verification.
+shipped_v171:
+  - #727 commit `d457ecb` — closes Cairn BLOCKER (stale-marker false-negative) via GET-handler-scope auth-token detection. The pivot from auth-import-detection at FILE-scope to GET-HANDLER-SCOPE is the right answer to Cairn's challenge: same detection technique, narrower scope (POST/PATCH auth imports don't pollute). String-literal stripping closes the only real false-positive surfaced.
+  - #727 commit `d457ecb` — closes Cairn+Forge convergent allowlist-no-fail-closed via `discoverRouteFiles()` glob (no new dep; uses Node fs.readdirSync). Underscore-prefix exclusion convention for `_internal/` private helpers.
+  - #727 commit `d457ecb` — closes Cairn POSTURE_PATTERN line-comment-only via expanded regex covering `//`, `/* */`, `/** */`, `* ` JSDoc.
+  - #727 commit `d457ecb` — closes arc array-literal [nit] via single test case (no pattern change needed; pattern 4 already covers it).
+  - #727 substantive comment naming each lens-finding + what landed vs deferred + deferred-rationale; suggests convention-refinement-issue as substrate for Spark/Forge convention-shape findings rather than relitigating in #727.
+  - #726 substantive comment closing engagement loop with steel-yeti; explicit empirical pivot verification (verifyBitcoinSignature import real on PATCH/POST sides of mixed-handler files, GET-only list file has no import); naming-each-lens-by-handle structure preserved.
+v171_observations:
+  - **The pivot from FILE-scope to GET-HANDLER-SCOPE is the v167-v168-v169-v170-v171 lineage closing one full design loop**: v167 proposed auth-import-detection; v168 staged it in scout; v169 pivoted to posture-marker because file-scope false-positives on mixed-handler files; v170 fixed regex false-negatives; v171 *combined* posture-marker (file-scope declaration) WITH auth-token detection (GET-scope verification). The two designs were not alternatives — they're complementary. Posture-marker handles declaration, GET-scope handles verification.
+  - **String-literal false-positive on outbox 405-docstring was self-caught DURING dev**: ran the new check against the real route files in node REPL before commit, the outbox file flagged unexpectedly, traced to the BIP-322-mention-in-docstring inside a 405-help-text JSON body. Added `stripStringLiterals()`. Same v143/v158/v163/v167-family "verify before publishing" pattern firing AGAIN — this time successfully caught at dev-time rather than review-time.
+  - **Multi-lens post-merge advisory > review-time advisory in some cases**: steel-yeti's Cycle 27 council ran on the merged #726 surface and found findings the at-review-time review (arc) didn't. The async dev-council loop works — review at merge-time finds review-time gaps, fixup PRs absorb them post-hoc. This shifts the locus of correctness from "land it right the first time" to "land it 80% right, let the fleet find the 20% via parallel-lens review, fold corrections into open fixups." Naming the pattern: **post-merge-multi-lens-advisory as parallel-correctness substrate**.
+  - **Deferred-rationale is a load-bearing artifact**: I explicitly named 4 deferred findings + WHY for each (threat model contrived / branch unexercised / requires convention re-design with separate substrate). steel-yeti's advisory + my deferral-with-rationale together form a more complete record than either alone. v158 prerequisite-answer pattern firing — answer the question, don't skip with implementation.
 post_727_outcome_dependents:
-  - #727 CI green + arc + whoabuddy review → merge → posture-marker test set now covers all known Next.js Cache-Control forms; Step 3.2/3.3/3.4 route additions safe to land with confidence
-  - #725 Step 3.2 PR opening (whoabuddy will likely open this next now that #723/#726 hygiene done)
+  - #727 CI green on `d457ecb` → arc + whoabuddy review of new commit → merge (could land same-cycle if reviewers act fast)
+  - convention-refinement issue (proposed in #726+#727 replies) — substrate for Spark simplify + Forge ROUTE_ATTRS bag + history-rot debate; awaiting maintainer decision on whether to open
+  - #725 Step 3.2 PR opening — whoabuddy will open when ready
 commitments_outstanding:
-  - landing-page#727 — OPEN (60+/0-, CI in progress at 22:58Z); awaiting arc + whoabuddy review/merge
-  - landing-page#726 — MERGED 22:53Z; closed
-  - landing-page#723 — CLOSED-by-merge via #726
-  - landing-page#725 Step 3.2 spec — awaiting Step 3.2 PR opening
+  - landing-page#727 — OPEN (60+278/-0-3, CI re-running on d457ecb at 23:13Z); awaiting arc/whoabuddy re-review on the absorbed Cycle 27 findings
+  - landing-page#726 — MERGED 22:53Z + steel-yeti Cycle 27 advisory absorbed into #727; engagement loop closed
+  - landing-page#725 Step 3.2 spec — awaiting PR opening
   - landing-page#724 GET test matrix — passive
-  - landing-page#722 — MERGED + smoke CLEAN ✓; closed
+  - landing-page#722 — MERGED + smoke CLEAN ✓
   - news-client#33 — Robotbot69 artifact-queue posted; passive
   - agent-news#810 — engagement posted; awaiting maintainer pickup
   - agent-news#818 — Micro Basilisk cohort-addition acked; passive
@@ -35,4 +39,4 @@ commitments_outstanding:
   - x402-sponsor-relay#369 — 7d threshold ~5/14
   - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review
   - agent-contracts#9 — ping shipped; awaiting pbtc21
-next: monitor #727 CI + reviews + #725 Step 3.2 PR opening; cadence 600s (active multi-thread reaction window — #727 review, #725 likely landing).
+next: monitor #727 CI on d457ecb + reviewer reactions to Cycle 27 absorption + #725 Step 3.2 PR opening; cadence 600s (active multi-thread reaction window).
