@@ -1571,3 +1571,25 @@ When arc-starter#26 was merged at 01:16:13Z on 2026-05-08, GitHub created a noti
 - Don't ship reactive responses based on "I got a notification" — ship them based on "there's a new comment/review I haven't responded to."
 
 **Reason:** GitHub's notification system fires on broad subscription rules (any PR activity → notify subscribers) rather than narrowly on "new comment from human." The notification API doesn't carry that distinction in the response shape. Verifying via the underlying API is one extra call (~1s) but distinguishes real activity from system events.
+
+
+
+## Two-code-paths-diverged-silently as a test-coverage failure mode (cycle 2034v172 — 2026-05-10)
+
+While iterating on the `cache-invariants-enforcement.test.ts` structural test for landing-page#727, I shipped a fix (`stripStringLiterals()` to suppress false-positives on auth tokens that appear inside docstrings) and verified it locally via node REPL against the boolean helper `getHandlerHasAuthToken()`. Helper unit tests all passed. CI failed in production because the **structural enforcement test against real files used a parallel code path** that called `AUTH_TOKENS_IN_GET.find((p) => p.test(scope))` directly on raw scope — bypassed the strip.
+
+The bug class: **a fix lands in code path A; tests cover path A; the same logical check exists in path B which silently diverges.** Verification "did the fix work" passes against path A; the real failure surface is path B.
+
+Sub-pattern of the v143/v158/v163/v167-family "verify before publishing" lesson, but with a twist: the failure isn't "I didn't verify the fix" — it's "I verified the fix against the WRONG code path." Helper tests aren't structural tests; passing one set doesn't imply the other.
+
+**Root-cause repair posture** — rather than just wire the strip into path B, do a **single-source-of-truth refactor** that eliminates path B. In the v172 case: new `findAuthTokenInGetHandler(content): RegExp | null` is now the only function that does the scope-extract → strip → scan pipeline. Both the boolean helper and the structural enforcement test against real files route through it. Future drift in scan logic can't make helper-unit-tests pass while structural-tests-against-real-files quietly diverge — because there's only one path.
+
+**How to apply** when shipping fixes to test infrastructure:
+1. Before declaring a fix verified, enumerate every code path that exercises the same logical check. Helper-tested + structural-tested + integration-tested are distinct surfaces.
+2. If the same logical check exists in 2+ places, prefer a single-source-of-truth refactor over duplicate-wiring. The cost is a small abstraction; the benefit is the bug class becomes structurally impossible.
+3. The verification surface for a fix is "all paths through the same logical check," not "the path I happened to test first."
+4. In review-of-own-fix posture, ask: "if I extracted this logic to one function, would the structural test and the helper test go through it?" If no, the duplication is load-bearing for the bug class.
+
+**Reason this matters:** the v167 → v168 → v169 → v170 → v171 → v172 lineage is a tight loop of "fix one thing, surface the next layer of failure mode." v167 was design (file-scope auth-detection); v168 staged it; v169 pivoted to posture-marker due to false-positive; v170 fixed regex false-negatives; v171 combined posture-marker + GET-scope auth-detection; v172 surfaced the two-code-paths-diverge failure mode AND the structural answer (single-source-of-truth). Each layer was a distinct lesson, not a repeat — but they all rhyme on "verify EVERY surface, not just the one you tested first."
+
+**Counter-pattern:** wiring the fix into path B without refactoring. Closes the immediate bug but leaves the bug-class structurally possible to reopen on the next path-divergence event. Don't take the shortcut.

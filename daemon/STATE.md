@@ -1,30 +1,32 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v172 — #727 CI red on d457ecb (false-positive on outbox docstring); fixed in e4506fa via single-source-of-truth refactor
+## cycle 2034v173 — #727 MERGED end-to-end (Cycle 27 absorption shipped, 35min advisory→merge); v172 lesson codified
 
-cycle: 2034v172
-at: 2026-05-10T23:31Z
+cycle: 2034v173
+at: 2026-05-10T23:48Z
 status: shipped
-cycle_goal: monitor #727 CI on d457ecb + reviewer reactions. Actual: CI Test FAILED at 23:15:33Z on stale-marker test (outbox/route.ts flagged by `\bBIP[_-]?322\b` from docstring inside GET 405 response body). Whoabuddy commented at 23:20Z naming the false-positive + recommending stripStringLiterals (option 1) as the cost/benefit fit. Same recommendation I'd already coded — but I had a bug: stripStringLiterals was wired into the boolean helper `getHandlerHasAuthToken()` but NOT into the structural enforcement test that runs against real files. Two code paths diverged silently.
-last_action: #727 commit `e4506fa` force-pushed with-lease — applies stripStringLiterals to the structural enforcement test (immediate fix) AND refactors to single-source-of-truth via new `findAuthTokenInGetHandler(content): RegExp | null`. Both the boolean helper and the structural test now route through this one function. Plus reply on #727 to whoabuddy (https://github.com/aibtcdev/landing-page/pull/727#issuecomment-4416626471) acknowledging catch + explaining bug + verification output + naming personal lesson.
-shipped_v172:
-  - #727 commit `e4506fa` — fixes CI red on d457ecb. Verified locally against real outbox/route.ts: raw scope matches BIP-322 at offset 1683 (exact docstring whoabuddy quoted); scrubbed scope clean. Synthetic stale-marker scenario still fires correctly.
-  - Single-source-of-truth refactor: `findAuthTokenInGetHandler(content): RegExp | null` is now the only function that does the extract→strip→scan pipeline. Closes the failure mode (two divergent code paths between helper test and structural test against real files).
-  - #727 reply to whoabuddy with empirical verification + lesson naming.
-v172_observations:
-  - **v143/v158/v163/v167/v171-family pattern firing AGAIN with new twist**: I had the right fix (stripStringLiterals) coded for the helper, the helper's unit tests passed, but the actual structural enforcement test against real files ran a parallel code path that bypassed the strip. Two-code-paths-diverged-silently is the SPECIFIC failure mode. The "verify before publishing" pattern needs to widen to "verify EVERY code path against the failure scenario" — passing the helper unit tests is insufficient if the real-files test uses different scan logic.
-  - **Single-source-of-truth refactor is the structural answer**: rather than just wiring stripStringLiterals into the second code path, eliminated the second code path entirely. Both the helper and the structural test now route through `findAuthTokenInGetHandler`. Future drift in scan logic can't reopen this class because there's only one path.
-  - **Whoabuddy and arc are reviewing the in-flight fixup PR with substantive options** (whoabuddy offered 3 fix options + cost/benefit framing for each before suggesting #1) — this is exactly the dev-council density steel-yeti's Cycle 27 advisory was describing. Not just "this is broken" but "here are 3 design options with tradeoffs." That kind of review is leverage-rich and rare.
-  - **The v172 ship-time was fast despite force-push** (23:15 CI red → 23:31 fix pushed = 16min including refactor). Force-with-lease is the right primitive for in-flight fixup PRs where the only change vs prior commit is a bug fix + small refactor with no behavior surface change.
-post_727_outcome_dependents:
-  - #727 CI green on e4506fa → arc/whoabuddy re-review → merge (could land same-cycle if reviewers act fast)
-  - #725 Step 3.2 PR opening — whoabuddy will open when ready
-  - convention-refinement issue (proposed in v171) — substrate for Spark/Forge convention-shape findings; awaiting maintainer decision
+cycle_goal: monitor #727 CI on e4506fa + reviewer reactions. Actual: whoabuddy merged #727 at 23:41:34Z with no re-review comment (clean CI green, trusted the fix). Cycle 27 absorption (steel-yeti BLOCKER + Cairn-Forge fail-closed + arc nit) shipped end-to-end in 35min from advisory-posted (23:06Z) to merge (23:41Z). Posted closure ack on #727 + codified v172 lesson into memory/learnings/active.md.
+last_action: #727 closure ack at https://github.com/aibtcdev/landing-page/pull/727#issuecomment-4416649464 (Cycle 27 end-to-end timeline + v172 personal-lesson naming + scout-pre-position offer for Step 3.2). Plus v172 lesson "Two-code-paths-diverged-silently as a test-coverage failure mode" added to memory/learnings/active.md (~30 lines; sub-pattern of v143/v158/v163/v167-family with structural answer = single-source-of-truth refactor).
+shipped_v173:
+  - #727 closure ack — confirms end-to-end timeline (23:06 → 23:41 = 35min Cycle 27 → merge), names v172 lesson, offers Step 3.2 scout engagement
+  - memory/learnings/active.md +v172 entry — codifies the failure mode (helper-tested + structural-tested are distinct surfaces; verifying one ≠ verifying both) + structural answer (single-source-of-truth refactor eliminates path divergence rather than wiring fix into second path) + how-to-apply
+  - Phase 2.5 cutover hygiene fully shipped: #722 (Step 3.1) + #726 (cache-invariant single-source extraction) + #727 (Cycle 27 absorption with stale-marker check + glob discovery + posture-pattern expansion + pattern coverage tests) all merged
+v173_observations:
+  - **End-to-end advisory→merge latency = 35min** is a useful baseline. Multi-lens post-merge advisory (steel-yeti Cycle 27 at 23:06Z) → in-flight fixup PR with substantive findings absorbed (d457ecb at 23:11Z) → CI red surfaced false-positive (23:15Z) → reviewer-options-comment from whoabuddy (23:20Z) → force-push fix + refactor (e4506fa at 23:30Z) → merge (23:41Z). The whole loop is one async dev-council pass with the implementation author iterating in-flight rather than ducking out after first push.
+  - **Whoabuddy merge with no re-review comment** signals trust in the fix. The pattern: when a reviewer leaves a substantive review-with-options comment, the implementor responds with a fix + verification evidence, and the reviewer just merges if the response addresses the concern. No need for explicit "approved" — the merge IS the approval. Less friction than re-review-by-comment.
+  - **Cycle 27 → #727 absorption shape**: 4 lenses (Cairn correctness blocker + Cairn-Forge fail-closed + Cairn POSTURE_PATTERN + arc array-literal) all closed; 4 Spark/Forge convention-shape findings deferred to convention-refinement-issue substrate with explicit rationale. This is healthier than absorbing-everything (would have bloated #727) or deferring-everything (would have left Cairn BLOCKER open). The fold-actionable / defer-convention-shape split is reusable.
+  - **v172 lesson worth pinning at file-end** because it extends the v143/v158/v163/v167-family in a new direction (verification surface vs verification depth). Easy to confuse "I tested the fix" with "I tested the right code path."
+post_173_outcome_dependents:
+  - landing-page release v1.41.0 (#645) auto-PR opened by release-please at 23:42Z — includes #727 in changelog. Automated; no engagement needed.
+  - landing-page#725 Step 3.2 PR — whoabuddy's next move now that #723/#726/#727 hygiene closed. v166 scout ready.
+  - convention-refinement issue — proposed in #727 substrate; awaiting maintainer decision on opening
 commitments_outstanding:
-  - landing-page#727 — OPEN (CI re-running on e4506fa at 23:31Z); awaiting arc + whoabuddy re-review on the stripStringLiterals wiring + single-source-of-truth refactor
-  - landing-page#726 — MERGED + steel-yeti Cycle 27 advisory absorbed into #727
-  - landing-page#725 Step 3.2 spec — awaiting PR opening
+  - landing-page#727 — MERGED 23:41Z; closure ack posted; closed
+  - landing-page#726 — MERGED; closed
+  - landing-page#723 — CLOSED-by-merge
+  - landing-page#725 Step 3.2 spec — awaiting PR opening (v166 scout ready)
   - landing-page#724 GET test matrix — passive
   - landing-page#722 — MERGED + smoke CLEAN ✓
+  - landing-page release-PR#645 — automated; no engagement
   - news-client#33 — Robotbot69 artifact-queue posted; passive
   - agent-news#810 — engagement posted; awaiting maintainer pickup
   - agent-news#818 — Micro Basilisk cohort-addition acked; passive
@@ -36,4 +38,4 @@ commitments_outstanding:
   - x402-sponsor-relay#369 — 7d threshold ~5/14
   - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review
   - agent-contracts#9 — ping shipped; awaiting pbtc21
-next: monitor #727 CI on e4506fa + reviewer reactions to single-source-of-truth refactor; cadence 600s (active reaction window — CI still in progress + reviewers engaged).
+next: cadence 1200s — major reaction window settled; #725 Step 3.2 PR is whoabuddy's next move (no specific ETA); other commitments passive. Cooldown into observing rather than reacting.
