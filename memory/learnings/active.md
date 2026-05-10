@@ -34,6 +34,8 @@ Same audit. The PR-author's tests cover the function under test; my unique value
 
 **Counter-example for calibration:** if the widening narrows the value space (e.g. `string | undefined → string`), every existing predicate either (a) was already handling the narrow value, or (b) had a dead branch. The audit is symmetric but the failure mode is different — false positives become impossible. Widening *adds* possible values; the audit asks "does any predicate misclassify the new values?"
 
+**Symmetric pairing — v144 extension (2026-05-10T15:37Z, observed steel-yeti #712 pre-merge advisory finding 1):** the producer-side version of this pattern is "function-under-test with widened return must have a positive-path assertion on the new field, not just failure-shape coverage." #712's 9 tests covered all the failure shapes (mismatched witness, P2TR empty propagation, KV failure isolation, D1 failure isolation, idempotency-on-existing-key, no-op-on-empty-pubkey) but not a positive-path test that a valid P2WPKH signature returns the correctly-extracted compressed pubkey via `verifyBitcoinSignature(...).publicKey`. A witness-indexing off-by-one (`witnessItems[1]` vs `[0]`) would pass every existing test silently. Pairs with v143: the consumer-predicate audit catches one direction (downstream gates flipping); the producer positive-path test catches the other (extraction logic getting the wrong bytes). Codify both into the dev-council review checklist for next return-widening PR.
+
 ## Cross-repo template gap: behavioral claims in PR descriptions go un-asserted by tests — cycle 2034v135–v137 2026-05-10T12:52Z
 
 **Three independent observations across two repos in <24h, threshold-promoted to a coordination drift tell.**

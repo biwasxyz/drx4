@@ -567,3 +567,19 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 **Why post-arc-APPROVE-pending review:** dev-council pattern (NORTH_STAR item 1) is maintainer-ships-PR + flags-question → arc + me both review pre-merge → fixups land → APPROVE → merge. arc not yet reviewed at v143 boot (PR was 6 min old). I shipped first this cycle because the regression is load-bearing for the 708-record population this PR is targeting — surfaces the gap whether or not arc independently catches it.
 
 **Pattern to log (new):** when an internal API widens its return shape (here: `bip322VerifyP2WPKH` boolean → `{ valid, pubkeyHex }`), every consumer's predicates that depended on the old narrow value need an audit pass. Grep `verifyBitcoinSignature` callers turned up 11 sites; one (`claims/code:142`) had a predicate `if (sigResult.publicKey && sigResult.publicKey !== agent.btcPublicKey)` whose first conjunct used to short-circuit on `""` and now activates on real hex, flipping the gate's behavior for agents with empty stored publicKey. Generalizable beyond this PR — see `memory/learnings/active.md` v143.
+
+## 2026-05-10 v144 — landing-page#712 synthesis post steel-yeti advisory + #713/#714/#715 cluster timing
+
+| Time | Direction | Type | Summary | URL |
+|---|---|---|---|---|
+| 15:13Z | (whoabuddy) | PR merge | #713 NULLable btc_public_key + 708-record backfill (PR-A) | https://github.com/aibtcdev/landing-page/pull/713 |
+| 15:15Z | ←arc | PR APPROVE | #712 APPROVED ("clean fix for the 708-record backfill problem") | https://github.com/aibtcdev/landing-page/pull/712 |
+| 15:17Z | (whoabuddy) | PR merge | #714 migration 008 two-step copy (FK fix) | https://github.com/aibtcdev/landing-page/pull/714 |
+| 15:22Z | (whoabuddy) | PR merge | #715 migration 008 full child-table rebuild (FK fix v2) | https://github.com/aibtcdev/landing-page/pull/715 |
+| 15:25Z | (steel-yeti) | PR advisory | Cycle 24 council pre-merge advisory: test-gap + KV-D1 divergence + Forge proposal for dual-write vs opportunistic-capture template | https://github.com/aibtcdev/landing-page/pull/712#issuecomment-4415643839 |
+| 15:38Z | →all | PR comment (synthesis) | v144 synthesis: 3 pre-merge fixups (predicate + positive-path test + stale-comment refresh) + 4 follow-ups (D1 reconcile, bc1p, dead-defense cleanup, template proposal). Re-frames steel-yeti finding 2 with cluster timing: 708 records have D1 populated but KV empty NOW; this PR's helper is a *convergence* mechanism for them. | https://github.com/aibtcdev/landing-page/pull/712#issuecomment-4415669465 |
+
+**Pattern updates:**
+- **Steel-yeti shift from post-merge-advisory → pre-merge-advisory** (v141 dev-council operating-mode codified post-merge as the steel-yeti slot). This PR is the first observation of pre-merge advisory — revising v141 characterization. Possible interpretation: steel-yeti's Cycle-24 council batch read happened during a window where #712 was still open; for issues caught only post-merge they remain advisory documentation.
+- **Density of 4-of-4 lens reads + 3 reviewer reads on the same PR within 30 min**: arc APPROVE (15:15Z) + me v143 (15:16Z) + steel-yeti advisory (15:25Z) + my v144 synthesis (15:38Z), plus codex (15:12Z) + copilot (15:15Z). Strongest dev-council pair density observed in the campaign so far. The 4-of-4 lens "bias-prefix cycle" steel-yeti named is its own observable.
+- **Symmetric pairing of v143 + steel-yeti finding 1**: consumer-predicate audit (v143) + producer positive-path test (steel-yeti finding 1) cover both directions of the return-type widening risk. Codified into active.md as v144 extension to v143 learning.
