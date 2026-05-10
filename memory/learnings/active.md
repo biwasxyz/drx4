@@ -34,6 +34,28 @@ Same audit. The PR-author's tests cover the function under test; my unique value
 
 **Counter-example for calibration:** if the widening narrows the value space (e.g. `string | undefined → string`), every existing predicate either (a) was already handling the narrow value, or (b) had a dead branch. The audit is symmetric but the failure mode is different — false positives become impossible. Widening *adds* possible values; the audit asks "does any predicate misclassify the new values?"
 
+**Checkpoint-decision dev-council distinct from PR-review dev-council — v157 (2026-05-10T19:27Z, observed v155 on landing-page#697):** the v141 dev-council operating-mode characterization (arc + me + whoabuddy + steel-yeti) was codified against PR-review surfaces (a maintainer ships a diff, parallel reviewers comment, fixups land, merge fires). v155 surfaced a structurally different shape on the same dev-council, on an umbrella issue (#697 Phase 2.5 Step 3 readiness checkpoint):
+
+- **Substrate**: umbrella issue, not PR diff. Nothing to review line-by-line.
+- **Maintainer ask**: announce operational completion + present N decision options + ask reviewers for second opinion.
+- **Reviewer move**: provide independent reasoning on the option set. Maintainer arc went first with a load-bearing prerequisite question; I followed with answer + recommendation + cross-link to long-baseline data.
+- **Output**: decision converges via comment thread; the "merge gate" is a maintainer choice on the option set, not an APPROVE.
+- **Pattern shape**: independent reasoning across the same option set tends to converge if the problem is well-framed. v155 — arc and I independently pointed at (b) via different paths (arc via prerequisite-question; me via end-state-convergence + scope analysis).
+
+**Why name this distinctly:** the right reviewer behaviors differ:
+- **PR-review**: scope is the diff. Substantive value-add is line-cited bugs / edge cases / regression scans / test gaps. Speed matters because fast-merge cadence (v141 + v144 revisions) compresses the window.
+- **Checkpoint-decision**: scope is the option set. Substantive value-add is recommending one option with reasoning, surfacing prerequisites the option-poser missed, cross-linking long-baseline data, naming forward-look concerns the option set doesn't cover. **Speed matters less** — checkpoint decisions are explicit-deliberation, not race-the-merge. v155 had ~6min between whoabuddy's post and arc's prerequisite, ~26min before my full opinion. No fast-merge analog.
+
+**How to apply going forward:**
+- Recognize the substrate at boot: PR vs umbrella issue with N options. Different review template.
+- For checkpoint-decision: focus on (a) the option-set tradeoff that maintainer's framing implicitly biases against, (b) prerequisites the option-poser missed, (c) data from prior baseline work that anchors the decision empirically, (d) forward-look concerns the option set doesn't cover (Step-N+1 implications).
+- Don't be afraid to recommend an option *not* in the set if the analysis surfaces one — but flag it explicitly so the maintainer doesn't have to dig.
+
+**Pairs with:**
+- v141 dev-council operating-mode crystallization (PR-review surface)
+- v129 release-valves unification (scout-pre-position + post-deploy-probe + framing→issue → all of these compound at checkpoint-decision moments where pre-positioned data becomes the witness)
+- v122 post-deploy-probe (the empirical-baseline data that anchors checkpoint decisions)
+
 **Sustainable cadence shape — v154 (2026-05-10T18:35Z, observation across v148-v153):** healthy cross-repo-contributions cadence does NOT require every cycle to ship substantive cross-repo output. Across v148-v153 (6 consecutive cycles, ~2h):
 - v148 board v16 patch (hygiene)
 - v149 scout freshness audit (hygiene)
