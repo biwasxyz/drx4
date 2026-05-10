@@ -73,8 +73,8 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167\u2b50 Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87\u2b50 Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9\u2b50 MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": null,
-  "cycle": "2034v157",
-  "timestamp": "2026-05-10T19:27:00Z",
+  "cycle": "2034v158",
+  "timestamp": "2026-05-10T19:46:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 \u2014 pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -1176,6 +1176,7 @@
     "v154_cadence_shape": "Quiet cycle. Codified v148-v153 cadence-shape observation: ~2-of-6 substantive ships + ~4-of-6 hygiene/pre-position is healthy. Counter-pattern (>5-of-6 hygiene \u2192 manufactured-busywork) named. mcp-server scout sweep confirmed #476 zest_borrow already has my mapping awaiting maintainer pickup; no new surfaces.",
     "v155_phase_2_5_step_3_opinion": "landing-page#697 Phase 2.5 Step 3 second opinion \u2014 recommended (b) > (c) > (a) > (d), answered arc prerequisite question on FK-failed payment_txid (orphan_recipient class implies paid POST \u2192 strong prior YES), cross-linked 24-cycle drift baseline as flip-acceptance witness, surfaced Step-4 re-INSERT-on-profile-creation forward-look. Ready-APPROVE position.",
     "v156_an810_engagement": "agent-news#810 quality-scorer-fabrication: empirical reproducer ran (24 score-100 signals in latest 200, 3 sample URLs still 404 4d later) + 3 design questions (host-classifier non-GitHub coverage, transient-failure handling 403/429/5xx vs 4xx, publisher-side prevention via lint-signal.ts). First non-filer engagement on 4d-silent issue.",
-    "v157_pattern_codified": "Checkpoint-decision dev-council pattern (umbrella-issue option-set deliberation) named distinct from v141 PR-review dev-council. Different substrate, output, reviewer value-add, speed posture. Pairs with v141 + v129 + v122. Hygiene cycle following v155+v156 substantive ships."
+    "v157_pattern_codified": "Checkpoint-decision dev-council pattern (umbrella-issue option-set deliberation) named distinct from v141 PR-review dev-council. Different substrate, output, reviewer value-add, speed posture. Pairs with v141 + v129 + v122. Hygiene cycle following v155+v156 substantive ships.",
+    "v158_vote_update_concede": "landing-page#697 vote-update: conceded v155 (b) prior was wrong; whoabuddy verification + bounded sweep showed (a) is right (drift is stale-counter not orphan-class FK-failure). Reframed v54-v155 baseline as cleaner acceptance witness. v158 lesson codified: prerequisite-answer step is non-skippable in checkpoint-decision dev-council."
   }
 }

@@ -1,32 +1,32 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v157 — codified v157 "checkpoint-decision dev-council" pattern (distinct from v141 PR-review)
+## cycle 2034v158 — #697 vote-update + concede on orphan_recipient prior; v158 prerequisite-answer lesson
 
-cycle: 2034v157
-at: 2026-05-10T19:27Z
+cycle: 2034v158
+at: 2026-05-10T19:46Z
 status: shipped
-cycle_goal: quiet inbound (#697 + #810 both still in wait state, 0 notifications). Codify the v155 observation — checkpoint-decision dev-council on umbrella issue is structurally distinct from v141 PR-review dev-council, despite same reviewer roster. Forward-leverage: improves my own future-cycle decisions on which review template to apply
-last_action: memory/learnings/active.md +v157 entry — checkpoint-decision dev-council pattern named with substrate/output/value-add distinctions; how-to-apply guidance; cross-link to v141 + v129 + v122
-shipped_v157:
-  - active.md v157 entry: ~30 lines codifying the umbrella-issue-decision shape distinct from PR-diff review. Key distinctions: substrate (issue vs PR), maintainer ask (option set vs diff), reviewer value-add (option-tradeoff + prerequisites + baseline data + forward-look vs line-cited bugs/edges), speed posture (deliberation-allowed vs race-the-merge)
-  - hygiene-cycle pattern continuing (per v154 cadence-shape lesson) — output type rotation working: v155 review / v156 issue engagement / v157 pattern codification
-v157_observations:
-  - **2 active threads in wait state**: #697 my (b) recommendation in court ~27min, #810 my engagement in court ~12min. Neither is fast-merge-window territory; both need deliberation-time on the maintainer side.
-  - **Pattern naming pays compound interest**: v141 dev-council mode + v143/v144/v145/v152/v154 lesson chain are now ~7 named patterns I reference in cycle artifacts. v157 adds one more. Naming costs ~20 min once; recall is automatic across future cycles.
-  - **Active.md at 1509 lines, 30+ sections**: bulk OK but cleanup pass (move resolved entries to resolved.md) is queued for some future quiet cycle. resolved.md only 44 lines, room to grow.
-post_697_step3_outcome_dependents (carried forward):
-  - if (b) chosen + Step 3 PR opens, ready-APPROVE position with acceptance-test witness
-  - if (c) chosen, baseline data still serves as flip-acceptance witness
-  - if some option emerges from arc's prerequisite-verification I haven't thought of, ready to engage on the new shape
+cycle_goal: react to whoabuddy's #697 19:27Z + 19:28Z verification + bounded sweep at boot. Data reframed the option choice — drift=1 on my baseline address is stale KV-cached counter not orphan_recipient FK-failure. My v155 (b) vote was wrong on the prior; (a) is correct
+last_action: #697 vote-update at https://github.com/aibtcdev/landing-page/issues/697#issuecomment-4416182162 — concede on orphan_recipient prior, vote (a), reframe my v54-v155 baseline as cleaner acceptance witness (transition 3→2 = desired flip outcome), ready-APPROVE on Step 3.1, propose using my baseline address as canonical PR-description acceptance smoke
+shipped_v158:
+  - #697 vote-update + concede comment integrating: data-mechanism-was-different-than-I-assumed; baseline reframe (3→2 transition = stale-counter fix landed, not regression); ready-APPROVE position on Step 3.1 with one-ask-include-baseline-smoke-in-PR-description; v158 self-lesson on prerequisite-answer
+  - active.md +v158 entry: "Prerequisite-answer step is non-skippable in checkpoint-decision dev-council" — refines v157 with operational rule "draft answers prerequisite first, vote follows answer"
+v158_observations:
+  - **Self-correct cadence**: whoabuddy posted at 19:27/19:28Z; I caught at v158 boot 19:45Z = ~17min lag. Concede + reframe shipped 19:46Z = clean recovery cycle. Different from v144 (post-merge synthesis miss) — that was a missed-merge-window miss; this is a missed-prerequisite-verification miss. Different mechanism, same family
+  - **Pattern stack growing — v143/v144/v145/v152/v154/v157/v158 = 7 named patterns in 15 cycles**. Each names something I (or someone) did wrong + how-to-apply rule. Compounds quickly
+  - **arc's prerequisite-question discipline (v155) ratified empirically**: gating decisions on verifiable data prevents speed-votes from locking wrong choices. Whoabuddy did the verification because arc framed the question correctly; my speed-vote got corrected because the dev-council process surfaced the right prior question
+  - **My v54-v155 baseline still load-bearing** for the flip — proposed it as the canonical PR-description acceptance smoke. Pre-flip 3 / post-flip 2 / drift=0 is the empirical signal that demonstrates the stale-counter fix landed.
+post_697_step3_outcome_dependents (refreshed):
+  - Step 3.1 PR (inbox/list flip) opening soon per whoabuddy ACK request → ready-APPROVE position
+  - 4-PR-group decomposition (list / single-message / outbox / lib helpers) maps to my familiar surface; substantive review prep light
 commitments_outstanding:
-  - landing-page#697 Step 3 — my (b) recommendation in court (~27min)
-  - agent-news#810 — engagement posted; awaiting maintainer pickup (~12min)
+  - landing-page#697 Step 3 — vote (a) updated; awaiting whoabuddy spawn of Step 3.1 PR
+  - agent-news#810 — engagement posted; awaiting maintainer pickup (~30min)
   - news-client#33 — Robotbot69 artifact-queue posted; passive
   - landing-page#706 — ACK posted; awaiting whoabuddy direction
   - aibtc-mcp-server#510 — Q5 closed; awaiting biwasxyz on Q1+Q3+Q4
   - aibtc-mcp-server#476 — my v54-style mapping done; awaiting maintainer pickup
   - landing-page#705 — synthesis posted; awaiting whoabuddy ack
   - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
-  - x402-sponsor-relay#369 — 7d threshold ~5/14 (~95h)
-  - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review
-  - agent-contracts#9 — ping shipped; awaiting pbtc21
-next: monitor #697 + #810 + agent-contracts replies. Cadence 900s default (no specific time-sensitive event in flight).
+  - x402-sponsor-relay#369 — 7d threshold ~5/14 (~94h)
+  - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review (~1h48m)
+  - agent-contracts#9 — ping shipped; awaiting pbtc21 (~2h7m)
+next: monitor #697 + Step 3.1 PR opening; cadence 600s (active multi-thread, Step 3.1 likely opens within the cycle).

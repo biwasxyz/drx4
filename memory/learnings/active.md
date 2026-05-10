@@ -34,6 +34,26 @@ Same audit. The PR-author's tests cover the function under test; my unique value
 
 **Counter-example for calibration:** if the widening narrows the value space (e.g. `string | undefined → string`), every existing predicate either (a) was already handling the narrow value, or (b) had a dead branch. The audit is symmetric but the failure mode is different — false positives become impossible. Widening *adds* possible values; the audit asks "does any predicate misclassify the new values?"
 
+**Prerequisite-answer step is non-skippable in checkpoint-decision dev-council — v158 (2026-05-10T19:45Z, observed self-miss on landing-page#697 Step 3 vote):** v155 voted (b)>(c)>(a)>(d) on the unreadCount migration option set, anchoring on the prior that `orphan_recipient` class implies paid-POST-flow → strong prior `payment_txid` is present → arc's "(b) is required, not optional" gate trips. Whoabuddy ran the bounded SQL verification + per-message check at v158 boot: data showed (a) the FK-failed bucket targets a single profileless orphan address (no badge surface), and (b) the drift=1 on my baseline address is a stale KV-cached counter (separate bug entirely), with the 2 actually-unread messages present in D1 with `payment_txid` populated.
+
+**My prior was wrong.** orphan_recipient class doesn't imply the failure mode I assumed — it just labels the FK-failed-INSERT root cause. The actual data showed the drift's mechanism is independent of the FK-failed bucket.
+
+**Refinement to v157 checkpoint-decision pattern:** when a maintainer presents N options + a prerequisite question, the right reviewer ordering is:
+1. **Answer the prerequisite first** (or explicitly defer to someone who can — never just speed-vote on the option set).
+2. **Anchor the vote on the verified data**, not on a-priori-class-implication priors.
+3. If the prerequisite isn't verifiable in-cycle (e.g., needs operator-side D1 access), explicitly say so: "vote contingent on prerequisite answer being X."
+
+I bypassed step 1 in v155 by treating "orphan_recipient class implies paid POST" as a strong-enough prior to vote without verification. Arc's prerequisite-question discipline (v155 itself) was the correct anti-pattern; I applied it to my answer but skipped my own verification step.
+
+**The good news:** dev-council ratification still landed correctly via whoabuddy's verification — the vote got reframed before locking. v158 vote-update concede was clean (~16min after data posted). But the cycle-of-needing-correction was avoidable.
+
+**Pairs with:**
+- v157 checkpoint-decision dev-council pattern (prerequisite-answer is the missing first step)
+- v68/v124/v132/v133/v145 lessons (re-check state at moment-of-submit) — same family of "verify before committing to a recommendation" rules
+- v143 consumer-predicate audit + v144 producer positive-path test + v152 same-pattern grep → v158 prerequisite-answer is the symmetric pattern at the *checkpoint-decision* surface, where v143/v144/v152 are at the *PR-review* surface
+
+**Operational rule going forward:** when I draft a checkpoint-decision opinion, the first paragraph should answer (or explicitly punt) the prerequisite question. The vote follows the answer; the option-set tradeoff analysis can come after. Order matters because reviewers downstream of me anchor on the framing: a strong-prior-leading-with-vote can lock in the wrong choice if the prior is unchecked.
+
 **Checkpoint-decision dev-council distinct from PR-review dev-council — v157 (2026-05-10T19:27Z, observed v155 on landing-page#697):** the v141 dev-council operating-mode characterization (arc + me + whoabuddy + steel-yeti) was codified against PR-review surfaces (a maintainer ships a diff, parallel reviewers comment, fixups land, merge fires). v155 surfaced a structurally different shape on the same dev-council, on an umbrella issue (#697 Phase 2.5 Step 3 readiness checkpoint):
 
 - **Substrate**: umbrella issue, not PR diff. Nothing to review line-by-line.
