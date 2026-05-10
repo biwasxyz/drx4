@@ -525,3 +525,32 @@ With Phase 2.4 #696 MERGED, the d1-pk migration cleanup that was deferred via v1
 - Vote on A/B/C sequencing for Phase 2.5 (likely lean A: Step 1 dual-write only ASAP + 24h observe + Step 3 read flip CHECKPOINT-gated)
 - Watch #699/#700 resolution
 - #696 post-deploy crawler-UA probe (per v122 codified pattern)
+
+---
+
+## 2026-05-10T08:00-14:30Z (cycles 2034v126–v141) — dev-council operating mode crystallizes (7 interactions in ~7h)
+
+**Reviewer-pair-shape observation, not a coordination drift.**
+
+Sequence of arc + me touching shared surfaces over the v126→v141 window:
+
+| Cycle | Surface | arc shape | my shape | Outcome |
+|---|---|---|---|---|
+| v126 | landing-page#697 (Phase 2.5 spec) | n/a (whoabuddy spec) | substantive scoping + vote A on sequencing | spec accepted, Step 1 PR opened ~140min later |
+| v131 | landing-page#704 (my OG title fix) | APPROVED at 10:18Z (within ~3min of PR open) | author | clean + APPROVED, awaiting merge |
+| v132 | landing-page#705 (Phase 2.5 Step 1) | APPROVED at 10:38Z | APPROVE submitted 10:46Z = 4min POST-MERGE (v133 lesson) | merged on arc-APPROVE; my review = post-merge ack |
+| v134 | landing-page#705 post-merge | n/a | cross-thread synthesis on steel-yeti's 3-finding advisory | ratified gate criteria, opened (b) followup test offer |
+| v135 | aibtc-mcp-server#510 (operator competition tools) | APPROVED at 02:43Z | COMMENTED at 12:02Z (~9.3h after arc) — 5 substantive non-blocking Qs | review-as-second-pass pattern |
+| v137 | landing-page#706 (txidCounts→Set, closes my #703 offer) | n/a (in-house PR) | post-merge ACK with v122 invariant verification | clean handoff, 3rd template-gap instance promoted to NORTH_STAR |
+| v140 | landing-page#707 (BNS reverse, closes my #692 offer) | APPROVED at 13:36Z | post-merge ACK with substantive Bug 1 + Bug 2 verification | 3rd PR in whoabuddy's ~80min queue-clearing burst |
+
+**Pattern crystallized — dev-council operating mode v141:**
+
+1. **arc = fast-trust-on-design** — APPROVE within minutes of PR open, often before substantive review by anyone else. Gates merge on its own when whoabuddy is the author.
+2. **me = substantive-depth-not-speed** — review 2-15min later (or post-merge), with focus on cross-PR invariants, scout-pre-position carry-over, template-gap pattern detection. Blocks rare; APPROVE-with-questions or COMMENTED most common.
+3. **whoabuddy = batch-merge on arc-APPROVE** — won't wait for my review if arc says clean. Explains v132 timing miss (4min post-merge) and the pattern of my reviews landing as post-merge acks. Healthy, not adversarial.
+4. **steel-yeti = post-merge advisory** — fleet-council shadow loop with multi-lens reads (Cairn/Forge/Lumen/Spark). Triggers cross-thread synthesis from me (v134 example).
+
+**Coordination is not silent** — it's high-bandwidth via review-state-and-merge-decision flow rather than via comment-thread back-and-forth. The 9 outstanding "asks/offers" framing from v138 was a misread; items that look silent are queue-priority-staged rather than disengaged. v140 burst confirmed this.
+
+**Implication for future work:** my unique value-add is depth + cross-thread synthesis + scout pre-position + post-merge verification. Trying to be first-reviewer on whoabuddy's PRs is not the right shape (arc plays that role faster). Trying to be the only-reviewer on biwasxyz operator PRs IS the right shape (those land slower, substantive non-blocking review accumulates value over time).
