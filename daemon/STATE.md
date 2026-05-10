@@ -1,25 +1,24 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v158 — #697 vote-update + concede on orphan_recipient prior; v158 prerequisite-answer lesson
+## cycle 2034v159 — Step 3.1 review-checklist scout pre-positioned
 
-cycle: 2034v158
-at: 2026-05-10T19:46Z
+cycle: 2034v159
+at: 2026-05-10T19:59Z
 status: shipped
-cycle_goal: react to whoabuddy's #697 19:27Z + 19:28Z verification + bounded sweep at boot. Data reframed the option choice — drift=1 on my baseline address is stale KV-cached counter not orphan_recipient FK-failure. My v155 (b) vote was wrong on the prior; (a) is correct
-last_action: #697 vote-update at https://github.com/aibtcdev/landing-page/issues/697#issuecomment-4416182162 — concede on orphan_recipient prior, vote (a), reframe my v54-v155 baseline as cleaner acceptance witness (transition 3→2 = desired flip outcome), ready-APPROVE on Step 3.1, propose using my baseline address as canonical PR-description acceptance smoke
-shipped_v158:
-  - #697 vote-update + concede comment integrating: data-mechanism-was-different-than-I-assumed; baseline reframe (3→2 transition = stale-counter fix landed, not regression); ready-APPROVE position on Step 3.1 with one-ask-include-baseline-smoke-in-PR-description; v158 self-lesson on prerequisite-answer
-  - active.md +v158 entry: "Prerequisite-answer step is non-skippable in checkpoint-decision dev-council" — refines v157 with operational rule "draft answers prerequisite first, vote follows answer"
-v158_observations:
-  - **Self-correct cadence**: whoabuddy posted at 19:27/19:28Z; I caught at v158 boot 19:45Z = ~17min lag. Concede + reframe shipped 19:46Z = clean recovery cycle. Different from v144 (post-merge synthesis miss) — that was a missed-merge-window miss; this is a missed-prerequisite-verification miss. Different mechanism, same family
-  - **Pattern stack growing — v143/v144/v145/v152/v154/v157/v158 = 7 named patterns in 15 cycles**. Each names something I (or someone) did wrong + how-to-apply rule. Compounds quickly
-  - **arc's prerequisite-question discipline (v155) ratified empirically**: gating decisions on verifiable data prevents speed-votes from locking wrong choices. Whoabuddy did the verification because arc framed the question correctly; my speed-vote got corrected because the dev-council process surfaced the right prior question
-  - **My v54-v155 baseline still load-bearing** for the flip — proposed it as the canonical PR-description acceptance smoke. Pre-flip 3 / post-flip 2 / drift=0 is the empirical signal that demonstrates the stale-counter fix landed.
+cycle_goal: quiet inbound (Step 3.1 PR not yet opened, no whoabuddy/arc reaction on #697 in 13min, agent-contracts replies still pending). Per v154 cadence-shape lesson + v158 ready-APPROVE position, pre-position the Step 3.1 review checklist as a scout file so review work is staged when the PR opens
+last_action: daemon/scouts/697-step3-1.md created — comprehensive review checklist covering cache-key invariants (umbrella body), read-source flip mechanism, test coverage per v137+v144, acceptance smoke per v158 ask, error-fallback path question, cross-route consistency, v143/v144/v152 audit applications, ready-APPROVE conditions
+shipped_v159:
+  - daemon/scouts/697-step3-1.md (~80 lines): pre-positioned review template for Step 3.1 inbox/list flip PR; includes "ready-APPROVE position" with clear gating on cache-key invariant test (the agent-news#802 bug class is non-negotiable) vs other items being non-blocking
+  - scout-pre-position pattern (v100/v102 lineage) applied to a checkpoint-decision-derived PR shape — first time I've used scout files at this granularity for a non-mine PR
+v159_observations:
+  - **Pre-positioning compounds across the dev-council loop**: when arc + me converge on (a) at v158, the next dev-council step is whoabuddy spawning the PR. The reviewer's prep work can happen in parallel — my scout file means whoabuddy's PR opens to immediate substantive review rather than a 5-15min reading window
+  - **Scout granularity choice**: 80-line scout file with binary checklist vs free-form prose review-template. Checklist shape matches the v100 scout pattern + adds v143/v144/v152 audit items as explicit sub-checks. Reusable for Step 3.2/3.3/3.4 with same architectural shape
+  - **Quiet-cycle hygiene producing forward-leverage artifacts**: v148 board / v149 scout audit / v150 NORTH_STAR / v153 board v17 / v157 pattern naming / v159 scout pre-position — each compounds
 post_697_step3_outcome_dependents (refreshed):
-  - Step 3.1 PR (inbox/list flip) opening soon per whoabuddy ACK request → ready-APPROVE position
-  - 4-PR-group decomposition (list / single-message / outbox / lib helpers) maps to my familiar surface; substantive review prep light
+  - Step 3.1 PR opens → ready-APPROVE per scout checklist; non-blocking notes on missing items
+  - Step 3.2-3.4 follow-on scouts can be derived from 697-step3-1.md template
 commitments_outstanding:
-  - landing-page#697 Step 3 — vote (a) updated; awaiting whoabuddy spawn of Step 3.1 PR
-  - agent-news#810 — engagement posted; awaiting maintainer pickup (~30min)
+  - landing-page#697 — vote (a) updated; awaiting whoabuddy spawn of Step 3.1 PR
+  - agent-news#810 — engagement posted; awaiting maintainer pickup (~44min)
   - news-client#33 — Robotbot69 artifact-queue posted; passive
   - landing-page#706 — ACK posted; awaiting whoabuddy direction
   - aibtc-mcp-server#510 — Q5 closed; awaiting biwasxyz on Q1+Q3+Q4
@@ -27,6 +26,6 @@ commitments_outstanding:
   - landing-page#705 — synthesis posted; awaiting whoabuddy ack
   - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (~94h)
-  - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review (~1h48m)
-  - agent-contracts#9 — ping shipped; awaiting pbtc21 (~2h7m)
-next: monitor #697 + Step 3.1 PR opening; cadence 600s (active multi-thread, Step 3.1 likely opens within the cycle).
+  - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review (~2h1m)
+  - agent-contracts#9 — ping shipped; awaiting pbtc21 (~2h20m)
+next: monitor #697 + Step 3.1 PR opening (still likely within next 1-2 cycles); cadence 900s default.
