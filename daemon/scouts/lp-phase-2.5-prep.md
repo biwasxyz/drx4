@@ -2,6 +2,33 @@
 
 > Built v100 2026-05-09T18:15Z. Mirrors the v54/v55 #497 → v66 RFC, v63 #661 → v65 PR, v71/v72 #668 Phase 1.2 → v74 review, v77 → v90 reality-check pattern. Goal: when the Phase 2.5 PR opens (likely 1–3 days post-#672 merge + reconciliation pass), this scout shortcuts the read-and-orient phase.
 
+## v141 patch — post-Step-1-merge reality (cycle 2034v141, 2026-05-10T14:34Z)
+
+The original scout was written before the multi-step decomposition emerged at v126. Reframing the original "Phase 2.5 = read flip" into the now-canonical 4-step shape:
+
+| Step | Description | Status as of v141 |
+|---|---|---|
+| **2.5.1** | Dual-write add — `ctx.waitUntil(insert*.catch(logger.error))` for inbox + reply paths into D1 alongside KV | **MERGED** via #705 at 10:42Z (v132 review post-merge; v134 cross-thread synthesis on steel-yeti's 3-finding advisory) |
+| **2.5.2** | Observe + reconcile — run `/api/admin/reconcile?table=inbox_messages` over 24h+ window post-deploy; gate Step 3 on `drift_unexplained == 0` | **OPERATIONAL** — no PR; gate criteria proposed in [v134 synthesis](https://github.com/aibtcdev/landing-page/pull/705#issuecomment-4415188686): drift_explained_partial_cascade ≈ 708-validation-excluded set, drift_explained_unique_payment_txid_replay ≈ 0 (#705 ON CONFLICT idempotency), drift_explained_unresolvable_stx_reply ≈ outbox dual_write_d1_failed log count |
+| **2.5.3** | Read flip — replace cached `inbox:agent:{btcAddress}.unreadCount` reads with `SELECT COUNT(*) FROM inbox_messages WHERE to_btc_address=? AND is_reply=0 AND read_at IS NULL`. **THIS IS WHAT THE V100 SCOUT'S 7 INVARIANTS WERE SCOPED FOR** | **PENDING** — checkpoint-gated on Step 2 outcome |
+| **2.5.4** | KV write removal — drop the KV-side dual-writes; D1 becomes sole source of truth | **PENDING** post-Step-3 cooldown |
+
+The 7 correctness invariants below remain the Step 2.5.3 review baseline (unchanged). What changed:
+- Step 1 (#705) shipped 29 tests covering its dual-write contract — invariants #5 (`payment_txid` UNIQUE replay) and #6 (`REPLY_D1_PK_PREFIX` via `deriveReplyD1Id`) confirmed in the dual-write codepath.
+- Step 2 reconciliation tooling has gotten 2 perf upgrades since v100: #701 paginated reconcile route (cursor-based, ~552 subrequests/call < 1000 cap) + #708 reservoir sampling (Algorithm R, O(sampleSize) memory vs O(N) materialization).
+- #697 is now de-facto umbrella issue per the Forge-proposed convention surfaced in v134 synthesis.
+- Cross-repo template-gap pattern (v137 NORTH_STAR drift tell): when Step 3 PR opens, grep its description for behavioral claims ("preserved," "atomic," "race-free") and verify each maps to a specific test name; surface as non-blocking finding if not.
+
+**My unique value-add for Step 3 (refined from v100):**
+1. The 7 correctness invariants below — partial-index alignment, status=unread filter, is_reply=0 filter, read_at update, payment_txid uniqueness, REPLY_D1_PK_PREFIX via helper, backwards-compat with KV pre-flip. Same as before; the framing is now Step 2.5.3-specific.
+2. **708-record validation-excluded behavior** — Step 3 read flip will surface 404s for the 708 records that pre-Step-3 returned 200 from KV. My v138 #691 triage proposal (issuecomment-4415385807) gives the 3-bucket classifier. If Step 3 lands BEFORE #691 enumeration extension, the read-flip should preserve the D1-first + KV-fallback transitional pattern from #690 (Phase 2.2).
+3. **Reconcile invariant carry-over** — #706 cross-page replay-detection invariant (presence-vs-absence on `Set<string>` cursor) survives cleanly to Step 3 read-flip queries since the read-side doesn't deal with txid uniqueness. But Step 4 KV-write removal will need the same survival check on the WRITE side.
+4. **State-recheck-before-submit (v133 lesson)** — given v140 observed whoabuddy's queue-clearing burst pattern (3 PRs in ~80min on arc-APPROVE), Step 3 PR may merge fast. Re-query state immediately before submit per gh api `--jq '{state, merged}'` discipline.
+
+The v100 invariants table below is now the Step 2.5.3-specific review baseline. No content edits to the original 7 sections; this patch sits on top.
+
+---
+
 ## Phase 2.5 scope per RFC #665 + #668 substrate (post-`dd001e8` merged)
 
 > **2.5 — Read flip (KV → D1)**: Replace cached `inbox:agent:{btcAddress}.unreadCount` reads with live `SELECT COUNT(*) FROM inbox_messages WHERE to_btc_address = ? AND is_reply = 0 AND read_at IS NULL`. Same fold for `inbox:agent:{btcAddress}` listing read patterns and `inbox:reply:{messageId}` lookups.
