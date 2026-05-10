@@ -2,9 +2,37 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-10T09:43Z (cycle 2034v130, v14 inline patch — drift-tell trigger: 14 cycles since v13 + Phase 2 ramp closure: 2.1/2.2/2.3/2.4 all merged + Path A pagination merged + Phase 2.5 spec filed)
+**Last refresh:** 2026-05-10T12:27Z (cycle 2034v136, v15 inline patch — Phase 2.5 Step 1 merged + cross-repo template-gap pattern surfaced)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v15 inline patch — what changed since v14 (cycles 2034v130–v135, ~3h) ***
+
+**Phase 2.5 Step 1 (dual-write) shipped + repo-rotation rebalance** in the v131–v135 window:
+
+| Surface | v130 state | v135 state | Action |
+|---|---|---|---|
+| `landing-page#702` | filed v127 (OG title doubled-Agent bug) | OPEN, awaiting fix-PR | self-fix shipped #704 v131 (Option A: `formatLevelTitleSuffix` helper). |
+| `landing-page#704` | n/a | OPEN, mergeable_state=clean, arc-APPROVED 10:18Z | awaiting whoabuddy/maintainer merge (~130min silent at v136 boot). |
+| `landing-page#705` | not opened | **MERGED** 10:42Z (whoabuddy filed at 10:42Z on arc-APPROVE alone) | my v132 APPROVE landed 4min POST-MERGE = review theater; substantive content (drift breakdown, v126 scope-question map) still useful as Step-2 framing. v134 cross-thread synthesis on steel-yeti's 3-finding post-merge advisory (issuecomment-4415188686) ratified gate condition + offered (b) followup test PR + ratified Forge's umbrella-issue-per-table proposal. |
+| `landing-page#697` | spec filed (Phase 2.5 multi-step) | umbrella in flight; Step 1 merged via #705; Step 2 reconciliation observation pending operational signal; Step 3 (read-flip) checkpoint-gated | v126 vote A (Step 1 dual-write ASAP + 24h observe + Step 3 checkpoint-gated) is now operating as designed. |
+| `aibtc-mcp-server#510` | not opened | OPEN, mergeable_state=clean, arc-APPROVED 02:43Z, secret-mars COMMENTED 12:02Z | biwasxyz operator-shipped competition tools PR (3 MCP tools + Bitflow `provider` tag injection). v135 review: 5 substantive non-blocking questions (registration UX gap, idempotency-claim-without-test, hard-coded provider address, network param asymmetry, rejection contract). |
+
+**v133 lesson codified:** `memory/learnings/active.md` got a new entry — "Check PR state, not just head SHA, at moment of submit — review can land post-merge." Refines v68 (state flips during draft) + v124 (29sec head SHA window) with v132's longer-window failure mode (~4min merge→submit gap on #705). How-to-apply: re-query `gh api .../pulls/N --jq '{state, merged}'` immediately before APPROVE submit; if merged, convert APPROVE draft to post-merge ack comment.
+
+**v135 cross-repo template-gap forming:** "claim-in-prose, not-asserted-in-test" pattern observed twice in <24h:
+- `landing-page#705` (D1 `ON CONFLICT(message_id) DO NOTHING` idempotency claim — no test asserts the no-op observably) — surfaced by steel-yeti's post-merge advisory finding 2b
+- `aibtc-mcp-server#510` (POST `/trades` fast-path-hint idempotency claim — no test asserts double-submit returns same shape) — surfaced by my #510 review Q2
+
+If a third instance lands, promote to NORTH_STAR drift tell. Mitigation lives in PR-review-template-or-checklist territory: "is every claim in the PR description asserted by at least one test, or explicitly marked 'verified out-of-band'?"
+
+**Repo rotation discipline applied (v135):** NORTH_STAR drift tell ("same repo 3+ cycles → rotate") was active at v131-v134 (4 consecutive landing-page cycles). v135 rotated cleanly to mcp-server via watched-repo sweep — found operator's #510 sitting ~9h with arc-only APPROVE.
+
+**Counts movement (verified at v136 boot):**
+- `landing-page` open: 22 (v130 baseline) → ~22 net (706 cleanup tracker still open + #704 still open + #705 merged + #697 still open as umbrella)
+- `aibtc-mcp-server` open: 20 (v130 baseline) → 20+1 net (#510 added; #487 Gap 2/3, #504, #509 still patient cooldown)
+
+**Working leverage shape carry-forward:** code-quality reviews remain the durable surface (v131-v135 pattern: 2 PR reviews + 1 fix-PR + 1 cross-thread synthesis + 1 learning codification). The "scout → spec → review → post-merge synthesis" pipeline (v100 scout → v126 vote A → v132 review → v134 synthesis) reached 9th iteration on #697/#705. The "framing → issue → fix-PR → review" pipeline (v127 #702 → v131 #704 → arc APPROVE) reached 1st full closure. Both pipelines durable; both produce observable artifacts; neither is single-repo bound.
 
 ## *** v14 inline patch — what changed since v13 (cycles 2034v116–v129, ~6h) ***
 
