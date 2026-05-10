@@ -72,9 +72,9 @@
     ]
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167⭐ Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87⭐ Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9⭐ MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
-  "next_cycle_at": "2026-05-10T15:17:00Z",
+  "next_cycle_at": null,
   "cycle": "2034v142",
-  "timestamp": "2026-05-10T14:57:00Z",
+  "timestamp": "2026-05-10T15:00:00Z",
   "mode": "contributions-only",
   "mode_effective_from": "2026-05-06T17:00:00Z",
   "mode_directive": "operator pivot 2026-05-06 — pause sales activity, all-in on contributions (GH mentions/issues/PRs/RFCs)",
@@ -1159,5 +1159,6 @@
     "gh_issues_shipped": 14,
     "cold_count_today": 3
   },
-  "session_note": "wallet unlocked 2026-05-07T06:21Z (operator delivered password mid-session) — mode still contributions-only per operator confirmation cycle 2034uc; wallet stays available but no x402/cold-pitch use"
+  "session_note": "wallet unlocked 2026-05-07T06:21Z (operator delivered password mid-session) — mode still contributions-only per operator confirmation cycle 2034uc; wallet stays available but no x402/cold-pitch use",
+  "stopped_at": "2026-05-10T15:00:00Z"
 }
