@@ -1,26 +1,26 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v126 — Phase 2.5 #697 substantive scoping + #700 closure
+## cycle 2034v127 — post-deploy probe finds OG title bug + baseline reconfirm
 
-cycle: 2034v126
-at: 2026-05-10T08:06Z
+cycle: 2034v127
+at: 2026-05-10T08:33Z
 status: idle (ScheduleWakeup queued)
-cycle_goal: Apply v100 scout to Phase 2.5 #697 spec + close v98 catch loop on #700
+cycle_goal: Apply v122-codified post-deploy-probe pattern to verify #694 + #696 + reconfirm Phase 2.5 baseline
 shipped:
-  - landing-page#697 issuecomment-4414797572 — Phase 2.5 spec scoping. Vote A on sequencing (Step 1 dual-write ASAP + 24h observe + Step 3 read-flip checkpoint-gated). 6 read-flip correctness invariants from v100 scout mapped to Step 3. Acceptance recipe at v54/v55+v96+#685 baseline. 3 open scope questions surfaced (validation-excluded FK fail / reconciliation route invocation / cache key semantics agent-news#802 class). Offered to prep Step 1 PR. Verified 200.
-  - landing-page#700 issuecomment-4414797672 — closure note: #699 merged 07:43Z; #700 can close as superseded with credit. v98 catch loop closed.
+  - landing-page#702 — issue filed: "<title> + og:title show 'Verified Agent Agent' for level=1 agents (LEVELS naming + template drift)". Empirical repro via crawler-UA probe; root-cause analysis (LEVELS[1].name='Verified Agent' + ogTitle template '${levelName} Agent' = double); 3 fix options + recommendation A (per-level conditional template, surgical 2-file diff). Verified 200.
+  - landing-page#697 issuecomment-4414845104 — Phase 2.5 baseline reconfirmed at 2026-05-10T08:30Z. unreadCount=3 / msgs_with_readAt_null=2 → drift=+1 unchanged from v54/v55/v96 baseline (4 samples spanning 36h). Drift sticky/persistent — Phase 2.5 Step 3 positioned to close.
 observations:
-  - #699 MERGED 07:43Z (1.5min after my v98 catch comment) — whoabuddy chose the canonical PR; v98 catch worked exactly as intended pre-second-merge
-  - 6th instance of scout-pre-position pattern (v54/v55→v66; v63→v65; v71/v72→v74; v77→v92; v117→v118; v100→v126). v100 scout was the largest pre-position to date (~165 lines from 2026-05-09T18:15Z) — applied 14h+ later when whoabuddy filed #697 spec.
-  - Phase 2.5 spec structure is 4-step (dual-write / observe / read-flip / write-flip) vs my v100 scout's single-PR assumption. Scout's correctness checklist still applies cleanly to Step 3.
-  - Phase 2.5 is "revenue-surface CHECKPOINT" — explicit maintainer sign-off required for read-flip + write-flip steps. My vote A surfaces Step 1 + Step 2 as non-checkpoint preliminaries.
-  - Output type rotation v113-v126: 13 distinct types in 14 cycles
+  - Phase 2.3 KV-fallback verified: Iskander (validation-excluded, level=2) → "Frosty Narwhal — Genesis Agent" og:title via crawler — claim re-fetch on KV fallback path preserves Genesis-level OG correctly (per my v123 review prediction)
+  - Phase 2.4 taproot path verified: registered taproot (Coral Penguin bc1pme...) returns 200 image/png; my taproot (bc1prq7...) 404s correctly because taprootAddress=null on my record — v124 probe shape was wrong, self-corrected
+  - Empirical-probe-leads-to-substantive-bug-finding: post-deploy probe pattern surfaced a UI bug (#702) that wasn't in scope of either #694 or #696 reviews. Pattern's value extends beyond verifying merged PRs to discovering pre-existing bugs
+  - Output type rotation v113-v127: 14 distinct types in 15 cycles (v127 = issue_filed + baseline_probe)
 commitments_outstanding:
-  - landing-page#697 — Phase 2.5 spec; awaiting maintainer A/B/C sequencing decision; my vote A + scope observations + offer to prep Step 1 PR pending response
+  - landing-page#702 — OG title bug filed; awaiting fix (Option A surgical, ~5-line PR)
+  - landing-page#697 — Phase 2.5 spec; awaiting maintainer A/B/C sequencing decision (my vote A + baseline probe + scope obs in court)
   - landing-page#700 — duplicate; closure pending arc/whoabuddy
-  - landing-page#691 — 708-record cleanup triage (now intersects Phase 2.5 Step 1 FK-fail handling)
-  - landing-page#692 — BNS resolver + KV-read residual (offered to take; whoabuddy ~140min silent)
+  - landing-page#691 — 708-record cleanup triage (intersects Phase 2.5 Step 1 FK fail)
+  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~165min silent on offer)
   - landing-page#684 — path-A pagination sub-issue, queued
-  - landing-page#674 — superseded by #699 (now merged); auto-close pending
+  - landing-page#674 — superseded by #699 (merged); auto-close pending
   - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (~4d remaining)
-next: monitor #697 sequencing decision + post-deploy probe on #696 if/when bandwidth (1200s cadence)
+next: monitor #697 sequencing decision + #702 fix activity + post-deploy probe value note (1200s cadence)
