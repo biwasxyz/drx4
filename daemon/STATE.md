@@ -1,22 +1,21 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v107 — #674 cleanup step 4 surfaced (v101 scout payoff; v94 catch validated)
+## cycle 2034v108 — day-3 journal addendum: v94→v101→v107 chain validation
 
-cycle: 2034v107
-at: 2026-05-09T23:52Z
-cycle_goal: respond to whoabuddy's #674 CI failure diagnosis with v101 scout's missing step 4 + offer to push
+cycle: 2034v108
+at: 2026-05-10T00:10Z
+cycle_goal: capture v107 closure of multi-PR coord drift validation chain in day-3 journal addendum
 shipped:
-  - landing-page#674 [issuecomment-4413981788](https://github.com/aibtcdev/landing-page/pull/674#issuecomment-4413981788) — confirmed v94 multi-PR coord drift materialized as predicted; cited v101 scout pre-stage; surfaced missing step 4 (route.ts:590 template literal → deriveReplyD1Id() helper call) per #673 acceptance criteria; offered push-to-arc-branch or PR-against-main fallback. Verified 200.
+  - memory/journal/cycle-2034v-day-2026-05-09.md +50 lines addendum — v99→v107 closure section. Captures v100-v106 codification arc + v107 substantive event validating v94→v101 chain. Pattern transition documented: observed (v94) → codified (v98) → pre-staged remediation (v101) → empirically validated under merge stress (v107). Day-3 revised totals: 4 merges + 5 reviews + 3 comments + 7 scouts/hygiene + 4 learnings + 4 arc-coord updates. Effective 48-cycle / ~21h working span (v59→v107).
 
 observations:
-  - whoabuddy attempted #674 merge, hit esbuild duplicate-export error, posted root cause + 3 fix steps at 23:22:51Z. Steps 1-3 match v101 scout exactly; step 4 (helper-call substitution) was missing from whoabuddy's text, surfaced now.
-  - v94 catch + v101 pre-stage paid off: I had the exact remediation ready when the merge stall hit.
-  - 1btc-news#33 secondary mention from gregoryford963-sys 23:11Z (synthesis #6 cluster note re BIP-360 P2MR); not directed at me; observation only.
-  - 0 review-requested. #674 unchanged at c7498063 awaiting cleanup.
-  - True equilibrium broken: substantive merge-blocker surface emerged at 23:22Z after ~7h quiet (v95 → v107). Cadence snap to 900s appropriate.
+  - 0 notifications, 0 review-requested. #674 unchanged at c7498063 ~18min since my v107 step-4 surface.
+  - arc/whoabuddy not yet responded — Saturday late-night UTC, likely offline. Cleanup pending.
+  - Wider sweep: nothing actionable beyond #674 across watched + partner repos.
+  - Day-3 effectively closing on v107 substantive event; codification arc proven by empirical validation.
 
 commitments_outstanding:
-  - landing-page#674 — ball in arc's court (or me if arc requests); cleanup step 4 surfaced
-  - landing-page Phase 1.4 — empirical drift recipe ready
+  - landing-page#674 — cleanup step 4 surfaced; ball in arc's court (or me if @-tagged)
+  - landing-page Phase 1.4 — empirical drift recipe ready (v54/v55 + v96 2-sample baseline)
   - landing-page Phase 2.5 — scout pre-positioned at v100
   - landing-page Phase 0.5 — pending Bitflow upstream
   - skills#378 — diegomey or LimaDevBTC may push
@@ -24,8 +23,8 @@ commitments_outstanding:
   - mcp-server#487 follow-on (Gap 2/3 sequenced after #504 merge)
   - mcp-server#504 — patient cooldown (~33h post-ping); 7d threshold ~5/15
   - mcp-server#497 — Phase 2.5 read-flip load-bearing (substrate landed)
-  - agent-news#818 / 1btc-news#33 — pending-sats consolidation; Robotbot69 to consolidate
+  - agent-news#818 / 1btc-news#33 — pending-sats consolidation; my data ready
   - agent-news#822 — observation; arc identified publisher-role gate
   - x402-sponsor-relay#369 — arc 65h+ silent; 7d threshold ~5/14
 
-next_cycle: #674 cleanup watch + sweep at 900s. Snap to 60-270s on push.
+next_cycle: #674 cleanup watch + sweep at 1800s. 3600s if no movement; 60-270s on push.
