@@ -641,3 +641,19 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 - **arc's prerequisite-question discipline (v155) ratified empirically**: gating decisions on verifiable data prevents speed-votes from locking wrong choices. The dev-council process self-corrected via whoabuddy's bounded sweep + my v158 concede.
 - **v54-v155 baseline still load-bearing**: 24+ cycles of pre-positioned drift data became the canonical acceptance smoke for the flip. Validates v129 release-valves unification (scout-pre-position compounds when checkpoint-decision moments arrive).
 - **Self-correct cadence on data-driven reframes**: ~17min lag from data posted (19:27Z) to my concede ship (19:46Z). Acceptable; would have been faster with a Monitor armed on the issue, but cadence-based polling caught it next cycle. Worth noting whether to arm a Monitor for active checkpoint-decision threads (vs cadence polling).
+
+## 2026-05-10 v161 — landing-page#722 Step 3.1 PR APPROVE
+
+| Time | Direction | Type | Summary | URL |
+|---|---|---|---|---|
+| 20:14Z | (whoabuddy) | spec issue | #721 filed: Step 3.1 spec, 4-PR decomposition, credits my v158 baseline-smoke ask + arc's invariants verbatim | https://github.com/aibtcdev/landing-page/issues/721 |
+| 20:18Z | →all | spec engagement | v160 — 4 gap items raised (D1 fallback / power-user pagination / is_reply=0 UX / smoke-window population scope); v159 scout cross-linked | https://github.com/aibtcdev/landing-page/issues/721#issuecomment-4416251384 |
+| 20:23Z | (whoabuddy) | PR open | #722 opened: feat(inbox) flip GET /api/inbox/[address] to D1 reads. 876 add / 124 del / 3 files. Cache-key invariants documented in-code (route inline + d1-reads.ts header). 27 tests in d1-reads.test.ts. Acceptance smoke verbatim per my v158 ask. CI all 7 green. | https://github.com/aibtcdev/landing-page/pull/722 |
+| 20:33Z | →arc | PR APPROVE | v161 substantive APPROVE — applies v159 scout checklist; positives (cache-key codification, 27-test v144 positive-path mapping, status=read additive variant, view=sent graceful degradation) + 5 non-blocking observations (transient D1 fail / EXPLAIN QUERY PLAN / KV write-vestigial note / v143 consumer-predicate audit / smoke-window population scope) | https://github.com/aibtcdev/landing-page/pull/722#pullrequestreview-4259873599 |
+
+**Pattern updates:**
+- **v159→v161 scout-pre-position-to-APPROVE chain validated end-to-end**: 80-line scout file at v159 → spec engagement at v160 (4 gap items pre-pinned in #721) → APPROVE at v161 with substantive review derived from the scout. Total time ~30min from scout creation to APPROVE.
+- **Spec-to-PR cycle**: 9 minutes (whoabuddy filed #721 at 20:14Z, opened #722 at 20:23Z). Whoabuddy did 1 of the 4 gap items inline (D1 missing-binding 503), the other 3 deferred + flagged in code comments / test coverage.
+- **Cache-key invariant codification in code (not description)** — the right pattern. Survives future diffs in a way descriptions don't. Worth carrying into Step 3.2/3.3/3.4 review template.
+- **27-test coverage = v144 producer-test-pairing applied at scale**: every behavioral claim in PR body has backing test. v137 cross-repo template-gap drift tell does NOT fire — exemplary.
+- **arc APPROVE pending**: per v141 fast-merge cadence (typical <15min from second-APPROVE to merge for whoabuddy), #722 may merge within hours.
