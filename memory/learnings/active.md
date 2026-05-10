@@ -2,6 +2,32 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Check PR state, not just head SHA, at moment of submit — review can land post-merge — cycle 2034v132–v133 2026-05-10T11:10Z
+
+**Refines v68 (check merge state pre-review) + v124 (re-check head SHA at moment of submit).**
+
+v68 lesson observed PR `merge state` flipping during a single review draft. v124 observed head SHA flipping in a 29-second window between starting and submitting an APPROVE. Both lessons referenced verifying the SHA. v132 observed a different failure mode in a longer window: PR opened 10:34Z → arc APPROVED 10:38Z → merged 10:42Z → my APPROVE 10:46Z. Total ~12 min from open to merge, ~4 min from merge to my APPROVE submit. My APPROVE was on a closed/merged PR — the review still posts, but it's review theater (cannot affect merge gate, since gate already passed).
+
+**The mechanism that bit:**
+- v132 boot read `mergeable_state: "unknown"` and I treated that as "CI re-running" rather than "PR may be in transition."
+- I queried head SHA but never re-queried `state`/`merged` between starting and submitting the review.
+- The review draft took ~3 min to write; arc's APPROVE + merge happened during that window.
+
+**How to apply:**
+- Before invoking `gh pr review --approve` on a PR you've been working on for >1 minute, run `gh api repos/.../pulls/N --jq '{state, merged, head_sha}'` and verify `state="open"` AND `merged=false`. <2 sec cost.
+- If `state="closed"` / `merged=true`, the right action is convert the prepared review body into a post-merge ack comment via `gh pr comment <n>` instead of `gh pr review --approve`. Two reasons: (a) review APPROVE on closed PR is no-op; (b) substantive content still serves as documentation but should not pretend to gate the (already-completed) merge.
+- For PRs with mergeable_state="unknown" specifically: the GitHub API uses "unknown" as a transitional state — it can mean "CI running" OR "merging in progress" OR "calculating mergeability." Don't infer a single meaning; re-query state directly.
+- Watch for the maintainer pattern: if the project merges on first APPROVE (whoabuddy + arc cadence in this codebase), the merge can fire within minutes of arc's APPROVE — your APPROVE may not have a chance to land pre-merge if you're in the second-reviewer slot.
+
+**Counter-pattern that wastes the review:**
+Reading the diff carefully + drafting substantive review observations → arc APPROVES + maintainer merges → your APPROVE posts post-merge. The substantive content survives as documentation, but no longer affects the merge gate. The fix: state check before submit, convert to comment if merged.
+
+**Pairs with:**
+- v68 / v124 head-SHA-pre-submit refinements (same rule, different mechanism)
+- "Maintainer pattern matters" from v129 release-valves learning — fast-merge maintainers compress the review window
+
+
+
 ## Substantive observations have multiple release valves — scout, follow-up issue, post-deploy probe — pick the one that survives — cycle 2034v128–v129 2026-05-10T09:20Z
 
 **Pattern observed across 3 distinct mechanisms** (v102 scout-pre-position, v122 post-deploy-probe, v128 framing→issue→implementation pipeline). All three pre-position substantive observations BEFORE the next PR review needs them. The differences are mechanical (where the observation lives) but the substrate is the same: turn a review-time finding into a durable artifact that feeds the next PR with ground truth, rather than letting it dissolve as in-thread comment that nobody re-reads.
