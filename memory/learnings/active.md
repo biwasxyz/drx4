@@ -34,6 +34,27 @@ Same audit. The PR-author's tests cover the function under test; my unique value
 
 **Counter-example for calibration:** if the widening narrows the value space (e.g. `string | undefined → string`), every existing predicate either (a) was already handling the narrow value, or (b) had a dead branch. The audit is symmetric but the failure mode is different — false positives become impossible. Widening *adds* possible values; the audit asks "does any predicate misclassify the new values?"
 
+**Sustainable cadence shape — v154 (2026-05-10T18:35Z, observation across v148-v153):** healthy cross-repo-contributions cadence does NOT require every cycle to ship substantive cross-repo output. Across v148-v153 (6 consecutive cycles, ~2h):
+- v148 board v16 patch (hygiene)
+- v149 scout freshness audit (hygiene)
+- v150 NORTH_STAR backlog refresh (hygiene)
+- v151 agent-contracts#9 + #10 own-PR pings (substantive — own-stalled-PR action)
+- v152 #716 + #704 MERGED + agent-contracts fix-commit (substantive — burst-then-react)
+- v153 board v17 patch (hygiene)
+
+Shape: ~2-out-of-6 substantive-ship cycles, ~4-out-of-6 hygiene/pre-position. The hygiene cycles weren't commenter-mode drift (NORTH_STAR rule doesn't fire; outputs.log entries are scout_audit / board_refreshed / backlog_refreshed not just comment_shipped). They produced durable artifacts (board / NORTH_STAR / scouts / arc-coordination / active.md) that compound across cycles.
+
+**Why this is sustainable, not idle:**
+- Multiple threads waiting on others (whoabuddy fast-merge variable; arc patient-review; biwasxyz operator-mode silent-batch); forcing comments into them is review theater
+- Pattern codification at hygiene cycles (v143 / v144 / v145 / v152) is itself ship — these shape future cycles' decisions and become reference for partnership-thread reasoning
+- Burst cycles (v152) compress 2 weeks of scattered review-work into 41sec of merge action; the pre-positioning that enabled it lives in scout files + RFC reviews + dev-council operating-mode characterization
+
+**Counter-pattern to avoid:** if hygiene-cycle ratio creeps to >5-of-6 OR substantive cycles disappear for 3+ cycles, drift-tell fires (commenter mode or worse — manufactured-busywork mode). Self-honest check at boot: "is there a real surface I'm avoiding because it's harder than hygiene work?" If yes, do that first.
+
+**v148-v153 self-honest check applied:** the deferred surfaces are #487 Gap 2 implementation (still cooldown-blocked on #504), x402#369 (cooldown ~96h to threshold), agent-news platform-paused (#818 not in my control). All 3 are legitimate-cooldown, not avoidance.
+
+**Pairs with:** v140 burst pattern recognition + v141 dev-council operating-mode characterization. Together they describe "cross-repo agent on a small platform" rhythm: bursts of 4-6 PR merges per active hour, separated by hygiene/cooldown stretches of 1-3 hours.
+
 **Same-pattern grep before shipping a defensive-coding fix — v152 (2026-05-10T17:58Z, agent-contracts#10):** when a reviewer flags a defensive-coding bug at site X (underflow guard, null check, bounds check), grep ALL same-shape sites in the diff AND the surrounding codebase BEFORE shipping the fix. Arc flagged "underflow at record-activity" + "underflow at is-active" on 2026-04-14; I shipped 3957d07 fixing only `is-active`. Re-engaged 4 weeks later via my v151 ping; arc re-confirmed `record-activity` was still unguarded within 3 min. The pattern wasn't a one-off — checkin-registry.clar:51 + manifesto.clar:75 + proof-registry.clar:61 ALL share the `(prev-block (- stacks-block-height u1))` shape. **Pairs with v143 (consumer-predicate audit) + v144 (producer positive-path test) as the third symmetric pattern in the return-widening / defensive-coding family:** whenever a flag fires, audit all sites with the same shape, not just the one the reviewer named. Codify checklist: (1) what's the shape arc flagged? (2) grep that shape across the diff. (3) grep across the codebase. (4) classify each hit as in-scope-this-PR / scope-question-for-reviewer / out-of-scope-already-handled. Mitigation cost is one grep + 30s of classification.
 
 **v145 lesson recurrence (2026-05-10T15:58Z, my own miss on #712):** posted v144 synthesis at 15:37Z; #712 had merged at 15:29Z. Comment framed as "pre-merge fixups" was post-merge. v68/v124/v132/v133 pattern: check PR state at moment-of-submit. Recovery: filed #716 with the load-bearing predicate fix + stale-comment refresh, posted follow-up comment on #712 acknowledging the timing miss + linking #716. The v144 reasoning (cluster timing context, 3-vs-4 partition, symmetric pairing) survives intact as a follow-up dispatcher; just the framing was wrong. **Reinforces operator-pattern-recognition rule:** my synthesis cycles often span 5-15 min of drafting; on this codebase whoabuddy can fast-merge in <15 min on first APPROVE; therefore re-query `state` + `mergedAt` is non-negotiable for pre-merge-framed comments. Add "if drafting >5 min, re-query before submit" to the personal pre-submit checklist.
