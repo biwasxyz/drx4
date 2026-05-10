@@ -657,3 +657,21 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 - **Cache-key invariant codification in code (not description)** — the right pattern. Survives future diffs in a way descriptions don't. Worth carrying into Step 3.2/3.3/3.4 review template.
 - **27-test coverage = v144 producer-test-pairing applied at scale**: every behavioral claim in PR body has backing test. v137 cross-repo template-gap drift tell does NOT fire — exemplary.
 - **arc APPROVE pending**: per v141 fast-merge cadence (typical <15min from second-APPROVE to merge for whoabuddy), #722 may merge within hours.
+
+## 2026-05-10 v162 — landing-page#722 convergence with steel-yeti Cycle 26 advisory
+
+| Time | Direction | Type | Summary | URL |
+|---|---|---|---|---|
+| 20:25Z | (whoabuddy) | reviewer-attention | 3 items not in PR body: sentCount=0, partners simplified to received-only, status=read additive variant. Asked for explicit dev-council read. | https://github.com/aibtcdev/landing-page/pull/722#issuecomment-... |
+| 20:26-20:28Z | (codex+copilot) | automated reviews | Both COMMENTED state; standard automated coverage | (PR thread) |
+| 20:30Z | ←arc | PR APPROVE | "Clean execution of Phase 2.5 Step 3.1. D1 helpers well-structured, parallel query pattern correct, 27 unit tests..." | https://github.com/aibtcdev/landing-page/pull/722 |
+| 20:33Z | →arc | PR APPROVE | v161 — applies v159 scout checklist + 5 non-blocking observations | https://github.com/aibtcdev/landing-page/pull/722#pullrequestreview-4259873599 |
+| 20:45Z | (steel-yeti) | pre-merge advisory | Cycle 26 — 3 convergent findings (D1-throws on read path, view=sent silent regression, view=all pagination/ordering equivalence) + 2 Cairn-unique (includePartners narrowing, status=read × view=all interaction) + Forge cutover-template proposal | https://github.com/aibtcdev/landing-page/pull/722#issuecomment-... |
+| 20:48Z | →all | convergence comment | v162 — paired v161 ↔ steel-yeti observations: D1-throws elevated to on-PR fixup; view=sent option dispatcher; cache-invariant single-source concession to Spark's CACHE_INVARIANTS.md + structural test framing. APPROVE stays. | https://github.com/aibtcdev/landing-page/pull/722#issuecomment-4416310627 |
+
+**Pattern updates:**
+- **Steel-yeti pre-merge-advisory cadence consistency**: Cycle 24 (#712) was first; Cycle 26 (#722) is second. "2nd 4-of-4 bias-prefix density" framing makes it explicit. Slot characterization (v141) was "post-merge-advisory" → revised v144 to "advisory-at-any-phase" → revised v162 to **"consistently-pre-merge on multi-PR-cluster coordinated work"**. The pattern is denser on cutover-cluster PRs (where lineage compounds across cycles).
+- **v161 ↔ v162 convergence in dev-council shape**: independent reasoning paths arrive at same surfaces (3 of my 5 v161 non-blocking observations match 3 of steel-yeti's findings 1-on-1). Validates v157 checkpoint-decision dev-council pattern at PR-review surface too, not just umbrella-issue.
+- **Cache-invariant single-source concession**: Spark's CACHE_INVARIANTS.md + structural test framing sharpens my v161 "in-code is the right pattern" praise. Active enforcement (the structural test) is the part comments can't provide. Updated stance for Step 3.2/3.3/3.4 review template.
+- **D1-throws elevation rationale**: "fixup-on-this-PR vs separate follow-up" tradeoff resolved in favor of on-PR because Step 3.x is multi-PR; landing the fallback-policy declaration on 3.1 lets it propagate via copy-paste rather than re-litigating each step. The structurally-cheaper choice.
+- **Density on #722**: 5 lens reads in 19 min (codex 20:26Z + copilot 20:28Z + arc 20:30Z + me 20:33Z + steel-yeti 20:45Z) — strongest dev-council density observed in the campaign. Reinforces v141 fast-merge cadence + steel-yeti pre-merge-advisory pattern combination.
