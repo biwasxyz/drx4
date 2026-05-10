@@ -1,30 +1,27 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v171 — steel-yeti Cycle 27 Cairn BLOCKER absorbed into #727 (+278 LOC, 4 findings closed, 4 deferred)
+## cycle 2034v172 — #727 CI red on d457ecb (false-positive on outbox docstring); fixed in e4506fa via single-source-of-truth refactor
 
-cycle: 2034v171
-at: 2026-05-10T23:13Z
+cycle: 2034v172
+at: 2026-05-10T23:31Z
 status: shipped
-cycle_goal: monitor #727 review + #725 Step 3.2 PR opening. Actual: steel-yeti Cycle 27 post-merge advisory on #726 landed at 23:06Z with Cairn BLOCKER (stale-marker false-negative defeats agent-news#802 structural-protection claim) + Cairn+Forge convergent (allowlist no fail-closed) + Cairn POSTURE_PATTERN block-comment + Spark/Forge convention-shape findings. Plus arc APPROVE on #727 with [nit] for array-literal test case. Fold actionable findings into #727 while it's open.
-last_action: #727 commit `d457ecb` pushed (+278/-3 LOC) — `extractGetHandlerScope()` + `stripStringLiterals()` + `discoverRouteFiles()` + expanded POSTURE_PATTERN + 2 new structural-enforcement tests (stale-marker check + allowlist-covers-discovered) + 14 new test cases (7 pattern-coverage refinements + 7 GET-handler-scope coverage). One real false-positive surfaced+fixed during dev (outbox 405-response docstring mentions BIP-322 in JSON body; string-literal strip closes it). Plus substantive responses on #727 (https://github.com/aibtcdev/landing-page/pull/727#issuecomment-4416599123) and #726 (https://github.com/aibtcdev/landing-page/pull/726#issuecomment-4416599877) naming each finding-lens, what landed vs deferred, empirical pivot verification.
-shipped_v171:
-  - #727 commit `d457ecb` — closes Cairn BLOCKER (stale-marker false-negative) via GET-handler-scope auth-token detection. The pivot from auth-import-detection at FILE-scope to GET-HANDLER-SCOPE is the right answer to Cairn's challenge: same detection technique, narrower scope (POST/PATCH auth imports don't pollute). String-literal stripping closes the only real false-positive surfaced.
-  - #727 commit `d457ecb` — closes Cairn+Forge convergent allowlist-no-fail-closed via `discoverRouteFiles()` glob (no new dep; uses Node fs.readdirSync). Underscore-prefix exclusion convention for `_internal/` private helpers.
-  - #727 commit `d457ecb` — closes Cairn POSTURE_PATTERN line-comment-only via expanded regex covering `//`, `/* */`, `/** */`, `* ` JSDoc.
-  - #727 commit `d457ecb` — closes arc array-literal [nit] via single test case (no pattern change needed; pattern 4 already covers it).
-  - #727 substantive comment naming each lens-finding + what landed vs deferred + deferred-rationale; suggests convention-refinement-issue as substrate for Spark/Forge convention-shape findings rather than relitigating in #727.
-  - #726 substantive comment closing engagement loop with steel-yeti; explicit empirical pivot verification (verifyBitcoinSignature import real on PATCH/POST sides of mixed-handler files, GET-only list file has no import); naming-each-lens-by-handle structure preserved.
-v171_observations:
-  - **The pivot from FILE-scope to GET-HANDLER-SCOPE is the v167-v168-v169-v170-v171 lineage closing one full design loop**: v167 proposed auth-import-detection; v168 staged it in scout; v169 pivoted to posture-marker because file-scope false-positives on mixed-handler files; v170 fixed regex false-negatives; v171 *combined* posture-marker (file-scope declaration) WITH auth-token detection (GET-scope verification). The two designs were not alternatives — they're complementary. Posture-marker handles declaration, GET-scope handles verification.
-  - **String-literal false-positive on outbox 405-docstring was self-caught DURING dev**: ran the new check against the real route files in node REPL before commit, the outbox file flagged unexpectedly, traced to the BIP-322-mention-in-docstring inside a 405-help-text JSON body. Added `stripStringLiterals()`. Same v143/v158/v163/v167-family "verify before publishing" pattern firing AGAIN — this time successfully caught at dev-time rather than review-time.
-  - **Multi-lens post-merge advisory > review-time advisory in some cases**: steel-yeti's Cycle 27 council ran on the merged #726 surface and found findings the at-review-time review (arc) didn't. The async dev-council loop works — review at merge-time finds review-time gaps, fixup PRs absorb them post-hoc. This shifts the locus of correctness from "land it right the first time" to "land it 80% right, let the fleet find the 20% via parallel-lens review, fold corrections into open fixups." Naming the pattern: **post-merge-multi-lens-advisory as parallel-correctness substrate**.
-  - **Deferred-rationale is a load-bearing artifact**: I explicitly named 4 deferred findings + WHY for each (threat model contrived / branch unexercised / requires convention re-design with separate substrate). steel-yeti's advisory + my deferral-with-rationale together form a more complete record than either alone. v158 prerequisite-answer pattern firing — answer the question, don't skip with implementation.
+cycle_goal: monitor #727 CI on d457ecb + reviewer reactions. Actual: CI Test FAILED at 23:15:33Z on stale-marker test (outbox/route.ts flagged by `\bBIP[_-]?322\b` from docstring inside GET 405 response body). Whoabuddy commented at 23:20Z naming the false-positive + recommending stripStringLiterals (option 1) as the cost/benefit fit. Same recommendation I'd already coded — but I had a bug: stripStringLiterals was wired into the boolean helper `getHandlerHasAuthToken()` but NOT into the structural enforcement test that runs against real files. Two code paths diverged silently.
+last_action: #727 commit `e4506fa` force-pushed with-lease — applies stripStringLiterals to the structural enforcement test (immediate fix) AND refactors to single-source-of-truth via new `findAuthTokenInGetHandler(content): RegExp | null`. Both the boolean helper and the structural test now route through this one function. Plus reply on #727 to whoabuddy (https://github.com/aibtcdev/landing-page/pull/727#issuecomment-4416626471) acknowledging catch + explaining bug + verification output + naming personal lesson.
+shipped_v172:
+  - #727 commit `e4506fa` — fixes CI red on d457ecb. Verified locally against real outbox/route.ts: raw scope matches BIP-322 at offset 1683 (exact docstring whoabuddy quoted); scrubbed scope clean. Synthetic stale-marker scenario still fires correctly.
+  - Single-source-of-truth refactor: `findAuthTokenInGetHandler(content): RegExp | null` is now the only function that does the extract→strip→scan pipeline. Closes the failure mode (two divergent code paths between helper test and structural test against real files).
+  - #727 reply to whoabuddy with empirical verification + lesson naming.
+v172_observations:
+  - **v143/v158/v163/v167/v171-family pattern firing AGAIN with new twist**: I had the right fix (stripStringLiterals) coded for the helper, the helper's unit tests passed, but the actual structural enforcement test against real files ran a parallel code path that bypassed the strip. Two-code-paths-diverged-silently is the SPECIFIC failure mode. The "verify before publishing" pattern needs to widen to "verify EVERY code path against the failure scenario" — passing the helper unit tests is insufficient if the real-files test uses different scan logic.
+  - **Single-source-of-truth refactor is the structural answer**: rather than just wiring stripStringLiterals into the second code path, eliminated the second code path entirely. Both the helper and the structural test now route through `findAuthTokenInGetHandler`. Future drift in scan logic can't reopen this class because there's only one path.
+  - **Whoabuddy and arc are reviewing the in-flight fixup PR with substantive options** (whoabuddy offered 3 fix options + cost/benefit framing for each before suggesting #1) — this is exactly the dev-council density steel-yeti's Cycle 27 advisory was describing. Not just "this is broken" but "here are 3 design options with tradeoffs." That kind of review is leverage-rich and rare.
+  - **The v172 ship-time was fast despite force-push** (23:15 CI red → 23:31 fix pushed = 16min including refactor). Force-with-lease is the right primitive for in-flight fixup PRs where the only change vs prior commit is a bug fix + small refactor with no behavior surface change.
 post_727_outcome_dependents:
-  - #727 CI green on `d457ecb` → arc + whoabuddy review of new commit → merge (could land same-cycle if reviewers act fast)
-  - convention-refinement issue (proposed in #726+#727 replies) — substrate for Spark simplify + Forge ROUTE_ATTRS bag + history-rot debate; awaiting maintainer decision on whether to open
+  - #727 CI green on e4506fa → arc/whoabuddy re-review → merge (could land same-cycle if reviewers act fast)
   - #725 Step 3.2 PR opening — whoabuddy will open when ready
+  - convention-refinement issue (proposed in v171) — substrate for Spark/Forge convention-shape findings; awaiting maintainer decision
 commitments_outstanding:
-  - landing-page#727 — OPEN (60+278/-0-3, CI re-running on d457ecb at 23:13Z); awaiting arc/whoabuddy re-review on the absorbed Cycle 27 findings
-  - landing-page#726 — MERGED 22:53Z + steel-yeti Cycle 27 advisory absorbed into #727; engagement loop closed
+  - landing-page#727 — OPEN (CI re-running on e4506fa at 23:31Z); awaiting arc + whoabuddy re-review on the stripStringLiterals wiring + single-source-of-truth refactor
+  - landing-page#726 — MERGED + steel-yeti Cycle 27 advisory absorbed into #727
   - landing-page#725 Step 3.2 spec — awaiting PR opening
   - landing-page#724 GET test matrix — passive
   - landing-page#722 — MERGED + smoke CLEAN ✓
@@ -39,4 +36,4 @@ commitments_outstanding:
   - x402-sponsor-relay#369 — 7d threshold ~5/14
   - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review
   - agent-contracts#9 — ping shipped; awaiting pbtc21
-next: monitor #727 CI on d457ecb + reviewer reactions to Cycle 27 absorption + #725 Step 3.2 PR opening; cadence 600s (active multi-thread reaction window).
+next: monitor #727 CI on e4506fa + reviewer reactions to single-source-of-truth refactor; cadence 600s (active reaction window — CI still in progress + reviewers engaged).
