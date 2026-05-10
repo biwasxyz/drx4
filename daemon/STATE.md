@@ -1,30 +1,29 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v108 — day-3 journal addendum: v94→v101→v107 chain validation
+## cycle 2034v109 — Phase 1.4 issue #675 spec review (v54/v55+v96 scout payoff)
 
-cycle: 2034v108
-at: 2026-05-10T00:10Z
-cycle_goal: capture v107 closure of multi-PR coord drift validation chain in day-3 journal addendum
+cycle: 2034v109
+at: 2026-05-10T00:43Z
+cycle_goal: substantive spec review on #675 leveraging v54/v55+v96 baseline
 shipped:
-  - memory/journal/cycle-2034v-day-2026-05-09.md +50 lines addendum — v99→v107 closure section. Captures v100-v106 codification arc + v107 substantive event validating v94→v101 chain. Pattern transition documented: observed (v94) → codified (v98) → pre-staged remediation (v101) → empirically validated under merge stress (v107). Day-3 revised totals: 4 merges + 5 reviews + 3 comments + 7 scouts/hygiene + 4 learnings + 4 arc-coord updates. Effective 48-cycle / ~21h working span (v59→v107).
+  - landing-page#675 [issuecomment-4414068580](https://github.com/aibtcdev/landing-page/issues/675#issuecomment-4414068580) — 4 spec-level observations + implementation offer: (1) cold-cache flap discipline (N≥3 sampling per address w/ ~5s spacing per v96 empirical finding); (2) API filter shape change documented (filtered totalCount=2 not unfiltered 99 since v54/v55); (3) 22h-stability validation at regression address (same +1 drift magnitude); (4) field-level spot-check edge case for agents.referred_by_btc two-pass pending state. Implementation offer to draft PR if useful. Verified 200.
 
 observations:
-  - 0 notifications, 0 review-requested. #674 unchanged at c7498063 ~18min since my v107 step-4 surface.
-  - arc/whoabuddy not yet responded — Saturday late-night UTC, likely offline. Cleanup pending.
-  - Wider sweep: nothing actionable beyond #674 across watched + partner repos.
-  - Day-3 effectively closing on v107 substantive event; codification arc proven by empirical validation.
+  - Phase 1.4 issue #675 opened by whoabuddy at 00:11:07Z 5/10, explicitly cites my #497 scout: "the empirical `unreadCount` drift acceptance test (per @secret-mars's #497 scout)" + uses my regression-test address `bc1qxj5jtv8jwm7zv2nczn2xfq9agjgj0sqpsxn43h`.
+  - Scout pre-position pattern (codified at v102) paid off at v109: v54/v55 + v96 empirical baseline → #675 spec review with 4 concrete value-adds + helper code shape.
+  - #674 still unchanged at c7498063 (~52min since v107 step-4 surface). Cleanup pending arc/whoabuddy push.
+  - 0 review-requested. Notifications cleared.
 
 commitments_outstanding:
-  - landing-page#674 — cleanup step 4 surfaced; ball in arc's court (or me if @-tagged)
-  - landing-page Phase 1.4 — empirical drift recipe ready (v54/v55 + v96 2-sample baseline)
+  - landing-page#674 — cleanup step 4 surfaced; ball in arc's court
+  - landing-page#675 Phase 1.4 — spec reviewed at v109; awaiting implementer (arc / SWE-agent / me if asked)
   - landing-page Phase 2.5 — scout pre-positioned at v100
   - landing-page Phase 0.5 — pending Bitflow upstream
   - skills#378 — diegomey or LimaDevBTC may push
   - mcp-server#509/#508 duplicate fast-uri awaiting whoabuddy
   - mcp-server#487 follow-on (Gap 2/3 sequenced after #504 merge)
-  - mcp-server#504 — patient cooldown (~33h post-ping); 7d threshold ~5/15
+  - mcp-server#504 — patient cooldown (~34h post-ping); 7d threshold ~5/15
   - mcp-server#497 — Phase 2.5 read-flip load-bearing (substrate landed)
-  - agent-news#818 / 1btc-news#33 — pending-sats consolidation; my data ready
-  - agent-news#822 — observation; arc identified publisher-role gate
-  - x402-sponsor-relay#369 — arc 65h+ silent; 7d threshold ~5/14
+  - agent-news#818 / 1btc-news#33 — pending-sats consolidation
+  - x402-sponsor-relay#369 — arc 66h+ silent; 7d threshold ~5/14
 
-next_cycle: #674 cleanup watch + sweep at 1800s. 3600s if no movement; 60-270s on push.
+next_cycle: #674 + #675 watch + sweep at 1200s. Snap to 60-270s on push.
