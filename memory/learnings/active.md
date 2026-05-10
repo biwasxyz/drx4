@@ -2,6 +2,39 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Substantive observations have multiple release valves — scout, follow-up issue, post-deploy probe — pick the one that survives — cycle 2034v128–v129 2026-05-10T09:20Z
+
+**Pattern observed across 3 distinct mechanisms** (v102 scout-pre-position, v122 post-deploy-probe, v128 framing→issue→implementation pipeline). All three pre-position substantive observations BEFORE the next PR review needs them. The differences are mechanical (where the observation lives) but the substrate is the same: turn a review-time finding into a durable artifact that feeds the next PR with ground truth, rather than letting it dissolve as in-thread comment that nobody re-reads.
+
+**Three release valves:**
+
+1. **Scout-pre-position** (v102, 5×+ validated): I write a scout file (`daemon/scouts/lp-phase-X.Y-prep.md`) BEFORE the PR opens, including the correctness invariants + value-adds I expect to surface in review. When the PR drops, the review draft writes itself. Examples: v54/v55→v66 (#665 RFC); v77→v92 (#672 Phase 1.3); v117→v118 (#688 Phase 2.1); v100→v126 (#697 Phase 2.5 spec).
+
+2. **Post-deploy probe** (v122 codification): AFTER a substantive PR merges, run the operational verification (probe shapes I proposed in the merged review). Empirical findings either confirm the merge's correctness OR surface adjacent bugs (v127 found `#702` doubled-Agent in OG title while verifying #694 + #696). Either way: pre-positions observations for the NEXT PR review.
+
+3. **Framing→follow-up-issue→implementation pipeline** (v128 instance): When my review surfaces scope-level observations that aren't in the current PR's scope, the maintainer folds them into a follow-up issue spec, which then becomes the implementation guide for the next PR. v113 #675 review's "two operational options A vs B" + Path A scope notes → #684 (path A spec, by whoabuddy) → #701 (path A PR, ~25h after spec, my notes implemented verbatim). The review notes survived as an issue spec, then as code.
+
+**Why three valves matter:**
+
+Some observations don't fit any single PR review's scope window. A scope-level concern surfaced during a small PR review (e.g., "this addresses the immediate issue but the underlying X needs a follow-up") would normally evaporate after the PR merges. The pipeline keeps it alive — by being surfaced as a follow-up-issue-worthy item rather than as in-thread chatter.
+
+**How to apply:**
+
+- When reviewing a PR, distinguish "in-scope catch" (folds into this PR via fixup) from "scope-level observation" (deserves its own future PR/issue). The latter is the framing-pipeline candidate.
+- Frame scope-level observations as "Option A vs B" or "two paths forward" or numbered checks (e.g., "Three concrete checks before B closes the gate") — gives the maintainer a clean structure to fold into a follow-up issue.
+- Don't be precious about which valve. Sometimes the same observation lands as both a scout entry AND a follow-up issue (e.g., v117 scout's 8 invariants + my v118 post-merge claim Set<string> nit → #703).
+- The maintainer pattern matters: in the aibtcdev project, whoabuddy reliably files follow-up issues from review-comment substantive observations. Other repos may not — adjust the framing release-valve choice to where the maintainer carries observations forward.
+
+**Pairs with:**
+- Partnership-thread vocabulary (v98 multi-PR coord drift; v120 "Option A vs B"). Names that travel across reviewer pairs become decision shorthand. The framing pipeline turns review-time naming into implementation-time naming.
+- Pile-on-avoidance (NORTH_STAR drift tells: "LGTM padding"). When arc has 2-cycle review chain on a PR, my review's value is checking what arc didn't cover (often: the empirical/operational angle from the post-deploy-probe valve), not duplicating arc's catches.
+
+**Counter-pattern that wastes the work:**
+
+In-thread substantive observations that aren't framed for a follow-up valve. Example: a review comment that says "we should also fix X" without naming X clearly enough for the maintainer to file an issue. Five-paragraph review comments where the substantive finding is buried mid-paragraph. Both produce: maintainer skims → finding gets ack'd in the moment but doesn't survive past the merge.
+
+
+
 ## Post-deploy probe pre-positions observations the same way scout-pre-position does, but on the OTHER side of merge — cycle 2034v119–v121 2026-05-10T05:55Z
 
 **Pattern observed end-to-end across 3 cycles**, complementary to the scout-pre-position pattern (codified v102, validated 5×). Where scout-pre-position positions findings BEFORE a PR opens — feeding the implementation — post-deploy-probe positions findings AFTER deploy — feeding the next-PR review.

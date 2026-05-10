@@ -1,27 +1,28 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v128 — #701 Path A pagination v113→v128 closure loop
+## cycle 2034v129 — #703 offer + release-valves pattern codified
 
-cycle: 2034v128
-at: 2026-05-10T08:55Z
+cycle: 2034v129
+at: 2026-05-10T09:20Z
 status: idle (ScheduleWakeup queued)
-cycle_goal: Engage with #701 (Phase 1.4 Path A pagination, closes my v113-framed scope) without piling on arc's 2-cycle review chain
+cycle_goal: Engage with #703 follow-up issue + codify the release-valves pattern that just played out v113→v128
 shipped:
-  - landing-page#701 issuecomment-4414890351 — closure loop note. Shape that shipped follows verbatim from my v113 #675 review scope notes folded into #684 spec (cursor-based per-page + buildFullAgentsFromD1 + pre-condition gating). ~25h spec→implementation interval. Pile-on-avoidance: deferred substantive review to arc's 2-cycle chain (08:36Z + 08:49Z); contributed one supporting observation on pre-condition passing today per #685 baseline + workers-builds CI as blocking gate. Verified 200.
+  - landing-page#703 issuecomment-4414935235 — offer to take #703 (txidCounts → Set<string> cursor optimization, ~30-50 lines). Same defer-to-maintainer pattern as v124 #692 offer; v98 self-discipline avoiding parallel-implement. Verified 200.
+  - memory/learnings/active.md +60 lines: 'Substantive observations have multiple release valves — scout, follow-up issue, post-deploy probe — pick the one that survives.' Unifies v102 scout-pre-position + v122 post-deploy-probe + v128 framing→issue→implementation pipeline as 3 mechanically-different but substrate-same patterns. Pairs with v98 partnership-thread vocabulary + pile-on-avoidance.
 observations:
-  - #701 (Path A pagination) opened 08:49Z by whoabuddy — directly implements my v113 framing folded via #684. ~25h interval from spec to PR. Confirms the framing→follow-up-issue→implementation pipeline as a recurring pattern.
-  - arc's 2-cycle review on #701 (08:36Z + 08:49Z) covered the substantive surface comprehensively. My value-add was pile-on-avoidance discipline + closure loop note + 1 supporting observation.
-  - Workers Builds CI red on aede8d3 — Buffer→btoa/atob fix landed but new error surfaced. Merge gate is CI not review at this point.
-  - Quiet otherwise: 0 notifications, no movement on #697 (Phase 2.5) sequencing decision (~30 min since my baseline-probe comment), no #702 fix activity, #700 still open.
-  - Output type rotation v113-v128: 14 distinct types in 16 cycles
+  - #701 MERGED 09:02Z — Path A pagination shipped on 6f7fc898; my v113 framing → #684 spec → ~25h to merge with notes implemented verbatim
+  - #703 filed 09:12Z by whoabuddy — txidCounts→Set optimization per arc cycle-3; clean-scope (~30-50 lines) follow-up
+  - Phase 2 ramp continuing at quieter pace post #701 merge; CI green throughout
+  - Output type rotation v113-v129: 14 distinct types in 17 cycles (v129 = follow-up-offer + learning_added)
+  - 9th instance of substantive-observation-pre-positioned-for-the-next-PR pattern (combining all 3 release valves observed v54-v128)
 commitments_outstanding:
-  - landing-page#701 — awaiting CI green + arc fixup-ack on cycle-2 catches; closure loop tied off
-  - landing-page#702 — OG title bug filed; awaiting fix
-  - landing-page#697 — Phase 2.5 spec; awaiting maintainer A/B/C sequencing decision
+  - landing-page#703 — offered to take; pending maintainer accept/decline
+  - landing-page#702 — OG title bug (~243 affected); awaiting fix
+  - landing-page#697 — Phase 2.5 spec; awaiting maintainer A/B/C sequencing decision (~75 min since my baseline-probe comment)
   - landing-page#700 — duplicate; closure pending arc/whoabuddy
   - landing-page#691 — 708-record cleanup triage
-  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~210min silent on offer)
-  - landing-page#684 — closed-by-#701-merge pending
+  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~234min silent on offer)
+  - landing-page#684 — closed by #701 merge (auto)
   - landing-page#674 — superseded by #699 (merged); auto-close pending
   - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (~4d remaining)
-next: monitor #701 CI green + #697 sequencing decision (1200s cadence)
+next: monitor #703 + #697 decisions + watch for Phase 2 ramp resumption (1200s cadence)
