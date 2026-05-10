@@ -1,27 +1,25 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v137 — #706 ACK + cross-repo template-gap pattern threshold-promoted
+## cycle 2034v138 — #691 backlog pull: 708-record triage proposal (enumeration + 3-bucket classifier)
 
-cycle: 2034v137
-at: 2026-05-10T12:54Z
+cycle: 2034v138
+at: 2026-05-10T13:21Z
 status: idle (ScheduleWakeup queued)
-cycle_goal: Validate v122 invariant survives in #706 (whoabuddy-merged), promote 3rd instance of "claim-in-prose-not-asserted-in-test" pattern to NORTH_STAR drift tell + memory codification
+cycle_goal: All 7 commitments silent → execute v136 commitment ("if all silent next cycle, pull #691 sample-record analysis from backlog"). Read validation pipeline end-to-end + draft enumeration design + 3-bucket classifier proposal.
 shipped:
-  - landing-page#706 issuecomment-4415329048 — Post-merge ACK on whoabuddy's txidCounts→Set fix-PR (#703 closed via #706 merge at 12:33Z, ~30min before boot). Verified cross-page replay-detection invariant survives: route.ts:775 consumer logic translates 1:1 (`prev>=1` check ↔ `has(X)` check, same total replay count for any sequence). Flagged small test gap (no end-to-end cross-page replay survival assertion through encode→decode→re-encode roundtrip). Surfaced as 3rd instance of cross-repo template-gap pattern (#705 + #510 + #706 in <24h).
-  - daemon/NORTH_STAR.md drift tells +1 entry: "PR description contains a behavioral claim with no test asserting it end-to-end" — promoted per v15 board patch commitment ("If a third instance lands, promote to NORTH_STAR drift tell").
-  - memory/learnings/active.md +new entry "Cross-repo template gap" — 3-instance documentation + mitigation proposal (description-claim → test-name link + reviewer grep discipline). Watching for 4th instance on non-landing-page non-mcp-server repo to determine org-wide vs 2-repo scope.
+  - landing-page#691 issuecomment-4415385807 — Triage proposal for the 708 `kv_count_invalid_excluded` records. Read end-to-end: `buildFullAgentSet:209-219` strict-validation logic + `backfill/route.ts:185-194` parallel rejection path + `lib/types.ts:5-25` AgentRecord. Identified that current reconcile run discards per-record failure pattern in-line — enumeration design needs ~30 LOC extension to surface `missing_fields` array per record. Proposed 3-bucket classifier deterministically mapped from `missing_fields` shape: Bucket 1 Repairable (single-field recoverable from Stacks chain via getAccount RPC); Bucket 2 Genuinely Retired (BTC-only Stacks-incomplete partial-registration → archive to `retired:{btcAddress}` KV TTL); Bucket 3 Schema-unfixable (missing btcPublicKey breaks signature provenance). 3 questions before enumeration-PR opens (admin-route reuse vs separate endpoint; soft-archive vs hard-delete; field inclusion in enumeration response). Offered to file enumeration PR (~30 lines + 4 tests scoped to `buildFullAgentSet` extension + reconcile route flag) — but emphasized that classifier table is the deterministic blueprint regardless.
 observations:
-  - Whoabuddy took the #703 work themselves at 12:33Z (190min after my offer) and merged immediately as #706 (48+/17- across 3 files — exactly the "30-50 lines" estimate I'd given). Clean handoff per the explicit "otherwise watching for the PR open" path. No coordination drift.
-  - Pattern threshold hit: v15 board patch committed at v136 to "If a third instance lands, promote." Third instance landed within <30min of that commitment via #706. v15 commitment-shipping discipline executed immediately (NORTH_STAR.md + active.md updated same cycle as observation).
-  - 4th instance watch arming: arc-starter, x402-sponsor-relay, agent-news. If template-gap pattern hits a third repo, escalate to meta-issue proposing org-wide PR-review checklist. Until then, scope = 2-repo coordination observation.
-  - Other commitments silent during v137 cycle (#510 ~52min, #705 synthesis ~77min, #704 merge ~157min).
+  - 4-cycle silence period (v134 synthesis → v138 boot) gave clean window to ship a substantive proposal without crowding active threads. #691 is its own backlog surface — no overlap with #697 umbrella routing decision (still pending), #510 Q1+Q5 (still pending), or #704 merge (whoabuddy ~3h silent).
+  - 12th iteration of "scout → spec → propose" pipeline: this time skipped the scout (the validation pipeline is the de-facto scout artifact) and went straight to proposal. The pre-condition is having read the validation logic deeply enough that the 3-bucket classifier drops out from the missing_fields enumeration mechanically.
+  - Still 0 sales DRI artifacts. 12/12 cycles since v126 produced shipped output.
+  - Output type rotation: 18 distinct in 25 cycles (added "backlog_pull_proposal" at v138).
 commitments_outstanding:
-  - landing-page#706 — ACK posted; awaiting whoabuddy direction on whether to draft template-gap proposal on #697 umbrella (explicit ask in ACK comment)
+  - landing-page#691 — triage proposal posted; awaiting whoabuddy/maintainer routing decision (3 explicit questions + enumeration-PR offer)
+  - landing-page#706 — ACK posted; awaiting whoabuddy direction on whether to draft template-gap proposal on #697 umbrella
   - aibtc-mcp-server#510 — COMMENTED review posted; awaiting biwasxyz response on Q1+Q5
   - landing-page#705 — synthesis posted; awaiting whoabuddy ack on (b) followup PR offer + Forge umbrella-promotion
-  - landing-page#704 — APPROVED-pending-merge; arc gave APPROVE; whoabuddy ~157min silent
+  - landing-page#704 — APPROVED-pending-merge; arc gave APPROVE; whoabuddy ~3h silent
   - landing-page#697 — Phase 2.5 spec; Step 2 reconciliation pending operational signal; possible umbrella-promotion + template-gap proposal landing here
-  - landing-page#691 — 708-record cleanup triage (low-priority backlog)
-  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~6h silent)
+  - landing-page#692 — BNS resolver + KV-read residual (whoabuddy ~7h silent)
   - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
   - x402-sponsor-relay#369 — 7d threshold ~5/14 (~4d remaining)
-next: monitor whoabuddy direction on #697 umbrella + #510 + #704 + Step 2 reconcile signal (1200s cadence)
+next: monitor #691 routing decision + #706 routing + #510 + #704 + Step 2 reconcile signal (1200s cadence — 8 outstanding offers/asks now in flight, watch for pile-on)
