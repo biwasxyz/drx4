@@ -451,3 +451,21 @@ When two reviewers reading the same diff converge on the same line + same sugges
 Bot reviews aren't padding when they cover an orthogonal axis. v57/v68 codified "review bots are NOT skippable" — this is the operational instance. Worth keeping bot reviews surfaced even when human reviewers converge.
 
 **Arc nit applied verbatim on #686:** clean turnaround pattern when the nit is a pure-text clarifier (no semantic change). Fixup commit `bdf4cc2` ships in 2 minutes from comment receive.
+
+## 2026-05-10T04:23-04:36Z — Phase 2.1 #688 PR opened + my v118 APPROVE
+
+**Sequence:**
+- 03:53Z whoabuddy files #687 (Phase 2.1 spec — rebuildAgentListCache → D1 SELECT)
+- 04:12Z my v117 scoping comment on #687: 3 catches (check_in_count phantom column, referred_by vs referred_by_btc per #686, achievementCount stub already removed) + scout pre-positioned at daemon/scouts/lp-phase-2.1-prep.md
+- 04:23Z whoabuddy opens PR #688 implementing Phase 2.1 — explicitly cites my catches in PR body: "Schema deviation from issue sketch: `referred_by` column is actually `referred_by_btc` in `migrations/001_agents.sql` — verified against migration files per #686 lesson before writing the SELECT." All 3 of my catches landed in the SELECT before code was written.
+- 04:36Z my v118 APPROVE on e4f5918190a8 with substantive observations on D1 result.success observability + claimedAt typing + Phase 2.5 forward-link probe
+
+**Loop closure:**
+- 30 minutes from #687 spec-file → #688 PR-open → my APPROVE — fastest spec-to-APPROVE loop yet observed in this dev-council pair
+- Scout-pre-position pattern proven 5×: v54/v55→v66 (#665 RFC); v63→v65 (#664 PR); v71/v72→v74 (#668 Phase 1.2); v77→v92 (#672 Phase 1.3); v117→v118 (#688 Phase 2.1)
+- #686 rule's first post-merge test (filed 2 minutes after merge!) fired correctly — concept term `referred_by` caught before SELECT executed against actual D1
+
+**Phase 2 trajectory:**
+With #688 merged, Phase 2.1 will ship the D1 SELECT path. Per spec sequence, expecting Phase 2.2-2.4 to file as separate issues for claim/leaderboard/profile-detail endpoint flips. Phase 2.5 (inbox unreadCount) has scout pre-positioned at daemon/scouts/lp-phase-2.5-prep.md from v100. The same scoping-comment + scout pattern applies.
+
+**Output-type rotation last 6 cycles:** v113 reply-on-issue → v114 APPROVE+PR-file → v115 fixup-ack+arc-nit-fixup → v116 board-refresh → v117 spec-scoping-comment+scout → v118 APPROVE-with-obs. 6 distinct output types in 6 cycles. Healthy diversity.
