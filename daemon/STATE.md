@@ -1,28 +1,26 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v168 — #723 PR scout-pre-position (extraction draft + structural test sketch + PR description)
+## cycle 2034v169 — #726 SHIPPED — cache-invariant single-source extraction PR (closes #723)
 
-cycle: 2034v168
-at: 2026-05-10T22:23Z
+cycle: 2034v169
+at: 2026-05-10T22:41Z
 status: shipped
-cycle_goal: quiet inbound (0 notifications, #725 still in wait, no #723 PR or Step 3.2 PR yet). Per v167 authoring-offer on #723, pre-position the substantive content as a scout file (scout-pre-position-before-authoring shape, analogous to v159/v166 review-prep applied to author-prep)
-last_action: daemon/scouts/723-cache-invariant-extraction.md created (~190 lines) — CACHE_INVARIANTS.md draft (3-section canonical prose with agent-news#802 cross-ref + history), 1-line pointer comment templates for 2 existing places, structural enforcement test sketch (~30 LOC, asserts auth-import + Cache-Control: private co-occur via string match), PR description draft, trigger conditions for ship-vs-defer-vs-convert-to-review-prep
-shipped_v168:
-  - daemon/scouts/723-cache-invariant-extraction.md — full scope-of-PR draft ready to ship if whoabuddy ACKs my v167 authoring offer
-  - Content is reusable: if a different author takes #723, scout becomes review reference for their version (lossless either way)
-  - Scout-pre-position-before-authoring is a new sub-pattern: v159/v166 was review-prep scouts; v168 is author-prep scout
-v168_observations:
-  - **Scout-pre-position-before-authoring is the natural extension of v159/v166 lineage**: v159/v166 stage review work, v168 stages authoring work. Same artifact shape (~80-190 lines of scout content), same value: pre-positioned execution when conditions align
-  - **Risk-reward**: cost of scout is ~30min focused work; value if my v167 offer is accepted is ~30min savings + faster turnaround; value if declined is review-reference for whoever authors. Net always positive
-  - **Trigger conditions explicit in the scout**: ship-vs-defer-vs-convert-to-review-prep decision tree. Avoids ambiguity if whoabuddy/arc gives partial signal
-  - **Pattern stack growth**: v143/v144/v145/v152/v154/v157/v158/v163/v167/v168 — 10 named patterns + sub-patterns in ~25 cycles. Active.md will need cleanup pass soon (~1550 lines)
-post_725_outcome_dependents (refreshed):
-  - if whoabuddy ACKs my offer → ship #723 PR per scout draft (~30-45min); Step 3.2 then adopts 1-line pointers
-  - if arc/whoabuddy takes authoring → scout converts to review prep for their version
-  - if Step 3.2 PR ships first with full inline block → #723 PR catches up to deduplicate after (still useful but slightly late)
-  - my v166 scout for Step 3.2 review remains pre-positioned regardless of #723 timing
+cycle_goal: whoabuddy ACKed v167 #723 authoring offer at 22:25Z + elevated address-match-guard to block-on-merge + accepted v163 jq lesson. v168 scout staged the work. Ship #723 PR per scout draft while still in pre-Step-3.2-PR-open window.
+last_action: landing-page#726 PR opened at https://github.com/aibtcdev/landing-page/pull/726 (203 add / 35 del, CI in progress) — cache-invariant single-source extraction with refined posture-marker design + structural enforcement test (avoids false-positive on mixed-handler files)
+shipped_v169:
+  - landing-page PR #726 closes #723: `lib/inbox/CACHE_INVARIANTS.md` (canonical 3-invariant prose + agent-news#802 cross-ref + history #697→#722→#723→#725 + per-route compliance checklist); 1-line pointer comments replace ~17+26 LOC inline blocks; `CACHE_INVARIANTS:POSTURE=public-only-get` markers on 3 route files; `cache-invariants-enforcement.test.ts` (~95 LOC structural test)
+  - **Design pivot during implementation**: my v167/v168 proposed auth-import-detection test would've false-positived on inbox/outbox files (POST/PATCH use verifyBitcoinSignature for sender/caller auth on writes; GET handlers public-only — agent-news#802 bug class only applies to GET-side HITs). Refined to magic-comment-posture-marker design — declares each file's GET posture explicitly, structural test enforces Invariant 2 only on auth-required-get postures, forces declaration on new routes
+  - First non-review hygiene contribution to landing-page (vs my prior fix-PRs #704/#716 which were also mine but bug fixes, not hygiene)
+v169_observations:
+  - **Self-caught design flaw mid-implementation** — auth-import-detection would false-positive on mixed-handler files. Pivoted to posture-marker before shipping. Same v143/v158/v163-family pattern firing on my own design (verify before publishing — in this case, verify the test predicate against actual codebase shape before committing to the design)
+  - **Posture-marker is structurally stronger than auth-import**: forces explicit declaration on new routes (test fails if marker missing); accurately captures GET-handler scope; doesn't false-positive; cheap to maintain (~30 extra LOC vs auth-import version)
+  - **Forward-leverage on Steps 3.2/3.3/3.4**: Step 3.2 PR (#725) can now adopt 1-line pointer immediately + `CACHE_INVARIANTS:POSTURE=public-only-get` marker; Steps 3.3 and 3.4 follow same pattern
+  - **v167 → v168 → v169 chain**: authoring-offer → author-prep scout → ship in <30 min after whoabuddy ACK. Scout-pre-position-BEFORE-AUTHORING pattern validated end-to-end (smoother than v159 → v161 review-prep cycle was)
+post_726_outcome_dependents:
+  - #726 CI green + arc + whoabuddy review → merge → #725 Step 3.2 PR opens with 1-line pointer + posture marker baked in
+  - #726 review may surface design questions on posture-marker convention; ready to defend design pivot rationale
 commitments_outstanding:
-  - landing-page#725 Step 3.2 spec — v167 engagement posted; awaiting whoabuddy ack on #723-first-or-parallel + Step 3.2 PR opening
-  - landing-page#723 cache-invariant single-source — scout-pre-positioned at scouts/723-cache-invariant-extraction.md; ready to ship PR on whoabuddy ACK
+  - landing-page#726 — OPEN (203+/35-, CI in progress); awaiting arc + whoabuddy review/merge
+  - landing-page#725 Step 3.2 spec — v167 engagement landed; awaiting Step 3.2 PR opening (whoabuddy will likely open after #726 lands)
   - landing-page#724 GET test matrix — passive
   - landing-page#722 — MERGED + smoke CLEAN ✓; closed
   - news-client#33 — Robotbot69 artifact-queue posted; passive
@@ -36,4 +34,4 @@ commitments_outstanding:
   - x402-sponsor-relay#369 — 7d threshold ~5/14
   - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review
   - agent-contracts#9 — ping shipped; awaiting pbtc21
-next: monitor for whoabuddy ACK on #723 author choice + Step 3.2 PR open; cadence 600s (active reaction windows).
+next: monitor #726 CI + reviews + #725 Step 3.2 PR opening; cadence 600s (active multi-thread reaction window).
