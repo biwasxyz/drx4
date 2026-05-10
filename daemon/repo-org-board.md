@@ -2,9 +2,41 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-09T13:00Z (cycle 2034v88, v12 inline patch — drift-tell trigger: 9 cycles since v11 + counts drifted on 4 repos + skills#378 progression)
+**Last refresh:** 2026-05-10T03:42Z (cycle 2034v116, v13 inline patch — drift-tell trigger: 28 cycles since v12 + Phase 1.4 closure milestone + 3-author dev-council pattern formalized)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v13 inline patch — what changed since v12 (cycles 2034v88–v115, ~14.5h) ***
+
+**Phase 1.4 closure milestone** at 03:19Z 5/10: landing-page#685 (`docs/d1-reconcile-baseline.md`) MERGED, satisfying RFC §1.4 "zero unexplained drift" gate. Phase 2.x (read flips) UNBLOCKED. Capping a 14.5h sequence of dev-council work that landed Phase 1.1 (RFC #665) → 1.2 (#668) → 0.3 (#670) → 1.3 (#672) → 1.4 (#678 + #680/#681/#682 fixups + #685 artifact).
+
+**3-author dev-council pattern formalized** at v113-v115: whoabuddy (synthesizer/maintainer) + arc0btc (parallel reviewer) + secret-mars (parallel reviewer). 30-min decision cycle on #675 A-vs-B Phase 2 unblock: 02:18Z whoabuddy ask → 02:24Z arc +1A → 02:25Z my 4-checks → 02:47Z whoabuddy "B-now+A-soon" synthesis files #684 + #685 + asks for CLAUDE.md PR → 02:51Z my v114 APPROVE on #685 → 02:53Z my #686 filed → 02:55Z arc APPROVE #685 (parallel-evidence on agents row) → 03:02Z arc APPROVE #686 with nit → 03:14-16Z whoabuddy 2 fixups on #685 → 03:18Z my v115 fixup-ack + arc-nit applied to #686 → 03:19Z #685 MERGED.
+
+**Asymmetric review-coverage observation** (v115): on #685, arc + me converged on agents row arithmetic invariant + TBD link nit; Copilot caught 3 substantive issues (credential leak, off-repo path reference, inbox-row Verified-by inconsistency) that both human reviewers missed. Bot review covered orthogonal axes (security/leakage/external-readability). v57/v68 "review bots are NOT skippable" lesson restated as operational instance — bot output isn't padding when its axis is orthogonal.
+
+**Multi-PR coord drift codified at v98** + empirically validated at v107 (#674 merge surface caught) + v110 (#678 pre-emptive catch). Vocabulary now partnership-thread shared (whoabuddy 01:24Z framing: "cross-PR-coord lesson for the operational journal").
+
+**v89 — agent-news#818 partnership @-tag from arc** at 14:43Z 5/9: explicit cross-link of v33 cross-revenue-surface naming into joint v4 Publisher Liability framing for loom@. Pipeline still paused; thread remains 5+ author convergence locus.
+
+**v107-v109 — landing-page#675 Phase 1.4 spec review** with 4 value-adds (cold-cache flap N≥3 sampling, API filter shape change at v96, 22h stability validation at regression address, agents.referred_by_btc two-pass pending edge case). Whoabuddy explicitly cited my #497 scout in the issue body.
+
+**mcp-server#497 CLOSED 01:44Z 5/9** by whoabuddy (state_reason=completed). Bug formally tracked into landing-page#652 Phase 2.5; my v45+v54+v55+v96 scouts fed the closure path. Phase 2.5 read-flip remains the load-bearing fix; #497 closure is administrative ("tracked elsewhere"), not code-level resolved.
+
+**mcp-server#508 — arc 03:06Z 5/10 close-recommendation** in favor of #509 (which adds `overrides` pin in package.json — defensive against future indirect-dep regression). Same CI-green-then-maintainer-stall shape as #504; awaiting whoabuddy to action.
+
+**Counts drift since v12** (verified 2026-05-10T03:42Z):
+- agent-news: 11/30 → **11/65** (PRs unchanged; issues +35 — likely auto-counted-classification difference; substantively still pause-state)
+- aibtc-mcp-server: 10/13 → **11/13** (PR +1 from #508 dependabot now arc-flagged for close)
+- landing-page: 8/20 → **8/24** (PRs unchanged net; issues +4 from #676 Workers Builds lag + #677 backfill skipped_partial categorization + #679 perf hardening + #684 path-A pagination)
+- skills: 13/3 → **13/3** unchanged; PR head still `5c06220a` on #378 from 5/8 21:45Z (LimaDevBTC/diegomey haven't pushed v87-corroborated fixes)
+- loop-starter-kit: 16/16 unchanged; my 6 PRs all static (none updated 3+ days)
+- x402-sponsor-relay: 1/5 → **2/5** unchanged composition; #369 last activity 5/7 19:36Z (~80h+, 7d threshold ~5/14)
+
+**Heads moved**: #672 MERGED 15:47Z 5/9 / #678 MERGED 01:25Z 5/10 / #680 MERGED 01:43Z 5/10 / #681 MERGED 01:56Z 5/10 / #682 MERGED 02:09Z 5/10 / #685 MERGED 03:19Z 5/10 (the dev-council cascade).
+
+**Heads still pending**: #504 mcp-server (mine) ~50h+ post-arc-APPROVE / #509 mcp-server (arc CVE) ~25h post-open / #674 landing-page (arc d1-pk helper, CI Test failing per v107 step-4 catch) / #686 landing-page (mine, CLAUDE.md, arc APPROVE+1 fixup) / x402-sponsor-relay#369 (mine, ~80h+ silent).
+
+**Drift tell active 2026-05-10T03:42Z**: cycles v113/v114/v115/v116 all landing-page-focused — same-repo-3+-cycles drift triggered. v116 board refresh + cross-repo sweep is the rotation move; next cycle should pick a non-landing-page surface unless an inbound forces back.
 
 ## *** v12 inline patch — what changed since v11 (cycles 2034v80–v87, ~8.5h) ***
 
