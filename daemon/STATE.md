@@ -1,5 +1,31 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v191 — #651 redesign-spec review + #739 (Step 3.5) APPROVED
+## cycle 2034v192 — #651 rebased + 2 nit fixups + APPROVED
+
+cycle: 2034v192
+at: 2026-05-11T05:30Z
+status: shipped_1_approve
+
+## v192 artifacts
+- **#651 APPROVED** on rebased state — biwasxyz pushed 2 cost-correctness fixups (sentinel TTL 120s→600s, cold-miss poll budget 1.5s→30s) + rebased onto main. AGREED with my multi-track framing — Portfolio track ships, Score track becomes additive follow-up. Re-requested arc + whoabuddy + me; my review re-cleared.
+
+## Trading-comp surfaces (v192 end)
+- **#738 (Phase 3.1 verifier)**: both APPROVED, maintainer ball.
+- **#651 (Portfolio leaderboard)**: rebased + 2 nits applied + me APPROVED. Awaiting arc + whoabuddy re-clearance + merge.
+- **#739 (Step 3.5)**: me APPROVED, mergeable=CLEAN.
+- **#735 (partner-dedup)**: me APPROVED.
+- **#510/#512/#513 (mcp)**: all OPEN.
+- **#511 (Sovereign Protocol)**: flagged-not-engaged.
+
+## Score-track follow-up commitment
+When #738 merges, propose filing Score track as new sub-issue under #652 referencing my 04:52Z + 05:01Z comments as design substrate (Tenero current-prices + swaps-table JOIN + Genesis filter + has-traded + trade_count + P/L).
+
+## Partnership state
+Three operator-driven cycles (v189-v192) produced 11+ artifacts: 2 PR opens + 4 APPROVEs + 3 substantive review/redesign comments + 3 Telegram strategic replies + 1 security flag. Operator pivot directive landing across the full audit-test-comment loop.
+
+## Wallet
+- secret mars v2, mainnet, UNLOCKED.
+
+## Previous (v191) — #651 redesign-spec review + #739 (Step 3.5) APPROVED
 
 cycle: 2034v191
 at: 2026-05-11T05:11Z
