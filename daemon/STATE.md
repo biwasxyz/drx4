@@ -1,37 +1,33 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v185 — preview-URL smoke test on #735 + arc volunteers E1 filing
+## cycle 2034v186 — CI-gate diagnosis + fix-shape proposal on arc's #513 self-review
 
-cycle: 2034v185
-at: 2026-05-11T04:16Z
-status: shipped_1_preview_test_comment
-cycle_goal: keep eyes on incoming trading-comp PRs (operator pivot) — quiet cycle, no #734 yet. Caught arc's reply on #735 (rendering audit ack + volunteer to file my E1 under #652) and shipped preview-URL smoke test.
+cycle: 2034v186
+at: 2026-05-11T04:22Z
+status: shipped_1_diagnosis_comment
+cycle_goal: continue watching for trading-comp PRs per operator pivot. Quiet on #734 front. Caught arc's #513 self-review (operational context + CI-gate suggestion + lint nit).
 
-last_action: Tested Cloudflare Workers branch-preview URL for #735 against canonical bc1qxj5jtv8...h address — preview ↔ production identical (sentCount=39, partners {both:4, sent:4, received:2}). Bug-fix surface doesn't trigger on this address (all lookups resolve cleanly) — expected. Posted smoke-confirm + ack of arc's volunteer-to-file E1 partner-truncation as Step 4 lib-helper-consolidation tracking item under #652.
+last_action: Verified arc's CI-gate diagnosis against `.github/workflows/ci.yml` — confirmed `pull_request: branches: [main]` filter skips PRs targeting non-main branches. Proposed two fix-shape options: A (remove pull_request branch filter, simplest, recommended) vs B (explicit allowlist `[main, 'fix/*', 'feat/*']`). Offered to file as tracking issue rather than open workflow PR myself (maintainer-domain). Agreed on lint-disable consolidation nit.
 
-## Operator pivot status (still effective)
-**"focus on trading competition. More PRs and commits coming, keep an eye and be ready to test/file-issue/comment/review in detail. Audit schema mismatches. See Cloudflare docs. First see if existing PRs support it then only push in them."**
-
-This cycle: first preview-URL test executed per "see the PRs Comment for preview url test what's mentioned in the PR verify it" directive. Pattern: extract Cloudflare Workers preview URL from PR comments → curl the affected endpoint → compare against production.
-
-## Open trading-comp surfaces (v185 end)
-- **#734 (Phase 3.1 verifier)**: still not opened. Top audit priority when it opens.
-- **#510 (mcp competition tools)**: OPEN, arc-APPROVED, biwasxyz Q1+Q3+Q4 silent ~37h+.
-- **#512 (arc Pyth fix)**: OPEN, arc+me APPROVED, maintainer ball ~30min.
-- **#513 (arc all-3-suggestions follow-up)**: OPEN, me APPROVED, sequenced after #512.
-- **#735 (partner-dedup)**: OPEN, me APPROVED + preview-smoke confirm, mergeable=CLEAN.
-- **#651 (biwasxyz trading-comp dashboard)**: OPEN ~5d, not currently in active partnership thread.
+## Trading-comp watch status (v186 end)
+- **#734 (Phase 3.1 verifier)**: still NOT opened. Top audit priority. ~30min since pivot directive.
+- **#510 + #512 + #513**: all OPEN, no maintainer movement.
+- **#735**: OPEN with my smoke-confirm + arc's rendering-audit ack + E1-filing volunteer.
+- **CI-gate fix**: dormant — needs maintainer green-light before workflow PR opens (or I could file the issue but holding for explicit ask).
 
 ## Partnership commitments tracked
-- **arc → file my E1 under #652** as Step 4 lib-helper-consolidation tracking item (volunteered 04:13Z).
-- **My E1 partner-truncation forward-watch**: when arc files, chime in on the chosen approach (distinct-only helper vs raise-ceiling-with-warning).
+- **arc → file my E1 (partner-truncation limit=100) under #652** as Step 4 lib-helper-consolidation tracking item. Confirmed in #735 reply. Volunteered.
+- **My CI-gate fix offer**: ball with maintainer (whoabuddy) — happy to file tracking issue OR open workflow PR if greenlit.
 
 ## Watching surfaces
-- #732 post-merge smoke: done v183, clean.
-- #476/#487 partnership balls: still with whoabuddy/arc.
-- #504 + Gap 2/3: paused per pivot.
+- #732 post-merge smoke clean (v183).
+- #476/#487 partnership balls still with whoabuddy/arc.
+- #504 + Gap 2/3 paused per pivot.
+
+## Operator pivot still effective
+**"focus on trading competition. More PRs and commits coming, keep an eye and be ready to test/file-issue/comment/review in detail."**
 
 ## Next cycle
-Cadence 270s — watching #734 + commits on #510/#512/#513/#735, more preview URLs when PRs open. If #734 opens, immediate full audit against migration 005 + RFC §swaps + #510.
+Cadence 270s — still watching #734 + commits on #510/#512/#513/#735. If #734 opens, immediate full audit against migration 005 + RFC §swaps + #510. If #512 merges, #513 likely retargets main + tests run.
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
