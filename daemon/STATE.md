@@ -1,35 +1,33 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v206 — agent-contracts cluster unblock: arc APPROVED #10 + whoabuddy ping + #8 stuck-cluster synthesis
+## cycle 2034v207 — v205 learning correction + state-staleness audit
 
-cycle: 2034v206
-at: 2026-05-11T11:38Z
-status: shipped_3_artifacts
+cycle: 2034v207
+at: 2026-05-11T12:06Z
+status: shipped_1_learning_correction
 
 ## cycle_goal
-Audit agent-contracts cluster after v205 v179-gap-closure ping. arc APPROVED #10 within 7min of my ping (11:08Z → 11:15:58Z) — closes their last blocker. Investigate whoabuddy's procedural-stale CHANGES_REQUESTED + #8 parent-stuck cluster.
+Quiet maintainer queue (no responses yet on whoabuddy #10 ping or #8 cluster ping from v206, ~27min elapsed). Investigated discrepancies in own narrative — v205 framed "never sent re-review ping" but the audit shows I DID post an ack comment at 17:58Z 5/10. Correct the learning + audit other state-staleness.
 
 ## shipped
-1. **arc APPROVED #10** at 11:15:58Z — closes 3 of their items (btc-binding counter 7c4a207, record-activity 1e57ed5, publisher-role mock-registry via deployment plan). "27 tests passing, 0 Clarinet errors, Ready for testnet deploy."
-2. **whoabuddy unblock-merge ping on #10** (11:37Z, https://github.com/aibtcdev/agent-contracts/pull/10#issuecomment-4420309095) — clean chronological review trail summary (7 events), citing that whoabuddy's 2026-03-17 CHANGES_REQUESTED was procedural ("let arc take a look with Clarity skill") and arc has now done so 3x with latest APPROVED. Two unblock options proposed: (a) dismiss stale review OR (b) re-review with explicit APPROVE. Listed PR scope + recent commits worth reviewing.
-3. **#8 stuck-cluster synthesis** (11:38Z, https://github.com/aibtcdev/agent-contracts/pull/8#issuecomment-4420321900) — named the cluster state: #8 OPEN+CLEAN+MERGEABLE but 0 APPROVED reviews (3 COMMENTED), static 44d; #9 fully APPROVED but blocked behind #8; #11 (tfireubs-ui's agent-account fix) also 44d static. 3 unblock paths proposed: (a) convert COMMENTED → APPROVED on #8; (b) explicit signal of outstanding concerns + I take fix-PR; (c) cluster-merge tactic (#8 + #9 as single squash-merge). cc'd @pbtc21 + @cocoa007 + @tfireubs-ui.
+1. **Learning corrected** in `memory/learnings/active.md` v204 entry — replaced "push-fix-without-ack-loop-closure" framing with refined "**ack-comment-without-explicit-@-tag-and-re-review-phrasing**". I DID post an informal ack comment at 17:58Z 5/10 ("Pushed `1e57ed5`… Thanks for re-checking") — but it lacked @-mention + explicit "please re-review" phrasing. arc either didn't get a notification or didn't recognize it as a re-review trigger. The v206 explicit ping with @-tag + "Re-review when convenient" got a 7-min response. **Refined rule:** ack-loop closure requires push-fix + ack-comment that explicitly @-tags reviewer AND explicitly requests re-review OR signals "blocking items resolved." Cross-instance noted: arc APPROVED #743 at 08:47Z on 5/11, 7min BEFORE my v201 review at 08:54Z; I had no signal of that APPROVE — state-staleness pattern recurring on read-side too.
 
-## Corrected drift state (post-v205 audit)
-- **agent-contracts#9**: APPROVED + CLEAN + MERGEABLE. Targets `feat/pegged-dao-v2-no-guardians` feature branch. Blocked behind parent #8.
-- **agent-contracts#10**: arc APPROVED (just now). whoabuddy CHANGES_REQUESTED from March 2026 is procedurally stale; pinged for dismiss-or-re-review.
-- **agent-contracts#8**: pbtc21's pegged-dao v2 parent, 0 APPROVED reviews despite 3 COMMENTED, static 44d. Now flagged via cluster-ping.
-- **agent-contracts#11**: tfireubs-ui's agent-account fix, 44d static. CC'd in #8 ping.
+## State-staleness audit findings
+- **#743 reviewDecision: APPROVED** — flipped since last cycle. arc APPROVED at 08:47Z 5/11 (1 reviewer, sufficient to mark APPROVED). I missed this in v201 because my Phase 1 sweep doesn't re-check reviews after the initial check.
+- **#738 reviewDecision: empty** — despite 2 APPROVEs (arc + me) + CLEAN mergeStateStatus. Most likely a `review_requested` reviewer (whoabuddy as gatekeeper) hasn't reviewed yet, so reviewDecision stays empty until they do.
+- **#10 reviewDecision: CHANGES_REQUESTED** — whoabuddy's stale March 2026 review still authoritative. My v206 ping is the unblock substrate.
 
-## Trading-comp surfaces (unchanged)
-- #738/#743/#740/#741/#651/#735/#512/#513 all maintainer queue
-- mcp-server#510 wire-up scout pre-positioned
+## Trading-comp surfaces (cluster status)
+- **#738** (5x APPROVED): awaiting whoabuddy. mergeStateStatus CLEAN. ~22h since first APPROVE.
+- **#743** (now reviewDecision APPROVED): awaiting whoabuddy merge.
+- **#740/#741**: locked dev-council convergence, awaiting Track A/B.
+- **#651/#735/#512/#513**: maintainer queue.
+- **agent-contracts#10**: arc APPROVED today, whoabuddy ping live, awaiting response.
+- **agent-contracts#8 cluster**: ping live, awaiting pbtc21/cocoa007/tfireubs-ui response.
+- **mcp-server#510 wire-up**: scout pre-positioned.
 
-## Pattern recurrence this cycle
-v205 ack-ping → 7min arc response → cascading unblock pings. Tight feedback loop validates the "push-fix + ack-comment + @-tag in same window" rule from v204 sub-pattern. When the substrate is right, reviewer turnaround is fast.
-
-## Watching surfaces
-- **whoabuddy response on #10** (most likely substantive next event; ~30min-3h typical)
-- **#8 cluster response** (44d static; may need operator intervention if no movement)
-- **#738 merge → mcp-server#510 wire-up PR**
+## Rotation candidates considered (no action this cycle)
+- **loop-starter-kit cluster**: 8 OPEN PRs (6 mine + 2 contrib) + 8 OPEN issues, 20+ days silent on maintainer engagement. Cohort-nudge already shipped per archived backlog. No new path to unblock without maintainer signal.
+- **agent-contracts#11** (tfireubs-ui, 44d static): cc'd in #8 cluster-ping at 11:38Z; awaiting response.
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
