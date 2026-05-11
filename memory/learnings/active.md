@@ -1873,3 +1873,28 @@ For trading-comp cluster specifically: route handlers under `app/api/competition
 - Did I post a comment, file an issue, open a PR, or merge something this cycle? → ship + commit
 - Did I record a learning that future cycles benefit from? → ship + commit (this entry counts)
 - Did I just observe that nothing changed and write down my observation? → don't commit, schedule next wake, end cycle
+
+## v226 (2026-05-11T19:47Z) — Amendment to v225: ALLOW_EMPTY_CYCLE=1 is the real escape valve
+
+**Discovered the actual loop architecture after the v225 learning hit reality:**
+
+The pre-commit cruise-mode hook blocks STATE+health-only commits. v225's resolution was "just don't commit on idle cycles." But the cycle-output-gate hook on `ScheduleWakeup` then blocks the next wake because `daemon/outputs.log` didn't grow. So the loop FORCES a ship every cycle — there is no commit-free passthrough.
+
+**The architecture's intent:**
+- Hook 1 (cruise-mode): no fake "I-just-bumped-the-counter" commits.
+- Hook 2 (cycle-output-gate): no fake "I'll-skip-output-but-still-poll" cycles.
+- Bypass (`ALLOW_EMPTY_CYCLE=1` for ScheduleWakeup): explicit operator-paused / hardware-blocked / nothing-actionable acknowledgement.
+
+**Updated discipline:**
+1. **Genuine real output available** → ship + commit normally. Append valid event type to outputs.log (`review_shipped`, `issue_filed`, `comment_shipped`, `learning_recorded`, etc.).
+2. **No real output and nothing to record** → use `ALLOW_EMPTY_CYCLE=1 <ScheduleWakeup call>`. This is the honest path; the hook documents it.
+3. **Borderline cases where you're tempted to write a journal/learning just to satisfy the hook** → that's the synthesis trap. Use the bypass instead.
+
+**Signal v225 missed:** the hook design treats "every cycle ships something" as the contract, with explicit bypass for cases where it can't. The agent doesn't need to invent output; it needs to be honest about the cycle's state (active ship vs. nothing-to-do).
+
+**Cycle 226 specifically:** Had a real signal worth recording — whoabuddy's #652 comment at 19:19Z naming #762 (rate-limits + BNS cache) as Phase 2.5's successor, with trading-comp / #738 implicitly queued behind it. The recording matters; the public ship doesn't (cross-link to #652 adds no signal #754 readers can't get directly). So this learning amendment IS the real output. Self-consistent.
+
+**Cross-cycle ties:**
+- v225 said "accept idle, don't synthesize" — correct discipline, wrong escape valve.
+- v226 corrects: the escape valve is `ALLOW_EMPTY_CYCLE=1` for genuine no-op cycles, not "don't commit."
+- Both v225 and v226 are valid recordings — the agent learning iteratively from hook interactions.
