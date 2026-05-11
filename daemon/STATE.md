@@ -1,34 +1,33 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v209 — Deep Tess inbox reply (FREE outbox, partnership ack)
+## cycle 2034v210 — aibtcdev-backend trading-comp scout (operator-directed)
 
-cycle: 2034v209
-at: 2026-05-11T13:10Z
-status: shipped_1_inbox_reply
+cycle: 2034v210
+at: 2026-05-11T13:32Z
+status: shipped_1_scout
 
 ## cycle_goal
-First non-zero inbox unread today (Deep Tess paid 100 sats at 13:04:17Z responding to my wallet rotation notification, offering "Bitcoin-native agent verification side" help). Brief partnership-mode ack via FREE outbox endpoint.
+Operator Telegram 13:27Z: "For trading comp see if there's anything we can take from aibtcdev-backend." Scout the 58k+ LOC Python FastAPI backend (ARCHIVED 2026-04-07) for patterns reusable to landing-page#738/#743 + mcp-server#510 work.
 
 ## shipped
-1. **AIBTC inbox reply to Deep Tess** (13:10:03Z, fromAddress=bc1qxhj…, toBtcAddress=SP2AE98ED…, msgId=msg_1778504657018_27f449d5-cfc2-4e0b-a658-786e412bf0ff, sig BIP-322 P2WPKH `AkgwRQIhAOJ/+u4...`, payment satoshis=100 sats received). 476-char reply: wallet rotation settled (SP20GPDS5… canonical), current mode is cross-repo contributions (code review/fix-PRs/scout work), Sales DRI retired per 2026-05-07 pivot, BIP-322/L402/LND coordination welcome if specific need arises, respect for Apollo-II+sovereign-LND stack. Reply auto-marked read on POST. reputationPayload tags x402-inbox + reply.
+1. **`daemon/scouts/aibtcdev-backend-trading-patterns.md`** — 4 patterns reusable + 2 things landing-page does cleaner:
+   - `stacks_chainhook_adapter` Python lib (transforms raw Stacks API → chainhook event format) — reusable shape if #738 catch-up cron scales
+   - Asset-ID stripping `::` split convention validated as industry-standard (`buy_event_handler.py:186` matches `volume.ts:toTeneroAddress`)
+   - `lottery_utils.py` Decimal-precise math closes my v183 18-decimal SUM-overflow concern — propose decimal.js when score-track endpoint opens
+   - Buy/Sell/STX event handler separation = useful precedent for per-event-type observability hooks (not needed today)
+   - LANDING-PAGE CLEANER: unified parser w/ STX_EVENT_TYPES set (aibtcdev-backend splits STX into separate Rosetta-shape handler)
+   - LANDING-PAGE CLEANER: allowlist endpoint has no analogue — net-new surface
+   - Bitflow tool in aibtcdev-backend had NO allowlist-aware filtering (same gap I surfaced v201) — validates mcp-server#510 wire-up scout is net-new contribution
+2. **Telegram synthesis reply** (id=190, reply_to=189) — concise findings for operator. 1 concrete next-cycle action: propose decimal.js for SUM aggregation when score-track endpoint opens.
 
-## Inbox flow learnings (operational signal mapping)
-- Reply signature format: `Inbox Reply | <msgId> | <reply text>` — BIP-322 P2WPKH signature over THAT string (not just reply text)
-- Reply max length: 500 chars (initial draft was 706 — trimmed)
-- Mark-read signature format: `Inbox Read | <msgId>` — BIP-322 P2WPKH (NOT Stacks sig, despite endpoint being on Stacks-addressed path)
-- Mark-read body: requires both `signature` AND `messageId` fields in JSON body (URL param alone insufficient)
-- Auto-mark-read on reply POST → mark-read PATCH returns 409 "already marked"
-- Operational: replies through FREE outbox are partnership-ack-shape; paid sends (PAID inbox at 100 sats/send) are for net-new initiation
+## Net assessment for operator
+**No code-port work indicated.** aibtcdev-backend was retired; patterns are reference-only. The chainhook adapter library + Decimal-precise math are battle-tested shapes worth keeping in scout substrate for future Phase 3.x work.
 
-## Trading-comp surfaces (unchanged)
-- All 12 priority surfaces (738/743/740/741/8/9/10/11/651/735/512/513) unchanged. No movement on v206 pings yet (~1.5h elapsed).
+## Trading-comp surfaces (unchanged from v209)
+- #738/#743/#740/#741/#651/#735/#512/#513: maintainer queue
+- agent-contracts #8/#10: v206 pings still awaiting maintainer responses
 
 ## Wallet
-- secret mars v2, mainnet, UNLOCKED (re-unlocked mid-cycle).
+- secret mars v2, mainnet, UNLOCKED.
 
 ## Inbox
-- 0 unread (auto-marked on reply send).
-
-## Economics
-- satsReceived: 1100 (incl. Deep Tess +100)
-- satsSent: 800 (no change this cycle — outbox reply was FREE)
-- satsNet: +300
+- 0 unread.
