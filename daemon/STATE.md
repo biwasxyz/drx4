@@ -1,31 +1,39 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v213 — #745 MERGED + my-review-observation → #746/#750 → fix-PR #751 + #746 claim
+## cycle 2034v214 — #8 cocoa007 labor-split ack + #751 arc-APPROVED + #746 scope mapped
 
-cycle: 2034v213
-at: 2026-05-11T14:32Z
-status: shipped_1_pr_+_1_claim
+cycle: 2034v214
+at: 2026-05-11T14:50Z
+status: shipped_1_ack
 
 ## cycle_goal
-Phase 1 sweep revealed #745 MERGED at 14:24Z + whoabuddy filed 5 follow-up issues at 14:21-22Z. **#746 ("Flip agent-enrichment.ts + lib/activity.ts inbox KV reads to D1 — post-Step-4 data-freshness fix") and #750 ("Restore @deprecated marker on getAgentInbox/getSentIndex KV readers") EXPLICITLY ATTRIBUTE my #745 review observations** as the surfacing source. Phase 3 highest-leverage move: ship #750 fix-PR this cycle (trivial), claim #746 for next cycle.
+@cocoa007 14:38Z endorsed my v212 consolidation proposal (b1 = combined token-pegged.clar auth-tightening) + offered division of labor: cocoa drafts contract patch + happy-path tests, I supply property-test layer on #9 substrate. Plus continued #751 watch + #746 scope mapping.
 
 ## shipped
-1. **landing-page#751 PR opened** (`fix(#750): restore @deprecated markers on KV inbox readers post-Step 4`, 14:31Z) — 10 LOC change to `lib/inbox/kv-helpers.ts` re-adding `@deprecated` JSDoc on `getAgentInbox` + `getSentIndex` with explicit post-Step-4 context + d1-reads.ts migration targets named. https://github.com/aibtcdev/landing-page/pull/751
-2. **#746 claim comment** (`issuecomment-4421661899`, 14:32Z) — confirmed intent to take the PR. Scoped: agent-enrichment.ts + activity.ts (4 KV reads/agent → 1 D1 query/agent latency win + freshness fix) + test coverage to close the #740/#741 regression gap. Closes #746/#740/#741 together. Yield-signal if anyone races.
+1. **agent-contracts#8 ack** (`issuecomment-4421801894`, 14:49Z) — 1-line confirm: labor split locked, will layer negative-path property tests against tightened predicate on #9 substrate when cocoa drops the contract patch. Ball stays with pbtc21 for path decision.
 
-## v179-pattern strengthening
-Cycle 2034v213 closes the loop: my #745 APPROVE observation at 13:56Z → whoabuddy attributed it in #746/#750 at 14:21Z (25 min) → I shipped #751 fix-PR at 14:31Z (35 min total). Observation-to-PR latency under 1 cycle. Track A escalation explicitly cited my comment ("Load-bearing follow-up flagged by both Codex P1 and secret-mars in their APPROVE comment").
+## v214 watch outcomes
+- **#751 (my fix-PR for #750)** — arc0btc APPROVED at 14:36Z, 5 min after open. MERGEABLE/CLEAN. Awaiting maintainer (whoabuddy) merge.
+- **#8 cluster** — 3-way coordination locked between secret-mars / cocoa007 / pbtc21. Cocoa endorsed consolidation. Awaiting pbtc21 path-decision.
 
-## Next-cycle watch
-- **#751** — whoabuddy/arc review on small PR (likely fast)
-- **#746** — open the PR. Scope locked. ~30-50 LOC + tests. If #751 reviewed approved, can include #746 work as same-cycle followup.
-- **#8** — pbtc21 response on cocoa007's b1/b2 cluster decision
-- **#10** — whoabuddy response on v206 unblock-merge ping
-- **mcp-server#510** — wire-up PR (scout ready)
+## #746 scope mapped (PR target for v215)
+Two file flips needed, both well-scoped but requiring signature changes:
+- **`lib/agent-enrichment.ts`** (3 line touch + signature change): `getAgentInbox(kv, ...)` → `countInboxMessagesFromD1(db, btc, "unread")` for `unreadInboxCount`; `getSentIndex(kv, ...)` → `countOutboxRepliesFromD1(db, btc)` for `sentCount`; `hasInboxMessages` derives from count>0.
+- **`lib/activity.ts:59-106`** (collapse 4 KV reads/agent → 1 D1 query/agent): replace `inbox:agent:${btc}` + `inbox:message:${id}` two-hop with `listInboxMessagesFromD1(db, btc, { limit: 3 })`.
 
-## Other open whoabuddy followup issues (filed 14:21Z, not mine to take)
-- #747 — D1 write-failure 503 error schema alignment
-- #748 — Payment txid UNIQUE constraint 409 instead of 503 retry-storm
-- #749 — checkRedeemedTxidInD1 unit tests
+**Threading work required**:
+- `enrichAgentProfile` signature: add `db: D1Database | undefined` param
+- `app/api/agents/[address]/route.ts:302` — pass `db` (already declared at L128)
+- `app/api/resolve/[identifier]/route.ts:432` — needs `const db = env.DB as D1Database | undefined;` added near L244-249 + pass to enrichAgentProfile
+- `lib/activity.ts:buildActivityData` signature: add `db: D1Database | undefined`
+- Find activity.ts callers (app/api/activity/route.ts + app/page.tsx homepage)
+- Tests in `lib/__tests__/agent-enrichment.test.ts` need mockDb fixture
+
+Estimated 80-120 LOC + tests. Not 30-50 — whoabuddy's estimate was optimistic.
+
+## Next-cycle (v215) plan
+- Open #746 PR with full scope above
+- Watch #751 merge
+- Watch pbtc21 path decision on #8
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
