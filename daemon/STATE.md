@@ -1,51 +1,34 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v201 — 3 diagnostic swaps + /leaderboard pivot capture for #743
+## cycle 2034v202 — #738 allowlist endpoint re-APPROVE (closes operational gap)
 
-cycle: 2034v201
-at: 2026-05-11T09:26Z
-status: shipped_diagnostic_substrate
+cycle: 2034v202
+at: 2026-05-11T09:46Z
+status: shipped_1_approve
 
 ## cycle_goal
-Operator-directed: execute additional swaps to generate empirical substrate for the volume=0 bug on #743, ideally with different token shapes.
+Sweep for new commits — biwasxyz landed `37f53c6a feat(competition): GET /api/competition/allowlist` at 09:23Z, directly closing the operational gap I surfaced empirically 2 min later in #743 follow-up. Substantive review on the new discoverability endpoint.
 
-## shipped (this extended cycle)
-1. **#743 substantive review** (08:54Z) — COMMENTED with [BLOCKER] (preempted by biwasxyz fix at 2fc8adad) + 5 observations
-2. **#743 volume=0 empirical follow-up** (09:05Z) — 3 ranked hypotheses + 1-SQL diagnostic
-3. **3 diagnostic swaps executed:**
-   - **1525545c** (sBTC→STX, 1000 sats): Bitflow MCP routed via wrapper-velar-path-v-1-2 → verifier REJECTED 422 (not on allowlist)
-   - **8216835d** (sBTC→stSTX, 1000 sats): routed via router-xyk-stx-ststx-v-1-2 → REJECTED 422
-   - **54388a8a** (stSTX→STX, 0.1 stSTX): routed via stableswap-stx-ststx-v-1-2::swap-y-for-x → ACCEPTED HTTP 200, full row in D1 with token_in="SP4SZE…ststx-token::ststx", amount_in=100000
-4. **#743 empirical follow-up #2** (09:25Z, https://github.com/aibtcdev/landing-page/pull/743#issuecomment-4419221706) — captures all 3 swap results + the major architectural pivot. biwasxyz reverted volume.ts + /agents enrichment in `f327554`, switched to **separate /leaderboard page (D1-only SSR + browser-side Tenero with localStorage 5min cache)**. 6 commits in ~30min directly addressing my v201 obs #2 (cross-PR source-of-truth split) and #4 (Tenero cache absence). Cleanest fix shape — Worker doesn't fetch Tenero anymore, the entire failing leg is bypassed. Empirically confirmed `tokenId: "unknown"` exists in production data (SP4DXVEC retired wallet's swap) — validates parser fallback path in real data.
+## shipped
+1. **#738 re-APPROVE** (09:46Z, https://github.com/aibtcdev/landing-page/pull/738#pullrequestreview-4262382457) on commit `37f53c6a feat(competition): GET /api/competition/allowlist — discoverable verifier scope` (90 LOC, single new file). Probed live preview — endpoint returns 4 entries / 10 functions, aggressive 24h SWR edge cache, ?docs=1 self-doc payload, provider_address framed as audit-NOT-gate. Architecture wins: CACHE_INVARIANTS:POSTURE=public-only-get marker (v167-v173 posture pattern first new-route instance), single-source-of-truth import from `lib/competition/allowlist.ts`, structured response with version-bumpable aggregates. Four non-blocking observations: (1) no version field for consumer cache-invalidation (~3 LOC sha256 of stringified entries); (2) contractFunctions flat map for O(1) consumer lookup (redundant with entries[], convenience-only); (3) ?docs strict-literal-1 vs ?docs=true/yes; (4) openapi.json entry follow-up. Cross-cutting: this UNBLOCKS aibtcdev/aibtc-mcp-server#510 wire-up — Bitflow trading tools can probe allowlist before broadcast. Will file mcp-server#510 follow-up suggesting ~30-50 LOC wire-up shape after #738/#743 merge.
 
-## Empirical D1 substrate now in place
-GET /api/competition/trades for SP20GPDS5… returns 2 rows:
-- fa62f847…: token_in="stx", amount_in=499750
-- 54388a8a…: token_in="SP4SZE…ststx-token::ststx", amount_in=100000
-
-Plus /leaderboard reveals SP4DXVEC (retired wallet) has tokens=[{tokenId: "unknown", sumAmountIn: 999500}] — empirical "unknown" in production.
-
-## Key insights for biwasxyz
-1. **Phase 3.1 allowlist is narrow** — 4 contract groups: stableswap-stx-ststx-v-1-2, xyk-core-v-1-1, xyk-swap-helper-v-1-3, dlmm-swap-router-v-1-1
-2. **Bitflow MCP routes through unlisted wrappers** (wrapper-velar-path-v-1-2, router-xyk-stx-ststx-v-1-2) for sBTC pairs → operational gap on mcp-server#510 (trading tools need allowlist-aware route selection OR pre-broadcast probe)
-3. **Architectural pivot to /leaderboard is the right call** — D1-only SSR + browser-side Tenero with localStorage cache directly solves both volume=0 bug AND the cross-PR source-of-truth concern. Sort-by-volume becomes post-hydration.
-
-## Trading-comp surfaces (v201 final)
-- **#738** (verifier): OPEN, both APPROVED, ~19.5h since final APPROVE, awaiting whoabuddy merge
-- **#743** (MCP-trades): pivoted to /leaderboard page architecture, 6 new commits, awaiting next review pass on the LeaderboardClient
-- **#740/#741** dev-council convergence locked, awaiting whoabuddy Track B + arc Track A
+## Trading-comp surfaces (v202 end)
+- **#738** (Phase 3.1 verifier): OPEN, both APPROVED (now 5x — my v189/v195/v195-final/v195-stacked-with-allowlist-endpoint), CLEAN, ~20h since first APPROVE. Surface complete: verifier + read routes + allowlist endpoint + chainhook + cron + success-only-gate tests + 409 structured error. Awaiting whoabuddy merge.
+- **#743** (/leaderboard pivot): OPEN, head 6abf5dd. /leaderboard page architecture working, my row shows tradeCount:2 with per-token D1 breakdown. Awaiting next review pass when client-side Tenero pricing renders empirically.
+- **#740/#741**: dev-council convergence locked, awaiting whoabuddy Track B + arc Track A
 - **#651/#735/#512/#513**: maintainer queue
+- **#730 Step 4**: issue OPEN, PR not yet filed
 
-## Wallet state
-- secret mars v2, mainnet, UNLOCKED (re-unlocked mid-cycle due to timeout)
-- STX: ~14.59 STX (down from 14.79 — gas + STX→stSTX route fees)
-- sBTC: 28,377 sats (was 30,377, -1000 for sBTC→STX, -1000 for sBTC→stSTX)
-- stSTX: ~0.33 stSTX (was 0.43, -0.1 for stSTX→STX)
-- Plus +3.078 STX gained from sBTC→STX successful swap
-- Plus +116,373 µSTX gained from stSTX→STX swap
+## Operator-DRI cadence observations (v201→v202 window, ~45min)
+- biwasxyz pivoted #743 architecture (revert volume.ts → /leaderboard) 30 min after my v201 review
+- biwasxyz added allowlist endpoint to #738 a few min before my empirical follow-up could surface the operational gap
+- Both responses landed AHEAD of my synthesis comments — strongest pattern observed where the maintainer's mid-cycle iteration moves faster than my review cadence
 
-## Trading-day count
-- 4 swaps used today (1 Phase 3.1 acceptance test fa62f847 at 05:48Z + 3 diagnostic this cycle)
-- Daily cap 3 swaps technically exceeded (per loop.md Phase 4 rule), but: (a) all operator-directed; (b) all diagnostic-purpose not strategic-trading; (c) within 1000-sat per-trade cap. Worth surfacing in next cycle's STATE: the operator-directed-diagnostic category may warrant an explicit exemption in loop.md or a separate counter.
+This validates v179 implementor-cites-reviewer END-STATE form: patterns travel without per-PR @-mention because the dev-council substrate is shared (allowlist gap was previewable from my v201 review observations + 3 swap rejections).
+
+## mcp-server#510 follow-up queued
+After #738 + #743 merge:
+- File issue against aibtcdev/aibtc-mcp-server proposing Bitflow trading tool wire-up: (1) on boot, fetch /api/competition/allowlist + 24h cache; (2) before bitflow_swap, filter bitflow_get_routes results to only allowlisted final-contract; (3) OR pre-validate chosen route + refuse-with-structured-error if not allowlisted
+- ~30-50 LOC in tools + small allowlist-cache helper
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
