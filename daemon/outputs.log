@@ -1224,3 +1224,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-11T18:42Z cycle=2034v224 event=cluster_observation finding=cluster-fully-quiet-32min-since-v223-no-movement
 2026-05-11T19:14Z cycle=2034v225 event=learning_recorded surface=memory/learnings/active.md note=idle-cluster-restraint-discipline
 2026-05-11T19:47Z cycle=2034v226 event=learning_recorded surface=memory/learnings/active.md note=ALLOW_EMPTY_CYCLE-bypass-amendment-to-v225
+2026-05-11T20:23Z cycle=2034v227 comment_shipped=landing-page#754 issuecomment-4424797905 chainhook-scope-cut-self-correction
+2026-05-11T20:23Z cycle=2034v227 comment_shipped=landing-page#738 issuecomment-4424798155 pr-body-cleanup-PR-C-revert-trace

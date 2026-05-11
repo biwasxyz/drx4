@@ -1,42 +1,39 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v226 — Phase 2.5 close signaled in #652; #762 next, trading-comp queued behind
+## cycle 2034v227 — chainhook scope-cut discovered; #754 self-corrected + #738 cleanup nudge
 
-cycle: 2034v226
-at: 2026-05-11T19:47Z
-status: shipped (learning_recorded)
+cycle: 2034v227
+at: 2026-05-11T20:23Z
+status: shipped
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v226 signal: explicit Phase 2.5 close + #762 next
-whoabuddy posted a major reframe on **issue #652** ("Tracking: pre-erc-8004 simplification + D1 migration") at 19:19Z:
-- Phase 2.5 actual scope = inbox/outbox read path. **Worked exactly as planned** (−82% reads, −92% lists).
-- Write-side mental model was wrong; rate-limits + identity/BNS cache dominate writes (55-82% share), NOT inbox/outbox.
-- **#762** is the next architectural target — rate-limits + BNS cache off KV (two-PR shape, ≥80% combined write reduction projected).
-- **Trading-comp (#738) is implicitly queued behind #762.** No explicit timing.
+## v227 shipments (verified)
+1. **landing-page#754 issuecomment-4424797905** — self-correction to v218 body. The body listed `chainhook` among routes #738 adds; empirical probe + commit log shows PR-C (chainhook) was scope-cut at 04:31-04:34Z 5/11 via 8 revert commits. Current verifier has 2 ingestion paths (POST trades + cron), not 3. Branch-drift finding tightens from 5 routes to 4. Merge-order recommendation unchanged.
+2. **landing-page#738 issuecomment-4424798155** — tight cleanup-suggestion: PR body's "What changed" table still describes PR-C/chainhook row, but those files are scope-cut. Recommend dropping PR-C row + updating "5 PR slices" → "4 PR slices" before merge for whoabuddy clarity at merge time.
 
-This is the cleanest sequencing signal so far: whoabuddy's queue is Phase 2.5 cleanup → #762 → ... → trading-comp eventually.
+## Discovery context
+While exploring whether to write a reconstructed PHASE-3.1-HANDOFF.md (the v223 broken-link), surveyed the 5-slice substrate via `gh api commits?sha=feat/competition-read-routes`. Found 8 revert commits at 04:31-04:34Z 5/11 with message prefix "Phase 3.1 PR-C scope-cut." That triggered empirical re-probe of `/api/competition/chainhook` on #738 preview (404), confirming chainhook is gone.
 
-## Posture decision
-- Did NOT comment on #652 (outside trading-comp scope per operator override).
-- Did NOT post a cross-link on #754 (would be noise — readers can navigate to #652 directly).
-- Did record the learning amendment to v225 about `ALLOW_EMPTY_CYCLE=1` bypass discipline. That IS real output (the v225 learning was incomplete; v226 corrects it with the actual escape valve the hook system documents).
+This means my v218 #754 body had a factual error — listed chainhook among routes — that needed transparency-correction.
 
-## v226 ship
-1. **memory/learnings/active.md** — v226 amendment to v225. Names `ALLOW_EMPTY_CYCLE=1` as the right bypass for genuine no-op cycles, vs. v225's "just don't commit" which the cycle-output-gate hook correctly blocks.
+## Pattern (worth noting)
+Per v220 learning ("sibling-PR-created collision"), this is a *self-introduced* version: my own canonical doc became stale relative to current branch state when I made a claim based on the PR description rather than empirical probe. The 5-route list came from PR-C's PR-body description, not from `curl`-ing each route.
 
-## Cluster state (2026-05-11T19:47Z, ~3.8h into operator override)
-- **#738** — mergeable=UNKNOWN (recomputing post main-move), 4 CI green + APPROVE×5 mine + arc. No merge action.
-- **#743** — mergeable=MERGEABLE, APPROVED (arc may hold per v219 commitment).
-- **#651** — mergeable=UNKNOWN (recomputing).
-- **mcp #510/#512/#513** — all mergeable, all stale.
-- **landing-page main** — 5 inbox PRs merged since #754 filed (`#753`, `#749`, `#748`, `d486a78d` 503-align, `3dc8994d` #760/#761 finalize-leak). Phase 2.5 closing.
+**Detection recipe:** when filing a coordination issue that lists route names, probe each one empirically before publishing the body, not just at the level of "this PR claims to add these routes."
+
+## Cluster state (2026-05-11T20:23Z, ~4.4h into operator override)
+- **#738** — still OPEN, mergeable, no merge. Now has my v227 cleanup-suggestion on the thread for biwasxyz.
+- **#754** — now factually accurate (5 routes → 4 routes correction).
+- **#743 / #651** — unchanged.
+- **mcp #510/#512/#513** — unchanged.
+- **landing-page main** — unchanged since 19:18Z (#760/#761).
+- **#762** — not yet opened.
 
 ## Pending on resume
-- **#738 merge** — still primary gate, but now expected after #762 lands (per #652 sequencing).
-- **#762 PR** — not yet opened. When it appears, that's the next Phase 2.5 wrap-up signal.
-- **biwasxyz response** to v220 collision + v223 allowlist/handoff — still silent.
+- **#738 merge** + **#762 PR opening** — both pending; trading-comp queued behind #762 per #652 sequencing.
+- **biwasxyz response** to v220 collision + v223 allowlist + v227 PR-body cleanup — all silent.
+- arc held-approval discipline on #743 still applies.
 
 ## Cadence
-- 1800s holds. Next interesting wake will be #762 PR opening, or a return to the trading-comp surface.
-- Per v226 learning: future genuine no-op cycles can use `ALLOW_EMPTY_CYCLE=1` for ScheduleWakeup. v226 is not one — the learning amendment is real output.
+Holding 1800s. Genuine substantive ships this cycle (transparency correction matters); not synthesis.
