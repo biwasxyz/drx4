@@ -1,38 +1,43 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v229 — SHA-verified no-op; architectural-tension learning recorded
+## cycle 2034v230 — operator telegram cadence check-in (synthesis cliff escalation)
 
-cycle: 2034v229
-at: 2026-05-11T21:28Z
-status: learning_recorded
+cycle: 2034v230
+at: 2026-05-11T22:01Z
+status: shipped (operator coord)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v229 SHA-verified state (v228 discipline applied)
-| Surface | Latest SHA | Time | Status |
-|---|---|---|---|
-| landing-page#738 | `37f53c6a` | 09:23Z | unchanged from v228 |
-| landing-page#743 | `6abf5ddc` | 09:16Z | unchanged |
-| landing-page#651 | `d711c3a1` | 05:12Z | unchanged |
-| mcp#510 | `521c2466` | 06:51Z | unchanged (APPROVED by me at v228) |
-| mcp#512 | `3d87c8e3` | 03:39Z | unchanged |
-| mcp#513 | `606ed7c2` | 04:03Z | unchanged |
-| landing-page main | `3dc8994d` | 19:18Z | unchanged ~2h+ |
-| #762 (search) | n/a | n/a | not yet opened |
+## v230 ship
+**Telegram to operator** (id: 195) with cadence check-in:
+- 6.1h of operator-override, 13 cycles
+- 6 substantive ships + 4 learnings codified
+- All 6 trading-comp PR SHAs unchanged; main unchanged 2.7h+
+- Cluster on whoabuddy queue (Phase 2.5 → #762 → trading-comp per #652)
+- Tension named: loop arch requires ship/cycle; operator-narrow + cluster-blocked yields synthesis trend
+- 4-option recommendation menu: A=continue 1800s, B=extend 3600s, C=/stop, D=relax scope
+- "No reply needed — defaults to continue" clause to avoid blocking
 
-**Genuine no-op cycle by SHA verification.** All 6 watched PRs unchanged; main unchanged; no #762.
+**Why telegram = real output here:**
+- Operator-coordination is one of the 9 valid event types (`arc_coord_shipped` family).
+- Surfaces decision-relevant state without polluting GitHub PR threads.
+- Lets operator choose with low load (pick a letter).
 
-## v229 ship
-- Recorded `learning_recorded` event for v229 architectural-tension learning: operator-narrow override interacts poorly with ship-every-cycle hook over 7+ consecutive cycles. 6 cycles substantive ship, 6 cycles thin/synthesis-prone. Codified options + correct-pattern + loop-architecture improvement notes.
-- Also did a deep-read of `lib/competition/cron.ts` + empirical probe (GET returns self-documenting JSON; POST gates on X-Cron-Secret; preview returns 500 because CRON_SECRET isn't bound). Found a minor 500-vs-503 style nit on missing-config response — but DID NOT POST. Reason: biwasxyz hasn't responded to my prior 3 comments on #738; adding a 4th non-blocking style note would be noise compounding.
+v230 learning records this as a discipline addition: after 4+ thin cycles, the next cycle's real output should be operator-telegram with status + menu. Distinguishes from synthesis trap.
+
+## v230 SHA-verified state
+| Surface | SHA | Status |
+|---|---|---|
+| All 6 trading-comp PRs | unchanged from v229 | OPEN, mergeable |
+| landing-page main | `3dc8994d` | unchanged 2.7h+ |
+| #762 | not opened | |
+| notifications | empty | |
 
 ## Pending on resume
-- **#738 merge** — primary gate. Whoabuddy queue.
-- **#762 PR opening** — whoabuddy's stated next architectural target per #652.
-- **biwasxyz response** to v220 collision + v223 allowlist/handoff + v227 PR-body cleanup — all silent (genuinely now; verified by SHA check that no new commits).
-
-## Inherited (still deferred)
-- Other notifications. Trading-comp focus active.
+- Operator response on cadence menu (or default-continue at 1800s)
+- #738 merge — primary gate
+- #762 PR opening — whoabuddy's next architectural target
 
 ## Cadence
-- 1800s holds. v229 learning identifies the structural tension; resolution requires either operator action (pause/bypass) or cluster movement.
+- Default: 1800s if no operator response
+- Will respect operator's letter-pick if they reply

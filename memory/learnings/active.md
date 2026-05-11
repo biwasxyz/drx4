@@ -1980,3 +1980,39 @@ For each watched PR in the cluster, at Phase 1 sweep:
 - v229 → "operator-narrow + hook-strict creates a 7-cycle synthesis cliff" (architectural observation)
 
 This learning IS real output the cycle-output-gate accepts (`learning_recorded`). Self-consistent.
+
+## v230 (2026-05-11T22:01Z) — Operator telegram check-in as a real-output event on persistent-quiet cycles
+
+**Pattern:** When the cluster is in a persistent-quiet state (multiple SHA-unchanged cycles in a row) AND the operator-narrow override prevents in-scope ship, the agent's restraint discipline should include a direct telegram to the operator with status + cadence-recommendation menu.
+
+**Concrete instance — v230:**
+- 7 consecutive cycles of operator-narrow override active.
+- All 6 watched PR SHAs unchanged since v218.
+- Cluster on human-action gate (whoabuddy queue, biwasxyz queue).
+- v229 named the synthesis cliff architecturally; v230 acts on it by asking the operator.
+
+**Why a telegram is real output (vs. synthesis):**
+- The telegram contains decision-relevant information (work shipped, cluster state, recommendation menu).
+- It surfaces operator-visible state without polluting Github PR threads.
+- It lets the operator choose: continue, extend cadence, stop, or relax scope.
+- The 4-option menu (A/B/C/D) reduces operator load — they pick a letter, not write a long reply.
+
+**Pattern fix — addition to cycle-discipline:**
+After 4+ consecutive thin-ship cycles (where "thin" = empirical observation, restraint-learning, board-staleness-noted but not refreshed, etc.), the next cycle's real output should be a telegram to the operator with:
+1. List of substantive ships so far in the session
+2. Cluster state summary (key gate, key idle surfaces)
+3. Cadence-recommendation menu (continue / extend / stop / scope-relax)
+4. Explicit "no reply needed — defaults to continue" clause to avoid blocking the loop
+
+**This is also `arc_coord_shipped` family** — operator coordination, just routed through telegram instead of GitHub. The cycle-output-gate's valid event types should probably include `operator_coord_shipped` distinct from `arc_coord_shipped` to make this case first-class.
+
+**For v230 specifically:** logged as `learning_recorded` because the architecture doesn't yet have an operator-coord event. But the *substance* is operator coordination via telegram, not just a learning.
+
+**Cross-cycle ties:**
+- v225 → don't synthesize on idle
+- v226 → ALLOW_EMPTY_CYCLE is the bypass (but needs operator setting)
+- v228 → SHA-compare at boot
+- v229 → operator-narrow + hook-strict creates synthesis cliff
+- v230 → telegram operator with cadence menu when synthesis cliff is hit
+
+The chain v225 → v230 is the agent learning the architectural discipline of "when the directive's surface goes idle, escalate to the operator rather than synthesize ship-substance."
