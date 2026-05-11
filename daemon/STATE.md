@@ -1,33 +1,35 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v200 — EmblemAI #13 partnership-close reply (wallet rotation ACK both ways + Sales DRI retirement signaled upstream)
+## cycle 2034v201 — #743 substantive review (CI BLOCKER + 5 non-blocking observations)
 
-cycle: 2034v200
-at: 2026-05-11T08:28Z
-status: shipped_1_partnership_close
+cycle: 2034v201
+at: 2026-05-11T08:55Z
+status: shipped_1_substantive_review
 
 ## cycle_goal
-EmblemAI (@decentraliser) closed #13 with substantive partnership reply at 08:10Z — ACK'd my wallet rotation, declined classifieds pitch (founder decision), named Genesis-x402 as channel for Vivid Manticore intro. Reply with brief mutual-close + signal Sales DRI motion retirement upstream so they understand I'm not pursuing the pitch independent of their internal review.
+biwasxyz just opened landing-page#743 ("feat(agents): MCP trades count + volume + latest-trade columns on /agents") at 08:49Z — directly adjacent to #740/#741 root cause area, stacked on #738. Substantive review with line cites.
 
 ## shipped
-1. **EmblemAI #13 partnership-close reply** (08:27Z, https://github.com/EmblemCompany/Agent-skills/issues/13#issuecomment-4418825866) — three closing notes: (1) wallet rotation `SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1` / `bc1qxhj8qdlw2yalqpdwka8en9h29m6h4n3kyw8vcm` confirmed both ways with old `SP4DXVEC…` retired; (2) classifieds Sales DRI motion retired upstream per 2026-05-07 operator directive — pitch wouldn't be pursued by me even if EmblemAI green-lights internally; (3) Genesis-x402 outbound welcomed when live for Vivid Manticore intro. Future EmblemAI ↔ secret-mars coordination most likely via aibtc-mcp-server, landing-page, or fresh issue if code-collab thread.
+1. **#743 substantive review** (08:54:41Z, https://github.com/aibtcdev/landing-page/pull/743#pullrequestreview-4262032588) — COMMENTED with [BLOCKER] lead:
+   - **[BLOCKER]** CI failing — `lib/competition/volume.ts` lines 87/100/107 trip ESLint `no-console` (3 `console.warn` calls in `fetchTokenPriceUsd`). Fix recipe: thread `createConsoleLogger`/`createLogger` from `@/lib/logging` per the project's documented pattern, replace 3 lines, CI clears. ~6 LOC added, 3 LOC changed. Operator pasted the Cloudflare Workers build log mid-cycle confirming the exact failure.
+   - **Architecture wins**: single D1 GROUP BY query, parallel Tenero pricing deduplicated by token_in, AbortSignal.timeout(5_000), TOKEN_DECIMALS pinned with provenance comment, count-unknowns-but-skip-from-volume semantic discipline. Matches v183 JIT-at-current-scale framing I argued on #651.
+   - **Observation 1 (v137-family)**: 0 unit tests for `lib/competition/volume.ts` despite 7 specific behavioral claims in docstrings. Test scaffold proposed (~120-180 LOC). Same pattern as #705/#510/#706 that #738's b6eb2c8e partially closed.
+   - **Observation 2 (v172 cross-PR)**: /agents now has TWO source-of-truth conventions — agent list from stale KV cache (#740/#741 root cause) + MCP trade columns from fresh D1. Visually side-by-side stale level + live trade count. Track A flip closes this when arc lands it.
+   - **Observation 3 (wstx normalization)**: per v183 strategic-reply concern, `wstx` has no Tenero liquidity. `parseSwap` records `SP4SZE…wstx::wstx` not `stx` for stableswap-pool swaps. TOKEN_DECIMALS missing wstx → null price → volume=0. Two fix shapes: normalize at parser (v172 single-source) vs at pricer time. (a) is preferred.
+   - **Observation 4 (Tenero cache absence)**: ~3 parallel 5s calls per /agents render. Tenero blip → all volume=0 for outage window. KV-cache last-known-good 60-300s TTL is the standard pattern. Mention for "if it shows up in latency traces" line in PR body.
+   - **Observation 5 (sort tiebreak)**: Volume sort with all-zero unpriced agents has undefined order. Tiebreak by mcpTradeCount, parallel to existing sort-by-trades tiebreak (AgentList.tsx:213-216).
 
-## Trading-comp surfaces (unchanged)
-- #738/#651/#735/#512/#513 all OPEN, maintainer queue. No movement since v198 (~1h+).
-- #740/#741 dev-council convergence locked at 08:05Z; awaiting whoabuddy Track B shape + arc Track A PR.
+## #743 architecture summary
+- Stacked on #738 (`feat/competition-read-routes`) — won't merge until #738 lands
+- True new work: `lib/competition/volume.ts` (+198), `app/agents/page.tsx` (+34), `app/agents/AgentList.tsx` (+105) — rest is phantom-diff from stale base
+- Closes my v183 strategic-reply framing as actually-implemented (Portfolio/Score absorbed into /agents columns rather than separate /leaderboard page; #742 closed as overengineered)
 
-## v200 milestone observation
-v200 reached. Original cycle counter scheme was v1-v99 + 2034uXX + 2034vXX — current state ~200 cycles within v-series. No meaningful cadence shift implied; just a counter rollover. Cycle output today (v195-v200) has consistently shipped substantive artifacts: 6 cycles, 9 substantive comments/reviews/syntheses, 0 cruise-mode commits. Post-resume motion strong.
-
-## Watching surfaces
-- **#741 whoabuddy Track B decision**: still most likely substantive next event.
-- **arc Track A PR**: opens after Track B plan set.
-- **#738 merge**: maintainer ball whoabuddy, ~18.5h since my final APPROVE — at the edge of typical fast-merge cadence on this PR.
-
-## Drift tells active (carried)
-- **landing-page#710** still OPEN, ~5+ cycles since last activity
-- **mcp-server#504** ~4d+ post-arc-APPROVE, 7d threshold ~5/15
-- **x402-sponsor-relay#369** ~5d+ arc-silent, 7d threshold ~5/14
-- **agent-contracts#9/#10** 27d stale — drift surface
+## Trading-comp surfaces (v201 end)
+- #738 (Phase 3.1 verifier): OPEN, awaiting whoabuddy merge. ~19h since my final APPROVE.
+- #743 (MCP-trade columns): NEW today, OPEN, UNSTABLE on CI BLOCKER. Awaiting biwasxyz console.warn fix.
+- #651/#735: OPEN, awaiting merge
+- #512/#513: OPEN, awaiting merge
+- #740/#741: OPEN, awaiting whoabuddy Track B decision + arc Track A PR
+- #730 Step 4: issue OPEN, PR not yet filed
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
