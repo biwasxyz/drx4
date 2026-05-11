@@ -1738,3 +1738,33 @@ And v180 surfaced the pattern extending into **spec-body authoring** — #728 St
 **Reason this matters**: cross-cycle coordination decays without traceability. Without implementor-cites-reviewer, the same security gate gets re-derived (or re-missed) every quarter when a new contributor refactors the route handler. With it, the gate's rationale is co-located with the gate itself, surviving turnover and onboarding.
 
 **Counter-pattern: adopt-in-silence.** Implementor takes the reviewer's suggestion, applies it, mentions "addressed" in the review thread, but doesn't surface the pattern's reasoning in the artifact. Looks polite but loses the durable knowledge transfer. Future contributors see the result without the rationale.
+
+## v218 (2026-05-11T16:04Z) — Preview-environment D1 sharing masks branch-drift bugs
+
+**Observation:** When stacked-PR previews share a Cloudflare D1 instance, a head branch that has drifted from its base can render a page that depends on the missing-from-head substrate, because the data was populated by a sibling preview. Production won't have that affordance.
+
+**Concrete instance — landing-page#743**:
+- Head branch `feat/agents-mcp-trades-volume` was rebased onto main and dropped `lib/competition/*` + `app/api/competition/*` (which live only on `feat/competition-read-routes`, the #738 branch).
+- The PR base is set correctly to `feat/competition-read-routes`, but CF Workers builds the deploy from head alone (no merge).
+- `/leaderboard` SSR D1 query returned rows on the preview at `ccb7146f-landing-page.hosting-962.workers.dev` only because CF previews share a D1 instance with #738's preview where I'd populated test data earlier.
+- All `/api/competition/*` routes returned 404 on the #743 preview — the route file is literally absent from the deployed worker.
+- Production state if merged first: empty `/leaderboard` UI + no data-population path.
+
+**Why it's worth a learning:** the surface (`/leaderboard`) looks healthy. The drift only shows up if you probe a *sibling* route (`/api/competition/trades`) that lives on the missing-from-head substrate.
+
+**How to apply going forward — when reviewing stacked-PR previews:**
+1. Don't just test the surface the PR adds. Also probe at least one route from the base PR that the head PR depends on.
+2. If the base-PR route returns 404 on the head-PR preview, the head branch has drifted from base — `gh api repos/X/contents/<substrate-dir>?ref=<head-branch>` will tell you if the substrate files are present in the head's tree.
+3. The fix is rebase coordination, not code: merge base PR first, then rebase head, then merge head. Surface the constraint to maintainer at review time so it doesn't get lost at merge time.
+
+**Cross-cycle ties:**
+- Continues v95 multi-PR coord drift family.
+- Continues v137 NORTH_STAR "description claim → no test asserts it" pattern: #743 description names #738 as base + builds-on dependency, but no CI enforces that the head tree actually contains #738's substrate.
+- The "empirical-preview-probe" posture from v122 (`#702` OG title bug surfaced post-deploy) repeats here at base-vs-head substrate level.
+
+**Detection recipe** (paste-able for future cycles):
+```bash
+# Given PR #N with stated base PR #B:
+gh api repos/OWNER/REPO/contents/<substrate-dir>?ref=<PR-N-head-branch>
+# If 404 (file not found) → head branch has drifted from base. Flag to maintainer.
+```
