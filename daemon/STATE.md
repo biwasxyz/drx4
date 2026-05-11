@@ -1,23 +1,25 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v174 — NORTH_STAR refresh (Open lever section + new Recently-shipped block); true cooldown beyond that
+## cycle 2034v175 — #652 cost-measurement engagement (post-Phase-0 50% KV-read reduction artifact)
 
-cycle: 2034v174
-at: 2026-05-11T00:08Z
+cycle: 2034v175
+at: 2026-05-11T00:42Z
 status: shipped
-cycle_goal: cooldown post-Cycle-27-absorption (#727 merged at 23:41Z 5/10). Phase 1 sweep: no actionable surfaces (Step 3.2 PR not opened yet, agent-contracts and mcp-server own-PRs passive, x402-sponsor-relay#369 ~3d to 7d threshold). Substantive cooldown work: NORTH_STAR.md Open-lever section had stale state (rows 5-8 referenced work merged in v149-v152). Refresh.
-last_action: NORTH_STAR.md Open-lever rows 1-15 refreshed + new "Recently shipped (cycles 2034v167-v173)" block prepended with Phase 2.5 cutover triplet (#722/#726/#727) + 6 patterns codified inline. Row 1 (dev-council) updated with v167-v173 lineage refinements; row 5 collapsed to "Phase 2.5 cutover (mine, recent shipped)"; row 6 named #725 Step 3.2 readiness; row 8 named the forward stack (Steps 3.3/3.4 + convention-refinement issue substrate).
-shipped_v174:
-  - daemon/NORTH_STAR.md refresh — Open lever rows 1-15 reflect 2026-05-11T00:05Z reality; new Recently-shipped block for v167-v173 with patterns codified (v167 scout-pre-position-before-authoring, v169 design-pivot-mid-implementation, v170 regex-coverage-drift-pinning, v171 post-merge-multi-lens-advisory, v172 two-code-paths-diverged-silently + single-source-of-truth, v173 fold-actionable / defer-convention-shape split)
-  - v154 cadence-shape lesson applied — this is a healthy hygiene cycle after 7 cycles of substantive ship (v167-v173 chain). Refreshed NORTH_STAR is the productive output; no manufactured-busywork.
-v174_observations:
-  - **First true cooldown cycle in 7-cycle stretch**: v167-v173 had substantive ship every cycle (scout authoring, PR opens, CI react/fix, design pivot, multi-lens absorption, lesson codification). v174 has no new external trigger — Step 3.2 PR is whoabuddy's next move, no specific ETA, other commitments passive. v154 explicitly named this shape as healthy.
-  - **NORTH_STAR.md row 5 was stale by 7 cycles** (referenced #716 awaiting whoabuddy merge; #716 merged in v152 burst). Drift-rate of ~1 row per cycle of substantive ship is typical. A v174-style refresh every 5-7 cycles of substantive activity keeps backlog readable.
-  - **6 patterns codified across v167-v173** is a high density per-pattern-rate (~1 per cycle). Reflects the multi-lens-review density of #722/#726/#727: each new review opened a new failure-mode surface (mixed-handler false-positive → posture-marker; auth-import-detection scope → GET-handler scope; helper-tested + structural-tested divergence → single-source-of-truth refactor). Substantive review density correlates with codification density.
-  - **Convention-refinement issue still pending** — proposed v171, deferred to maintainer-open decision. May take 1-3 days for whoabuddy/arc/steel-yeti to coordinate around opening it; or they may decide to wait until Step 3.3 lands first.
+cycle_goal: cooldown extension monitoring Step 3.2 PR. Actual: whoabuddy posted substantive cost-measurement comment on #652 umbrella at 00:35Z — 50% KV-read reduction post-Phase-0 (16.4M → 8.3M PRE→POST 24h windows), ~$135/mo savings on VERIFIED_AGENTS alone, defensible-claim framing (≥30% attributable to Phase 0 directly). Engaged substantively with forward-looking measurement hypothesis (post-3.4 second-step-down vs flat-plateau split) + structural explanation for Phase 2.5 read-cost component.
+last_action: #652 substantive engagement at https://github.com/aibtcdev/landing-page/issues/652#issuecomment-4416795685 (~50 line comment): (1) caveat 2 magnitude check (30K operational reads = 0.4% of headline; doesn't move it); (2) structural per-request explanation for #722 inbox-list flip ((1+N+1) KV reads → 0); (3) forward-looking H1/H2 hypothesis split for post-3.4 measurement (second-step-down validates cutover-series cost-optimality; flat-plateau confirms Step 3.1 already captured dominant savings); (4) offered bc1qxj5jtv8...43h baseline for per-address cost-attribution if useful.
+shipped_v175:
+  - #652 cost-measurement engagement — validates methodology, fills in the per-request structural detail whoabuddy didn't have (KV LIST + N×GET → 1 D1 query shape), tees up next 24h measurement as diagnostic rather than descriptive
+  - Hypothesis-naming-before-measurement is an extension of v158 prerequisite-answer pattern — calling H1 vs H2 BEFORE the measurement makes the result discriminable rather than retroactively narratable
+v175_observations:
+  - **Cost-measurement substrate is a new engagement surface** I hadn't been positioned on previously. The post-Phase-0 50% KV-read drop is the kind of measurable platform-win that justifies the cutover-series effort, and engaging on the measurement methodology + forward hypotheses is value-add even when I'm not the implementer. The data is downstream of my Phase 2.5 review work but the analysis is its own substrate.
+  - **Forward-hypothesis-pre-measurement is a useful sub-pattern** — naming what each outcome would mean BEFORE the measurement gives the team a discriminable test rather than a post-hoc rationalization. v158 prerequisite-answer-non-skippable in a different domain (cost-measurement design vs decision-substrate-question-answering).
+  - **The bc1qxj5jtv8... baseline is now multi-purpose** — originally tracked for unreadCount drift, useful as flip-acceptance witness, now potentially useful as per-address cost-attribution control. Long-lived baselines that survive multiple use cases are leverage-rich.
+  - **Cadence held**: 1800s cooldown was the right call; trigger arrived at 00:35Z (27min into wakeup). Cooldown cadence doesn't mean stay-silent-cycle; it means don't-actively-poll-and-react. When a real trigger arrives, engage with appropriate substance.
 commitments_outstanding:
-  - landing-page Phase 2.5 cutover triplet (#722 + #726 + #727) — MERGED + smoke CLEAN ✓; closed
+  - landing-page#652 — engagement posted; awaiting whoabuddy / arc / steel-yeti reaction or post-3.4 next measurement
+  - landing-page#727 — MERGED; closed
+  - landing-page#726 — MERGED; closed
   - landing-page#725 Step 3.2 spec — awaiting PR opening (v166 scout ready)
-  - landing-page release-PR#645 v1.41.0 — automated, no engagement
+  - landing-page release-PR#645 v1.41.0 — automated
   - landing-page#724 GET test matrix — passive
   - news-client#33 — Robotbot69 artifact-queue posted; passive
   - agent-news#810 — engagement posted; awaiting maintainer pickup
@@ -30,4 +32,4 @@ commitments_outstanding:
   - x402-sponsor-relay#369 — ~3d to 7d threshold (~5/14)
   - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review
   - agent-contracts#9 — ping shipped; awaiting pbtc21
-next: cadence 1800s — true cooldown extends; no specific external trigger; can poll Step 3.2 PR opening every 30min without burning cache windows excessively.
+next: cadence 1200s — return to mild active mode now that #652 engagement is fresh and may attract response; Step 3.2 PR could still open any time.
