@@ -2,9 +2,75 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-10T21:16Z (cycle 2034v164, v18 inline patch — Phase 2.5 Step 3.1 SHIPPED to production via #722 MERGED; aibtc-mcp-server#497 closed in production; 24-cycle baseline acceptance test passed)
+**Last refresh:** 2026-05-11T06:55Z (cycle 2034v196, v19 inline patch — Phase 2.5 Step 3 cluster fully merged AND trading-comp Phase 3.1 verifier all-APPROVED awaiting merge; mcp-server Zest fix cluster (#512/#513) opened+reviewed; Bitflow STX→stSTX trade executed as verifier acceptance test)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v19 inline patch — what changed since v18 (cycles 2034v167–v196, ~10h) ***
+
+**Major milestones:**
+- **Phase 2.5 cache-invariant hygiene cluster SHIPPED (v167–v173, ~2h):** landing-page#726 (cache-invariant single-source extraction MERGED 22:53Z 5/10) + #727 (Cycle 27 absorption MERGED 23:41Z 5/10 — stale-marker check + glob discovery + posture-pattern + pattern coverage + single-source-of-truth refactor; 35min steel-yeti advisory→merge cadence). Convention-refinement issue (Spark simplify + Forge ROUTE_ATTRS bag + comment-accretion debate) proposed in #727 substrate.
+- **Phase 2.5 Step 3 series SHIPPED (cycles v180–v193, ~3h window 5/11 02:43Z → 05:36Z):** landing-page#731 (Step 3.2 outbox-write D1) MERGED 02:43Z; #732 (Step 3.3 outbox GET D1 flip) MERGED 03:43Z; #737 (Step 3.4 KV cleanup) MERGED 04:45Z; #739 (Step 3.5 write-path auth → D1 + tenant-discriminator security positive) MERGED 05:36Z. Step 4 (#730 KV-write removal) unblocked, PR not yet filed.
+- **Trading-comp Phase 3.1 verifier FULLY APPROVED (cycles v189–v195):** landing-page#738 (biwasxyz) absorbed 4-loop substantive review arc by me: (1) v189 initial review STX event_type fix; (2) v193 pending-cache short-circuit empirical finding + fix landed; (3) v194 idempotency-UX `inserted` flag finding → biwasxyz shipped 409+structured-error+existing_row+readSwap-before-Hiro (stronger than my proposal); (4) v195 final APPROVE on commit 344df7bb. Both arc + me APPROVED, mergeable=CLEAN, awaiting whoabuddy merge.
+- **#651 Portfolio leaderboard rebased + APPROVED (v192, 05:30Z):** biwasxyz rebased 12 commits onto main + 2 nit fixups (sentinel TTL 600s + cold-miss poll budget 30s/500ms). My v192 APPROVE named: sentinel_ttl >= 1.3×p99(rebuild) calibration rule + cold-miss cost-ratio framing + multi-track closure (Score track files as follow-up under #652). Awaiting arc + whoabuddy re-clearance + merge.
+- **mcp-server Zest fix cluster OPENED + REVIEWED (cycles v195–v196):** arc opened #512 (fresh Pyth VAAs for borrow/collateral-add/collateral-remove-redeem, fixes #476 — closes my v54 issue filed 5/8) + #513 (vaaInFlight dedup + ZestPythUnavailableError + 8 unit tests — implements all 3 of my non-blocking #512 followup-suggestions verbatim). Both APPROVED by me; #512 has stacked APPROVEs at 03:56Z + 06:48Z (second adds TTL/mining-latency clarifying question + defensive hex parse nit + #513-pre-aging-cross-ref).
+- **Bitflow STX→stSTX trade executed as Phase 3.1 verifier acceptance test:** txid `fa62f847df933b6b5e5a92f3e6a2b04c80c94b5b488a9277c53a95e9d9baf3c1` broadcast 05:48Z, confirmed block 7929497 (ok u429262), end-to-end verified on preview deploy. Surfaced 2 #738 behavior gaps (pending-cache short-circuit + missing-`inserted`-flag) both fixed in-cycle.
+- **#735 partner-dedup APPROVED, awaiting merge.**
+- **mcp-server #511 (Sovereign Protocol, azagh72-creator) FLAGGED-NOT-ENGAGED:** 14694 LOC by brand-new author, adds .github/workflows/publish.yml (auto-publish-to-npm), modifies x402.service.ts + mempool-api.ts + scaffold.service.ts, adds btc-chain.ts + universal-bridge.ts + psi-consensus.ts + seed-identity.ts, embeds external "flying-whale-marketplace" inside repo, Arabic philosophical framing. Supply-chain-attack pattern. Operator notified; awaiting whoabuddy security review.
+
+### Phase 2.5 cutover hygiene + Step 3 series end-state (v164 → v196)
+
+| Surface | v164 state | v196 state | Action |
+|---|---|---|---|
+| `landing-page#722` Step 3.1 inbox-list read flip | MERGED v163 | MERGED + smoke CLEAN | Done |
+| `landing-page#726` cache-invariant single-source extraction | n/a | MERGED 22:53Z 5/10 | Done — `lib/inbox/CACHE_INVARIANTS.md` + 1-line pointer comments + posture markers + structural enforcement test |
+| `landing-page#727` Cycle 27 absorption | n/a | MERGED 23:41Z 5/10 | Done — steel-yeti Cycle 27 advisory absorbed in 35min via stale-marker check + glob discovery + POSTURE_PATTERN + single-source-of-truth refactor |
+| `landing-page#731` Step 3.2 outbox-write D1 | n/a | MERGED 02:43Z 5/11 | Done |
+| `landing-page#732` Step 3.3 outbox GET D1 flip | n/a | MERGED 03:43Z 5/11 | Done — sentCount/partners restoration; 8 acceptance criteria; convergent APPROVE arc+me within 4min |
+| `landing-page#737` Step 3.4 KV cleanup | n/a | MERGED 04:45Z 5/11 | Done — mechanical KV cleanup post-#732 |
+| `landing-page#739` Step 3.5 write-path auth → D1 | n/a | MERGED 05:36Z 5/11 | Done — 4 call-sites moved from app-level toBtcAddress check (403 with leaked existence) to SQL-level WHERE clause (null → 404). New getReplyForMessageFromD1 with tenant-discriminator (from_btc_address = ?) closes false-409-cross-agent edge |
+| `landing-page#730` Step 4 KV-write removal | n/a | UNBLOCKED, PR not yet filed | Awaiting whoabuddy to open PR (expected within 1-2 cycles) |
+| `landing-page#738` Phase 3.1 verifier (Bitflow trading-comp) | n/a | OPEN, both APPROVED, mergeable=CLEAN | Maintainer ball whoabuddy; 4-loop substantive review arc closed |
+| `landing-page#651` Portfolio leaderboard | rebased pending | OPEN, my v192 APPROVE on rebased state | Awaiting arc + whoabuddy re-clearance after biwasxyz's force-push reset approvals |
+| `landing-page#735` partner-dedup | n/a | OPEN, APPROVED | Awaiting merge |
+| `landing-page#728` Step 3.3 spec | n/a | CLOSED-by-merge via #732 | — |
+| `landing-page#725` Step 3.2 spec | OPEN | CLOSED-by-merge via #731 | — |
+| `aibtc-mcp-server#512` Zest fresh Pyth VAAs | n/a | OPEN, APPROVED 2x | Awaiting maintainer merge — base PR fixes #476 |
+| `aibtc-mcp-server#513` Zest vaaInFlight + typed error + tests | n/a | OPEN, APPROVED | Awaiting maintainer merge — follow-up to #512, stacked branch |
+| `aibtc-mcp-server#510` competition trading tools (mine) | OPEN, arc APPROVED | OPEN, my v144 follow-up Q1+Q3+Q4 + nit-PR offer awaiting biwasxyz response (~36h+ silent) | Mirror #738 409 + justSubmitted handling once #738 merges |
+| `aibtc-mcp-server#504` mcp #487 Gap 1 (mine) | OPEN, ~3.5d post-arc-APPROVE | OPEN, ~4d+ post-arc-APPROVE (7d threshold ~5/15, ~3d remaining) | Maintainer ball whoabuddy |
+| `aibtc-mcp-server#511` Sovereign Protocol (azagh72-creator) | n/a | OPEN, NOT-ENGAGED, security-flagged | Awaiting whoabuddy security review |
+| `x402-sponsor-relay#369` (mine, verifyMessage asymmetry) | arc ~3d silent | arc ~5d+ silent (7d threshold ~2026-05-14, ~3d remaining) | Awaiting arc response |
+| `agent-contracts#9`/`#10` (mine, security PRs from 4/14) | 26d stale | 27d stale | Drift surface — neither rebase+ping nor close happening |
+
+### Patterns codified during this window (memory/learnings/active.md)
+
+- **v167** scout-pre-position-BEFORE-AUTHORING (extending v159/v166 review-prep lineage)
+- **v169** design-pivot mid-implementation when false-positive surface discovered
+- **v170** regex-coverage-drift requires structural pinning via pattern-test-block
+- **v171** post-merge-multi-lens-advisory as parallel-correctness substrate
+- **v172** two-code-paths-diverged-silently as test-coverage failure mode; single-source-of-truth refactor as structural answer
+- **v173** fold-actionable-findings / defer-convention-shape split as reusable Cycle-N-absorption posture
+- **v179** implementor-cites-reviewer cadence: PR body cites prior PRs + steel-yeti template fields by name (without per-PR reviewer @-mention) — patterns travel without attribution because they're the way the team writes PRs now
+- **v181** 6-sec-fast-merge cadence on #731 (whoabuddy mechanical)
+- **v182** 2-issue parallel-engagement-burst from arc (7-sec interval between #487 + #476 comments); partnership-density at strongest post-pivot
+- **v183** 18-decimal token Score-track-SUM-overflow concern (re-cited from sign-off on #651)
+- **v187** post-merge-empirical-verification: STX event_type fix verified on preview deploy via canonical Bitflow STX→stSTX trade fa62f847; surfaced 2 #738 behavior gaps (pending-cache + inserted-flag)
+- **v189–v195** 4-loop review arc on #738 with each cycle tighter than the last (6min → 16min → 24min → tightest); empirical-test-then-find shape consistently produced findings stronger than maintainer's proposals
+- **v195 lesson recurrence (v145 instance):** drafted second APPROVE on #512 without re-querying state — duplicate framing on stacked review; content additive (TTL question + hex parse nit + cross-ref) but timeline ambiguous. v145 personal-checklist (re-query state before synthesis-style comment >5min drafting) still load-bearing; re-codify as agentic-rather-than-personal habit
+
+### Counts movement (verified at v196 boot)
+
+- **landing-page open PRs:** v164: 9 → v196: 8 (#722 + #726 + #727 + #731 + #732 + #737 + #739 all merged in window; #738 + #651 + #735 + #710 still open; #653 dependabot axios + #645 release + #638 Operator Console + #634 grouped bumps + #621 claims tests + future Step 4 #730)
+- **aibtc-mcp-server open PRs:** v164: 11 → v196: 14 (+#512 + #513 + #511; #501 closed by Snyk merge?)
+- **Total merged this window (~10h):** 7 landing-page PRs (#722/#726/#727/#731/#732/#737/#739)
+
+### Drift tells active 2026-05-11T06:55Z
+
+- **landing-page#710** still OPEN at v196, ~5+ cycles since last activity — drift candidate
+- **aibtc-mcp-server#504** approaching 7d-since-arc-APPROVE threshold (~3d remaining), maintainer-merge-ping queued for v200ish
+- **x402-sponsor-relay#369** ~5d arc-silent, 7d threshold ~5/14 — partnership-thread-silent watch
+- **agent-contracts#9/#10** 27d stale — drift surface, decision (rebase + ping vs close) still not made
 
 ## *** v18 inline patch — what changed since v17 (cycles 2034v154–v163, ~3h) ***
 
