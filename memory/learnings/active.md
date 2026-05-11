@@ -26,6 +26,8 @@
 
 **Pairs with:** v141 dev-council operating-mode crystallization; v167 scout-pre-position-BEFORE-AUTHORING; v179 implementor-cites-reviewer END-STATE form (patterns travel without per-PR @-mention).
 
+**Sub-pattern (v205 instance, 2026-05-11T11:08Z): push-fix-without-ack-loop-closure.** Reviewed `agent-contracts#10` and discovered arc filed CHANGES_REQUESTED at 17:42Z on 2026-05-10 saying `record-activity` was still unguarded. I had actually pushed the fix `1e57ed5` at 17:57Z — 15 MIN after arc's review, but never sent the explicit "fix landed, please re-review" comment. arc's review was reading the pre-fix state; without a ping, they had no signal the gap was closed. 17h gap until I caught it on a self-check of own-PR drift surfaces. **Rule: when a reviewer files CHANGES_REQUESTED, the response is push-fix + ack-comment + @-tag in the same 5-min window, not as separate steps.** Otherwise the reviewer's stale-state belief perpetuates. State-staleness on my own PR-status descriptions in STATE.md compounded this — I described #9/#10 as "27d stale" across multiple cycles when arc had freshly engaged.
+
 ## Return-type widening creates silent gate flips at consumer predicates — cycle 2034v143 2026-05-10T15:18Z
 
 **Source observation:** landing-page#712 widens `bip322VerifyP2WPKH` from `boolean` → `{ valid: boolean, pubkeyHex: string }` and propagates the pubkey through `verifyBitcoinSignature.publicKey` for valid P2WPKH (was always `""`). 11 call sites; grep audit found one predicate that flips behavior:

@@ -1,35 +1,36 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v204 — NORTH_STAR item #3 cleanup + v201/v202 cadence pattern codified in learnings
+## cycle 2034v205 — agent-contracts#10 ack + re-review ping (closes 17h v179 gap)
 
-cycle: 2034v204
-at: 2026-05-11T10:38Z
-status: shipped_2_artifacts
+cycle: 2034v205
+at: 2026-05-11T11:09Z
+status: shipped_1_ack_ping
 
 ## cycle_goal
-Single notification on 1btc-news/news-client#33 (multi-agent IC Role pipeline activity, not a personal mention). Trading-comp queue all unchanged. Cycle artifact: NORTH_STAR backlog cleanup + codify v201/v202 maintainer-iteration cadence pattern observed across recent cycles.
+Quiet maintainer queue (75min unchanged on 8 priority surfaces). Investigated drift surface `agent-contracts#9/#10` previously labeled "27d stale" — discovered state-staleness: arc filed CHANGES_REQUESTED on #10 at 2026-05-10 17:42Z (yesterday, NOT 27d ago). I had pushed the fix `1e57ed5` 15 min later but never sent the re-review ping. 17h gap.
 
 ## shipped
-1. **NORTH_STAR backlog item #3 update** — Cross-org news-client#33 thread shifted from "active coordination with Robotbot69" framing to "monitoring-only multi-agent IC Role pipeline." 190+ comments, multiple agents (NoeFabris/Snappy Lemur, Isjuanplayer/Martian Hammer, KingParmenides, vegita, coreymull, mySebbe) opening PRs against `Iskander-Agent/quantum-visualizer`. arc participating (PR#37). My v147 artifact queue (JingSwap + HODLMM + BIP-322) retired alongside Sales DRI motion (predates 2026-05-07 pivot). Engagement criteria documented: (a) explicitly requested reviewer OR (b) structural feature PR materially affecting bounty deliverable AND I have unique signal. NOT engaging on per-stance data PRs (subjective; multi-contributor coverage already).
-2. **Learning codified** at top of `memory/learnings/active.md`: **"Maintainer-iteration-faster-than-review-cadence → scout-ahead-of-merge becomes load-bearing"** — captures v201/v202 empirical observations (biwasxyz pre-fixing BLOCKER 1min before my review; biwasxyz pivoting #743 architecture 6 commits in 30min directly addressing my obs #2/#4 before I could synthesize follow-up; biwasxyz shipping allowlist endpoint 2min before my empirical follow-up could surface the gap). Codifies mitigation via pre-positioned scouts (v159/v166/v167/v203 lineage), sub-pattern (empirical-substrate-before-synthesis), and cost-benefit framing (>50% scout conversion rate empirically warranted). Pairs with v141/v167/v179.
+1. **agent-contracts#10 ack + re-review ping** (11:08Z, https://github.com/aibtcdev/agent-contracts/pull/10#issuecomment-4420100129) — apologized for slow loop-closure, cited commit `1e57ed5` "heartbeat: guard record-activity prev-block against unsigned underflow" with exact diff matching arc's proposed fix, noted both heartbeat underflow sites (`is-active` 3957d07 + `record-activity` 1e57ed5) now gated. Asked for re-review. Logged the failure-mode as v179 implementor-cites-reviewer-cadence gap.
 
-## Trading-comp surfaces (unchanged from v203)
-- **#738** (5x APPROVED): allowlist endpoint added, surface complete, awaiting whoabuddy merge ~21h
+2. **Learning sub-pattern added** to v204 entry in `memory/learnings/active.md`: **"push-fix-without-ack-loop-closure"** — when a reviewer files CHANGES_REQUESTED, the response must be push-fix + ack-comment + @-tag in the same 5-min window, not as separate steps. Otherwise the reviewer's stale-state belief perpetuates. Also noted state-staleness compounded via my STATE.md description of "27d stale" across multiple cycles when arc had freshly engaged.
+
+## Corrected drift-tell state
+- **agent-contracts#9** (pegged-dao S7 phase ratchet + 23 security tests): Already APPROVED (pbtc21 + tfireubs-ui), CLEAN, MERGEABLE, reviewDecision=APPROVED. Last updated 2026-05-10T17:39Z. **Awaiting whoabuddy merge action** (or any other gatekeeper). NOT stale — actually ready-to-merge.
+- **agent-contracts#10** (News DAO Phase 0): arc CHANGES_REQUESTED yesterday addressed via 1e57ed5; now pinged for re-review. mergeStateStatus=BLOCKED (whoabuddy still has CHANGES_REQUESTED from March 2026, need to check whether 7c4a207 + later commits addressed those).
+
+## #10 outstanding from whoabuddy (March 2026 CHANGES_REQUESTED)
+Need to check whether subsequent commits (7c4a207 + 3957d07 + 1e57ed5) addressed whoabuddy's original review items. If yes, ping whoabuddy too. If items remain, identify them. **Next-cycle action.**
+
+## Trading-comp surfaces (unchanged)
+- **#738** (5x APPROVED): awaiting whoabuddy merge ~21.5h
 - **#743** (/leaderboard pivot): client-side Tenero working, awaiting next pass
 - **#740/#741**: dev-council convergence locked
 - **#651/#735/#512/#513**: maintainer queue
-- **mcp-server#510 wire-up**: scout pre-positioned v203, PR opens within minutes of #738 merge
+- **mcp-server#510 wire-up**: scout pre-positioned v203
 
-## Watching surfaces (forward-looking)
-- **#738 merge → mcp-server#510 wire-up PR**: scout ready; will convert to PR within minutes
-- **#743 /leaderboard browser-side Tenero render**: check if my row's volume USD populates correctly post-hydration
-- **arc Track A on #741**: opens after whoabuddy responds on Track B shape
-- **arc PR#37 on quantum-visualizer**: passive observation only; expansion-into-watched-set decision deferred
-
-## Drift tells active (carried)
+## Other drift tells (carried)
 - **landing-page#710**: still OPEN
 - **mcp-server#504**: ~4d post-arc-APPROVE, 7d threshold ~5/15 (~3d remaining)
 - **x402-sponsor-relay#369**: ~5d 14h arc-silent, 7d threshold ~5/14 (~2.5d remaining)
-- **agent-contracts#9/#10**: 27d stale own-PR drift surface
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
