@@ -1593,3 +1593,31 @@ Sub-pattern of the v143/v158/v163/v167-family "verify before publishing" lesson,
 **Reason this matters:** the v167 → v168 → v169 → v170 → v171 → v172 lineage is a tight loop of "fix one thing, surface the next layer of failure mode." v167 was design (file-scope auth-detection); v168 staged it; v169 pivoted to posture-marker due to false-positive; v170 fixed regex false-negatives; v171 combined posture-marker + GET-scope auth-detection; v172 surfaced the two-code-paths-diverge failure mode AND the structural answer (single-source-of-truth). Each layer was a distinct lesson, not a repeat — but they all rhyme on "verify EVERY surface, not just the one you tested first."
 
 **Counter-pattern:** wiring the fix into path B without refactoring. Closes the immediate bug but leaves the bug-class structurally possible to reopen on the next path-divergence event. Don't take the shortcut.
+
+
+
+## Forward-hypothesis-pre-measurement (cycle 2034v175 — 2026-05-10; operator-validated v177 — 2026-05-11)
+
+When engaging with operational cost/perf/correctness measurements as a reviewer-not-implementer, **name the discriminable outcomes BEFORE the next measurement fires**. This makes the measurement diagnostic rather than retroactively narratable.
+
+**Concrete instance:** landing-page#652 cost-measurement (post-Phase-0 50% KV-read reduction, with PR #722 Phase 2.5 Step 3.1 merged inside the POST window so partially captured). My v175 engagement at 00:42Z proposed:
+
+- **H1:** post-3.4 24h window shows further step-down to ~5-6M reads/day → cutover series 3.1–3.4 captures the dominant inbox-related KV read surface; sequencing was cost-optimal
+- **H2:** post-3.4 24h window plateaus near ~8M reads/day → Step 3.1 alone captured the dominant savings; Steps 3.2/3.3/3.4 are correctness + agent-news#802 prevention work without further cost upside (still load-bearing, just not for cost)
+
+**Operator-validation signal (v177, 26min later):** whoabuddy explicitly locked the H1/H2 framing in as "the post-3.4 measurement test" and scheduled "Next measurement: 24h after Step 3.4 lands, with H1/H2 prediction explicitly tested." This is stronger than "thanks for the input" — the framing became operator-load-bearing for an operational checkpoint days in the future.
+
+**Why this works (vs. just-validate-the-data engagement):**
+1. Pre-measurement hypothesis-naming gives the team a discriminable test. They can run the measurement and get a clear answer ("H1 fired" or "H2 fired") rather than relitigate what the numbers mean.
+2. Each hypothesis names what would be *concluded* under that outcome, not just what the number is. That converts a measurement from descriptive to diagnostic.
+3. The hypotheses must be genuinely distinguishable AND both must be informative. If "H1 → success; H2 → failure" — that's not really a test, it's a confirmation device. If "H1 → cutover-series cost-optimal; H2 → Step 3.1 alone was the cost lever, Steps 3.2-3.4 still load-bearing but not for cost" — both are informative outcomes for the cutover-series retrospective.
+
+**How to apply:**
+- When responding to operational measurements (cost, perf, observability metrics), check whether a future measurement is implied or scheduled. If yes, name H1/H2/etc. for the next iteration BEFORE the data lands.
+- Each hypothesis should specify (a) the numeric range or threshold, (b) what conclusion follows under that outcome, (c) why the conclusion matters for downstream decisions.
+- Don't make hypotheses asymmetric ("success vs. failure"); make them symmetric in informativeness (both outcomes teach something).
+- This pattern extends the v158 prerequisite-answer-non-skippable lesson into the measurement-design domain. v158 was about decision-substrate question-answering (don't skip the prereq question); v175 is about measurement-substrate prediction-naming (don't skip the diagnostic framing).
+
+**Counter-pattern: just-validate-the-data engagement.** Posting "the methodology is sound" + a paragraph of acknowledgment without naming what the next measurement should show is acceptable but not load-bearing. The operator already knows the methodology is sound; they posted it. Value-add is in shaping the next iteration's diagnostic.
+
+**Stay-silent-after-adoption sub-discipline (v177):** when the operator explicitly locks in your framing, the reflex to acknowledge-the-acknowledgment ("thanks for adopting!") adds noise without value. The framing has done its work; the next signal will be the post-measurement data, not a forum-post. Discipline: don't react to validation, react to surfaces that need substance.
