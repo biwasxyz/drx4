@@ -2,6 +2,30 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Maintainer-iteration-faster-than-review-cadence → scout-ahead-of-merge becomes load-bearing — cycle 2034v204 2026-05-11T10:38Z
+
+**Source observation:** across v201/v202 (~45min window on landing-page#743 + #738), biwasxyz's maintainer iteration cadence consistently moved AHEAD of my review/synthesis cadence:
+
+- **v201:** filed review at 08:54Z; biwasxyz had pre-fixed the [BLOCKER] at 08:53Z (one minute earlier) via `2fc8adad`. My 5 non-blocking observations were the substantive net-new content.
+- **v201 follow-up:** operator pasted preview URL → I shipped empirical 3-hypothesis diagnostic at 09:05Z; biwasxyz pivoted the entire #743 architecture (revert volume.ts → /leaderboard page with browser-side Tenero + localStorage cache) in 6 commits between 09:00Z and 09:25Z — directly addressing my obs #2 (cross-PR source-of-truth split) + obs #4 (Tenero cache absence) BEFORE I could synthesize a follow-up.
+- **v202:** biwasxyz landed `37f53c6a feat(competition): GET /api/competition/allowlist` at 09:23:28Z — 2 minutes BEFORE my empirical follow-up #2 at 09:25Z could surface the operational gap from the 3 swap rejections.
+
+**Generalizable rule:** when a maintainer's iteration cadence is 5-30min (push-test-push), and my synthesis cadence is 15-25min (read-draft-cite-submit), the maintainer can pre-empt review findings. Pure-reactive review becomes high-cost-low-marginal-yield because the substrate I'm reviewing has often moved by submit-time.
+
+**Mitigation: pre-positioned scouts (v159/v166/v167/v203 lineage).** When a PR series is in active iteration with the maintainer pushing every 5-15min:
+- Spot the next-likely-surface BEFORE the maintainer files it
+- Pre-write the substantive observations + fix-PR-shape as a scout document in `daemon/scouts/`
+- When the surface lands, the scout converts to a review (or fix-PR) in minutes, not the usual 20+ min read-and-synthesize loop
+- Examples: v159 (#722 spec engagement scout), v166 (#725 Step 3.2 scout), v167 (cache-invariant hygiene #726 scout), v203 (mcp-server#510 allowlist wire-up scout)
+
+**How to apply:** when 2+ commits land on a single PR in <30min from the same maintainer, the iteration cadence is "active." Switch from "wait for next commit, read, review" to "anticipate next likely surface, scout-pre-position, convert on landing." The pattern is also bidirectional — biwasxyz's `Co-Authored-By: Claude` footer on `37f53c6a` (the allowlist endpoint commit) suggests they may be running similar prediction loops, which compounds the cadence pressure.
+
+**Sub-pattern (v201 instance): empirical-substrate-before-synthesis is more valuable than synthesis-only.** My v201 follow-up #1 was code-citation hypotheses; my follow-up #2 was 3 actual swap rejections + the empirical "unknown" token_id finding from SP4DXVEC's row. The empirical data substrate triggered concrete maintainer action (allowlist endpoint shipped) where the code-citation hypotheses alone would have been observable-only. When operator pokes with a preview URL, **execute the empirical test rather than reason about the failure**.
+
+**Cost:** scouts that don't convert (because the PR doesn't materialize or the maintainer chooses a different surface) are wasted ~20-40min. Acceptable cost when conversion rate is >50% empirically; track via `daemon/scouts/` outcome ratio.
+
+**Pairs with:** v141 dev-council operating-mode crystallization; v167 scout-pre-position-BEFORE-AUTHORING; v179 implementor-cites-reviewer END-STATE form (patterns travel without per-PR @-mention).
+
 ## Return-type widening creates silent gate flips at consumer predicates — cycle 2034v143 2026-05-10T15:18Z
 
 **Source observation:** landing-page#712 widens `bip322VerifyP2WPKH` from `boolean` → `{ valid: boolean, pubkeyHex: string }` and propagates the pubkey through `verifyBitcoinSignature.publicKey` for valid P2WPKH (was always `""`). 11 call sites; grep audit found one predicate that flips behavior:
