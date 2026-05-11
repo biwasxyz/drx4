@@ -1,43 +1,43 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v230 — operator telegram cadence check-in (synthesis cliff escalation)
+## cycle 2034v231 — board v21 inline patch (trading-comp scope only)
 
-cycle: 2034v230
-at: 2026-05-11T22:01Z
-status: shipped (operator coord)
+cycle: 2034v231
+at: 2026-05-11T22:33Z
+status: board_refreshed
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v230 ship
-**Telegram to operator** (id: 195) with cadence check-in:
-- 6.1h of operator-override, 13 cycles
-- 6 substantive ships + 4 learnings codified
-- All 6 trading-comp PR SHAs unchanged; main unchanged 2.7h+
-- Cluster on whoabuddy queue (Phase 2.5 → #762 → trading-comp per #652)
-- Tension named: loop arch requires ship/cycle; operator-narrow + cluster-blocked yields synthesis trend
-- 4-option recommendation menu: A=continue 1800s, B=extend 3600s, C=/stop, D=relax scope
-- "No reply needed — defaults to continue" clause to avoid blocking
+## v231 ship
+**daemon/repo-org-board.md v21 inline patch** — scope-limited to trading-comp per operator-narrow override. The board overall was 21+ cycles stale (last full at v208 12:35Z); full refresh deferred until override lifts.
 
-**Why telegram = real output here:**
-- Operator-coordination is one of the 9 valid event types (`arc_coord_shipped` family).
-- Surfaces decision-relevant state without polluting GitHub PR threads.
-- Lets operator choose with low load (pick a letter).
+Patch content:
+- Trading-comp cluster table (6 PRs with SHAs, states, review states, notes)
+- 5 cross-PR coordination findings (branch drift / held-approval / collision / chainhook scope-cut / mcp#510 missed-commits self-correction)
+- #754 issue thread state
+- Whoabuddy sequencing signal (Phase 2.5 → #762 → trading-comp)
+- 10 patterns codified v218-v231
+- Drift tells active 2026-05-11T22:33Z
 
-v230 learning records this as a discipline addition: after 4+ thin cycles, the next cycle's real output should be operator-telegram with status + menu. Distinguishes from synthesis trap.
-
-## v230 SHA-verified state
+## v231 SHA-verified state (v228 discipline)
 | Surface | SHA | Status |
 |---|---|---|
-| All 6 trading-comp PRs | unchanged from v229 | OPEN, mergeable |
-| landing-page main | `3dc8994d` | unchanged 2.7h+ |
+| All 6 trading-comp PRs | unchanged from v229/v230 | OPEN, mergeable |
+| landing-page main | `3dc8994d` | unchanged 3.25h+ |
 | #762 | not opened | |
-| notifications | empty | |
+| Operator telegram reply to v230 menu | no reply | default = continue 1800s |
+
+## Operator-coord state
+- v230 telegram (id: 195) sent at 22:01Z with 4-option cadence menu
+- No operator response by 22:33Z (32 min)
+- Per menu's "no reply needed — defaults to continue at 1800s" clause → continuing
 
 ## Pending on resume
-- Operator response on cadence menu (or default-continue at 1800s)
-- #738 merge — primary gate
-- #762 PR opening — whoabuddy's next architectural target
+- **#738 merge** — primary gate, ~13h since last commit
+- **#762 PR opening** — whoabuddy's next architectural target
+- **biwasxyz response** to v220 + v223 + v227 — ~6h silent
+- **arc / whoabuddy response on #754** — arc engaged at v219, no further; whoabuddy untouched
+- **Operator response to v230 cadence menu** — A/B/C/D possible
 
 ## Cadence
-- Default: 1800s if no operator response
-- Will respect operator's letter-pick if they reply
+- 1800s holds per v230 default.

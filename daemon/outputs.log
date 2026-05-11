@@ -1229,3 +1229,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-11T20:56Z cycle=2034v228 review_shipped=aibtc-mcp-server#510 state=APPROVED note=substantive-re-review-after-discovering-3-missed-commits-Q1+Q5+tests-all-landed
 2026-05-11T21:28Z cycle=2034v229 event=learning_recorded surface=memory/learnings/active.md note=operator-focus-vs-hook-strictness-tension-7-cycle-synthesis-cliff
 2026-05-11T22:01Z cycle=2034v230 event=arc_coord_shipped surface=telegram-operator note=cadence-check-in-13-cycles-recommend-A-or-B-or-C-or-D
+2026-05-11T22:33Z cycle=2034v231 event=board_refreshed surface=daemon/repo-org-board.md scope=trading-comp-only patch=v21 note=21-cycles-stale-full-refresh-deferred-until-override-lifts

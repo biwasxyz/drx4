@@ -2,9 +2,63 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-11T12:34Z (cycle 2034v208, v20 inline patch — major activity burst: #743 architectural pivot (volume.ts → /leaderboard browser-side), #738 allowlist endpoint, 3 diagnostic swaps, agent-contracts cluster cascading-unblock with arc APPROVE on #10, mcp-server#510 wire-up scout pre-positioned; ALSO captures multiple state-staleness self-corrections per v207 audit)
+**Last refresh:** 2026-05-11T22:33Z (cycle 2034v231, **v21 inline patch — trading-comp scope only** per operator-narrow override active since 15:58Z 5/11. Other surfaces NOT refreshed this patch — board overall is 21+ cycles stale, will need full refresh once override lifts.)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v21 inline patch — trading-comp scope only (cycles 2034v218–v231, ~6.5h window 15:58Z → 22:33Z) ***
+
+**Operator directive (active):** "100% focus on trading-comp PRs across MCP + landing-page, review/test via preview URLs, file ONE issue tagging @whoabuddy + @arc0btc."
+
+### Trading-comp cluster state (as of 2026-05-11T22:33Z)
+
+| PR | SHA | State | Review state | Notes |
+|---|---|---|---|---|
+| landing-page#738 (Phase 3.1 verifier) | `37f53c6a` | OPEN | secret-mars APPROVE×5; arc APPROVED | Mergeable, CI green. Untouched since 09:23Z; chainhook PR-C scope-cut at 04:31Z (8 revert commits) |
+| landing-page#743 (/leaderboard MCP-trade count) | `6abf5ddc` | OPEN | reviewDecision=APPROVED (arc 08:47Z); arc held-approval-post-rebase commitment per #754 | Mergeable, CI green. Stacked on #738; head missing #738's `lib/competition/*` substrate (rebased onto main) |
+| landing-page#651 (/leaderboard balance Genesis) | `d711c3a1` | OPEN | secret-mars APPROVED; whoabuddy APPROVED; arc APPROVED earlier | Mergeable. **Route collision with #743** (both write `app/leaderboard/page.tsx` with divergent designs) |
+| mcp-server#510 (competition tools + Bitflow provider) | `521c2466` | OPEN | secret-mars APPROVE (v228 substantive re-review); arc APPROVED 5/10 | Tool descriptions + 6-test test file land Q1/Q2/Q5 from my v135. Awaiting #738 backend deploy |
+| mcp-server#512 (Pyth VAA fix for zest_borrow) | `3d87c8e3` | OPEN | secret-mars APPROVE×2; arc APPROVED self | Sequential merge with #513 |
+| mcp-server#513 (vaaInFlight + ZestPythUnavailableError + 8 tests) | `606ed7c2` | OPEN | secret-mars APPROVED; arc APPROVED self | Awaiting #512 merge first |
+
+### Cross-PR coordination findings (filed in landing-page#754)
+
+1. **Branch drift** (v218): #743 head was rebased onto main and dropped #738's `lib/competition/*` substrate. PR base is correctly `feat/competition-read-routes`; head tree is missing the substrate. Production risk if #743 merges first: empty `/leaderboard`. Recommended order: #738 → main → rebase #743 → merge.
+2. **Held-approval pattern** (v219 — arc validated): held APPROVE on stacked PR until post-rebase CI passes is structural enforcement vs. PR-template checklist's author-side discipline.
+3. **Route collision** (v220): #651 + #743 both write `app/leaderboard/page.tsx` with divergent designs. Collision created by #743's 09:08Z architectural pivot (post my-APPROVE on #651). 3 resolution options proposed; biwasxyz silent.
+4. **Chainhook scope-cut self-correction** (v227): #754's body had listed chainhook among routes #738 adds — empirical re-probe + commit log showed PR-C was reverted at 04:31-04:34Z 5/11. Tightened to 4 ingestion routes (trades/status/allowlist/cron).
+5. **mcp#510 missed-commits self-correction** (v228): my STATE.md had carried "biwasxyz silent on Q1+Q5 ~28h+" — wrong since 06:51Z 5/11. Biwasxyz pushed 3 commits at 06:44-06:51Z addressing Q1 + Q5 + adding 6-test test file. Substantive APPROVE shipped post-discovery.
+
+### Issues filed
+
+- **landing-page#754** "[trading-comp coord] #738 verifier must merge before #743 leaderboard — empirical preview test surfaced branch drift" (filed 16:04Z, 3 comments since: arc ratification at 16:11Z, my held-approval ack at 16:23Z, my collision finding at 16:41Z, my chainhook self-correction at 20:22Z). Tagging @whoabuddy + @arc0btc.
+
+### Whoabuddy sequencing (signal from landing-page#652)
+
+Phase 2.5 → **#762 (rate-limits + identity/BNS cache off KV)** → trading-comp queued behind. 5 inbox PRs merged 17:10-19:18Z 5/11; cluster has been quiet on trading-comp since 09:23Z (#738 last commit). #762 PR not yet opened.
+
+### Patterns codified during this window (memory/learnings/active.md)
+
+- v218 → branch-drift in stacked PRs (empirical sibling-route probing)
+- v219 → held-approval-until-rebase as structural enforcement
+- v220 → sibling-PR-created collision (PR-A's approval stales when PR-B mutates)
+- v223 → allowlist coverage timing + broken handoff doc link
+- v225 → idle-cluster restraint discipline (don't synthesize on idle)
+- v226 → `ALLOW_EMPTY_CYCLE=1` is the right bypass (not "don't commit")
+- v227 → self-introduced staleness in own canonical docs
+- v228 → `updatedAt` ≠ "no new substance"; compare commit SHAs at boot
+- v229 → operator-narrow + hook-strict creates synthesis cliff
+- v230 → telegram operator with cadence menu on persistent-quiet cycles
+- v231 → scope-limited board refresh as honest output during quiet window
+
+### Drift tells active 2026-05-11T22:33Z (trading-comp scope)
+
+- 9 consecutive SHA-unchanged cycles on all 6 trading-comp PRs (since v218)
+- main HEAD unchanged 3.25h+ (since 19:18Z)
+- No biwasxyz response to v220 collision, v223 allowlist+handoff, v227 PR-body cleanup (~6h silent)
+- No whoabuddy response to #754 (~6.5h silent — but whoabuddy has been active on inbox PRs, signaling Phase 2.5 priority over trading-comp)
+- arc ratified #754 at 16:11Z, no further engagement
+- Operator override active since 15:58Z; v230 cadence menu telegram sent at 22:01Z, no operator reply by 22:33Z (default = continue 1800s)
 
 ## *** v20 inline patch — what changed since v19 (cycles 2034v197–v208, ~5.5h window 06:55Z → 12:34Z) ***
 
