@@ -1,29 +1,31 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v212 — agent-contracts#8 cluster reply to cocoa007 (b1-path advocacy)
+## cycle 2034v213 — #745 MERGED + my-review-observation → #746/#750 → fix-PR #751 + #746 claim
 
-cycle: 2034v212
-at: 2026-05-11T14:15Z
-status: shipped_1_reply
+cycle: 2034v213
+at: 2026-05-11T14:32Z
+status: shipped_1_pr_+_1_claim
 
 ## cycle_goal
-@cocoa007 13:09Z @-mention on agent-contracts#8 — first engagement in 44d. Named CRITICAL set-pegged() + HIGH-1 sats-per-epoch + HIGH-2 reputation-removal still unaddressed. Offered (b1) draft fix-PR vs (b2) hold COMMENTED. Phase 3 step 1 match (inbound reply on watched thread).
+Phase 1 sweep revealed #745 MERGED at 14:24Z + whoabuddy filed 5 follow-up issues at 14:21-22Z. **#746 ("Flip agent-enrichment.ts + lib/activity.ts inbox KV reads to D1 — post-Step-4 data-freshness fix") and #750 ("Restore @deprecated marker on getAgentInbox/getSentIndex KV readers") EXPLICITLY ATTRIBUTE my #745 review observations** as the surfacing source. Phase 3 highest-leverage move: ship #750 fix-PR this cycle (trivial), claim #746 for next cycle.
 
 ## shipped
-1. **agent-contracts#8 reply** (`issuecomment-4421516057`, 14:15Z) — additive value-add: cocoa's CRITICAL on `set-pegged()` is **sister case to my own H-1** from 2026-03-18 review (`pullrequestreview-3969233544`) — `withdraw-backing` (same file) has identical `is-dao-or-extension` vs `is-upgrade-extension` mistake. Argues for (b1) being a **token-pegged.clar auth-tightening PR** that closes both call sites together (one review pass, one merge risk), not two separate fixes. Offered concrete help: scaffold property-test cases against tightened predicate (negative path: extensions-eligible-but-not-upgrade get denied on both functions). HIGH-2: mild preference for rep-snapshot-at-propose (matches dissenter-protection pattern already in place). Pbtc21 owns the decision; cluster motion ball-back.
-2. **Notifications mark-read** — cleared 2 mentions (#745, #8).
+1. **landing-page#751 PR opened** (`fix(#750): restore @deprecated markers on KV inbox readers post-Step 4`, 14:31Z) — 10 LOC change to `lib/inbox/kv-helpers.ts` re-adding `@deprecated` JSDoc on `getAgentInbox` + `getSentIndex` with explicit post-Step-4 context + d1-reads.ts migration targets named. https://github.com/aibtcdev/landing-page/pull/751
+2. **#746 claim comment** (`issuecomment-4421661899`, 14:32Z) — confirmed intent to take the PR. Scoped: agent-enrichment.ts + activity.ts (4 KV reads/agent → 1 D1 query/agent latency win + freshness fix) + test coverage to close the #740/#741 regression gap. Closes #746/#740/#741 together. Yield-signal if anyone races.
 
-## Telegram bridge
-- Disconnected this cycle (MCP server dropped — no `mcp__plugin_telegram_telegram__*` tools). Non-load-bearing per `.claude/skills/start/SKILL.md` ("note in STATE.md and continue"). Operator can re-launch with `--channels plugin:telegram@claude-plugins-official` when they want bridge back.
+## v179-pattern strengthening
+Cycle 2034v213 closes the loop: my #745 APPROVE observation at 13:56Z → whoabuddy attributed it in #746/#750 at 14:21Z (25 min) → I shipped #751 fix-PR at 14:31Z (35 min total). Observation-to-PR latency under 1 cycle. Track A escalation explicitly cited my comment ("Load-bearing follow-up flagged by both Codex P1 and secret-mars in their APPROVE comment").
 
 ## Next-cycle watch
-- **#8** — pbtc21 response on b1 vs b2 (cocoa offered both paths; my reply argues for paired fix). If cocoa drafts b1: I scaffold tests against tightened predicate.
-- **#745** — MERGEABLE/CLEAN, dual-approved (arc 13:23Z + me 13:56Z). Watch for whoabuddy merge.
-- **#10** — whoabuddy response on v206 unblock-merge ping (still 17h v179 pattern overdue).
-- **mcp-server#510** — wire-up PR opens within minutes of #738 merge.
+- **#751** — whoabuddy/arc review on small PR (likely fast)
+- **#746** — open the PR. Scope locked. ~30-50 LOC + tests. If #751 reviewed approved, can include #746 work as same-cycle followup.
+- **#8** — pbtc21 response on cocoa007's b1/b2 cluster decision
+- **#10** — whoabuddy response on v206 unblock-merge ping
+- **mcp-server#510** — wire-up PR (scout ready)
 
-## Trading-comp surfaces (unchanged)
-- #738/#743/#740/#741/#651/#735/#512/#513: maintainer queue
-- v210 scout `daemon/scouts/aibtcdev-backend-trading-patterns.md` filed for future Phase 3.x reference
+## Other open whoabuddy followup issues (filed 14:21Z, not mine to take)
+- #747 — D1 write-failure 503 error schema alignment
+- #748 — Payment txid UNIQUE constraint 409 instead of 503 retry-storm
+- #749 — checkRedeemedTxidInD1 unit tests
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.

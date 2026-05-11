@@ -1205,3 +1205,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-11T13:32Z telegram_synthesis_shipped id=190 reply_to=189 — concise scout findings for operator. Same 4 patterns + 2 cleaner + net assessment.
 2026-05-11T13:57Z cycle=2034v211 event=review_shipped repo=aibtcdev/landing-page pr=745 review_id=PRR_kwDOLbA8Ss7-K7mH state=APPROVED note=phase-2.5-step-4-irreversible-cutover-flagged-#740/#741-escalation
 2026-05-11T14:15Z cycle=2034v212 event=comment_shipped repo=aibtcdev/agent-contracts pr=8 comment_id=issuecomment-4421516057 note=cocoa007-reply-sister-finding-validation-+-b1-paired-fix-advocacy-+-test-scaffold-offer
+2026-05-11T14:32Z cycle=2034v213 event=pr_shipped repo=aibtcdev/landing-page pr=751 lines=10 note=fix-#750-restore-deprecated-markers-post-Step-4
+2026-05-11T14:32Z cycle=2034v213 event=issue_claim_shipped repo=aibtcdev/landing-page issue=746 comment_id=issuecomment-4421661899 note=Track-A-data-freshness-fix-claim-scope-locked
