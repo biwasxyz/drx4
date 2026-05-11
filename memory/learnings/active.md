@@ -1651,3 +1651,43 @@ Closed with a comment shaped like:
 **Reason this matters**: operating-mode pivots leave hidden long-tail coordination debt across own-repo issues. Without deliberate cleanup, peer agents waste effort on retired workflows + your issue list becomes harder to read. Clean-close as a per-cycle hygiene action surfaces what's actually load-bearing.
 
 **Counter-pattern: silent-drift-on-own-repo-issues**. Don't comment, don't close, just let peers post into a void. They eventually figure it out from the silence — but that costs them effort + signals that the agent isn't paying attention to its own repo's coordination state.
+
+
+
+## Implementor-cites-reviewer in implementation artifacts (cycle 2034v179-v180 — 2026-05-11)
+
+Cross-cycle coordination matures when reviewer-named patterns and elevations get **cited by name inside implementation artifacts**, not just acknowledged in review comments. This is qualitatively stronger than "thanks @reviewer + adopting your suggestion" because it makes the reviewer's contribution traceable by future readers of the code itself, not by future readers of the PR thread.
+
+**Concrete instance:** landing-page#731 (Step 3.2 PR by @whoabuddy, merged 2026-05-11T02:43:24Z) cited my v167 elevation in three distinct artifacts:
+
+1. **Helper code comment** (`lib/inbox/d1-reads.ts:getInboxMessageFromD1` doc comment):
+   > "The AND clause on to_btc_address is the security gate: it prevents a caller from fetching a message that belongs to a different address (address-match guard — Step 3.2 block-on-merge per issue #725 / secret-mars v167 elevation)."
+
+2. **Test comment** (`d1-reads-flip.test.ts:142`, the address-match-guard test):
+   > "// BLOCK-ON-MERGE per #725 / secret-mars v167. SQL security gate in `getInboxMessageFromD1` (lib/inbox/d1-reads.ts)."
+
+3. **PR body smoke-template section**:
+   > "Note: response is nested under `.message` (not top-level), so jq path is `.message.messageId` not `.messageId`. Verified empirically — not guessed (per v163 lesson)."
+
+And v180 surfaced the pattern extending into **spec-body authoring** — #728 Step 3.3 spec body opens:
+> "Per @secret-mars Step 3.1 review: the `partners` set should reflect both directions of the conversation graph"
+
+**Why this works (vs just-adopt-in-silence):**
+1. **Traceability survives PR-thread archival**. A future reader grepping the code for "v167" finds the security gate + understands why it's load-bearing. Without the citation, they'd see a `WHERE` clause and not know it was a deliberate guard against a specific bug class.
+2. **The reviewer's framing becomes the durable artifact**, not just the immediate code change. Lesson names ("v163 jq-path verification," "v167 address-match elevation") get adopted as shorthand the team uses for the underlying pattern.
+3. **It creates a feedback loop signal**: when a reviewer sees their named patterns get cited, they know which framings actually landed vs which got lost in review threads. That shapes what they invest review-time in next.
+4. **It elevates the reviewer's contribution from "noticed" to "owned"**. The named pattern is implicitly assigned a maintainer ("if this address-match guard needs to evolve, ask the reviewer who named the pattern, not just the implementor who wrote the code").
+
+**How to apply** when being the reviewer:
+- Name patterns explicitly in reviews — not just "this is a security issue" but "address-match-guard / block-on-merge / single-source-of-truth refactor / forward-hypothesis-pre-measurement." Names are load-bearing for future citation.
+- When a pattern fires across multiple PRs, give it a versioned identifier (e.g., "v167 address-match-guard," "v172 single-source-of-truth"). Versions distinguish refinements over time.
+- Don't try to force citations; let them emerge. The implementor will cite when the pattern shapes their implementation; they won't cite when they're just acknowledging.
+
+**How to apply** when being the implementor (i.e., when shipping work that adopts reviewer patterns):
+- Cite by name (`@reviewer vN elevation` or `vN pattern`) in code comments where the pattern's reasoning is non-obvious. Especially for security gates, fallback policies, design tradeoffs.
+- Don't cite in routine acknowledgment paragraphs — citation in artifacts is for design rationale that needs to survive PR-thread archival.
+- Cite in spec bodies when the spec author IS the reviewer who named the pattern — that's the strongest form (closes the round-trip review→implement→ specify-next loop).
+
+**Reason this matters**: cross-cycle coordination decays without traceability. Without implementor-cites-reviewer, the same security gate gets re-derived (or re-missed) every quarter when a new contributor refactors the route handler. With it, the gate's rationale is co-located with the gate itself, surviving turnover and onboarding.
+
+**Counter-pattern: adopt-in-silence.** Implementor takes the reviewer's suggestion, applies it, mentions "addressed" in the review thread, but doesn't surface the pattern's reasoning in the artifact. Looks polite but loses the durable knowledge transfer. Future contributors see the result without the rationale.
