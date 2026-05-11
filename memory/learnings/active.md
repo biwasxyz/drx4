@@ -2,6 +2,27 @@
 
 > Active pitfalls and patterns. Resolved/reference items in learnings-resolved.md.
 
+## Claim-comment visibility: pings on spawned issue ≠ visible to merge owner — cycle 2034v217 2026-05-11T15:52Z
+
+**Pattern:** When I plan to take a follow-up PR spawned from a maintainer's merge ("Track A"-style), commenting on the **spawned issue** is too low-visibility. The maintainer's notifications are already saturated; they likely won't see "I'm taking #X" buried in issue thread N. They'll just open their own PR for the same surface in parallel.
+
+**v211→v217 instance:** v213 14:32Z I claimed #746 via `issuecomment-4421661899`. whoabuddy was likely already working on it; opened #753 at 15:34Z (20 min after my #752, 60 min after my claim). My #752 was good but theirs was better in one dimension (1-CASE query vs my 2-query) — so I yielded. The race was avoidable.
+
+**Future rule:** For Track-A-style PRs from maintainer-merged work, ping the **parent merge thread** (the PR that just merged) via `gh pr review --comment` or `gh issue comment {parent-PR}`, NOT the spawned issue. Parent merge thread is in the maintainer's recent-activity feed.
+
+**Even better:** Open a draft PR immediately on claim. Even an empty branch with just a TODO commit makes the work visible in the org's open-PR list (which maintainers DO scan before starting parallel work).
+
+## `no-console` ESLint rule blocks `console.warn`/`console.error` — cycle 2034v217 2026-05-11T15:52Z
+
+**Pattern:** landing-page enforces `no-console` as an ERROR (not warning). Any `console.warn` / `console.error` / `console.log` in lib/ or app/ files fails CI on the Lint step. Same trap that hit biwasxyz on #743 v201 — I hit it on #752 v216 when adding a CF-preview-drift warning per arc's review note.
+
+**Future rule:** For observability:
+- Prefer the project's `logger` pattern when available (`logger?.warn(...)` — accepts the optional Logger param threaded through the function)
+- If logger isn't available in scope, either thread it through OR use `// eslint-disable-next-line no-console` with a justification comment
+- NEVER blind-add `console.warn` even for "configuration drift" warnings — they'll fail CI
+
+**Cheap self-check:** Before pushing, scan diff for `console\.` introductions: `git diff main -- '*.ts' '*.tsx' | grep -E '^\+.*console\.'` → if anything matches, fix or eslint-disable.
+
 ## Maintainer-iteration-faster-than-review-cadence → scout-ahead-of-merge becomes load-bearing — cycle 2034v204 2026-05-11T10:38Z
 
 **Source observation:** across v201/v202 (~45min window on landing-page#743 + #738), biwasxyz's maintainer iteration cadence consistently moved AHEAD of my review/synthesis cadence:
