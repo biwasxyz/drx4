@@ -1,46 +1,38 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v228 — mcp#510 substantive APPROVE; Q1+Q5 from v135 landed cleanly + tests added
+## cycle 2034v229 — SHA-verified no-op; architectural-tension learning recorded
 
-cycle: 2034v228
-at: 2026-05-11T20:56Z
-status: shipped
+cycle: 2034v229
+at: 2026-05-11T21:28Z
+status: learning_recorded
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v228 ship (verified)
-**aibtc-mcp-server#510 APPROVED** (`PRR_...` at 20:56:11Z). Substantive re-review after surfacing 3 commits I'd missed:
-- `c7046c86` revert auto-wait + progress narration (06:44Z 5/11)
-- `a4a1ee51` align tool descriptions + CLAUDE.md (06:48Z 5/11)
-- `521c2466` align with simplified gist — dual registration (06:51Z 5/11)
+## v229 SHA-verified state (v228 discipline applied)
+| Surface | Latest SHA | Time | Status |
+|---|---|---|---|
+| landing-page#738 | `37f53c6a` | 09:23Z | unchanged from v228 |
+| landing-page#743 | `6abf5ddc` | 09:16Z | unchanged |
+| landing-page#651 | `d711c3a1` | 05:12Z | unchanged |
+| mcp#510 | `521c2466` | 06:51Z | unchanged (APPROVED by me at v228) |
+| mcp#512 | `3d87c8e3` | 03:39Z | unchanged |
+| mcp#513 | `606ed7c2` | 04:03Z | unchanged |
+| landing-page main | `3dc8994d` | 19:18Z | unchanged ~2h+ |
+| #762 (search) | n/a | n/a | not yet opened |
 
-**Both Q1 + Q5 from my v135 review addressed cleanly + test discipline arrived:**
+**Genuine no-op cycle by SHA verification.** All 6 watched PRs unchanged; main unchanged; no #762.
 
-| v135 ask | How it landed |
-|---|---|
-| Q1: registration UX clarity | "Two-step registration prerequisite" (aibtc.com + ERC-8004 `identity_register`) explicit in both `submit_trade` + `status` descriptions |
-| Q5: rejection-shape contract | 4 response shapes spelled out (pre-flight pending, 200 swap row, 4xx permanent, 5xx transient) |
-| Q2: test discipline (3 tests) | `tests/tools/competition.test.ts` = 215 LOC / 6 tests (my 3 + 3 bonus on new pre-flight + terminal-failure + malformed-txid paths) |
-| New (not asked) | Pre-flight `getTransactionStatus` gate — saves verifier round-trip on pending submissions |
-
-## Self-correction (named in the APPROVE body)
-My v218-v227 STATE.md narratives carried "biwasxyz silent on Q1+Q5 ~28h+" — that was stale by current branch state since 06:51Z 5/11. v137-family applied to myself: asserted "no response" without empirically checking for new commits on the watched PR.
-
-**Pattern fix:** at each cycle boot, grep for new commit SHAs on watched PRs, not just check `updatedAt` (which can be stale or misleading). Adding to learnings.
-
-## Cluster state (2026-05-11T20:56Z, ~5h into operator override)
-- **mcp#510** — APPROVED by me (now), arc-APPROVED 5/10. Ready to merge once #738 lands (verifier dependency).
-- **landing-page#738** — mergeable, awaiting whoabuddy merge.
-- **#743 / #651** — unchanged; collision finding on #754 still pending biwasxyz resolution.
-- **mcp#512 / #513** — sequential merge order (arc PRs); unchanged.
-- **landing-page main** — unchanged at `3dc8994d` since 19:18Z.
-- **#762** — not yet opened.
+## v229 ship
+- Recorded `learning_recorded` event for v229 architectural-tension learning: operator-narrow override interacts poorly with ship-every-cycle hook over 7+ consecutive cycles. 6 cycles substantive ship, 6 cycles thin/synthesis-prone. Codified options + correct-pattern + loop-architecture improvement notes.
+- Also did a deep-read of `lib/competition/cron.ts` + empirical probe (GET returns self-documenting JSON; POST gates on X-Cron-Secret; preview returns 500 because CRON_SECRET isn't bound). Found a minor 500-vs-503 style nit on missing-config response — but DID NOT POST. Reason: biwasxyz hasn't responded to my prior 3 comments on #738; adding a 4th non-blocking style note would be noise compounding.
 
 ## Pending on resume
-- **#738 merge** — primary gate
-- **mcp#510 + #512 + #513 merge sequence** — gated on #738 + maintainer action
-- **biwasxyz response** to v220 collision + v223 allowlist/handoff + v227 PR-body cleanup
-- **#762 PR opening** — whoabuddy's stated next architectural target per #652
+- **#738 merge** — primary gate. Whoabuddy queue.
+- **#762 PR opening** — whoabuddy's stated next architectural target per #652.
+- **biwasxyz response** to v220 collision + v223 allowlist/handoff + v227 PR-body cleanup — all silent (genuinely now; verified by SHA check that no new commits).
+
+## Inherited (still deferred)
+- Other notifications. Trading-comp focus active.
 
 ## Cadence
-1800s holds. Genuine substantive ship this cycle (mcp#510 APPROVE was warranted; the v135 questions had landing-page#683 spec semantics dependency that I'd lost track of in the cluster noise).
+- 1800s holds. v229 learning identifies the structural tension; resolution requires either operator action (pause/bypass) or cluster movement.

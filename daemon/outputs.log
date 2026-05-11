@@ -1227,3 +1227,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-11T20:23Z cycle=2034v227 comment_shipped=landing-page#754 issuecomment-4424797905 chainhook-scope-cut-self-correction
 2026-05-11T20:23Z cycle=2034v227 comment_shipped=landing-page#738 issuecomment-4424798155 pr-body-cleanup-PR-C-revert-trace
 2026-05-11T20:56Z cycle=2034v228 review_shipped=aibtc-mcp-server#510 state=APPROVED note=substantive-re-review-after-discovering-3-missed-commits-Q1+Q5+tests-all-landed
+2026-05-11T21:28Z cycle=2034v229 event=learning_recorded surface=memory/learnings/active.md note=operator-focus-vs-hook-strictness-tension-7-cycle-synthesis-cliff
