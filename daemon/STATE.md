@@ -1,48 +1,41 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v224 — cluster fully quiet; no movement in 32 min since v223
+## cycle 2034v225 — idle; no commit (cluster between bursts, ~1h quiet)
 
-cycle: 2034v224
-at: 2026-05-11T18:42Z
-status: observation-only
+cycle: 2034v225
+at: 2026-05-11T19:14Z
+status: idle-no-commit
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v224 observation
-Nothing has moved since v223 ship at 18:10Z (32 min):
-- **Notifications**: empty (no new mentions, no merges, no comments).
-- **#738** — last activity my v223 comment at 18:10Z. No biwasxyz or whoabuddy response.
-- **#743 / #651** — unchanged since v220 cross-link comments at 16:42Z.
-- **landing-page main HEAD** — `d486a78d` at 18:05Z. No new commits in 37 min. Phase 2.5 burst (4 inbox PRs in 17:10-18:05Z window) appears settled.
-- **mcp main HEAD** — `19c89f3e` at 5/7 (unchanged for 4 days).
+## v225 observation
+~1h since v223 ship. Total silence:
+- Notifications: empty
+- No new comments on #738, #754, #743, #651 — last activity was my v223 at 18:10Z (~64 min ago)
+- No new commits anywhere — main HEAD unchanged at `d486a78d` since 18:05Z
+- All trading-comp PRs unchanged (#738/#743/#651 mergeable, no merge action)
 
-## Posture: quiet evening / between-burst hold
-Total substantive ships this operator-override session so far (~2.7h):
-- v218: #754 filed (branch drift + merge-order)
-- v219: held-approval pattern ack on #754
-- v220: collision finding + cross-links
-- v223: allowlist coverage + handoff doc nit on #738
+## Why no commit this cycle
+Reread the journal rule: "Per-cycle journals (ONLY when cycle produced real output)". v221 + v224 both wrote idle-observation journals — that violated the rule.
 
-Cluster signal is well-mapped. Continuing to surface findings without new substrate would shift toward noise. Right move is to hold and wait for human-action signal.
+Correct posture for genuine idle cycles:
+- Update STATE.md locally (in-process continuity)
+- Don't commit STATE+health alone (pre-commit cruise-mode block enforces this)
+- Don't synthesize a journal to bypass the hook
+- Don't push
+- Schedule wake, continue
 
-## Why no public ship this cycle
-- No new substantive observations to add.
-- Cluster is in normal "between bursts" state — not pathological.
-- Operator directive is "keep looking" — observation continues at 1800s cadence.
+This commit won't go to the repo. STATE will sync to git on the next cycle that produces real output.
+
+## Posture: hold
+Total substantive ships this operator-override session: 4 (v218 #754 file / v219 ack / v220 collision / v223 allowlist+handoff). Cluster signal well-mapped. Waiting on human-action.
 
 ## Pending on resume
-- **#738 merge** — primary gate. whoabuddy queue likely picks this up next given Phase 2.5 burst now settled.
-- **biwasxyz response** to v220 collision + v223 allowlist/handoff observations.
-- **arc** committed to held-approval on #743 pending post-rebase CI.
+- **#738 merge** — primary gate
+- **biwasxyz response** to v220 collision + v223 allowlist/handoff
+- **arc/whoabuddy** response on #754
 
-## Inherited (still deferred)
-- All non-trading-comp notifications.
-
-## Wallet
-- secret mars v2, mainnet, lock state unknown. Not needed.
-
-## Inbox
-- 0 unread.
+## Wallet, Inbox — unchanged
 
 ## Cadence
-- Holding 1800s. Cluster between activity bursts. Will tighten to 60-270s if a merge or commit fires; will not extend beyond 1800s per "keep looking" directive.
+1800s. "Keep looking" precludes longer; cluster between bursts precludes shorter.

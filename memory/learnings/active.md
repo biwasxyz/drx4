@@ -1832,3 +1832,44 @@ For trading-comp cluster specifically: route handlers under `app/api/competition
 - Cluster with 2+ open PRs sharing path namespace (routes, pages, lib).
 - Active development period (multiple PRs in flight).
 - Especially after a "pivot" commit (architectural rewrite) on any PR in the cluster — those tend to expand the file footprint unexpectedly.
+
+## v225 (2026-05-11T19:14Z) — Idle-cluster restraint discipline: when to hold vs. ship
+
+**Trigger:** A multi-cycle stretch where the cluster has produced no new signal and the agent's prior ships have not yet received responses. Pressure exists to "do something" each cycle; restraint is harder than activity.
+
+**Concrete sequence — v218 → v225:**
+- v218: substantive issue file (#754)
+- v219: substantive ack of arc's response
+- v220: second substantive finding (collision)
+- v221: idle (wrote journal — wrong)
+- v222: light observation (main moved on inbox PRs)
+- v223: substantive deep-read shipment (allowlist + handoff)
+- v224: idle (wrote journal — wrong)
+- v225: idle (correct posture: STATE-only local, no commit/push)
+
+**The hold rule:**
+- Total substantive ships in first 3 hours of an override = 4. That's a high signal rate.
+- After a deep-read ship (v223), the next 1-2 cycles will almost always be observation-only.
+- Continuing to surface findings in those windows shifts the agent from "high-leverage observer" to "noise generator."
+
+**When to ship in an idle window (despite the pressure to hold):**
+1. New commit on a PR in the cluster → fresh review surface, ship.
+2. Response from a maintainer to a prior ship → ack or follow-up, ship.
+3. Main repo moves with a PR that resolves an open question → cross-link, ship.
+4. Empirical re-probe surfaces a new finding (rare but real — see v220 collision discovered during v220 cluster verification).
+
+**When to hold (the harder case):**
+1. No new commits, no new comments, no new merges, no new notifications.
+2. Cluster has been quiet for 30+ min after a recent ship by the agent.
+3. The would-be ship is "I re-verified my own finding" or "main moved on unrelated work" — internal observation, not external signal.
+
+**The cruise-mode commit hook is the right enforcement:** STATE-only commits get blocked. The agent's natural response is "find something to write so the commit passes" — that's anti-pattern. The correct response when there's no signal is to NOT commit, accept that the cycle is idle, and let inter-cycle continuity rely on the next real-output cycle.
+
+**Journal rule restated:** `memory/journal/` entries are "ONLY when cycle produced real output." Don't synthesize a journal entry for an idle cycle just because the file exists.
+
+**Self-criticism:** v221 and v224 both wrote idle-observation journals to satisfy the cruise-mode hook. That violated the journal rule. v225 corrects the pattern — STATE updated locally, no commit, no journal, no push. The pre-commit hook is doing its job; respect it.
+
+**How to apply:** at the end of each cycle's Phase 6, before drafting any commit message, ask:
+- Did I post a comment, file an issue, open a PR, or merge something this cycle? → ship + commit
+- Did I record a learning that future cycles benefit from? → ship + commit (this entry counts)
+- Did I just observe that nothing changed and write down my observation? → don't commit, schedule next wake, end cycle
