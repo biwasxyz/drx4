@@ -1,39 +1,46 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v227 — chainhook scope-cut discovered; #754 self-corrected + #738 cleanup nudge
+## cycle 2034v228 — mcp#510 substantive APPROVE; Q1+Q5 from v135 landed cleanly + tests added
 
-cycle: 2034v227
-at: 2026-05-11T20:23Z
+cycle: 2034v228
+at: 2026-05-11T20:56Z
 status: shipped
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v227 shipments (verified)
-1. **landing-page#754 issuecomment-4424797905** — self-correction to v218 body. The body listed `chainhook` among routes #738 adds; empirical probe + commit log shows PR-C (chainhook) was scope-cut at 04:31-04:34Z 5/11 via 8 revert commits. Current verifier has 2 ingestion paths (POST trades + cron), not 3. Branch-drift finding tightens from 5 routes to 4. Merge-order recommendation unchanged.
-2. **landing-page#738 issuecomment-4424798155** — tight cleanup-suggestion: PR body's "What changed" table still describes PR-C/chainhook row, but those files are scope-cut. Recommend dropping PR-C row + updating "5 PR slices" → "4 PR slices" before merge for whoabuddy clarity at merge time.
+## v228 ship (verified)
+**aibtc-mcp-server#510 APPROVED** (`PRR_...` at 20:56:11Z). Substantive re-review after surfacing 3 commits I'd missed:
+- `c7046c86` revert auto-wait + progress narration (06:44Z 5/11)
+- `a4a1ee51` align tool descriptions + CLAUDE.md (06:48Z 5/11)
+- `521c2466` align with simplified gist — dual registration (06:51Z 5/11)
 
-## Discovery context
-While exploring whether to write a reconstructed PHASE-3.1-HANDOFF.md (the v223 broken-link), surveyed the 5-slice substrate via `gh api commits?sha=feat/competition-read-routes`. Found 8 revert commits at 04:31-04:34Z 5/11 with message prefix "Phase 3.1 PR-C scope-cut." That triggered empirical re-probe of `/api/competition/chainhook` on #738 preview (404), confirming chainhook is gone.
+**Both Q1 + Q5 from my v135 review addressed cleanly + test discipline arrived:**
 
-This means my v218 #754 body had a factual error — listed chainhook among routes — that needed transparency-correction.
+| v135 ask | How it landed |
+|---|---|
+| Q1: registration UX clarity | "Two-step registration prerequisite" (aibtc.com + ERC-8004 `identity_register`) explicit in both `submit_trade` + `status` descriptions |
+| Q5: rejection-shape contract | 4 response shapes spelled out (pre-flight pending, 200 swap row, 4xx permanent, 5xx transient) |
+| Q2: test discipline (3 tests) | `tests/tools/competition.test.ts` = 215 LOC / 6 tests (my 3 + 3 bonus on new pre-flight + terminal-failure + malformed-txid paths) |
+| New (not asked) | Pre-flight `getTransactionStatus` gate — saves verifier round-trip on pending submissions |
 
-## Pattern (worth noting)
-Per v220 learning ("sibling-PR-created collision"), this is a *self-introduced* version: my own canonical doc became stale relative to current branch state when I made a claim based on the PR description rather than empirical probe. The 5-route list came from PR-C's PR-body description, not from `curl`-ing each route.
+## Self-correction (named in the APPROVE body)
+My v218-v227 STATE.md narratives carried "biwasxyz silent on Q1+Q5 ~28h+" — that was stale by current branch state since 06:51Z 5/11. v137-family applied to myself: asserted "no response" without empirically checking for new commits on the watched PR.
 
-**Detection recipe:** when filing a coordination issue that lists route names, probe each one empirically before publishing the body, not just at the level of "this PR claims to add these routes."
+**Pattern fix:** at each cycle boot, grep for new commit SHAs on watched PRs, not just check `updatedAt` (which can be stale or misleading). Adding to learnings.
 
-## Cluster state (2026-05-11T20:23Z, ~4.4h into operator override)
-- **#738** — still OPEN, mergeable, no merge. Now has my v227 cleanup-suggestion on the thread for biwasxyz.
-- **#754** — now factually accurate (5 routes → 4 routes correction).
-- **#743 / #651** — unchanged.
-- **mcp #510/#512/#513** — unchanged.
-- **landing-page main** — unchanged since 19:18Z (#760/#761).
+## Cluster state (2026-05-11T20:56Z, ~5h into operator override)
+- **mcp#510** — APPROVED by me (now), arc-APPROVED 5/10. Ready to merge once #738 lands (verifier dependency).
+- **landing-page#738** — mergeable, awaiting whoabuddy merge.
+- **#743 / #651** — unchanged; collision finding on #754 still pending biwasxyz resolution.
+- **mcp#512 / #513** — sequential merge order (arc PRs); unchanged.
+- **landing-page main** — unchanged at `3dc8994d` since 19:18Z.
 - **#762** — not yet opened.
 
 ## Pending on resume
-- **#738 merge** + **#762 PR opening** — both pending; trading-comp queued behind #762 per #652 sequencing.
-- **biwasxyz response** to v220 collision + v223 allowlist + v227 PR-body cleanup — all silent.
-- arc held-approval discipline on #743 still applies.
+- **#738 merge** — primary gate
+- **mcp#510 + #512 + #513 merge sequence** — gated on #738 + maintainer action
+- **biwasxyz response** to v220 collision + v223 allowlist/handoff + v227 PR-body cleanup
+- **#762 PR opening** — whoabuddy's stated next architectural target per #652
 
 ## Cadence
-Holding 1800s. Genuine substantive ships this cycle (transparency correction matters); not synthesis.
+1800s holds. Genuine substantive ship this cycle (mcp#510 APPROVE was warranted; the v135 questions had landing-page#683 spec semantics dependency that I'd lost track of in the cluster noise).

@@ -1898,3 +1898,37 @@ The pre-commit cruise-mode hook blocks STATE+health-only commits. v225's resolut
 - v225 said "accept idle, don't synthesize" — correct discipline, wrong escape valve.
 - v226 corrects: the escape valve is `ALLOW_EMPTY_CYCLE=1` for genuine no-op cycles, not "don't commit."
 - Both v225 and v226 are valid recordings — the agent learning iteratively from hook interactions.
+
+## v228 (2026-05-11T20:56Z) — `updatedAt` ≠ "no new substance"; verify commits at cycle boot
+
+**Pattern:** When STATE.md asserts "X silent on Y for N hours," that's a claim. Like any claim, it can go stale. The right verification is `gh pr view <PR> --json commits --jq '.commits[-3:]'` to check for new SHAs since the last cycle's read — not `updatedAt`, which often reflects the last comment timestamp (including mine).
+
+**Concrete instance — mcp#510:**
+- v135 (2026-05-10 morning): I reviewed with Q1 + Q5 + Q2 (test discipline) outstanding.
+- 06:44-06:51Z 5/11: biwasxyz pushed 3 commits addressing all 3 + adding `tests/tools/competition.test.ts` (215 LOC, 6 tests).
+- v218 (2026-05-11 ~15:58Z): I started the operator override. STATE.md noted "biwasxyz silent ~24h+ on Q1+Q5" — wrong. The commits had landed ~9h before.
+- v218 → v227 (~5h): I propagated "biwasxyz silent" across multiple STATE.md observations and #754 comments. The narrative locked in.
+- v228 (20:56Z): finally re-read substrate, discovered the 3 commits, shipped substantive APPROVE.
+
+**Why I missed it:**
+- `gh pr view <PR> --json updatedAt` returned `2026-05-11T06:51:25Z` — the timestamp of biwasxyz's last commit.
+- I'd been reading that as "no new activity since 06:51Z" rather than "commit landed at 06:51Z, refresh the substrate."
+- The mistake propagated because STATE.md narrative locked the framing; subsequent cycles inherited it.
+
+**Pattern fix (cycle-boot routine update):**
+For each watched PR in the cluster, at Phase 1 sweep:
+1. `gh pr view <PR> --json commits --jq '.commits[-3:] | .[] | .oid[0:8]'` — capture latest commit SHAs.
+2. Compare to STATE.md's last-known SHA (if recorded).
+3. If new SHAs present → MUST re-read the changed files before asserting any "silent" or "stalled" status.
+4. Don't trust `updatedAt` for staleness inference — it lies easily.
+
+**Specifically replace any STATE.md narrative phrasing like:**
+- "X silent on Y for N hours" → "X's last commit on this PR was at <timestamp> (sha: <SHA>); my v<N> ask is <substance>; verify each cycle that no new commits address it"
+- "no movement" → "last commit at <timestamp>; verified no new SHAs since <last-cycle-check-timestamp>"
+
+**Family with prior learnings:**
+- v137 NORTH_STAR "description claim without test asserting it" — same root: asserted claim without empirical verification.
+- v220 sibling-PR-created collision — same root: my own narrative becomes stale when substrate changes.
+- v227 chainhook scope-cut self-correction — same root: claimed routes exist without empirically probing.
+
+**Three instances of self-introduced staleness in ~10 cycles. Pattern is now well-established; the fix has to live in cycle-boot routine, not just learnings.** Tomorrow's boot sweep should include a "compare commit SHAs since last cycle for each watched PR" step. This is structural enforcement, not best-effort discipline.
