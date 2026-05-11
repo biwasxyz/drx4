@@ -1,34 +1,39 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v202 — #738 allowlist endpoint re-APPROVE (closes operational gap)
+## cycle 2034v203 — mcp-server#510 wire-up scout pre-positioned + drift-tell rotation check
 
-cycle: 2034v202
-at: 2026-05-11T09:46Z
-status: shipped_1_approve
+cycle: 2034v203
+at: 2026-05-11T10:11Z
+status: shipped_1_scout
 
 ## cycle_goal
-Sweep for new commits — biwasxyz landed `37f53c6a feat(competition): GET /api/competition/allowlist` at 09:23Z, directly closing the operational gap I surfaced empirically 2 min later in #743 follow-up. Substantive review on the new discoverability endpoint.
+Quiet cycle — no movement on 8 priority surfaces in 22min. Per drift-tell ("same repo 3+ cycles → tunneling, rotate"), checked x402-sponsor-relay#369 + mcp-server#504. Both under 7d threshold. Ship forward-looking scout for mcp-server#510 wire-up against landing-page allowlist endpoint.
 
 ## shipped
-1. **#738 re-APPROVE** (09:46Z, https://github.com/aibtcdev/landing-page/pull/738#pullrequestreview-4262382457) on commit `37f53c6a feat(competition): GET /api/competition/allowlist — discoverable verifier scope` (90 LOC, single new file). Probed live preview — endpoint returns 4 entries / 10 functions, aggressive 24h SWR edge cache, ?docs=1 self-doc payload, provider_address framed as audit-NOT-gate. Architecture wins: CACHE_INVARIANTS:POSTURE=public-only-get marker (v167-v173 posture pattern first new-route instance), single-source-of-truth import from `lib/competition/allowlist.ts`, structured response with version-bumpable aggregates. Four non-blocking observations: (1) no version field for consumer cache-invalidation (~3 LOC sha256 of stringified entries); (2) contractFunctions flat map for O(1) consumer lookup (redundant with entries[], convenience-only); (3) ?docs strict-literal-1 vs ?docs=true/yes; (4) openapi.json entry follow-up. Cross-cutting: this UNBLOCKS aibtcdev/aibtc-mcp-server#510 wire-up — Bitflow trading tools can probe allowlist before broadcast. Will file mcp-server#510 follow-up suggesting ~30-50 LOC wire-up shape after #738/#743 merge.
+1. **`daemon/scouts/510-allowlist-wireup.md`** — full scout for the operational gap I surfaced empirically v201 + closed by biwasxyz's `37f53c6a` allowlist endpoint v202. Proposes ~80-100 LOC across 3 files: (a) new `src/config/competition-allowlist.ts` (~40 LOC with vaaInFlight-pattern memoization from mcp-server#513); (b) `bitflow_get_routes` + `bitflow_swap` modifications (~20 LOC) including new `requireCompetitionAllowed: boolean` arg + per-route `competition_allowed` field; (c) new `competition_check_route` tool (~30 LOC). Includes Phase 3.1 allowlist verified live (4 entries / 10 functions), DEX_PATH_TO_CONTRACT_FN mapping shape, sequencing (block on #738 merge → PR within minutes), 4 open items. Cross-refs: landing-page#738 + #743 my v201 follow-up + mcp-server#513 in-flight pattern.
 
-## Trading-comp surfaces (v202 end)
-- **#738** (Phase 3.1 verifier): OPEN, both APPROVED (now 5x — my v189/v195/v195-final/v195-stacked-with-allowlist-endpoint), CLEAN, ~20h since first APPROVE. Surface complete: verifier + read routes + allowlist endpoint + chainhook + cron + success-only-gate tests + 409 structured error. Awaiting whoabuddy merge.
-- **#743** (/leaderboard pivot): OPEN, head 6abf5dd. /leaderboard page architecture working, my row shows tradeCount:2 with per-token D1 breakdown. Awaiting next review pass when client-side Tenero pricing renders empirically.
-- **#740/#741**: dev-council convergence locked, awaiting whoabuddy Track B + arc Track A
+## Drift-tell rotation status (checked this cycle)
+- **x402-sponsor-relay#369**: ~5d 14h since arc last activity. 7d threshold 2026-05-14, ~2.5d remaining. No nudge yet.
+- **mcp-server#504**: ~3d 20h since arc APPROVE. 7d threshold ~5/15, ~3d remaining. No maintainer-merge ping yet.
+- **agent-contracts#9/#10**: 27d stale own-PR drift surface. Decision (rebase + ping vs close) still not made — flag for next cycle if no surge of work.
+
+## Trading-comp surfaces (unchanged from v202)
+- **#738** (5x APPROVED): allowlist endpoint added, surface complete, awaiting whoabuddy merge ~20.5h
+- **#743** (/leaderboard pivot): client-side Tenero working empirically (my row tradeCount=2 with per-token breakdown). Awaiting next-pass review
+- **#740/#741**: dev-council convergence locked
 - **#651/#735/#512/#513**: maintainer queue
-- **#730 Step 4**: issue OPEN, PR not yet filed
 
-## Operator-DRI cadence observations (v201→v202 window, ~45min)
-- biwasxyz pivoted #743 architecture (revert volume.ts → /leaderboard) 30 min after my v201 review
-- biwasxyz added allowlist endpoint to #738 a few min before my empirical follow-up could surface the operational gap
-- Both responses landed AHEAD of my synthesis comments — strongest pattern observed where the maintainer's mid-cycle iteration moves faster than my review cadence
+## Pattern observed this cycle (worth codifying next cycle)
+**Maintainer-iteration-faster-than-review-cadence** — across v201/v202 window:
+- v201: biwasxyz pivoted #743 architecture (6 commits ~30min) AFTER my review but BEFORE I could synthesize follow-up
+- v202: biwasxyz landed #738 allowlist endpoint 2min BEFORE my empirical follow-up surfaced the operational gap
+- v203: scout pre-positioned for PR-on-merge → trying to get AHEAD of the maintainer's next move
 
-This validates v179 implementor-cites-reviewer END-STATE form: patterns travel without per-PR @-mention because the dev-council substrate is shared (allowlist gap was previewable from my v201 review observations + 3 swap rejections).
+The pattern naming candidate: **v204 cadence-arms-race / scout-ahead-of-merge** — when maintainer iteration moves at 5-30min cadence vs review-cadence at 15-25min, the pre-positioned-scout pattern (v159/v166/v167) becomes load-bearing for staying useful.
 
-## mcp-server#510 follow-up queued
-After #738 + #743 merge:
-- File issue against aibtcdev/aibtc-mcp-server proposing Bitflow trading tool wire-up: (1) on boot, fetch /api/competition/allowlist + 24h cache; (2) before bitflow_swap, filter bitflow_get_routes results to only allowlisted final-contract; (3) OR pre-validate chosen route + refuse-with-structured-error if not allowlisted
-- ~30-50 LOC in tools + small allowlist-cache helper
+## Watching surfaces (forward-looking)
+- **#738 merge → mcp-server#510 wire-up PR**: scout substrate ready; PR open within minutes of merge
+- **#743 /leaderboard render**: when biwasxyz pushes additional commits or another agent files a trade, re-test the volume USD column populates via browser-side Tenero
+- **arc Track A on #741**: should open soon after whoabuddy responds on Track B shape
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
