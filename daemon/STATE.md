@@ -1,39 +1,40 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v215 — #746 fix-PR shipped (Track A data-freshness fix, closes #740/#741)
+## cycle 2034v216 — #752 arc-review-notes addressed in same-branch follow-up
 
-cycle: 2034v215
-at: 2026-05-11T15:14Z
-status: shipped_1_pr
+cycle: 2034v216
+at: 2026-05-11T15:33Z
+status: shipped_1_follow-up
 
 ## cycle_goal
-Open #746 PR (Track A: flip agent-enrichment.ts + activity.ts inbox KV reads to D1, closes #740/#741 data-freshness regressions introduced by #745 Step 4). Pre-claimed in v213.
+arc0btc APPROVED #752 at 15:22Z with substantive 5-dim review including 2 questions + 1 nit. Address all three in same-branch follow-up rather than starting new work.
 
 ## shipped
-1. **landing-page#752 PR opened** — `fix(#746): flip agent-enrichment + activity KV inbox readers to D1`. 178+/66- across 7 files. https://github.com/aibtcdev/landing-page/pull/752
-   - `agent-enrichment.ts`: signature +db, getAgentInbox/getSentIndex → countInboxMessagesFromD1/countOutboxRepliesFromD1
-   - `activity.ts`: signature +db, 4 KV reads/agent → 1 D1 query/agent (latency win + freshness fix)
-   - 4 callers threaded (agents route, resolve route, activity route, page.tsx)
-   - 3 new D1-path tests + 10 existing tests updated for new signature
-   - 13/13 enrichment tests pass; full suite 989 pass, 0 fail
-   - tsc clean on touched files; lint clean (one pre-existing unrelated `<img>` warning)
-   - Closes #746/#740/#741 together
+1. **landing-page#752 follow-up commit `4f7b538`** — addresses arc's 3 non-blocking notes:
+   - (1) **db-undefined warn in activity.ts**: added `console.warn` so CF preview deploy misconfiguration is observable before degrading prod feed
+   - (2) **Order-independent mock**: replaced `mockResolvedValueOnce` chain with argument-matched `mockImplementation` (filter='all' → 7, filter='unread' → 3) — test no longer fragile to Promise.all array reordering
+   - (3) **Comment traceability**: updated `app/api/agents/[address]/route.ts` to reference "Phase 2.5 Step 4 cutover landed in PR #745; umbrella quest #697"
+   - 3 files changed, 17+/7-. All 13 enrichment tests still pass.
+2. **PR reply comment** (`issuecomment-4422163585`, 15:33Z) — itemized response to arc's review for re-review trigger.
 
-## Scope boundary
-Only inbox/sent READERS migrated. Write-side helpers (`updateAgentInbox`/`updateSentIndex`) now fully orphaned — Phase 4.x cleanup can delete them in follow-up.
+## #752 state
+- arc APPROVED 15:22Z (8 min after open)
+- CI all green (Lint + Test + Snyk pass; Build skipping appropriately)
+- arc's 3 notes addressed in `4f7b538` (15:32Z)
+- MERGEABLE/CLEAN
+- Awaiting maintainer (whoabuddy) merge
 
-## v179-pattern continued
-- v211 #745 APPROVE observation (13:56Z)
-- → v213 attribution (whoabuddy filed #746 14:21Z, 25 min)
-- → v213 #751 fix-PR (`@deprecated` restore, 14:31Z)
-- → v213 #746 claim comment (14:32Z)
-- → v215 **#752 fix-PR opened (15:14Z)** — observation-to-substantive-PR latency 78 min total
+## v179-pattern compound timing
+- v211 #745 APPROVE (13:56Z)
+- v213 attribution + #751 fix-PR (14:21-32Z, 25-36 min)
+- v215 #752 substantive PR (15:14Z, +78 min)
+- v216 arc APPROVE + 3-note follow-up (15:22-33Z, +8-19 min)
+- Total observation-to-validated-PR: 1h 37min
 
-## Next-cycle watch
-- **#752** — arc/whoabuddy review
+## Other surfaces (unchanged)
 - **#751** — awaiting whoabuddy merge (arc APPROVED 14:36Z)
 - **#8** — pbtc21 path decision (cocoa labor split locked v214)
 - **#10** — whoabuddy v206 unblock-merge ping
-- **mcp-server#510** — wire-up PR (scout ready)
+- **mcp-server#510** — wire-up PR (scout ready, gated on #738 merge)
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
