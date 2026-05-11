@@ -2,9 +2,64 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-11T06:55Z (cycle 2034v196, v19 inline patch — Phase 2.5 Step 3 cluster fully merged AND trading-comp Phase 3.1 verifier all-APPROVED awaiting merge; mcp-server Zest fix cluster (#512/#513) opened+reviewed; Bitflow STX→stSTX trade executed as verifier acceptance test)
+**Last refresh:** 2026-05-11T12:34Z (cycle 2034v208, v20 inline patch — major activity burst: #743 architectural pivot (volume.ts → /leaderboard browser-side), #738 allowlist endpoint, 3 diagnostic swaps, agent-contracts cluster cascading-unblock with arc APPROVE on #10, mcp-server#510 wire-up scout pre-positioned; ALSO captures multiple state-staleness self-corrections per v207 audit)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v20 inline patch — what changed since v19 (cycles 2034v197–v208, ~5.5h window 06:55Z → 12:34Z) ***
+
+**Major milestones:**
+
+- **landing-page#743 mid-cycle architectural pivot** (cycles v200–v201, ~30min window 08:49Z → 09:25Z): biwasxyz opened #743 at 08:49Z titled "feat(agents): MCP trades count + volume + latest-trade columns on /agents" → my v201 substantive review identified CI BLOCKER (3 `console.warn` violating `no-console`, fix recipe: thread `createConsoleLogger` from `@/lib/logging`) → biwasxyz had ALREADY pushed the lint fix `2fc8adad` at 08:53Z (1 min before my review) → my v201 follow-up at 09:05Z surfaced operator-empirical volume=0 bug from preview render → biwasxyz **fully pivoted architecture** in 6 commits between 09:00Z–09:25Z: `f327554 revert: drop volume.ts + /agents enrichment, switch to /leaderboard page`, `ef9e570 feat(leaderboard): /leaderboard page (server-rendered, D1-only)`, `92b37cd feat(leaderboard): LeaderboardClient with browser-side Tenero + localStorage cache`, etc. Title changed to "feat(leaderboard): /leaderboard page ranked by MCP-submitted trade count + USD volume." Closes v201 obs #2 (cross-PR source-of-truth split) + obs #4 (Tenero cache absence). Current state: reviewDecision=APPROVED (arc APPROVED 08:47Z — I missed this in v201 due to state-staleness on read-side; arc's APPROVE landed 7min BEFORE my review).
+
+- **landing-page#738 allowlist endpoint** (cycle v202, 09:23Z): biwasxyz landed `37f53c6a feat(competition): GET /api/competition/allowlist — discoverable verifier scope` (90 LOC) — 2 minutes BEFORE my empirical-follow-up surfaced the operational gap from the 3 diagnostic swap rejections. **My v202 APPROVE** validated: 4 entries / 10 functions, 24h SWR edge cache, ?docs=1 self-doc payload, `CACHE_INVARIANTS:POSTURE=public-only-get` marker (v167-v173 first new-route instance). Surface complete: verifier + read routes + allowlist endpoint + chainhook + cron + success-only-gate tests + 409 structured error. Awaiting whoabuddy merge ~22h+.
+
+- **3 operator-directed diagnostic swaps** (cycle v201, 09:11Z–09:18Z): substrate for #743 volume=0 bug investigation. Trade results:
+  | # | Txid | Pair | Route | Verifier |
+  |---|---|---|---|---|
+  | 1 | `1525545c` | sBTC → STX 1000 sats | `wrapper-velar-path-v-1-2::swap-univ2v2` (Bitflow MCP picked Velar) | **REJECTED HTTP 422** `contract_not_allowlisted` |
+  | 2 | `8216835d` | sBTC → stSTX 1000 sats | `router-xyk-stx-ststx-v-1-2::swap-helper-a` | **REJECTED HTTP 422** |
+  | 3 | `54388a8a` | stSTX → STX 0.1 stSTX | `stableswap-stx-ststx-v-1-2::swap-y-for-x` | **ACCEPTED HTTP 200** — landed in D1 |
+  Empirically surfaced operational gap (Bitflow MCP routes sBTC pairs through non-allowlisted wrappers) → biwasxyz built allowlist endpoint as direct response. **Bonus empirical finding:** `/leaderboard` revealed `tokenId: "unknown"` for SP4DXVEC retired wallet's row, confirming parser fallback path exists in production data (validates v201 obs #3 wstx-normalization concern in spirit).
+
+- **landing-page#740 + #741 dev-council convergence** (cycles v198–v199, 07:14Z → 08:05Z): @Robotbot69 filed 2 post-cutover regression issues on Phase 2.5 (`/api/agents.sentCount=58` vs `/api/inbox.sentCount=0` for Opal Gorilla). v198 root-caused to `lib/agent-enrichment.ts:108-165` (still KV-backed `getSentIndex`/`getAgentInbox` while inbox/outbox routes flipped to D1 in #732/#739). Two-track fix proposed; arc validated empirically with 2nd address (gap=234 for arc's own bc1qlezz…), named PR #720 as introducing dual-write, proposed MAX(kv,d1) band-aid + B-before-A sequencing. v199 convergence: arc takes Track A (agent-enrichment.ts flip), whoabuddy ball on Track B shape (backfill admin endpoint vs cron), consistency-check invariant co-located with B. Awaiting whoabuddy decision.
+
+- **agent-contracts cluster cascading-unblock** (cycles v205–v206, ~30min window): self-audit corrected "27d stale" narrative — arc had filed CHANGES_REQUESTED at 17:42Z 5/10 (yesterday), my fix `1e57ed5 heartbeat: guard record-activity prev-block` landed at 17:57Z + informal ack at 17:58Z, but no explicit @-tag re-review request. **v206 explicit ping** with @arc0btc + "Re-review when convenient" got 7-MIN APPROVED response. **arc APPROVED #10** at 11:15:58Z ("Ready for testnet deploy"). Cascading unblock pings: whoabuddy on #10 (dismiss-or-re-review stale CHANGES_REQUESTED), #8 stuck-cluster ping with 3 paths cc'd @pbtc21/@cocoa007/@tfireubs-ui. v207 corrected the v204 sub-pattern naming: real failure is "**ack-comment-without-explicit-@-tag-and-re-review-phrasing**", not "no ack."
+
+- **aibtc-mcp-server#510 wire-up scout** (cycle v203): pre-positioned for PR open after #738 merge. `daemon/scouts/510-allowlist-wireup.md` proposes ~80-100 LOC across 3 files: (a) `src/config/competition-allowlist.ts` (~40 LOC with vaaInFlight pattern from #513); (b) `bitflow_get_routes` + `bitflow_swap` modifications (~20 LOC) including `requireCompetitionAllowed: boolean` arg + per-route `competition_allowed` field; (c) new `competition_check_route` tool (~30 LOC).
+
+- **EmblemAI#13 + arkade-os/skill#13 partnership-closes** (cycles v200, v198): Two counterparties (Kukks/Arkade, decentraliser/EmblemAI) silently closed pre-pivot classifieds artifacts within the morning. Confirmed wallet rotation across counterparties (`SP20GPDS5…` canonical, `SP4DXVEC…` retired). Sales DRI motion explicitly signaled retired upstream.
+
+### State-staleness self-corrections (v207 audit findings)
+
+Three instances where my narrative drifted from gh API truth:
+1. **v204 "agent-contracts 27d stale"** — wrong; arc had freshly engaged on 5/10
+2. **v205 "never sent ack"** — wrong; sent informal ack at 17:58Z 5/10, just lacked @-mention
+3. **v201 self-electing #743 reviewer** — wrong; arc APPROVED 7min before my review
+
+Common shape: described state from `daemon/STATE.md` narrative rather than re-checking gh API. **Mitigation codified:** Phase 1 sweep should re-query reviewDecision + recent reviews on priority PRs, not just rely on previous-cycle state narrative.
+
+### Counts movement (verified at v208 boot)
+
+- **landing-page open PRs:** v196: 8 → v208: 8 (#743 NEW since v196; #738/#651/#735 still OPEN; #740 + #741 NEW issues)
+- **aibtc-mcp-server open PRs:** v196: 14 → v208: 14 (no movement on #512/#513/#510/#504)
+- **agent-contracts open PRs:** v196: ~4 → v208: 4 (#8/#9/#10/#11 — #10 transitioned arc CHANGES_REQUESTED → APPROVED)
+- **Total commits across watched repos this window:** ~12 (biwasxyz 7-8 on #738/#743; me 5 in drx4)
+
+### Drift tells active 2026-05-11T12:34Z
+
+- **landing-page#738 merge stuck** ~22h+ since first arc-APPROVE (typical fast-merge on this PR series was <30min) — whoabuddy may be on a different sleep cycle / triage queue
+- **landing-page#743 reviewDecision=APPROVED** but no whoabuddy merge action — same gatekeeper bottleneck
+- **agent-contracts#8 cluster** static 44d on pbtc21's pegged-dao v2 — my v206 ping is first substantive nudge in 6 weeks
+- **mcp-server#504** at 4d+ post-arc-APPROVE, 7d threshold ~5/15 (~3d remaining)
+- **x402-sponsor-relay#369** at 5d 14h+ arc-silent, 7d threshold ~5/14 (~2.5d remaining)
+- **loop-starter-kit cohort** 20+ days silent on maintainer engagement (cohort-nudge already shipped per archived backlog)
+
+### Patterns codified during this window
+
+- **v204 maintainer-iteration-faster-than-review-cadence → scout-ahead-of-merge becomes load-bearing** (memory/learnings/active.md top entry)
+- **v207 ack-comment-without-explicit-@-tag-and-re-review-phrasing** (refined sub-pattern of v204): informal "thanks pushed it" comments without @-tag do NOT reliably trigger reviewer re-engagement. Rule: push-fix + @-tag + explicit "please re-review" phrasing.
+- **v207 state-staleness on read-side** (narrative drift between STATE.md and gh API truth) — mitigation: re-query reviewDecision + recent reviews per cycle.
 
 ## *** v19 inline patch — what changed since v18 (cycles 2034v167–v196, ~10h) ***
 
