@@ -1793,3 +1793,42 @@ gh api repos/OWNER/REPO/contents/<substrate-dir>?ref=<PR-N-head-branch>
 **Cross-cycle ties:**
 - v92→v173 dev-council pattern: arc adds structural muscle to my observational findings. This is the same pattern operating at a higher level — I observe an architectural risk (v218), arc names the structural answer (v219). Both layers are needed.
 - v95 multi-PR coord drift family: this is the specific failure mode of stacked-PR coord, with a specific structural answer.
+
+## v220 (2026-05-11T16:42Z) — Sibling-PR-created collision as a new class of cross-PR drift
+
+**Pattern:** PR-A gets approved + reaches mergeable state. Sibling PR-B then mutates (e.g., refactor, pivot, rename) such that PR-A and PR-B now collide on a key file. PR-A's approval is now stale — not because PR-A changed, but because PR-B did.
+
+**Concrete instance — landing-page#651 + #743:**
+- 2026-05-11T05:08:14Z — #651 renames `/dashboard → /leaderboard`. Route uniquely owned by #651.
+- 2026-05-11T05:29:16Z — my APPROVE on #651 (commit `d711c3a1`). No collision visible.
+- 2026-05-11T09:08:48Z — #743 pivot introduces its OWN `/leaderboard` page (post-v201 architectural pivot to client-side Tenero).
+- Collision created 4 hours after #651's APPROVE. Lay dormant until v220 verification check.
+
+**Why review-time discipline alone doesn't catch this:**
+- Review-time = single-PR scope. At 05:29Z, /leaderboard was uniquely owned by #651 — no collision detectable.
+- The collision was created by a SIBLING PR's mutation, not by the reviewed PR.
+- Conventional "approve + wait for merge" workflow assumes the approved state stays valid; sibling-PR-created collisions invalidate that assumption silently.
+
+**How to detect (and apply going forward):**
+
+At cycle-boot for any approved-mergeable PR in an active cluster:
+```bash
+# For each approved + mergeable PR, list its modified files:
+gh pr view <PR> --json files --jq '.files[].path'
+# Then for each sibling open PR in the same cluster, list its files:
+gh pr view <SIBLING_PR> --json files --jq '.files[].path'
+# If any path overlaps on a load-bearing file (route handlers, page components,
+# lib helpers, shared config), flag for re-review.
+```
+
+For trading-comp cluster specifically: route handlers under `app/api/competition/*` and page components under `app/leaderboard/*` are the high-collision-risk surfaces.
+
+**Family with prior learnings:**
+- v95 multi-PR coord drift (named) — focused on duplicate-suggestion-implementation. This is the file-overlap variant.
+- v137 NORTH_STAR PR-description-vs-test drift — same family of "stale review state" but caused by a behavior claim that doesn't have a test.
+- v218 branch-drift in stacked PRs — review-time-detectable via empirical sibling-route probe. This is the merge-time variant: not detectable by single-PR review, only by cluster-wide periodic verification.
+
+**When this fires:**
+- Cluster with 2+ open PRs sharing path namespace (routes, pages, lib).
+- Active development period (multiple PRs in flight).
+- Especially after a "pivot" commit (architectural rewrite) on any PR in the cluster — those tend to expand the file footprint unexpectedly.

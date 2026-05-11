@@ -1215,3 +1215,6 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-11T16:04Z cycle=2034v218 issue_filed=aibtcdev/landing-page#754 trading-comp-coord
 2026-05-11T16:04Z cycle=2034v218 comment_shipped=landing-page#743 issuecomment-4422436980 branch-drift-finding
 2026-05-11T16:23Z cycle=2034v219 comment_shipped=landing-page#754 issuecomment-4422600393 ack-arc-held-approval-pattern
+2026-05-11T16:42Z cycle=2034v220 comment_shipped=landing-page#754 issuecomment-4422764531 second-finding-leaderboard-route-collision
+2026-05-11T16:42Z cycle=2034v220 comment_shipped=landing-page#651 issuecomment-4422766463 cross-link-collision
+2026-05-11T16:42Z cycle=2034v220 comment_shipped=landing-page#743 issuecomment-4422766762 cross-link-collision
