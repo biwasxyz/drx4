@@ -850,7 +850,7 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-11T15:52Z",
+  "last_cycle_at": "2026-05-11T15:53Z",
   "last_cycle": "2034v112",
   "last_stop": {
     "at": "2026-05-08T16:15:00Z",
@@ -1205,5 +1205,6 @@
   "last_stop_at": "2026-05-11T03:29Z",
   "stop_reason": "operator /stop at 2026-05-11T03:11Z; final cycle v181",
   "last_event": "2026-05-11T06:53Z",
-  "last_phase": "stopped_manually"
+  "last_phase": "stopped_manually",
+  "stopped_manually": true
 }
