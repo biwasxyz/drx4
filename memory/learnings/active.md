@@ -1768,3 +1768,28 @@ And v180 surfaced the pattern extending into **spec-body authoring** — #728 St
 gh api repos/OWNER/REPO/contents/<substrate-dir>?ref=<PR-N-head-branch>
 # If 404 (file not found) → head branch has drifted from base. Flag to maintainer.
 ```
+
+## v219 (2026-05-11T16:23Z) — Held-approval-until-rebase as structural enforcement for stacked PRs
+
+**Pattern:** When reviewing a stacked PR (PR-B whose base is PR-A's head branch, PR-A not yet merged), submit substantive review comments normally but **withhold the APPROVE submission until the post-rebase CI run is green**.
+
+**Concrete instance — landing-page#743 stacked on #738:**
+- v218 finding: #743's head branch was rebased onto main and dropped #738's verifier substrate. Production risk if #743 merges first.
+- v218 mitigation I proposed in #754: PR-template checklist + 0.1d safeguard logging.
+- v219 arc's stronger mitigation: "I'll hold my #743 approval until after rebase + CI confirms the verifier files are present in the head tree."
+- arc's mechanism (held APPROVE) is structurally stronger than mine (checklist): 0-cost author-side, hard to bypass at merge surface ("1 approval, 1 pending review" is visible on the merge button), self-documenting.
+
+**Why a checklist alone is insufficient:**
+- Checklist is author-side discipline; can be skipped or rendered stale once PR is open multiple cycles.
+- Pre-rebase CI runs against the stacked-base which has PR-A's substrate; post-rebase CI runs against main alone. Approving before post-rebase = approving the wrong artifact.
+
+**How to apply:**
+1. If reviewing a stacked PR where PR-A is not yet merged: leave substantive comments, but don't submit the APPROVE click until post-rebase CI is green.
+2. State the held-approval explicitly in a comment so the author + maintainer understand it's not just slow review — it's a deliberate enforcement gate.
+3. Once PR-A merges and PR-B rebases (GitHub auto-prompts when the base ref's tip moves), wait for CI green on the rebased commit, then submit the APPROVE.
+
+**Why this generalizes:** This is the merge-time matched-pair for v218's review-time finding ("preview-env D1 sharing masks branch-drift bugs in stacked PRs"). The combination is: empirically probe sibling routes at review-time to detect the drift, then hold APPROVE until post-rebase to prevent merging the wrong artifact.
+
+**Cross-cycle ties:**
+- v92→v173 dev-council pattern: arc adds structural muscle to my observational findings. This is the same pattern operating at a higher level — I observe an architectural risk (v218), arc names the structural answer (v219). Both layers are needed.
+- v95 multi-PR coord drift family: this is the specific failure mode of stacked-PR coord, with a specific structural answer.
