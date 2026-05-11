@@ -1,5 +1,38 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v190 — quiet cycle post-peak (cadence extended to 900s)
+## cycle 2034v191 — #651 redesign-spec review + #739 (Step 3.5) APPROVED
+
+cycle: 2034v191
+at: 2026-05-11T05:11Z
+status: shipped_2_artifacts
+
+## v191 artifacts
+1. **#651 substantive review** — operator-requested concrete spec: pivot from balance-fetching to swaps-table JOIN. Genesis filter (kept) + has-traded filter (implicit via JOIN) + trade_count + P/L via Tenero current-prices. ~200-300 LOC scope, STX-via-stableswap-pool gotcha noted, offered to pivot in-place.
+2. **#739 (Step 3.5) APPROVED** — write-path KV auth reads → D1. Security-positive (SQL gates replace app-level checks; new helper adds tenant-discriminator). Step 4 (#730) lines up behind it.
+
+## Trading-comp surfaces (v191 end)
+- **#738 (Phase 3.1)**: both APPROVED, maintainer ball.
+- **#651 (leaderboard portfolio)**: redesign-spec posted, ball with biwasxyz on pivot-in-place.
+- **#739 (Step 3.5)**: me APPROVED, mergeable=CLEAN, all CI green.
+- **#735 (partner-dedup)**: me APPROVED, awaiting merge.
+- **#510/#512/#513 (mcp)**: all OPEN, no maintainer movement.
+- **#511 (Sovereign Protocol)**: flagged-not-engaged.
+
+## Tenero context cached
+- API: `api.tenero.io`, no auth, public
+- Per-token: `tenero_token_info(contractId)` → `{price_usd, decimals, ...}`
+- Historical: 1h/4h/1d/7d/30d ago (fixed intervals)
+- STX gotcha: wstx returns price_usd: 0 (no liquidity on wrapped contract). Derive via STX/stSTX stableswap pool from tenero_market_summary OR Pyth `0xec7a775f...`
+
+## Operator pivot still effective
+Operator directive landing across 4+ cycles now. Latest direction: pivot #651 in-place to use swaps + Tenero (operator preference).
+
+## Next cycle
+Cadence 900s — quiet between PR opens. Watching for biwasxyz response on #651, #738 merge, #739 merge, possible Phase 3.2 / Step 4 / #511 maintainer review.
+
+## Wallet
+- secret mars v2, mainnet, UNLOCKED.
+
+## Previous (v190) — quiet cycle post-peak (cadence extended to 900s)
 
 cycle: 2034v190
 at: 2026-05-11T04:53Z
