@@ -1,32 +1,56 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v188 — #737 APPROVED + #738 fix-diff posted + arc question answered
+## cycle 2034v189 — #738 FULLY CLEARED — peak dev-council cadence (22min PR-to-both-APPROVED)
 
-cycle: 2034v188
-at: 2026-05-11T04:38Z
-status: shipped_3_artifacts
-cycle_goal: continue watching trading-comp PRs, follow-up on my #738 CHANGES_REQUESTED with concrete fix diff. arc APPROVED #738 with non-blocking findings; my block-on-merge bug remains the load-bearing concern.
+cycle: 2034v189
+at: 2026-05-11T04:46Z
+status: shipped_critical_re_review_approve
+cycle_goal: re-review #738 after biwasxyz pushed fix — flipped CHANGES_REQUESTED → APPROVED. Both reviews APPROVED, mergeStateStatus=CLEAN, ready for whoabuddy merge.
 
-last_action: 3 artifacts this cycle:
-- **#737 APPROVED** (Step 3.4 KV cleanup — mechanical removal of listInboxMessages + listSentMessages, scope-revision split is the right call)
-- **#738 follow-up comment** with: (1) concrete diff for STX event_type fix (~6 LOC + 9 test fixtures + canonical-tx integration test); (2) answer to arc's registered_wallets INNER JOIN [question] — verified migration 007 design (pure projection of agents, JOIN safe by construction); (3) agreement with arc's 3 other non-blocking observations
-- Offered to push fix-PR from my fork against feat/competition-read-routes branch on biwasxyz green-light
+last_action: Verified parse.ts STX event_type fix in code (STX_EVENT_TYPES Set with all 3 variants + 8 fixtures aligned + NEW it.each variant-coverage block). Validated chainhook scope removal empirically on preview (404 + OpenAPI strip). Shipped APPROVED flip at 04:46Z with detailed verification + note about preview D1 caching (verify.ts:351 re-reads on INSERT OR IGNORE skip → preview hits old row from my pre-fix POST not new parse).
 
-## Trading-comp surfaces (v188 end)
-- **#738 (Phase 3.1)**: my CHANGES_REQUESTED + concrete fix diff posted + arc APPROVED. Ball with biwasxyz on fix. Two paths: (A) biwasxyz pushes fixup on this branch, OR (B) me push fix-PR from fork.
-- **#737 (Step 3.4 cleanup)**: me APPROVED, mergeable=CLEAN.
-- **#510 (mcp competition tools)**: alignment verified v183; biwasxyz Q1+Q3+Q4 silent ~38h.
-- **#512 (arc Pyth fix)**: OPEN, arc+me APPROVED, maintainer ball ~50min.
-- **#513 (arc all-3-suggestions follow-up)**: OPEN, me APPROVED + CI-gate diagnosis + fix-shape proposal posted v186.
-- **#735 (partner-dedup)**: OPEN, me APPROVED + preview-smoke confirmed v185 + arc reply v185.
+## Peak dev-council cadence captured
 
-## Dev-council pattern observation (v144 reapplied)
-arc + me reviewed #738 within 2min of each other. arc fast-trust-with-non-blocking-menu (APPROVE); me block-on-merge-with-empirical-repro (CHANGES_REQUESTED). SAME code location (parse.ts:153) but DIFFERENT framings — arc treated as low-prob FT defensive concern, I proved it ALREADY fires for every STX swap. Producer-consumer symmetric divergence at higher PR-size (4704 LOC vs typical sub-1000 cutover PRs).
+| t | event | latency |
+|---|---|---|
+| 04:24Z | #738 opens (4704 LOC, 113 tests) | - |
+| 04:26Z | preview deployed (build) | +2min |
+| 04:30Z | my CHANGES_REQUESTED with empirical repro | +6min |
+| 04:32Z | arc APPROVED | +2min from my review |
+| 04:36Z | biwasxyz pushed fix (3 commits in 8s) | +6min from my review |
+| 04:37Z | docs nit fix | +1min |
+| 04:38Z | biwasxyz ack comment | +1min |
+| 04:46Z | my APPROVED flip | +8min from biwasxyz comment |
 
-## Operator pivot still effective
-Audit + test preview + comment-in-PR loop firing across multiple PRs per cycle. Cadence holding at 270s.
+22min total PR-open → both-APPROVED on a 4704-LOC PR with load-bearing bug fix mid-flight.
+
+## #738 status (v189 end)
+- Both arc + me APPROVED
+- mergeStateStatus = CLEAN
+- All CI green
+- Maintainer queue ball — whoabuddy fast-merge cadence pattern suggests merge within minutes once seen
+
+## Open trading-comp surfaces (v189 end)
+- **#738 Phase 3.1 verifier**: BOTH APPROVED, awaiting whoabuddy merge.
+- **#737 Step 3.4 cleanup**: me APPROVED, mergeable=CLEAN.
+- **#510 (mcp competition tools)**: alignment confirmed v183.
+- **#512 (arc Pyth fix)**: arc+me APPROVED, maintainer ball ~60min.
+- **#513 (arc all-3-suggestions follow-up)**: me APPROVED, CI-gate diagnosis posted.
+- **#735 (partner-dedup)**: me APPROVED + preview smoke + arc reply.
+
+## Watching surfaces
+- After #738 merges: re-test the canonical Bitflow txid on PRODUCTION to confirm fix lands end-to-end (the preview D1 row staleness won't apply to production where the txid hasn't been submitted yet).
+- New PR opening watch: #736 Step 3.5 (auth-read flip prerequisite for Step 4), possible Phase 3.2 scoring PR, possible fix-PR for arc's burn_block_time/x-forwarded-for findings.
+
+## Partnership commitments
+- arc → file my E1 partner-truncation under #652 (v185 volunteer).
+- biwasxyz → file canonical Hiro JSON fixture issue as Phase 3.1 polish follow-up (v189 commitment).
+- My CI-gate fix offer on #513 (still ball with whoabuddy).
+
+## Operator pivot status (still effective)
+v187 high-impact bug surfaced → v189 fix re-reviewed and APPROVED. Audit-test-comment loop firing across multiple cycles per operator directive landing as designed.
 
 ## Next cycle
-Watching for biwasxyz response on #738 (likely fixup commit OR ack with green-light for me to push fix-PR). #737 likely fast-merge by whoabuddy.
+Cadence 270s — watching for #738 merge, post-merge production smoke, any new trading-comp PRs.
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
