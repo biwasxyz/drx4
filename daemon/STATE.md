@@ -1,44 +1,33 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v183 — Operator pivot: trading-comp focus + 4 artifacts shipped
+## cycle 2034v184 — 2 substantive APPROVEs on arc partnership-response fixup PRs
 
-cycle: 2034v183
-at: 2026-05-11T03:58Z
-status: pivoted_mid_cycle_4_artifacts
-cycle_goal: review #512 (arc's zest fix) + smoke #732 + open Gap 3 PR → OPERATOR PIVOT received mid-cycle to "focus on trading competition, audit schema mismatches, see Cloudflare docs, fix if needed". Gap 3 work halted (worktree disposable, no commits pushed). Pivoted to trading-comp audit.
+cycle: 2034v184
+at: 2026-05-11T04:09Z
+status: shipped_2_substantive_reviews
+cycle_goal: watch incoming trading-comp PRs per operator pivot — caught arc's #513 (all-3-suggestions follow-up to #512) + #735 (partner-dedup fixup closing #733). Both shipped substantive APPROVEs.
 
-last_action: 4 artifacts shipped this cycle:
-1. #512 APPROVED 03:43Z — substantive on arc's Pyth fix-PR (cites my buffer-shape correction). 3 follow-up suggestions: concurrent-fetch race condition + structured-error envelope + unit test coverage. Strongest cross-cycle implementor-cites-reviewer instance observed.
-2. #732 post-merge smoke 03:55Z — production-verified sentCount=39 (was 0), partners=10 with {both:4, sent:4, received:2} bidirectional merge working, outbox totalCount=39 (lifetime via COUNT(*) — arc's question resolved pre-merge via fixup).
-3. #683 sign-off + verification 03:57Z — confirmed #510 already accommodates all 3 reconciliation points (RFC vocabulary §1 + drop queued §2 + drop network §3); flagged JS-safe-integer schema-hardening note for 18-dec token expansion.
-4. (cycle pivoted mid-flight) Gap 3 PR scoped + scout-read; halted at operator request.
+last_action: 2 APPROVEs in 1min window (04:08-04:09Z):
+- **#513**: arc's follow-up implementing all 3 of my [suggestion-followup] items from #512 review (vaaInFlight + ZestPythUnavailableError + 8 unit tests). Implementation refinements over my sketch: cache-timestamp captured POST-fetch not pre-fetch + typed-error thrown at original failure sites not at catch boundary + 5 bonus tests beyond the 3 I named. Strongest implementor-cites-reviewer instance: ~30min from my APPROVE to arc's dedicated follow-up PR opening with @secret-mars attribution.
+- **#735**: arc's partner-dedup fixup closing #733 (the issue arc raised + whoabuddy filed during #732 review). Single-line fix + 2 regression tests asserting structural invariants. Forward-flagged my E1 elevation from #732 (partner-graph truncation at hardcoded limit=100) as separate, offered to file under #652 if useful.
 
-## Operator pivot directive (effective 2026-05-11T~03:48Z)
-**"focus on trading competition (landing-page#683 reconciliation + #510 mcp + Phase 3.1 #734 when it opens) — audit schema mismatches, see Cloudflare docs, comment/fix/test as warranted. Push fixes only if existing PRs don't accommodate."**
+## Trading-comp watch status (cycle v184 end)
+- **#734 (Phase 3.1 verifier)**: still not opened. Highest-priority audit target when it opens.
+- **#510**: still OPEN with no maintainer movement; biwasxyz Q1+Q3+Q4 + nit-PR offer outstanding ~36h+.
+- **#512 (arc Pyth fix)**: still OPEN; awaiting whoabuddy merge. Both arc + me APPROVED.
+- **#513 (arc follow-up)**: just APPROVED, sequenced to merge AFTER #512.
+- **#735 (partner-dedup)**: just APPROVED, mergeable=CLEAN, all CI green.
 
-## Trading-comp audit findings (cycle v183 conclusion)
-- **#510 (mcp, mine, OPEN)**: All 3 reconciliation points already accommodated. Field names match RFC §swaps + migration 005 exactly. POST body is `{ txid }` only (no `network`). 202-response shape is `{ accepted: true }` not `status: queued`. arc APPROVED 5/10 02:43Z; my sign-off cited the alignment.
-- **#683 spec issue**: CLOSED 03:46Z by biwas, superseded by future #734. arc signed off on the 3 reconciliation points 03:52Z; my sign-off followed 03:57Z.
-- **#734 (Phase 3.1 verifier+API)**: DOES NOT EXIST YET. biwasxyz signaled it in close-comment as upcoming. Will audit against #510 + RFC + migration 005 when opened.
-- **Migration 005 (swaps)**: MERGED via #668 5/9. Schema source-of-truth. `(txid)` PK with INSERT OR IGNORE = idempotent across `agent | cron | chainhook` source paths.
-- **Schema-hardening forward note**: `amount_in/amount_out INTEGER` columns are int64 in D1 but JS reads return Number. Current allowlist (Bitflow STX/stSTX/sBTC/USDC + ALEX + Zest) all stays under safe-integer. 18-decimal token expansion would silently overflow. Flagged on #683 sign-off as follow-up.
+## Watching surfaces
+- **#732 post-merge smoke** done last cycle — green.
+- **#476 + #487 partnership balls**: still with whoabuddy/arc on green-lights.
+- **#504 + #487 Gaps 2+3**: paused per operator pivot. Gap 3 scout still in daemon/scouts/487-gap3.md, reusable.
+- **My E1 elevation (partner-truncation limit=100)**: not yet filed as issue. Could fold under #652 next cycle if useful.
 
-## Commitments + watching surfaces
-- **#734 implementation PR**: opens whenever biwas/whoabuddy fires it. AUDIT-PRIORITY on next cycle if opened.
-- **#510**: still awaiting biwasxyz Q1+Q3+Q4 + nit-PR offer (~36h+ silent). arc APPROVED. Maintainer ball.
-- **#512 (arc zest fix)**: my APPROVE in court. 3 follow-up suggestions flagged. Maintainer ball.
-- **#735 (arc partner-dedup fixup)**: just opened by arc addressing my E1 elevation from #732. Review-priority for next cycle.
-- **#476 zest_borrow + #487 x402 acks**: balls with whoabuddy/arc on next-step green-lights.
-- **#504, #487 Gaps 2+3**: still pending #504 merge (90h+ stale). Gap 3 work paused mid-cycle.
+## Operator focus directive (still effective)
+**"focus on trading competition. More PRs and commits coming, keep an eye and be ready to test/file-issue/comment/review in detail. Audit schema mismatches. See Cloudflare docs (important). First see if existing PRs support it then only push in them."**
 
-## Operator addendum (2026-05-11T03:58Z)
-**"More PRs and commits will be coming, keep an eye and be ready to test/file-issue/comment in the PR/review the code in detail."** Next-cycle cadence shortened to ~270s to stay inside Cloudflare Workers preview build window + cache TTL.
-
-## Next-cycle priority order (incoming trading-comp PRs)
-1. Watch for #734 (Phase 3.1 verifier+API) opening — audit immediately against migration 005 + #510 expectations + Cloudflare D1/Workers binding patterns
-2. Watch for #735 (arc's partner-dedup fixup from my E1 elevation on #732) — substantive review
-3. Watch for any new commits on #510, #512 fixing my follow-up notes
-4. Test preview URLs from Cloudflare Workers Builds (deployment hash in CI checks)
-5. Schema-mismatch audit: every new trading-comp PR — compare against migration 005 + RFC §swaps + #510 tool descriptions
+## Next cycle
+Cadence 270s — watching for #734 opening, any commits on #510/#512/#513/#735, and any new trading-comp PRs. If #734 opens, audit immediately vs migration 005 + RFC §swaps + #510. If preview URL surfaces in CI, test against it.
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
