@@ -1,30 +1,25 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v210 — aibtcdev-backend trading-comp scout (operator-directed)
+## cycle 2034v211 — #745 irreversible-cutover APPROVE (Phase 2.5 Step 4)
 
-cycle: 2034v210
-at: 2026-05-11T13:32Z
-status: shipped_1_scout
+cycle: 2034v211
+at: 2026-05-11T13:57Z
+status: shipped_1_review
 
 ## cycle_goal
-Operator Telegram 13:27Z: "For trading comp see if there's anything we can take from aibtcdev-backend." Scout the 58k+ LOC Python FastAPI backend (ARCHIVED 2026-04-07) for patterns reusable to landing-page#738/#743 + mcp-server#510 work.
+landing-page#745 filed by @whoabuddy 13:17Z + explicit @secret-mars ping. Phase 2.5 Step 4 (drop KV writes from inbox/outbox POST/PATCH — D1 sole source of truth, irreversible). 314+/260- across 8 files. Substantive review needed before merge.
 
 ## shipped
-1. **`daemon/scouts/aibtcdev-backend-trading-patterns.md`** — 4 patterns reusable + 2 things landing-page does cleaner:
-   - `stacks_chainhook_adapter` Python lib (transforms raw Stacks API → chainhook event format) — reusable shape if #738 catch-up cron scales
-   - Asset-ID stripping `::` split convention validated as industry-standard (`buy_event_handler.py:186` matches `volume.ts:toTeneroAddress`)
-   - `lottery_utils.py` Decimal-precise math closes my v183 18-decimal SUM-overflow concern — propose decimal.js when score-track endpoint opens
-   - Buy/Sell/STX event handler separation = useful precedent for per-event-type observability hooks (not needed today)
-   - LANDING-PAGE CLEANER: unified parser w/ STX_EVENT_TYPES set (aibtcdev-backend splits STX into separate Rosetta-shape handler)
-   - LANDING-PAGE CLEANER: allowlist endpoint has no analogue — net-new surface
-   - Bitflow tool in aibtcdev-backend had NO allowlist-aware filtering (same gap I surfaced v201) — validates mcp-server#510 wire-up scout is net-new contribution
-2. **Telegram synthesis reply** (id=190, reply_to=189) — concise findings for operator. 1 concrete next-cycle action: propose decimal.js for SUM aggregation when score-track endpoint opens.
+1. **landing-page#745 APPROVE** (`PRR_kwDOLbA8Ss7-K7mH`, 13:56Z) — consistent with arc's 13:23Z 5-dimension review + test-fix commit `761d1b4`. **Cross-cutting value-add arc didn't surface**: `lib/agent-enrichment.ts:107-108` still reads KV via `getAgentInbox`/`getSentIndex`, but this PR drops the writers. Result: /api/agents listing serves **frozen-at-merge-time data** post-merge → escalates #740/#741 from "refactor TODO" to "data-freshness regression introduced by Step 4". Track A flip becomes urgent, not deferred. Also flagged asymmetric `@deprecated` removal (read helpers still load-bearing; only write helpers fully orphaned). Echoed milestone: heartbeat `fetchUnreadCount` switch closes aibtc-mcp-server#497 24-cycle drift.
 
-## Net assessment for operator
-**No code-port work indicated.** aibtcdev-backend was retired; patterns are reference-only. The chainhook adapter library + Decimal-precise math are battle-tested shapes worth keeping in scout substrate for future Phase 3.x work.
+## Next-cycle watch
+- **#745 merge** — irreversible cutover. After merge, watch for whoabuddy/arc to spin up Track A PR on agent-enrichment.ts (or else #740/#741 stay stale-counts-bug).
+- **mcp-server#510** — wire-up PR opens within minutes of #738 merge (scout ready `daemon/scouts/510-allowlist-wireup.md`).
+- **agent-contracts #8** — pbtc21 response on cocoa007 13:09Z cluster decision (cocoa named CRITICAL + HIGH-1 + HIGH-2 paths).
+- **agent-contracts #10** — whoabuddy response on v206 unblock-merge ping.
 
-## Trading-comp surfaces (unchanged from v209)
+## Trading-comp surfaces (unchanged)
 - #738/#743/#740/#741/#651/#735/#512/#513: maintainer queue
-- agent-contracts #8/#10: v206 pings still awaiting maintainer responses
+- v210 scout `daemon/scouts/aibtcdev-backend-trading-patterns.md` filed for future Phase 3.x reference
 
 ## Wallet
 - secret mars v2, mainnet, UNLOCKED.
