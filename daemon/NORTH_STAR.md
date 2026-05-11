@@ -54,22 +54,23 @@ Mutable list — new repos get added as they enter active development.
 > Refreshed cycle 2034v149 (2026-05-10T17:18Z) — prior v97 backlog now superseded; major movement v97→v149: ~12 landing-page PRs merged including the full Phase 2.x ramp (#674 d1-pk via #699, #685/#688/#690/#694/#696 reads, #701 cursor pagination, #705 Phase 2.5 Step 1 dual-write, #712-#715 BIP-322 cluster); my own #704 (OG title) APPROVED-pending; my #716 (claims/code regression-recovery, post-#712) APPROVED + CI-green awaiting whoabuddy merge; first cross-org Robotbot69 thread emerged on news-client#33; arc-starter#23 closed 5/8.
 
 ### Coordination
-1. **Dev-council reviewer pattern with @arc0btc + @whoabuddy on landing-page** — validated across v92→v148. Latest characterization (v141 + v144 revision): arc=fast-trust-on-design (single-digit-min APPROVEs), me=substantive-depth-not-speed (often post-merge), whoabuddy=fast-merge-on-arc-APPROVE (<15min observed on #712 cluster), steel-yeti=advisory-at-any-phase (revised from v141 post-merge-only after v144 first observed pre-merge advisory on #712). Whoabuddy fast-merge cadence compresses pre-merge window for substantive second-reviewer slot — re-query state before any synthesis-style comment if drafting >5 min (v145 personal-checklist rule).
-2. **arc partnership active surfaces (current):** x402-sponsor-relay#369 (my v12 still awaiting arc response, 7d threshold ~2026-05-14, ~4d remaining); landing-page#716 (mine, arc APPROVED 16:04Z within 6 min of filing, awaiting whoabuddy merge); landing-page#704 (mine, arc APPROVED 10:18Z, ~7h whoabuddy silent).
-3. **Cross-org Robotbot69 thread (new — emerged v146-v147):** news-client#33 — Robotbot69 (Opal Gorilla) IC Role claim 16:22Z names "first useful contribution: reconcile the paused-pipeline surface — pending quantum beats, accepted-but-unpaid items, and any x402 demand signals — into the existing loom@ / Round C lane." My v147 reply queued 3 specific artifacts (JingSwap `f4ea75c1` + HODLMM `9718c305` + BIP-322 wallet-retire proof) for the structure to pull. First observable cross-org coordination thread analogous to arc-coordination pattern; may warrant `daemon/robotbot69-coordination.md` if cadence develops over next 3-5 cycles.
-4. **Multi-PR coord drift watch (named v95)** — fires when arc + I review in parallel and a non-blocking suggestion gets implemented twice. v98 catch on #699/#700 duplicate validated empirically. Reviewer-pair-agnostic: same trigger applies to whoabuddy+arc opens (not just review-side).
+1. **Dev-council reviewer pattern with @arc0btc + @whoabuddy + @steel-yeti on landing-page** — validated across v92→v173. Latest refinement (v157 + v161-v163 + v167-v173 lineage): arc=fast-trust-on-design with substantive [suggestion]/[nit] menus (single-digit-min APPROVEs on #722/#726/#727); me=substantive-depth + author-side-iterating-in-flight during review-window (v167-v173 lineage); whoabuddy=fast-merge-on-arc-APPROVE *and* merge-without-re-review-comment after author's verification post (#727 pattern); steel-yeti=advisory-at-any-phase, including post-merge multi-lens Cycle 27 advisory on #726 absorbed into #727 in 35min advisory→merge. v145 personal-checklist (re-query state before synthesis-style comment >5min drafting) still applies. **v171 sub-pattern: post-merge-multi-lens-advisory as parallel-correctness substrate** — review-at-merge-time finds review-time gaps; fixup PRs absorb corrections while still open.
+2. **arc partnership active surfaces (current 2026-05-11T00:05Z):** x402-sponsor-relay#369 (my v12 still awaiting arc response, 7d threshold ~2026-05-14, ~3d remaining); **landing-page Phase 2.5 cutover hygiene fully shipped**: #722 (Step 3.1 read-flip MERGED + smoke CLEAN), #726 (cache-invariant single-source extraction MERGED), #727 (Cycle 27 absorption MERGED — stale-marker check + glob discovery + posture-pattern + pattern coverage + single-source-of-truth refactor); arc APPROVED #722/#726/#727 with substantive [suggestion]/[nit] menus on each. Step 3.2 spec #725 awaiting PR opening (v166 scout ready). Convention-refinement issue (Spark simplify + Forge ROUTE_ATTRS bag + comment-accretion debate) proposed in #727 substrate; awaiting maintainer decision.
+3. **Cross-org Robotbot69 thread (active since v146-v147):** news-client#33 — Robotbot69 (Opal Gorilla) IC Role claim names paused-pipeline reconciliation as first contribution. My v147 reply queued 3 artifacts (JingSwap f4ea75c1 + HODLMM 9718c305 + BIP-322 wallet-retire proof); passive since. May warrant `daemon/robotbot69-coordination.md` if cadence develops; ~27 cycles silent — not yet.
+4. **Multi-PR coord drift watch (named v95)** — fires when arc + I review in parallel and a non-blocking suggestion gets implemented twice. v98 catch on #699/#700 duplicate validated empirically. Reviewer-pair-agnostic: same trigger applies to whoabuddy+arc opens.
 
-### PR review queue (always live)
-5. **landing-page#716 (mine)** — fix(claims) for #712 return-widening regression. arc APPROVED 16:04Z + CI green; awaiting whoabuddy merge. 21+/10-, behavior matrix in body covers all 5 input combinations. Predicate guard `agent.btcPublicKey &&` + 2 stale-comment refreshes (claims/code:139-141 + register:720-723).
-6. **landing-page#704 (mine)** — OG title fix-PR for #702 doubled "Agent" word at level=1 agents. arc APPROVED 10:18Z; whoabuddy ~7h silent at v149 boot. `formatLevelTitleSuffix` helper extraction.
-7. **landing-page#697 Phase 2.5** — Step 1 merged via #705 (10:42Z 5/10); Step 2 reconciliation observation pending operational signal; Step 3 (read-flip) checkpoint-gated. v126 vote A is operating as designed.
-8. **landing-page Phase 2.5 follow-ups** — v144 partition: positive-path test for `bip322VerifyP2WPKH` widened return (steel-yeti finding 1 — needs sign-helper export or fixture capture); D1-fill convergence observability + reconcile path for new agents whose helper D1 write fails silently (steel-yeti finding 2). Both deferred from #716 scope.
-9. **aibtc-mcp-server #487 follow-on** — Gap 1 (#504) still OPEN, ~75h since v51 maintainer-merge ping (5/8 13:54Z); ~93h to 7d threshold (~5/15). Gap 2 + Gap 3 scouts (`daemon/scouts/487-gap{2,3}.md`) sequenced after #504 merge — v149 freshness audit confirmed line refs corrected post-#474 + #494 (catch block now L368-452, success path L344-371); architectural substance intact.
-10. **aibtc-mcp-server#510 (mine)** — competition trading tools PR. arc APPROVED 02:43Z 5/10. My v144 follow-up identified the spec issue location (API spec pointer in competition.tools.ts); awaiting biwasxyz response on Q1+Q3+Q4 + nit-PR offer.
-11. **mcp-server#509/#508** — duplicate fast-uri CVE bumps awaiting whoabuddy to merge one and close the other. Same CI-green-then-maintainer-stall pattern.
-12. **x402-sponsor-relay#369** — arc ~96h+ silent on my v12 verifyMessage asymmetry finding; 7d threshold ~2026-05-14 (~4d remaining).
+### PR review queue (always live, as of 2026-05-11T00:05Z)
+5. **landing-page Phase 2.5 cutover (mine, recent shipped):** #722 + #726 + #727 all MERGED 2026-05-10. End-to-end Phase 2.5 read-flip + cache-invariant hygiene + structural-enforcement triplet shipped. arc + whoabuddy + steel-yeti dev-council density at strongest observed (v172 had 4 lens reads in single PR window). 24-cycle aibtc-mcp-server#497 baseline-arc fully closed in production.
+6. **landing-page#725 Step 3.2 spec** — whoabuddy-authored, awaiting PR opening. v166 scout (`daemon/scouts/697-step3-2.md`) pre-positioned. v167 spec-engagement validated address-match-guard as block-on-merge security positive-path. Ready to substantively-review when PR opens.
+7. **landing-page#723** — CLOSED-by-merge via #726.
+8. **landing-page Phase 2.5 forward stack** — Steps 3.3 (outbox-list-GET D1 flip) + 3.4 (lib helpers) ahead; outbox-still-on-KV until 3.3. The CACHE_INVARIANTS:POSTURE marker on those routes is `public-only-get` (today); will require update if/when sender-auth moves to GET surface. Steel-yeti advisory finding (auth-required-get branch unexercised by current routes) gets exercised then. Convention-refinement issue may consolidate the Spark/Forge deferred-findings before 3.3 lands.
+9. **aibtc-mcp-server #487 follow-on** — Gap 1 (#504) still OPEN, ~3.5d since v51 maintainer-merge ping; ~3.5d to 7d threshold (~5/15). Gap 2 + Gap 3 scouts (`daemon/scouts/487-gap{2,3}.md`) sequenced after #504 merge — v149 freshness audit confirmed line refs corrected post-#474 + #494; architectural substance intact.
+10. **aibtc-mcp-server#510 (mine)** — competition trading tools PR. arc APPROVED 02:43Z 5/10. v144 follow-up Q1+Q3+Q4 + nit-PR offer awaiting biwasxyz response (now ~24h+ silent).
+11. **mcp-server#509/#508** — duplicate fast-uri CVE bumps awaiting whoabuddy to merge one and close the other.
+12. **x402-sponsor-relay#369** — arc ~4.5d+ silent on my v12 verifyMessage asymmetry finding; 7d threshold ~2026-05-14 (~3d remaining).
 13. **landing-page#705 (b)-followup PR** — synthesis posted v134; awaiting whoabuddy ack on followup-test PR offer.
 14. **landing-page#706 cross-page replay** — ACK posted v140; awaiting whoabuddy direction on #697 umbrella template-gap proposal.
+15. **aibtc-mcp-server#476 (mine, ~v54-style mapping)** — competition trading endpoint mapping done; awaiting maintainer pickup.
 
 ### Watching surfaces (low priority observation-only)
 15. **agent-news platform** — paused via #818 EIC trial end. arc fix-PR for my #819 (#821) still open since 5/8; my APPROVE in court. Joint v4 Publisher Liability proposal still forming on #818 surface.
@@ -82,6 +83,22 @@ Mutable list — new repos get added as they enter active development.
 
 ### Strategic trading (small-capital, infrequent)
 20. **Bitflow swap thesis** — only when bitflow_get_quote vs alex_get_quote shows ≥0.5% better AND <2% slippage AND a real reason. Per-trade max 1,000 sats sBTC. Daily cap 3. **No active thesis.**
+
+## Recently shipped (cycles 2034v167–v173, 2026-05-10T22:11Z–2026-05-11T00:05Z, ~2h window)
+
+**Phase 2.5 cutover hygiene cluster (mine, v167-v173):**
+- **landing-page#722** Phase 2.5 Step 3.1 read-flip MERGED 20:58Z 5/10 (post-merge smoke CLEAN at +32min by whoabuddy)
+- **landing-page#726** cache-invariant single-source extraction MERGED 22:53Z 5/10 (lib/inbox/CACHE_INVARIANTS.md + 1-line pointer comments + posture markers + structural enforcement test; my non-fix hygiene PR; design-pivot mid-implementation from auth-import-detection to posture-marker for mixed-handler false-positive avoidance)
+- **landing-page#727** Cycle 27 absorption MERGED 23:41Z 5/10 (Cairn BLOCKER stale-marker check via GET-handler-scope auth-token detection + Cairn-Forge fail-closed glob discovery + Cairn POSTURE_PATTERN block-comment expansion + arc array-literal nit + single-source-of-truth refactor via findAuthTokenInGetHandler; 35min end-to-end from steel-yeti Cycle 27 advisory → merge)
+- **Convention-refinement issue** proposed in #727 substrate (Spark simplify findings + Forge ROUTE_ATTRS bag proposal + comment-accretion debate) — awaiting maintainer decision on opening
+
+**Patterns codified v167-v173:**
+- v167 scout-pre-position-BEFORE-AUTHORING (extending v159/v166 review-prep lineage)
+- v169 design-pivot mid-implementation when false-positive surface discovered
+- v170 regex-coverage-drift requires structural pinning via pattern-test-block
+- v171 post-merge-multi-lens-advisory as parallel-correctness substrate
+- v172 two-code-paths-diverged-silently as test-coverage failure mode; single-source-of-truth refactor as structural answer
+- v173 fold-actionable-findings / defer-convention-shape split as reusable Cycle-N-absorption posture
 
 ## Recently shipped (cycles 2034v98–v149, 2026-05-09T16:35Z–2026-05-10T17:18Z, ~25h window)
 

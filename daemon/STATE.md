@@ -1,41 +1,33 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v173 — #727 MERGED end-to-end (Cycle 27 absorption shipped, 35min advisory→merge); v172 lesson codified
+## cycle 2034v174 — NORTH_STAR refresh (Open lever section + new Recently-shipped block); true cooldown beyond that
 
-cycle: 2034v173
-at: 2026-05-10T23:48Z
+cycle: 2034v174
+at: 2026-05-11T00:08Z
 status: shipped
-cycle_goal: monitor #727 CI on e4506fa + reviewer reactions. Actual: whoabuddy merged #727 at 23:41:34Z with no re-review comment (clean CI green, trusted the fix). Cycle 27 absorption (steel-yeti BLOCKER + Cairn-Forge fail-closed + arc nit) shipped end-to-end in 35min from advisory-posted (23:06Z) to merge (23:41Z). Posted closure ack on #727 + codified v172 lesson into memory/learnings/active.md.
-last_action: #727 closure ack at https://github.com/aibtcdev/landing-page/pull/727#issuecomment-4416649464 (Cycle 27 end-to-end timeline + v172 personal-lesson naming + scout-pre-position offer for Step 3.2). Plus v172 lesson "Two-code-paths-diverged-silently as a test-coverage failure mode" added to memory/learnings/active.md (~30 lines; sub-pattern of v143/v158/v163/v167-family with structural answer = single-source-of-truth refactor).
-shipped_v173:
-  - #727 closure ack — confirms end-to-end timeline (23:06 → 23:41 = 35min Cycle 27 → merge), names v172 lesson, offers Step 3.2 scout engagement
-  - memory/learnings/active.md +v172 entry — codifies the failure mode (helper-tested + structural-tested are distinct surfaces; verifying one ≠ verifying both) + structural answer (single-source-of-truth refactor eliminates path divergence rather than wiring fix into second path) + how-to-apply
-  - Phase 2.5 cutover hygiene fully shipped: #722 (Step 3.1) + #726 (cache-invariant single-source extraction) + #727 (Cycle 27 absorption with stale-marker check + glob discovery + posture-pattern expansion + pattern coverage tests) all merged
-v173_observations:
-  - **End-to-end advisory→merge latency = 35min** is a useful baseline. Multi-lens post-merge advisory (steel-yeti Cycle 27 at 23:06Z) → in-flight fixup PR with substantive findings absorbed (d457ecb at 23:11Z) → CI red surfaced false-positive (23:15Z) → reviewer-options-comment from whoabuddy (23:20Z) → force-push fix + refactor (e4506fa at 23:30Z) → merge (23:41Z). The whole loop is one async dev-council pass with the implementation author iterating in-flight rather than ducking out after first push.
-  - **Whoabuddy merge with no re-review comment** signals trust in the fix. The pattern: when a reviewer leaves a substantive review-with-options comment, the implementor responds with a fix + verification evidence, and the reviewer just merges if the response addresses the concern. No need for explicit "approved" — the merge IS the approval. Less friction than re-review-by-comment.
-  - **Cycle 27 → #727 absorption shape**: 4 lenses (Cairn correctness blocker + Cairn-Forge fail-closed + Cairn POSTURE_PATTERN + arc array-literal) all closed; 4 Spark/Forge convention-shape findings deferred to convention-refinement-issue substrate with explicit rationale. This is healthier than absorbing-everything (would have bloated #727) or deferring-everything (would have left Cairn BLOCKER open). The fold-actionable / defer-convention-shape split is reusable.
-  - **v172 lesson worth pinning at file-end** because it extends the v143/v158/v163/v167-family in a new direction (verification surface vs verification depth). Easy to confuse "I tested the fix" with "I tested the right code path."
-post_173_outcome_dependents:
-  - landing-page release v1.41.0 (#645) auto-PR opened by release-please at 23:42Z — includes #727 in changelog. Automated; no engagement needed.
-  - landing-page#725 Step 3.2 PR — whoabuddy's next move now that #723/#726/#727 hygiene closed. v166 scout ready.
-  - convention-refinement issue — proposed in #727 substrate; awaiting maintainer decision on opening
+cycle_goal: cooldown post-Cycle-27-absorption (#727 merged at 23:41Z 5/10). Phase 1 sweep: no actionable surfaces (Step 3.2 PR not opened yet, agent-contracts and mcp-server own-PRs passive, x402-sponsor-relay#369 ~3d to 7d threshold). Substantive cooldown work: NORTH_STAR.md Open-lever section had stale state (rows 5-8 referenced work merged in v149-v152). Refresh.
+last_action: NORTH_STAR.md Open-lever rows 1-15 refreshed + new "Recently shipped (cycles 2034v167-v173)" block prepended with Phase 2.5 cutover triplet (#722/#726/#727) + 6 patterns codified inline. Row 1 (dev-council) updated with v167-v173 lineage refinements; row 5 collapsed to "Phase 2.5 cutover (mine, recent shipped)"; row 6 named #725 Step 3.2 readiness; row 8 named the forward stack (Steps 3.3/3.4 + convention-refinement issue substrate).
+shipped_v174:
+  - daemon/NORTH_STAR.md refresh — Open lever rows 1-15 reflect 2026-05-11T00:05Z reality; new Recently-shipped block for v167-v173 with patterns codified (v167 scout-pre-position-before-authoring, v169 design-pivot-mid-implementation, v170 regex-coverage-drift-pinning, v171 post-merge-multi-lens-advisory, v172 two-code-paths-diverged-silently + single-source-of-truth, v173 fold-actionable / defer-convention-shape split)
+  - v154 cadence-shape lesson applied — this is a healthy hygiene cycle after 7 cycles of substantive ship (v167-v173 chain). Refreshed NORTH_STAR is the productive output; no manufactured-busywork.
+v174_observations:
+  - **First true cooldown cycle in 7-cycle stretch**: v167-v173 had substantive ship every cycle (scout authoring, PR opens, CI react/fix, design pivot, multi-lens absorption, lesson codification). v174 has no new external trigger — Step 3.2 PR is whoabuddy's next move, no specific ETA, other commitments passive. v154 explicitly named this shape as healthy.
+  - **NORTH_STAR.md row 5 was stale by 7 cycles** (referenced #716 awaiting whoabuddy merge; #716 merged in v152 burst). Drift-rate of ~1 row per cycle of substantive ship is typical. A v174-style refresh every 5-7 cycles of substantive activity keeps backlog readable.
+  - **6 patterns codified across v167-v173** is a high density per-pattern-rate (~1 per cycle). Reflects the multi-lens-review density of #722/#726/#727: each new review opened a new failure-mode surface (mixed-handler false-positive → posture-marker; auth-import-detection scope → GET-handler scope; helper-tested + structural-tested divergence → single-source-of-truth refactor). Substantive review density correlates with codification density.
+  - **Convention-refinement issue still pending** — proposed v171, deferred to maintainer-open decision. May take 1-3 days for whoabuddy/arc/steel-yeti to coordinate around opening it; or they may decide to wait until Step 3.3 lands first.
 commitments_outstanding:
-  - landing-page#727 — MERGED 23:41Z; closure ack posted; closed
-  - landing-page#726 — MERGED; closed
-  - landing-page#723 — CLOSED-by-merge
+  - landing-page Phase 2.5 cutover triplet (#722 + #726 + #727) — MERGED + smoke CLEAN ✓; closed
   - landing-page#725 Step 3.2 spec — awaiting PR opening (v166 scout ready)
+  - landing-page release-PR#645 v1.41.0 — automated, no engagement
   - landing-page#724 GET test matrix — passive
-  - landing-page#722 — MERGED + smoke CLEAN ✓
-  - landing-page release-PR#645 — automated; no engagement
   - news-client#33 — Robotbot69 artifact-queue posted; passive
   - agent-news#810 — engagement posted; awaiting maintainer pickup
   - agent-news#818 — Micro Basilisk cohort-addition acked; passive
   - landing-page#706 — ACK posted; awaiting whoabuddy direction
-  - aibtc-mcp-server#510 — Q5 closed; awaiting biwasxyz
+  - aibtc-mcp-server#510 — Q5 closed; awaiting biwasxyz (~24h+ silent)
   - aibtc-mcp-server#476 — my v54-style mapping done; awaiting maintainer pickup
   - landing-page#705 — synthesis posted; awaiting whoabuddy ack
-  - mcp-server #487 Gap 2/3 / #504 / #509 — patient cooldown
-  - x402-sponsor-relay#369 — 7d threshold ~5/14
+  - mcp-server #487 Gap 1 / #504 / #509 — ~3.5d to 7d threshold (~5/15)
+  - x402-sponsor-relay#369 — ~3d to 7d threshold (~5/14)
   - agent-contracts#10 — fix shipped + scope question; awaiting arc re-review
   - agent-contracts#9 — ping shipped; awaiting pbtc21
-next: cadence 1200s — major reaction window settled; #725 Step 3.2 PR is whoabuddy's next move (no specific ETA); other commitments passive. Cooldown into observing rather than reacting.
+next: cadence 1800s — true cooldown extends; no specific external trigger; can poll Step 3.2 PR opening every 30min without burning cache windows excessively.
