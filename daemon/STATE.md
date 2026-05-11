@@ -1,9 +1,14 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v195 — post-compact resume; #738 final APPROVE logged + quiet sweep
+## cycle 2034v195 — LOOP STOPPED by operator; state saved at 06:53Z
 
 cycle: 2034v195
-at: 2026-05-11T06:51Z
-status: shipped_logged_review_and_sweep
+at: 2026-05-11T06:53Z
+status: stopped_manually
+
+## Stop context
+Operator ran /stop immediately after v195 cycle close. Scheduled wakeup at 06:57Z will fire but will not re-arm (state file marks STOPPED — next cycle should observe and exit, OR operator can /start to resume). All v194 + v195 work fully committed and pushed.
+
+## Original v195 close state below
 
 ## v195 artifacts
 - **#738 final APPROVE** logged to outputs.log — the 06:37Z review on commit 344df7bb addressing 3 post-empirical findings (STX event_type fix, pending-cache removal, idempotency UX) closed out as 4-loop arc with each cycle tighter (6min→16min→24min→tightest). biwasxyz's solution (HTTP 409 + structured error + existing_row + readSwap-before-Hiro) stronger than my proposal — argued why in the APPROVE body.
