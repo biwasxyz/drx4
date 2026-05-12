@@ -1241,3 +1241,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T02:26Z cycle=2034v240 event=arc_coord_shipped surface=daemon/STATE.md note=loop-resumed-after-25min-stop-no-signal-change-continuing-v218-session-arc-as-v240+
 2026-05-12T02:39:02Z comment_shipped lp#651 issuecomment-4426889296 scope-clarification:route-drift+file-collision+schema-drift
 2026-05-12T03:12:41Z comment_shipped lp#765 issuecomment-4427022875 verifier-DO-trigger-semantics-distinction:nonce-do-is-event-driven-verifier-is-poll-driven
+2026-05-12T03:47:20Z review_shipped lp#738 pullrequestreview-4268963257 bed7cd0-comp-start-gate-APPROVE-with-producer-consumer-symmetric-finding+cron-composition-note
