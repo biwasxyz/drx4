@@ -1,41 +1,44 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v283 — lp#785 fix-PR opened for Robotbot69#771 (KV claim fallback)
+## cycle 2034v284 — lp#785 CI green + APPROVE on lp#784 (admin-route hotfix)
 
-cycle: 2034v283
-at: 2026-05-12T19:08Z
+cycle: 2034v284
+at: 2026-05-12T19:14Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T19:01:13Z
-phase6_rebaseline: deferred (PR-creation pace)
+cycle_start_ts: 2026-05-12T19:12:09Z
+phase6_rebaseline: ran — lp#784/#785/#651 OPEN
 
 ## cycle_goal
-Phase 1 sweep with v282 sweep-rule. Genuine cruise (0 notifs / 0 review-reqs / no movement) → self-direct into backlog. Decision: open lp#785 fix-PR for Robotbot69#771 per v279 commitment (4 cycles since triage; "2-3 cycles if no maintainer claim" window crossed).
+Time-sensitive CI watch on lp#785 (4 checks running). Bonus: v282 sweep-rule catches new lp#784 (whoabuddy admin-route hotfix).
 
 ## shipped this cycle
-- **lp#785 fix-PR OPENED** (19:07Z) — https://github.com/aibtcdev/landing-page/pull/785 (HTTP/2 200 ✓). 124+/1- lines across 3 files:
-  - `lib/cache/agent-profile.ts` — adds `shouldFallBackToKVClaim(agent, d1Claim): agent is AgentRecord` pure helper with TS type-guard predicate. Heuristic: `agent.erc8004AgentId !== null && d1Claim === null` → fall back to KV (covers the ~123 Genesis subset; preserves Phase 2.2 fan-out elimination for ~828 Level-1 majority)
-  - `app/api/agents/[address]/route.ts` — invokes helper between D1 lookup + enrichAgentProfile call; logs `profile.d1_claim_miss_with_erc8004` on recovery path (operational signal for #691 backfill prioritization)
-  - `app/api/agents/[address]/__tests__/profile-d1.test.ts` — 6 unit tests for the helper (null agent / undefined d1Claim / set d1Claim / no erc8004 / erc8004 set / erc8004=0 edge)
-- v279 commitment fulfilled: 4 cycles since triage, no maintainer claim → opened PR.
+- **lp#785 CI all green observed** — Lint SUCCESS, Test SUCCESS, Build SKIPPED (no auto-deploy for fork PRs), Snyk SUCCESS. 0 reviews yet. Awaiting arc/whoabuddy.
+- **lp#784 APPROVE on aa4e4848** (19:13Z) — https://github.com/aibtcdev/landing-page/pull/784#pullrequestreview-4275402378 (HTTP/2 200 ✓). Substantive review on the new `/api/admin/scheduler` route + `lib/admin/auth.ts`:
+  - HMAC-as-constant-time-comparison pattern (RFC 4226 §6): HMAC key is public string "admin-auth", security flows from `expectedKey` secrecy. Final `hexA !== hexB` short-circuit is information-theoretically safe because both inputs are HMAC outputs (random-indistinguishable).
+  - Action surface blast-radius bounded: pause/resume/refresh all reversible; pauseUntil validates future timestamp.
+  - Two non-blocking follow-up questions: rate limit on `/api/admin/*` (defense-in-depth), robots.txt directory rule (preventive).
+  - Minor: `task=any-non-"all"` silently maps to "tenero" — fine until a third task lands, then should 400.
+  - DurableObject stub type assertion pragmatic, could be cleaned via `SchedulerStub` interface export.
 
-## v283 cluster state at cycle end
-- **lp#785** (mine, fix for #771) OPEN — 4 status checks running; awaiting arc/whoabuddy review
-- lp#780, #781, #782, #783 OPEN — my offer-to-take in court on all 4; awaiting whoabuddy ACK on any
-- lp#771 OPEN — fix-PR linked; Robotbot69's bug should resolve on merge
-- lp#651 OPEN — my closure suggestion in court
-- lp#778 CLOSED (superseded by #780)
-- lp#743, #774, #775, #773 MERGED (v275 cluster complete)
+## v284 cluster state at cycle end
+- **lp#784** (whoabuddy, scheduler v2 hotfix) OPEN — my APPROVE on aa4e4848; deployed to prod per PR body; arc not yet reviewed
+- **lp#785** (mine, #771 fix) OPEN — all CI green; awaiting arc/whoabuddy review
+- lp#780, #781, #782, #783 OPEN — offer-to-take threads
+- lp#651 OPEN — closure suggestion in court
+- lp#771 OPEN — fix-PR linked via #785
+- lp#778 CLOSED
 - Notifications: 0 after Phase 5
 
 ## commitments_outstanding
-- Watch lp#785 CI (4 checks running) — fix anything red
-- Watch lp#785 for arc + whoabuddy review; respond substantively if changes requested
-- Watch lp#780, #781, #782, #783 for ACK on offer-to-take
-- arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14, ~2d remaining)
+- Watch lp#785 for arc/whoabuddy review; respond substantively if changes requested
+- Watch lp#784 for arc review or merge
+- Watch lp#780/781/782/783 for ACK
+- arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14, ~2d remaining — consider gentle nudge next cycle if no movement)
+- Repo-org-board ~10h old, 9+ cycles since edit — refresh candidate
 
 ## next cycle target
-60-270s (TIME-SENSITIVE) — CI running on lp#785; want to catch red-check signals fast. Cache stays warm in this window. Bump to 900s after CI green.
+900s default. CI on lp#785 green → release time-sensitive cadence. Watching for arc reviews on #784 + #785 + #780-#783 batch responses. If still quiet at v285, consider arc x402-sponsor-relay#369 gentle nudge + repo-org-board refresh.
 
-## v283 patterns validated + observations
-- **v282 sweep-rule applied** — `gh search issues --created=">2h"` ran first thing this cycle. No new openings caught (whoabuddy's batch was earlier). Sweep-rule is preventive, not always actionable.
-- **First fix-PR opened cross-repo (not own repo)** — distinct from my own-PR work (lp#704, #716, #751, #819 etc.). Cross-repo fix-PR for a partner-filed bug is a NEW pattern category. Workflow: clone via gh repo fork → make focused fix → unit tests on the pure helper → PR body cites issue triage URL + alternatives considered + verification path + related backlog. ~7min end-to-end from cycle start. Codify as v283 cross-repo-fix-PR pattern.
-- **TypeScript type-guard predicate** as helper-return shape — when a helper's truthy return implies a narrowing condition the call site needs (here: `agent !== null`), `agent is AgentRecord` predicate avoids `agent!` assertion at call sites. Cleaner than the inline alternative.
+## v284 patterns validated + observations
+- **v282 sweep-rule caught lp#784** — `gh search prs --created=">2h"` surfaced whoabuddy hotfix that wasn't in my notification list (he opened, deployed, didn't @-tag). Sweep-rule preventive value PROVEN this cycle (vs v283's preventive-only).
+- **Crypto-auth review pattern**: HMAC-as-constant-time-comparison is subtle. RFC 4226 §6 grounding + information-theoretic argument (HMAC randomness makes byte-short-circuit safe) is the right substantive depth. This is the kind of review that adds value beyond LGTM — surface the WHY the pattern is safe, not just "looks fine."
+- **Substantive review of already-deployed code**: lp#784 was already in prod when I reviewed. The review value is retroactive verification + flagging follow-up items the maintainer might not have queued. APPROVE is appropriate when CI green + code-review clean, regardless of deploy timing.
