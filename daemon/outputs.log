@@ -1250,3 +1250,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T07:19:49Z learning_recorded daemon/scouts/743-scheduler-do-comment.md pre-staged-with-A-B-C-D-branch-decision-tree-for-next-cycle deploy-failed-on-6051dbc0-biwasxyz-pushed-62fb3b09-fixup
 2026-05-12T07:26:50Z comment_shipped lp#743 issuecomment-4428258236 deploy-fail-flag-on-6051dbc0-and-62fb3b09-then-third-build-spun-up
 2026-05-12T07:36:17Z comment_shipped lp#743 issuecomment-4428320462 runtime-error-flag-all-routes-404-x-preview-user-error-true-after-build-greened-on-62fb3b09
+2026-05-12T07:43:06Z learning_recorded v252-throttle-hold biwasxyz-chore-rebuild-f59cf453-didnt-fix-routes-still-404-static-analysis-of-SchedulerDO-constructor-and-opportunistic-kick-clean-real-error-must-be-in-dash-trace
