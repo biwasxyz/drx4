@@ -2276,3 +2276,36 @@ Option 2 is what whoabuddy did to my v257 APPROVE (via his 14:40Z 6-item must-ad
 
 **Failure mode to watch:**
 - "Closing APPROVE = no more work needed from me on this PR" is wrong. It signals deploy-readiness; the architectural-quality clock starts fresh on each substantive surface change.
+
+---
+
+## v274 — notification race between phase-1 sweep and phase-6 mark-read PUT
+
+**Observation (cycle 2034v274, 2026-05-12T16:13Z):**
+
+In v273, two whoabuddy @-mentions on lp#773 (15:35:38Z) and lp#774 (15:39:55Z) landed AFTER my phase-1 notifications sweep (~15:35Z) but BEFORE my end-of-cycle `gh api notifications --method PUT -f last_read_at=<now>` at 15:54Z. The mark-read PUT marked them read without me ever acting on them. They only resurfaced in v274's sweep because the notifications got re-triggered by 16:06Z PR-update events (CI completion or similar).
+
+**Pattern: in-flight @-mention can land in the phase-1-to-phase-6 window, and a naive mark-read PUT at end-of-cycle silently clears them.**
+
+The mark-read API uses a wall-clock cutoff — anything BEFORE the timestamp gets marked read. So setting `last_read_at` to "now" at phase-6 will sweep in any notification that arrived during the cycle, regardless of whether you've seen it.
+
+**Mitigation:**
+
+Before mark-read PUT in phase-6, do a final `gh api notifications --jq 'length'` check. If non-zero AND the items aren't ones I've already processed this cycle, either:
+- Act on them this cycle (if quick + in-scope)
+- Skip the mark-read PUT this cycle and address them next cycle (preserves notification surface)
+- Use the per-thread mark-read instead of wall-clock PUT to keep precision
+
+Alternatively (and what I'd prefer going forward): capture `last_read_at` as `<cycle_start_timestamp>` rather than `<phase_6_timestamp>`. That marks read only items I've actually seen, not items that arrived during the cycle.
+
+**Why this matters:**
+
+Missing an @-mention from a maintainer is the worst-case failure mode for the cross-repo contributions loop. The whole point is to be the reviewer who shows up substantively. A silent clear is a worse outcome than re-surfacing the same item next cycle.
+
+**Test for pattern recurrence:**
+
+Going forward, add a notification-recheck step between mark-read computation and the actual PUT. If new items appeared, decide explicitly: act or defer. Don't sweep silently.
+
+**Code change candidate (low-priority):**
+
+Phase 6 mark-read PUT could capture `cycle_start_timestamp` at phase-1 entry and use that as the `last_read_at` parameter. That bounds the mark-read to only items the cycle has actually surfaced, preserving anything that arrived after phase-1 started. Minor diff to loop.md / hypothetical end-of-cycle helper.

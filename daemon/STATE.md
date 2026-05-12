@@ -1,41 +1,45 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v273 — race-condition re-APPROVE on lp#743 + whoabuddy @-mention re-look on lp#775
+## cycle 2034v274 — 2 more APPROVEs (lp#773 + lp#774) closing 762 edge-cache trio
 
-cycle: 2034v273
-at: 2026-05-12T15:54Z
+cycle: 2034v274
+at: 2026-05-12T16:13Z
 status: ACTIVE
 
 ## cycle_goal
-Phase 1 sweep + clear notifications; handle lp#743 head advance race-condition (my v272 APPROVE dismissed) + whoabuddy @-mention quick re-look on lp#775 (out-of-scope from operator-narrow, but direct ask from maintainer).
+Phase 1 catch up on whoabuddy @-mentions from 15:35Z/15:39Z that resurfaced via 16:06Z updates (lp#773 762c + lp#774 762b-middleware). Both pair-PRs to lp#775 which I'd approved v273.
 
 ## shipped this cycle
-- **lp#743 re-APPROVE on 6e5dcfe2** (15:52:22Z) — https://github.com/aibtcdev/landing-page/pull/743#pullrequestreview-4273990719 (HTTP/2 200 ✓). Verified 3 new Copilot-fix commits (daf6d5e BigInt-safe SUM + scheduler-ref fix; dd54ec0 BigInt sBTC sat parse + L1 mempool.space narrowing; 6e5dcfe d1-dual-write UNIQUE-violation substring-match docstring). v124 head-SHA-pre-submit check ran this time before submit.
-- **lp#775 APPROVE on 7999e01** (15:53:03Z) — https://github.com/aibtcdev/landing-page/pull/775#pullrequestreview-4273996363 (HTTP/2 200 ✓). whoabuddy @-mention 15:33Z asked for re-look on Codex+Copilot taproot-invalidation fix. Set-based collection in challenge POST handles 3 cases (taproot unchanged / changed / cleared). identity/refresh symmetric via existing cachedAddresses loop. arc APPROVED 14:46Z + steel-yeti 4-of-4 lens advisory positive 15:23Z.
+- **lp#773 APPROVE on 1827ebdf** (16:12:00Z) — https://github.com/aibtcdev/landing-page/pull/773#pullrequestreview-4274149611 (HTTP/2 200 ✓). Codex P1 partial-index gap closed: `buildIndexFromD1` returns null when <100 rows so KV-scan fallback stays primary until #691 backfill completes. 5 new D1-path tests added. JSDoc fix on AgentIndexRow.
+- **lp#774 APPROVE on 6384e078** (16:12:26Z) — https://github.com/aibtcdev/landing-page/pull/774#pullrequestreview-4274153813 (HTTP/2 200 ✓). CodeQL XSS + 4 Copilot inline closed: escapeHtml covers 5 chars (& first, correct ordering), encodeURIComponent before escapeAttr (defense in depth), Vary: User-Agent preserved on cached clone via `new Headers(response.headers)`, shared `buildMiddlewareOgCacheKey` import, ctx.waitUntil(cache.put) non-blocking, taproot purge in challenge POST mirroring #775's Set pattern.
+- Notifications: 0 unread at cycle end (marked-read 16:13Z)
+- Surfaced post-merge cleanup observation: `bustAllOgCachesForAddress(addr)` helper as the unify point between #774 + #775 + #773 cluster Sets
 
-## v272 → v273 race-condition pattern
-- biwasxyz pushed 3 Copilot-fix commits committed 15:32:13-15:32:26Z
-- my v272 APPROVE submitted 15:32:26Z (same second as the last commit committedDate)
-- PR updated 15:34:36Z (push event); my APPROVE dismissed
-- v124 lesson re-applied: grab CURRENT_HEAD via gh pr view immediately before submit, abort if changed. Worked cleanly v273.
+## v274 cycle observations
+- v273 phase-1 sweep missed lp#773/lp#774 mentions (posted 15:35Z/15:39Z, before my mark-read PUT at 15:54Z) — they only resurfaced because their notifications got refreshed via 16:06Z PR-update events. **Pattern: in-flight @-mention can land between phase-1 query and phase-6 mark-read.** Recheck notifications immediately before mark-read PUT to catch the race.
 
-## Trading-comp surface state at cycle end
-- lp#743 head **6e5dcfe2** (advanced 3-commits from da3227e0 since v272), reviewDecision APPROVED (my re-APPROVE), mergeable MERGEABLE, Workers Build expected-RED per platform 10211 — ball in whoabuddy court
-- lp#775 head 7999e01d (new PR opened 14:39Z by whoabuddy), reviewDecision APPROVED (arc + me), out-of-scope from operator-narrow but covered via direct @-mention
-- lp#651 d711c3a1 BLOCKED CHANGES_REQUESTED (no movement since 02:38Z pre-stop)
-- lp#738 5224a0d9 CLEAN (no movement since 05:28Z pre-stop)
-- mcp#510 521c2466 CLEAN (no movement since 03:21Z pre-stop)
-- Notifications: 0 unread at cycle end (marked-read PUT @ 15:54Z)
+## 762 edge-cache cluster state at cycle end
+- lp#773 762c (agents:index D1 rebuild) — head 1827ebdf, arc APPROVED + my APPROVE
+- lp#774 762b (middleware OG edge-cache 5min TTL) — head 6384e078, arc 2x APPROVED + my APPROVE
+- lp#775 762b (route-handler OG edge-cache 24h TTL) — head 7999e01d, arc APPROVED + steel-yeti 4/4 lens + my v273 APPROVE
+- Pair-conflict: lp#774 + lp#775 both modify `app/api/challenge/route.ts` with Set-based OG purge. Whichever lands first → second needs rebase + Set-unification refactor (helper `bustAllOgCachesForAddress` suggested in my lp#774 closing)
+
+## Trading-comp surface state (unchanged)
+- lp#743 head 6e5dcfe2 — my v273 re-APPROVE; ball in whoabuddy court
+- lp#651 d711c3a1 BLOCKED CHANGES_REQUESTED (no movement)
+- lp#738 5224a0d9 CLEAN (no movement)
+- mcp#510 521c2466 CLEAN (no movement)
 
 ## commitments_outstanding
 - Post-merge verification probes on lp#743 (scouts/743-post-merge-verify.md) once whoabuddy merges
-- Pair-PR conflict signal on lp#774 vs lp#775 — whichever lands first, ping the other for rebase touch-up (noted in lp#775 closing)
+- 762 cluster: ping the lagging PR for Set-unification rebase touchup when one of #774/#775 lands first
 - lp#651 closure-framing scout (scouts/651-closure-framing.md) when #743 merges
 - arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14)
 
 ## next cycle target
-Continue active-iteration cadence (900s) — both lp#743 and lp#775 in whoabuddy's merge queue. If merge: post-merge verify runbook. If push: re-verify diff. Operator-narrow scope (trading-comp PRs) remains primary; cross-org @-mentions still in-scope when from named maintainers.
+900s default. Active iteration on whoabuddy's queue — 5 of my APPROVEs (lp#743 + lp#773 + lp#774 + lp#775 + earlier #716) in court for merge. Operator-narrow trading-comp scope still primary; @-mention cross-org work proven in-scope when from named maintainers.
 
-## v273 patterns validated
-- v124 head-SHA-pre-submit check: confirmed re-application sequence works (grab head, compare to verified-against SHA, submit only if equal)
-- v167 scout-pre-position reused: 743-post-merge-verify.md and 651-closure-framing.md scouts remain ready
-- v95 multi-PR coord drift watch: lp#774 and lp#775 are now a parallel pair, both touching same files (challenge POST + identity/refresh) — flagged in lp#775 closing comment proactively
+## v274 patterns validated
+- v124 head-SHA-pre-submit re-applied on lp#774 explicit-abort branch — confirmed working
+- v95 multi-PR coord drift watch: 762 cluster (4 PRs touching overlapping files) — flagged Set-unification proactively
+- v167 scout-pre-position still standing for 743-post-merge-verify
+- **v274 new pattern: notification-race-between-phase1-and-phase6** — recheck `gh api notifications --jq length` between mark-read and ScheduleWakeup
