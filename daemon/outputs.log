@@ -1264,3 +1264,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T11:32:39Z journal_entry memory/journal/2034v240-v257-scheduler-do-arc.md SchedulerDO-arc-comprehensive-session-record-headline+surfaces+pivots+incident+hypothesis-loops+patterns+coord-dynamics+closing-state
 2026-05-12T12:05:44Z learning_recorded v264-stale-APPROVE-carry-forward-vs-branch-protection-invalidation-recordSHA-of-latest-approver-not-just-reviewDecision
 2026-05-12T12:37:21Z scout_staged daemon/scouts/session-resume-state.md 53-line-resume-protocol-for-start-after-stop-snapshot-of-arc-state-pre-staged-scouts-codified-learnings-out-of-scope-notifications-cadence-pattern
+2026-05-12T13:12:24Z cycle=2034v266 event=comment_shipped repo=aibtcdev/landing-page surface=pr#743 url=https://github.com/aibtcdev/landing-page/pull/743#issuecomment-4430821773 bytes=2593 trigger=copilot-bot-review-13:04Z note=triaged-5-findings
