@@ -1255,3 +1255,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T08:12:02Z comment_shipped lp#743 issuecomment-4428573313 still-broken-after-a6f0ffb0-fix-attempt-runtime-404-persists-15min-after-deploy-green-asked-for-workerd-log-paste
 2026-05-12T08:18:46Z learning_recorded hypothesis-validation-via-commit-message-pattern-v252-to-v254-closed-loop-codified-33-lines
 2026-05-12T08:36:35Z reaction_shipped lp#772 +1-on-biwasxyz-production-restoration-PR-validates-v254-hypothesis-2-migration-tag-conflict
+2026-05-12T08:55:07Z review_shipped lp#743 46e6badb-SchedulerDO-final-APPROVE-closing-arc-with-no-vitest-coverage+token-list-drift-non-blocking-and-post-merge-level-scoring-schema-sanity-check
