@@ -1,40 +1,39 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v279 — Robotbot69#771 substantive cross-org triage (dual-source claim root cause)
+## cycle 2034v280 — lp#743 MERGED + deploy verified + lp#651 closure suggestion
 
-cycle: 2034v279
-at: 2026-05-12T17:49Z
+cycle: 2034v280
+at: 2026-05-12T18:08Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T17:45:11Z (captured per v274 mitigation)
-phase6_rebaseline: ran — confirmed lp#743/#778 OPEN no movement; #771 updated 17:48Z by my comment
+cycle_start_ts: 2026-05-12T18:05:06Z
+phase6_rebaseline: ran — lp#743 MERGED, lp#651 OPEN (closure suggested), lp#771/#778 OPEN
 
 ## cycle_goal
-Phase 1 sweep. 0 notifications + 0 review-requested. Self-direct into backlog — pick up Robotbot69#771 cross-org bug report (untouched since v276 observation).
+Phase 1 sweep — lp#743 expected to merge. Run scouts/743-post-merge-verify.md + scouts/651-closure-framing.md once trigger conditions met.
 
 ## shipped this cycle
-- **Robotbot69#771 substantive triage** (17:48Z) — https://github.com/aibtcdev/landing-page/issues/771#issuecomment-4433226783 (HTTP/2 200 ✓). Cross-org bug report from partner agent (Opal Gorilla / rosolitt). Confirmed live repro at 17:45Z, identified root cause as **dual-source claim lookup asymmetry** introduced by lp#672 Phase 2.2 (NOT a #753 regression):
-  - `/api/verify` reads `kv.get('claim:btc')` → Level 2 Genesis for Opal Gorilla
-  - `/api/agents` uses D1 LEFT JOIN claims (since #672) → Level 1 for Opal Gorilla (claim row absent in D1)
-  - agent-news `src/services/identity-gate.ts:16` hardcoded `AGENT_API_BASE = "https://aibtc.com/api/agents"` → signal write-path hits D1 path → IDENTITY_REQUIRED rejection
-  - Related to #691 (708-record D1 backfill tracker OPEN) — Opal Gorilla's claim is one of the KV-only records
-- Three fix paths offered: (A) KV-fallback for missing D1 claim in /api/agents [smallest unblock]; (B) backfill via #691; (C) cross-repo identity-gate switch source. Offered to take A-fix PR.
+- **lp#743 deploy-verified ack** (18:06Z) — https://github.com/aibtcdev/landing-page/pull/743#issuecomment-4433351162 (HTTP/2 200 ✓). Post-merge probe Branch A confirmed: `/leaderboard` returns 200 (was 307 pre-merge); HTML carries new Trading Leaderboard + Trades + Volume (USD) columns; `/api/leaderboard` schema unchanged (level-scoring `rank/level/levelName/score`); 123 Genesis / 828 registered / 951 total agents. Force-dynamic posture confirmed externally (200-not-307 flip at build). Loop summary: 16:24Z build caveat → 16:30Z my rec → 17:06Z fix → 17:09Z re-APPROVE → 17:52Z merge → 18:06Z deploy verified (~1h41m end-to-end).
+- **lp#651 close-as-superseded suggestion** (18:07Z) — https://github.com/aibtcdev/landing-page/pull/651#issuecomment-4433352764 (HTTP/2 200 ✓). Per pre-staged scout. /leaderboard is now #743-owned; portfolio surface from #651's lib/balances/ has no remaining product slot. Suggested salvageable modules for follow-up + cc'd whoabuddy as #652 umbrella owner.
 
-## v279 cluster state at cycle end
-- Robotbot69#771 OPEN — my v279 triage in court; awaiting maintainer triage or fix-PR claim
+## v280 cluster state at cycle end
+- lp#743 MERGED 17:52:28Z; deploy verified; SchedulerDO + KV-prices Volume column populates per ~5min cron (structural deploy green)
+- lp#651 OPEN — my closure suggestion in court; awaiting biwasxyz close-decision or scope-pivot
+- lp#771 OPEN — my v279 triage in court; no maintainer response yet
 - lp#778 (mine) OPEN — sibling unification follow-up; no triage yet
-- lp#743 head d72559e8 OPEN — my v277 APPROVE still in court; awaiting whoabuddy merge
-- lp#651, lp#738 unchanged
+- lp#774, #775, #773 MERGED (cluster complete)
 - Notifications: 0 unread after Phase 5
 
 ## commitments_outstanding
-- Watch Robotbot69#771 for triage / maintainer response / fix-PR claim; fall back to taking A-fix PR myself in 2-3 cycles
-- Watch lp#743 for whoabuddy merge on d72559e8
-- Watch lp#778 for triage / maintainer claim
+- Watch lp#651 for biwasxyz closure / scope-pivot response on my suggestion
+- Watch lp#771 for maintainer response / fix-PR claim
+- Watch lp#778 for triage
 - arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14, ~2d remaining)
+- Volume column populate verification on /leaderboard at +5-30min from merge (~17:57Z–18:22Z window)
+- scouts/743-post-merge-verify.md + scouts/651-closure-framing.md can be RETIRED (executed this cycle)
 
 ## next cycle target
-900s default. Watching for: lp#743 merge, lp#778/lp#771 triage, x402-sponsor-relay#369 arc 7d threshold approaching.
+900s default. Watching for: lp#651 closure response, lp#771 + lp#778 triage, Volume column populate verification.
 
-## v279 patterns validated + observations
-- **Cross-org partner-filed bug response (new pattern)**: Robotbot69 (partner repo agent) filed lp#771 at 07:12Z; I observed at v276 (10.5h later) but didn't engage. v279 substantive triage was timely-enough — cross-org partners deserve substantive engineering response within 1 day. Codify: cross-org partner-filed bugs get same-day-or-next-day substantive response, not multi-day observation drift.
-- **Root-cause analysis as cross-thread routing**: triage required reading 3 repos (landing-page /api/verify + /api/agents + agent-news /api/signals + identity-gate) to identify the dual-source asymmetry. The bug reporter (Robotbot69) had the SYMPTOM correct but not the structural cause. Substantive triage = supply the cause + cite affected code + propose fix paths.
-- **Phase 6 always-on re-baseline**: ran again, no drift. Two consecutive cycles preventive.
+## v280 patterns validated + observations
+- **Pre-staged scout pattern paid off** — scouts/743-post-merge-verify.md + scouts/651-closure-framing.md were pre-staged at v259 (3 days ago). Trigger conditions met this cycle (lp#743 MERGED). Both scouts ran clean, Branch A in both cases. Pre-positioning substantive content for time-future surfaces is a substantive multiplier. Codify: maintain ~3-5 pre-staged scouts at any time for likely-soon surfaces.
+- **Full build-caveat → close-out loop**: v275 substantive build-caveat comment (16:30Z) → v276 standing offer → v277 re-APPROVE on whoabuddy fix (17:09Z) → v280 merge + deploy verified (18:06Z) + sibling PR closure suggested. End-to-end author-substantive-engagement chain across 4 cycles.
+- **Phase 6 always-on re-baseline**: ran for 3rd consecutive cycle, no drift caught. Preventive cost is low (3 gh calls). Keeping always-on.
