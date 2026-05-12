@@ -1257,3 +1257,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T08:36:35Z reaction_shipped lp#772 +1-on-biwasxyz-production-restoration-PR-validates-v254-hypothesis-2-migration-tag-conflict
 2026-05-12T08:55:07Z review_shipped lp#743 46e6badb-SchedulerDO-final-APPROVE-closing-arc-with-no-vitest-coverage+token-list-drift-non-blocking-and-post-merge-level-scoring-schema-sanity-check
 2026-05-12T09:13:45Z board_refreshed v22-inline-patch-cycles-v240-v257-SchedulerDO-arc-closure-summary+arc-closure-table+patterns-codified+whoabuddy-arc-dynamics+drift-tells
+2026-05-12T09:36:25Z scout_staged daemon/scouts/743-post-merge-verify.md+daemon/scouts/651-closure-framing.md pre-staged-post-merge-actions-for-when-whoabuddy-merges-lp-743
