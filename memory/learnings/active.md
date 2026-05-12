@@ -2224,3 +2224,55 @@ Neither subsumes the other. The 5-finding triage took me ~7 minutes (read body, 
 - Track: Copilot-review-after-my-APPROVE occurrences across next 10 cycles.
 - For each: did I catch all real findings? Was triage shipped within 15min? Did maintainer act on the triaged items?
 - Failure mode to watch: triaging EVERY Copilot finding (vs filtering) — that's review theater with extra steps.
+
+---
+
+## v269 — Maintainer-substantive-review as bigger blind-spot-finder than bot review (v266 extension)
+
+**Observation:** v266 codified Copilot-bot-review as blind-spot complement. v269 immediately followed with a *bigger* instance: whoabuddy posted a 6-item must-address review on lp#743 at 14:40Z, 1.5h after my v266 triage post. Items #2/#3/#4/#5/#6 were all post-v257-closing-APPROVE catches I missed.
+
+**v269 whoabuddy review items vs my v257 catches:**
+
+| Item | I caught? | Whoabuddy caught | Class |
+|---|---|---|---|
+| #1 PR body rewrite | NO (caught by v266 Copilot triage) | YES | description drift |
+| #2 retarget to main + rebase | NO | YES | deployment path |
+| #3 readStored() storage.list scan vs targeted gets | NO | YES | architectural smell at scale |
+| #4 resolveActiveTokenSet D1 branch → silent decimals fallback | NO | YES | producer/consumer divergence |
+| #5 unit tests for DO + helpers (5 cases listed) | NO | YES | load-bearing-without-coverage |
+| #6 /api/prices endpoint referenced but absent | NO | YES | spec/code gap |
+
+**v269 verification of finding #4 (the highest-impact code-level item):**
+
+Producer (`worker.ts:272-273`): `resolveActiveTokenSet` unions `STATIC_TOKEN_IDS` with `SELECT DISTINCT token_in FROM swaps` — D1 branch can introduce tokens absent from `TOKEN_DECIMALS`.
+Consumer (`app/leaderboard/page.tsx:153`): `TOKEN_DECIMALS[r.token_in] ?? 6` silently falls to 6.
+`allPriced` (line 172) only flips false on missing *price*, not on *decimals fallback*. So `allPriced: true` can carry wrong USD silently.
+
+This is exactly the v172 "two-code-paths-diverged-silently" pattern shape. Whoabuddy's lockdown fix is correct; complementary fail-loud invariant (`assert DO-discovered active set ⊆ keys(TOKEN_DECIMALS); else log + skip`) would surface future drift in CI rather than at the USD-render layer.
+
+**Why I missed these at v257:**
+
+The v257 closing APPROVE was on the *bundling+migration recovery arc* (b8abf98f + #772 production restoration + #743 rebase post-#772). My read-attention focused on the deployment-path correctness: did the DO migration chain work? Did the inline workaround survive bundle? Was the platform-constraint 10211 message documented? I treated the NEW architectural surface (the SchedulerDO class + its data flow) as already-trusted from earlier reads.
+
+Architectural surface read-rigor was inversely correlated with bundling/migration urgency. When the deployment path was on fire, the new code's architectural quality got skimmed.
+
+**Codified rule (extends v266):**
+
+When closing-APPROVE on a PR after an in-flight production-incident-recovery arc: **schedule a dedicated architectural-quality pass on the post-recovery SHA**, separate from the recovery-arc review. Either:
+1. Block the closing APPROVE until the dedicated pass happens (preferred, but costs review-window urgency), OR
+2. Land the closing APPROVE on deploy-readiness, then ship a follow-up substantive-comment surfacing architectural concerns BEFORE merge (compatible with active-iteration cadence; signals that APPROVE is "deploy-path-cleared not architecture-blessed").
+
+Option 2 is what whoabuddy did to my v257 APPROVE (via his 14:40Z 6-item must-address). My job at v269 is to absorb the lesson, not to defend the v257 APPROVE.
+
+**Cross-cycle ties:**
+- v255 maintainer-commit-message as hypothesis oracle (commit-time signal from a different reader)
+- v266 Copilot-bot-review as blind-spot oracle (post-APPROVE signal from a static-analysis reader)
+- v269 maintainer-substantive-review as bigger blind-spot oracle (post-APPROVE signal from architectural-quality reader)
+- v172 two-code-paths-diverged-silently (pattern shape: v269 #4 is a fresh instance)
+- v141/v144 dev-council operating-mode (v269 reinforces: maintainer-substantive-review is dev-council's quality gate that closes the gap when reviewer-side architectural-rigor was time-pressured)
+
+**Test for pattern recurrence:**
+- Going forward: any closing-APPROVE I ship on a PR that just went through production-incident-recovery should be paired with a self-noted "architectural-pass-pending" marker. If 24h pass without maintainer-substantive-review filling that gap, I should fill it myself.
+
+**Failure mode to watch:**
+- "Closing APPROVE = no more work needed from me on this PR" is wrong. It signals deploy-readiness; the architectural-quality clock starts fresh on each substantive surface change.

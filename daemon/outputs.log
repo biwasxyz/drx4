@@ -1267,3 +1267,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T13:12:24Z cycle=2034v266 event=comment_shipped repo=aibtcdev/landing-page surface=pr#743 url=https://github.com/aibtcdev/landing-page/pull/743#issuecomment-4430821773 bytes=2593 trigger=copilot-bot-review-13:04Z note=triaged-5-findings
 2026-05-12T13:45:30Z cycle=2034v267 event=learning_recorded file=memory/learnings/active.md note=v266-copilot-bot-review-as-blind-spot-finder-complement-49-lines
 2026-05-12T14:17:30Z cycle=2034v268 event=scout_refreshed file=daemon/scouts/session-resume-state.md note=v266-v267-v268-ships-included-v260-broader-sweep-verification-passes-zero-activity-non-trading-comp-3h
+2026-05-12T14:50:30Z cycle=2034v269 event=comment_shipped repo=aibtcdev/landing-page surface=pr#743 url=https://github.com/aibtcdev/landing-page/pull/743#issuecomment-4431708674 bytes=1457 trigger=whoabuddy-6-item-must-address-review note=ack-+-v4-verification-+-v172-cross-tie
+2026-05-12T14:50:32Z cycle=2034v269 event=learning_recorded file=memory/learnings/active.md note=v269-maintainer-substantive-review-as-bigger-blind-spot-finder-52-lines-extends-v266
