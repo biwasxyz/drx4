@@ -1,5 +1,7 @@
 # Fixup-review checklist for lp#743 (v270 scout, pre-staged for biwasxyz's fixup batch)
 # Run when: lp#743 head SHA advances from 46e6badb after whoabuddy's 14:40Z must-address review
+# v271 update (15:09Z): item #2 (retarget to main) silently done by biwasxyz via base_ref_changed
+#   event — no SHA change. Items 1+3-6 still pending; await next push for code-level fixups.
 
 ## Pre-staged review structure
 
@@ -21,7 +23,7 @@ gh pr view 743 --repo aibtcdev/landing-page --json body --jq '.body' | head -50
 - "Scheduler foundation" framing present
 - *Updates* preamble can stay or be consolidated
 
-### Item 2 — Retarget base + rebase
+### Item 2 — Retarget base + rebase ✓ DONE 15:09Z (v271 verification)
 **Whoabuddy's ask:** Change base from `feat/competition-read-routes` (#738) → `main`. Rebase. `mergeable: CONFLICTING` resolves.
 
 **Verification probe:**
@@ -29,11 +31,13 @@ gh pr view 743 --repo aibtcdev/landing-page --json body --jq '.body' | head -50
 gh pr view 743 --repo aibtcdev/landing-page --json baseRefName,mergeable --jq '.'
 ```
 
+**v271 result:** `{"baseRefName":"main","headRefName":"feat/agents-mcp-trades-volume","mergeStateStatus":"UNSTABLE","mergeable":"MERGEABLE"}` — biwasxyz triggered `base_ref_changed` at 15:09:29Z. No SHA change to head; mergeable flipped CONFLICTING → MERGEABLE. UNSTABLE = Workers Builds still RED (expected per platform 10211).
+
 **Pass criteria:**
-- `baseRefName == "main"`
-- `mergeable != "CONFLICTING"` (should be CLEAN or UNKNOWN-pending-check)
-- Diff is smaller (#738's read-routes machinery no longer included in #743's PR diff)
-- The `swaps` table + `source` column from #668 are NOT re-introduced in #743 (they're already on main)
+- `baseRefName == "main"` ✓
+- `mergeable != "CONFLICTING"` (should be CLEAN or UNKNOWN-pending-check) ✓ MERGEABLE
+- Diff is smaller (#738's read-routes machinery no longer included in #743's PR diff) — to verify when next SHA lands
+- The `swaps` table + `source` column from #668 are NOT re-introduced in #743 (they're already on main) — to verify when next SHA lands
 
 ### Item 3 — Replace storage.list scan with targeted gets
 **Whoabuddy's ask:** `readStored()` at worker.ts:291-313 uses `storage.list({prefix: ""})`. Replace with `Promise.all` of targeted `state.storage.get<T>(key)` calls. Pattern: x402-sponsor-relay/src/durable-objects/nonce-do.ts.
