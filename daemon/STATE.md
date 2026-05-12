@@ -1,40 +1,38 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v245 — lp#743 412f91ff APPROVE (leaderboard KV→D1 + LEFT JOIN + ISR + async-context)
+## cycle 2034v246 — lp#738 doc-drift via preview probe (route.ts:31 "501 Not Implemented" stale)
 
-cycle: 2034v245
-at: 2026-05-12T04:54Z
+cycle: 2034v246
+at: 2026-05-12T05:28Z
 status: shipped
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v245 ship
-**lp#743 APPROVE re-review** (pullrequestreview-4269240428, verified 200) — 3 commits since arc's APPROVE on dd48fcf7:
-- **ed3eac0d**: KV agent-list cache dropped, direct `agents` D1 read
-- **1e20c2db**: single LEFT JOIN + `revalidate = 60` ISR window
-- **412f91ff**: `getCloudflareContext({ async: true })` fix for prerender path
+## v246 ship
+**lp#738 non-blocking comment** (issuecomment-4427595315, verified 200) — preview-probe drift finding on /api/competition/trades self-doc:
+- Probed all 3 endpoints on 592fe2ec preview: trades (GET+POST), allowlist, cron
+- `/api/competition/trades?docs=1` top-level `description` claims POST is "(ships in Phase 3.1 PR-B; currently 501 Not Implemented)" at route.ts:31
+- Actual POST behavior: HTTP 400 on bad txid validation, HTTP 404 on tx_not_found — fully wired, NOT 501
+- Sub-section `post` already describes the implemented contract (200/202/400/404/409 codes)
+- 1-line fix; non-blocking; fine for fixup-here or follow-up docs PR
 
-3 findings + preview-verified empirically:
-1. **KV→D1 cross-PR alignment with #738** — both #743+#738 land state-store unification across the comp surface; zero KV reads/writes post-merge
-2. **LEFT JOIN integrity confirmed via schema check** — `agents.stx_address TEXT NOT NULL UNIQUE` in migrations/001_agents.sql:5 → no row inflation, "functionally dependent" comment empirically correct
-3. **async-context fix is standard Next-on-CF gotcha** — `revalidate=60` requires `{async: true}` form for build-time prerender; in-line comment captures why
-4. **Preview verified live** at ea2d6170-landing-page.hosting-962.workers.dev/leaderboard → HTTP 200, title + columns match PR body; empty-state today (comp starts 2026-05-13T00:00Z)
-5. Tiny FYI: `SUM(s.amount_in)` JS Number precision — safe at current scale; flag only if larger-decimal token enters scope
+## v246 endpoint probe findings (positive)
+- `/api/competition/allowlist` → HTTP 200, returns 4 contracts (stableswap-stx-ststx + xyk-core + xyk-swap-helper + dlmm-swap-router) with their function whitelists
+- `/api/competition/cron` GET self-doc → HTTP 200, auth via X-Cron-Secret header
+- `/api/competition/trades?address={my_stx}` → HTTP 200, returns 1 sample trade (preview DB pre-seeded with my address as test data)
+- POST validation gate: rejects empty/malformed txid with "Invalid `txid`. Expected a 64-character hex string (optionally 0x-prefixed)" + `retryable:false`
+- POST happy-path-near-miss: 0x000...0001 → tx_not_found, retryable:false (correct propagation)
 
-## v245 boot SHA-compare
-- lp#738 → `5224a0d9` unchanged; only my APPROVE on 5224a0d9, awaiting arc
-- lp#651 → `d711c3a1` unchanged
-- lp#743 → `412f91ff` (CLEAN, my APPROVE)
-- lp#765 CLOSED (v244)
-- mcp#510 → `521c2466` unchanged
-- main lp HEAD → `60622b2f` (#766 merged — unrelated profile feature)
+## v246 boot SHA-compare
+- All comp surfaces unchanged since v245 (lp#651, lp#738/5224a0d9, lp#743/412f91ff, mcp#510/521c2466)
+- main lp HEAD unchanged 60622b2f
+- Side observation: mcp#497 (closed) had whoabuddy closure-confirmation comment at 05:24Z citing my v149 tracking comment positively; not actioning, just noting
 
 ## Pending on resume
-- arc re-review on **lp#738 5224a0d9**
-- arc re-review on **lp#743 412f91ff** (stale APPROVE on dd48fcf7, 4 commits old)
-- whoabuddy/biwasxyz response on **lp#651** scope question (v241 comment)
-- **#738 merge** = primary gate
-- **mcp#510 merge** unblocks after #738
+- arc re-review on **lp#738 5224a0d9** + my v246 doc-drift fix-up
+- arc re-review on **lp#743 412f91ff** (stale APPROVE on dd48fcf7)
+- whoabuddy/biwasxyz response on **lp#651** scope question (v241)
+- **#738 merge** = primary gate; **mcp#510 merge** unblocks after
 
 ## Cadence
-- 1800s default. Tighten to 900s on engagement.
+- 1800s. Tighten to 900s on engagement.
