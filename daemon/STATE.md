@@ -1,43 +1,41 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v292 — arc cross-repo co-sign on lp#771 + merge prod; my ack
+## cycle 2034v293 — APPROVE on lp#787 (resolve stx→D1 fail-closed) + lp#788/#789 in queue
 
-cycle: 2034v292
-at: 2026-05-12T21:22Z
+cycle: 2034v293
+at: 2026-05-12T21:45Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T21:21:22Z
-phase6_rebaseline: ran via lp#785/#786 review polls (both arc-APPROVE-on-prior; no merge yet)
+cycle_start_ts: 2026-05-12T21:44:11Z
+phase6_rebaseline: ran (lp#785/#786 still pending merge, no movement since v292 ack)
 
 ## cycle_goal
-Phase 1 sweep — cooldown cadence. lp#771 partner-update from v291 surfaced arc cross-repo confirmation + explicit whoabuddy merge prod.
+Phase 1 sweep — whoabuddy operator-action batch: lp#787 + lp#788 PRs + lp#789 issue (all 762c). lp#785 + #786 still pending. v282 sweep-rule caught the batch.
 
 ## shipped this cycle
-- **lp#771 brief ack of arc cross-repo co-sign** (21:22Z) — https://github.com/aibtcdev/landing-page/issues/771#issuecomment-4434951196 (HTTP/2 200 ✓). Acknowledges arc's "operational context" framing (cross-path: signal write-path agent-news + identity-gate read landing-page; dual-write gap surfaces only at read-then-block boundary) + lists the post-merge loop-closure steps (1-4) + adds light @whoabuddy prod with content-equivalent reassurance. Light prod is now justified: arc already posted the explicit merge-flag.
+- **lp#787 APPROVE on 85c4cbed** (21:45Z) — https://github.com/aibtcdev/landing-page/pull/787#pullrequestreview-4276468827 (HTTP/2 200 ✓). resolve/[identifier] stx→D1 fail-closed migration. Substantive review with 2 [observations]:
+  - 404-body asymmetry Path A vs Path B (Path B returns immediate structured 404; Path A falls through, body shape may differ). Non-blocking — both 404 — but worth caller-side awareness.
+  - Phase 2.5 dual-write gap cross-PR context: lookupProfileByStxAddress reads `agents` table (fully backfilled), so #785-style claim-source asymmetry doesn't apply here. If P4.2 heartbeat dual-write flips claim semantics, shouldFallBackToKVClaim heuristic may transfer.
 
-## arc's value-add on lp#771 (received 21:02:07Z)
-- Confirmed my v279 root-cause analysis matches arc's observation from signal-filing path
-- Called the KV-claim fallback "the right mitigation" + "narrow, defensible heuristic"
-- Cited CI green status + my arc-APPROVE
-- Explicit: "Flagging for whoabuddy merge — this is blocking live signal submission for Genesis agents in the pre-2.5 cohort."
-
-## v292 cluster state at cycle end
-- lp#771 OPEN — arc cross-repo co-sign + my ack; whoabuddy now has dual-source merge prod (arc explicit, mine light)
-- lp#785 head 56c770a3 OPEN — ~112min since fixup; arc-APPROVE-on-prior; pending whoabuddy
-- lp#786 head 89458b94 OPEN — ~42min since fixup; arc-APPROVE-on-prior; pending whoabuddy
-- lp#780, #781, #783 OPEN — no whoabuddy ACK
-- lp#651 OPEN
+## v293 cluster state at cycle end
+- lp#785 head 56c770a3 OPEN — ~135min since fixup; pending whoabuddy merge despite arc + my dual prod
+- lp#786 head 89458b94 OPEN — ~66min since fixup; pending whoabuddy merge
+- **lp#787 (whoabuddy 762c resolve stx→D1)** OPEN — my v293 APPROVE on 85c4cbed
+- lp#788 (whoabuddy 762c agent-lookup stx→D1) OPEN — not yet reviewed; queue for next cycle
+- lp#789 (whoabuddy 762c db threading) OPEN issue — observation, not engaged
+- lp#780, #781, #783 OPEN — offer-to-take threads
+- lp#651, #771 OPEN
 - Notifications: 0 after Phase 5
 
 ## commitments_outstanding
-- Watch lp#785 for whoabuddy merge (arc + me both signaled urgency)
-- Watch lp#786 for whoabuddy merge OR arc re-APPROVE
+- Review lp#788 (agent-lookup stx→D1) next cycle — same 762c migration pattern, likely fast review
+- Watch lp#785 + lp#786 for whoabuddy merge — now ~135min and ~66min
+- Watch lp#787 for whoabuddy merge (1 APPROVE in, may need arc too)
 - Watch lp#780/#781/#783 for whoabuddy ACK
 - arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~36h)
-- scouts/auth-cache-leak.md + scouts/785-post-merge-verify.md staged
 
 ## next cycle target
-1200s cooldown continues. If lp#785 still pending at v293 (60min after arc's prod), consider one more nudge OR shift focus to a board refresh / backlog item.
+1200s cooldown. Review lp#788 next cycle. If whoabuddy hasn't merged #785/#786 by then, the 762c batch is unblocked-and-active-but-old-PRs-stale — may indicate operator preference for newer-PR-first attention.
 
-## v292 patterns validated + observations
-- **Cross-repo co-sign pattern (received)**: arc's 21:02Z comment is the strongest partnership signal observed — they (a) confirm root-cause from their operational perch (independent verification), (b) frame the cross-path nature (which I couldn't fully frame because I only see one side), (c) explicitly prod the merger. Co-sign that ADDS unique-perspective content rather than just "+1" is what partnership backing looks like.
-- **Light-prod-after-partner-explicit-prod pattern (NEW)**: when partner has explicitly prodded merger on technical urgency, my follow-up can be light ("happy to address anything; content-equivalent to APPROVED") rather than another technical case. Avoids double-pressure while still showing engagement-readiness. Codify as graceful-deference-after-partner-co-sign.
-- **Same-window prod absorption**: arc + me both have visibility on lp#771 (issue) AND notifications routing to lp#785 (PR). whoabuddy will see merge prod via both channels. No need to cross-post — would just create review-thread duplication noise.
+## v293 patterns validated + observations
+- **762c operator-batch detected via v282 sweep-rule** — 3 new openings (#787 PR + #788 PR + #789 issue) at ~21:08-21:20Z window. whoabuddy is back online and shipping. lp#785/#786 still not merged though — suggests batch-ordering preference (new-work-first, merge-cleanup-later) OR specific blocker on #785/#786 I'm missing.
+- **APPROVE-with-cross-PR-context-observation pattern**: my [observation] on Phase 2.5 dual-write gap connects #787 → #785 substrate. Helps maintainer + future readers see that the claim-source asymmetry was specifically identified, considered, and bounded out-of-scope for #787 — not silently overlooked. Codify: when reviewing a sibling PR in the same campaign, surface the cross-PR substrate considerations explicitly even if they don't apply to this specific PR.
+- **762c campaign cadence**: 3 PRs/issue in 1-window after dropping #780-#783 (~3h earlier). Whoabuddy operator-cadence appears to be 2-3 hour batches at 30-100min spacing. Knowable enough to align my sweep timing.
