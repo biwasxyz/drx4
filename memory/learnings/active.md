@@ -2088,3 +2088,36 @@ The chain v225 → v230 is the agent learning the architectural discipline of "w
 - v246 doc-drift via preview probe: same instrument (HTTP probe), different finding class
 - v240 SHA-compare-at-boot: extending to runtime-vs-build-state distinction
 - v229 operator-narrow + hook-strict synthesis cliff: the scout file is the resolution mechanism for that pattern when synthesis would otherwise pile on
+
+---
+
+## v255 — hypothesis-validation-via-commit-message pattern (v252→v254 closed loop)
+
+**Pattern observed:** When you can't access a debug artifact (production log, dash trace, internal-only error message), a well-bounded static-analysis hypothesis posted as a PR comment can get *confirmed verbatim* by the maintainer's subsequent fix-commit message — provided the hypothesis is concrete enough to be testable against the actual error.
+
+**The v252→v254 loop:**
+
+v251 posted: "guess (without dash access): the `env.SCHEDULER.idFromName('v1')` lookup in `app/leaderboard/page.tsx` (the `62fb3b09` opportunistic SSR kick) throws when the binding isn't fully wired in preview env, or the `SchedulerDO` constructor's `this.ctx.blockConcurrencyWhile(async () => { ... setAlarm })` is throwing on first instantiation. Either of those at module-or-init time would 404 every route."
+
+v252 STATE narrative refined: "Universal 404 must be in bundle-time machinery (e.g., OpenNext.js bundling failing to handle `cloudflare:workers` DurableObject import) OR in some side effect I haven't read."
+
+biwasxyz's `b8abf98f` commit message at v254 (~36min later): "workerd refused to start with 'no such actor class; c = SchedulerDO'... importing SchedulerDO from ./lib/scheduler/scheduler-do and re-exporting from worker.ts didn't survive the OpenNext + wrangler esbuild pipeline. The class was stripped from the deployed bundle..."
+
+**The match:** v252's "bundle-time machinery" hypothesis was correct in shape; the specific symptom ("class stripped from bundle") was a more precise version of the same root cause.
+
+**Why this is operationally useful:**
+
+1. **Maintainer's commit message becomes my validation oracle.** When the maintainer fixes a problem I diagnosed, their commit message often explicitly cites the symptom I described — that's both validation that my hypothesis was correct AND that my comment was the input that drove the diagnosis.
+
+2. **Without dash trace access, the maintainer's first-pass fix is often informative even when it doesn't fully resolve.** v254's `b8abf98f` confirmed cause-class A (bundle stripping) but the runtime stayed broken — telling me there's a cause-class B underneath. The fix-attempt-doesn't-resolve is itself signal worth flagging back (v254 still-broken flag asked for the new workerd log line specifically).
+
+3. **The pattern works because of two prerequisites:**
+   - **Hypothesis must be testable against the actual debug artifact.** Vague "something is wrong with the build" doesn't validate; specific "module-load or fetch-handler-entry throw" does.
+   - **Hypothesis must be SHIPPED in a public comment**, not just held in STATE. The maintainer needs to read it for the loop to close. v252 STATE narrative wouldn't have closed the loop alone — it was v251's public comment that made the diagnosis available to biwasxyz.
+
+**Codified rule:** When the runtime fails on a PR you've been reviewing and you don't have log access, post the most-concrete-testable hypothesis you can defend from static analysis. The maintainer's response (fix-commit message OR explicit "the trace says X") becomes your feedback loop. This is the third hypothesis-channel after PR-review-time (substantive) and probe-after-APPROVE (v248) — call it "diagnostic-without-trace-access."
+
+**Cross-cycle ties:**
+- v248 preview-URL deep-probe pattern: same instrument (HTTP probe), used here for symptom-discovery rather than nit-discovery
+- v253 build-status-vs-runtime-status distinction: this loop is what makes CF "green checkmark" rendering insufficient
+- v144 producer/consumer-symmetric: the hypothesis-validation-via-commit-message loop is itself symmetric — my comment is "consumer" of build-output state; maintainer's commit message is "consumer" of dash-trace state

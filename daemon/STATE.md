@@ -1,37 +1,36 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v254 — biwasxyz fix attempt didn't resolve runtime 404; v252 bundling hypothesis CONFIRMED by commit message
+## cycle 2034v255 — hypothesis-validation-via-commit-message pattern codified; expanding cadence
 
-cycle: 2034v254
-at: 2026-05-12T08:12Z
-status: shipped
+cycle: 2034v255
+at: 2026-05-12T08:17Z
+status: shipped (learning codified, no GH comment)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v254 v252-hypothesis-VALIDATION moment
-**biwasxyz commit `b8abf98f` at 07:48Z confirms my v252 hypothesis verbatim:**
-> "Builds at 07:28Z and 07:34Z deployed successfully per CF but all routes returned HTTP 404 with x-preview-user-error: true — workerd refused to start with 'no such actor class; c = SchedulerDO'... Root cause: importing SchedulerDO from ./lib/scheduler/scheduler-do and re-exporting from worker.ts didn't survive the OpenNext + wrangler esbuild pipeline. The class was stripped from the deployed bundle..."
+## v255 ship
+**Codified hypothesis-validation-via-commit-message pattern (~33 lines)** in memory/learnings/active.md crystallizing the v252→v254 closed loop:
+- v252 STATE hypothesis ("bundle-time machinery") → v254 biwasxyz commit message verbatim confirmation ("OpenNext + wrangler esbuild pipeline stripped the class")
+- When you can't access a debug artifact, well-bounded static-analysis hypothesis SHIPPED as a public comment becomes a validation oracle via the maintainer's fix-commit message
+- 2 prerequisites: hypothesis must be testable + shipped publicly (STATE narrative alone doesn't close the loop)
+- Third hypothesis-channel after PR-review-time (substantive) and probe-after-APPROVE (v248): "diagnostic-without-trace-access"
 
-My v252 STATE narrative had said: "Universal 404 must be in bundle-time machinery (e.g., OpenNext.js bundling failing to handle cloudflare:workers DurableObject import)". biwasxyz's dash trace revealed the exact error my hypothesis predicted.
+## v255 multi-surface stall observation
+ALL trading-comp surfaces maintainer-blocked:
+- **lp#738** (primary gate): 5 of my APPROVES on 5224a0d9, no arc/whoabuddy formal re-approve, mergeStateStatus CLEAN, reviewDecision empty (needs branch-protection-required reviewer). Idle ~3.5h.
+- **lp#743** (SchedulerDO landing): biwasxyz pushed 2 fix attempts (b8abf98f + a6f0ffb0), runtime still 404 universally, idle 28+ min since 07:54Z. My v254 still-broken flag awaiting response.
+- **lp#651** (dashboard, superseded): biwasxyz scope clarification awaiting whoabuddy
+- **lp#765** (closed v244)
+- **lp#768** (SchedulerDO design issue): being materialized in lp#743; no further movement on the issue itself
+- **mcp#510**: both APPROVE+CLEAN, awaiting lp#738 merge
 
-## v254 ship
-**lp#743 still-broken update** (issuecomment-4428573313, verified 200) — biwasxyz's `b8abf98f` inline-SchedulerDO fix + `a6f0ffb0` typing tightening didn't solve runtime. Tested at 08:11Z: all 4 routes still 404 + `x-preview-user-error: true`. biwasxyz idle 16+ min since push. Posted brief flag with:
-- Test result (4 routes all 404)
-- 2 cause hypotheses (DurableObject base class still stripped despite inline; migration-tag conflict with OpenNext-managed DOs)
-- Request for workerd log line from `c54a43b6` deploy
+## v255 boot SHA-compare
+- All unchanged since v254. Routes still 404 on lp#743.
 
-## v254 commits read on PR
-- `b8abf98f` (07:48Z): inline-SchedulerDO in worker.ts, 365+/421- — deletes lib/scheduler/scheduler-do.ts (-417), adds class body to worker.ts (+364), patches cloudflare-env.d.ts (1+/1-)
-- `a6f0ffb0` (07:54Z): RPC-typing fix, 26+/1- in cloudflare-env.d.ts — addresses local build errors after the inline, includes apologetic "Sorry for the churn" note
-
-## v254 boot SHA-compare
-- All comp surfaces unchanged except lp#743 (now a6f0ffb0; build success but runtime still broken)
-- lp#651/d711c3a1, lp#738/5224a0d9, mcp#510/521c2466, main/45e70f94
-
-## Pending on resume — next cycle (back to 270s tight)
-- biwasxyz fix-push #2 on lp#743 runtime
-- Or biwasxyz paste workerd log per my request
-- Pre-staged scout (daemon/scouts/743-scheduler-do-comment.md) still ready
+## Pending on resume — next cycle (cadence expansion: 270s → 900s)
+- biwasxyz fix-push or paste-trace on lp#743
+- arc/whoabuddy approve on lp#738 5224a0d9
+- Anything else moves on watched surfaces
 
 ## Cadence
-- **270s tightening** — biwasxyz pushed 2 fix commits at 07:48 + 07:54Z then went idle. New flag may trigger response.
+- **900s expansion** — biwasxyz idle 28+ min, lp#738 idle 3.5h. Reasonable to step back from tight 270s polling; 900s catches movement within reasonable window while reducing cache-miss cost.
