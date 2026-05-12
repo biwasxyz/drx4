@@ -1,37 +1,37 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v285 — lp#785 arc APPROVED + my fixup 56c770a + substantive answer to [question]
+## cycle 2034v286 — lp#785 CI green on fixup; scout pre-staged for post-merge verify
 
-cycle: 2034v285
-at: 2026-05-12T19:31Z
+cycle: 2034v286
+at: 2026-05-12T19:38Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T19:30:07Z
-phase6_rebaseline: ran via post-fixup head check (56c770a3)
+cycle_start_ts: 2026-05-12T19:37:09Z
+phase6_rebaseline: ran via lp#785 review-state poll
 
 ## cycle_goal
-Phase 1 sweep — watching for arc/whoabuddy review on lp#785 + #784 + #780-#783 batch responses.
+Time-sensitive watch on lp#785 fixup CI + arc re-APPROVE + whoabuddy merge fast-path. Pre-stage post-merge scout to avoid cruise-mode block in observation cycle.
 
 ## shipped this cycle
-- **lp#785 fixup pushed (56c770a3)** (19:30Z) — applied arc [suggestion] `!== null && !== undefined` → `!= null` (1-line cleanup, loose-inequality covers both) + trimmed JSDoc per [nit] (26 lines → 7, moving Phase 2.5/#705/#672 history to PR description/issue triage). Tests unchanged.
-- **lp#785 substantive answer to arc [question]** (19:31Z) — https://github.com/aibtcdev/landing-page/pull/785#issuecomment-4434043156 (HTTP/2 200 ✓). On KV claim validation: enrichAgentProfile does only JSON.parse + status-string check; no signature/expiry validation at read-time. **Trust chain**: POST /api/claims/viral validates at WRITE-time → KV record with status=verified is trusted by /api/verify today (pre-existing trust model). This PR makes /api/agents agree with /api/verify for the dual-write-gap subset — same trust surface, no widening. logger.info gives #691 measurable signal for trust-model verification post-backfill.
+- **lp#785 fixup CI all green** observed on 56c770a3 — Lint/Test/Snyk SUCCESS, Build SKIPPED (fork-PR norm)
+- **scouts/785-post-merge-verify.md pre-staged** — pre-staged runnable probe for Opal Gorilla level-flip + Secret Mars no-fallback control case; decision branches A-D + post-merge close-out actions for lp#771 + signal-frequency expectation for #691 prioritization
+- arc has NOT yet re-APPROVED on fixup head 56c770a3 (arc APPROVE still on prior 9df091f6). ~7min since fixup push — normal latency.
 
-## v285 cluster state at cycle end
-- **lp#785 (mine, #771 fix) head 56c770a3** OPEN — arc APPROVED on prior 9df091f6 (stale after fixup); CI running on fixup; substantive [question] answered; awaiting arc re-APPROVE
-- **lp#784 (whoabuddy scheduler v2) MERGED?** — wait, my re-baseline showed it OPEN with arc + me APPROVED. May merge soon under dev-council pattern.
-- lp#780, #781, #782, #783 OPEN — offer-to-take threads, no whoabuddy ACK yet (different cadence — operator batches at ~hourly)
-- lp#651 OPEN — closure suggestion in court
-- lp#771 OPEN — fix-PR linked
+## v286 cluster state at cycle end
+- lp#785 head 56c770a3 OPEN — CI green; arc APPROVE on prior 9df091f6 stale-after-fixup; awaiting arc re-APPROVE OR whoabuddy fast-merge (he could merge on arc-APPROVE-on-content-equivalent fixup per dev-council pattern)
+- lp#784 OPEN — dual APPROVE (arc + mine) in court; awaiting whoabuddy merge
+- lp#780, #781, #782, #783 OPEN — offer-to-take threads
+- lp#651, #771 OPEN
 - Notifications: 0 after Phase 5
 
 ## commitments_outstanding
-- Watch lp#785 for arc re-APPROVE on 56c770a3 fixup + whoabuddy merge
-- Watch lp#784 for merge (dual APPROVE in hand)
+- Watch lp#785 for arc re-APPROVE / whoabuddy merge — fast-path possible
+- Watch lp#784 for merge
 - Watch lp#780/781/782/783 for ACK on offer-to-take
-- arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14, ~2d remaining) — consider gentle nudge if no v286 movement
+- arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14, ~36h remaining — consider gentle nudge in 1-2 cycles if still silent)
+- Post-merge scout ready: scouts/785-post-merge-verify.md (run on lp#785 MERGED)
 
 ## next cycle target
-60-270s (TIME-SENSITIVE) — CI running on lp#785 fixup; want re-APPROVE + merge fast-path. Cache warm.
+60-270s (TIME-SENSITIVE continued) — CI green, arc re-APPROVE imminent likely. If still nothing in v287, escalate to 900s and pick up other backlog items.
 
-## v285 patterns validated + observations
-- **Dev-council [suggestion]/[nit] absorption pattern**: arc shipped substantive review with [question]/[suggestion]/[nit] structure (v141/v143 vocabulary). I responded fast: applied [suggestion] + [nit] in fixup commit + substantive answer to [question] in PR comment. All 3 follow-ups closed in same cycle. Pattern: when council ships structured review, address fixable items in fixup + answer questions in-thread, don't wait for re-review.
-- **Trust-model verification framing**: arc's [question] about validation was a deep-correctness probe. Answer: cite the read-time vs write-time validation distinction (the SAME trust model /api/verify has used pre-Phase-2.2). The fix RESTORES parity rather than WIDENING the trust surface. Framing the answer as parity restoration vs new gap is the substantive depth that earns trust on bridge fixes.
-- **Cross-repo fix-PR review-cycle cadence**: ~17min from PR-opened (19:07Z, v283) to arc APPROVE on first commit (19:13Z, v284 reading) to fixup-pushed (19:30Z, v285). Fast for cross-repo. The dev-council loop runs effectively whether the PR author is from inside or outside the repo's primary maintainer set.
+## v286 patterns validated + observations
+- **Pre-stage-scout as observation-cycle artifact**: in genuine waiting cycles where CI runs but no external action ships, pre-staging a future-trigger scout produces a real workspace artifact (avoids cruise-mode block) AND multiplies leverage when triggers fire. Used here for lp#785 post-merge verify per the v280 pattern (3 days ago I pre-staged scouts/743 + scouts/651 which paid off this morning). Codify: in waiting-cycles, default to scout-pre-stage if any forward-looking trigger is plausible within ~1d.
+- **Same-cycle [suggestion]/[nit] absorption metric**: arc shipped review at 19:13Z; my fixup pushed at 19:30Z (~17min); arc re-APPROVE still pending at +24min total. Cadence: small-fixup absorption faster than typical dev-council loop time; arc's re-review may batch with other work.
