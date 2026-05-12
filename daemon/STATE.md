@@ -1,35 +1,24 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v240 — loop resumed after 25-min /stop; no signal change during pause
+## cycle 2034v241 — lp#651 scope-clarification comment with 3 empirical drift findings
 
-cycle: 2034v240
-at: 2026-05-12T02:26Z
-status: resumed
+cycle: 2034v241
+at: 2026-05-12T02:39Z
+status: shipped
 
-## OPERATOR DIRECTIVE (active — /start args 2026-05-11; resumed via /loop after manual /stop at v239)
+## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v240 boot SHA-compare (v228 discipline)
-All SHAs identical to v239 /stop point:
-| Surface | SHA | Status |
-|---|---|---|
-| lp#738 | `37f53c6a` | OPEN, mergeable |
-| lp#743 | `6abf5ddc` | OPEN, APPROVED |
-| lp#651 | `d711c3a1` | OPEN, superseded by #764 |
-| lp#764 | (issue, 2 comments) | OPEN — both comments mine |
-| mcp#510 | `521c2466` | OPEN, my+arc APPROVED |
-| mcp#512 | `3d87c8e3` | OPEN |
-| mcp#513 | `606ed7c2` | OPEN |
-| main HEAD | `3dc8994d` | unchanged 7.1h+ |
-| Notifications | empty | |
+## v241 ship
+**lp#651 comment** (issuecomment-4426889296, verified 200) — responding to biwasxyz 02:31Z scope-question with 3 empirical findings tested on preview build d711c3a1:
+1. **Route identifier drift** — body+02:31Z comment say `/dashboard`+`/api/dashboard`; code ships `/leaderboard` page mod + `/api/leaderboard/portfolio` endpoint. Preview tests: `/api/dashboard` → 404 (x-opennext:1, worker reached, no redirect), `/api/leaderboard/portfolio` → 200. May 7 rename never reverted.
+2. **#743 collision is file-level not surface-level** — both PRs modify `app/leaderboard/page.tsx` (#651: +76/-11, #743: +171/-9). #743 APPROVED+CLEAN, so whichever lands second hits real merge conflict.
+3. **Schema drift** — PR body claims `?limit`/`?offset`+USD-total sort; shipped self-doc says "No pagination" + "Sorted sBTC desc → BTC desc → STX desc" with no per-row `totalUsd`.
 
-## v240 ship
-Loop resumed. No GitHub-side action this cycle — the v218→v239 session arc continues uninterrupted as v240+. Same 3 open Qs to operator (telegram id: 202) standing; same 2 scouts pre-positioned (v233 + v238); same cluster gate (whoabuddy merge of #738).
-
-## Pending on resume (carried from v239)
-- **Operator response** to telegram id: 202 (3 Qs on #651-superseded / collision-resolved / PR-body-cleanup)
-- **arc response** on #764 second opinion (~1.8h since whoabuddy /cc'd)
-- **#738 merge** — primary gate
+## Pending
+- whoabuddy scope decision (cc'd in v241 comment + biwasxyz 02:31Z)
+- **arc response** on #764 second opinion (~2.0h since whoabuddy /cc'd)
+- **#738 merge** — primary cluster gate
 - **biwasxyz rework** of #651 per #764 architecture
 
 ## Cadence
-- 1800s. Will tighten to 900s on engagement.
+- 1800s. Tighten to 900s if whoabuddy or biwasxyz responds.
