@@ -1259,3 +1259,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T09:13:45Z board_refreshed v22-inline-patch-cycles-v240-v257-SchedulerDO-arc-closure-summary+arc-closure-table+patterns-codified+whoabuddy-arc-dynamics+drift-tells
 2026-05-12T09:36:25Z scout_staged daemon/scouts/743-post-merge-verify.md+daemon/scouts/651-closure-framing.md pre-staged-post-merge-actions-for-when-whoabuddy-merges-lp-743
 2026-05-12T10:00:06Z learning_recorded v260-drift-tell-verification-under-operator-narrow-override-broader-sweep-confirmed-no-missed-signal
+2026-05-12T10:26:54Z operator_coord_shipped telegram-id-217-cadence-menu-A-B-C-D-after-4-thin-ship-cycles-v258-v261-arc-closed-at-v257

@@ -1,50 +1,50 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v260 — drift-tell verification (broader sweep confirmed no missed signal)
+## cycle 2034v261 — operator-coord telegram check-in (cadence menu A/B/C/D after 4 thin-ship cycles)
 
-cycle: 2034v260
-at: 2026-05-12T09:59Z
-status: shipped (learning codified, no GH action)
+cycle: 2034v261
+at: 2026-05-12T10:27Z
+status: shipped (telegram id 217, no GH action)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v260 broader-sweep observation
-Per NORTH_STAR drift-tell ("same repo 3+ cycles → tunneling, rotate") — I've been deep on landing-page ~20 cycles. Ran broader-sweep to verify no missed signals:
+## v261 ship — operator-coord via telegram
+Per v230 learning pattern (telegram operator with cadence menu after 4+ thin-ship cycles):
 
-- **gh search prs --review-requested=@me** → empty across all repos
-- **gh search prs --commenter=@me --updated=">5/11"** → only the 7 known trading-comp surfaces have me active
-- **My own open PRs (not under current focus):**
-  - lp#751 (`be576115`): DIRTY mergeable, 0 comments since 5/11 14:36Z — drift surface, not actionable now
-  - aibtc-mcp-server#504 (`fix execute_x402_endpoint`): idle since 5/8 — awaiting maintainer
-  - loop-starter-kit #34/#35/#36/#37/#38/#43: 6 open PRs, multi-day idle — awaiting maintainer
-  - agent-contracts#9/#10 (pegged DAO + News DAO security): CLEAN + 2× APPROVED, awaiting maintainer merge ~26d
-- **No new review-requested** anywhere
+**Telegram id 217** sent to chat 2066819216 with:
+- Session ships summary (12 substantive artifacts since v241)
+- Cluster state summary (4 surfaces all maintainer-blocked)
+- Cadence-recommendation menu A/B/C/D:
+  - A. Stay 1500-1800s — hard-wait default (continues without reply)
+  - B. Expand to 3600s — further back-off
+  - C. /stop — close out session, can resume on next /start
+  - D. Lift operator-narrow override — broaden scope back to multi-repo
 
-**Verdict:** broader sweep confirms no missed review-requested, no new mention I should respond to. Tunneling-drift-tell is a real signal under self-directed scope but operator-narrow override holds; not acting on drift-candidates outside the operator-narrowed scope.
+## v261 thin-ship cycle count (since SchedulerDO arc closed)
+- v258 board v22 inline patch (no GH ship)
+- v259 2 pre-staged scouts (no GH ship)
+- v260 drift-tell-verification learning (no GH ship)
+- v261 operator telegram (no GH ship, but operator-coord IS the ship)
 
-## v260 ship
-**Codified v260 learning** (~30 lines in memory/learnings/active.md) on "drift-tell verification under operator-narrow override":
-- 3-step rule: verify periodically, don't act outside scope, capture in STATE
-- Single-SQL gh search query as the verification tool
-- Cross-tied to v229 (operator-narrow synthesis cliff) and v258 (board override-preamble)
+Per v230 pattern: telegram check-in at 4 thin cycles is the right cadence to give operator visibility without over-pinging.
 
-## v260 boot SHA-compare (no change since v258)
-- lp#651 d711c3a1 BLOCKED CHANGES_REQUESTED
+## v261 boot SHA-compare (no change since v258)
+- lp#651 d711c3a1 BLOCKED
 - lp#738 5224a0d9 CLEAN
 - lp#743 46e6badb DIRTY APPROVED
 - mcp#510 521c2466 chained
 - main lp HEAD a0b16768
 
-## Pre-staged scouts ready for activation
-- daemon/scouts/743-scheduler-do-comment.md (v249, may need adapt if state shifts)
-- daemon/scouts/743-post-merge-verify.md (v259, runs on whoabuddy merge)
-- daemon/scouts/651-closure-framing.md (v259, runs after lp#743 merges)
+## v261 maintainer idle clock
+- biwasxyz: 104+ min since 08:42Z platform-constraint comment
+- whoabuddy: idle since 08:30Z #772 merge
+- arc: silent on trading-comp since 03:21Z mcp#510 re-APPROVE
 
-## Pending on resume — next cycle (1200s expand stays)
-- whoabuddy merge on lp#743 → triggers post-merge scout + closure-framing scout
-- arc/whoabuddy approve on lp#738
-- biwasxyz scope decision on lp#651
-- Long-shot: operator override lifts, broadening NORTH_STAR scope back to multi-repo
+## Pending on resume — next cycle (1800s expand pending operator choice)
+- **Operator response on cadence menu A/B/C/D** (no reply defaults to A)
+- whoabuddy merge actions
+- arc formal approve on lp#738/#743
+- biwasxyz lp#651 scope decision
 
 ## Cadence
-- **1200s stays** — hard-wait mode confirmed by broader sweep. Operator may eventually nudge or the merge may land; meanwhile 1200s is the right cost-efficient interval.
+- **1800s expand** — 4 thin-ship cycles + operator now has cadence menu. Default A (stay 1500-1800s) honored; minor expansion to 1800s for cache efficiency during sustained hard-wait.
