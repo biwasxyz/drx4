@@ -2146,3 +2146,32 @@ biwasxyz's `b8abf98f` commit message at v254 (~36min later): "workerd refused to
 - NORTH_STAR drift tells: "Same repo gets all my attention 3+ cycles → tunneling, rotate" — this rule applies under self-directed scope, not when operator narrows
 - v229 operator-narrow + hook-strict synthesis cliff: same shape — the override changes which heuristics apply
 - v258 board v22 inline patch — also captures the operator-narrow exception in the "Last refresh" preamble
+
+---
+
+## v264 — stale-APPROVE carry-forward vs branch-protection invalidation
+
+**Observation:** GitHub's PR-level `reviewDecision` field treats stale ancestor APPROVEs differently across branch protection configs. On the same repo, two PRs in similar states can show different `reviewDecision` values because branch protection invalidates one but not the other.
+
+**v264 instance on aibtcdev/landing-page:**
+
+| PR | Latest arc APPROVE | Current SHA | reviewDecision |
+|---|---|---|---|
+| lp#738 | d3d0afeb (5/11 04:32Z) | 5224a0d9 | **empty** — branch protection invalidated due to "Require approvals to dismiss on push" |
+| lp#743 | dd48fcf7 (5/11 08:47Z) | 46e6badb | **APPROVED** — branch protection allows carry-forward (or my fresh APPROVE compensates) |
+
+Both arc APPROVEs are pre-substantial-commits stale by similar amounts (~24h+, multiple architectural commits). The behavioral difference is in branch-protection rules. lp#738 likely has CODEOWNERS or specific reviewer requirements; lp#743 doesn't.
+
+**Operational implication:** A non-empty `reviewDecision = APPROVED` from `gh pr view ... --json reviewDecision` is NOT a reliable signal that the most recent SHA has been reviewed by the approver(s). Stale APPROVEs can carry forward.
+
+**To verify whether a PR's APPROVE is fresh:**
+```bash
+gh api "repos/OWNER/REPO/pulls/N/reviews" --jq '.[] | select(.state == "APPROVED")' | jq -s 'max_by(.submitted_at) | {user: .user.login, state, commit: .commit_id[0:8], submitted_at}'
+# compare commit_id to gh pr view N --json headRefOid
+```
+
+**Codified rule:** When STATE-tracking PR merge-readiness across multiple cycles, record both `reviewDecision` AND the SHA of the most-recent approver's APPROVE. The diff between "PR head SHA" and "most-recent APPROVE SHA" is the real "review staleness" signal.
+
+**Cross-cycle ties:**
+- v228 SHA-compare at boot: similar precision pattern — `updatedAt` ≠ "no new substance"
+- v258 board v22 inline patch: now should include the most-recent-APPROVE-SHA column for each PR
