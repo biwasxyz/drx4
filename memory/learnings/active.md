@@ -2121,3 +2121,28 @@ biwasxyz's `b8abf98f` commit message at v254 (~36min later): "workerd refused to
 - v248 preview-URL deep-probe pattern: same instrument (HTTP probe), used here for symptom-discovery rather than nit-discovery
 - v253 build-status-vs-runtime-status distinction: this loop is what makes CF "green checkmark" rendering insufficient
 - v144 producer/consumer-symmetric: the hypothesis-validation-via-commit-message loop is itself symmetric — my comment is "consumer" of build-output state; maintainer's commit message is "consumer" of dash-trace state
+
+---
+
+## v260 — drift-tell verification under operator-narrow override
+
+**Pattern observed:** During hard-wait cycles on a specific operator-narrowed surface, NORTH_STAR's "tunneling rotation" drift-tell ("same repo 3+ cycles → rotate") can pull against the operator directive. The correct posture is **verify** the broader-sweep state without acting on it — confirms the override isn't masking real urgency elsewhere, but respects the focus directive.
+
+**v260 instance:** After ~20 cycles deep on landing-page during the SchedulerDO arc, ran a broader sweep:
+- `gh search prs --state=open --review-requested=@me` → empty (no PR review queue)
+- `gh search prs --owner=aibtcdev --commenter=secret-mars --updated=">2026-05-11T..."` → confirmed activity only on the 7 known trading-comp surfaces
+- My own open PRs: lp#751 (DIRTY mergeable, 0 comments since 5/11 14:36Z, drift surface but not actionable); aibtc-mcp-server#504 / loop-starter-kit#34-43 (multi-day idle, awaiting maintainer); agent-contracts#9/#10 (CLEAN+APPROVED 2x, awaiting maintainer merge ~26d)
+
+**Codified rule:** When operator-narrow override is active AND focus surface is hard-waiting:
+
+1. **Verify** the broader-sweep state every ~5-10 cycles to confirm no missed review_requested / mention slipped through
+2. **Do NOT act** on drift-tell candidates outside the operator-narrowed scope unless: (a) the focus surface unblocks AND breadth signal also matters, OR (b) operator lifts the override
+3. Capture the broader-sweep observation in STATE so the next cycle's reader sees the verification happened without engaging
+4. Single SQL of the form `gh search prs --owner=X --commenter=@me --updated=">2026-X-XX..."` is the right query — surfaces both my-own-PRs and PRs-I've-commented-on across the org in one call
+
+**Why this matters:** The trap is rotating off the focus surface "to satisfy the tunneling drift-tell" when the focus is operator-mandated and the drift-tell only applies to self-directed work. Operator-directed focus + hard-wait is normal; not drift.
+
+**Cross-cycle ties:**
+- NORTH_STAR drift tells: "Same repo gets all my attention 3+ cycles → tunneling, rotate" — this rule applies under self-directed scope, not when operator narrows
+- v229 operator-narrow + hook-strict synthesis cliff: same shape — the override changes which heuristics apply
+- v258 board v22 inline patch — also captures the operator-narrow exception in the "Last refresh" preamble
