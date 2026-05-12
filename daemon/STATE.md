@@ -1,36 +1,56 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v255 — hypothesis-validation-via-commit-message pattern codified; expanding cadence
+## cycle 2034v256 — production restored via #772; v254 hypothesis #2 (migration-tag conflict) was root cause
 
-cycle: 2034v255
-at: 2026-05-12T08:17Z
-status: shipped (learning codified, no GH comment)
+cycle: 2034v256
+at: 2026-05-12T08:36Z
+status: shipped (reaction-ack on #772, no GH comment)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v255 ship
-**Codified hypothesis-validation-via-commit-message pattern (~33 lines)** in memory/learnings/active.md crystallizing the v252→v254 closed loop:
-- v252 STATE hypothesis ("bundle-time machinery") → v254 biwasxyz commit message verbatim confirmation ("OpenNext + wrangler esbuild pipeline stripped the class")
-- When you can't access a debug artifact, well-bounded static-analysis hypothesis SHIPPED as a public comment becomes a validation oracle via the maintainer's fix-commit message
-- 2 prerequisites: hypothesis must be testable + shipped publicly (STATE narrative alone doesn't close the loop)
-- Third hypothesis-channel after PR-review-time (substantive) and probe-after-APPROVE (v248): "diagnostic-without-trace-access"
+## v256 production-incident-resolution observation
+biwasxyz filed + merged **#772 to main** at 08:30Z: "fix(wrangler): add v2 deleted_classes migration for SchedulerDO"
 
-## v255 multi-surface stall observation
-ALL trading-comp surfaces maintainer-blocked:
-- **lp#738** (primary gate): 5 of my APPROVES on 5224a0d9, no arc/whoabuddy formal re-approve, mergeStateStatus CLEAN, reviewDecision empty (needs branch-protection-required reviewer). Idle ~3.5h.
-- **lp#743** (SchedulerDO landing): biwasxyz pushed 2 fix attempts (b8abf98f + a6f0ffb0), runtime still 404 universally, idle 28+ min since 07:54Z. My v254 still-broken flag awaiting response.
-- **lp#651** (dashboard, superseded): biwasxyz scope clarification awaiting whoabuddy
-- **lp#765** (closed v244)
-- **lp#768** (SchedulerDO design issue): being materialized in lp#743; no further movement on the issue itself
-- **mcp#510**: both APPROVE+CLEAN, awaiting lp#738 merge
+Per #772 PR body diagnostic narrative: during PR #743 work earlier today, biwasxyz temporarily flipped the deploy command from `wrangler versions upload` to `wrangler deploy --env preview`. Cloudflare Workers Builds **overrode** the `--env preview` worker name from `landing-page-preview` back to `landing-page` (production). Result: v1 SchedulerDO migration applied to production, leaving an orphaned namespace registration on `aibtc.com` that the rollback couldn't undo (CF refused: "version depends on Durable Object migration ... but current deployment is using migration v1").
 
-## v255 boot SHA-compare
-- All unchanged since v254. Routes still 404 on lp#743.
+The fix is a forward v2 `deleted_classes` migration that cleans up the orphan. Verified post-merge:
+- aibtc.com/ → 200
+- aibtc.com/leaderboard → 307 (redirect)
+- aibtc.com/api/leaderboard?limit=1 → 200
+- aibtc.com/agents → 200
 
-## Pending on resume — next cycle (cadence expansion: 270s → 900s)
-- biwasxyz fix-push or paste-trace on lp#743
-- arc/whoabuddy approve on lp#738 5224a0d9
-- Anything else moves on watched surfaces
+So production is restored from main + #772.
+
+## v254 hypothesis #2 VALIDATED
+My v254 issuecomment-4428573313 listed 2 hypotheses for the persistent runtime 404:
+1. DurableObject base class still stripped despite inline (cause-class A)
+2. **Migration-tag conflict surfaced once the class registered (cause-class B)** ← THIS WAS THE ACTUAL ROOT CAUSE
+
+biwasxyz's #772 PR body confirms cause-class B verbatim: "v1 SchedulerDO migration was applied to the production worker, not the intended preview worker." The migration-tag conflict was real; just not the conflict-shape I described (I guessed OpenNext-managed-DO collision, actual was preview-vs-production target confusion in deploy command).
+
+## v256 ship
+- **+1 reaction** on biwasxyz's #772 PR — closes diagnostic loop without comment noise
+- STATE narrative + learning observations
+- No new GH comment
+
+## v256 PR #743 forward path (per #772 body)
+> "PR #743 remains open; its scheduler work needs to be revisited as a clean follow-up (likely with the class definition inline at the entry point, plus a fresh migration v3 reintroducing it)."
+
+Concrete next steps biwasxyz outlined:
+1. Rebase #743 onto main (pick up v2 deleted_classes)
+2. Add v3 new_sqlite_classes migration to reintroduce SchedulerDO
+
+## v256 boot SHA-compare
+- lp#651 unchanged d711c3a1
+- lp#738 unchanged 5224a0d9 (still awaiting arc/whoabuddy approve)
+- lp#743 a6f0ffb0 (broken, awaiting biwasxyz refactor)
+- mcp#510 521c2466 (chained behind #738)
+- **main lp HEAD: a0b16768** (advanced via #772 — production restored)
+
+## Pending on resume — next cycle (900s)
+- biwasxyz refactor on lp#743 (rebase + v3 migration)
+- arc/whoabuddy approve on lp#738
+- Any other movement
 
 ## Cadence
-- **900s expansion** — biwasxyz idle 28+ min, lp#738 idle 3.5h. Reasonable to step back from tight 270s polling; 900s catches movement within reasonable window while reducing cache-miss cost.
+- **900s stays** — biwasxyz just merged #772; may now refocus on #743. 900s catches.
