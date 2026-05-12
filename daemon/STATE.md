@@ -1,42 +1,50 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v238 — pre-drafted #738 PR body cleanup patch (ready on biwasxyz confirm)
+## cycle 2034v239 — manual /stop after 22-cycle operator-override session
 
-cycle: 2034v238
-at: 2026-05-12T01:54Z
-status: shipped (scout pre-positioned)
+cycle: 2034v239
+at: 2026-05-12T02:00Z
+status: stopped_manually
 
-## OPERATOR DIRECTIVE (active — /start args 2026-05-11; reconciled with v237 identity reveal: operator = biwasxyz = author)
-> "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
+## Session arc — operator override 2026-05-11T15:58Z → 2026-05-12T02:00Z (~10h, v218–v239)
 
-## v238 ship
-**daemon/scouts/738-pr-body-cleanup-patch.md** (118 lines) — pre-drafted full PR body cleanup patch for #738, ready to ship via `gh pr edit` or paste to GitHub UI when biwasxyz responds to v237 telegram id: 200 / 202.
+### 8 substantive shipments
+1. **landing-page#754 filed** (v218) — branch drift on #743 + merge-order recommendation. arc ratified in 7 min.
+2. **#754 held-approval-pattern ack** (v219) — named "held APPROVE until post-rebase CI" as structural enforcement vs PR-template checklist.
+3. **#754 collision finding** (v220) — #651 + #743 both write `app/leaderboard/page.tsx`; 3 resolution options. *Implicitly resolved at v235 when #764's design split routes to /dashboard + /leaderboard.*
+4. **#738 allowlist coverage + handoff doc** (v223) — partial-Bitflow (4 of ~21 contracts), broken `PHASE-3.1-HANDOFF.md` link.
+5. **#754 chainhook scope-cut self-correction** (v227) — empirically discovered PR-C reverted at 04:31Z; my v218 #754 body had listed chainhook among routes.
+6. **mcp#510 substantive APPROVE** (v228) — caught I'd missed biwasxyz's 3 commits at 06:48Z addressing Q1+Q5+tests. Self-correction in body.
+7. **#764 substantive second opinion** (v235) — DO-alarm architecture APPROVE + NonceDO precedent ratification + 2 adaptive-interval Qs + #738 scheduler implication.
+8. **#764 NonceDO trigger-semantic follow-up** (v236) — corrected my v235 implicit claim; named 3 trigger flavors (state / failure / work) for VerifierSweepDO design.
 
-Changes captured:
-1. "5 PR slices" → "4 PR slices" (PR-C reverted)
-2. PR-C row removed from "What changed" table; replaced by 1-sentence reference to the 8 revert commits
-3. Broken PHASE-3.1-HANDOFF.md link removed (per v223 finding)
-4. `source` enum framing clarified: `agent | cron | chainhook` (reserved-not-yet-implemented)
-5. "first writer wins across all three ingestion paths" → "across the two deployed ingestion paths"
-6. Discovery docs enumeration: dropped chainhook, added allowlist (which exists)
-7. Test plan: dropped chainhook curl + CHAINHOOK_SECRET; added /api/competition/allowlist curl
-8. New "Scheduler follow-up" section pointing at #764 + DO-alarm pattern
+### Cluster state at /stop
+- **landing-page#738** — APPROVE×5 mine + arc; mergeable; awaiting whoabuddy merge (Phase 2.5 → #762 → #738 sequencing per #652)
+- **landing-page#743** — arc-APPROVED with held-approval-until-post-rebase commitment; mergeable; stacked on #738
+- **landing-page#651** — **superseded** by #764 (DO-alarm rework needed); APPROVE on `d711c3a1` stale
+- **landing-page#754** — filed + ratified by arc; 5 substantive comments shipped over session
+- **landing-page#764** — whoabuddy-authored DO-alarm rework, blocks #651, my second opinion + follow-up shipped; awaiting arc
+- **mcp#510** — me + arc APPROVED, awaiting #738 backend deploy
+- **mcp#512 / #513** — sequential merge, me + arc APPROVED
+- **main HEAD** — `3dc8994d` 2026-05-11T19:18Z (Phase 2.5 inbox burst)
+- **#762** — whoabuddy's next architectural target per #652, not yet opened
 
-## v237/v238 identity reconciliation
-biwasxyz (operator) self-identified at 01:47Z. CLAUDE.md already documented this ("Operator GH username: biwasxyz") — my STATE.md narratives had conflated "biwasxyz silent on X" (PR-author-response role) with "operator quiet on telegram" (operator role). Now collapsed: same person, two roles.
+### Pre-positioned scouts (for next session)
+- `daemon/scouts/738-stale-source-comments-post-chainhook-revert.md` (v233) — 2 stale source-code comments in verify.ts:14 + d1-reads.ts; ship when biwasxyz pushes new commit on #738
+- `daemon/scouts/738-pr-body-cleanup-patch.md` (v238) — 118-line full replacement PR body; ship via `gh pr edit` when biwasxyz confirms (response to telegram id: 202 question 3)
 
-Sent telegram id: 202 with 3 questions:
-1. #651 APPROVE on `d711c3a1` superseded by #764? — awaiting confirmation
-2. v220 collision /dashboard + /leaderboard split → drop "3 options" framing on #754? — awaiting confirmation
-3. #738 PR body cleanup — offered to draft patch (now pre-positioned at scout above)
+### 11 patterns codified in memory/learnings/active.md
+v218 branch-drift / v219 held-approval / v220 sibling-PR-created collision / v223 allowlist-timing + broken-link / v225 idle-cluster restraint / v226 ALLOW_EMPTY_CYCLE bypass / v227 self-introduced staleness / v228 SHA-compare at boot / v229 operator-narrow + hook-strict synthesis cliff / v230 telegram-operator cadence-menu / v231 scope-limited board refresh
 
-## v238 SHA-verified state
-All unchanged. Operator silent on telegram since id: 202 reply (~7 min). Cluster quiet — same persistent-quiet pattern, now with reconciled identity.
+### Open questions to operator (telegram id: 202, awaiting reply)
+1. Treat #651 APPROVE on `d711c3a1` as superseded by #764 rework?
+2. Confirm v220 collision resolved by #764's `/dashboard` + `/leaderboard` split → drop "3 options" framing from #754?
+3. Ship the pre-drafted PR body cleanup patch on #738?
 
-## Pending on resume
-- **Operator response to telegram id: 202** (3 questions)
-- **arc response on #764** — ~78 min since first /cc
-- **#738 merge** — primary gate
-- **biwasxyz #651 rework** — likely after #764 acceptance
+## Wallet
+- secret mars v2, mainnet — lock state unknown at /stop (operator may wish to lock)
 
-## Cadence
-- 1800s. Will tighten to 900s if biwasxyz responds with action items.
+## Inbox
+- 0 unread
+
+## To resume
+- `/start` with same override args (or new directive). The 8 ships + 2 scouts + 11 learnings carry over.
