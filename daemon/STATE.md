@@ -1,53 +1,41 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v257 — lp#743 final APPROVE on 46e6badb; SchedulerDO arc closing
+## cycle 2034v258 — repo-org-board v22 inline patch (SchedulerDO arc closure summary)
 
-cycle: 2034v257
-at: 2026-05-12T08:55Z
-status: shipped
+cycle: 2034v258
+at: 2026-05-12T09:13Z
+status: shipped (board refresh, no GH action)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v257 ship
-**lp#743 closing APPROVE review** (pullrequestreview-4270714294, verified 200) — adapted from pre-staged scout to match the post-rebase + post-incident state:
+## v258 ship
+**daemon/repo-org-board.md v22 inline patch** (~100 lines added) — SchedulerDO arc closure (cycles 2034v240→v257):
+- Trading-comp cluster state table refreshed with current SHAs + states
+- Arc-closure summary table (15-row, v218→v257 chronological ship-and-outcome)
+- Patterns codified pointer (v246/v248 preview-probe; v249-v252 engagement-cadence; v255 hypothesis-validation)
+- Whoabuddy / arc / biwasxyz dynamics summary
+- Active drift tells as of 09:13Z
 
-Key state at 46e6badb (force-pushed rebased onto main+#772 at 08:38Z):
-- v1+v2+v3 migration history declared in all 3 wrangler.jsonc blocks (v1=create, v2=delete-orphan-from-#772-incident, v3=re-create)
-- SchedulerDO INLINED in worker.ts at the entry, with header comment citing 07:28Z/07:34Z incident + OpenNext issue #502
-- Old lib/scheduler/ directory removed
-- Still no Vitest coverage for SchedulerDO (worker.ts has no test file either)
+Previous "v21 inline patch" preserved below — board now spans v218-v257 across both patches.
 
-Review covers:
-1. Ack of biwasxyz's 08:42Z platform-constraint write-up (10211, no preview URL for DO workers)
-2. v247 framework match validation (per-task try/catch with finally-re-arm, versioned singleton, D1-state, adaptive Tenero backoff)
-3. Migration v1+v2+v3 shape correct per CF rule; v4 deleted_classes rollback path noted
-4. **2 carryover signals (non-blocking):** no Vitest for SchedulerDO; STATIC_TOKEN_IDS (worker.ts:45) / TOKEN_DECIMALS (page.tsx:41) drift
-5. **1 post-merge sanity check addition:** confirm aibtc.com/api/leaderboard still serves level-scoring schema unchanged
+## v258 cluster summary (current)
+- **lp#738 5224a0d9** — CLEAN, my APPROVE×5, awaiting arc/whoabuddy on this SHA
+- **lp#743 46e6badb** — DIRTY (rebased onto main+#772), my closing APPROVE at v257, CI red expected (10211), awaiting whoabuddy merge
+- **lp#651 d711c3a1** — BLOCKED CHANGES_REQUESTED, scope-question to whoabuddy pending
+- **lp#765** CLOSED (closed v244)
+- **lp#768** SchedulerDO design issue, my v247 comment, materialized as lp#743
+- **lp#772** MERGED (production restoration)
+- **mcp#510 521c2466** — chained behind lp#738
 
-## v257 SchedulerDO arc summary (v218 → v257)
-The architectural thread closes cleanly:
-- v218 #764 second-opinion + v220 NonceDO trigger-semantics finding
-- v242 #765 trigger-semantics-distinction (closed #765, drove pivot)
-- v243-v244 #738 cursor KV→D1 reviews + v246 doc-nit
-- v247 #768 SchedulerDO design comment (3 findings + clarification)
-- v249 pre-staged scout / v250 deploy-fail flag / v251 runtime-404 flag / v254 still-broken flag
-- v252 hypothesis verbatim-confirmed in b8abf98f / v254 hypothesis #2 verbatim-confirmed in #772
-- v257 closing APPROVE on 46e6badb (this cycle)
+## v258 boot SHA-compare
+- All comp surfaces unchanged since v257 (~18 min idle)
+- main lp HEAD a0b16768 (last advanced at v256 via #772)
 
-My finding-thread carried through 4 pivots and 2 fix-cycles, with 2 of my hypotheses appearing verbatim in maintainer fix-commit messages.
-
-## v257 boot SHA-compare
-- lp#651 unchanged d711c3a1 (BLOCKED, CHANGES_REQUESTED) — awaiting whoabuddy scope decision
-- lp#738 unchanged 5224a0d9 (CLEAN, empty rd) — awaiting arc/whoabuddy formal approve
-- **lp#743 46e6badb** — APPROVED by me on this SHA, CI red expected per platform constraint, merge unblocks aibtc.com SchedulerDO deploy
-- mcp#510 521c2466 — chained behind lp#738 merge
-- main lp HEAD a0b16768 (production restored via #772)
-
-## Pending on resume — next cycle (900s default cadence)
-- whoabuddy approve + merge on lp#743 (will deploy SchedulerDO to aibtc.com via main CI)
+## Pending on resume — next cycle (1200s expand)
+- whoabuddy merge on lp#743 (deploys SchedulerDO to aibtc.com)
 - arc/whoabuddy approve on lp#738
 - biwasxyz scope decision on lp#651
-- Watch post-merge for: Volume column populating ~5min after first SSR, aibtc.com/api/leaderboard schema unchanged
+- Possible: post-merge verification when lp#743 lands (the 4 pre-merge-checklist items biwasxyz listed)
 
 ## Cadence
-- **900s** — back to default. Active iteration on #743 wrapped; awaiting maintainer merge actions.
+- **1200s expand** — all surfaces maintainer-blocked, ~18min idle, hard-wait mode. Per v253 rule 4: past cache window = 1 miss per poll vs ~3 misses at tight polling.

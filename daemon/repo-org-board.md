@@ -2,9 +2,69 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-11T22:33Z (cycle 2034v231, **v21 inline patch — trading-comp scope only** per operator-narrow override active since 15:58Z 5/11. Other surfaces NOT refreshed this patch — board overall is 21+ cycles stale, will need full refresh once override lifts.)
+**Last refresh:** 2026-05-12T09:13Z (cycle 2034v258, **v22 inline patch — trading-comp scope only** per operator-narrow override still active. SchedulerDO arc v218→v257 closed at v257 with final APPROVE on lp#743. Other surfaces NOT refreshed this patch.)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v22 inline patch — trading-comp SchedulerDO arc closure (cycles 2034v240–v257, ~6.5h window 02:26Z → 08:55Z 5/12) ***
+
+**Operator directive (still active — /start args 2026-05-11):** "100% focus on trading-comp PRs across MCP + landing-page, review/test via preview URLs, file ONE issue tagging @whoabuddy + @arc0btc."
+
+### Trading-comp cluster state (as of 2026-05-12T09:13Z)
+
+| PR | SHA | State | Review state | Notes |
+|---|---|---|---|---|
+| landing-page#738 (Phase 3.1 verifier) | `5224a0d9` | OPEN | secret-mars APPROVE×5 (latest on 5224a0d9); arc/whoabuddy formal re-approve pending | CLEAN mergeable. bed7cd0 comp-start gate + 5224a0d9 KV→D1 cursor refactor both substantively approved. v246 doc-nit (route.ts:31 stale "501") still awaits maintainer fix |
+| landing-page#743 (/leaderboard + SchedulerDO) | `46e6badb` | OPEN | reviewDecision=APPROVED; secret-mars closing APPROVE at v257 | DIRTY mergeable (rebased onto main+#772). CI red expected (10211: non-prod CI can't apply DO migrations). No preview URL (CF doesn't issue for DO workers). Migration history v1+v2+v3 declared. Inlined SchedulerDO in worker.ts. Awaiting whoabuddy merge |
+| landing-page#651 (/dashboard balance Genesis) | `d711c3a1` | OPEN | secret-mars CHANGES_REQUESTED (v241 scope clarification); whoabuddy stale | BLOCKED. Scope question to whoabuddy from biwasxyz 02:31Z. v241 surfaced 3 drifts (route name, file collision, schema). Awaiting whoabuddy decision |
+| landing-page#765 (DO-alarm scheduler bridge) | n/a (issue) | **CLOSED** | n/a | Closed by biwasxyz 03:54Z at v244. My v242 trigger-semantics distinction made simpler-state-store path attractive; scheduler-primitive selection became orthogonal once cursor moved to D1 |
+| landing-page#768 (SchedulerDO design) | n/a (issue) | OPEN | secret-mars v247 substantive comment; whoabuddy filed | Materialized in lp#743's 12-commit batch at 07:11-07:16Z. Implementation tracks v247 framework directly |
+| landing-page#772 (v2 deleted_classes hotfix) | n/a (merged) | **MERGED** | secret-mars +1 reaction | Production restoration 08:30Z. Recovered from misdirected v1 SchedulerDO migration that hit production worker `landing-page` instead of preview during PR #743 experimentation. v254 hypothesis #2 (migration-tag conflict) verbatim-confirmed |
+| mcp-server#510 (competition tools + Bitflow) | `521c2466` | OPEN | secret-mars APPROVE; arc re-APPROVED 03:21Z (closed v1 suggestions) | CLEAN, both APPROVE. Chained behind lp#738 merge per arc note |
+
+### Arc-closure summary (v218 → v257)
+
+The full architectural thread closes cleanly. Finding-thread carried through 4 pivots + 2 fix-cycles + 1 production incident:
+
+| Cycle | Surface | Ship | Outcome |
+|---|---|---|---|
+| v218 | #764 | second-opinion APPROVE on DO-alarm pattern | Validated NonceDO/NewsDO as org precedent |
+| v220 | #764 | NonceDO trigger-semantics empirical read | Worth-naming finding for #765 impl |
+| v241 | #651 | Scope clarification (3 drifts) | biwasxyz scope-question got 3 concrete findings |
+| v242 | #765 | Event-driven-vs-poll-driven distinction | Drove biwasxyz to close #765, pivot to D1-cursor |
+| v243 | #738 (bed7cd0) | Substantive APPROVE re-review | Producer/consumer-symmetric pattern named |
+| v244 | #738 (5224a0d9) | KV→D1 cursor refactor APPROVE | Direction tracks #765 closure rationale |
+| v245 | #743 (412f91ff) | APPROVE re-review | KV→D1 alignment cross-PR observation |
+| v246 | #738 | Doc-drift nit (501 stale string) | Non-blocking; awaits fixup |
+| v247 | #768 | SchedulerDO design comment (3 findings + 1 clarification) | Materialized as 12-commit batch within ~1h |
+| v249 | #743 | Pre-staged scout (A/B/C/D decision tree) | Restraint demonstration; held-back review during iteration |
+| v250 | #743 | Deploy-fail flag after 2 failures | Operational signal escalation |
+| v251 | #743 | Runtime-404 flag with hypothesis | **v252 hypothesis confirmed verbatim by b8abf98f commit msg** |
+| v254 | #743 | Still-broken flag with 2 hypotheses | **Hypothesis #2 confirmed verbatim by #772 PR body** |
+| v256 | #772 | +1 reaction on production-restoration | Closed diagnostic loop without comment noise |
+| v257 | #743 (46e6badb) | Closing APPROVE | Arc closure |
+
+### Patterns codified during this window (memory/learnings/active.md)
+
+- **v246/v248 → preview-URL deep-probe pattern** (after PR-APPROVE, 4-axis runtime probe: self-doc, validation, idempotency, cursor) — closes gap between PR-review correctness and runtime-edge-case drift
+- **v249-v252 → engagement-cadence-with-maintainer-iteration** (3 modes: active-iteration / diagnostic-stall / hard-wait); operational signals ≠ nits; build status ≠ runtime status; cache-miss tradeoff for diagnostic waits; pre-staged scout files for "comment ready but timing wrong"
+- **v255 → hypothesis-validation-via-commit-message** (when you can't access debug artifacts, well-bounded static-analysis hypothesis SHIPPED publicly becomes a validation oracle via maintainer fix-commit message); 2 prerequisites — testable + shipped publicly
+
+### Whoabuddy / arc dynamics
+
+- **whoabuddy** filed #768 (SchedulerDO design issue) at 05:33Z, filed #772 (production hotfix) at 08:30Z. Active on architecture decisions, less so on review-side.
+- **biwasxyz** materialized #768 design in 12-commit batch at 07:11-07:12Z (with Claude Co-Authored-By trailer). Two failed deploys + production incident + recovery via #772 + final clean rebase 08:38Z. Multi-iteration cycle with explicit lessons-baked-in comment at 08:42Z.
+- **arc** silent on trading-comp surfaces since 03:21Z mcp#510 re-APPROVE. lp#738 5224a0d9 + lp#743 46e6badb both await arc re-approve.
+
+### Active drift tells as of 2026-05-12T09:13Z
+
+- lp#738 5224a0d9 untouched ~3.7h, no arc/whoabuddy formal approve on the current SHA
+- lp#651 unchanged since 02:38Z (7h idle), whoabuddy scope decision pending
+- mcp#510 chained behind #738; if #738 merge delays >24h, may want to nudge
+- lp#743 46e6badb CI red expected; merge depends on whoabuddy doing manual review (no preview URL to test against)
+- Drift-tell: **operator override still active but architectural arc closed** — next cycle may shift focus if operator lifts override
+
+---
 
 ## *** v21 inline patch — trading-comp scope only (cycles 2034v218–v231, ~6.5h window 15:58Z → 22:33Z) ***
 
