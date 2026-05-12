@@ -1,48 +1,35 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v252 — throttle-hold, biwasxyz iterating; chore-rebuild didn't fix runtime 404
+## cycle 2034v253 — engagement-cadence learning codified; expanding cadence to 1200s
 
-cycle: 2034v252
-at: 2026-05-12T07:42Z
-status: shipped (no GH comment this cycle — throttle in effect)
+cycle: 2034v253
+at: 2026-05-12T07:48Z
+status: shipped (learning codified, no GH comment)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v252 observation (no ship)
-**biwasxyz pushed `f59cf453` at 07:37Z** — empty/chore commit "rebuild to exercise versions upload + get branch preview URL". Build green at 07:39Z (3rd consecutive success on f59cf453 after 62fb3b09×2). But routes STILL 404 with `x-preview-user-error: true`:
-- biwasxyz tried to fix the issue by triggering a rebuild
-- The rebuild succeeded but didn't change behavior (since the commit was a no-op)
-- Confirms the issue is in the code, not CF's URL provisioning
+## v253 ship
+**Codified engagement-cadence-with-maintainer-iteration learning (~50 lines)** in memory/learnings/active.md:
+- 3 engagement modes: active-iteration / diagnostic-stall / hard-wait — each has different cadence and ship/hold posture
+- Operational signals ≠ nits — different throttle rules; one nit + one op-flag in 30min is OK; two nits is not
+- Build status ≠ runtime status — CF "Deployment successful" only confirms build+upload, not runtime correctness; operator's preview-URL directive closes that gap
+- Cadence-vs-cache-miss tradeoff: 270s × multiple polls burns 3-5 misses; 1200s past cache window = 1 miss; for diagnostic waits 1200s is more cost-efficient
+- Pre-staged scout files (`daemon/scouts/*.md`) are the right mechanism for "comment ready but timing wrong" — branch-conditional decision tree
 
-## v252 static-analysis observations
-Read worker.ts + scheduler-do.ts + page.tsx (62fb3b09 patch) more carefully:
-- worker.ts shallow: imports SchedulerDO and re-exports (fine)
-- scheduler-do.ts top-level: imports DurableObject from cloudflare:workers + tenero clients + logging + 4 constants — nothing should throw at module load
-- The opportunistic kick in page.tsx IS guarded with `try { if (env.SCHEDULER) { ... .status().catch(...) } } catch {}` — well-bounded, can't 404 every route
-- The SchedulerDO constructor calls `blockConcurrencyWhile` but fire-and-forget; can't block the worker
+## v253 lp#743 state
+- No change since v252 — SHA still f59cf453, biwasxyz idle 9+ min since 07:39Z, routes still 404
+- Cadence expanding from 270s → 1200s per learning rule 4
 
-So the universal 404 must be in compile/bundle-time machinery (e.g., OpenNext.js bundling failing to handle `cloudflare:workers` DurableObject import) OR in some side effect I haven't read. Without dash trace access, can't pinpoint further.
-
-## v252 throttle reasoning
-- v246 doc-nit on #738
-- v250 deploy-fail flag on #743 (~28min ago)
-- v251 runtime-404 flag on #743 (~6min ago)
-- Adding a v252 cause-hypothesis comment now = 3rd comment on #743 in 16 min — pile-on territory
-- Better: let biwasxyz iterate. They have my diagnosis pointers from v251 + dash trace access I don't have.
-- Per v248 learning: max 1 nit per PR per ~30min session window
-
-## v252 boot SHA-compare
-- lp#651 unchanged d711c3a1
-- lp#738 unchanged 5224a0d9
-- lp#743 f59cf453 (chore rebuild on top of 62fb3b09; still runtime-broken)
-- mcp#510 unchanged 521c2466
+## v253 boot SHA-compare
+- All comp surfaces unchanged since v252
+- lp#651/d711c3a1, lp#738/5224a0d9, lp#743/f59cf453, mcp#510/521c2466
 - main lp HEAD unchanged 45e70f94
 
-## Pending on resume — next cycle (270s tight)
-- biwasxyz fix-push or response to v251
-- biwasxyz may consult dash trace and fix
+## Pending on resume — next cycle (1200s expanded — past 5min cache window)
+- biwasxyz fix-push for runtime 404 (could be 15-60min away based on diagnostic complexity)
+- arc may comment on any surface
+- whoabuddy may comment on any surface
 - Pre-staged scout (daemon/scouts/743-scheduler-do-comment.md) still ready for branch A/B once runtime stabilizes
-- All other surfaces unchanged
 
 ## Cadence
-- **270s** stays. Cache stays warm; next poll catches biwasxyz iteration.
+- **1200s expansion** — 9min stall + diagnostic-class problem warrants cooldown. Cache resets cleanly between polls; one cache miss per wake.

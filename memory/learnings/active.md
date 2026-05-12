@@ -2045,3 +2045,46 @@ The chain v225 → v230 is the agent learning the architectural discipline of "w
 - v246/v248 are two instances of the same pattern: stale-doc-string and validation-clamp-without-explicit-error — both at the API boundary
 
 **Caveat to track:** Probing edge cases that *might* expose security issues (e.g., SQL injection patterns, very-large payloads, header smuggling) needs explicit operator authorization before testing. The probes in v246-v248 are all benign reads + benign POST validation — well within the "test using preview URL" scope.
+
+---
+
+## v253 — engagement cadence with maintainer iteration (v249→v252 lineage)
+
+**Pattern observed across v249-v252:** When a maintainer is mid-iteration on a PR (pushing fixup commits in rapid succession), engagement cadence needs to differ from steady-state review cadence. The v249→v252 sequence on lp#743 produced a clean playbook:
+
+**v249 (maintainer pushes 12 commits + co-authored-by-Claude in 5 minutes):** Don't ship the substantive review comment immediately even if pre-drafted. The maintainer is actively reshaping the surface; commenting risks staleness within minutes. **Pre-stage the comment in `daemon/scouts/<pr>-<topic>.md`** with branch-conditional decision tree (A/B/C/D depending on next-cycle state). Tighten cadence to 270s for the active iteration window. Real output = the scout file + STATE narrative.
+
+**v250 (maintainer idle 7+ min after 2 deploy failures):** Ship a tight operational flag — *not* the full substantive review, just the deploy-fail observation with timing + "happy to read along on log paste" + signal-the-review-is-pending. ~120 words. The throttle rule "max 1 nit per PR per ~30min" applies but this is operational signal escalation, distinct from a nit.
+
+**v251 (build greens but runtime universally 404):** Ship the runtime-error flag with curl evidence + likely-cause hypothesis + offer to help. Build-green-but-runtime-broken is a different operational signal than build-fail and CF's check_run misses it entirely — this is exactly the gap operator's "test via preview URL" directive closes that CF's green checkmark cannot.
+
+**v252 (maintainer does chore-rebuild attempt; doesn't fix):** Throttle-hold. Don't ship a 3rd comment in 16 min — that would be pile-on. The maintainer has the diagnosis pointers from the v251 comment and dash-trace access we don't. Cycle output = STATE narrative + static-analysis observation in STATE; no GH comment.
+
+**Codified rules:**
+
+1. **Three engagement modes**, recognize which one's active:
+   - *Active iteration* (maintainer pushing rapidly): pre-stage, don't ship
+   - *Diagnostic stall* (maintainer idle 5-10min after failures): ship operational flag, not full review
+   - *Hard wait* (no movement >15min, no signal change): expand cadence back to 1200s+
+
+2. **Operational signals are not nits.** Deploy-fail, runtime-error-after-green-build, missing-checks-on-merge are operational signals that ship independently of the substantive-review nit-throttle. Both can coexist (one nit + one operational flag in the same 30min is fine; two nits is not).
+
+3. **Build status ≠ runtime status.** CF check_runs (and analogous CI checks elsewhere) only confirm build+upload. Runtime errors at module-load or fetch-handler-entry are invisible to those checks. Operator's "test via preview URL" directive specifically closes this gap. Adopt as standard probe after green-build sees a new SHA: at minimum HEAD request the branch URL + check for `x-preview-user-error` / equivalent runtime-fail headers.
+
+4. **Cadence-vs-cache-miss tradeoff during iteration windows:**
+   - 270s × multiple cycles burns cache misses per poll (cache resets every ~5min in absence of work)
+   - 1200s past cache window = exactly 1 cache miss per poll
+   - For 15-60min diagnostic waits, **1200s is more cost-efficient than tight 270s polling**
+   - Tight 270s only justified when maintainer is currently active (push within last ~5min)
+
+5. **Pre-staged scout files (`daemon/scouts/*.md`) are the right mechanism for "comment ready but timing wrong":**
+   - Captures decision-tree branches inline
+   - Survives across cycle compactions
+   - Demonstrates restraint to operator (output is the scout, not noise on GH)
+   - Branch-conditional execution at ship-time keeps the comment accurate to live state
+
+**Cross-cycle ties:**
+- v248 deep-probe-after-APPROVE pattern: same direction (test the runtime after green checks)
+- v246 doc-drift via preview probe: same instrument (HTTP probe), different finding class
+- v240 SHA-compare-at-boot: extending to runtime-vs-build-state distinction
+- v229 operator-narrow + hook-strict synthesis cliff: the scout file is the resolution mechanism for that pattern when synthesis would otherwise pile on
