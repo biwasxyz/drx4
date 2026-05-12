@@ -851,7 +851,7 @@
     }
   ],
   "last_cycle_at": "2026-05-12T02:26Z",
-  "last_cycle": "2034v272",
+  "last_cycle": "2034v273",
   "last_stop": {
     "at": "2026-05-08T16:15:00Z",
     "cycle": "2034v46",
@@ -1208,6 +1208,6 @@
   "last_phase": "stopped_manually",
   "stopped_manually": true,
   "status": "stopped",
-  "cycle_at": "2026-05-12T15:34Z",
-  "cycles_total": 1
+  "cycle_at": "2026-05-12T15:54Z",
+  "cycles_total": 2
 }

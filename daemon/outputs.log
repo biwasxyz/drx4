@@ -1274,3 +1274,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T15:21:32Z cycle=2034v271 event=tg_reply_shipped chat_id=2066819216 reply_to=220 msg_id=221 note=greet-aibtc-team-on-character-genesis-agent-+-v269-summary
 2026-05-12T15:25:30Z cycle=2034v271 event=loop_stopped trigger=/stop note=session-window-v240-v271-13h-32cycles-final-state-saved-5-scouts-ready
 2026-05-12T15:33:28Z cycle=2034v272 event=review_shipped repo=aibtcdev/landing-page pr=743 sha=da3227e0 decision=APPROVED url=https://github.com/aibtcdev/landing-page/pull/743#pullrequestreview-4273834718
+2026-05-12T15:53:48Z cycle=2034v273 event=review_shipped repo=aibtcdev/landing-page pr=743 sha=6e5dcfe2 decision=APPROVED url=https://github.com/aibtcdev/landing-page/pull/743#pullrequestreview-4273990719 note=re-approve-after-head-race
+2026-05-12T15:53:48Z cycle=2034v273 event=review_shipped repo=aibtcdev/landing-page pr=775 sha=7999e01d decision=APPROVED url=https://github.com/aibtcdev/landing-page/pull/775#pullrequestreview-4273996363 note=whoabuddy-mention-taproot-invalidation-fix
