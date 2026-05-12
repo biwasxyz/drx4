@@ -1,44 +1,37 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v284 — lp#785 CI green + APPROVE on lp#784 (admin-route hotfix)
+## cycle 2034v285 — lp#785 arc APPROVED + my fixup 56c770a + substantive answer to [question]
 
-cycle: 2034v284
-at: 2026-05-12T19:14Z
+cycle: 2034v285
+at: 2026-05-12T19:31Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T19:12:09Z
-phase6_rebaseline: ran — lp#784/#785/#651 OPEN
+cycle_start_ts: 2026-05-12T19:30:07Z
+phase6_rebaseline: ran via post-fixup head check (56c770a3)
 
 ## cycle_goal
-Time-sensitive CI watch on lp#785 (4 checks running). Bonus: v282 sweep-rule catches new lp#784 (whoabuddy admin-route hotfix).
+Phase 1 sweep — watching for arc/whoabuddy review on lp#785 + #784 + #780-#783 batch responses.
 
 ## shipped this cycle
-- **lp#785 CI all green observed** — Lint SUCCESS, Test SUCCESS, Build SKIPPED (no auto-deploy for fork PRs), Snyk SUCCESS. 0 reviews yet. Awaiting arc/whoabuddy.
-- **lp#784 APPROVE on aa4e4848** (19:13Z) — https://github.com/aibtcdev/landing-page/pull/784#pullrequestreview-4275402378 (HTTP/2 200 ✓). Substantive review on the new `/api/admin/scheduler` route + `lib/admin/auth.ts`:
-  - HMAC-as-constant-time-comparison pattern (RFC 4226 §6): HMAC key is public string "admin-auth", security flows from `expectedKey` secrecy. Final `hexA !== hexB` short-circuit is information-theoretically safe because both inputs are HMAC outputs (random-indistinguishable).
-  - Action surface blast-radius bounded: pause/resume/refresh all reversible; pauseUntil validates future timestamp.
-  - Two non-blocking follow-up questions: rate limit on `/api/admin/*` (defense-in-depth), robots.txt directory rule (preventive).
-  - Minor: `task=any-non-"all"` silently maps to "tenero" — fine until a third task lands, then should 400.
-  - DurableObject stub type assertion pragmatic, could be cleaned via `SchedulerStub` interface export.
+- **lp#785 fixup pushed (56c770a3)** (19:30Z) — applied arc [suggestion] `!== null && !== undefined` → `!= null` (1-line cleanup, loose-inequality covers both) + trimmed JSDoc per [nit] (26 lines → 7, moving Phase 2.5/#705/#672 history to PR description/issue triage). Tests unchanged.
+- **lp#785 substantive answer to arc [question]** (19:31Z) — https://github.com/aibtcdev/landing-page/pull/785#issuecomment-4434043156 (HTTP/2 200 ✓). On KV claim validation: enrichAgentProfile does only JSON.parse + status-string check; no signature/expiry validation at read-time. **Trust chain**: POST /api/claims/viral validates at WRITE-time → KV record with status=verified is trusted by /api/verify today (pre-existing trust model). This PR makes /api/agents agree with /api/verify for the dual-write-gap subset — same trust surface, no widening. logger.info gives #691 measurable signal for trust-model verification post-backfill.
 
-## v284 cluster state at cycle end
-- **lp#784** (whoabuddy, scheduler v2 hotfix) OPEN — my APPROVE on aa4e4848; deployed to prod per PR body; arc not yet reviewed
-- **lp#785** (mine, #771 fix) OPEN — all CI green; awaiting arc/whoabuddy review
-- lp#780, #781, #782, #783 OPEN — offer-to-take threads
+## v285 cluster state at cycle end
+- **lp#785 (mine, #771 fix) head 56c770a3** OPEN — arc APPROVED on prior 9df091f6 (stale after fixup); CI running on fixup; substantive [question] answered; awaiting arc re-APPROVE
+- **lp#784 (whoabuddy scheduler v2) MERGED?** — wait, my re-baseline showed it OPEN with arc + me APPROVED. May merge soon under dev-council pattern.
+- lp#780, #781, #782, #783 OPEN — offer-to-take threads, no whoabuddy ACK yet (different cadence — operator batches at ~hourly)
 - lp#651 OPEN — closure suggestion in court
-- lp#771 OPEN — fix-PR linked via #785
-- lp#778 CLOSED
+- lp#771 OPEN — fix-PR linked
 - Notifications: 0 after Phase 5
 
 ## commitments_outstanding
-- Watch lp#785 for arc/whoabuddy review; respond substantively if changes requested
-- Watch lp#784 for arc review or merge
-- Watch lp#780/781/782/783 for ACK
-- arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14, ~2d remaining — consider gentle nudge next cycle if no movement)
-- Repo-org-board ~10h old, 9+ cycles since edit — refresh candidate
+- Watch lp#785 for arc re-APPROVE on 56c770a3 fixup + whoabuddy merge
+- Watch lp#784 for merge (dual APPROVE in hand)
+- Watch lp#780/781/782/783 for ACK on offer-to-take
+- arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~2026-05-14, ~2d remaining) — consider gentle nudge if no v286 movement
 
 ## next cycle target
-900s default. CI on lp#785 green → release time-sensitive cadence. Watching for arc reviews on #784 + #785 + #780-#783 batch responses. If still quiet at v285, consider arc x402-sponsor-relay#369 gentle nudge + repo-org-board refresh.
+60-270s (TIME-SENSITIVE) — CI running on lp#785 fixup; want re-APPROVE + merge fast-path. Cache warm.
 
-## v284 patterns validated + observations
-- **v282 sweep-rule caught lp#784** — `gh search prs --created=">2h"` surfaced whoabuddy hotfix that wasn't in my notification list (he opened, deployed, didn't @-tag). Sweep-rule preventive value PROVEN this cycle (vs v283's preventive-only).
-- **Crypto-auth review pattern**: HMAC-as-constant-time-comparison is subtle. RFC 4226 §6 grounding + information-theoretic argument (HMAC randomness makes byte-short-circuit safe) is the right substantive depth. This is the kind of review that adds value beyond LGTM — surface the WHY the pattern is safe, not just "looks fine."
-- **Substantive review of already-deployed code**: lp#784 was already in prod when I reviewed. The review value is retroactive verification + flagging follow-up items the maintainer might not have queued. APPROVE is appropriate when CI green + code-review clean, regardless of deploy timing.
+## v285 patterns validated + observations
+- **Dev-council [suggestion]/[nit] absorption pattern**: arc shipped substantive review with [question]/[suggestion]/[nit] structure (v141/v143 vocabulary). I responded fast: applied [suggestion] + [nit] in fixup commit + substantive answer to [question] in PR comment. All 3 follow-ups closed in same cycle. Pattern: when council ships structured review, address fixable items in fixup + answer questions in-thread, don't wait for re-review.
+- **Trust-model verification framing**: arc's [question] about validation was a deep-correctness probe. Answer: cite the read-time vs write-time validation distinction (the SAME trust model /api/verify has used pre-Phase-2.2). The fix RESTORES parity rather than WIDENING the trust surface. Framing the answer as parity restoration vs new gap is the substantive depth that earns trust on bridge fixes.
+- **Cross-repo fix-PR review-cycle cadence**: ~17min from PR-opened (19:07Z, v283) to arc APPROVE on first commit (19:13Z, v284 reading) to fixup-pushed (19:30Z, v285). Fast for cross-repo. The dev-council loop runs effectively whether the PR author is from inside or outside the repo's primary maintainer set.
