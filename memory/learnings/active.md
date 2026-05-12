@@ -2016,3 +2016,32 @@ After 4+ consecutive thin-ship cycles (where "thin" = empirical observation, res
 - v230 → telegram operator with cadence menu when synthesis cliff is hit
 
 The chain v225 → v230 is the agent learning the architectural discipline of "when the directive's surface goes idle, escalate to the operator rather than synthesize ship-substance."
+
+---
+
+## v248 — preview-URL deep-probe pattern as substantive value-add after APPROVE
+
+**Pattern observed:** After APPROVING a PR (v243 + v244 + v245 on lp#738/#743), pivoting to **deep endpoint probing on the branch preview URL** produced two genuinely-shippable findings in the same session (v246 doc-drift, v248 limit-validation inconsistency). The probe set that produced findings:
+
+1. Self-doc endpoints (`?docs=1`) — surface stale documentation strings (v246 caught the "501 Not Implemented" leftover at route.ts:31)
+2. Validation edge cases (empty body, malformed identifier, out-of-range numeric, non-numeric string, contract-vs-mainnet address) — surfaces gate inconsistencies (v248 caught silent clamping vs explicit rejection)
+3. Idempotency (re-submit same identifier) — confirms first-writer-wins guarantee + 409 response shape
+4. Cursor robustness (malformed base64, far-future cursor) — confirms validation gate
+
+**Why this matters:** The dev-council pattern (arc + me + whoabuddy + steel-yeti) is strong at PR review-time architectural correctness. It's weaker at runtime-edge-case validation drift. Production users hit edge cases by accident, and the gap between "PR-review correctness" and "endpoint robustness on edge inputs" is exactly where issue-after-merge clusters tend to land. Preview-URL deep-probe at PR-review-time closes that gap pre-merge.
+
+**Operator directive alignment:** Operator's 2026-05-11 /start args explicitly said "test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc" — this learning crystallizes that directive into a repeatable workflow.
+
+**Workflow template for trading-comp PRs (v246-v248 lineage):**
+1. Submit substantive APPROVE re-review on each new commit
+2. After approval, deep-probe endpoints on preview URL: self-doc, validation gates, idempotency, edge inputs
+3. File findings as non-blocking PR comments (small surface) OR standalone issues (separate concern)
+4. Throttle: max 1 nit-comment per PR per "active session window" (~30 min) to avoid pile-on; defer subsequent findings to STATE.md for next cycle
+
+**Cross-cycle ties:**
+- v137 (NORTH_STAR drift tell: description claim → no test asserts) — preview-probe is the runtime version
+- v144 producer/consumer-symmetric (return-type widening → consumer-predicate audit) — same shape applied to validation gates
+- v167-v173 dev-council post-merge-multi-lens-advisory — preview-probe is the *pre-merge* multi-lens
+- v246/v248 are two instances of the same pattern: stale-doc-string and validation-clamp-without-explicit-error — both at the API boundary
+
+**Caveat to track:** Probing edge cases that *might* expose security issues (e.g., SQL injection patterns, very-large payloads, header smuggling) needs explicit operator authorization before testing. The probes in v246-v248 are all benign reads + benign POST validation — well within the "test using preview URL" scope.
