@@ -1,41 +1,42 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v287 — repo-org-board v23 inline patch (covers v275-v286)
+## cycle 2034v288 — lp#784 MERGED with ALL FOUR of my v284 follow-ups absorbed; brief ack shipped
 
-cycle: 2034v287
-at: 2026-05-12T19:45Z
+cycle: 2034v288
+at: 2026-05-12T20:03Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T19:44:11Z
-phase6_rebaseline: ran via lp#785 review-state poll (still arc-APPROVED on prior 9df091f6)
+cycle_start_ts: 2026-05-12T20:02:13Z
+phase6_rebaseline: ran via lp#785 review-state poll + watched threads
 
 ## cycle_goal
-Phase 1 sweep — quiet (no lp#785 re-APPROVE, no whoabuddy merge yet). Release time-sensitive cadence per v286 plan. Self-direct into board refresh (10+ h drift-tell crossed).
+Phase 1 sweep — watching for arc re-APPROVE on lp#785, whoabuddy merge on lp#784. Outcome: lp#784 MERGED with ALL four of my v284 follow-ups absorbed.
 
 ## shipped this cycle
-- **daemon/repo-org-board.md v23 inline patch** prepended — covers v275-v286 window (~3.3h):
-  - Cluster merge wave: lp#773 + #774 + #775 + #743 all MERGED (4 in 1.5h window)
-  - Open PRs end-of-window: 8 PRs/issues (lp#785 cross-repo fix-PR + lp#784 admin hotfix + 4 whoabuddy follow-ups + lp#651 + lp#771)
-  - Patterns codified v275-v286: 12 entries (substantive-engagement-when-asked, Phase-6-always-on-re-baseline, cross-repo-fix-PR pattern, crypto-auth review, dev-council same-cycle absorption, pre-stage-scout-as-observation-artifact)
-  - Active drift tells + whoabuddy/arc dynamics observations
-- v22 (trading-comp scope) closed; v23 captures the post-pivot cross-repo motion
+- **lp#784 MERGED observed 19:46:45Z** — whoabuddy addressed 4-of-4 of my v284 non-blocking observations in commit `1902007` BEFORE merging:
+  - Allowlist for scheduler DO names (v1/v2/v3) ✓
+  - Strict refresh-task validation (no silent `tenero` fallback) ✓
+  - Scheduler RPC types extracted to lib/scheduler/rpc-types.ts ✓
+  - `no-store` + `noindex` headers on admin JSON responses ✓ (tighter than my robots.txt directory-rule suggestion)
+  - Plus: focused route tests + split pause-until error cases
+- **lp#784 brief ack comment shipped** (20:03Z) — https://github.com/aibtcdev/landing-page/pull/784#issuecomment-4434309192 (HTTP/2 200 ✓). Calls out the absorption pass + specifically notes the no-store header is tighter than my suggestion.
 
-## v287 cluster state at cycle end
-- lp#785 head 56c770a3 OPEN — CI green; arc APPROVE stale on 9df091f6; awaiting arc re-APPROVE OR whoabuddy fast-merge
-- lp#784 OPEN — dual APPROVE; awaiting whoabuddy merge
-- lp#780, #781, #782, #783 OPEN — offer-to-take threads
+## v288 cluster state at cycle end
+- lp#785 head 56c770a3 OPEN — CI green; arc APPROVE stale on prior; ~32min since fixup; NO arc re-APPROVE yet
+- lp#784 MERGED 19:46:45Z
+- lp#780, #781, #782, #783 OPEN — offer-to-take threads, still no whoabuddy ACK
 - lp#651, #771 OPEN
-- Board age: 1min (fresh per v23 patch)
 - Notifications: 0 after Phase 5
 
 ## commitments_outstanding
 - Watch lp#785 for arc re-APPROVE / whoabuddy merge
-- Watch lp#784 for merge (dual APPROVE in hand >20min)
 - Watch lp#780/781/782/783 for ACK
 - arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~36h)
 - scouts/785-post-merge-verify.md ready for trigger
+- scouts/784-post-merge-verify.md — RETIRE (nothing pre-staged for #784, no longer applicable)
 
 ## next cycle target
-900s default (released from time-sensitive). v287 idle observations: no movement on any active thread for ~25min — operator-batch lull likely. If whoabuddy comes back online with merge-batch, will catch v288-v290.
+900s default. v288 idle on lp#785 — fixup pushed at 19:30Z, ~32min ago, no arc re-APPROVE yet. arc may have shifted focus to other work or batches reviews. Will keep at 900s and watch.
 
-## v287 patterns validated + observations
-- **Board v23 patch pattern matches v19-v22 lineage** — inline patches with section table + open-PRs table + patterns-codified list + drift-tells + maintainer-dynamics. Refresh frequency once per arc-window (every ~3-6h of substantive activity).
-- **Quiet-cycle backlog selection**: when CI is mid-wait + no @-tags + no movement on watched threads, the hygiene candidates in order: (a) pre-stage scouts for likely-soon triggers, (b) board refresh if >4 cycles old, (c) learnings sweep, (d) targeted backlog items (PRs/comments). Skip (d) when partnership-coordination value is unclear (avoid pinging).
+## v288 patterns validated + observations
+- **Reverse engagement-pipeline closure pattern**: my v284 review on lp#784 surfaced 4 non-blocking follow-ups; whoabuddy addressed all 4 in `1902007` BEFORE merging at 19:46Z. So the engagement pipeline ran in reverse direction from the usual (instead of me-substantive → whoabuddy-codifies-as-issue → me-takes-PR, here it was me-reviews → whoabuddy-absorbs-all → merge). Both directions valid; both forge tight feedback loops. Both visible-attribution. Codify: review-suggestions-absorbed-before-merge is the strongest dev-council signal.
+- **`no-store` for admin responses** as a cleaner alternative to robots.txt directory-rules — preventive AND scoped per-response. Save for own future patterns when admin/auth surfaces emerge.
+- **arc re-APPROVE lag on small fixup**: usually fast (~5min); 32min and counting on lp#785 fixup. Either arc shifted attention OR they're batching for a quieter window. Not a drift-tell yet (PR is unblocked-on-merge by whoabuddy directly per dev-council pattern; arc re-APPROVE is rubber-stamp on content-equivalent fixup).
