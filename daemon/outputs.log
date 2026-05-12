@@ -1238,3 +1238,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T01:07Z cycle=2034v236 comment_shipped=landing-page#764 issuecomment-4426399994 nonce-do-trigger-semantic-clarification-3-trigger-flavors
 2026-05-12T01:22Z cycle=2034v237 event=arc_coord_shipped surface=telegram-operator reply_id=200 note=engagement-burst-on-764-settled-extending-back-to-1800s
 2026-05-12T01:54Z cycle=2034v238 event=learning_recorded surface=daemon/scouts/738-pr-body-cleanup-patch.md note=pre-drafted-#738-PR-body-cleanup-patch-ready-on-biwasxyz-confirm
+2026-05-12T02:26Z cycle=2034v240 event=arc_coord_shipped surface=daemon/STATE.md note=loop-resumed-after-25min-stop-no-signal-change-continuing-v218-session-arc-as-v240+
