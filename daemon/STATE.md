@@ -1,41 +1,38 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v289 — lp#786 docs PR opened for lp#782 (Forge edge-cache checklist)
+## cycle 2034v290 — arc APPROVED lp#786; fixup absorbed [nit]+Field-1 + auth-cache-leak scout staged
 
-cycle: 2034v289
-at: 2026-05-12T20:23Z
+cycle: 2034v290
+at: 2026-05-12T20:40Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T20:20:12Z
-phase6_rebaseline: lp#785 still arc-APPROVED on prior 9df091f6 (~52min since fixup, no re-APPROVE yet)
+cycle_start_ts: 2026-05-12T20:39:17Z
+phase6_rebaseline: ran via lp#785+#786 review polls + post-fixup head check
 
 ## cycle_goal
-Phase 1 sweep — quiet cycle. Self-direct: take lp#782 (Forge edge-cache checklist docs PR) — well-scoped solo deliverable per issue body, timing benefits next P3 sibling.
+Phase 1 sweep — watching #785 + #786 reviews + #780-#783 batch.
 
 ## shipped this cycle
-- **lp#786 docs PR OPENED** (20:23Z) — https://github.com/aibtcdev/landing-page/pull/786 (HTTP/2 200 ✓). 126+/0- in 1 file: `docs/edge-cache-pr-checklist.md`. Six required fields + one optional, each distilled from a specific Cycle 3/4/7/8 finding on #774/#775. Includes:
-  - Filled-out example checklist (hypothetical P4.2 heartbeat dual-write)
-  - Reference implementations (#774 fixup pattern, #780 unification target, #781 zone-CDN gap)
-  - Maintenance triggers (when to update which field)
-  - Doc tagged with parent campaign (#762) + closes #782
-- Branch `docs-edge-cache-pr-checklist` on my fork; commit `aafe76f`.
+- **lp#786 fixup pushed (89458b94)** (20:39Z) — absorbed arc [nit] (removed stray "Closes #782." from doc body) + Field 1 code-quality (caches.default flavors as single bullet with sub-bullets, no visual stutter). CI re-running on fixup head.
+- **lp#786 substantive response to arc operational note** (20:40Z) — https://github.com/aibtcdev/landing-page/pull/786#issuecomment-4434602048 (HTTP/2 200 ✓). Acknowledged the auth-cache-leak gap (cache-before-auth read-path risk) as future-follow-up; framed why it's out-of-scope for initial doc per arc's "minor gap" framing.
+- **scouts/auth-cache-leak.md pre-staged** (workspace artifact) — captures the trigger conditions (PR adds BIP-322+edgeCacheMatch; verifyAuth AFTER edgeCacheMatch; council finding) + ship-options (Field 4b extension vs sibling doc) + retirement criteria. Ensures the gap doesn't drop on the floor.
 
-## v289 cluster state at cycle end
-- **lp#786** (mine, docs for #782) OPEN — awaiting CI + reviews
-- lp#785 head 56c770a3 OPEN — CI green; arc APPROVE stale on prior; ~53min since fixup
-- lp#780, #781, #783 OPEN — offer-to-take threads
-- lp#782 will close on #786 merge (PR body has "Closes #782")
+## v290 cluster state at cycle end
+- **lp#786 head 89458b94 OPEN** — arc APPROVED on prior aafe76ff; CI re-running on fixup; will likely auto-re-APPROVE per content-equivalent pattern
+- lp#785 head 56c770a3 OPEN — arc APPROVE stale on 9df091f6; ~70min since fixup; STILL no arc re-APPROVE (anomalous — arc reviewed lp#786 fast but not lp#785 re-review)
+- lp#780, #781, #783 OPEN — no whoabuddy ACK
 - lp#651, #771 OPEN
 - Notifications: 0 after Phase 5
 
 ## commitments_outstanding
-- Watch lp#786 for CI + arc/whoabuddy review on the docs
-- Watch lp#785 for arc re-APPROVE / whoabuddy merge
+- Watch lp#786 for arc re-APPROVE on 89458b94 + whoabuddy merge
+- Watch lp#785 for arc re-APPROVE / whoabuddy merge — anomalous lag
 - Watch lp#780/#781/#783 for whoabuddy ACK
 - arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~36h)
+- scouts/auth-cache-leak.md, scouts/785-post-merge-verify.md staged
 
 ## next cycle target
-900s default. Two of my PRs in court (#785 + #786). Watching arc/whoabuddy response cadence.
+900s default. Two PRs in court with arc APPROVE on heads (lp#786 stale-after-fixup; lp#785 stale-after-fixup). If lp#785 doesn't get re-APPROVE / merge in v291, consider a gentle prod comment on the PR.
 
-## v289 patterns validated + observations
-- **Solo-deliverable docs PR pattern (NEW)**: when an issue body lists the structural fields (e.g. #782's 6 fields), opening the PR directly without prior offer is acceptable — the social-convention "offer" exists for code PRs where scope is ambiguous, not for fully-scoped docs PRs. Distinguishes from v281's offer-to-take pattern which applies to code PRs with design-question surfacing.
-- **Doc-form distillation of council-retrospective findings**: 4 advisories (Cycle 3/4/7/8) → 6 structural fields → reference doc that future P3 siblings consult. The doc captures both the WHAT (field labels) AND the WHY (cite specific PR + cycle that surfaced the finding). Pattern: substantive council-finding-extraction → structural-reference-doc pipeline.
-- **Two PRs in flight simultaneously**: lp#785 (code fix) + lp#786 (docs) — different review-cycle paces. Code PR reviews tend to surface [question]/[suggestion]/[nit] structure; doc PRs tend to surface phrasing/clarity feedback. Expect different absorption cadences.
+## v290 patterns validated + observations
+- **arc-review cadence asymmetry**: arc APPROVED lp#786 in ~7min (well-scoped docs PR) but hasn't re-APPROVE'd lp#785 after my v285 fixup ~70min ago. Hypothesis: docs PRs get fast through-pass; code PR fixups with [question]/[suggestion]/[nit] absorption may need deeper second-look that arc batches. Not a drift-tell yet but watch v291.
+- **Same-cycle [nit]+code-quality absorption on docs PR**: smaller scope than v285's lp#785 absorption (no [question] this time, only [nit] + minor restructure). Cleanly absorbed in ~6min PR-review → fixup-push.
+- **Operational-note-acknowledgement-WITH-future-scout-stage pattern (NEW)**: arc surfaced an out-of-scope future risk (auth-cache-leak). I (a) acknowledged in PR thread with reasoning for keeping out-of-scope, AND (b) pre-staged a workspace scout capturing the trigger conditions + ship-options + retirement criteria. This way the future-follow-up doesn't depend on memory — it has a trigger-watcher artifact. Codify: when reviewer surfaces an out-of-scope future risk, ship both an in-thread ACK AND a workspace scout for trigger-watching.
