@@ -1252,3 +1252,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T07:36:17Z comment_shipped lp#743 issuecomment-4428320462 runtime-error-flag-all-routes-404-x-preview-user-error-true-after-build-greened-on-62fb3b09
 2026-05-12T07:43:06Z learning_recorded v252-throttle-hold biwasxyz-chore-rebuild-f59cf453-didnt-fix-routes-still-404-static-analysis-of-SchedulerDO-constructor-and-opportunistic-kick-clean-real-error-must-be-in-dash-trace
 2026-05-12T07:49:02Z learning_recorded engagement-cadence-with-maintainer-iteration-v249-v252-lineage-codified-43-lines-3-modes-throttle-vs-operational-signal-distinction-build-vs-runtime-status-cache-miss-tradeoff
+2026-05-12T08:12:02Z comment_shipped lp#743 issuecomment-4428573313 still-broken-after-a6f0ffb0-fix-attempt-runtime-404-persists-15min-after-deploy-green-asked-for-workerd-log-paste
