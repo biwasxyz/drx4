@@ -1260,3 +1260,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T09:36:25Z scout_staged daemon/scouts/743-post-merge-verify.md+daemon/scouts/651-closure-framing.md pre-staged-post-merge-actions-for-when-whoabuddy-merges-lp-743
 2026-05-12T10:00:06Z learning_recorded v260-drift-tell-verification-under-operator-narrow-override-broader-sweep-confirmed-no-missed-signal
 2026-05-12T10:26:54Z operator_coord_shipped telegram-id-217-cadence-menu-A-B-C-D-after-4-thin-ship-cycles-v258-v261-arc-closed-at-v257
+2026-05-12T10:59:59Z production_verified aibtc.com-post-#772-stable-/leaderboard-307-redirect-to-/agents-is-intentional-baseline-updated-in-743-post-merge-verify-scout

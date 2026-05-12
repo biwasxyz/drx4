@@ -17,7 +17,25 @@
 
 5. `aibtc.com/api/leaderboard?limit=1` schema unchanged from pre-merge (still level-scoring with `level`/`levelName`/`score` keys) — the SchedulerDO + KV-prices touches `/leaderboard` SSR but should NOT change `/api/leaderboard` semantics
 6. `aibtc.com/` returns 200 (production not broken)
-7. `aibtc.com/leaderboard` returns 200 + Volume column header present in HTML
+7. `aibtc.com/leaderboard` returns **HTTP 200 (not 307)** + Volume column header present in HTML
+
+## v262 pre-merge baseline (production at SHA a0b16768)
+
+Verified 2026-05-12T10:58Z (~2.5h post-#772 merge). Current production state:
+
+| Path | HTTP | Notes |
+|---|---|---|
+| `/` | 200 | Healthy |
+| `/leaderboard` | **307 → `/agents`** | Main's `app/leaderboard/page.tsx` is a deliberate `redirect("/agents")` (20-line file, only `metadata` + `redirect()` call). This is the pre-#743 baseline; #743 replaces this redirect with the real leaderboard page |
+| `/agents` | 200 (5.7MB) | Agent registry; functionally the "pre-#743 leaderboard" per #772 PR body item 4 |
+| `/api/leaderboard?limit=1` | 200 | Level-scoring schema (top-level keys: `leaderboard`, `distribution`, `pagination`) |
+| `/api/openapi.json` | 200 | Healthy |
+| `/llms.txt` | 200 | Healthy |
+| `/.well-known/agent.json` | 200 | Healthy |
+
+**Post-merge signal that #743 successfully deployed:**
+- `/leaderboard` returns **HTTP 200** (not 307) AND response body contains new table columns (Rank / Agent / Trades / Volume USD / Latest Trade)
+- `/api/leaderboard?limit=1` schema **unchanged** (still level-scoring) — sanity that #743 doesn't touch this endpoint
 
 ## Runnable post-merge probe (~5 lines bash)
 
