@@ -2,11 +2,66 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-12T09:13Z (cycle 2034v258, **v22 inline patch — trading-comp scope only** per operator-narrow override still active. SchedulerDO arc v218→v257 closed at v257 with final APPROVE on lp#743. Other surfaces NOT refreshed this patch.)
+**Last refresh:** 2026-05-12T19:44Z (cycle 2034v287, **v23 inline patch — v275-cluster merge wave + cross-repo fix-PR #785 + dev-council Cycle 6/7/8/9 advisories absorbed into operator-issue backlog**. v22 trading-comp scope closed.)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
 
-## *** v22 inline patch — trading-comp SchedulerDO arc closure (cycles 2034v240–v257, ~6.5h window 02:26Z → 08:55Z 5/12) ***
+## *** v23 inline patch — v275-cluster merge wave + cross-repo fix-PR + Cycle 6/7/8/9 absorption (cycles 2034v275–v286, ~3.3h window 16:31Z → 19:38Z 5/12) ***
+
+### Cluster merge wave (lp#773 + #774 + #775 + #743 all MERGED this window)
+
+| PR | SHA | Merged-at | Notes |
+|---|---|---|---|
+| **lp#773** (P4.0a agents-index from D1) | `1827ebdf` | 2026-05-12T16:13:50Z | Fast-merge 2min post my v274 APPROVE. Cycle 6 retrospective (steel-yeti 16:17Z) → whoabuddy filed **lp#783** at 18:23Z capturing 3 follow-ups (d1_low_row_count logger reason, threshold-basis comment, #691-gated retirement). My v281 offer-to-take with tagged-union sketch in court. |
+| **lp#774** (P3.2 edge-cache crawler OG middleware) | `6f79f647` | 2026-05-12T17:18:26Z | My v276 Cycle 7 substantive follow-up (Cairn Q1/Q2/Q3 + Spark residue + Forge +1) closed cross-PR comment + addressesToBust unification. Cycle 9 retrospective (steel-yeti 17:23Z) flagged identity-refresh shape inconsistency → whoabuddy filed **lp#780/#781/#782** at 18:22-23Z citing my v276 work 3x ("narrowing note", "Cairn Q2", "Forge +1"). |
+| **lp#775** (P3.3 edge-cache /api/og 24h TTL) | `7999e01d` | 2026-05-12T16:45:26Z | Caught at v277 (was stale-at-write in v276 STATE — Phase 6 re-baseline pattern codified always-on). Cycle 8 advisory (steel-yeti 16:43Z) validated ogAddressesToBust as strong precedent. |
+| **lp#743** (/leaderboard + SchedulerDO) | `d72559e8` | 2026-05-12T17:52:28Z | force-dynamic flip from my v275 build-caveat recommendation. End-to-end loop: 16:24Z whoabuddy raises caveat → 16:30Z my rec → 17:06Z whoabuddy ships d72559e → 17:09Z my re-APPROVE → 17:52Z merge → 18:06Z deploy verified Branch A. ~1h41m. Pre-staged scout (scouts/651-closure-framing.md) ran Branch A → closure-as-superseded suggestion shipped on lp#651. |
+
+### Open PRs at end-of-window (2026-05-12T19:44Z)
+
+| PR | Author | SHA | Reviews | Notes |
+|---|---|---|---|---|
+| **lp#785** (mine — fix#771 KV claim fallback) | secret-mars | `56c770a3` | arc APPROVED on prior 9df091f6 (stale-after-fixup); CI all green on fixup | First cross-repo fix-PR pattern. arc shipped substantive [question]/[suggestion]/[nit] at 19:13Z; same-cycle absorption: fixup pushed (!= null + JSDoc trim) + substantive [question] answer (trust-chain framing). Awaiting arc re-APPROVE OR whoabuddy fast-merge. |
+| **lp#784** (whoabuddy — scheduler v2 hotfix) | whoabuddy | `aa4e4848` | arc + secret-mars both APPROVED | Already deployed to prod per PR body. My v284 review: HMAC-RFC-4226-§6 constant-time-comparison analysis + 2 non-blocking follow-ups (rate limit on /api/admin/*, robots.txt). |
+| **lp#780** (whoabuddy — unify OG cache invalidation) | whoabuddy | n/a | none | Supersedes my lp#778 (closed). Whoabuddy cited my v276 narrowing note. |
+| **lp#781** (whoabuddy — zone-CDN s-maxage) | whoabuddy | n/a | none | My v282 substantive recommendation (option b + c per-surface tiering). Whoabuddy cited my v276 Cairn Q2. |
+| **lp#782** (whoabuddy — edge-cache PR checklist) | whoabuddy | n/a | none | Forge campaign-checklist materialization. Whoabuddy cited my v276 Forge +1. |
+| **lp#783** (whoabuddy — MIN_EXPECTED_D1_ROWS retirement) | whoabuddy | n/a | none | My v281 offer-to-take with tagged-union return-shape sketch in court. |
+| **lp#651** (biwasxyz — /dashboard balance) | biwasxyz | `d711c3a1` | secret-mars CHANGES_REQUESTED + closure suggestion | My v280 close-as-superseded suggestion (per pre-staged scout). Awaiting biwasxyz decision. |
+| **lp#771** (Robotbot69— POST /api/signals identity gate) | Robotbot69 | n/a (issue) | n/a | Cross-org partner bug. My v279 substantive triage (dual-source claim lookup root cause); fix-PR #785 linked. |
+
+### Patterns codified this window (memory/learnings/active.md)
+
+- **v275 substantive-engagement-when-asked**: whoabuddy build-caveat invited substantive read → OpenNext-CF reasoning + concrete 2-line suggestion + trade analysis. Not LGTM-padding even when not @-tagged.
+- **v276 read-full-thread + sub-line-cited Q&A**: Cycle 7/8/9 advisories warrant code-cited substantive responses across 3 advisories surfaced within 30min.
+- **v277 stale-info-in-STATE → Phase 6 re-baseline always-on**: third occurrence of writing-STATE with stale PR/issue state. Promoted to always-on policy.
+- **v278 advisory→operator-issue→my-offer-to-take pattern**: steel-yeti advisory → whoabuddy filed #783 → I offered-to-take with code-design surfacing.
+- **v279 cross-org partner-filed bug response**: same-day-or-next-day substantive triage for partner repos.
+- **v280 pre-stage-scout pattern paid off**: scouts/743 + scouts/651 (staged v259) → ran clean Branch A. Maintain 3-5 pre-staged scouts.
+- **v281 offer-to-take-PR pattern at scale**: 3rd instance in 3 cycles. Cite file:line + surface code-design question + concrete implementation sketch + easy-to-decline language.
+- **v282 sweep-rule addition**: include `gh search issues/prs --created=">2h"` to catch new openings without @-tag dependency. Validated preventive in v283 + actionable in v284 (caught lp#784).
+- **v283 cross-repo fix-PR pattern (NEW)**: clone via gh repo fork → focused fix → unit tests on pure helper + TS type-guard predicate → PR body with issue triage URL + alternatives + verification path + related backlog.
+- **v284 crypto-auth review pattern**: HMAC-as-constant-time-comparison RFC 4216 §6 grounding; information-theoretic argument when string-compare is non-constant-time but inputs are HMAC outputs.
+- **v285 dev-council [suggestion]/[nit]/[question] same-cycle absorption**: fix [suggestion]+[nit] in fixup commit + answer [question] in-thread, don't wait for re-review.
+- **v286 pre-stage-scout as observation-cycle artifact**: in waiting-cycles where CI runs but no external action ships, scout pre-stage produces real workspace artifact AND multiplies leverage on trigger.
+
+### Active drift tells as of 2026-05-12T19:44Z
+
+- lp#785 fixup 56c770a3 CI green ~14min, arc re-APPROVE pending — dev-council loop slightly slower than baseline ~5min
+- lp#784 dual-APPROVE in court, whoabuddy merge pending despite "already deployed to prod" framing
+- lp#780/781/782/783 all OPEN with my offer-to-take in court (4 simultaneous offers — operator batch cadence ~hourly)
+- arc x402-sponsor-relay#369 still 2026-05-07T19:36Z (5d+ silent; 7d threshold ~5/14 ~36h)
+- Robotbot69 has NOT engaged on #771 since filing — awaiting fix-PR merge + verification before they validate write-path unblock
+
+### Whoabuddy / arc dynamics
+
+- **whoabuddy** post-pivot: operator-action batches at ~hourly cadence (16:24Z notes → 17:06Z fix → 18:22Z 4-issue batch → 19:13Z review absent). Active on architecture decisions + issue-filing; less active on response-to-my-PRs (lp#785 awaits whoabuddy notice).
+- **arc0btc** post-pivot: fast turnaround on substantive reviews (~17min PR-opened to APPROVE on lp#785; ~minutes on lp#784). Dev-council [question]/[suggestion]/[nit] structure showing strong adoption.
+- **biwasxyz** quiet on lp#651 closure suggestion since 18:07Z (~1.5h).
+
+---
+
+
 
 **Operator directive (still active — /start args 2026-05-11):** "100% focus on trading-comp PRs across MCP + landing-page, review/test via preview URLs, file ONE issue tagging @whoabuddy + @arc0btc."
 
