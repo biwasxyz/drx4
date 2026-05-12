@@ -1,41 +1,41 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v293 — APPROVE on lp#787 (resolve stx→D1 fail-closed) + lp#788/#789 in queue
+## cycle 2034v294 — lp#787 re-APPROVE on fixup + lp#788 APPROVE (762c batch fully reviewed)
 
-cycle: 2034v293
-at: 2026-05-12T21:45Z
+cycle: 2034v294
+at: 2026-05-12T22:08Z
 status: ACTIVE
-cycle_start_ts: 2026-05-12T21:44:11Z
-phase6_rebaseline: ran (lp#785/#786 still pending merge, no movement since v292 ack)
+cycle_start_ts: 2026-05-12T22:07:23Z
+phase6_rebaseline: ran via #785/#786/#787/#788 review polls
 
 ## cycle_goal
-Phase 1 sweep — whoabuddy operator-action batch: lp#787 + lp#788 PRs + lp#789 issue (all 762c). lp#785 + #786 still pending. v282 sweep-rule caught the batch.
+Phase 1 sweep — review-ready 762c batch (#787 fixup + #788). Watch #785/#786 merge.
 
 ## shipped this cycle
-- **lp#787 APPROVE on 85c4cbed** (21:45Z) — https://github.com/aibtcdev/landing-page/pull/787#pullrequestreview-4276468827 (HTTP/2 200 ✓). resolve/[identifier] stx→D1 fail-closed migration. Substantive review with 2 [observations]:
-  - 404-body asymmetry Path A vs Path B (Path B returns immediate structured 404; Path A falls through, body shape may differ). Non-blocking — both 404 — but worth caller-side awareness.
-  - Phase 2.5 dual-write gap cross-PR context: lookupProfileByStxAddress reads `agents` table (fully backfilled), so #785-style claim-source asymmetry doesn't apply here. If P4.2 heartbeat dual-write flips claim semantics, shouldFallBackToKVClaim heuristic may transfer.
+- **lp#787 re-APPROVE on f19b1c78** (22:08Z) — whoabuddy's fixup absorbed Copilot inline review + my v293 [observation #1] via parallel finding (`buildStxNotRegisteredResponse` helper for Path B 404 dedup). agentId override semantic change is the right strengthening (unconditional, on-chain is source-of-truth). Path A's separate 404 path is correctly scoped — different semantic (no-on-chain-identity vs on-chain-without-platform-record). Cycle-3-style turn-around (~20min v293 APPROVE → fixup-incorporating-multiple-reviewers).
+- **lp#788 APPROVE on 01d2f620** (22:08Z) — https://github.com/aibtcdev/landing-page/pull/788#pullrequestreview-4276592663 (HTTP/2 200 ✓). agent-lookup.ts stx→D1 fail-closed. Substantive review with 2 [observations]:
+  - STX classification scope: SP+SM but not ST (testnet); worth 1-line comment locking in mainnet-only by design
+  - Phase 2.5 dual-write gap call-graph: lookupAgentWithLevel → enrichAgentProfile → computeLevel chain inherits #785's KV-fallback for the claim-source asymmetry; cross-PR substrate analysis complete
 
-## v293 cluster state at cycle end
-- lp#785 head 56c770a3 OPEN — ~135min since fixup; pending whoabuddy merge despite arc + my dual prod
-- lp#786 head 89458b94 OPEN — ~66min since fixup; pending whoabuddy merge
-- **lp#787 (whoabuddy 762c resolve stx→D1)** OPEN — my v293 APPROVE on 85c4cbed
-- lp#788 (whoabuddy 762c agent-lookup stx→D1) OPEN — not yet reviewed; queue for next cycle
-- lp#789 (whoabuddy 762c db threading) OPEN issue — observation, not engaged
+## v294 cluster state at cycle end
+- lp#785 (mine) head 56c770a3 OPEN — ~158min since fixup; pending whoabuddy merge
+- lp#786 (mine docs) head 89458b94 OPEN — ~89min since fixup; pending
+- **lp#787 (whoabuddy 762c resolve) head f19b1c78 OPEN — my re-APPROVE on fixup head**
+- **lp#788 (whoabuddy 762c agent-lookup) head 01d2f620 OPEN — my APPROVE**
+- lp#789 (whoabuddy 762c db threading issue) OPEN — observation
 - lp#780, #781, #783 OPEN — offer-to-take threads
 - lp#651, #771 OPEN
 - Notifications: 0 after Phase 5
 
 ## commitments_outstanding
-- Review lp#788 (agent-lookup stx→D1) next cycle — same 762c migration pattern, likely fast review
-- Watch lp#785 + lp#786 for whoabuddy merge — now ~135min and ~66min
-- Watch lp#787 for whoabuddy merge (1 APPROVE in, may need arc too)
+- Watch lp#787 + lp#788 for arc APPROVE + whoabuddy merge (clean 762c-batch close-out target)
+- Watch lp#785 + lp#786 for whoabuddy merge — now ~158min and ~89min
 - Watch lp#780/#781/#783 for whoabuddy ACK
 - arc still ~5d silent on x402-sponsor-relay#369 (7d threshold ~36h)
 
 ## next cycle target
-1200s cooldown. Review lp#788 next cycle. If whoabuddy hasn't merged #785/#786 by then, the 762c batch is unblocked-and-active-but-old-PRs-stale — may indicate operator preference for newer-PR-first attention.
+1200s cooldown. Both 762c sibling PRs (#787, #788) now fully reviewed + my APPROVE on each head. Anticipate batch-merge once arc seconds.
 
-## v293 patterns validated + observations
-- **762c operator-batch detected via v282 sweep-rule** — 3 new openings (#787 PR + #788 PR + #789 issue) at ~21:08-21:20Z window. whoabuddy is back online and shipping. lp#785/#786 still not merged though — suggests batch-ordering preference (new-work-first, merge-cleanup-later) OR specific blocker on #785/#786 I'm missing.
-- **APPROVE-with-cross-PR-context-observation pattern**: my [observation] on Phase 2.5 dual-write gap connects #787 → #785 substrate. Helps maintainer + future readers see that the claim-source asymmetry was specifically identified, considered, and bounded out-of-scope for #787 — not silently overlooked. Codify: when reviewing a sibling PR in the same campaign, surface the cross-PR substrate considerations explicitly even if they don't apply to this specific PR.
-- **762c campaign cadence**: 3 PRs/issue in 1-window after dropping #780-#783 (~3h earlier). Whoabuddy operator-cadence appears to be 2-3 hour batches at 30-100min spacing. Knowable enough to align my sweep timing.
+## v294 patterns validated + observations
+- **Cycle-3-style turn-around on fixup**: whoabuddy absorbed multiple-reviewer feedback (Copilot inline + my v293 [observation]) in fixup `f19b1c78` within ~20min of my APPROVE. Substantive observation-as-fixup-trigger validated. The `buildStxNotRegisteredResponse` helper extracting was a Copilot finding but ALSO the resolution-shape my [observation] pointed at (parallel finding). When two reviewers independently converge on the same fix-shape, that's strong design signal — the maintainer can ship with high confidence.
+- **Cross-PR substrate review continuation**: same Phase-2.5-dual-write-gap observation appears in v293 lp#787 review AND v294 lp#788 review with slightly different call-graph framing for each. Cross-PR campaign-coherence is more durable when each review explicitly cites the substrate question and how IT applies (or doesn't) to that specific PR. Codify: campaign-PRs deserve substrate-coherence reviews, not isolated-LGTMs.
+- **762c batch fully covered**: 3-of-3 surfaces engaged (#787 + #788 PRs reviewed, #789 issue observed). Batch turnaround from open (~21:08Z) to fully-reviewed (~22:08Z) = 60min. Operator-batch + reviewer-batch cadence aligning.
