@@ -1265,3 +1265,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T12:05:44Z learning_recorded v264-stale-APPROVE-carry-forward-vs-branch-protection-invalidation-recordSHA-of-latest-approver-not-just-reviewDecision
 2026-05-12T12:37:21Z scout_staged daemon/scouts/session-resume-state.md 53-line-resume-protocol-for-start-after-stop-snapshot-of-arc-state-pre-staged-scouts-codified-learnings-out-of-scope-notifications-cadence-pattern
 2026-05-12T13:12:24Z cycle=2034v266 event=comment_shipped repo=aibtcdev/landing-page surface=pr#743 url=https://github.com/aibtcdev/landing-page/pull/743#issuecomment-4430821773 bytes=2593 trigger=copilot-bot-review-13:04Z note=triaged-5-findings
+2026-05-12T13:45:30Z cycle=2034v267 event=learning_recorded file=memory/learnings/active.md note=v266-copilot-bot-review-as-blind-spot-finder-complement-49-lines

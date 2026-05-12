@@ -2175,3 +2175,52 @@ gh api "repos/OWNER/REPO/pulls/N/reviews" --jq '.[] | select(.state == "APPROVED
 **Cross-cycle ties:**
 - v228 SHA-compare at boot: similar precision pattern — `updatedAt` ≠ "no new substance"
 - v258 board v22 inline patch: now should include the most-recent-APPROVE-SHA column for each PR
+
+---
+
+## v266 — Copilot-bot-review as blind-spot complement to my review
+
+**Observation:** After I ship a closing APPROVE on a PR, the `copilot-pull-request-reviewer[bot]` may post a `COMMENTED` review surfacing findings I missed. These complement my arc-context-rich substantive review with a fresh-SHA blind read.
+
+**v266 instance on lp#743 (post-v257 closing APPROVE on 46e6badb):**
+
+Copilot dropped 5 inline findings at 13:04Z (~4.5h after my closing APPROVE). My triage of them (issuecomment-4430821773):
+
+| Finding | I caught at v257? | Copilot caught | Real? |
+|---|---|---|---|
+| #1 PR description scope-drift (still says "/agents IS the leaderboard, no cron/KV/snapshot, Separate /leaderboard page closed as overengineered") | NO | YES | YES (real description-vs-PR drift after v249 SchedulerDO scope expansion) |
+| #2 stale path ref `lib/scheduler/scheduler-do.ts` in a sync-pointer comment at `app/leaderboard/page.tsx:34` (file 404s — was inlined to worker.ts in b8abf98f) | NO | YES | YES (verified via `GET /contents/lib/scheduler/scheduler-do.ts → 404`) |
+| #3 D1 `SUM(amount_in)` typed as `number`, JS Number()-precision concern | NO | YES | partial (real-as-written, low-likelihood below 2^53 at competition scale) |
+| #4 docstring "match verbatim" vs `.includes()` in `lib/inbox/d1-dual-write.ts:49` | NO | YES | minor (real doc-rot, lowest priority) |
+| #5 `Number(raw)` precision on STX balances in `lib/balances/btc.ts:47` | n/a (out-of-scope for #743) | YES | out-of-scope (file not in #743 diff) |
+
+**Why I missed #1 + #2 at v257:**
+
+- #1 (description drift): At v257 I was focused on the post-rebase code review + closing the migration arc. I read the *Updates* header at the top of the PR body and did not re-read the entire description against the post-#768 scope expansion. The description hadn't been edited since the original narrower scope.
+- #2 (stale path ref): The v249 → v254 SchedulerDO inline pivot moved the class from `lib/scheduler/scheduler-do.ts` to `worker.ts`. I knew about the pivot from biwasxyz's b8abf98f commit message, but I never grepped the repo for residual references to the old path. The stale comment was in a file (`app/leaderboard/page.tsx`) I'd read for SQL/SchedulerDO-class concerns but skimmed the import-block + adjacent doc comments.
+
+**Pattern: blind-spot complementarity, not subsumption.**
+
+My review brings: arc context (v18 cycles of state), historical hypothesis-validation (b8abf98f, #772 root cause), maintainer-coordination context (whoabuddy/biwasxyz/arc dynamics), pattern-validation across cycles. Copilot brings: fresh-SHA-without-baggage reading, static-analysis at scale, no time-cost on re-grepping after pivots.
+
+Neither subsumes the other. The 5-finding triage took me ~7 minutes (read body, verify file paths, read code around flagged lines, draft comment, ship). That's a 7-minute value-add that filters Copilot's signal-vs-noise *for the maintainer* — Copilot's review on a 12-commit batch can include out-of-scope findings (#5 here), minor doc-rot, and load-bearing items intermixed. A reviewer with arc context can split them with high-confidence.
+
+**Codified rules:**
+
+1. **After major in-flight refactor pivots** (e.g. file-move, inline, rename, type-widening): run a quick repo-wide grep for the old name/path in code AND in comments AND in docstrings before shipping closing APPROVE. The doc-rot finding (#2) is the kind I systematically miss because I trust prior reads of the same file.
+
+2. **PR description drift after scope expansion**: if the PR scope changed >2× between PR-open and merge candidacy (e.g. #743's v249 scope-broaden to inline SchedulerDO + KV-prices), re-read the description body in full *as if seeing it fresh*. The "Updates" header at top is not the description.
+
+3. **When Copilot reviews a PR I've already APPROVED**: triage substantively (filter signal-vs-noise for maintainer), don't ignore. Even if all findings are minor, the triage is a value-add. Format: per-finding {real/minor/out-of-scope}, why, recommended action. End with: "hard-blockers unchanged, none of these are merge-blocking."
+
+4. **Bot-review triage is not over-engagement** under operator-narrow override on the same surface — it's the same PR thread, the operator directive scopes to "this PR cluster", and the triage takes minutes not hours.
+
+**Cross-cycle ties:**
+- v255 hypothesis-validation-via-commit-message: maintainer-fix-commit-message as my hypothesis oracle (commit-time signal).
+- v266 Copilot-bot-review-as-blind-spot-finder: bot-review-on-same-SHA as my blind-spot oracle (post-APPROVE signal).
+- Both are about value-extracting from a *different reader* of the same surface — maintainer for hypothesis validation; bot for blind-spot detection.
+
+**Tests for whether this pattern recurs:**
+- Track: Copilot-review-after-my-APPROVE occurrences across next 10 cycles.
+- For each: did I catch all real findings? Was triage shipped within 15min? Did maintainer act on the triaged items?
+- Failure mode to watch: triaging EVERY Copilot finding (vs filtering) — that's review theater with extra steps.

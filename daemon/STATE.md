@@ -1,45 +1,40 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v266 — Copilot review on lp#743; triaged 5 findings; back to hard-wait
+## cycle 2034v267 — v266 pattern codified (Copilot-as-blind-spot); hard-wait continues
 
-cycle: 2034v266
-at: 2026-05-12T13:13Z
-status: shipped (lp#743 issuecomment-4430821773 triage)
+cycle: 2034v267
+at: 2026-05-12T13:45Z
+status: shipped (active.md +49 lines codifying v266 pattern)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v266 ship — Copilot-finding triage on lp#743
-At 13:04Z (~5min before this cycle's poll) `copilot-pull-request-reviewer[bot]` posted a COMMENTED review on lp#743 with 5 inline findings. I shipped a triage comment (issuecomment-4430821773, 2593 bytes) classifying them for maintainers:
-- **#1 PR description scope-drift** — real. Body still says "/agents IS the leaderboard" + "no cron, no KV cache" + "Separate /leaderboard page closed as overengineered (#742)" but the actual PR adds all three. Worth rewriting before merge.
-- **#2 stale `lib/scheduler/scheduler-do.ts` ref at app/leaderboard/page.tsx:34** — real, verified via `GET /contents/lib/scheduler/scheduler-do.ts → 404`. Residue from b8abf98f inline pivot. My v257 closing APPROVE missed it (no post-inline grep). 1-line fix.
-- **#3 D1 SUM(amount_in) typed as number** — real-as-written precision concern. Per-token sums at competition scale (sBTC sats ~10^10, STX micro-STX ~10^12 over thousands) stay below 2^53. Worth-noting-not-fixing.
-- **#4 verbatim-vs-includes docstring drift** in lib/inbox/d1-dual-write.ts:49 — real, lowest priority.
-- **#5 Number(raw) precision in lib/balances/btc.ts:47** — out-of-scope; file isn't in #743 diff. Separate-issue candidate.
+## v267 ship — pattern codification
+Wrote `memory/learnings/active.md` v266-entry (Copilot-bot-review as blind-spot complement):
+- Tabulated my v257 catches vs Copilot's 5 findings on lp#743@46e6badb — I missed #1 (description drift) + #2 (stale `lib/scheduler/scheduler-do.ts` path ref).
+- Diagnosed root cause per finding: #1 = I read "Updates" header, not full body re-read post-scope-expansion; #2 = no repo-wide grep for old path after b8abf98f inline pivot.
+- Codified 4 rules: (1) post-pivot grep-for-old-name in code+comments+docstrings; (2) PR-description-re-read-as-fresh after >2× scope expansion; (3) substantive-triage-on-Copilot-after-my-APPROVE (not ignore); (4) bot-review-triage stays in operator-narrow scope.
+- Cross-tie: v255 (maintainer-commit-message as hypothesis oracle) + v266 (bot-review-as-blind-spot oracle) both value-extract from a different reader of same surface.
+- Failure mode to watch: triaging EVERY Copilot finding vs filtering = review theater with extra steps.
 
-Closed with: hard-blockers (build, migration, DO bundling, error 10211) still load-bearing path; none of Copilot's are merge-blocking; pre-merge checklist from biwasxyz 08:42Z still the gate.
+## v267 surface sweep (unchanged since v258)
+- lp#651 d711c3a1 BLOCKED (no movement 11+h)
+- lp#738 5224a0d9 CLEAN (no movement 8.3h)
+- lp#743 46e6badb APPROVED, my v266 triage at 13:11Z (no maintainer response yet, 33min)
+- mcp#510 521c2466 (no movement 10.4h)
+- main lp HEAD a0b16768 (no movement 5.2h since #772)
+- 0 notifications, 0 review-requested
 
-## v266 observations
-- lp#743 reviewDecision still APPROVED (Copilot review type COMMENTED doesn't override prior APPROVE)
-- Build status unchanged: Workers Builds: landing-page FAILURE on 46e6badb (expected — error 10211 platform constraint)
-- All other trading-comp SHAs unchanged since v258:
-  - lp#651 d711c3a1 BLOCKED (CHANGES_REQUESTED)
-  - lp#738 5224a0d9 CLEAN (my APPROVE×5, arc stale d3d0afeb)
-  - mcp#510 521c2466 chained
-  - main lp HEAD a0b16768
+## v267 maintainer idle clock
+- biwasxyz 5.0h since 08:42Z #743 platform-constraint comment
+- whoabuddy 5.1h since #772 merge
+- arc 10.5h since mcp#510 re-APPROVE
 
-## Pattern note for v266 (extends v255)
-The v255 hypothesis-validation-via-commit-message pattern has a cousin: **Copilot-review-as-blind-spot-finder**. My v257 closing APPROVE missed two items Copilot caught (stale-comment doc-rot + SUM precision). Copilot reads the *current* SHA without my historical scope baggage; I read with full arc context but blind-spot on what was already-trusted at the inline pivot. Useful complementarity — neither subsumes the other. Worth codifying if pattern recurs.
+## v267 cadence
+- **1800s stays** — sustained hard-wait, default A from v261 menu. No event-driven trigger this cycle; the v266 Copilot drop was a one-off.
 
-## v266 cadence
-- **1800s stays** — sustained hard-wait. Copilot drop was a one-off; no maintainer movement yet.
-- Maintainer idle clock at cycle end:
-  - biwasxyz 4.6h since #772 (and 4.5h since 08:42Z #743 comment)
-  - whoabuddy 4.6h since #772
-  - arc 9.8h since mcp#510
-
-## Pending on resume — next cycle (1800s)
-- Operator response to v261 cadence menu (still pending — 2.4h+ now)
-- whoabuddy merge actions on lp#743 (now also has Copilot triage in flight)
-- arc/whoabuddy fresh approve on lp#738
+## Pending on resume
+- biwasxyz response to v266 triage (re: description rewrite + path fix on lp#743)
+- whoabuddy merge actions on lp#743 (deploy SchedulerDO via main CI)
+- arc/whoabuddy fresh approve on lp#738 5224a0d9
 - biwasxyz scope decision on lp#651
-- biwasxyz response to my Copilot triage (re: #1 description rewrite + #2 path fix)
+- Operator response to v261 cadence menu (3h+ silence)
