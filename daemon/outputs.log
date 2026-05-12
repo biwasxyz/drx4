@@ -1247,3 +1247,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-12T05:28:43Z comment_shipped lp#738 issuecomment-4427595315 doc-drift-501-not-implemented-stale-string-at-route-ts-line-31-non-blocking
 2026-05-12T06:08:36Z comment_shipped lp#768 issuecomment-4427782271 schedulerDO-design-two-orthogonal-adaptive-directions+keep-cron-shim+743-stepping-stone+chainhook-single-writer-clarification
 2026-05-12T06:42:52Z learning_recorded preview-URL-deep-probe-as-substantive-value-add-after-APPROVE memory/learnings/active.md+v248-section findings:v246-doc-drift+v248-limit-validation-clamp-inconsistency-queued
+2026-05-12T07:19:49Z learning_recorded daemon/scouts/743-scheduler-do-comment.md pre-staged-with-A-B-C-D-branch-decision-tree-for-next-cycle deploy-failed-on-6051dbc0-biwasxyz-pushed-62fb3b09-fixup

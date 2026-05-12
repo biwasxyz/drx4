@@ -1,46 +1,55 @@
 # State -- Inter-Cycle Handoff
-## cycle 2034v248 — preview deep-probe pattern codified; limit-validation inconsistency queued
+## cycle 2034v249 — biwasxyz materialized v247 framework in 12 commits; pre-stage comment for green build
 
-cycle: 2034v248
-at: 2026-05-12T06:42Z
-status: shipped
+cycle: 2034v249
+at: 2026-05-12T07:19Z
+status: shipped (scout staged, no GH comment this cycle — biwasxyz mid-iteration)
 
 ## OPERATOR DIRECTIVE (active — /start args 2026-05-11)
 > "we need to closely look into the prs and updates on the trading competition on both mcp and landing-page so we need to keep looking into the PRs review them test them using the preview url focus your 100% on those okay file an issue tag whoabuddy/arc"
 
-## v248 ship
-**Learning codified to memory/learnings/active.md (~30 lines)** — "preview-URL deep-probe as substantive value-add after APPROVE" pattern crystallizing v246+v248 lineage:
-- After APPROVE, pivot to endpoint probing on branch preview URL
-- 4-axis probe set: self-doc endpoints, validation edge cases, idempotency re-submission, cursor/pagination robustness
-- Closes gap between PR-review correctness and runtime-edge-case validation drift
-- Pre-merge multi-lens complement to v167-v173 post-merge advisory
-- Throttle: max 1 nit-comment per PR per ~30min session window to avoid pile-on
+## v249 material event
+**biwasxyz pushed 11 commits at 07:11-07:12Z implementing #768 SchedulerDO design** (with Claude Co-Authored-By trailer — likely used Claude Code):
+- `b551f5c7` tenero typed fetch wrapper
+- `f5d44b46` fetchTokenPriceUsd
+- `366bde34` KV cache helpers tenero:price:{tokenId}
+- `dd8d6574` barrel export lib/external/tenero
+- `8d661666` **SchedulerDO + alarm for Tenero price refresh** (417 lines, lib/scheduler/scheduler-do.ts)
+- `a03dc1f4` env types add SCHEDULER + optional TENERO_API_KEY
+- `f0651181` wrangler.jsonc binding + v1 migration (top-level + production + preview)
+- `0aa0baae` worker.ts re-export SchedulerDO
+- `e02ce5b4` SSR volumeUsd from KV-cached prices
+- `6051dbc0` drop browser Tenero, presentational client (-226+/86)
+- Then `62fb3b09` at 07:16Z: opportunistic SchedulerDO SSR-kick via ctx.waitUntil
 
-## v248 endpoint probe — new finding queued (NOT yet posted)
-**lp#738 limit-validation inconsistency at route.ts:130-140:**
-- `limit=banana` (non-numeric) → HTTP 400 reject with "Expected integer in [1, 200]"
-- `limit=0` / `limit=-1` / `limit=10000` (numeric out-of-range) → silently clamped via `Math.min(Math.max(parsed, 1), 200)`, 200 OK response
-- `limit=200.5` (float) → parseInt strips decimal → 200, accepted
-- Inconsistency: error message implies range gate but only NaN check rejects; out-of-range numerics silently clamp
-- **NOT a bug, but contract drift**. Deferred to avoid pile-on (v246 doc-nit already on #738 awaiting biwasxyz response)
+Design closely tracks my v247 #768 framework: versioned `idFromName("v1")` singleton, D1-not-DO authoritative state, per-task try/catch in alarm() with finally-block re-arm, adaptive backoff on Tenero minute-quota signals.
 
-**Positive v248 endpoint findings:**
-- Idempotency: re-submit seeded txid → HTTP 409 `txid_already_verified` with full `existing_row` payload (helpful)
-- Address validation: SP=accept, SM=accept-empty, ST(testnet)=reject, malformed=reject, missing=reject — all with helpful 400+example
-- Cursor: malformed-base64 → clean 400 error
-- Seeded sample trade in preview DB for my address (test fixture)
+## v249 hold-fire reasoning
+- 6051dbc0 deploy FAILED (Workers Builds, instant fail at 07:14:12Z — CF dash URL behind auth)
+- Branch preview at feat-agents-mcp-trades-volume-...workers.dev still serves prior 412f91ff (last good)
+- 62fb3b09 fixup IN PROGRESS build at scout time (07:19Z)
+- biwasxyz is actively iterating; commenting now risks mid-flight noise and stale references
 
-## v248 boot SHA-compare
-- All comp surfaces unchanged since v247 (lp#651, lp#738/5224a0d9, lp#743/412f91ff, lp#768/issue, mcp#510/521c2466)
-- main lp HEAD: `45e70f94` (#769 rate-limit migration to RATE_LIMIT_STRICT — unrelated to comp surface)
-- v246 doc-nit + v247 SchedulerDO comment no maintainer response yet
+## v249 ship
+**Pre-staged comment in daemon/scouts/743-scheduler-do-comment.md** (33 lines) with v247-framework-ack + 2 signals (no tests for SchedulerDO; STATIC_TOKEN_IDS/TOKEN_DECIMALS drift surface) + A/B/C/D branch decision tree depending on next-cycle build state:
+- A: build green + no tests → ship as-is
+- B: build green + biwasxyz added tests → strip signal #1, keep ack + drift note
+- C: build still failing → swap signal #1 for deploy-fail-flag, defer one more cycle
+- D: arc/whoabuddy already commented → don't pile on, strip signal #1
 
-## Pending on resume
-- biwasxyz response on **lp#738 v246 doc-drift** + possibly v248 limit-validation if I file
-- whoabuddy/biwasxyz pivot/response on **lp#768 SchedulerDO** + implementation PR
-- arc re-review on **lp#738 5224a0d9** + **lp#743 412f91ff**
-- whoabuddy/biwasxyz response on **lp#651** scope question
-- **#738 merge** = primary gate
+## v249 boot SHA-compare
+- lp#651 unchanged d711c3a1
+- lp#738 unchanged 5224a0d9, my v246 doc-nit still no maintainer response
+- lp#743 → 62fb3b09 (was 412f91ff at v245 APPROVE; 12 new commits since)
+- lp#768 unchanged issue, my v247 comment standing
+- mcp#510 unchanged 521c2466
+- main lp HEAD: 45e70f94 (unchanged since v248)
+
+## Pending on resume — next cycle (90-270s tighten zone)
+- **CHECK lp#743 build outcome on 62fb3b09** — if green, decide which scout branch to ship
+- biwasxyz may push more fixups; arc may comment
+- All other surfaces unchanged
+- **#738 merge** = primary gate; **mcp#510 merge** unblocks after
 
 ## Cadence
-- 1800s. Tighten to 900s if SchedulerDO PR opens or any thread engages.
+- **270s** this round (worker building, biwasxyz mid-iteration). Tighten window for ~3 polls.
