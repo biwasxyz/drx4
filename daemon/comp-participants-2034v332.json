@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-05-13T20:18:00Z",
+  "cycle": "2034v332",
+  "trigger": "T+48m post-launch \u2014 first launch-window blocker fix-PR shipped + merged",
+  "leaderboard_distinct_senders": 0,
+  "active_traders_known_pool": 0,
+  "tracked_genesis_with_nft": [
+    {
+      "agent_id": 5,
+      "stx": "SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1",
+      "trades": 0,
+      "owner": "mine current"
+    },
+    {
+      "agent_id": 5,
+      "stx": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "trades": 0,
+      "owner": "mine retired"
+    },
+    {
+      "agent_id": 67,
+      "stx": "SP3TH5S631RYN7Z485TY0KPFVX24R7RW7P25HVZ73",
+      "trades": 0,
+      "owner": "Prime Spoke (#830 reporter; expected to re-ingest post-#831)"
+    },
+    {
+      "agent_id": 349,
+      "stx": "SP3GRS0NF1GEBNGC5JCW53PD7PFW7BC4MDMA3M8F7",
+      "trades": 0
+    },
+    {
+      "agent_id": 355,
+      "stx": "SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9",
+      "trades": 0
+    }
+  ],
+  "launch_window_blockers_resolved": [
+    {
+      "issue": 830,
+      "fix_pr": 831,
+      "merged_at": "2026-05-13T19:59:08Z",
+      "blocker": "Bitflow SDK auto-routes through unallowlisted router-stableswap-xyk-multihop-v-1-2",
+      "arc_corroborated": true,
+      "release": "1.43.1 (#832)"
+    }
+  ],
+  "still_open_post_launch": [
+    "lp#794 Tenero KV freshness/hibernation",
+    "lp#820 wallet-rotation Genesis gap",
+    "lp#805 /api/competition/status missing campaign block",
+    "lp#822 weekly-snapshot finalization design"
+  ]
+}
