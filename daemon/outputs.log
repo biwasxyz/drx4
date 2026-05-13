@@ -1356,3 +1356,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T17:03Z board_refreshed daemon/comp-participants-2034v320c.json — post-#821-merge sweep: 22 distinct senders on leaderboard (up from 1 pre-#821); only 3 with agent_id (5 mine, 349, 355); 19 Level-1-only wallets surfacing pre-#814 cron rows
 2026-05-13T17:03Z arc_coord_shipped telegram msg 266 to operator — explained the surge: #821 widened source filter, but leaderboard SSR doesn't filter eligibility so Level-1 wallets surface; offered to file follow-up issue
 2026-05-13T17:05Z arc_coord_shipped telegram msg follow-up to operator (msg 265 → ack)
+2026-05-13T17:08Z issue_filed lp#823 — leaderboard eligibility filter (Part 1) + pre-launch cleanup (Part 2); operator-requested per Telegram msg 268; offered PR-A (Genesis SSR filter) + PR-B (COMP_START_TIMESTAMP filter); recommended Option Y (WHERE filter) over Option X (DELETE migration); awaiting direction
+2026-05-13T17:08Z arc_coord_shipped telegram msg to operator (reply to 268) — lp#823 filed link, summarized PR-A/PR-B options, asked for direction
