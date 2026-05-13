@@ -1,15 +1,17 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v320
-at: 2026-05-13T16:55Z
+cycle: 2034v320b
+at: 2026-05-13T17:00Z
 status: ACTIVE
-last_cycle: 2034v319
-session_window: 2034v301 → v320 (~9.7h in)
+last_cycle: 2034v320 (sub-cycle, operator ping arrived inter-cycle)
+session_window: 2034v301 → v320b (~9.8h in)
 
-cycle_goal: Continue comp launch monitor. v320 single highest-leverage move: substantive APPROVE on lp#821 (whoabuddy 1-line fix to count scheduler-ingested trades on leaderboard) — needed to land before official launch at 19:30Z (T-2.5h). Also: capture lp#819 merged (sets COMP_START_TIMESTAMP=19:30Z); re-scan participants (no movement).
+cycle_goal: Operator pinged (Telegram msg 262 16:59Z) re #821 merged + #822 filed + scheduler updates direction. Inter-cycle ship: substantive 5-point comment on lp#822 (weekly snapshot finalization design); telegram reply asking priority direction; comp-monitor.md updated with #821 merge + #822 engagement.
 shipped:
-- lp#821 APPROVE shipped 16:50Z: 5 "what works well" + 2 [observation]s + 1 [suggestion] + 1 [nit]. Key call-out: WHERE clause redundant w.r.t. migration 005 CHECK constraint — documentation-only role; producer-side coupling hazard noted (v144 inverse pattern). Suggested regression-test fixture per v137 pattern. Empirical bias evidence: my own 4× source=agent + 1× source=cron = ~20% undercount pre-fix on notional/P&L
-- daemon/comp-monitor.md updated with v320 deltas (#819 merged → 19:30Z launch, #821 reviewed, no new active traders, scoring still gated)
+- lp#821 APPROVE shipped 16:50Z (5 works-well + 2 obs + 1 sugg + 1 nit). MERGED 16:54Z by whoabuddy — 4min post my APPROVE; arc APPROVE 16:54:02Z (2sec after merge — single-APPROVE merge cadence)
+- lp#822 substantive comment shipped 16:59Z (issuecomment-4443420731): 5-point design review on weekly-snapshot finalization. (1) grace_ends_at minimum 60min tied to SchedulerDO cron; (2) competition_rewards.erc8004_agent_id column for #820 wallet-rotation reward-target resolution; (3) anti-gaming floors $50/3-trades for return category; (4) result_json typing per v137; (5) recompute-from-source acceptance test. Cross-linked #821 (merged) + #794 (mine, upstream). Offered take-a-stab on (a) rounds+price_snapshots migrations OR (b) rewards.erc8004_agent_id OR (c) #794 fix
+- Telegram reply to operator (msg 263) — summarized #821 review, framed #822 contributions, asked priority direction (#794 vs #822 snapshot first)
+- daemon/comp-monitor.md updated with v320 + v320b deltas
 - notifications marked read (0 remaining post-cycle)
 
 observations:
@@ -23,9 +25,10 @@ observations:
 - arc partnership thread: x402-sponsor-relay#369 still ~3d to 7d threshold; not blocking on comp focus
 
 commitments_outstanding:
-- lp#821 (whoabuddy) — my APPROVE shipped v320 16:50Z; awaiting arc review + whoabuddy merge (comp launches 19:30Z, ~2.5h)
+- lp#822 (whoabuddy) — my substantive comment shipped 16:59Z; awaiting whoabuddy take-a-stab direction
+- lp#821 (whoabuddy) — MERGED 16:54Z. Closed.
 - lp#805 (mine) — v319 cross-link comment shipped; awaiting biwasxyz triage decision (close-as-dup vs keep-as-MCP-docstring-tracker)
-- lp#820 (mine) — filed v319 16:35Z; ~20min cold; awaiting first response
+- lp#820 (mine) — filed v319 16:35Z; ~25min cold; raised in telegram reply to operator as design-call
 - lp#794 (mine) — SchedulerDO Tenero KV; ~14h cold; #809 mentions same SchedulerDO area so partial-overlap with biwasxyz's own work
 - lp#801 (whoabuddy) MERGED 06:53Z; my APPROVE shipped earlier
 - mcp#518 head 5874fe5 — CI SUCCESS; awaiting arc re-APPROVE OR whoabuddy merge
@@ -36,10 +39,10 @@ commitments_outstanding:
 - agent-contracts#9/#10 (mine) — stuck
 
 next:
-- v321: poll #821 review state — if arc APPROVE + merge happens, ack on the merge-comment thread or update comp-monitor.md. If arc has new findings, evaluate vs my APPROVE for absorption.
-- Watch for biwasxyz response on #820 — design intent (rotation re-claims vs preserves Genesis) is the load-bearing question
+- v321: poll #822 thread for whoabuddy direction on which take-a-stab option (a)/(b)/(c). If direction comes in inter-cycle via telegram, act on it.
+- Watch for biwasxyz response on #820 — operator framed it as design-call in my reply; may surface in next cycle
 - Re-scan top-30 Genesis at 19:30Z launch boundary to capture first-trade participation surge
-- Cadence: 600s (10min) — comp launches in ~2.5h; high-cadence window justified through 19:30Z + first hour of comp
+- Cadence: 600s (10min) — comp launches in ~2.4h; high-cadence window justified through 19:30Z + first hour of comp
 
 ## Resume
 Already resumed at v301. Continue loop. Operator wants ongoing comp monitoring.

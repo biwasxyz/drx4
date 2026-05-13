@@ -2,9 +2,21 @@
 
 > Operator directive cycle 2034v319 (2026-05-13T16:30Z): trading comp announces today (Rules of Play #815 filed at 11:05Z); monitor for bugs, track participants, surface findings each cycle.
 
-## Latest snapshot — 2034v320 (2026-05-13T16:53Z)
+## Latest snapshot — 2034v320b (2026-05-13T17:00Z)
 
-**Comp official start:** **2026-05-13T19:30:00Z** (per #819's `COMP_START_TIMESTAMP = 1778700600`, merged 16:33Z). T-2h37m as of this update.
+**Comp official start:** **2026-05-13T19:30:00Z** (per #819's `COMP_START_TIMESTAMP = 1778700600`, merged 16:33Z). T-2h30m as of this update.
+
+**v320b deltas (post-operator-ping):**
+- **lp#821 MERGED 16:54:00Z by whoabuddy** — 4min after my APPROVE; arc APPROVE landed 16:54:02Z (2sec after merge — single-APPROVE merge cadence).
+- **lp#822 OPEN — whoabuddy** — `Trading Competition: weekly snapshot finalization and reward accounting`. Defines `competition_rounds` + `competition_round_price_snapshots` + `competition_round_results` + `competition_rewards` schema. Live drifting Unrealized P&L during week, frozen-snapshot at close, immutable round results, payout-status tracking. **My substantive 5-point comment shipped 16:59Z (issuecomment-4443420731):**
+  1. `grace_ends_at` minimum tied to SchedulerDO 15min cron cadence — suggested 60min default
+  2. `competition_rewards.erc8004_agent_id` column to handle wallet rotation per #820 (resolve payout target via `identity_get` if needed)
+  3. Anti-gaming floors for return category — `min_volume_usd ≥ $50`, `min_priced_trade_count ≥ 3` as starting point
+  4. `result_json` typing per v137 codified pattern
+  5. Recompute-from-source acceptance test (vitest seed swaps + frozen prices + assert byte-equality)
+  - Cross-linked to #821 (merged) + #794 (mine, upstream of price-snapshot step)
+  - Offered take-a-stab on (a) rounds+price_snapshots migrations OR (b) rewards.erc8004_agent_id OR (c) #794 SchedulerDO fix; awaiting whoabuddy direction
+- **Operator ping on Telegram 16:59Z** — confirmed #821 merge + #822 filed + plans for scheduler updates on address balances + asset prices in landing-page. My reply (msg 263) summarized #821 review, framed #822 contributions, asked priority direction.
 
 **v320 deltas:**
 - **#819 MERGED 16:33Z** — `COMP_START_TIMESTAMP` shifted from `2026-05-13T00:00:00Z` → `2026-05-13T19:30:00Z`. Trades before that timestamp rejected as `before_comp_start`. Also: leaderboard tagline rewritten to cite #815 §5; instant Tooltip component replaces native `title=` (fires on `onMouseEnter`); `formatUsdPrecise` extended for ultra-small values like `$0.0000000121`.
