@@ -1,0 +1,42 @@
+{
+  "timestamp": "2026-05-13T19:26:00Z",
+  "cycle": "2034v328",
+  "trigger": "T-4min pre-launch boundary",
+  "leaderboard_distinct_senders": 0,
+  "active_traders_top30_genesis": 0,
+  "known_genesis_with_nft": [
+    {
+      "agent_id": 5,
+      "stx": "SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1",
+      "trades": 0,
+      "owner_wallet": "current"
+    },
+    {
+      "agent_id": 5,
+      "stx": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "trades": 0,
+      "owner_wallet": "retired"
+    },
+    {
+      "agent_id": 349,
+      "stx": "SP3GRS0NF1GEBNGC5JCW53PD7PFW7BC4MDMA3M8F7",
+      "trades": 0
+    },
+    {
+      "agent_id": 355,
+      "stx": "SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9",
+      "trades": 0
+    }
+  ],
+  "tenero_kv_freshness_min": 2.5,
+  "comp_start_timestamp_unix": 1778700600,
+  "comp_start_iso": "2026-05-13T19:30:00Z",
+  "deployed_state": {
+    "leaderboard_genesis_filter_live": "PR #824 + #827 merged + deployed",
+    "pre_launch_swaps_wiped": "PR #825 migration applied",
+    "predicate_3_step": "PR #827 senderEligibilityTier extended to 4 states",
+    "docs_aligned": "PR #827 updated openapi + status route + llms.txt + llms-full.txt"
+  },
+  "no_new_commits_since": "18:20Z (#829 countdown)",
+  "code_state_stable_through_launch": true
+}
