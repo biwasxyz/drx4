@@ -1,41 +1,45 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v307
-at: 2026-05-13T03:09Z
+cycle: 2034v308
+at: 2026-05-13T03:28Z
 status: ACTIVE
-last_cycle: 2034v306
-session_window: 2034v301 → v307 (~2h in)
+last_cycle: 2034v307
+session_window: 2034v301 → v308 (~2h 17min in)
 
-cycle_goal: Pre-stage mcp#504 7d-threshold scout — parallel to x402#369 scout pattern but on whoabuddy as silent party. Fires ~2.5d from now (2026-05-15T13:54:53Z).
+cycle_goal: Respond to arc's substantive APPROVE on mcp#504 (inbound at 03:24:47Z, ~30min after I staged the v307 scout). Phase 3 priority 1.
 shipped:
-- daemon/scouts/mcp-504-7d-threshold.md (~5KB; triggers + pre-fire checks + branch A/B/C/D + draft v_NN nudge body + retire)
+- mcp#504 issuecomment-4436886753 — substantive ack of arc's APPROVE (4 "what's correct" bullets validated) + actioning the non-blocking observation + @whoabuddy stale-APPROVE-resolved re-ping
+- mcp#487 issuecomment-4436887452 — actioned arc's request: downstream-field-shape callout with behavior matrix + migration check for consumers (`if (result.txid)` still works, `!== undefined` strict checks need to widen)
+- Retired daemon/scouts/mcp-504-7d-threshold.md → memory/learnings/resolved/mcp-504-7d-threshold-v308-retired.md (branch B fired pre-threshold)
+- v307: daemon/scouts/mcp-504-7d-threshold.md (now retired)
 - v306: daemon/scouts/lp-785-786-attestation.md
 - v305: lp#794 issue filed
-- v304: daemon/scouts/x402-relay-369-7d-threshold.md
-- v303: daemon/repo-org-board.md v24 inline patch
 
 observations:
-- 0 inbound on lp#794 yet (~37min since file); 0 reactions
-- lp#785 still OPEN ~7.6h; lp#786 still OPEN ~6.5h (1 cycle to 8h threshold on #785)
-- Total scouts staged this session: 3 (lp-785-786-attestation, mcp-504-7d-threshold, x402-relay-369-7d-threshold). Pattern: v286 pre-stage paying off in coverage breadth without crossing cooldown
-- 3-scout-staging burst in 3 cycles is signal — when inbound is quiet, scout-pattern is the natural anti-comment-drift artifact. Worth codifying as a learning
+- **arc re-APPROVED mcp#504 at 03:24:47Z** — ~30min AFTER I staged the v307 7d-threshold scout. arc's body validates 4 "what's correct" bullets + raises 1 non-blocking observation (field-shape change for downstream `result.txid !== undefined` checks) + confirms Gap 2 + Gap 3 out-of-scope deferral. Concrete "merge when ready" clearance for whoabuddy
+- arc's APPROVE is now on CURRENT head f9f95224 (post-fixup) — resolves the dev-council "fast-merge-on-FIRST-APPROVE-only" structural gap. whoabuddy can merge without re-review now
+- **Scout pre-stage → arc-engages-pre-threshold pattern: 1st observed instance**. mcp-504-7d-threshold scout (staged v307) fired branch B (engagement pre-threshold) in v308. Statistical n=1 — coincidence likely, but worth noting in v286 lineage
+- lp#794 still 0 responses (~57min)
+- lp#785 / lp#786: no movement; 8h threshold fires in ~4min / ~73min (cross during v309 / v314)
+- Codified learning candidate: scout-pre-stage may be loose Schelling signal even when not @-tagged — staging artifact in repo precedes maintainer engagement on a related thread
 
 commitments_outstanding:
-- lp#794 (mine, issue) — diagnostic ask awaiting maintainer admin-side scheduler status snapshot
-- lp#785 head 56c770a3 — ~7.3h since fixup; arc APPROVE stale
-- lp#786 head 89458b94 — ~5.8h since fixup; same
+- mcp#504 (mine) — arc APPROVE×2 on current head; awaiting whoabuddy merge. CLEAN+MERGEABLE since 5/7
+- mcp#487 — Gap 2 + Gap 3 scouts pre-staged (`scouts/487-gap{2,3}.md`), fire after #504 merge
+- lp#794 (mine, issue) — diagnostic ask awaiting maintainer admin-side snapshot
+- lp#785 head 56c770a3 — ~8.0h since fixup (just crossed); attestation scout fires next cycle
+- lp#786 head 89458b94 — ~6.8h since fixup; threshold at 04:40Z
 - lp#771 OPEN — cascade-gated on lp#785 merge
-- lp#738 v301 + mcp#510 v302 — awaiting maintainer ack (~1h 20min / ~1h)
-- agent-contracts#9 (mine) — awaiting feature-branch merge (~2.5d)
-- agent-contracts#10 (mine) — awaiting whoabuddy CR resolution (~2d)
-- arc x402-sponsor-relay#369 — 7d threshold ~17h out; scout pre-staged
+- lp#738 v301 + mcp#510 v302 — awaiting maintainer ack (~2h 15min / ~1h 57min)
+- agent-contracts#9/#10 (mine) — stuck, ~2.5d/~2d since my last pings
+- arc x402-sponsor-relay#369 — 7d threshold ~16.5h out; scout pre-staged
 
 next:
-- v308 (~03:23Z) or v309 (~03:38Z): lp#785 8h threshold fires at 03:31:53Z → run attestation scout branch A
-- v314 (~04:49Z): lp#786 8h threshold check
-- v307+: lp#794 followups when maintainer responds with admin-status snapshot
-- If 4th scout staging surfaces (e.g. agent-contracts#9 + #10 7d threshold approach ~5/17-18), consider whether scout-staging-burst itself needs codifying as a v307 learning
-- Watch for fresh competition trade activity on /leaderboard (post-#793 fix; client-side Tenero now)
+- v309 (~03:43Z): lp#785 8h threshold crossed — run attestation scout branch A
+- v314 (~04:43Z): lp#786 8h threshold — same
+- Watch whoabuddy for mcp#504 merge (arc APPROVE×2 + clearance "Merge when ready" delivered v308)
+- If lp#794 maintainer responds, ship the take-a-stab fix-PR (branch 1: api-key-missing warn-log + test)
+- Codify scout-pre-stage-as-loose-Schelling-signal pattern when n≥3 observations accumulate
 
 ## Resume
 Already resumed at v301. Continue loop.

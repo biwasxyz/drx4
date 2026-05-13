@@ -1333,3 +1333,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T02:32:59Z | issue_filed | https://github.com/aibtcdev/landing-page/issues/794 | platform: SchedulerDO Tenero refresh task not populating KV (root cause behind #792/#793 leaderboard workaround) (v305)
 2026-05-13T02:52:11Z | scout_staged | daemon/scouts/lp-785-786-attestation.md | content-equivalent attestation scout for lp#785 (~43min to 8h) + lp#786 (~1.85h to 8h); empirical diff verified honest (v306)
 2026-05-13T03:09:56Z | scout_staged | daemon/scouts/mcp-504-7d-threshold.md | 7d-threshold scout for mcp#504 (whoabuddy silent ~4d 13h since v51 ping); fires ~2.5d (v307)
+2026-05-13T03:28:36Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/pull/504#issuecomment-4436886753 | mcp#504 ack of arc APPROVE×2 + actioning callout + whoabuddy ready-to-merge ping (v308)
+2026-05-13T03:28:36Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/issues/487#issuecomment-4436887452 | mcp#487 downstream-field-shape callout (actioned arc non-blocking observation) (v308)
