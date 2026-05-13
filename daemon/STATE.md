@@ -1,31 +1,33 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v319
-at: 2026-05-13T16:40Z
+cycle: 2034v320
+at: 2026-05-13T16:55Z
 status: ACTIVE
-last_cycle: 2034v318
-session_window: 2034v301 → v319 (~9.5h in)
+last_cycle: 2034v319
+session_window: 2034v301 → v320 (~9.7h in)
 
-cycle_goal: Operator directive — monitor trading comp launch (announced today via lp#815 Rules of Play at 11:05Z), watch for bugs, track participants, keep updating. v319 deliverables: participant snapshot built, lp#820 wallet-rotation Genesis gap filed, lp#805 cross-linked to lp#815 §6, daemon/comp-monitor.md created as rolling-state artifact.
+cycle_goal: Continue comp launch monitor. v320 single highest-leverage move: substantive APPROVE on lp#821 (whoabuddy 1-line fix to count scheduler-ingested trades on leaderboard) — needed to land before official launch at 19:30Z (T-2.5h). Also: capture lp#819 merged (sets COMP_START_TIMESTAMP=19:30Z); re-scan participants (no movement).
 shipped:
-- daemon/comp-monitor.md created — rolling-state file with launch surfaces, comp-infra PRs landed today (#738/#803/#808/#810/#812/#814), open issues table, participants table, drift signals, update protocol
-- daemon/comp-participants-2034v319.json — first snapshot of all level>=2 (n=123) agents; only 1 active trader (mine — duplicate-row of agent_id 5 across rotated wallets)
-- lp#820 filed — wallet-rotation Genesis gap + duplicate /api/leaderboard rows for same erc8004AgentId. On-chain identity_get(5).owner=SP20GPDS (current). Off-chain leaderboard returns rank 122 (Secret Mars L2 retired wallet) AND rank 181 (Quasar Garuda L1 current wallet) for the same agent_id. Two fix proposals (cheap predicate JOIN extension; proper claims.erc8004_agent_id column)
-- lp#805 cross-link comment shipped — issuecomment-4443224753; clarifies #805 (a) campaign block = duplicate of #815 §6 + Open Work 5; (b) scored_value null = #814 Genesis gate working as intended; offered docstring-only PR for MCP competition_status
+- lp#821 APPROVE shipped 16:50Z: 5 "what works well" + 2 [observation]s + 1 [suggestion] + 1 [nit]. Key call-out: WHERE clause redundant w.r.t. migration 005 CHECK constraint — documentation-only role; producer-side coupling hazard noted (v144 inverse pattern). Suggested regression-test fixture per v137 pattern. Empirical bias evidence: my own 4× source=agent + 1× source=cron = ~20% undercount pre-fix on notional/P&L
+- daemon/comp-monitor.md updated with v320 deltas (#819 merged → 19:30Z launch, #821 reviewed, no new active traders, scoring still gated)
+- notifications marked read (0 remaining post-cycle)
 
 observations:
-- **Trading comp announced today via lp#815 (11:05Z) — IS the launch event**, not a separate twitter/blog post yet observed. Label `trading-competition-rule`. Treat as canonical spec.
-- **No other Genesis agent has executed a comp trade** as of T+5h post-launch (n=123 Genesis scanned, 0 active). Only my agent has trades — and the current wallet's trades are gated out under #814 due to wallet-rotation Genesis gap. My old wallet's 1 pre-rotation trade is preserved per #814 no-retroactive-purge policy.
-- **Live P&L (client-side mark-to-current) for SP20GPDS: +$0.131 / +7.30%** on $1.80 notional; 5/5 priced; up from -0.03% reported in v318 STATE.md (pricing changed/ trades pruned)
-- **#814 Genesis gate creates a wallet-rotation hazard**: any agent that rotates after mnemonic compromise (responsible hygiene) loses Genesis on the new wallet because claims is BTC-address-keyed not agent-id-keyed. Mine: claims status=eligible:true, claimed:false on bc1qxhj… (current). Filed as #820 (a) + (b).
-- **Comp-infra velocity is HIGH**: 6 PRs landed today (00:24Z to 14:25Z) — #738/#803/#808/#810/#812/#814 — biwasxyz iterating on rules + scoring + allowlist as live-launch happens. Expect more PRs / more iteration in next 12-24h. Watch surface this cycle: #809/#811 (server-side leaderboard compute + sBTC asset-id mismatch, both blocking #811).
-- arc partnership thread: x402-sponsor-relay#369 still ~3d to 7d threshold (2026-05-14); not blocking on comp focus
+- **Comp official start: 2026-05-13T19:30:00Z** (per #819's COMP_START_TIMESTAMP=1778700600, merged 16:33Z). T-2.5h as of v320 sealing. Pre-launch trades rejected as `before_comp_start`.
+- **lp#821 high merge-cadence likelihood pre-launch**: whoabuddy author + my APPROVE in court + arc not yet reviewed + comp launches in 2.5h. Watch for arc APPROVE → merge cascade in next 1-2 cycles.
+- **Trading comp announced today via lp#815 (11:05Z) — IS the launch event**, label `trading-competition-rule`. Treat as canonical spec.
+- **Re-scan top-9 Genesis at 16:53Z**: still 0 new active traders. Mine remains lone visible activity. Last trade `1778667909` = 2026-05-13T02:25:09Z. No movement in 14.5h.
+- **Live P&L (client-side mark-to-current) for SP20GPDS: +$0.131 / +7.30%** on $1.80 notional; 5/5 priced; trades still NOT scoring under #814 (Genesis gap)
+- **#814 Genesis gate creates a wallet-rotation hazard**: filed as #820 v319; 20min cold no response yet
+- **Comp-infra velocity HIGH**: 7 PRs landed today (#738/#803/#808/#810/#812/#814/#819), 1 OPEN under review (#821). biwasxyz + whoabuddy iterating in real-time as launch approaches.
+- arc partnership thread: x402-sponsor-relay#369 still ~3d to 7d threshold; not blocking on comp focus
 
 commitments_outstanding:
-- lp#805 (mine) — comment cross-linked to #815 §6 + #811; awaiting biwasxyz triage decision (close-as-dup vs keep-as-MCP-docstring-tracker)
-- lp#820 (mine) — fresh issue this cycle; awaiting first response
+- lp#821 (whoabuddy) — my APPROVE shipped v320 16:50Z; awaiting arc review + whoabuddy merge (comp launches 19:30Z, ~2.5h)
+- lp#805 (mine) — v319 cross-link comment shipped; awaiting biwasxyz triage decision (close-as-dup vs keep-as-MCP-docstring-tracker)
+- lp#820 (mine) — filed v319 16:35Z; ~20min cold; awaiting first response
 - lp#794 (mine) — SchedulerDO Tenero KV; ~14h cold; #809 mentions same SchedulerDO area so partial-overlap with biwasxyz's own work
-- lp#801 (whoabuddy) MERGED 06:53Z (per v318); my APPROVE shipped
+- lp#801 (whoabuddy) MERGED 06:53Z; my APPROVE shipped earlier
 - mcp#518 head 5874fe5 — CI SUCCESS; awaiting arc re-APPROVE OR whoabuddy merge
 - mcp#504 (mine) — arc APPROVE×2 + nudge; awaiting merge
 - lp#786 / lp#785 — attestations shipped; awaiting whoabuddy merges
@@ -34,10 +36,10 @@ commitments_outstanding:
 - agent-contracts#9/#10 (mine) — stuck
 
 next:
-- v320: re-scan participants (5-10min after this cycle); diff against participants-2034v319.json. If any new active trader appears OR a pricing surface changes, ack/file accordingly
+- v321: poll #821 review state — if arc APPROVE + merge happens, ack on the merge-comment thread or update comp-monitor.md. If arc has new findings, evaluate vs my APPROVE for absorption.
 - Watch for biwasxyz response on #820 — design intent (rotation re-claims vs preserves Genesis) is the load-bearing question
-- Check #805 + #820 in v320, then back to broader cross-repo backlog if comp surface quiet
-- Cadence: 600s (10min) for the comp-monitor focus while launch fresh; back to 900s after first ~3 cycles or when comp activity slows
+- Re-scan top-30 Genesis at 19:30Z launch boundary to capture first-trade participation surge
+- Cadence: 600s (10min) — comp launches in ~2.5h; high-cadence window justified through 19:30Z + first hour of comp
 
 ## Resume
 Already resumed at v301. Continue loop. Operator wants ongoing comp monitoring.

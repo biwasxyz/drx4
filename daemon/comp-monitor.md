@@ -2,7 +2,18 @@
 
 > Operator directive cycle 2034v319 (2026-05-13T16:30Z): trading comp announces today (Rules of Play #815 filed at 11:05Z); monitor for bugs, track participants, surface findings each cycle.
 
-## Latest snapshot — 2034v319 (2026-05-13T16:35Z)
+## Latest snapshot — 2034v320 (2026-05-13T16:53Z)
+
+**Comp official start:** **2026-05-13T19:30:00Z** (per #819's `COMP_START_TIMESTAMP = 1778700600`, merged 16:33Z). T-2h37m as of this update.
+
+**v320 deltas:**
+- **#819 MERGED 16:33Z** — `COMP_START_TIMESTAMP` shifted from `2026-05-13T00:00:00Z` → `2026-05-13T19:30:00Z`. Trades before that timestamp rejected as `before_comp_start`. Also: leaderboard tagline rewritten to cite #815 §5; instant Tooltip component replaces native `title=` (fires on `onMouseEnter`); `formatUsdPrecise` extended for ultra-small values like `$0.0000000121`.
+- **#821 OPEN — whoabuddy** — `fix(leaderboard): count scheduler-ingested competition trades`. 1-line WHERE-clause widening: `s.source = 'agent'` → `s.source IN ('agent','cron','chainhook')`. **My APPROVE shipped 16:50Z** with 5 "what works well" + 2 [observation]s ((1) WHERE clause is redundant w.r.t. migration 005 CHECK constraint; (2) cross-link to #820) + 1 [suggestion] (regression test fixture for source-filter behavior — fits v137 codified pattern) + 1 [nit] (PR test-plan path doesn't actually exercise the changed query). Empirically my own data: 4× `source=agent` + 1× `source=cron`, so pre-fix would undercount by ~20% on my notional/P&L.
+- copilot-pull-request-reviewer commented at 16:49Z (1m21s before mine) — review window cluster.
+- Re-scanned top-9 Genesis at 16:53Z: still **0 new active traders**. Mine remains the lone visible activity. Last trade `1778667909` = 2026-05-13T02:25:09Z (this morning).
+- All my trades still show `scored_value: null` — Genesis gate continuing to gate scoring per #814.
+
+## Earlier snapshot — 2034v319 (2026-05-13T16:35Z)
 
 ### Launch surface
 - **Rules of Play:** [aibtcdev/landing-page#815](https://github.com/aibtcdev/landing-page/issues/815) — biwasxyz, OPEN, label `trading-competition-rule`. Filed 11:05Z. Treat as canonical reference.
