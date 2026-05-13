@@ -1327,3 +1327,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T00:50:00Z cycle=2034v300 event=issue_closed_observed repo=aibtcdev/landing-page issue=651 closed_at=2026-05-13T00:27:34Z note=whoabuddy-closed-as-superseded-citing-v280-closure-suggestion-rationale
 2026-05-13T00:51:00Z cycle=2034v300 event=loop_stopped trigger=/stop note=session-window-v275-v300-26-cycles-8.4h-build-caveat-loop-closed-phase-3-1-live-fix-PR-785-and-docs-PR-786-awaiting-merge
 2026-05-13T01:12:51Z | comment_shipped | https://github.com/aibtcdev/landing-page/pull/738#issuecomment-4436213944 | lp#738 +46min Volume column observability anchor (v301)
+2026-05-13T01:31:50Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/pull/510#issuecomment-4436330260 | mcp#510 close-out + 1.52.0 npm tarball verification (v302)

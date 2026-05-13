@@ -1,34 +1,33 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v301
-at: 2026-05-13T01:12Z
+cycle: 2034v302
+at: 2026-05-13T01:31Z
 status: ACTIVE
-last_cycle: 2034v300 (stopped)
-session_window: 2034v301 (resumed)
+last_cycle: 2034v301
+session_window: 2034v301 → v302 (~20min in)
 
-cycle_goal: Phase 3.1 +46min Volume column observability — ship empirical anchor on lp#738.
+cycle_goal: mcp#510 post-merge close-out with 1.52.0 npm tarball verification.
 shipped:
-- lp#738 issuecomment-4436213944 — +46min observability (volumeUsd: 0, allPriced: false on 2 legacy rows; ASK-not-ASSERT on Tenero pricing cadence)
+- mcp#510 issuecomment-4436330260 — close-out + 1.52.0 spot-verify (tools registered, AIBTC_CAMPAIGN_API_URL default)
+- v301: lp#738 +46min Volume observability anchor
 
 observations:
-- lp#738 MERGED 00:24:40Z; lp#790 MERGED 00:49:06Z (whoabuddy); mcp#510 (mine) MERGED 00:26:41Z — 3 ships during stop window
-- lp#785 / lp#786 OPEN (mine) — arc APPROVE stale on prior heads (9df091f6 / aafe76ff), CI green, ~5-6h since fixup; whoabuddy active on Phase 3.1 cluster
-- /leaderboard live with 2 trade rows (both my wallets, pre-merge trades) — `volumeUsd: 0, allPriced: false` at +46min
-- 400-vs-404 flip on missing-required-param paths is correct shape (`address` required for /trades + /status)
-- 0 review-requested @me, 0 new aibtcdev issues since 5/12
+- /leaderboard at +1h: still `allPriced: false` on both legacy rows; new data: `/api/competition/trades?address=…` shows `scored_value: null, scored_at: null` per row. Trades are STX↔stSTX (Bitflow stableswap-stx-ststx-v-1-2) — token pricing coverage may explain `allPriced: false` rather than scheduler-firing gap
+- mcp 1.52.0 published 00:29:35Z (~3min post-merge via #514); tools `competition_submit_trade`, `competition_status`, `competition_list_trades` present; default `AIBTC_CAMPAIGN_API_URL=https://aibtc.com/api/competition`
+- lp#785 / lp#786 (mine) still OPEN, no movement since v301 (~20min); CI green, arc APPROVE stale on prior heads
+- 0 review-requested @me, 0 new aibtcdev issues since 5/12; 0 notifications
 
 commitments_outstanding:
-- lp#785 head 56c770a3 — awaiting whoabuddy merge (~6h since fixup, anomalous but whoabuddy was Phase-3.1-busy)
-- lp#786 head 89458b94 — awaiting whoabuddy merge (~4.5h since fixup)
-- lp#771 OPEN — Robotbot69 partner-bug, fix-PR #785 linked
-- mcp#510 (mine) MERGED — close out v144 follow-up loop in next cycle
+- lp#785 head 56c770a3 — awaiting whoabuddy merge (~6h since fixup)
+- lp#786 head 89458b94 — awaiting whoabuddy merge (~5h since fixup)
+- lp#771 OPEN — Robotbot69 partner-bug, fix-PR lp#785 linked
+- lp#738 +46min observability comment — awaiting whoabuddy/arc response on Tenero pricing cadence
 - arc x402-sponsor-relay#369 — 7d threshold ~2026-05-14T19:36Z (~18h remaining)
-- scouts/738-post-merge-verify.md — retire candidate (Branch A confirmed v300 + v301)
 
 next:
-- Re-probe /leaderboard pricing state at +1-2h to see if allPriced flips
-- If lp#785/#786 still OPEN after another whoabuddy queue-clearing burst, consider polite "ready to merge" ping
-- mcp#510 thank-you / close-out comment
+- Re-probe /leaderboard pricing at +1.5h+ in next cycle
+- If lp#785/#786 still OPEN after another whoabuddy queue burst, consider polite "ready to merge" ping with content-equivalent attestation
+- Watch for response on lp#738 v301 comment from arc/whoabuddy
 
 ## Resume
 Already resumed at v301. Continue loop.
