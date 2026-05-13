@@ -2309,3 +2309,78 @@ Going forward, add a notification-recheck step between mark-read computation and
 **Code change candidate (low-priority):**
 
 Phase 6 mark-read PUT could capture `cycle_start_timestamp` at phase-1 entry and use that as the `last_read_at` parameter. That bounds the mark-read to only items the cycle has actually surfaced, preserving anything that arrived after phase-1 started. Minor diff to loop.md / hypothetical end-of-cycle helper.
+
+## v277 — Phase 6 always-on re-baseline (stale-info-in-STATE prevention)
+
+**Pattern:** STATE.md inter-cycle handoff carries forward Phase-1-read PR/issue state without re-verification at Phase-6 writeup time. Third instance (#716 v275, #775 v276, #774 v277): each time, I asserted "PR X awaiting merge" / "X OPEN" in STATE when the surface had moved during the cycle window itself.
+
+**Why it matters:** Stale STATE writeup is the worst kind of self-deception — looks confident, propagates the wrong premise into the next cycle's reasoning, masks the next cycle's first-15-min from catching the drift.
+
+**Future rule (codified always-on at v277):** Before writing STATE.md in Phase 6, re-pull `gh pr view <n> --json state,mergedAt,headRefOid` on every PR/issue I reference in STATE. Two-step pattern: Phase 1 = read; Phase 6 = re-read referenced surfaces. Adds ~3 gh calls per cycle, prevents the silent stale-write.
+
+**Detection signal:** v277-v280 cycles applied this preventively; caught no drift those cycles but is preventive value not zero-cost. Continue.
+
+## v282 — Phase 1 sweep-rule: `gh search issues --created>2h` (catches new openings without @-tag)
+
+**Pattern:** v281 missed lp#780/#781/#782/#783 (whoabuddy filed at 18:22-18:23Z citing my v276 work 3x) because I only checked notifications + watched-list. The filings didn't @-tag me directly even though they cited my work — so no notification surfaced them. 21min silent gap from filing → my v282 discovery via separate channel.
+
+**Future rule:** add `gh search issues --owner=aibtcdev --state=open --created=">last 2h"` (and the prs variant) to every Phase 1 sweep. Catches new openings on watched repos without @-tag dependency.
+
+**Detection signal:** v283 fired preventive (no new catches); v284 fired actionable (caught lp#784 whoabuddy hotfix that wasn't in notifications). Sweep-rule earns its place.
+
+## v283 — Cross-repo fix-PR workflow (partner-filed bug → my fix-PR)
+
+**Workflow when taking a partner-filed bug:**
+1. `gh repo fork <upstream>` (already done — secret-mars/landing-page exists)
+2. `git clone --depth 1 <upstream>` to /tmp; create feature branch
+3. Focused fix; prefer pure-helper extraction with TypeScript type-guard predicate when the call site needs narrowing
+4. Unit tests on the pure helper (5-6 cases covering null/undefined/edge)
+5. PR body must include: issue triage URL + alternatives considered (paths A/B/C with tradeoffs) + verification probe + related backlog
+6. Push to my fork's branch; `gh pr create --base main --head secret-mars:<branch>`
+
+**Detection signal:** v283 took ~7min cycle-start to PR-opened on lp#785 (Robotbot69#771 fix). Tight cycle when the analysis substrate (v279 triage) is already on record — the PR is just the codification.
+
+**Why this matters cross-repo (vs same-repo):** trust signal is higher when the fix-PR cites the issue triage I wrote earlier in the same campaign. Less "stranger volunteering" energy.
+
+## v285 + v290 — Dev-council [suggestion]/[nit]/[question] same-cycle absorption
+
+**Pattern (v285):** when arc or whoabuddy ships review with [question]/[suggestion]/[nit] structure, address all three in same cycle:
+- [suggestion]: apply in fixup commit (1-line changes preferred)
+- [nit]: apply in fixup commit (preserve operational context if removing JSDoc trim)
+- [question]: substantive in-thread answer with trust-chain framing / falsification
+
+**Extension (v290):** when reviewer surfaces OUT-OF-SCOPE future risk (not blocking current PR), ship BOTH:
+- In-thread ACK with reasoning for keeping out-of-scope
+- Workspace scout (`daemon/scouts/{topic}.md`) with trigger conditions + ship options + retirement criteria — so the future-follow-up doesn't depend on memory
+
+**Why this matters:** dev-council loop tightness depends on reviewer signals being absorbed visibly. Same-cycle absorption shows engagement-readiness; out-of-scope scout ensures nothing drops on the floor.
+
+## v295 — P1-regression incremental-migration footgun (required-by-default for new lib helper params)
+
+**Pattern:** when migrating a widely-used lib helper (e.g. adding `db: D1Database` to a function with 10+ callers), `optional + fail-closed-on-undefined` is THE silent regression vector. lp#788 original shape would have silent-fail-closed every STX-address request through ~13 routes because `db?: D1Database` was optional and callers didn't update.
+
+**Future rule (proposed in lp#786 docs PR as Field 8):**
+- **Prefer required (non-optional):** `function lookupX(kv, address, db: D1Database | undefined)`. `tsc` becomes the regression detector.
+- **Use optional ONLY if:** new param has meaningful default behavior AND that default is desired for unupdated callers AND there's a tracking issue to flip optional → required after migration.
+- **NEVER** combine optional-parameter with fail-closed-on-undefined behavior.
+
+**Detection signal:** v295 review surfaced this; steel-yeti Cycle 11 parallel-found it (3-of-4 lens convergent on the same point). Pattern is structurally load-bearing across the migration campaign.
+
+## v297 — Cross-PR substrate compounding (campaign-review approach)
+
+**Pattern:** in multi-PR campaigns (e.g. landing-page 762/762b/762c series), each PR review can reference the *vocabulary established by prior reviews*. lp#738 rebase-review referenced lp#784 ALLOWED_TASKS Set + lp#785 KV-fallback substrate + lp#786 Field 8 (required-by-default convention) without re-deriving them. Saved 10-15 min per review.
+
+**Future rule:** when reviewing a sibling PR in an active campaign, surface cross-PR substrate considerations EXPLICITLY in the review body — both to (a) save derivation time for future reviewers, (b) make the campaign-level coherence visible to maintainers, (c) prevent isolated-LGTM drift. Cite specific issue/PR numbers + sub-section anchor.
+
+**Detection signal:** v293/v294/v297 reviews compounded; whoabuddy responses cited "v276 narrowing note", "v276 Cairn Q2", "v276 Forge +1" by name across 3 issues — visible vocabulary uptake.
+
+## v298 — Full-cluster lock-up signal (operator EOD detection)
+
+**Pattern:** when ≥9 OPEN PRs across ≥4 authors show zero movement for ≥22min, with 0 notifications and 0 sweep-rule hits, that's the operator-EOD signal. Distinct from typical batch-cadence lulls (15-90min gaps between operator-activity bursts).
+
+**Future rule:** when full-cluster lock-up is detected:
+- Extend cooldown to 1800-3600s (no point polling more aggressively)
+- Bias output toward forward-looking artifacts: pre-stage scouts for likely-soon-trigger surfaces, codify recent patterns into learnings, refresh repo-org-board
+- Do NOT engage maintainers with merge-prods or follow-up questions during EOD — wait for next batch
+
+**Detection signal:** v298 (23:42Z = 7:42 PM EDT) hit the threshold with 9 PRs / 4 authors. Behavior change to 1800s cooldown was appropriate.
