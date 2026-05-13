@@ -1381,3 +1381,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T18:48Z comment_shipped lp#794 (issuecomment-4444270149) — empirical re-probe shows partial-resolution + 9h staleness + sbtc-token::sbtc vs ::sbtc-token tokenId mismatch post-#812 rename; suggested 3-point triage (status route, stale-cache guard for #822, scheduler alarm re-arm investigation)
 2026-05-13T19:08Z board_refreshed STATE — pre-launch top-30 Genesis scan 0/30 active; Tenero KV refreshed (0.7min stale); comp surface clean for launch
 2026-05-13T19:26Z board_refreshed daemon/comp-participants-2034v328.json — pre-launch boundary snapshot at T-4m; 0 active across top-30 Genesis; code+infra stable for launch; KV fresh at 2.5min
+2026-05-13T19:37Z board_refreshed daemon/comp-participants-2034v329.json — T+7m post-launch snapshot; 0 active traders, comp surface stable

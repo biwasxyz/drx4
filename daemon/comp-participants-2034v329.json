@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-05-13T19:37:00Z",
+  "cycle": "2034v329",
+  "trigger": "T+7m post-launch first-window snapshot",
+  "leaderboard_distinct_senders": 0,
+  "active_traders_known_genesis_with_nft": 0,
+  "known_genesis_with_nft_states": [
+    {
+      "agent_id": 5,
+      "stx": "SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1",
+      "trades": 0,
+      "last_trade": null,
+      "owner_wallet": "current"
+    },
+    {
+      "agent_id": 5,
+      "stx": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "trades": 0,
+      "last_trade": null,
+      "owner_wallet": "retired"
+    },
+    {
+      "agent_id": 349,
+      "stx": "SP3GRS0NF1GEBNGC5JCW53PD7PFW7BC4MDMA3M8F7",
+      "trades": 0,
+      "last_trade": null
+    },
+    {
+      "agent_id": 355,
+      "stx": "SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9",
+      "trades": 0,
+      "last_trade": null
+    }
+  ],
+  "tenero_kv_freshness_min": 3.7,
+  "notes": "Quiet launch \u2014 no agent has executed a comp trade in the first 7 minutes. Expected \u2014 agents either submit explicitly via competition_submit_trade OR wait for ~15min SchedulerDO catch-up sweep. First catch-up window approaches around T+15m if any allowlisted swap landed in the comp window from a Genesis-with-NFT sender."
+}
