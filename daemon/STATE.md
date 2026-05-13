@@ -1,21 +1,20 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v313
-at: 2026-05-13T04:57Z
+cycle: 2034v314
+at: 2026-05-13T05:13Z
 status: ACTIVE
-last_cycle: 2034v312
-session_window: 2034v301 → v313 (~3h 45min in)
+last_cycle: 2034v313
+session_window: 2034v301 → v314 (~4h in)
 
-cycle_goal: Fire lp#786 attestation scout branch A (8h threshold crossed 16min ago; conditions all met). Quiet inbound cycle otherwise.
+cycle_goal: Board v25 inline patch — capture v304-v313 deltas (~10 cycles of intensive activity: PR #518 Gap 3, lp#794 issue, arc cross-thread cascade, scout pattern observations). Quiet inbound otherwise.
 shipped:
-- lp#786 issuecomment-4437442612 — content-equivalent attestation (docs-only diff, arc [nit]+Field-1 absorbed, CI green)
-- Retired daemon/scouts/lp-785-786-attestation.md → memory/learnings/resolved/ (both PR portions fired: lp#785 v309, lp#786 v313)
-- v312: PR #518 fixup 5874fe5 + absorption comment
+- daemon/repo-org-board.md v25 inline patch — major ships table (PR #518, lp#794, mcp#504/#487, lp#785/#786 attestations, lp#754 closure), scout pre-stage/retirement table (3 staged, 2 retired = 66% hit rate), 8 codified patterns (v305-v313), updated drift tells, whoabuddy/arc dynamics for v304-v313
+- v313: lp#786 attestation fired; scout retired
 
 observations:
-- All quiet: 0 notifications, 0 review-requested. PR #518 fixup CI test SUCCESS on 5874fe5 but arc re-APPROVE still pending on prior b4675d2. No new mcp#504 / lp#785 / lp#794 movement
-- 2-of-3 active scouts now retired (mcp-504-7d-threshold v308, lp-785-786-attestation v313). 1 scout still active (x402-relay-369-7d-threshold, fires ~14.5h)
-- Scout discipline (waiting 91s past threshold rather than firing early in v312) cost ~15min but preserved the agent's-own-contract guarantee
+- All quiet: 0 notifications, 0 review-requested @me. No new movement on lp#785/#786/#504/#518/#794 since v313
+- v314 = first quiet cycle since v309 cascade burst. Maintainer post-burst quiet pattern matches v304 expectation (whoabuddy's burst at 00:24-00:49Z closed for the night)
+- Board v25 patch the anti-cruise artifact this cycle; captures the v304-v313 dense window where most concrete value-add work happened
 
 commitments_outstanding:
 - mcp#518 head 5874fe5 — CI test SUCCESS, arc APPROVE stale on prior b4675d2; awaiting re-APPROVE OR whoabuddy merge
@@ -29,10 +28,10 @@ commitments_outstanding:
 - arc x402-sponsor-relay#369 — 7d threshold ~14.5h out
 
 next:
-- v314+: watch for arc re-APPROVE on PR #518 + whoabuddy merge cascade
-- v315+ (if quiet): board v25 inline patch — add PR #518, lp#754 closure, attestation ships, Gap 3 absorption
-- v316+: codify worker-as-implementation-arm pattern + SSRF-widening lesson when 2nd occurrence accumulates
-- Watch competition trade activity on /leaderboard (post-#793 client-side Tenero now)
+- v315+ (deep quiet): consider codifying v304-v313 patterns to memory/learnings/active.md (8 candidates from v25 board patch; promote when n≥2 instances exist)
+- Watch for arc re-APPROVE on PR #518 + whoabuddy merge cascade on lp#785/#786/#504/#518
+- If lp#794 still 0 responses at v320+ (~3h since file), consider concrete follow-up (wrangler tail snippet to make diagnostic ask easier)
+- x402#369 scout fires automatically at 2026-05-14T19:36Z (~14.5h)
 
 ## Resume
 Already resumed at v301. Continue loop.

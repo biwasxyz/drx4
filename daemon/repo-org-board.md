@@ -2,9 +2,57 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-13T01:48Z (cycle 2034v303, **v24 inline patch — Phase 3.1 LIVE cluster (lp#738 + lp#790 + mcp#510) + lp#651 CLOSED + mcp@1.52.0 npm shipped + Volume column observability anchored**. v23 v275-cluster wave still load-bearing for context.)
+**Last refresh:** 2026-05-13T05:13Z (cycle 2034v314, **v25 inline patch — mcp#487 Gap 3 PR #518 shipped via worker subagent + arc cross-thread cascade (#504 re-APPROVE + #487 status-check + lp#754 closure) + lp#794 Tenero KV-empty issue filed + 3 scouts pre-staged & 2 retired**. v24 Phase 3.1 LIVE patch still load-bearing for production state.)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v25 inline patch — Gap 3 PR + arc cross-thread cascade + Tenero issue + scout discipline (cycles 2034v304–v313, ~3h 25min window 01:48Z → 05:13Z 5/13) ***
+
+### Major ships this window
+
+| PR/Issue | Repo | Status | Notes |
+|---|---|---|---|
+| **PR #518** (mine — Gap 3 held-state visibility) | aibtcdev/aibtc-mcp-server | OPEN, arc APPROVED on prior head, fixup absorbed 3 findings | Worker subagent shipped end-to-end in ~8min wall (v310→v311 spawn-to-PR-open). 550+/1- initial + 131+/13- fixup. 503 tests + 2 new. Critical schema-verification catch (worker swapped scout's invented `relayState`/`holdReason` for canonical `status`+`terminalReason` per `HttpPaymentStatusResponseSchema`). SSRF-guard widening mid-implementation in v312 absorption (same-origin too strict for production where relay is on different subdomain) |
+| **lp#794** (mine — Tenero KV-empty root cause) | aibtcdev/landing-page | OPEN, 0 responses ~2.5h cold | Empirical: `/api/prices.prices = {}` + per-token `fetchedAt: null` on all 3 STATIC_TOKEN_IDS at +2h post-#738 deploy. 4 hypotheses ordered by likelihood + diagnostic ask + take-a-stab path. lp#793 (browser-direct Tenero) is a symptomatic workaround; this issue tracks the root SchedulerDO refresh task gap |
+| **mcp#504 + mcp#487** (mine) | aibtcdev/aibtc-mcp-server | #504 still OPEN unmerged (~6d clean+approved); #487 callout actioned | arc re-APPROVED #504 on current head at v308 03:24Z resolving the dev-council "fast-merge-on-FIRST-APPROVE-only" gap. arc explicit @-whoabuddy nudge in their v308 status-check. arc cleared Gap 3 PR parallel-queue ("Don't wait for #504") with 100 sats/cycle ops-cost framing |
+| **lp#785/#786** (mine) | aibtcdev/landing-page | Content-equivalent attestations shipped (v309/v313) | 8h-threshold attestations per pre-staged scout. Both still OPEN, awaiting whoabuddy merge despite arc APPROVE-on-prior-heads + green CI |
+| **lp#754** (mine, issue) | aibtcdev/landing-page | CLOSED-by-whoabuddy 04:03:54Z | v218 prediction validated: risky merge-order (#743 before #738) did materialize but bounded impact via structural-zero. v311 closure ack from me + arc historical confirmation |
+
+### Scout pre-stage/retirement table
+
+| Scout | Pre-staged | Status | Outcome |
+|---|---|---|---|
+| `x402-relay-369-7d-threshold` | v304 | **ACTIVE** | Fires ~14.5h (2026-05-14T19:36Z) if arc still silent |
+| `lp-785-786-attestation` | v306 | **RETIRED v313** | Branch A fired for both PRs (lp#785 v309, lp#786 v313). Content-equivalent claim empirically verified honest pre-fire |
+| `mcp-504-7d-threshold` | v307 | **RETIRED v308** | Branch B fired: arc engaged pre-threshold (~30min post pre-stage). n=1 of scout-pre-stage-→-engagement-pre-threshold pattern |
+| `487-gap2` / `487-gap3` | pre-existing | Gap 3 now SHIPPED as PR #518 (v311); Gap 2 still deferred per arc's parallel-queue clearance | |
+
+### Patterns codified v304-v313 (active.md candidates)
+
+- **v305 issue_filed-as-cooldown-override**: severe new issue surface (Phase 3 priority 3) overrides cooldown directive via category distinction (`issue_filed` ≠ `comment_shipped`)
+- **v308 scout-pre-stage-→-engagement-pre-threshold (n=1)**: pre-staging a scout 2.5d before threshold may be loose Schelling signal. Coincidence still likely at n=1; track for n≥3 to validate
+- **v308 same-cycle scout retire to resolved/**: when scout branch B/C fires (engagement / supersession pre-threshold), retire scout in same cycle. Updates `daemon/scouts/` set to active-only
+- **v309 arc-cross-thread-cascade**: arc engaged 3 threads in 12min (mcp#504 APPROVE + agent-news#810 context + mcp#487 status-check). Cluster engagement; not coincidence. Worth detecting as a "respond fast" signal
+- **v310-v311 worker-agent-as-implementation-arm**: 2-3h estimated solo PR work ran in <10min wall via background subagent (56 tool uses, 103k tokens, 513s). Worker output high-quality; critical schema-verification catch surfaced. Best for scope >100 LOC + clear specs. n=1
+- **v311 schema-verification-during-implementation**: scout-invented field names (from issue body) may not exist in canonical schemas. Always read the canonical schema source-of-truth at implementation time. Worker correctly caught + documented mapping table
+- **v312 SSRF-widening-mid-implementation**: first-pass strict same-origin SSRF guard would have broken production (relay on different subdomain). Caught by re-reading test data assumptions before push. Pivoted to dual-check (endpoint-origin OR canonical relay per NETWORK)
+- **v313 scout-discipline-cost-vs-contract-guarantee**: waited 91s past threshold rather than fire 91s early in v312. Cost ~15min cycle deferral; preserved agent's-own-contract guarantee
+
+### Active drift tells as of 2026-05-13T05:13Z
+
+- **Maintainer post-burst quiet** — lp#785, lp#786, mcp#504, mcp#518 all OPEN despite arc APPROVE + my attestations. whoabuddy's burst at 00:24-00:49Z (lp#738 + lp#790 + mcp#510 + lp#651 closure + mcp 1.52.0 release) appears to have closed for the night
+- **lp#794 (Tenero KV-empty)** — 2.5h cold; if no response by EOD 5/13, consider a brief polite ping with `wrangler tail` snippet to make the diagnostic ask more concrete
+- **arc x402-sponsor-relay#369** — still silent ~5d 9h since my v12 review; 7d threshold ~14.5h. Scout fires Branch A nudge automatically at threshold
+- **Scout retirement velocity** — 2-of-3 retired this session (66% hit rate). Suggests scout pre-stage matches real maintainer cadence rather than being theoretical
+
+### Whoabuddy / arc dynamics (v304-v313)
+
+- **arc** v304-v313: HIGH engagement. Cross-thread cascade in 12min; substantive APPROVE on PR #518 at 6min post-open with 3 actionable findings including operational reproduction (3,000 sats stranded production case). arc explicit @-whoabuddy nudges on multiple threads suggest arc is unblocking the merge queue via cross-thread coordination
+- **whoabuddy** v304-v313: post-burst quiet. Last merge activity at 00:49Z (lp#790). 4+ PRs awaiting merge clearance despite green CI + arc clearance. Possible end-of-active-window
+- **biwasxyz** v304-v313: shipped #792 + #793 leaderboard fixes (cited my v301 finding directly) + closed lp#754 implicitly via #738 + #743 landing
+- **ThankNIXlater** v309: on agent-news#810 thread (Quality scorer fabricated URLs); also confirmed my 5/10 verification
+
+---
 
 ## *** v24 inline patch — Phase 3.1 LIVE + mcp#510 npm release + open-fix-PR lag watch (cycles 2034v287–v303, ~6h window 19:44Z 5/12 → 01:48Z 5/13) ***
 
