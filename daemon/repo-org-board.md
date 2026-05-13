@@ -2,9 +2,65 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-12T19:44Z (cycle 2034v287, **v23 inline patch — v275-cluster merge wave + cross-repo fix-PR #785 + dev-council Cycle 6/7/8/9 advisories absorbed into operator-issue backlog**. v22 trading-comp scope closed.)
+**Last refresh:** 2026-05-13T01:48Z (cycle 2034v303, **v24 inline patch — Phase 3.1 LIVE cluster (lp#738 + lp#790 + mcp#510) + lp#651 CLOSED + mcp@1.52.0 npm shipped + Volume column observability anchored**. v23 v275-cluster wave still load-bearing for context.)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v24 inline patch — Phase 3.1 LIVE + mcp#510 npm release + open-fix-PR lag watch (cycles 2034v287–v303, ~6h window 19:44Z 5/12 → 01:48Z 5/13) ***
+
+### Phase 3.1 LIVE cluster (3 merges in 25min, 00:24Z–00:49Z 5/13)
+
+| PR | SHA | Merged-at | Notes |
+|---|---|---|---|
+| **lp#738** (Phase 3.1 verifier + scheduler + allowlist) | `9afa89d1` | 2026-05-13T00:24:40Z | Final rebase: SchedulerDO integration replacing public /api/competition/cron + token-bucket. 3 secret-mars APPROVEs in lineage (bed7cd0b/5224a0d9/9afa89d1). Deploy-verified Branch A v300 (`/api/competition/{trades,allowlist,status}` all 200, 400+example on missing required `address=`). v301 +46min Volume anchor + v303 +1.5h re-probe: `volumeUsd: 0, allPriced: false` consistent on 2 legacy rows |
+| **lp#790** (SchedulerDO rejectionReasons buckets) | n/a | 2026-05-13T00:49:06Z | whoabuddy's own follow-up. Adds `rejectionReasons` buckets so SchedulerDO status/logs explain whether rejects are pre-launch trades, failed txs, registration misses, etc. Focused tests green. Merged without my pre-review (CI green + whoabuddy-author) |
+| **mcp#510** (competition tools + Bitflow provider tag) | `521c2466` | 2026-05-13T00:26:41Z | Mine. Merged 2min after lp#738 (chained dependency per arc note). v144 follow-up Q1+Q3+Q4 thread mooted by merge (biwasxyz never responded). npm `@aibtc/mcp-server@1.52.0` published 00:29:35Z via release-please #514. Tarball spot-verified v302: `competition.tools.js` + `competition.js` present; 3 tools registered (`competition_submit_trade`/`status`/`list_trades`); `AIBTC_CAMPAIGN_API_URL` default → prod |
+
+### lp#651 CLOSED-by-superseded (cycle v300)
+
+whoabuddy closed lp#651 at 00:27:34Z citing my v280 closure-suggestion rationale. /leaderboard now satisfies the dashboard-balance ask at the platform level. Closes the v218→v257 architectural arc plus the v280 closure-framing scout (retired).
+
+### Open PRs (mine) at end-of-window 2026-05-13T01:48Z
+
+| PR | Head | Reviews | Notes |
+|---|---|---|---|
+| **lp#785** (mine — fix Robotbot69#771 KV claim fallback) | `56c770a3` | arc APPROVED on prior `9df091f6` (stale-after-fixup); CI all green | ~6.3h since fixup. Anomalous lag — arc has not re-approved on current head, whoabuddy was Phase-3.1-busy during the window. Possible content-equivalent attestation candidate in next cycle |
+| **lp#786** (mine — Forge edge-cache PR checklist, closes lp#782) | `89458b94` | arc APPROVED on prior `aafe76ff` (stale-after-fixup); CI all green | ~5.1h since fixup. Same pattern as lp#785 |
+| **lp#771** (Robotbot69 — POST /api/signals identity gate) | n/a (issue) | n/a | Robotbot69 silent since their original filing; arc cross-source framing at v286; my v292 ack at 21:22Z. Awaiting lp#785 merge for write-path unblock verification |
+
+### Phase 3.1 +1.5h observability anchor (v301 + v303)
+
+Probes at +46min (v301) and +1.5h (v303) both show identical state:
+- `/leaderboard` → 200, 2 trade rows (both my wallets: `SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1` Quasar Garuda × 2 trades 5/11, `SP4DXVEC…` Secret Mars × 1 trade 5/8)
+- Both rows: `volumeUsd: 0, allPriced: false`
+- `/api/competition/trades?address={mine}`: 2 rows, both STX↔stSTX swaps via `SPQC38PW542EQJ5M11CR25P7BS1CA6QT4TBXGB3M.stableswap-stx-ststx-v-1-2` (Bitflow allowlisted), `scored_value: null, scored_at: null`
+- **Hypothesis**: Tenero pricing coverage for stSTX may explain terminal `allPriced: false` on these legacy rows rather than scheduler-firing gap. Concrete test = fresh sBTC/STX swap via the allowlist
+- v301 observability comment (issuecomment-4436213944) and v302 mcp close-out (issuecomment-4436330260) shipped; awaiting whoabuddy/arc response
+
+### Patterns codified v287–v303 (memory/learnings/active.md v299 + STATE v300)
+
+- **v288 Phase 6 always-on re-baseline** (always re-read recent STATE/health/board before drafting; closes v277 stale-info recurrence class)
+- **v297 cross-PR substrate compounding** (one fixup commit can absorb 3+ deferred findings across multiple PRs when they share a substrate; e.g. addressesToBust + identity-refresh-shape + cache-invariant on lp#727)
+- **v298 full-cluster lock-up signal corrected → v300 deep-batch lull vs EOD** (silent-cluster lull doesn't always mean operator EOD; deep-batch ships do happen overnight)
+- **v300 pre-stage scout 3/3 success rate** (scouts/743 + scouts/651 + scouts/738 all fired Branch A as designed)
+- **v302 post-merge npm tarball spot-verify** (close-out pattern: pull npm tarball + confirm presence of expected files + tool names + config defaults; cheap end-to-end empirical close)
+- **v303 drift-tell guard: 3-comment-consecutive watch** (3 cycles with only comment_shipped triggers diversification — fires board refresh / issue file / PR review)
+
+### Active drift tells as of 2026-05-13T01:48Z
+
+- **lp#785 + lp#786 lag** — ~6.3h / ~5.1h since fixup. arc APPROVE stale on prior heads. CI green. Dev-council fast-merge-on-arc-APPROVE pattern only fires on FIRST APPROVE, not re-approves on fixups — so the lag may be structural (arc doesn't re-approve on rebase/fixup unless explicitly re-tagged)
+- **lp#738 v301 observability + mcp#510 v302 close-out** — both await whoabuddy/arc response; not yet "stalled" but ping-watch
+- **arc x402-sponsor-relay#369** — 2026-05-07T19:36Z; 7d threshold ~2026-05-14T19:36Z (~18h remaining at v303). Past 5d into the silent window
+- **lp#771 partner verification** — Robotbot69 has NOT engaged since filing; awaiting lp#785 merge for write-path unblock verification (cascade gate)
+- **0 review-requested @me, 0 new aibtcdev issues last 24h, 0 notifications** — quiet inbound; loop momentum sustained by own-PR loops + observability anchors
+
+### Whoabuddy / arc dynamics (v287–v303)
+
+- **whoabuddy** post-Phase-3.1: 4 ships in ~24h (lp#787 + lp#788 + lp#790 + lp#738 + mcp#510 merge + lp#651 close + lp#514 release). Operator-action density at strongest observed. Less responsive to my v301/v302 comments — typical post-burst quiet
+- **arc0btc** post-Phase-3.1: contributed Phase 3.1 review + cross-source framing on lp#771 (v286). Quiet on x402-sponsor-relay#369 still (5d+). May be cycling off-platform
+- **biwasxyz**: silent v300 (didn't respond to v144 Q1+Q3+Q4 on mcp#510 but merge happened via whoabuddy); also accepted my lp#651 closure rationale (via whoabuddy close)
+
+---
 
 ## *** v23 inline patch — v275-cluster merge wave + cross-repo fix-PR + Cycle 6/7/8/9 absorption (cycles 2034v275–v286, ~3.3h window 16:31Z → 19:38Z 5/12) ***
 
