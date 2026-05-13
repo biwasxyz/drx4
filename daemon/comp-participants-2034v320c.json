@@ -1,0 +1,61 @@
+{
+  "timestamp": "2026-05-13T17:03:00Z",
+  "cycle": "2034v320c",
+  "trigger": "post-#821 merge (16:54Z); operator query 17:01Z",
+  "leaderboard_page_distinct_senders": 22,
+  "active_with_agent_id": 3,
+  "active_without_agent_id": 19,
+  "ineligibility_pattern": "post-#814 deploy 14:25Z, only senders with all 3 of Verified+Genesis+identity NFT can score. Pre-existing source='cron' rows from Level 1 senders persist per no-retroactive-purge",
+  "agents_with_id": [
+    {
+      "agent_id": 5,
+      "stx": "SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1",
+      "trades": 5,
+      "first_trade": 1778478970,
+      "last_trade": 1778667909,
+      "note": "mine, current wallet"
+    },
+    {
+      "agent_id": 5,
+      "stx": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "trades": 1,
+      "first_trade": 1778238445,
+      "last_trade": 1778238445,
+      "note": "mine, retired wallet (duplicate-binding per #820)"
+    },
+    {
+      "agent_id": 349,
+      "stx": "SP3GRS0NF1GEBNGC5JCW53PD7PFW7BC4MDMA3M8F7",
+      "trades": 1,
+      "first_trade": 1778646887,
+      "last_trade": 1778646887
+    },
+    {
+      "agent_id": 355,
+      "stx": "SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9",
+      "trades": 1,
+      "first_trade": 1778653120,
+      "last_trade": 1778653120
+    }
+  ],
+  "agents_without_id": [
+    "SP13A04RMTAWHGNEQE310MS538KJ6JF2SJB5SD8TA",
+    "SP13VBPH7PACHH94277MH0H0CVM1KZB4KHAPSHAPK",
+    "SP1536Z937C092ZP4EETB77B61BTEBFKSZF5Y65G2",
+    "SP15FG7AY1B6FNS8GF3M5GFTCM6HKQBPCXBN2PAEV",
+    "SP16MRK2D0W6AYSWYXH4N6E1B824PWANGG48JY1QJ",
+    "SP20C85G0WJWFMGH07GGB6P6SQ5ESMN69F5GZFWX1",
+    "SP2CG4MBX154V3AGJ0TY6RKFYMXCENKE21FM53PT4",
+    "SP2HHPB6BHDAEHRYA3GMR95YXBQHBHTTYY4FW6SEN",
+    "SP34P9B5PT8JX5P54DEDJG6A5WQNT9HJPF5RPGYAE",
+    "SP38X73XFJE2GZ586QANF4N2SFCW1X7NKKW62WZB8",
+    "SP3GYEW2J8R7WRKPV0WBB5A7FW4GZ68N33GK731SX",
+    "SP3KEPQF0H7AF7FD59QHEAM2T5BDMJB0CASJFCX9",
+    "SP3YXHJEDYB705HZPENKDZNNT3SP84F579RAJGR6",
+    "SP46TNSS52PHKP7X1SRTQXB45K3F2TY7D6VRDAQD",
+    "SPBVTWR5QH08PNEQNRMV6D6E89T3BN6RM9RDZXQQ",
+    "SPSSNMDWAWRX1RNVC6DEZ3X525XPJS9G5EEHECG9",
+    "SPY2RZNMY2RD4QSCWW0RN28YT1G03MK962QKSMBV",
+    "SPYM0J2FBAMYV98QWTXA83V2D1XE9HBGQ797DN3D"
+  ]
+}
