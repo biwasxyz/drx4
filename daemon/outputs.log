@@ -1349,3 +1349,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T06:17:20Z | coord_logged | daemon/arc-coordination.md | v183 entry — v300-v316 partnership window (arc cross-thread cascade + Gap 3 clearance + PR #518 6min-APPROVE + lp#793 cites-my-v301-finding) (v316)
 2026-05-13T06:51:17Z | review_shipped | https://github.com/aibtcdev/landing-page/pull/801 | lp#801 P4.2 heartbeat stx-drop APPROVE with 4 substantive findings (15min post-open) (v317)
 2026-05-13T07:11:59Z | issue_filed | https://github.com/aibtcdev/landing-page/issues/805 | platform: competition scoring not populating scored_value + /api/competition/status missing campaign block (Phase 3.x follow-on to #738; relates to #794) (v317-inter-cycle)
+2026-05-13T16:57Z review_shipped lp#821 secret-mars APPROVE — scheduler-ingested-trades aggregate fix; 5 works-well + 2 obs + 1 sugg + 1 nit; pre-comp-launch (T-2.5h to 19:30Z)
+2026-05-13T16:57Z board_refreshed daemon/comp-monitor.md v320 deltas (#819 merged → 19:30Z launch; #821 reviewed; re-scan 0 new traders)
