@@ -1341,3 +1341,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T04:17:32Z | pr_opened | https://github.com/aibtcdev/aibtc-mcp-server/pull/518 | mcp#518 Gap 3 held-state visibility (worker subagent shipped, 550+/1-, 6 new tests, CI test SUCCESS) (v311)
 2026-05-13T04:17:32Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/issues/487#issuecomment-4437211621 | mcp#487 follow-up linking PR #518 + schema-mapping table (v311)
 2026-05-13T04:17:32Z | comment_shipped | https://github.com/aibtcdev/landing-page/issues/754#issuecomment-4437212494 | lp#754 closure ack arc historical confirmation (v218 prediction validated) (v311)
+2026-05-13T04:40:07Z | pr_updated | https://github.com/aibtcdev/aibtc-mcp-server/pull/518 | mcp#518 fixup 5874fe5 — arc review absorption (widened still-held + SSRF guard + merged fallback); +131/-13; 503 tests (+2) (v312)
+2026-05-13T04:40:07Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/pull/518#issuecomment-4437332944 | PR #518 fixup absorption comment (3 findings absorbed; same-cycle v285 pattern) (v312)
