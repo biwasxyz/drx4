@@ -1,49 +1,44 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v322
-at: 2026-05-13T17:40Z
+cycle: 2034v322b
+at: 2026-05-13T17:44Z
 status: ACTIVE
-last_cycle: 2034v321
-session_window: 2034v301 → v322 (~10.6h in)
+last_cycle: 2034v322
+session_window: 2034v301 → v322b (~10.7h in)
 
-cycle_goal: Boot detected PR-A #824 MERGED 17:33Z by whoabuddy with correction commit e3b8b75. v322 ship: acked whoabuddy's catch on #824 thread; pushed correction db06bb3 to PR-C #826 (same Step-3 mistake propagated); commented on #826; updated operator on Telegram openly about the doc-vs-code drift.
+cycle_goal: Inter-cycle ship — operator (Telegram msg 286) pointed me at lp#827 (whoabuddy's predicate-tightening follow-up I'd predicted). Substantive APPROVE shipped + PR-C #826 closed as superseded.
 shipped:
-- lp#824 PR comment 17:40Z (issuecomment-4443723323) — acked whoabuddy's e3b8b75 docstring correction; explained my conflation (agents row exists != NFT minted; nullable column per migration 008); offered to file follow-up #815 §1 doc-fix PR after his predicate-tightening branch lands so rules doc tracks code
-- lp#826 PR-C correction commit db06bb3 — reframed Step 3 from "required" to "Strongly recommended — and arriving as a hard requirement" with reference to #815 §1 + upcoming #824 follow-up; kept mint flow inline; llms-full section title bumped
-- lp#826 PR comment 17:40Z (issuecomment-4443737144) — explained the correction
-- daemon/outputs.log: 4 events including learning_recorded for the doc-vs-code drift
-- Telegram operator (msg 285): openly acknowledged the mistake, summarized correction path
+- lp#827 APPROVE 17:42:41Z (1m10s post copilot review, first substantive reviewer): 7 works-well + 2 obs + 1 sugg + 1 nit. Key call-outs: SenderTier 3→4 extension shape; reusing sender_not_registered for missing-NFT matches #815 §1 table; SQL extraction to leaderboard-query.ts is exactly the follow-up I'd flagged on #824; comprehensive doc surface coverage; #820 wallet-rotation interaction noted (#827 doesn't make it worse, separate scope)
+- lp#826 PR-C CLOSED as superseded by #827 (issuecomment-4443XXX) — whoabuddy's #827 covers same llms.txt/llms-full.txt sections more thoroughly + consistent with predicate; no merge conflict, same end-state
+- Telegram msg to operator with full 4-PR status
 
 observations:
-- **PR-A #824 MERGED 17:33Z** — arc APPROVE 17:24Z, copilot COMMENTED with the catch about NFT requirement, whoabuddy COMMENTED 17:31Z + pushed e3b8b75 to fix my docstring + merged 17:33Z. Total: 17:21 (PR-B copilot review) → 17:33 (PR-A merge). 12-min review-to-merge cluster.
-- **whoabuddy's plan for the #815 NFT requirement**: a follow-up branch from main that updates verifier + scheduler + status + leaderboard predicates together. Not yet filed at v322 boot; my PR-C #826 correction signals this in the doc.
-- **Critical learning v322**: docs aspirational vs code enforcement drift. #815 §1 claims 3 eligibility steps; senderEligibilityTier only enforces 2 (Verified+Genesis). The `agents.erc8004_agent_id` is nullable per migration 008; `registered_wallets` view is `SELECT … FROM agents` with no NFT predicate. I propagated #815's wrong claim into PR-C — should have verified against the actual predicate first. Codified to learnings/active.md.
-- **PR-B #825 has arc APPROVE since 17:26Z** but not yet merged by whoabuddy (~14min cold). Possibly held pending validation or scheduling around PR-A's merge. No reviewer comments suggest blockers.
-- **PR-C #826 in CI** post-correction — Lint + Test IN_PROGRESS at v322 close
-- **Notification volume manageable** — 3 unread at boot, all comp-related
+- **whoabuddy's #827 is the predicate-tightening branch I'd predicted** based on his comment thread on #824. CI green: Lint + Analyze(actions) + Analyze(js-ts) + Test SUCCESS. 144/144 lib/competition tests + 202/202 (lib/competition + app/api/competition).
+- **All 4 of my PR-related deliverables resolved this cycle**: PR-A merged with whoabuddy's docstring correction; PR-B (#825) arc APPROVE awaiting merge; PR-C (#826) closed as superseded; #827 substantive APPROVE shipped
+- **Launch readiness path is now end-to-end pending two merges**: #827 (predicate + leaderboard SQL change) + #825 (pre-launch DELETE migration) → board renders empty at deploy through 19:30Z, accumulates Genesis+NFT trades only post-launch
+- **My #826 follow-up offer**: refile a tight PR adding the inline 3-line `identity_register` mint snippet to llms.txt competition section if reviewers want it preserved (whoabuddy's #827 doesn't include the snippet, just mentions the tool name)
+- **Cadence holding at 600s** for next 2 cycles to catch any merge cascade pre-launch
 
 commitments_outstanding:
-- lp#825 PR-B (mine) — arc APPROVE; awaiting whoabuddy merge (~14min cold). May be related to #824's ordering or whoabuddy reviewing the migration carefully (DELETE is irreversible)
-- lp#826 PR-C (mine) — corrected db06bb3 pushed; awaiting CI green + reviews
-- lp#824 follow-up commitment (mine) — file #815 §1 doc-fix after whoabuddy's predicate-tightening branch lands (so rules doc tracks code rather than diverging again)
-- lp#822 (whoabuddy) — my comment + arc's reply; awaiting whoabuddy direction on take-a-stab options
-- lp#823 umbrella (mine) — 0 comments; PRs reference it implicitly
-- lp#820 (mine) — filed v319; ~65min cold; surfaced in telegram as design-call
+- lp#827 (whoabuddy) — my APPROVE shipped; CI green; awaiting merge by whoabuddy
+- lp#825 PR-B (mine) — arc APPROVE since 17:26Z (~18min cold); awaiting whoabuddy merge
+- lp#824 follow-up commitment (mine) — file #815 §1 doc-fix after #827 merges (so rules doc tracks code)
+- lp#822 (whoabuddy) — my comment + arc reply; awaiting take-a-stab direction
+- lp#820 (mine) — filed v319; ~70min cold; #827 explicitly doesn't fix it
 - lp#805 (mine) — v319 cross-link; awaiting biwasxyz triage
-- lp#794 (mine) — SchedulerDO Tenero KV; ~15h cold
-- mcp#518 head 5874fe5 — CI SUCCESS; awaiting arc re-APPROVE / whoabuddy merge
-- mcp#504 (mine) — arc APPROVE×2; awaiting merge
-- lp#786 / lp#785 — attestations; awaiting whoabuddy merges
+- lp#794 (mine) — SchedulerDO Tenero KV; ~16h cold
+- lp#823 umbrella (mine) — 0 comments
+- mcp#518/mcp#504 (mine) — awaiting merge
+- lp#786 / lp#785 — attestations awaiting whoabuddy merges
 - lp#771 OPEN — cascade on lp#785 merge
 - lp#738 v301 + mcp#510 v302 — awaiting maintainer ack
 - agent-contracts#9/#10 (mine) — stuck
 
 next:
-- v323: poll #825 merge state + #826 CI/reviews; if either lands, ack/update artifacts
-- Watch for whoabuddy's predicate-tightening follow-up branch (verifier + scheduler + status + leaderboard) — when it appears, substantive review + commit to file my #815 §1 doc-fix after it merges
-- Re-scan participants at 19:30Z launch boundary; capture first-trade surge
-- Cadence: 600s (10min) — comp launches in ~1.9h; high-cadence justified through 19:30Z + first hour of comp
-- If no PR action in v323/v324 cycles AND comp launch silent, drop cadence to 900s and rotate to broader watched-repo backlog (lp#794 stale 15h, mcp#504 stale, etc.)
+- v323: poll #825 + #827 merge state; if either lands, ack/update artifacts; if #827 merges, file #815 §1 doc-fix follow-up (the commitment I made on #824 thread)
+- Watch for whoabuddy possible inline snippet add to my offered follow-up
+- Re-scan participants at 19:30Z launch boundary for first-trade surge
+- Cadence: 600s — comp launches in ~1.7h; high-cadence justified through 19:30Z + first hour of comp
 
 ## Resume
-Already resumed at v301. Continue loop. Operator informed of the doc/code drift mistake openly.
+Already resumed at v301. Continue loop.
