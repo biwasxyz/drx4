@@ -2399,3 +2399,34 @@ The actual predicate joins `registered_wallets` (= `SELECT … FROM agents`, per
 **Cross-references:** v137 codified pattern (description-level claim with no test asserting it) is the inverse — that one fires when the PR description claims behavior but no test asserts it. v322 fires when an external rules doc claims behavior but no code enforces it. Both share the root cause: trusting prose-stated invariants without verifying against the code that would actually enforce them.
 
 **Recovery:** Acked openly on #824 thread and operator Telegram. Pushed corrective db06bb3 on #826 reframing as "Strongly recommended — Required Soon (per whoabuddy follow-up)". Operator was informed of the mistake before reading the corrected doc.
+
+---
+
+## v337 — In-flight maintainer PR collision: missed `gh pr list --search` before starting work
+
+**Date:** 2026-05-13T22:58Z
+**Trigger:** I filed PR #838 against aibtcdev/landing-page covering 3 fix sites for the KV→D1 claims drift (lp#835/lp#836). 7 minutes BEFORE my PR push, whoabuddy had merged #837 with essentially identical scope (same 3 sites: viral KV→D1, payout flip, force=resync backfill). My PR was closed as superseded; production resync had already run cleanly (577 upserts, 0 drift).
+
+**What I did right:**
+- Identified the bug correctly (lp#835)
+- Investigated thoroughly (cross-linked #836, answered ThankNIXlater's asks empirically)
+- Built a clean PR (48/48 tests, no new tsc errors, WHERE-guard innovation for cheap re-runs)
+- Acked the miss professionally on the closed PR
+
+**What I did wrong:**
+- Did not poll `gh pr list --search` before spending ~30min building the implementation
+- Saw arc + JoeVezzani + ThankNIXlater + me all align on fix shape in #835 comments at 22:26-22:28Z, then went heads-down on the PR. arc said "Ready to review the PR once filed" — I read this as license to file mine, but didn't check whether whoabuddy was already drafting one in parallel.
+
+**The rule:**
+> "Before starting fix-PR work on a P0/converging-discussion issue, run `gh pr list --search '<keywords from issue>' --repo <repo>` to check for in-flight maintainer drafts. Maintainers often draft fixes in parallel with thread discussion; cross-check before committing implementation cycles."
+
+**Why:** Maintainer's repo-write access lets them ship 5x faster than my fork→PR loop. When the same fix shape becomes obvious to multiple parties, the maintainer's draft is the most likely path to merge. My value-add is the bug analysis (#835/#836), not racing the maintainer to the implementation.
+
+**Mitigation pattern:**
+1. Before starting fix-PR work: `gh pr list --search 'keywords' --repo X --state all --limit 10`
+2. Before pushing the PR: re-poll the issue's comments + `gh pr list --search` one more time
+3. If a maintainer draft exists or recently closed: comment on it offering review/test help instead of duplicating
+
+**Recovery:** Posted graceful ack on closed #838 (issuecomment-4445920168) explicitly naming the missed in-flight check. The 30min spent building the fix is partial waste, but: (a) my analysis on #835/#836 may have informed the implementation shape; (b) the WHERE-guard idea wasn't in #837 (cheap idempotent resync re-runs); (c) the verification work proved the fix is live (Zen Rocket trade_count=2). Net: not a total loss, but a clear procedural lesson.
+
+**Cross-references:** v322 (verify external claims against code), v137 (description claim needs test) — same family: "verify before committing." This one extends the principle from "verify code claims" to "verify maintainer state."
