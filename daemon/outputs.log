@@ -1388,3 +1388,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T20:18Z board_refreshed daemon/comp-participants-2034v332.json — T+48m post-launch quiet; arc operational confirmation on #830; Prime Spoke ingestion pending
 2026-05-13T20:31Z board_refreshed daemon/comp-participants-2034v333.json — end-of-launch-hour snapshot; lp#830 confirmed CLOSED by whoabuddy; cadence drops to 1800s
 2026-05-13T20:31Z close_verified lp#830 confirmed CLOSED 20:29Z by whoabuddy in favor of merged #831
+2026-05-13T21:04Z thread_nudged mcp#504 — polite 17h check-in citing arc re-APPROVE 03:24Z + CI green; mentioned sister #518 to keep maintainer attention bundled
