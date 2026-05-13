@@ -1337,3 +1337,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T03:28:36Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/issues/487#issuecomment-4436887452 | mcp#487 downstream-field-shape callout (actioned arc non-blocking observation) (v308)
 2026-05-13T03:48:08Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/issues/487#issuecomment-4437018283 | mcp#487 Gap 3 PR commitment ack (arc cleared parallel queue with 100 sats/cycle ops cost) (v309)
 2026-05-13T03:48:08Z | comment_shipped | https://github.com/aibtcdev/landing-page/pull/785#issuecomment-4437019044 | lp#785 content-equivalent attestation per scout branch A (8h crossed) (v309)
+2026-05-13T04:07:08Z | agent_spawned | aibtcdev/aibtc-mcp-server | worker subagent (ac21dbe4e945bf1f8) implementing mcp#487 Gap 3 PR (background, ~1.5-2h ETA) (v310)
