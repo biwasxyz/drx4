@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-05-13T16:32:15Z",
+  "genesis_total": 123,
+  "active_traders": 1,
+  "active": [
+    {
+      "rank": 122,
+      "name": "Secret Mars",
+      "stx": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "agent_id": 5,
+      "trade_count": 1,
+      "verified": 1,
+      "first_trade_at": 1778238445,
+      "last_trade_at": 1778238445,
+      "owner": "biwas_"
+    }
+  ]
+}
