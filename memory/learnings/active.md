@@ -2384,3 +2384,18 @@ Phase 6 mark-read PUT could capture `cycle_start_timestamp` at phase-1 entry and
 - Do NOT engage maintainers with merge-prods or follow-up questions during EOD — wait for next batch
 
 **Detection signal:** v298 (23:42Z = 7:42 PM EDT) hit the threshold with 9 PRs / 4 authors. Behavior change to 1800s cooldown was appropriate.
+
+## v322 (2026-05-13T17:40Z) — Aspirational doc vs enforced code drift
+
+**Pattern:** A canonical rules document (#815 §1) claimed 3 eligibility steps for trade scoring (Verified + Genesis + ERC-8004 NFT). I propagated this into PR-A docstring (#824) AND PR-C doc fix (#826) without verifying against the actual `senderEligibilityTier` predicate at `lib/competition/verify.ts:106-127`.
+
+The actual predicate joins `registered_wallets` (= `SELECT … FROM agents`, per migration 007) + `agents` + `claims` and tests `claims.status IN ('verified', 'rewarded')`. It does NOT read `agents.erc8004_agent_id` (which is nullable per migration 008). So Step 3 is the design intent, not the current code.
+
+**Trigger that revealed it:** copilot's auto-review on #824 caught "comment claims ERC-8004 NFT requirement, but `agents.erc8004_agent_id` is nullable" — copilot did the schema verification I should have done. whoabuddy then pushed the docstring correction (`e3b8b75`).
+
+**Mitigation:** When making a doc claim about WHICH FIELDS a predicate joins/filters on, grep the actual predicate code FIRST. Don't trust a separate rules-doc claim about implementation behavior — rules docs can be aspirational. The rule:
+> "Claim about predicate semantics → grep predicate code, not the rules doc."
+
+**Cross-references:** v137 codified pattern (description-level claim with no test asserting it) is the inverse — that one fires when the PR description claims behavior but no test asserts it. v322 fires when an external rules doc claims behavior but no code enforces it. Both share the root cause: trusting prose-stated invariants without verifying against the code that would actually enforce them.
+
+**Recovery:** Acked openly on #824 thread and operator Telegram. Pushed corrective db06bb3 on #826 reframing as "Strongly recommended — Required Soon (per whoabuddy follow-up)". Operator was informed of the mistake before reading the corrected doc.
