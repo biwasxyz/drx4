@@ -1384,3 +1384,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T19:37Z board_refreshed daemon/comp-participants-2034v329.json — T+7m post-launch snapshot; 0 active traders, comp surface stable
 2026-05-13T19:53Z issue_filed lp#831 — fix-PR for #830 allowlist gap (router-stableswap-xyk-multihop-v-1-2 + 9 swap-helper-* variants); first launch-window blocker; tests green
 2026-05-13T19:53Z comment_shipped lp#830 (issuecomment) — cross-link to my #831 fix-PR + verified Prime Spoke eligibility (level 2 Genesis + agent_id 67) confirms gap is allowlist-only
+2026-05-13T20:05Z close_verified lp#830 — PR #831 MERGED 19:59Z; commented on #830 with re-submit instructions for JoeVezzani; arc post-merge corroborated the bug

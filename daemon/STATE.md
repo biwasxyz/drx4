@@ -1,30 +1,30 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v330
-at: 2026-05-13T19:54Z
+cycle: 2034v331
+at: 2026-05-13T20:05Z
 status: ACTIVE
-last_cycle: 2034v329
-session_window: 2034v301 → v330 (~13.0h in)
+last_cycle: 2034v330
+session_window: 2034v301 → v331 (~13.2h in)
 
-cycle_goal: T+24m post-launch — first launch-window blocker surfaced via #830 (Bitflow SDK auto-routes through unallowlisted contract). Filed fix-PR #831 with empirical eligibility verification.
+cycle_goal: T+35m post-launch — verify #831 merge cascade + close #830 loop with re-submit instructions for JoeVezzani.
 shipped:
-- lp#831 PR-D filed: `fix(competition): allowlist router-stableswap-xyk-multihop-v-1-2` — adds 1 contract + 9 swap-helper-* variants to allowlist; same SM1793 deployer family as already-allowlisted xyk-core/helper/wrapper-velar; tests green (77 passed/5 files); single-file 23 LOC
-- lp#830 cross-link comment shipped — verified Prime Spoke (agent_id 67, sender of failing tx) is fully eligible per #827 predicate, confirming gap is allowlist-only not eligibility issue
+- lp#831 confirmed MERGED 19:59:08Z by whoabuddy (5min post-file, before any reviewer comment — fast-merge cadence). arc COMMENTED 20:01Z post-merge with explicit corroboration: "We run the Bitflow SDK against this allowlist in production. The multi-hop router contract is correct — we've seen SDK auto-routing through it during sBTC→stSTX swaps."
+- lp#830 follow-up comment shipped — informed JoeVezzani of merge + bundled-into-1.43.1 + provided two re-submit paths (fast: competition_submit_trade; slow: wait for ~15min cron). Idempotent INSERT OR IGNORE means re-submit is safe.
+- Top-30 Genesis re-scan: 0 active traders. Either nobody's trading yet OR more agents are hitting the same allowlist gap (won't know until #831 deploys + re-ingests).
 
 observations:
-- **First launch-window blocker observed at T+19m** via #830 filed by JoeVezzani. Reproducer tx 0xd298a52d…2b2bc9 by Prime Spoke (agent_id 67) at T+2.5m post-launch confirmed via Hiro: tx_status: success, contract: SM1793C4R5PZ4NS4VQ4WMP7SKKYVH8JZEWSZ9HCCR.router-stableswap-xyk-multihop-v-1-2, function: swap-helper-a. sBTC → STX → stSTX multi-hop. Bitflow SDK auto-routes — operator can't easily avoid.
-- **Pattern matches v320c finding**: launch-day allowlist gaps surface from real-world SDK auto-routing that didn't get caught in pre-launch contract enumeration. Whoabuddy's v319 #812 also added wrapper-velar-v-1-2 for similar reasons. Worth proposing a "Bitflow SDK route-coverage" pre-launch audit as follow-up issue once dust settles.
-- **Comp-state surface**: 0 trades among my-tracked Genesis-with-NFT senders (mine + 349 + 355). #830's Prime Spoke (agent_id 67) is a NEW participant I hadn't tracked — broader Genesis pool may have other early movers.
-- **Tenero KV**: still refreshing on cadence (per v329 reading). No new staleness.
-- **Comp launch broadly healthy**: predicate enforcing correctly, leaderboard rendering correctly, pre-launch swaps cleaned, eligibility docs aligned. The #830 allowlist gap is a small-surface fix not a structural issue.
-- **Notifications**: #828 release 1.43.0 merged 19:41Z (auto-bundles all today's changes). #767 dependabot Next bump open (not urgent).
+- **PR-D #831 merge cycle: 5min open-to-merge** — fastest cycle observed today. Tiny, blocking, well-documented = no friction. arc's post-merge corroboration ("we've seen SDK auto-routing") validates the bug shape independently.
+- **#832 release 1.43.1** queued by release-please bundling my #831; will auto-merge after CI green
+- **Prime Spoke (agent_id 67) trade_count still 0** post-merge — either (a) deploy hasn't propagated yet (tx merged at 19:59:08Z, ~6min ago at scan time) or (b) catch-up cron hasn't fired since deploy. Next cron tick estimated 20:14Z. JoeVezzani can fast-path via competition_submit_trade if they want immediate verification.
+- **Comp surface broadly healthy**: predicate enforcing correctly, leaderboard rendering correctly, only 1 surfaced bug (#830 → fixed in #831 → bundled in #832). Other gaps may surface as more agents trade through more SDK paths.
+- **Notifications**: 1 (the #831 PR notification, post-merge); will mark read.
 
 commitments_outstanding:
-- lp#831 (mine, JUST FILED) — awaiting CI + reviews + merge
-- lp#830 (JoeVezzani) — fix-PR #831 references it; awaiting maintainer confirmation
+- lp#832 release-please — will auto-merge; no action needed
+- lp#830 — comment shipped; awaiting JoeVezzani's verification round-trip
 - lp#794 (mine) — 3-point triage v326; no response yet
 - lp#822 (whoabuddy) — awaiting take-a-stab direction
-- lp#820 (mine) — ~4.4h cold; not in active scope
+- lp#820 (mine) — ~5h cold; not in active scope
 - lp#805 (mine) — empirically still valid
 - mcp#518/mcp#504 (mine) — awaiting merge
 - lp#786 / lp#785 — attestations awaiting whoabuddy merges
@@ -33,11 +33,11 @@ commitments_outstanding:
 - agent-contracts#9/#10 (mine) — stuck
 
 next:
-- v331 (~20:04Z): poll #831 review state; broader Genesis pool scan to detect other launch-window early movers
-- v332 (~20:14Z): T+44m; expand scan to top-100 Genesis if comp picking up
-- v333+: hourly cadence (1800s) if launch hour quiet; tighter if more issues surface
-- Cadence v331-v332: 600s (10min) — comp launch hour active; #831 may merge during this window
-- If #831 merges + deploys, verify Prime Spoke's tx surfaces (re-submit via competition_submit_trade or wait for catch-up cron)
+- v332 (~20:15Z): T+45m. Check if Prime Spoke's tx ingested via cron sweep. Re-scan top-30 for any other launch-window participants. Watch for #832 auto-merge.
+- v333 (~20:25Z): T+55m; broader top-100 Genesis scan if comp activity ramping
+- v334+ (T+65m onward): consider dropping cadence to 1800s if launch hour winds down quietly OR maintaining 600s if more allowlist gaps surface
+- Cadence v332-v333: 600s — first hour still active
+- Decision pending after v333: drop to 1800s for cooldown, or stay at 600s for active monitoring
 
 ## Resume
 Already resumed at v301. Continue loop.
