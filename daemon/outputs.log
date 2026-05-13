@@ -1363,3 +1363,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T17:19Z arc_coord_shipped telegram msg 277 + 278 to operator — PR-A + PR-B URLs; combined effect explained
 2026-05-13T17:22Z board_refreshed daemon/comp-monitor.md v321 deltas (arc#822 reply convergence; PR-A/PR-B status; 22 senders steady)
 2026-05-13T17:30Z arc_coord_shipped telegram msg to operator (reply 279) — found llms.txt missing identity NFT minting steps (only linked) AND competition Eligibility section omits 3rd requirement (NFT mint); offered doc PR
+2026-05-13T17:35Z issue_filed lp#826 PR-C — docs eligibility 3-step enumeration + inline identity_register mint flow; doc-only; full suite green; mirrors senderEligibilityTier
+2026-05-13T17:35Z arc_coord_shipped telegram msg 284 to operator — PR-C URL + summary of all 3 PRs (#824/#825/#826) launch-readiness combined effect
