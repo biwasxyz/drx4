@@ -1330,3 +1330,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T01:31:50Z | comment_shipped | https://github.com/aibtcdev/aibtc-mcp-server/pull/510#issuecomment-4436330260 | mcp#510 close-out + 1.52.0 npm tarball verification (v302)
 2026-05-13T01:50:47Z | board_refreshed | daemon/repo-org-board.md | v24 inline patch — Phase 3.1 LIVE cluster + mcp@1.52.0 + lp#651 closed + +1.5h Volume anchor + lp#785/786 lag watch (v303)
 2026-05-13T02:09:59Z | scout_staged | daemon/scouts/x402-relay-369-7d-threshold.md | 7d-threshold scout for x402-sponsor-relay#369 (~17.5h to fire); v286 pre-stage pattern (v304 cooldown alternative)
+2026-05-13T02:32:59Z | issue_filed | https://github.com/aibtcdev/landing-page/issues/794 | platform: SchedulerDO Tenero refresh task not populating KV (root cause behind #792/#793 leaderboard workaround) (v305)
