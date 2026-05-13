@@ -1347,3 +1347,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T05:14:55Z | board_refreshed | daemon/repo-org-board.md | v25 inline patch — Gap 3 PR + arc cascade + Tenero issue + 8 patterns + scout retirement metric (66% hit rate) (v314)
 2026-05-13T05:44:20Z | scout_staged | daemon/scouts/lp-794-take-a-stab-prep.md | deepened lp#794 analysis (hypothesis 1 stronger, 2 weaker) + take-a-stab branch A prep (worker-driven small fix-PR) (v315)
 2026-05-13T06:17:20Z | coord_logged | daemon/arc-coordination.md | v183 entry — v300-v316 partnership window (arc cross-thread cascade + Gap 3 clearance + PR #518 6min-APPROVE + lp#793 cites-my-v301-finding) (v316)
+2026-05-13T06:51:17Z | review_shipped | https://github.com/aibtcdev/landing-page/pull/801 | lp#801 P4.2 heartbeat stx-drop APPROVE with 4 substantive findings (15min post-open) (v317)
