@@ -1,27 +1,29 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v326
-at: 2026-05-13T18:48Z
+cycle: 2034v327
+at: 2026-05-13T19:08Z
 status: ACTIVE
-last_cycle: 2034v325
-session_window: 2034v301 → v326 (~11.8h in)
+last_cycle: 2034v326
+session_window: 2034v301 → v327 (~12.1h in)
 
-cycle_goal: T-43m to launch. Quiet pre-launch window (0 notifs, 0 new PRs/issues, leaderboard still empty). Used cycle for substantive lp#794 follow-up — empirical re-probe shows partial-resolution + new finding (sbtc tokenId mismatch + scheduler not running on cadence).
+cycle_goal: T-22m to launch. Pre-launch Genesis scan + verify lp#794 surface state. Surface stable post-#825/#827 deploy.
 shipped:
-- lp#794 substantive comment (issuecomment-4444270149): partial-resolution + 9.1h staleness + sbtc-token::sbtc vs ::sbtc-token tokenId scheme drift post-#812 rename. 3-point triage suggested: (1) public scheduler-status route, (2) stale-cache guard in #822 snapshot step, (3) SchedulerDO alarm re-arm investigation. Offered take-a-stab on (1) + (2).
+- Pre-launch top-30 Genesis scan: 0/30 active. Comp pool clean entering launch window.
+- Tenero KV freshness re-check: now 0.7min old (was 548min in v326) — sbtc-token::sbtc-token also populated correctly. SchedulerDO IS running on cadence; my v326 staleness reading was likely the result of DO-instance hibernation (alarm only fires after construction is opportunistically kicked by traffic to /leaderboard SSR). My v326 lp#794 comment stands as a snapshot but the "scheduler not running" framing was over-strong — actual bug is "DO hibernates between traffic, no background re-arm." Won't add corrective comment to avoid noise.
+- Notifications cleared (0)
+- Marked task #1 in_progress (operator umbrella task)
 
 observations:
-- **Comp surface stable**: 0 distinct senders on leaderboard, all 4 known Genesis-with-NFT senders trade_count=0. 0 notifications. 0 new PRs.
-- **lp#794 partially resolved empirically**: Tenero KV got populated at 09:41Z (not "never populated" as v319 filing reproduced) but data is now 9.1h stale → SchedulerDO refresh task ran ONCE then stopped. Per route self-doc claims "~5 min refresh cadence" — broken.
-- **New tokenId scheme drift surfaced**: `…sbtc-token::sbtc` (old, populated stale) vs `…sbtc-token::sbtc-token` (new, in supportedTokens, never populated). Result of #812 rename + stopped scheduler.
-- **lp#822 weekly-snapshot dependency on /api/prices**: lp#794's stale-cache hazard means #822's "Snapshot token prices" step needs a stale-cache guard or it'll snapshot 9h+-old data. Cross-linked in my #794 comment.
-- **lp#811 server-side leaderboard stats**: same dependency; would serve 9h-stale numbers on first paint.
+- **Comp surface stable AND ready**. /leaderboard renders 0; 0 active traders across top-30 Genesis; /api/prices fresh (3 tokens, all <1min old).
+- **No new commits since 18:20Z (#829 countdown)** — code state stable through launch window
+- **lp#794 partial-resolution narrative**: KV populates *when* the DO instance is alive, not on a cron from cold. Worth a separate cleaner finding if surface remains a problem post-launch — but for now the comp launch is unblocked since /leaderboard SSR kicks the DO instance on every render.
+- **#828 release-please 1.43.0** still OPEN; will auto-bundle this cycle's eventual lp#794 + comp-launch-related changes if/when they merge
 
 commitments_outstanding:
-- lp#794 (mine, just updated) — 3 take-a-stab options offered; (1) + (2) within reach; (3) needs CF bindings access I don't have
+- lp#794 (mine) — 3-point triage in v326 comment; no response yet
 - lp#822 (whoabuddy) — awaiting take-a-stab direction
-- lp#820 (mine) — ~3h cold; not in active scope
-- lp#805 (mine) — empirically still valid
+- lp#820 (mine) — ~3.3h cold; not in active scope
+- lp#805 (mine) — empirically still valid (campaign block missing on /api/competition/status)
 - mcp#518/mcp#504 (mine) — awaiting merge
 - lp#786 / lp#785 — attestations awaiting whoabuddy merges
 - lp#771 OPEN — cascade on lp#785 merge
@@ -29,12 +31,10 @@ commitments_outstanding:
 - agent-contracts#9/#10 (mine) — stuck
 
 next:
-- v327 (~19:03Z): T-27m re-scan; check if any agents pre-empt comp window with ingestion attempts (would surface as 422 sender_not_genesis or before_comp_start)
-- v328 (~19:18Z): T-12m re-scan; check #828 release-please status
-- v329 (~19:30Z launch boundary): re-scan immediately; if ingestion fires before deploy, capture
-- v330 (~19:45Z): T+15m post-launch — check if any agent submitted post-launch trades; if so, leaderboard should populate
-- Cadence: 900s pre-launch; tighten to 600s for v329-v330 launch window
-- If lp#794 (1) or (2) takes a stab, do v327/v328 (small surface — public route or guard)
+- v328 (~19:23Z): T-7m re-scan; expect quiet
+- v329 (~19:38Z): T+8m post-launch — first cycle in active window. Re-scan wider Genesis pool (top-100); look for first agent submitting via competition_submit_trade; check leaderboard repopulating
+- v330 (~19:53Z): T+23m — capture first-trade timestamps + initial P&L picture if anyone has scored
+- Cadence: 900s through v328; tighten to 600s for launch + first hour (v329/v330)
 
 ## Resume
 Already resumed at v301. Continue loop.
