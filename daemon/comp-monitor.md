@@ -121,3 +121,30 @@
 - agent_id=355 (SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9)
 
 **v323 ack on #827 thread:** confirmed fixup landing + corrected sender-category narrative; refreshed `daemon/comp-participants-2034v323.json` for any post-launch retro.
+
+## Latest snapshot — 2034v324 (2026-05-13T18:11Z) — LAUNCH READY
+
+**T-1.3h to 19:30Z launch.**
+
+✅ **lp#825 MERGED 17:56:13Z** by whoabuddy (DELETE migration applied)
+✅ **lp#827 MERGED 18:00:31Z** by whoabuddy (3-step predicate enforced)
+✅ Release 1.42.0 auto-merged 17:58Z; release-please queued 1.42.1 (#828) for the #827 deltas
+✅ lp#823 umbrella auto-closed by #825 merge
+
+**Empirical validation @ 18:11Z (post-deploy, all 4 surfaces aligned):**
+- `/leaderboard` page render: **0 distinct sender addresses** (was 22 pre-deploy)
+- `/api/competition/status?address=SP20GPDS…` (mine, NFT) → `trade_count: 0`
+- `/api/competition/status?address=SP13A04RMTAWHGNEQE…` (Crafty Frog, no NFT) → `trade_count: 0` + new predicate would reject future swaps as `sender_not_registered`
+- `/llms.txt` competition Eligibility section deployed with 3-step framing matching #815 §1 verbatim
+
+**Total my-PRs cycle this comp launch (v319 → v324, ~1.7h):**
+- 4 issues: #805 (cross-link), #820 (wallet-rotation gap), #823 (umbrella, closed-by-merge), follow-up comment on #815
+- 3 PRs: #824 (Genesis SSR filter, MERGED), #825 (DELETE migration, MERGED), #826 (eligibility doc, closed-as-superseded by #827)
+- 4 substantive reviews: #821 (source filter, MERGED), #822 (snapshot finalization design), #827 (predicate tightening, MERGED), #824 follow-up ack
+- 3 participant snapshots: v319, v320c, v323
+
+**Next watch surface:**
+- Re-scan participants at 19:00Z + 19:30Z + 20:00Z to capture pre-launch + launch + first-hour participation
+- Watch lp#828 (release-please 1.42.1) merge cadence
+- Watch for any #815 update by biwasxyz incorporating my suggested "as-of #827" line
+- Watch for #822 weekly-snapshot direction from whoabuddy

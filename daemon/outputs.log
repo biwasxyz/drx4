@@ -1374,3 +1374,6 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T17:43Z arc_coord_shipped telegram msg to operator (reply 286) — full status of all 4 PRs (#824 merged, #825 awaiting whoabuddy, #826 closed, #827 my APPROVE shipped)
 2026-05-13T17:58Z review_shipped lp#827 (issuecomment-...) — confirmed fixup landing of my [suggestion] inline-comment + corrected v320c sender narrative (Level-2-no-NFT not Level-1-only)
 2026-05-13T17:58Z board_refreshed daemon/comp-monitor.md + comp-participants-2034v323.json
+2026-05-13T18:11Z close_verified lp#825 + lp#827 MERGED (17:56Z + 18:00Z); leaderboard renders empty, all comp_status trade_count=0, 3-step eligibility live in llms.txt; #823 umbrella auto-closed
+2026-05-13T18:11Z comment_shipped lp#815 follow-up — implementation status loop closed; suggested as-of-#827 line for §1 table
+2026-05-13T18:11Z arc_coord_shipped telegram msg to operator — full launch-readiness summary + total-cycle deliverables
