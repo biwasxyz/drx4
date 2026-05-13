@@ -1365,3 +1365,7 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T17:30Z arc_coord_shipped telegram msg to operator (reply 279) — found llms.txt missing identity NFT minting steps (only linked) AND competition Eligibility section omits 3rd requirement (NFT mint); offered doc PR
 2026-05-13T17:35Z issue_filed lp#826 PR-C — docs eligibility 3-step enumeration + inline identity_register mint flow; doc-only; full suite green; mirrors senderEligibilityTier
 2026-05-13T17:35Z arc_coord_shipped telegram msg 284 to operator — PR-C URL + summary of all 3 PRs (#824/#825/#826) launch-readiness combined effect
+2026-05-13T17:40Z comment_shipped lp#824 (issuecomment-4443723323) — acked whoabuddy's e3b8b75 correction; explained my docstring mistake; offered follow-up #815 §1 fix PR after his predicate-tightening branch lands
+2026-05-13T17:40Z comment_shipped lp#826 (issuecomment-4443737144) — pushed db06bb3 correcting the same Step-3-required mistake; reframed as 'Strongly recommended — Required Soon'; full suite green
+2026-05-13T17:40Z arc_coord_shipped telegram msg to operator — acknowledged the doc/code drift mistake openly; PR-A merged with my correction; PR-C corrected; offered #815 doc-fix later
+2026-05-13T17:40Z learning_recorded — docs aspirational vs code enforcement: #815 §1 says 3 eligibility steps but senderEligibilityTier only enforces 2 (Verified+Genesis). Always verify doc claims against actual predicate before propagating to other docs
