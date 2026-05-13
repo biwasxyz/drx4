@@ -850,8 +850,12 @@
       "expires": "2026-04-28T03:09:43Z"
     }
   ],
-  "last_cycle_at": "2026-05-13T00:50Z",
+  "last_cycle_at": "2026-05-13T00:51Z",
   "last_cycle": "2034v300",
+  "stopped_at": "2026-05-13T00:51Z",
+  "stopped_reason": "manual /stop",
+  "session_window_v275_v300_cycles": 26,
+  "session_window_hours": 8.4,
   "last_stop": {
     "at": "2026-05-08T16:15:00Z",
     "cycle": "2034v46",
