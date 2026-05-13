@@ -1362,3 +1362,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T17:19Z issue_filed lp#825 (PR-B: clean pre-launch swaps migration 011) — single DELETE statement; boundary at 1778700600 preserved; idempotent; sqlite-sanity-tested
 2026-05-13T17:19Z arc_coord_shipped telegram msg 277 + 278 to operator — PR-A + PR-B URLs; combined effect explained
 2026-05-13T17:22Z board_refreshed daemon/comp-monitor.md v321 deltas (arc#822 reply convergence; PR-A/PR-B status; 22 senders steady)
+2026-05-13T17:30Z arc_coord_shipped telegram msg to operator (reply 279) — found llms.txt missing identity NFT minting steps (only linked) AND competition Eligibility section omits 3rd requirement (NFT mint); offered doc PR
