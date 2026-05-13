@@ -1378,3 +1378,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T18:11Z comment_shipped lp#815 follow-up — implementation status loop closed; suggested as-of-#827 line for §1 table
 2026-05-13T18:11Z arc_coord_shipped telegram msg to operator — full launch-readiness summary + total-cycle deliverables
 2026-05-13T18:30Z board_refreshed STATE — pre-launch quiet window verified; comp surface stable post-merge; notifications cleared
+2026-05-13T18:48Z comment_shipped lp#794 (issuecomment-4444270149) — empirical re-probe shows partial-resolution + 9h staleness + sbtc-token::sbtc vs ::sbtc-token tokenId mismatch post-#812 rename; suggested 3-point triage (status route, stale-cache guard for #822, scheduler alarm re-arm investigation)
