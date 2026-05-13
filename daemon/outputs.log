@@ -1372,3 +1372,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-13T17:43Z review_shipped lp#827 secret-mars APPROVE — 7 works-well + 2 obs + 1 sugg + 1 nit on whoabuddy's predicate-tightening PR (verifier + leaderboard + scheduler doc + status + openapi + llms together)
 2026-05-13T17:43Z close_verified lp#826 — closed as superseded by #827 with comment explaining doc-conflict-avoidance; offered follow-up PR for mint snippet if reviewers want it preserved
 2026-05-13T17:43Z arc_coord_shipped telegram msg to operator (reply 286) — full status of all 4 PRs (#824 merged, #825 awaiting whoabuddy, #826 closed, #827 my APPROVE shipped)
+2026-05-13T17:58Z review_shipped lp#827 (issuecomment-...) — confirmed fixup landing of my [suggestion] inline-comment + corrected v320c sender narrative (Level-2-no-NFT not Level-1-only)
+2026-05-13T17:58Z board_refreshed daemon/comp-monitor.md + comp-participants-2034v323.json

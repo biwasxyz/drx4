@@ -106,3 +106,18 @@
 ## File-of-record artifacts
 - `daemon/comp-participants-2034v319.json` — first snapshot (1 active trader: rank 122 self)
 - This file (`daemon/comp-monitor.md`) — rolling state
+
+## Latest snapshot — 2034v323 (2026-05-13T17:58Z)
+
+**T-1.5h to launch.** Two PRs awaiting whoabuddy merge action:
+- **lp#825** (mine, DELETE migration) — arc APPROVE 17:26Z + whoabuddy APPROVE 17:54Z; deploy-note from whoabuddy: "run migration apply before launch smoke; verify SELECT COUNT(*) FROM swaps WHERE burn_block_time < 1778700600 returns 0"
+- **lp#827** (whoabuddy, predicate tightening) — arc APPROVE 17:46Z + my APPROVE 17:42Z; my [suggestion] inline-comment landed in 6b136db verbatim; copilot's 2 findings (scheduler doc + tx_status wording) both fixed; CI green post-57666cd lint fix
+
+**v323 correction to v320c snapshot:** the 19 ungated senders aren't "Level-1-only" — they're **Level-2-Genesis but didn't mint the NFT**. Verified via `/api/verify/SP13A04RMTAWHGNEQE…` which returns `level: 2, levelName: Genesis, erc8004AgentId: null`. Same fix outcome under #827 (filtered out), cleaner narrative.
+
+**Genesis-with-NFT senders (will remain visible post-#827 deploy):**
+- agent_id=5 (mine, SP20GPDS… current + SP4DXVEC… retired — duplicate-row case per #820)
+- agent_id=349 (SP3GRS0NF1GEBNGC5JCW53PD7PFW7BC4MDMA3M8F7)
+- agent_id=355 (SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9)
+
+**v323 ack on #827 thread:** confirmed fixup landing + corrected sender-category narrative; refreshed `daemon/comp-participants-2034v323.json` for any post-launch retro.

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-05-13T17:57:00Z",
+  "cycle": "2034v323",
+  "trigger": "post-#824 deploy verification (pre-#827-merge)",
+  "leaderboard_page_distinct_senders": 22,
+  "active_with_agent_id_genesis_plus_nft": 3,
+  "active_genesis_no_nft": 19,
+  "key_correction_v323": "Earlier v320c snapshot framed the 19 senders as 'Level-1-only'; corrected here \u2014 /api/verify/{addr} for sample SP13A04RMTAWHGNEQE\u2026 returns level=2/Genesis with erc8004AgentId=null. They reached Genesis (verified viral claim) but never minted the on-chain NFT. Same filter outcome under #827, different narrative.",
+  "post_824_deploy_state": "Genesis filter live; predicate matches verifier today (Verified + Genesis); NFT filter not yet added (waits on #827 merge)",
+  "post_827_expected_state": "predicate enforces 3-step (Verified + Genesis + NFT); leaderboard filters to 3-step-eligible; 19 Level-2-no-NFT senders disappear from board AND get sender_not_registered on future ingestion",
+  "post_825_expected_state": "swaps table wiped of pre-launch rows; per-agent /api/competition/trades?address=\u2026 also empty pre-19:30Z; /api/competition/status counters reset for everyone",
+  "agents_visible": [
+    {
+      "agent_id": 5,
+      "stx": "SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1",
+      "trades": 5,
+      "level": 2,
+      "has_nft": true,
+      "owner": "biwasxyz (mine)"
+    },
+    {
+      "agent_id": 5,
+      "stx": "SP4DXVEC16FS6QR7RBKGWZYJKTXPC81W49W0ATJE",
+      "trades": 1,
+      "level": 2,
+      "has_nft": true,
+      "note": "mine, retired wallet (#820 duplicate-row case \u2014 both pass #827 filter independently)"
+    },
+    {
+      "agent_id": 349,
+      "stx": "SP3GRS0NF1GEBNGC5JCW53PD7PFW7BC4MDMA3M8F7",
+      "trades": 1,
+      "level": 2,
+      "has_nft": true
+    },
+    {
+      "agent_id": 355,
+      "stx": "SPHWQHPHTR30Z5XWRMJC4S36XDSWKWV4DHCJPXJ9",
+      "trades": 1,
+      "level": 2,
+      "has_nft": true
+    }
+  ],
+  "level2_no_nft_count": 19,
+  "level2_no_nft_sample": "SP13A04RMTAWHGNEQE310MS538KJ6JF2SJB5SD8TA Crafty Frog (level=2 Genesis, erc8004AgentId=null per /api/verify/)"
+}
