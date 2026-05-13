@@ -1,30 +1,29 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v332
-at: 2026-05-13T20:18Z
+cycle: 2034v333
+at: 2026-05-13T20:31Z
 status: ACTIVE
-last_cycle: 2034v331
-session_window: 2034v301 → v332 (~13.4h in)
+last_cycle: 2034v332
+session_window: 2034v301 → v333 (~13.5h in)
 
-cycle_goal: T+48m post-launch — verify post-#831-deploy state. Comp still quiet (0 active across 5 tracked + top-30 Genesis), Prime Spoke ingestion not yet observed.
+cycle_goal: T+61m end-of-launch-hour. Quiet — 0 traders surfaced; #830 closed by whoabuddy in favor of #831 (merged).
 shipped:
-- daemon/comp-participants-2034v332.json — T+48m snapshot showing all 5 tracked Genesis-with-NFT senders still trade_count=0 (including Prime Spoke who is the #830 reporter and expected first ingestion)
-- arc dropped explicit operational confirmation on #830 at 20:12Z: "we run the Bitflow SDK in production via our defi-bitflow skill, and the SDK does auto-route through router-stableswap-xyk-multihop-v-1-2 for sBTC→STX→stSTX paths. The allowlist gap was real — PR #831 is the correct fix. Marking this resolved on our end."
-- Notifications cleared (1 → 0 after issue-view)
+- daemon/comp-participants-2034v333.json — end-of-launch-hour snapshot. 1 attempted trade in 61min, 0 scored, 1 blocker found and fixed (lp#830→#831 in 5min).
+- Notifications cleared (1 → 0)
+- Confirmed lp#830 CLOSED by whoabuddy at 20:29Z ("closing in favor of #831 which merged already")
 
 observations:
-- **#831 fully integrated**: merged 19:59Z by whoabuddy, arc operational confirm 20:12Z, release 1.43.1 (#832) queued
-- **#833 perf fix merged 20:13Z** by whoabuddy (`perf(d1): cut /api/inbox/[address] COUNTs 4→2 to stop rows-read leak`) — non-comp area; whoabuddy still actively shipping
-- **Prime Spoke (agent_id 67) trade_count still 0** — possible reasons: (a) deploy not propagated to all edges yet; (b) JoeVezzani hasn't fast-path re-submitted via competition_submit_trade; (c) catch-up cron hasn't re-attempted the tx (may not retry already-seen txs). Not blocking; will surface in v333 if ingested.
-- **0 active traders across top-30 Genesis at T+48m** — quiet launch hour. Consistent with low engagement signal in the broader Genesis pool.
-- **Comp surface broadly healthy**: only 1 launch-window bug surfaced in 48min, fixed in 5min. Predicate + leaderboard + migration all working as designed.
+- **Launch hour summary**: 61min post-19:30Z, 0 trades scored across 5 tracked Genesis-with-NFT senders + top-30 Genesis. Only observed activity: Prime Spoke's T+2.5m attempt that hit the allowlist gap, fixed in #831 within 5min, but Prime Spoke hasn't re-submitted (or cron hasn't re-attempted).
+- **Comp infrastructure broadly healthy**: predicate, leaderboard SQL, migration, eligibility docs all working as designed. Single bug surfaced + fixed end-to-end.
+- **whoabuddy continued shipping non-comp work** during launch hour: #833 inbox COUNT optimization (20:13Z), #834 heartbeat unread-count edge cache (20:21Z) — confidence signal that comp launch infrastructure is stable enough to not need launch-window patches
+- **#832 release 1.43.1 still OPEN** ~32min — release-please typically auto-merges; may be waiting on CI or specific check
+- **Cadence drop**: per v332 plan, dropping to 1800s (30min) cooldown. Operator hasn't asked for tighter monitoring; I've been at 10-15min cadence for 4.5h. Will tighten back if activity surfaces.
 
 commitments_outstanding:
-- lp#832 release-please (auto) — will merge when CI + checks pass
-- lp#830 — arc + I have explicit confirmation; awaiting JoeVezzani's verification or maintainer close
+- lp#832 release-please (auto) — will merge when ready
 - lp#794 (mine) — 3-point triage v326; no response yet
 - lp#822 (whoabuddy) — awaiting take-a-stab direction
-- lp#820 (mine) — ~5h cold; not in active scope
+- lp#820 (mine) — ~5.5h cold; not in active scope
 - lp#805 (mine) — empirically still valid
 - mcp#518/mcp#504 (mine) — awaiting merge
 - lp#786 / lp#785 — attestations awaiting whoabuddy merges
@@ -33,10 +32,10 @@ commitments_outstanding:
 - agent-contracts#9/#10 (mine) — stuck
 
 next:
-- v333 (~20:28Z): T+58m. Check if Prime Spoke ingested; check #832 auto-merge. If still 0 active traders, drop cadence.
-- v334 (~20:43Z if 600s OR ~20:58Z if 900s): broader top-100 Genesis scan
-- **Cadence decision**: if v333 still shows 0 trades in launch hour, drop to 1800s (30min) cooldown — operator hasn't asked for tighter monitoring + I've been at 10-15min for 4+ hours
-- Watch surface: any new allowlist-related issues from active agents
+- v334 (~21:01Z, +30min): broader top-100 Genesis re-scan; check if any first trades materialize after launch hour
+- v335 (~21:31Z, +60min): T+121m. Decide whether to extend cadence further or rotate to broader watched-repo backlog
+- If still 0 trades at v335 and operator hasn't pinged, rotate one cycle to repo-org-board refresh OR mcp#504/#518 status check (long stale)
+- Cadence v334-v335: 1800s (30min); will revert to 600s on any pivot
 
 ## Resume
 Already resumed at v301. Continue loop.

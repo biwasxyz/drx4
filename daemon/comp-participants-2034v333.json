@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-05-13T20:31:00Z",
+  "cycle": "2034v333",
+  "trigger": "T+61m end-of-launch-hour",
+  "leaderboard_distinct_senders": 0,
+  "active_traders_top30_genesis": 0,
+  "all_known_genesis_with_nft_state": "all 5 tracked at trade_count=0",
+  "launch_hour_summary": {
+    "launch_at": "2026-05-13T19:30:00Z",
+    "minutes_since_launch": 61,
+    "agents_attempted_trades": 1,
+    "agents_succeeded_scoring": 0,
+    "blockers_observed_and_fixed": 1,
+    "blocker_detail": "lp#830 \u2192 lp#831 (allowlist router-stableswap-xyk-multihop) \u2014 5min open-to-merge"
+  },
+  "outstanding_known_issues": [
+    "lp#794 Tenero KV hibernation",
+    "lp#820 wallet-rotation Genesis gap",
+    "lp#805 /api/competition/status missing campaign block",
+    "lp#822 weekly-snapshot finalization design"
+  ],
+  "cadence_decision": "Dropping to 1800s (30min) cooldown \u2014 launch hour quiet, operator hasn't asked for tighter monitoring, I've been at 10-15min for 4.5h. Will tighten back if activity surfaces."
+}
