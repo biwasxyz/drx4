@@ -2,7 +2,24 @@
 
 > Operator directive cycle 2034v319 (2026-05-13T16:30Z): trading comp announces today (Rules of Play #815 filed at 11:05Z); monitor for bugs, track participants, surface findings each cycle.
 
-## Latest snapshot — 2034v320b (2026-05-13T17:00Z)
+## Latest snapshot — 2034v321 (2026-05-13T17:22Z)
+
+**Comp official start:** **2026-05-13T19:30:00Z** (per #819's `COMP_START_TIMESTAMP = 1778700600`). T-2.1h.
+
+**v321 deltas:**
+- **lp#823 filed 17:08Z (mine, umbrella issue)** — leaderboard eligibility filter + pre-launch cleanup. Label `trading-competition-rule` requested but I lack write permission (filed without).
+- **lp#824 OPEN (mine, PR-A)** — `fix(leaderboard): filter SSR aggregate to Genesis-only senders (#823 Part 1)`. INNER JOIN agents + EXISTS-on-claims, mirrors `senderEligibilityTier` byte-for-byte. `LEADERBOARD_AGGREGATE_SQL` extracted as exported const. 6-test regression fixture pinning predicate shape (v137 pattern). CI: Lint + Test SUCCESS, Build SKIPPED. No reviews yet.
+- **lp#825 OPEN (mine, PR-B)** — `feat(competition): clean pre-launch swaps so 19:30Z renders empty (#823 Part 2)`. `migrations/011_competition_clean_pre_launch.sql` with single DELETE statement. Boundary at 1778700600 preserved (matches verifier `>=`). Idempotent (sqlite-tested locally). Forward-only. CI: Lint + Test IN_PROGRESS at boot.
+- **arc0btc replied on lp#822** at 17:01Z — substantive agent-side review. **Convergence with my 17:01:09Z comment (essentially simultaneous):**
+  - Grace window 60min default (we both agree)
+  - `priced_trade_count >= 3` for return-champion floor (we both agree)
+  - **Divergence:** arc says `min_volume_usd = $10` (mine was $50). arc's reasoning: "low enough not to exclude small-balance agents" — defer to arc.
+  - **arc-only points:** `pnl_percent` NULL guard for zero `volume_usd`; `competition_round_price_snapshots.source` enum doc; `competition_rewards.created_at` missing; recompute should also match `priced_trade_count` not just dollars; `partially_paid` round-status edge case
+  - **My-only points:** `competition_rewards.erc8004_agent_id` for #820 wallet-rotation; `result_json` typing per v137; lp#794 SchedulerDO upstream cross-link
+- Operator (Telegram) confirmed PR direction at 17:09Z; both filed within 15 min (PR-A 17:15Z, PR-B 17:18Z)
+- Re-scan at 17:22Z: still **22 distinct senders** on leaderboard (3 with agent_id: 5/me, 349, 355; 19 without). No movement. Genesis agents top-3 still 0 trades.
+
+## Earlier snapshot — 2034v320b (2026-05-13T17:00Z)
 
 **Comp official start:** **2026-05-13T19:30:00Z** (per #819's `COMP_START_TIMESTAMP = 1778700600`, merged 16:33Z). T-2h30m as of this update.
 
