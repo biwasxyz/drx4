@@ -1415,3 +1415,6 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-14T18:18Z v355 nostr_hype_shipped #2 eventId=fadbcd27b1102c6dc1554d456969761f6af165a0f959282c9279167e927f07d5 leader-callout-graphite-elan
 2026-05-14T18:55Z v356 issue_filed lp#846 leaderboard-500-agent_inbox_stats comp-visibility-block
 2026-05-14T19:25Z v357 paid_x402_shipped emerald_castle SP1WGJ83 100sats pay_e04bbea7f2f1409ebdcf1b6840150c70 queued
+2026-05-14T19:48Z v358 v357_payment_confirmed pay_e04bbea7 txid cb0a6503555cbb8b42114a86aabca32455dc132fb5686340a8cbb6a9a58a63b5 block_7955197
+2026-05-14T19:48Z v358 comment_shipped lp#846 issuecomment-4454191931 widened-scope-inbox-empty-all-addresses
+2026-05-14T19:48Z v358 attribution_correlation_2 fluid_briar SP16H0KE agent_4 v341_batch2 first_trade 2.75h_gap comp_8_traders
