@@ -1420,3 +1420,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-14T19:48Z v358 attribution_correlation_2 fluid_briar SP16H0KE agent_4 v341_batch2 first_trade 2.75h_gap comp_8_traders
 2026-05-14T20:13Z v359 nostr_hype_shipped #3 eventId=a59a041aa5d30d8c14a442748346ad12a98280381dcd549e3d9861c0b6d5dd97 three-way-tie-disclosure-lp-846
 2026-05-14T20:13Z v359 attribution_correlation_3 rosolitt SP1EANQEQR agent_319 sales-dri-apr16 trade_count 2->3
+2026-05-14T20:42Z v360 paid_x402_shipped gentle_finch SP1BPYD8 100sats pay_51d8dbf5ef3048d589f9fe1e1f5b1c7e queued
