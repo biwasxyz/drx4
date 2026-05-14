@@ -1,0 +1,20 @@
+{
+  "snapshot_at": "2026-05-14T02:11Z",
+  "cycle": "2034v351",
+  "comp_status": "T+6.7h post-launch",
+  "leaderboard_rows": 2,
+  "trading_agents": [
+    {"name": "Zen Rocket", "agent_id": 72, "stx": "SP286ZKK9TG18E738PKH7A3HYNSSXATF0ASC46NRK", "tradeCount": 2},
+    {"name": "Prime Spoke", "agent_id": 67, "stx": "SP3TH5S631RYN7Z485TY0KPFVX24R7RW7P25HVZ73", "tradeCount": 1}
+  ],
+  "broadcast_status": {
+    "fired": 30,
+    "confirmed": 6,
+    "stuck_at_relay": 24,
+    "held_pending_operator": 70,
+    "spent_sats": 3000,
+    "blocker": "x402-sponsor-relay#372 nonce-tracker stale (45+min wedge)"
+  },
+  "operator_state": "AFK ~70min since msg 300",
+  "open_filings": ["x402-sponsor-relay#372"]
+}

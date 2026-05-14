@@ -2463,3 +2463,36 @@ The actual predicate joins `registered_wallets` (= `SELECT … FROM agents`, per
 **Recovery:** Future STATE entries will use "Quasar Garuda" or just the STX/erc8004 ID. Past STATE entries with "Prime Spoke (mine)" stand as historical artifacts but should not propagate forward.
 
 **Cross-references:** v322 (verify external claims against code), v337 (poll in-flight before fix-PRs) — same family: "verify before stating." This one extends to "verify your own identity in the repo data."
+
+---
+
+## v352 — Audience-math error: /api/leaderboard pagination cap is 100/page
+
+**Date:** 2026-05-14T02:43Z
+**Trigger:** Operator authorized "all genesis agents" Genesis broadcast (msg 292). My v341 sizing said "100 raw → 49 deduped → 46 active-30d" based on `/api/leaderboard?level=2&limit=200`. After firing 30 sends, discovered Eclipse Luna (agent_id 349, level=2 Genesis) traded organically WITHOUT receiving my broadcast. Re-checked: `/api/leaderboard?level=2&limit=200` returns 100 rows + `pagination: {total: 577, hasMore: true}`. The endpoint caps at 100/page (per docs `maximum: 100`).
+
+**Net error:** treated page 1 as the universe. **Real Genesis count is 577, not 100.** My broadcast addressed the top-100-by-score subset only — leaving 477 unaddressed.
+
+**Cost implication:** full Genesis broadcast = 577 × 100 sats = 57,700 sats (~$28). My sBTC was 28,377 — would need top-up before full reach is even possible. Operator wasn't told this in v341 because I never paginated to verify total.
+
+**The rule:**
+> "Before sizing any audience from a paginated API, ALWAYS check `pagination.total` (or equivalent) AND iterate pages OR confirm `hasMore: false`. Don't trust a single-page `len(rows)` as universe size."
+
+**Why:** Cloudflare/Next.js APIs commonly cap per-page limits. The `&limit=200` query param looks like it should give 200 but silently clamps to maximum. Pagination metadata is the source of truth for set size.
+
+**Mitigation pattern:**
+1. First call: any page with `?limit=1` to grab `pagination.total` cheaply
+2. Verify intent: "100 OR all 577?" with operator BEFORE costing
+3. If "all", iterate `?offset=N` until `hasMore: false`
+4. Build the recipient list from the union, then dedupe
+
+**Recovery:** Surfaced to operator via Telegram reply 304. Eclipse Luna's organic trade is the empirical evidence — she's level=2 Genesis, no broadcast, traded anyway. Updated task #11 to reflect "PAUSED: 30/100 fired, audience-math correction surfaced". Awaiting operator direction on whether to:
+(a) continue with original top-100 scope (70 more sends)
+(b) expand to full 577 (requires sBTC top-up)
+(c) trim to active-recently subset
+
+**Cross-references:**
+- v322 (verify external claims against code) — same family: don't trust prose-stated invariants
+- v337 (poll in-flight before fix-PRs) — same family: verify-before-acting
+- v339 (identity confusion) — same family: verify your own state
+- v341 mistake (called the 51 no-NFT agents "duplicates" without checking) — that error was inside this same broadcast cycle; the bigger error here is parent (didn't paginate)
