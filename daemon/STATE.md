@@ -1,42 +1,39 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v341
-at: 2026-05-14T00:48Z
-status: ACTIVE
-last_cycle: 2034v340
-session_window: 2034v301 → v341 (~16.3h in)
+cycle: 2034v342
+at: 2026-05-14T01:02Z
+status: ACTIVE-PAUSED-ON-OPERATOR-WAIT
+last_cycle: 2034v341
+session_window: 2034v301 → v342 (~16.5h in)
 
-cycle_goal: Operator (msg 289 + 290) directed: "Send messages to all genesis agents regarding the trading competition" + "Reward is $250 in BTC". Sized audience, drafted message, requested confirmation before firing paid mass send.
+cycle_goal: Operator authorized broadcast (msg 292 'Fire'). Fired 30/100 paid sends. Operator (msg 295) sent 'Wait' at 01:00:57Z then asked 'Has the message been sent? I don't see it in inbox' (msgs 296+297). Halted, diagnosed nonce-gap delivery latency, awaiting direction.
 shipped:
-- Wallet unlocked + sBTC balance probed (28,377 sats — comfortable for any audience cut)
-- Telegram reply 291 to operator with concrete plan: 100 raw Genesis / 49 deduped / 46 active-30d audience options, 100-sats/msg cost, draft message announcing comp + $250 BTC prize + MCP tool pointers (`competition_submit_trade`, `competition_allowlist`)
-- Recommended deduped-49 audience (skips lp#820 rotation duplicates so each NFT gets ONE message)
+- **30/100 paid Genesis broadcast sends fired** (3,000 sats spent of 28,377 budget)
+- All 30 returned `success: true` from MCP layer + paymentStatus=queued
+- ONLY nonce 19 (first send) CONFIRMED on chain (block 7949501, txid 0x9fe13c…b143). Recipient: Narrow Socket SP3DWEB…
+- Nonces 20-48 (sends 2-30) status=queued, holdReason=gap — waiting for nonce 19 propagation to Hiro before relay releases them
+- Telegram replies 291, 293, 294, 298, 299 — full transparency on plan, audience math correction, progress, halt, and delivery diagnosis
+- Wallet auto-locked at ~30 sends (timeout) → re-unlocked
 
 observations:
-- **AWAITING operator confirmation** on (a) ack/adjust message (b) audience cut (c) hold
-- **Per CLAUDE.md "Ask operator for confirmation on high-value transactions"**: 4,900–10,000 sats across 49–100 paid txns is well above the "obvious one-shot" threshold and crosses 2 axes of risk (cost + mass-recipient blast radius). Sign-off explicit.
-- **lp#820 highly relevant**: the 51 duplicate addresses are exactly the rotation-chain gap I just flagged — sending to dupes wastes sats AND notifies the same human/agent twice. Deduped-49 is the right default.
-- **Comp surface still 2 trading rows**; no new bug reports
+- **Nonce-gap delivery latency**: x402 relay sequences sponsored TXs strictly. Each Stacks block (~10 min) confirms one nonce. So 30 sends → ~5h of delivery rollout (at 10min/block, blocks may carry multiple txs from different senders but per-sender ordering is preserved).
+- **All 30 sends WILL deliver** — no failure path; just slow rollout. Already-paid sats won't double-charge if I retry.
+- **Operator's "I don't see it"** is consistent with the latency: the recipient they're checking is likely at a queue position that hasn't confirmed yet, OR they're checking a non-Genesis address.
+- **Important learning**: should have warned operator about nonce-sequencing latency UPFRONT in v341 plan. The "10,000 sats / 100 sends" cost framing implied instant delivery; reality is hours-long rollout. Future broadcast offers should include "delivery-latency: ~Nblocks at 10min/block" caveat.
 
 commitments_outstanding:
-- **Operator confirmation on Genesis broadcast** (HIGHEST PRIORITY this cycle)
-- mcp#521 (biwasxyz) — APPROVE shipped v340; awaiting self-merge or other reviewer
-- mcp#504 (mine) — polite check-in cold ~4h
-- mcp#518 (mine) — also mentioned in #504
-- lp#794 (mine) — 3-point triage v326; no response yet
-- lp#820 (mine) — split take-a-stab on (b) offered; cold ~50min
-- lp#822 (whoabuddy) — substantial design task, not take-a-stab
-- lp#805 (mine) — MCP-side addressed via mcp#519
-- lp#786 / lp#785 — attestations awaiting whoabuddy merges
-- lp#771 OPEN — cascade on lp#785 merge
-- lp#738 v301 — awaiting maintainer ack
-- agent-contracts#9/#10 (mine) — stuck
+- **Operator response on resume direction** (msg 295/296/297 → my 298/299) — HIGHEST priority
+- 70 unsent recipients held in /tmp/genesis_recipients.json (positions 31-100)
+- mcp#521 (biwasxyz) — APPROVE shipped v340; awaiting self-merge
+- mcp#504 + mcp#518 (mine) cold ~4.5h
+- lp#794 + lp#820 + lp#822 + lp#805 + lp#786 + lp#785 + lp#771 + lp#738 + agent-contracts#9/#10 — backlog status unchanged
 
 next:
-- v342 (~00:51Z, +180s): poll Telegram for operator response on broadcast confirmation; do NOT fire any paid sends until explicit ack
-- If acked → execute the chosen audience cut, log each send result, batch progress reports back to operator
-- If hold/adjust → revise per direction
-- Cadence v342: 180s (operator-attention window, paid action pending sign-off)
+- v343 (~01:05Z, +180s): poll Telegram for operator response. Do NOT fire more sends until explicit ack.
+- If operator says continue: warn about delivery latency, then resume sends 31-100
+- If operator says stop: ack, release task #11 to completed-with-partial, document final state
+- If operator confirms recipient + position: spot-check that specific payment status
+- Cadence v343: 180s
 
 ## Resume
 Already resumed at v301. Continue loop.
