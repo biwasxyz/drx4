@@ -1,29 +1,30 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v340
-at: 2026-05-14T00:32Z
+cycle: 2034v341
+at: 2026-05-14T00:48Z
 status: ACTIVE
-last_cycle: 2034v339
-session_window: 2034v301 → v340 (~16.0h in)
+last_cycle: 2034v340
+session_window: 2034v301 → v341 (~16.3h in)
 
-cycle_goal: Polled lp#820 (cold ~30min, expected); rotated to MCP-side review of biwasxyz's mcp#521 competition_allowlist tool — directly relevant to comp launch context I have deep familiarity with.
+cycle_goal: Operator (msg 289 + 290) directed: "Send messages to all genesis agents regarding the trading competition" + "Reward is $250 in BTC". Sized audience, drafted message, requested confirmation before firing paid mass send.
 shipped:
-- mcp#521 APPROVE review (review-id PRR_kwDOQ2zlls7_fA_r) — verified all 5 response fields against live endpoint (28 contracts, 103 functions, Bitflow-only including post-#831 router-stableswap-xyk-multihop-v-1-2); confirmed competitionFetch pattern reuse; suggested 1 happy-path test mirroring competition_submit_trade's coverage shape; nit on description cross-link
-- 1btc-news#33 notification cleared (recurring bounty broadcast, not actionable)
+- Wallet unlocked + sBTC balance probed (28,377 sats — comfortable for any audience cut)
+- Telegram reply 291 to operator with concrete plan: 100 raw Genesis / 49 deduped / 46 active-30d audience options, 100-sats/msg cost, draft message announcing comp + $250 BTC prize + MCP tool pointers (`competition_submit_trade`, `competition_allowlist`)
+- Recommended deduped-49 audience (skips lp#820 rotation duplicates so each NFT gets ONE message)
 
 observations:
-- **Comp surface stable**: leaderboard still 2 rows (Zen Rocket × 2, Prime Spoke × 1); no new bug reports in ~4h
-- **mcp#521 is biwasxyz's**: maintainer-authored small surgical PR (41+/0-, 2 files); my review is leverage-style not gate-style
-- **mcp#504 + mcp#518 (mine) cold**: ~3.5h since polite check-in; same window saw whoabuddy ship #837 + #832 release, so attention bandwidth was on landing-page, not MCP
-- **lp#820**: my v339 follow-up cold ~30min; expected to wait through-tomorrow for direction
-- **My agent**: Quasar Garuda, agent_id=5, level=1 currently. Lp#820 (a) would auto-flip me to level 2 from rotation chain.
+- **AWAITING operator confirmation** on (a) ack/adjust message (b) audience cut (c) hold
+- **Per CLAUDE.md "Ask operator for confirmation on high-value transactions"**: 4,900–10,000 sats across 49–100 paid txns is well above the "obvious one-shot" threshold and crosses 2 axes of risk (cost + mass-recipient blast radius). Sign-off explicit.
+- **lp#820 highly relevant**: the 51 duplicate addresses are exactly the rotation-chain gap I just flagged — sending to dupes wastes sats AND notifies the same human/agent twice. Deduped-49 is the right default.
+- **Comp surface still 2 trading rows**; no new bug reports
 
 commitments_outstanding:
-- mcp#521 (biwasxyz) — APPROVE shipped; biwasxyz can self-merge or wait for additional review
-- mcp#504 (mine) — polite check-in cold ~3.5h
+- **Operator confirmation on Genesis broadcast** (HIGHEST PRIORITY this cycle)
+- mcp#521 (biwasxyz) — APPROVE shipped v340; awaiting self-merge or other reviewer
+- mcp#504 (mine) — polite check-in cold ~4h
 - mcp#518 (mine) — also mentioned in #504
 - lp#794 (mine) — 3-point triage v326; no response yet
-- lp#820 (mine) — split take-a-stab on (b) offered; cold ~35min
+- lp#820 (mine) — split take-a-stab on (b) offered; cold ~50min
 - lp#822 (whoabuddy) — substantial design task, not take-a-stab
 - lp#805 (mine) — MCP-side addressed via mcp#519
 - lp#786 / lp#785 — attestations awaiting whoabuddy merges
@@ -32,9 +33,10 @@ commitments_outstanding:
 - agent-contracts#9/#10 (mine) — stuck
 
 next:
-- v341 (~01:02Z, +30min): poll lp#820 + mcp#521 for response. If lp#820 green-lit, file dedupe PR (with `gh pr list --search` first per learning v337). If mcp#521 picked up by maintainer for self-merge or other reviewer chimes in, ack and move on.
-- If both cold, rotate to lp#794 re-probe (cold ~22h) or fresh comp surface monitoring sweep
-- Cadence v341: 1800s (no urgent active work; review window held)
+- v342 (~00:51Z, +180s): poll Telegram for operator response on broadcast confirmation; do NOT fire any paid sends until explicit ack
+- If acked → execute the chosen audience cut, log each send result, batch progress reports back to operator
+- If hold/adjust → revise per direction
+- Cadence v342: 180s (operator-attention window, paid action pending sign-off)
 
 ## Resume
 Already resumed at v301. Continue loop.
