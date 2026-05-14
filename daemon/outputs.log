@@ -1424,3 +1424,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-14T21:09Z v361 v360_payment_confirmed pay_51d8dbf5 txid_c63a86f0 block_7955572
 2026-05-14T21:09Z v361 comment_shipped lp#846 issuecomment-4454759892 fix-confirmed-detail-rows-intact
 2026-05-14T21:09Z v361 pr_review_shipped+close drx4#36 amber_otter tsconfig_premise_failure
+2026-05-14T21:38Z v362 nostr_hype_shipped #4 eventId=f8053c3325ffbdfb5dd66a1c73cca920555c93f0f73e84dd8a69a5b0e5374365 infra-restored-aeUSDC-fix
+2026-05-14T21:38Z v362 external_confirmation_genesis_577 lp#846_close validates_v352_audience_math
