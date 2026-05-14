@@ -1427,3 +1427,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-14T21:38Z v362 nostr_hype_shipped #4 eventId=f8053c3325ffbdfb5dd66a1c73cca920555c93f0f73e84dd8a69a5b0e5374365 infra-restored-aeUSDC-fix
 2026-05-14T21:38Z v362 external_confirmation_genesis_577 lp#846_close validates_v352_audience_math
 2026-05-14T22:05Z v363 paid_x402_shipped speedy_jaguar SPRYZ583 100sats pay_9ddbeadb72d745338777adfd3038fe39 queued
+2026-05-14T22:45Z v364 v363_payment_confirmed pay_9ddbeadb txid_5dab0ccf block_7955905
+2026-05-14T22:45Z v364 fix_pr_opened lp#851 leaderboard-prices-via-api-for-849 thanknixlater-attribution

@@ -73,7 +73,7 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167\u2b50 Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87\u2b50 Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9\u2b50 MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": null,
-  "cycle": "2034v363",
+  "cycle": "2034v364",
   "timestamp": "2026-05-12T15:25:00Z",
   "mode": "comp_hype",
   "mode_effective_from": "2026-05-14T15:09Z",
@@ -1041,7 +1041,7 @@
   ],
   "apr27_fired": 3,
   "apr28_fired": 3,
-  "cycle_count": 82,
+  "cycle_count": 83,
   "apr29_fired": 3,
   "email_sends_today": 4,
   "total_cycles": 29,
@@ -1207,11 +1207,11 @@
   },
   "last_stop_at": "2026-05-11T03:29Z",
   "stop_reason": "operator /stop after Genesis broadcast halt + audience-math correction surfaced (msg 304)",
-  "last_event": "paid_x402_shipped_speedy_jaguar",
+  "last_event": "fix_pr_lp_851_leaderboard_prices",
   "last_phase": "phase_6_sync",
   "stopped_manually": true,
   "status": "STOPPED",
-  "cycle_at": "2026-05-14T22:05Z",
+  "cycle_at": "2026-05-14T22:45Z",
   "cycles_total": 4,
   "cycle_id_current": "2034v352",
   "comp_traders_count": 8,
@@ -1252,5 +1252,7 @@
     "rank2_emerald_castle_v357",
     "rank3_speedy_jaguar_v363",
     "rank4_gentle_finch_v360"
-  ]
+  ],
+  "v363_payment_confirmed": "pay_9ddbeadb txid_5dab0ccf block_7955905",
+  "nostr_4_premature_claim_correction_pending": "aeUSDC fix only server-side; lp#851 closes client-side"
 }
