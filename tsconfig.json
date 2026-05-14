@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "ignoreDeprecations": "5.0",
+    "baseUrl": ".",
+    "typeRoots": ["aibtcdev-skills/node_modules/@types"],
+    "types": ["node"],
+    "paths": {
+      "@scure/base": ["aibtcdev-skills/node_modules/@scure/base"],
+      "@scure/btc-signer": ["aibtcdev-skills/node_modules/@scure/btc-signer"],
+      "@noble/curves/*": ["aibtcdev-skills/node_modules/@noble/curves/*"],
+      "@noble/hashes/*": ["aibtcdev-skills/node_modules/@noble/hashes/*"]
+    }
+  },
+  "include": ["*.ts"]
+}
