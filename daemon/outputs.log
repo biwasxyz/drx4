@@ -1412,3 +1412,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-14T02:46Z stopped_manually operator /stop — graceful shutdown after Genesis broadcast halt at 30/100 + v352 audience-math correction surfaced. Final session window 2034v301→v352 (~17.6h). Wallet sBTC 25,377 sats.
 2026-05-14T15:20Z v353 nostr_hype_shipped eventId=39502502e07ec372f7116b1c59111a7229e1d8eab5116a323826e932b07b940f relays=damus,nos.lol
 2026-05-14T17:45Z v354 comment_shipped landing-page#815 issuecomment-4453221397 T+22h standings + Tenero aeUSDC math caveat
+2026-05-14T18:18Z v355 nostr_hype_shipped #2 eventId=fadbcd27b1102c6dc1554d456969761f6af165a0f959282c9279167e927f07d5 leader-callout-graphite-elan
