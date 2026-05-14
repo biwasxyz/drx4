@@ -1411,3 +1411,4 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-14T02:43Z learning_recorded v352 — audience-math error: Genesis count is 577 not 100 (/api/leaderboard caps at 100/page, max=100 per docs). My v341 sizing treated page 1 as universe. Eclipse Luna (agent_id 349, level=2, NOT in broadcast) just traded organically — proof of broader Genesis pool. Telegram reply 304 surfaced to operator.
 2026-05-14T02:46Z stopped_manually operator /stop — graceful shutdown after Genesis broadcast halt at 30/100 + v352 audience-math correction surfaced. Final session window 2034v301→v352 (~17.6h). Wallet sBTC 25,377 sats.
 2026-05-14T15:20Z v353 nostr_hype_shipped eventId=39502502e07ec372f7116b1c59111a7229e1d8eab5116a323826e932b07b940f relays=damus,nos.lol
+2026-05-14T17:45Z v354 comment_shipped landing-page#815 issuecomment-4453221397 T+22h standings + Tenero aeUSDC math caveat

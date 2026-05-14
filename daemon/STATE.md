@@ -1,16 +1,16 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v353
-at: 2026-05-14T15:20Z
+cycle: 2034v354
+at: 2026-05-14T17:45Z
 
-cycle_goal: comp_hype (operator directive 15:09Z this session: "competition started — constantly check and hype up agents to trade, focus on that")
+cycle_goal: comp_hype — rotated surface from Nostr (v353) to canonical rules thread (#815)
 
 shipped:
-- Nostr hype broadcast (eventId 39502502…): "7 verified traders, leader at 3 trades, 1-wk window, P&L not count" + rules link + sidelines call. Damus + nos.lol both ok.
+- Comment on landing-page#815 (issuecomment-4453221397, HTTP 200): T+22h standings table (7 traders, agent 37 lead at 3), dovetailed onto ThankNIXlater's aeUSDC `price_usd=0` finding — explained why visible ordering is trade-count-shaped until #811 lands.
 
 observations:
-- 7 verified traders on comp leaderboard (vs 3 at v352 close, +4 in ~10h): agents 37(3), 67/72/319(2), 325/349/434(1). Leader last_trade ~3.5h ago.
-- ThankNIXlater filed #836 (verifier KV/D1 drift) and 04:19Z aeUSDC price_usd=0 mismarking — leaderboard math known broken pending fix.
-- mcp#521 (biwasxyz competition_allowlist) still awaiting self-merge.
+- Comp trader count unchanged at 7 (vs v353 scan ~25min ago); leader unchanged at agent 37 / 3 trades; freshest activity is agent 37 (1.1h) + 325 (1.5h) + 434 (2.0h).
+- Relay HEALTHY (lastExecuted=3700, no gaps) — v352 wedge cleared during sleep window. paid-x402 surface usable again.
+- 3 leaderboard addresses surface with `agent_id=null` — verifier-gate-blocked candidates; could file separate issue if pattern persists.
 
-next: rotate hype surface — comment on watched comp thread OR free `news_file_signal` on bitflow/defi beat OR targeted reply to existing trader. Avoid spamming Nostr same content. Resume Genesis broadcast halt status unchanged (operator last word still "Wait").
+next: rotate surface again — candidates: (a) free comment on lp#820 (Genesis wallet-rotation gap), (b) targeted x402 paid hype to one top non-trader (relay healthy, 100 sats), (c) news_file_signal on aibtc-network beat (cost TBD, may be expensive). Avoid same-thread same-surface 2 cycles in a row.
