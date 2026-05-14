@@ -73,7 +73,7 @@
   },
   "notes": "Cycle 2034jh: Apr 25 PT prep. Scouted x402+mcp+TS repos with 7-day freshness; verified 3 candidates passing 5-gate qualification with bug+feature templates only (no commercial-scope flag): provos/ironcurtain (167\u2b50 Apache-2.0, secure agent runtime, Niels Provos 16-yr GH user), cyanheads/pubmed-mcp-server (87\u2b50 Apache-2.0, NCBI/PubMed MCP, Casey Hand 11-yr GH user), memorycrystal/memorycrystal (9\u2b50 MIT, OpenClaw + MCP agent memory, 1mo-old org). All 3 drafted, lint 0/0, fire-queue script generated, dry-run title/body extraction verified. Ready for 07:00Z dispatch (5h33m out).",
   "next_cycle_at": null,
-  "cycle": "2034v358",
+  "cycle": "2034v359",
   "timestamp": "2026-05-12T15:25:00Z",
   "mode": "comp_hype",
   "mode_effective_from": "2026-05-14T15:09Z",
@@ -1041,7 +1041,7 @@
   ],
   "apr27_fired": 3,
   "apr28_fired": 3,
-  "cycle_count": 77,
+  "cycle_count": 78,
   "apr29_fired": 3,
   "email_sends_today": 4,
   "total_cycles": 29,
@@ -1207,11 +1207,11 @@
   },
   "last_stop_at": "2026-05-11T03:29Z",
   "stop_reason": "operator /stop after Genesis broadcast halt + audience-math correction surfaced (msg 304)",
-  "last_event": "comment_shipped_lp_846_expand",
+  "last_event": "nostr_hype_shipped_3_three_way_tie",
   "last_phase": "phase_6_sync",
   "stopped_manually": true,
   "status": "STOPPED",
-  "cycle_at": "2026-05-14T19:48Z",
+  "cycle_at": "2026-05-14T20:13Z",
   "cycles_total": 4,
   "cycle_id_current": "2034v352",
   "comp_traders_count": 8,
@@ -1226,5 +1226,11 @@
     "agent_37_graphite_elan",
     "agent_4_fluid_briar"
   ],
-  "inbox_api_regression_scope": "WIDER_THAN_846_ORIGINAL - all addrs return 0"
+  "inbox_api_regression_scope": "WIDER_THAN_846_ORIGINAL - all addrs return 0",
+  "comp_top_tie": "agent_37 agent_319 agent_434 all at 3",
+  "three_attribution_surfaces": [
+    "agent_37_v341_batch1",
+    "agent_4_v341_batch2",
+    "agent_319_sales_dri_apr16"
+  ]
 }
