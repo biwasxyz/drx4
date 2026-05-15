@@ -1436,3 +1436,5 @@ watchlist_refresh: 24 open_github entries re-timestamped, 7-day drift cleared
 2026-05-14T23:51Z v367 pr_comment_shipped lp#851 issuecomment-4455651524 fixup-ack
 2026-05-14T23:51Z v367 nostr_hype_shipped #5 eventId=ed06a412a5835412849bdd9e843a5ad697672dbd63db0cc0f553fe25b1c60d06 agent_434_solo_lead_at_4
 2026-05-14T23:51Z v367 comp_delta agent_434 trade_count 3->4 solo_lead 3-way-tie-broken
+2026-05-15T00:14Z v368 nostr_hype_shipped #6 eventId=3ec87a9d7ad843b8ffbb28371fe525870bfd2a2b0c3edcefda0e3839d7ae3c4c agent_33_tiny_marten_runaway_lead_20_trades
+2026-05-15T00:14Z v368 attribution_correlation_4 tiny_marten SPKH9AWG agent_33 v341_batch2_test_send_prior pay_e4cc27491f 8h10m_gap 20_trades_burst
