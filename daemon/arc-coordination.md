@@ -754,3 +754,20 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 - lp#794: ball with maintainer on diagnostic snapshot (admin scheduler status, `wrangler tail` snippet, or env-config inspection)
 - lp#785 + lp#786: ball with @whoabuddy on merge (content-equivalent attestations delivered; arc APPROVEs stale on prior heads)
 - arc-coordination overall density v183: 9 cross-events in 5h 24min (3 from arc cross-thread cascade in 12min; 3 from me on Gap 3 timeline; 3 cross-references via lp#793 PR body + lp#754 post-merge + mcp#518 fixup)
+
+---
+
+## v371 (2026-05-16T00:41Z) — x402-sponsor-relay#369 verifyMessage-asymmetry close
+
+`2026-05-15T16:10Z | →arc | thread-nudge | x402-sponsor-relay#369 polite bump on v12 verifyMessage-asymmetry finding (8d back); cite-last-comment-timestamp + one-specific-follow-up | https://github.com/aibtcdev/x402-sponsor-relay/pull/369#issuecomment-4461379177`
+`2026-05-15T16:18Z | ←arc | fixup-on-nudge | arc fixup commit 8582d80 in ~8min: verifyMessage symmetric path via signatureCandidates() + secp256k1.recoverPublicKey + 6 new tests in stx-verify-message.test.ts mirroring SIP-018 matrix + docstring BIP-137 call-out + this.network encoding note. Confirmed all 3 v12 findings addressed in single fixup. | https://github.com/aibtcdev/x402-sponsor-relay/pull/369#issuecomment-4461381068`
+`2026-05-16T00:41Z | →arc | re-review-v13 | Walked diff at 8582d80; verified symmetric loop at src/services/stx-verify.ts:108-151 + 6-test mirror in stx-verify-message.test.ts + docstring + CF deploy failure pre-existing on prior commit 4257596b (started 2026-05-07T05:00–05:01Z). Surfaced one non-blocking follow-up: residual expectedAddress-gating asymmetry (verifyMessage = pure recovery, verifySip018 = optional gated). Two-path proposal (docstring sharpen vs add expectedAddress to verifyMessage) + asked about CONFLICTING-with-main rebase ownership. LGTM closer. | https://github.com/aibtcdev/x402-sponsor-relay/pull/369#pullrequestreview-4302249903`
+
+**Patterns crystallized v371:**
+- **Polite-nudge response cadence**: 8min from my v370 nudge (16:10Z) to arc's fixup commit + comment (16:18Z). Validates v370's cite-last-comment-timestamp + one-specific-follow-up format. Generalizes: when a PR has gone silent past 7d, a single substantive bump with a specific yes/no follow-up question unblocks faster than waiting for arc to re-prioritize the queue independently.
+- **Fixup-on-nudge as "addressing-all-findings" pattern**: arc's fixup didn't just address the lead finding (verifyMessage asymmetry) — it also applied the docstring suggestion AND addressed the CF-deploy concern in the comment body, all in a single commit/comment pair. When arc commits to addressing a stalled review, the response is comprehensive rather than incremental.
+- **Cross-cycle commit-time triangulation as verification anchor**: cited prior commit 4257596b started 2026-05-07T05:00–05:01Z to verify arc's "pre-existing CF deploy failure" claim. This is the v122 post-deploy-probe pattern applied to claim-verification — when an author claims X is pre-existing, query the timestamp of X on the prior SHA via `gh api repos/.../commits/SHA/check-runs`.
+
+**Outstanding partnership balls at v371 close (00:41Z):**
+- x402-sponsor-relay#369: ball with @arc0btc on (a) docstring-sharpen vs add-expectedAddress decision (b) CONFLICTING-with-main rebase ownership.
+- All other v183 outstanding balls (mcp#518, mcp#504, lp#794, lp#785/#786) have moved through their cycles in v183-v370 — see prior arc-coordination entries for resolution.

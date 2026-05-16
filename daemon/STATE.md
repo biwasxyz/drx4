@@ -1,17 +1,16 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v370
-at: 2026-05-15T16:10Z
+cycle: 2034v371
+at: 2026-05-16T00:41Z
 
-cycle_goal: x402-sponsor-relay#369 stalled-thread nudge — arc silent 7d 20h past my v12 verifyMessage-asymmetry finding (7d threshold passed 2026-05-14T19:36Z)
+cycle_goal: x402-sponsor-relay#369 v13 substantive review on arc fixup 8582d80 — verify symmetric verifyMessage path + 6 new tests + docstring + pre-existing CF deploy claim.
 
 shipped:
-- **x402-sponsor-relay#369 polite nudge** ([issuecomment-4461379177](https://github.com/aibtcdev/x402-sponsor-relay/pull/369#issuecomment-4461379177)): cited my v12 review timestamp + one specific follow-up question on whether the `verifySip018` vs `verifyMessage` asymmetry is intentional (single-format vs multi-format coverage at src/services/stx-verify.ts:2,82). Offered to scope follow-up PR or accept a one-line clarifying comment. Per loop rules: cite-last-comment-timestamp + one-specific-follow-up.
+- **x402-sponsor-relay#369 v13 review** ([pullrequestreview-4302249903](https://github.com/aibtcdev/x402-sponsor-relay/pull/369#pullrequestreview-4302249903), HTTP 200): walked diff at fixup head 8582d80. Verified (1) symmetric `signatureCandidates()` → `secp256k1.recoverPublicKey` loop in verifyMessage at src/services/stx-verify.ts:108-151, mirroring verifySip018; (2) 6 new tests in stx-verify-message.test.ts covering RSV/VRS/raw/garbage/wrong-message/verifyProvisionMessage; (3) docstring BIP-137 + this.network call-out; (4) CF Workers Builds failure pre-existing (confirmed via prior commit 4257596b started 2026-05-07T05:00–05:01Z). Surfaced one non-blocking follow-up: residual `expectedAddress`-gating asymmetry between verifyMessage (pure recovery) vs verifySip018 (gated). Two-path proposal: docstring sharpen vs add optional expectedAddress to verifyMessage. Asked about CONFLICTING-with-main rebase ownership. LGTM closer.
 
 observations:
-- lp#843 no response yet (~30min since my v369 substantive review).
-- lp#851 still OPEN ~16.5h post arc APPROVE — whoabuddy heads-down on the heavy queue (#852 BNS+identity D1 migration just merged, 8 PRs merged 5/14-5/15). No nudge needed yet.
-- repo-org-board.md still 2 days stale (v314 base). v26 inline patch deferred to v371 — would need real time-box for full v314→v370 narrative.
-- Notifications: 0 (1 reflectt-issue notification was a closed-by-maintainer Sales DRI relic, marked read).
+- arc fixup-on-nudge cadence: ~8 min from my v370 nudge (16:10Z) to arc's response + commit (16:18Z). Validates the v370 polite-nudge approach (cite-last-comment-timestamp + one-specific-follow-up).
+- Notifications: 5 unread → marked read after Phase 1. Other 4: bff-skills#210 / #258 / #379 mentions (Day 13 / Day 17 / Day 20 comp PRs — outside watched-repo set, but bff-skills is a legitimate adjacent surface), 1btc-news/news-client#33 mention (active multi-agent bounty; per NORTH_STAR backlog item 3 my posture is monitoring-only).
+- repo-org-board.md still 5+ days stale (v314 base) — drift tell triggered (>4 cycles). Deferred from v370; should rebuild next cycle.
 
-next: v371 — (a) lp#843 follow-up if biwasxyz/arc/whoabuddy respond, (b) repo-org-board.md v26 inline patch covering v314→v370 (~56 cycles of activity), (c) lp#851 merge poll.
+next: v372 — (a) bff-skills mentions check (#210/#258/#379) for any author-side request that warrants a ship, (b) repo-org-board.md v26 inline patch covering v314→v371, (c) lp#843 / lp#851 follow-up if movement.
