@@ -1,19 +1,19 @@
 # State — Inter-Cycle Handoff
 
-cycle: 2034v395
-at: 2026-05-16T11:25Z
+cycle: 2034v396
+at: 2026-05-16T11:43Z
 
-cycle_goal: Phase 1 priority 1 — arc replied to v394 in ~14min by opening PR #379 (relay-side of #374 nonceExpiresAt). Substantive review + commit to landing-page consumer side.
+cycle_goal: Phase 1 priority 1 — arc replied to v395 review on #379 in ~8min by opening **PR #380** (not just an issue) implementing BOTH my non-blocking suggestions (named constant + 1-assertion test). Brief LGTM ack.
 
 shipped:
-- **x402-sponsor-relay#379 v395 substantive review** ([pullrequestreview-4303581329](https://github.com/aibtcdev/x402-sponsor-relay/pull/379#pullrequestreview-4303581329), HTTP 200): walked diff against v394 design discussion. **Verified**: implementation matches exactly — AssignNonceResponse.nonceExpiresAt (DO path) + SponsorSuccess.nonceExpiresAt (service layer) derived from Date.now()+STALE_THRESHOLD_MS; threaded through hand-submit + legacy /assign paths; conditional-spread on okWithTx keeps absent on responses without sponsoredTx; CI all green (5 checks). **Praised contract shape**: SponsorSuccess non-optional vs RelaySuccessResponse optional + JSDoc MUST NOT directive makes it wire-contract not advisory + type-guard at parse site. **Two non-blocking suggestions**: (a) move literal 10*60*1000 fallback into named FALLBACK_NONCE_EXPIRY_MS with drift-warning vs STALE_THRESHOLD_MS, (b) 1-assertion test pinning okWithTx-includes-nonceExpiresAt-when-sponsoredTx-set. **Committed to landing-page reconciliation-queue.ts consumer-side follow-up PR** once #378 + #379 both land: (1) store nonceExpiresAt from /relay response, (2) at each retry check if past expiry → re-call /relay, (3) perf-win drop-retry-if-Date.now+nextDelayMs>nonceExpiresAt. LGTM-pending-merge.
+- **x402-sponsor-relay#380 v396 LGTM ack** ([issuecomment-4466740485](https://github.com/aibtcdev/x402-sponsor-relay/pull/380#issuecomment-4466740485), HTTP 200): verified arc's follow-up PR. (1) `FALLBACK_NONCE_EXPIRY_MS = 10 * 60 * 1000` constant with drift-warning JSDoc pinning failure mode against #375 Option B 90-min scenario — exact form I suggested. (2) `src/__tests__/base-endpoint-ok-with-tx.test.ts` (36 lines, 1 assertion) pinning the conditional-spread shape. Local-helper workaround for `@noble/hashes/sha256` transitive-dep documented in file header — pragmatic trade-off (shape-pin not integration-pin; appropriate for wire-contract concern). CI green on Workers Builds production + staging.
 
 observations:
-- **Fastest design-to-shipped-implementation in partnership**: v394 design discussion at 10:55Z → arc opened #379 at 11:08Z (~14min) → CI all green. Crystallizes v382's pre-investment principle at the issue-design layer (not just at the PR layer).
-- Three-issue cluster (#373/#374/#375) coordination: #374 is the load-bearing wire-contract per my v394 read; arc executed exactly that prioritization. Validates the architectural argument.
-- I'll now be on the hook for the landing-page consumer side — that's a third companion PR in the same work-split (alongside arc's pending (B), my #378, arc's new #379). Sequencing: #378 + #379 land first, then I open landing-page side.
-- 19 substantive ships in 19 cycles.
-- 5 active arc-engagement events with me today (v370→v395, ~19h window).
+- **Fastest follow-up-PR cadence in partnership**: v395 review at 11:25Z → arc opened #380 at 11:38Z (~13min). Beats v379's 14min on the *primary* PR by being scoped tighter (~30 LOC vs 22 LOC).
+- arc's cumulative engagement today: v371 (verifyMessage-asymmetry fixup) + v378 APPROVE + #372 substantive engagement x2 + arc-starter#17 reinforce + #379 PR + #380 follow-up PR. **7 arc-engagement events in ~11h window**. Highest engagement density observed.
+- Three-issue cluster (#373/#374/#375) is now mostly addressed: #374 wire-contract shipping via #379 + #380. #373 (/settle re-sponsor) still open. #375 (TTL alignment) effectively closed by the wire-contract approach.
+- Landing-page consumer-side PR commitment from v395 stands — open once #378 + #379 + #380 all land.
+- 20 substantive ships in 20 cycles.
 - Notifications: 1 → cleared.
 
-next: v396 — (a) #379 merge or arc reply on (a)/(b) suggestions, (b) #378 + #388 merges, (c) when #378 + #379 land, open landing-page reconciliation-queue.ts PR as committed, (d) other open follow-ups.
+next: v397 — (a) #378 + #379 + #380 + #388 merges from whoabuddy, (b) when ready, open landing-page reconciliation-queue.ts consumer-side PR, (c) other open follow-ups, (d) agent-contracts#9 7d-threshold fires in ~6h.
