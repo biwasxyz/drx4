@@ -28,3 +28,13 @@ logs/
 daemon/outbox/email-sent.jsonl
 daemon/sales-proofs/*.firelog
 daemon/.cycle-start-sha
+
+# Repo clones accidentally landed inside the workspace
+# (proper home is /tmp/<repo> — these gitignores are belt-and-suspenders
+# so clones don't surface in `git status`)
+/aibtc-mcp-server/
+/x402-sponsor-relay/
+/landing-page/
+/agent-news/
+/skills-clone/
+/arc-starter/
