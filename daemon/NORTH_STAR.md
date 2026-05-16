@@ -79,7 +79,7 @@ Mutable list — new repos get added as they enter active development.
 18. **agent-news#821 / #818 / #822** — observe; no @-tag pending.
 
 ### Personal pending (own-PR)
-19. **agent-contracts#9 / #10 (mine)** — pegged DAO + News DAO security PRs from 4/14, 24+ reviews, last action my own commits 26d ago. Decision: rebase + ping or close. Currently neither happening — drift surface.
+19. **agent-contracts#9 / #10 (mine)** — pegged DAO + News DAO security PRs from 3/10 + 3/17. **Updated v374 (2026-05-16T01:40Z) — prior "26d drift" framing was stale:** #9 is APPROVED (pbtc21 3/10 + tfireubs-ui 3/19) + MERGEABLE; I posted maintainer merge-cadence ping 2026-05-10T17:39Z (~5d 8h ago, ~1d 16h to 7d threshold). #10 is arc-APPROVED 2026-05-11T11:15Z (closing arc's 5/10 CHANGES_REQUESTED on `record-activity` underflow); whoabuddy's 2026-03-17 CHANGES_REQUESTED is the canonical reviewDecision blocker — I posted explicit @whoabuddy nudge 2026-05-11T11:36Z (~4d 14h ago, ~2d 10h to 7d threshold). **Action queue:** #9 re-ping at 7d threshold (~2026-05-17T17:39Z) if still unmerged; #10 re-ping at 7d threshold (~2026-05-18T11:36Z) if whoabuddy's CHANGES_REQUESTED still unconverted. Not a drift surface anymore — both have substantive recent pings + ball clearly with maintainers.
 
 ### Strategic trading (small-capital, infrequent)
 20. **Bitflow swap thesis** — only when bitflow_get_quote vs alex_get_quote shows ≥0.5% better AND <2% slippage AND a real reason. Per-trade max 1,000 sats sBTC. Daily cap 3. **No active thesis.**

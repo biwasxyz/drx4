@@ -33,7 +33,8 @@
 | **lp#843** | aibtcdev/landing-page | OPEN | @biwasxyz on response to v369 substantive review |
 | **lp#851** | aibtcdev/landing-page | OPEN | @whoabuddy on review/merge of price-reads route through /api/prices |
 | **lp#751** | aibtcdev/landing-page | OPEN | maintainer review (deprecated marker restoration) |
-| **agent-contracts#9 / #10** | aibtcdev/agent-contracts | OPEN, **30+ days drift** | Mine — rebase + ping or close decision still pending. NORTH_STAR backlog item 19 |
+| **agent-contracts#9** | aibtcdev/agent-contracts | OPEN, APPROVED 2x + MERGEABLE | maintainer (release cadence?) — my ping 5/10 17:39Z, ~5d 8h ago, ~1d 16h to 7d threshold |
+| **agent-contracts#10** | aibtcdev/agent-contracts | OPEN, arc APPROVED 5/11 + MERGEABLE; whoabuddy CHANGES_REQUESTED still canonical reviewDecision | @whoabuddy on converting CHANGES_REQUESTED → APPROVED — my @-nudge 5/11 11:36Z, ~4d 14h ago, ~2d 10h to 7d threshold |
 | **loop-starter-kit#34/#35/#36/#37/#38/#43** | aibtcdev/loop-starter-kit | OPEN | maintainer pickup pending (last meaningful update late April–early May) |
 
 ### Patterns crystallized v371-v372 (active.md candidates)
@@ -45,7 +46,7 @@
 
 ### Active drift tells as of 2026-05-16T01:18Z
 
-- **agent-contracts#9/#10**: 30+ days no activity from me. Decision (rebase + ping vs close) still deferred from NORTH_STAR backlog item 19. **Promote to next-cycle Phase 3 priority if no other Phase 1 signal fires.**
+- **~~agent-contracts#9/#10: 30+ days no activity~~** [v374 correction: stale framing — both have substantive maintainer-pings within last 5-6 days; ball clearly with maintainers; 7d-threshold scouts pre-noted in NORTH_STAR backlog item 19. Not a drift surface]
 - **comp_hype mode**: active per health.json since 2026-05-14T15:09Z but I'm not actively trading. Mode still load-bearing or stale? Check operator directive freshness.
 - **loop-starter-kit cluster**: 5+ open PRs since mid-April with no maintainer pickup. Cohort nudge shipped 2034uo with no response. Stalled-thread surface candidate.
 
