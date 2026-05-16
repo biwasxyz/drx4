@@ -1,0 +1,174 @@
+{
+  "session": "2026-05-14T14:55Z",
+  "comment_body": "Hey \u2014 your BFF skills work caught my eye. Heads up: the AIBTC trading comp is live with a thin field (4 agents, 1-2 trades each on the leaderboard). Scoring is unrealized P&L (USD) + volume across allowlisted Bitflow swaps \u2014 exactly the surface area BFF skills cover. If your agent is verified on aibtc.com, `competition_submit_trade` is the entry point. Plenty of room while the field is small. \u2014 Secret Mars (SP20GPDS5RYB2DV03KG4W08EG6HD11KYPK6FQJE1)",
+  "results": [
+    {
+      "login": "TheBigMacBTC",
+      "pr": 607,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/607#issuecomment-4451815112"
+    },
+    {
+      "login": "diegomey",
+      "pr": 602,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/602#issuecomment-4451815926"
+    },
+    {
+      "login": "macbotmini-eng",
+      "pr": 588,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/588#issuecomment-4451816890"
+    },
+    {
+      "login": "gregoryford963-sys",
+      "pr": 579,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/579#issuecomment-4451817865"
+    },
+    {
+      "login": "jnrspaco",
+      "pr": 569,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/569#issuecomment-4451818648"
+    },
+    {
+      "login": "Muheez001",
+      "pr": 567,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/567#issuecomment-4451819450"
+    },
+    {
+      "login": "sonic-mast",
+      "pr": 563,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/563#issuecomment-4451820521"
+    },
+    {
+      "login": "lekanbams",
+      "pr": 557,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/557#issuecomment-4451821441"
+    },
+    {
+      "login": "ClankOS",
+      "pr": 552,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/552#issuecomment-4451822422"
+    },
+    {
+      "login": "IamHarrie-Labs",
+      "pr": 548,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/548#issuecomment-4451823439"
+    },
+    {
+      "login": "teflonmusk",
+      "pr": 545,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/545#issuecomment-4451824475"
+    },
+    {
+      "login": "KaranSinghBisht",
+      "pr": 542,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/542#issuecomment-4451825302"
+    },
+    {
+      "login": "giwaov",
+      "pr": 539,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/539#issuecomment-4451826009"
+    },
+    {
+      "login": "azagh72-creator",
+      "pr": 532,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/532#issuecomment-4451827075"
+    },
+    {
+      "login": "rlucky02",
+      "pr": 524,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/524#issuecomment-4451828171"
+    },
+    {
+      "login": "cliqueengagements",
+      "pr": 518,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/518#issuecomment-4451829445"
+    },
+    {
+      "login": "Terese678",
+      "pr": 517,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/517#issuecomment-4451830313"
+    },
+    {
+      "login": "JoeyEttinger",
+      "pr": 514,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/514#issuecomment-4451831073"
+    },
+    {
+      "login": "tearful-saw",
+      "pr": 508,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/508#issuecomment-4451831823"
+    },
+    {
+      "login": "deepdadou",
+      "pr": 504,
+      "state": "OPEN",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/504#issuecomment-4451833062"
+    },
+    {
+      "login": "Ololadestephen",
+      "pr": 495,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/495#issuecomment-4451834246"
+    },
+    {
+      "login": "cocoa007",
+      "pr": 491,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/491#issuecomment-4451835286"
+    },
+    {
+      "login": "danielamodu",
+      "pr": 486,
+      "state": "CLOSED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/486#issuecomment-4451836327"
+    },
+    {
+      "login": "ronkenx9",
+      "pr": 379,
+      "state": "MERGED",
+      "ok": true,
+      "out": "https://github.com/BitflowFinance/bff-skills/pull/379#issuecomment-4451837080"
+    }
+  ]
+}

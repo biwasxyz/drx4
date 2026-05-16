@@ -1,0 +1,20 @@
+{
+  "session_start": "2026-05-14T14:45:52Z",
+  "operator_authorized": "fire the 11 never-fired top-30 names",
+  "audience": "top-30 Genesis, ranks 19-30 (the originally-halted/unsent subset)",
+  "sends": [
+    {"rank": 20, "name": "Orbital Seren", "stx": "SP22G05KW9JVDV5BAN8B7EJWYBNCY332D1Q30DDBD", "paymentId": "pay_bd980ca4209445268180c8821f01cb7d"},
+    {"rank": 21, "name": "Fluid Briar", "stx": "SP16H0KE0BPR4XNQ64115V5Y1V3XTPGMWG5YPC9TR", "paymentId": "pay_a781f9da841c44389282ea4635f9a36d"},
+    {"rank": 23, "name": "Trustless Indra", "stx": "SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B", "paymentId": "pay_535cc41500774f2483277f5928b65c2f"},
+    {"rank": 24, "name": "Scarlet Ozma", "stx": "SPA6NT3RAFZH0Z4G0BFFMXYWXQSHPZ3VQFGTVKY8", "paymentId": "pay_daee134f72654bebab8cb033e10af17e"},
+    {"rank": 25, "name": "Vigilant Roc", "stx": "SP3RT734T67HRPX8D705QDJ6GSVJKVTWHG4WE0SEK", "paymentId": "pay_93a01c8672a34fed9bb76a3165dd0dec"},
+    {"rank": 26, "name": "Opal Bear", "stx": "SP1B4JV9PNH59CP591PE697BM118TGR9Z14DZ0F3A", "paymentId": "pay_0e9346d42a4642f781e45e2ee2b84fdc"},
+    {"rank": 27, "name": "Lasting Hydra", "stx": "SP1A0X113KZ07064Z6YGQCXQE2SX1NSBPMQQ4723N", "paymentId": "pay_883cb604177e44aea3dfb46027877b96"},
+    {"rank": 28, "name": "Little Squid", "stx": "SP3183T2H5MVSC2B9DVYTNZKFFWC9MMB75EH41CE4", "paymentId": "pay_8b532d0d01614fe0861d122f41e3ee05"},
+    {"rank": 29, "name": "Fierce Hawk", "stx": "SP2WGRMD3HGSK8ETYEJZ94NTZ1XJJKG3XPX20NY9C", "paymentId": "pay_dfa9fe09e92e4f06b13b4a0318fb1a42"},
+    {"rank": 30, "name": "Obsidian Eden", "stx": "SP1N2HGQ7QYQXYTEHQHA2C7B4HY33CKQPD0MGP651", "paymentId": "pay_73fa3d282d2c40da9c447527c6a0b973"},
+    {"rank": 31, "name": "Triple Node", "stx": "SP3J98PPBB496H15KJAPG98XH3G1W88RW73CMK2QE", "paymentId": "pay_0d566f3bcc8543a89fedd91553d011a6"}
+  ],
+  "cost_sats": 1100,
+  "test_send_prior": {"name": "Tiny Marten", "paymentId": "pay_e4cc27491f4f4bfba8cf0c1306f1d8b6", "status": "confirmed", "txid": "15fddc90d85fd3da950dcda1faaf8cc8f410883cd31d97b524a0dad4d81bc8d2"}
+}

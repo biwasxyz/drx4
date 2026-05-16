@@ -1,0 +1,43 @@
+{
+  "session_start": "2026-05-14T04:10:41Z",
+  "operator_authorized": "fire the 24 messages (cycle 2034v353)",
+  "balance_before_sats": 27777,
+  "confirmed_on_chain": [
+    {"nonce": 25, "rank": 5, "name": "Valiant Otter", "stx": "SPZSMNX3KAGSEXXGD5SAY9F3MNSVH3S5H5C5AF4F", "paymentId": "pay_53d6409e9e924b21bd40028c59dd113c"},
+    {"nonce": 27, "rank": 8, "name": "Atomic Raptor", "stx": "SP2HT2N5QRQKPSJJJSWZW5S59RF15T08J49C8Z077", "paymentId": "pay_9b00e22bf93d4eed8756db47dbd4e3d1", "txid": "dd4b5a79a00884390d"}
+  ],
+  "gap_fill_self_paid": {"nonce": 26, "txid": "a0ec788aa224db41599c6053ed03f79882abfa70e98087b90209e6322a21d616"},
+  "held_in_relay_queue": [
+    {"nonce": 28, "rank": 9, "name": "Micro Basilisk", "stx": "SP219TWC8G12CSX5AB093127NC82KYQWEH8ADD1AY", "paymentId": "pay_46275d19774542ffa139bbcae3856f5b"},
+    {"nonce": 29, "rank": 10, "name": "Grim Seraph", "stx": "SP1KVZTZCTCN9TNA1H5MHQ3H0225JGN1RJHY4HA9W", "paymentId": "pay_fe7190111e7640ef8cb19365f8354588"},
+    {"nonce": 30, "rank": 11, "name": "Flying Whale", "stx": "SP322ZK4VXT3KGDT9YQANN9R28SCT02MZ97Y24BRW", "paymentId": "pay_4dd94873c8964155855343683f5f0f0e"},
+    {"nonce": 31, "rank": 12, "name": "Secret Dome", "stx": "SP1092FF21MZXE9D7SZ7F86WA3Q58BY9WCZ0T0DF7", "paymentId": "pay_209fe7b531d64515b5444fe5a304af43"},
+    {"nonce": 32, "rank": 13, "name": "Warm Idris", "stx": "SP3QFYVTMS0PRJT3K3GMDW9DGR33TDHENSDWVNQMR", "paymentId": "pay_e74f0d8e796949298f3c61f58a1aeca0"},
+    {"nonce": 33, "rank": 14, "name": "Frosty Narwhal", "stx": "SP3JR7JXFT7ZM9JKSQPBQG1HPT0D365MA5TN0P12E", "paymentId": "pay_f609827943894dfb85005b965d4fb78d"},
+    {"nonce": 34, "rank": 15, "name": "Topaz Centaur", "stx": "SP12Q1FS2DX4N8C2QYBM0Z2N2DY1EH9EEPMPH9N9X", "paymentId": "pay_3b2037da42c1415e906b1c513fd3c9e1"},
+    {"nonce": 35, "rank": 16, "name": "Graphite Elan", "stx": "SP1AK5ZKGDFAPXDVT6T9HZPW5D2R4DJ6Z40PZ7MKR", "paymentId": "pay_dfa0c18356e547148e2c9542e8f83787"},
+    {"nonce": 36, "rank": 17, "name": "Patient Eden", "stx": "SP1RHDCCVQ3SVV2DRSP2PJNXJCA12QE72W5C7EMFS", "paymentId": "pay_a26d403adb0e49949c7db015cc0717df"}
+  ],
+  "failed_not_found": [
+    {"rank": 18, "name": "Dual Cougar", "stx": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M", "btc": "bc1q9p6ch73nv4yl2xwhtc6mvqlqrm294hg4zkjyk0", "attempts": ["pay_301b8dd2141a4d56ba88b49384ab8b49", "pay_1ffcd3d0fb744078b1d4aece5c64c989"]},
+    {"rank": 19, "name": "Sonic Mast", "stx": "SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47", "btc": "bc1qd0z0a8z8am9j84fk3lk5g2hutpxcreypnf2p47", "attempts": ["pay_7d18089629ee4275b5e6ed111de2c57a"]}
+  ],
+  "unsent": [
+    {"rank": 19, "name": "Sonic Mast", "stx": "SPG6VGJ5GTG5QKBV2ZV03219GSGH37PJGXQYXP47", "btc": "bc1qd0z0a8z8am9j84fk3lk5g2hutpxcreypnf2p47"},
+    {"rank": 20, "name": "Orbital Seren", "stx": "SP22G05KW9JVDV5BAN8B7EJWYBNCY332D1Q30DDBD", "btc": "bc1qjf94ku8f2a765nfqcg7z8d9ype5uhem5n348qa"},
+    {"rank": 21, "name": "Fluid Briar", "stx": "SP16H0KE0BPR4XNQ64115V5Y1V3XTPGMWG5YPC9TR", "btc": "bc1qv8dt3v9kx3l7r9mnz2gj9r9n9k63frn6w6zmrt"},
+    {"rank": 22, "name": "Tiny Marten", "stx": "SPKH9AWG0ENZ87J1X0PBD4HETP22G8W22AFNVF8K", "btc": "bc1qyu22hyqr406pus0g9jmfytk4ss5z8qsje74l76"},
+    {"rank": 23, "name": "Trustless Indra", "stx": "SP2GHQRCRMYY4S8PMBR49BEKX144VR437YT42SF3B", "btc": "bc1qlezz2cgktx0t680ymrytef92wxksywx0jaw933"},
+    {"rank": 24, "name": "Scarlet Ozma", "stx": "SPA6NT3RAFZH0Z4G0BFFMXYWXQSHPZ3VQFGTVKY8", "btc": "bc1qfgpv59hp4x4z52fc468mmh2at6qmq4vlfews7f"},
+    {"rank": 25, "name": "Vigilant Roc", "stx": "SP3RT734T67HRPX8D705QDJ6GSVJKVTWHG4WE0SEK", "btc": "bc1q8xrq06dfs98hzfckzgdra3mplrryn7d3pp4khp"},
+    {"rank": 26, "name": "Opal Bear", "stx": "SP1B4JV9PNH59CP591PE697BM118TGR9Z14DZ0F3A", "btc": "bc1qw7mutyl0zsvurg5am6kst5w33urt3tc2yf5skw"},
+    {"rank": 27, "name": "Lasting Hydra", "stx": "SP1A0X113KZ07064Z6YGQCXQE2SX1NSBPMQQ4723N", "btc": "bc1qzch668fcw5a2crhvyhrpthng8jrrt25u4ka5ra"},
+    {"rank": 28, "name": "Little Squid", "stx": "SP3183T2H5MVSC2B9DVYTNZKFFWC9MMB75EH41CE4", "btc": "bc1q7jjsw2gvahvejf3y95c8nltd8p8fue757phrjq"},
+    {"rank": 29, "name": "Fierce Hawk", "stx": "SP2WGRMD3HGSK8ETYEJZ94NTZ1XJJKG3XPX20NY9C", "btc": "bc1qha94wmcnz6mg4fsdmk56s7vecnj0yfrjlz0rn7"},
+    {"rank": 30, "name": "Obsidian Eden", "stx": "SP1N2HGQ7QYQXYTEHQHA2C7B4HY33CKQPD0MGP651", "btc": "bc1qf8xn2wfcuajhd5xrmhar7m99h59zfnpyu67d3f"},
+    {"rank": 31, "name": "Triple Node", "stx": "SP3J98PPBB496H15KJAPG98XH3G1W88RW73CMK2QE", "btc": "bc1qmxwlgk2fy8axl0gkum095k3vgz9s8622mn2q6q"},
+    {"rank": 18, "name": "Dual Cougar", "stx": "SP105KWW31Y89F5AZG0W7RFANQGRTX3XW0VR1CX2M", "btc": "bc1q9p6ch73nv4yl2xwhtc6mvqlqrm294hg4zkjyk0"}
+  ],
+  "next_action": "wait for relay cooldown (10min from 04:21:46Z = 04:31:46Z) then poll to trigger repair, queue dispatches, then resume firing remaining 13",
+  "wedge_state": {"nextExpectedNonce": 27, "lowestHeldNonce": 28, "blocked": true, "lastRepairAttemptAt": "2026-05-14T04:21:46.708Z"}
+}
