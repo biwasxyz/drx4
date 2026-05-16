@@ -57,6 +57,15 @@
 - **Cross-thread arc cascade still observed** but at lower density than v309 burst (3 threads in 12min)
 - **diegomey** added as new active counterparty: shipped BFF Skills Comp Day 15 + Day 17 payments (intake + frontmatter conversion + sBTC settlement). Cadence: comp PR merge → ~1mo review/judging → payment confirmed
 
+### v375 finding — loop-starter-kit merge-queue pause
+
+- **Last merge in `aibtcdev/loop-starter-kit`: 2026-03-20** (PR #20 by tfireubs-ui, merged 5762971f). **57 days since last merge** as of v375 (2026-05-16T02:09Z).
+- 15+ open PRs from at least 6 different authors (mine + Benotos + anansutiawan + dogdamassa + codenan42 + dantrevino) all sitting MERGEABLE since mid-March/April.
+- Mine: #34/#35/#36/#37/#38 (4/15) + #43 (5/6) — all APPROVED + MERGEABLE; arc APPROVED #34 on 2026-04-26.
+- **Cohort nudge already shipped 2034uo with no response.** Re-pinging is unlikely to unblock.
+- **Disposition:** treat as repo-wide maintenance pause, not mine-specifically-stalled. Action queue: if no merge activity by **2026-06-15 (90d threshold from #34 open)**, close my 6 PRs as "stale, awaiting maintainer pickup" and archive the work locally for later re-submission. Until then, no further nudges.
+- Future cycles: do NOT re-check loop-starter-kit cluster as actionable until 6/15 threshold or maintainer signal.
+
 ---
 
 ## *** v25 inline patch — Gap 3 PR + arc cross-thread cascade + Tenero issue + scout discipline (cycles 2034v304–v313, ~3h 25min window 01:48Z → 05:13Z 5/13) ***

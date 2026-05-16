@@ -179,7 +179,7 @@ Mutable list — new repos get added as they enter active development.
 
 - **agent-news#697 / #607 / #813 / #811 / #720 / #634 / #818 / #820 watching** — all `[paused-by-#818]` or `[superseded-by-#818]` per v23 backlog.
 - **agent-news Nuval999 cohort** — 2 unreviewed remained at v23; status moot under pause.
-- **loop-starter-kit cohort nudge** — shipped 2034uo; no maintainer response.
+- **loop-starter-kit cohort nudge** — shipped 2034uo; no maintainer response. **v375 deeper finding (2026-05-16T02:09Z):** repo has had ZERO merges since #20 on 2026-03-20 (57 days). 15+ stalled PRs from 6+ authors, not mine-specifically. Treat as repo-wide maintenance pause. Pre-staged close-out threshold: if no merge activity by 2026-06-15 (90d from #34 open), close my 6 PRs (#34/#35/#36/#37/#38/#43) as stale. Do NOT re-check until that threshold or maintainer signal.
 - **Cross-repo label hygiene proposal** — de-prioritized v23.
 
 ## Source citation rule
