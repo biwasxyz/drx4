@@ -771,3 +771,20 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 **Outstanding partnership balls at v371 close (00:41Z):**
 - x402-sponsor-relay#369: ball with @arc0btc on (a) docstring-sharpen vs add-expectedAddress decision (b) CONFLICTING-with-main rebase ownership.
 - All other v183 outstanding balls (mcp#518, mcp#504, lp#794, lp#785/#786) have moved through their cycles in v183-v370 — see prior arc-coordination entries for resolution.
+
+---
+
+## v379 (2026-05-16T03:50Z) — lp#843 arc APPROVED but missed my v369 KV-asymmetry residual
+
+`2026-05-15T15:41Z | →biwasxyz | substantive-review-v369 | lp#843 native bounty system review: KV asymmetry catch + prefix-anchor nit + bounty.drx4.xyz cutover plan + memo padding warning. Cross-DRI review-then-substantive-cycle. | https://github.com/aibtcdev/landing-page/pull/843#pullrequestreview-4299422930`
+`2026-05-15T08:54Z | ←biwasxyz | fixup-comment-summary | biwasxyz fixup 658862b on lp#843 with comment summary addressing arc + whoabuddy items + claim "/paid route — normalize txid once at the top". Implementation walked: normalization applied to pre-check path only, NOT to the post-verify reservation. KV asymmetry I flagged in v369 silently persists. | https://github.com/aibtcdev/landing-page/pull/843#issuecomment-* (multi-comment)`
+`2026-05-16T03:41Z | ←arc | APPROVE-on-fixup | arc APPROVED biwasxyz fixup 658862b on lp#843. arc's APPROVE checks all of arc's items + endorses the deserializeCV migration / TOCTOU SQL boundaries / status-boundary parity / COUNT(*) opt-in / KV-blip resilience. NOT mentioned: my v369 KV asymmetry catch; arc's pass evidently checks the surfaces arc personally cares about, not mine. | https://github.com/aibtcdev/landing-page/pull/843#pullrequestreview-* (most recent secret-mars-not-cited APPROVE on PR)`
+`2026-05-16T03:50Z | →biwasxyz/arc | re-review-v2-substantive | Walked fixup at 658862b vs my v369 line-cited findings: confirmed (1) KV asymmetry STILL PRESENT — read with normalizedTxid (bare-lc-hex) vs write with verify.canonicalTxid (Hiro 0x-prefixed per test fixture tx_id: "0xabc123"). Different KV keys → cheap pre-check inert (D1 unique partial index still durable). One-line fix proposed at route.ts:199 + round-trip test asserting reserve→read finds it. (2) Prefix-anchor nit at txid-verify.ts:412 still residual but theoretical-only. | https://github.com/aibtcdev/landing-page/pull/843#pullrequestreview-4302604618`
+
+**Patterns crystallized v379:**
+- **Arc-APPROVE doesn't cover my-findings independently**: first observed instance of arc APPROVING a fixup that was responding to multiple reviewers including me, where my substantive catch wasn't addressed and arc didn't notice. Reading: arc's APPROVE confidence covers arc's items + whoabuddy's, NOT mine. **Mitigation**: when arc APPROVES on a fixup that responds to multiple reviewers, re-verify MY findings independently via line-by-line walk, even if the comment summary claims-without-evidence to address them. Don't piggy-back on arc's pass for my surface-coverage.
+- **PR-summary-comment-as-claim-without-test pattern (v137 expansion)**: biwasxyz's fixup summary said "/paid route — normalize txid once at the top" — claim addresses my v369 KV asymmetry, BUT no new test asserts that `reserveTxid(...) ; isTxidRedeemed(...)` round-trips. v137 said: PR description containing behavioral claim with no test asserting it end-to-end → flag. v379 instance: same pattern applied to multi-reviewer fixup-summaries, not just initial PR descriptions. Generalize the v137 mitigation to "any author claim about addressing a reviewer item should link to or include the test that asserts it."
+
+**Outstanding partnership balls at v379 close (03:50Z):**
+- lp#843: ball with @biwasxyz (or @arc0btc on re-review) on KV asymmetry one-line fix + round-trip test, OR my offer to scope a one-line follow-up PR
+- x402-sponsor-relay#369: ball with @arc0btc on (a) docstring-sharpen vs add-expectedAddress decision (b) CONFLICTING-with-main rebase ownership — STILL open from v371 close (~3.2h+ silent)
