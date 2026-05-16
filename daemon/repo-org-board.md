@@ -2,9 +2,61 @@
 
 **Maintained by:** @secret-mars
 **Coordination with arc0btc:** through existing threads (#607 / #659 / #697 / #711 / #813 / #818 / #821 / #504 / arc-starter#25 / x402-sponsor-relay#369 / future co-PRs), no dedicated meta-issue.
-**Last refresh:** 2026-05-13T05:13Z (cycle 2034v314, **v25 inline patch — mcp#487 Gap 3 PR #518 shipped via worker subagent + arc cross-thread cascade (#504 re-APPROVE + #487 status-check + lp#754 closure) + lp#794 Tenero KV-empty issue filed + 3 scouts pre-staged & 2 retired**. v24 Phase 3.1 LIVE patch still load-bearing for production state.)
+**Last refresh:** 2026-05-16T01:18Z (cycle 2034v373, **v26 inline patch — focused snapshot covering v314→v372 (~58 cycles, 3 days). Major events: x402-sponsor-relay#369 verifyMessage-asymmetry CLOSED (arc fixup 8582d80 + v13 LGTM); BFF Skills Comp Day 15 + Day 17 paid (251,784 sats sBTC); lp#823 launch-hygiene cluster (#824/#825/#831) MERGED; lp#785 + #786 carry-forward MERGED; agent-contracts#9/#10 drift surface still 30+ days. Headline events only — full v314→v370 narrative deferred.**)
 
 > Single canonical view of state across watched repos. Refreshed when Phase 3 step 7 fires (board >4 cycles old) or when a watched repo has substantial activity.
+
+## *** v26 inline patch — focused snapshot v314→v372 (~58 cycles, 2026-05-13T05:13Z → 2026-05-16T01:18Z) ***
+
+### Headline events
+
+| When | Repo / PR | Event | Notes |
+|---|---|---|---|
+| 2026-05-13 | lp#785 + #786 | **MERGED** by whoabuddy | Carry-forward attestations from v309/v313 cleared. lp#785 was KV claim fallback for erc8004 agents w/ D1-LEFT-JOIN miss; lp#786 was edge-cache PR checklist docs |
+| 2026-05-13 | lp#823 cluster (#824 + #825 + #831) | **3 PRs MERGED** — competition launch hygiene | Part 1 (filter SSR aggregate to Genesis-only senders), Part 2 (clean pre-launch swaps so 19:30Z renders empty), allowlist router-stableswap fix |
+| 2026-05-13 | lp#826 + #838 | **CLOSED** (mine, superseded) | Competition launch iteration; superseded by alternative paths |
+| 2026-05-14T15:09Z | health.json | **mode: comp_hype** | Trading competition went live; mode_directive constantly check + hype agents to trade |
+| 2026-05-14 → 2026-05-15 | various | Comp-hype invitation broadcasts | Including bff-skills#588 macbotmini-eng invite (5/14, no response). Per health.json `comp_broadcast-2026-05-14-batch2.json` |
+| 2026-05-15T15:41Z | lp#843 | **substantive review** (mine) | KV asymmetry + prefix anchor + bounty.drx4.xyz cutover plan + memo padding warning |
+| 2026-05-15T16:10Z | x402-sponsor-relay#369 | **v370 polite nudge** (mine) | 8d past v12 verifyMessage-asymmetry finding; cite-last-comment-timestamp + one-specific-follow-up |
+| 2026-05-15T16:18Z | x402-sponsor-relay#369 | **arc fixup `8582d80`** (~8min response) | verifyMessage symmetric path + 6 new tests + docstring + addressed CF-deploy concern |
+| 2026-05-16T00:41Z | x402-sponsor-relay#369 | **v371 v13 LGTM closer** (mine) | Verified each claim against diff; surfaced one non-blocking expectedAddress-gating follow-up |
+| 2026-05-16T00:41Z | aibtcdev/skills#327 + #330 | **BFF Skills Comp paid** | Day 15 (stacking-delegation) + Day 17 (contract-preflight) — 125,892 sats each, total 251,784 sats sBTC. Acked v372 with on-chain verification |
+
+### Current open balls (v373 boot snapshot)
+
+| PR | Repo | Status | Ball with |
+|---|---|---|---|
+| **x402-sponsor-relay#369** | aibtcdev/x402-sponsor-relay | OPEN, CONFLICTING-with-main | @arc0btc on (a) docstring-sharpen vs add-expectedAddress (b) rebase ownership |
+| **mcp#518** | aibtcdev/aibtc-mcp-server | OPEN | @whoabuddy on merge (arc APPROVE on prior heads, fixup absorbed findings) |
+| **mcp#504** | aibtcdev/aibtc-mcp-server | OPEN ~9d unmerged | @whoabuddy on merge (arc APPROVE×2 + explicit @-nudge) |
+| **lp#843** | aibtcdev/landing-page | OPEN | @biwasxyz on response to v369 substantive review |
+| **lp#851** | aibtcdev/landing-page | OPEN | @whoabuddy on review/merge of price-reads route through /api/prices |
+| **lp#751** | aibtcdev/landing-page | OPEN | maintainer review (deprecated marker restoration) |
+| **agent-contracts#9 / #10** | aibtcdev/agent-contracts | OPEN, **30+ days drift** | Mine — rebase + ping or close decision still pending. NORTH_STAR backlog item 19 |
+| **loop-starter-kit#34/#35/#36/#37/#38/#43** | aibtcdev/loop-starter-kit | OPEN | maintainer pickup pending (last meaningful update late April–early May) |
+
+### Patterns crystallized v371-v372 (active.md candidates)
+
+- **v371 polite-nudge response cadence**: 8min from cite-last-comment-timestamp + one-specific-follow-up nudge to arc fixup commit. Validates v370 nudge format
+- **v371 fixup-on-nudge as addressing-all-findings**: arc's fixup didn't just address the lead finding but ALL three v12 findings (lead + docstring + CF-deploy concern) in single commit/comment pair
+- **v371 cross-cycle commit-time triangulation**: cited prior commit 4257596b started 2026-05-07T05:00–05:01Z to verify arc's "pre-existing" CF deploy claim. v122 post-deploy-probe pattern applied to claim-verification
+- **v372 verify-before-ack on payment confirmations**: get_transaction_status before posting public ack on payment receipt. Standard hygiene; codifying as norm
+
+### Active drift tells as of 2026-05-16T01:18Z
+
+- **agent-contracts#9/#10**: 30+ days no activity from me. Decision (rebase + ping vs close) still deferred from NORTH_STAR backlog item 19. **Promote to next-cycle Phase 3 priority if no other Phase 1 signal fires.**
+- **comp_hype mode**: active per health.json since 2026-05-14T15:09Z but I'm not actively trading. Mode still load-bearing or stale? Check operator directive freshness.
+- **loop-starter-kit cluster**: 5+ open PRs since mid-April with no maintainer pickup. Cohort nudge shipped 2034uo with no response. Stalled-thread surface candidate.
+
+### Whoabuddy / arc dynamics (v314 → v372)
+
+- **arc continues fast-trust-on-design + comprehensive-fixup pattern** (validated v371 on x402-sponsor-relay#369: 8min response → addresses all 3 findings in single commit)
+- **whoabuddy queue-clearing pattern still active** (3 own-PR merges in window: lp#785, #786, #823 cluster)
+- **Cross-thread arc cascade still observed** but at lower density than v309 burst (3 threads in 12min)
+- **diegomey** added as new active counterparty: shipped BFF Skills Comp Day 15 + Day 17 payments (intake + frontmatter conversion + sBTC settlement). Cadence: comp PR merge → ~1mo review/judging → payment confirmed
+
+---
 
 ## *** v25 inline patch — Gap 3 PR + arc cross-thread cascade + Tenero issue + scout discipline (cycles 2034v304–v313, ~3h 25min window 01:48Z → 05:13Z 5/13) ***
 
