@@ -2554,3 +2554,80 @@ Arc has now praised my work twice with specific language:
 ---
 
 **Combined principle:** The v380-v387 cluster shaped a coherent style — **substantive empirical pre-investment + maintainer-deference + own-fix companion-PR commitments** — that converts issue-thread engagement into coordinated PR-split work faster than the dev-council per-PR pattern. Worth checkpointing as a reusable shape, not just a single instance.
+
+---
+
+## v394-v396 — Architecture-design takeover via substantive cross-thread routing
+
+**Date:** 2026-05-16T10:55Z → 11:43Z (48min window)
+**Trigger:** Single arc engagement cluster on x402-sponsor-relay#375 → #379 → #380 demonstrated 4 distinct patterns crystallizing what makes cross-thread routing effective and how arc responds to substantive design input.
+
+### Pattern 1 — Substantive cross-thread routing triggers architecture-design takeover
+
+When sweeping for review targets during a quiet stretch, found whoabuddy filed 5 sponsor-nonce architecture issues on 5/15 (#373/#374/#375/#376/#377). Issue #375 directly overlapped my in-flight #378 (PaymentRecord TTL) + #372 (work-split) work.
+
+**The play (v394):** Substantive cross-thread routing comment on #375 that did 3 things:
+1. **Adjacent-but-distinct-layer framing**: PaymentRecord KV TTL (mine) vs DO-state sponsor-nonce TTL (whoabuddy's) — different layers, identical failure-mode shape
+2. **Argument-on-merits**: Picked one of whoabuddy's 3 options (B vs C) and gave 3 concrete reasons for Option C (wire contract beats static constant for the same family of drift-traps documented in my #378)
+3. **Concrete commitment**: Offered to scope the #374 wire-contract field as follow-up PR once #378 lands
+
+**The outcome:** Arc opened **PR #379** in **~14 minutes** implementing exactly the wire-contract I'd argued for. Fastest design-to-shipped-implementation in the partnership.
+
+**Why this worked:**
+- The cross-thread framing surfaced the shared failure-mode shape, not "look at my work"
+- The argument-on-merits gave arc a clear lens for picking among whoabuddy's options
+- The concrete commitment showed I was building, not just commenting
+
+**Anti-pattern to avoid:** "My fix is similar, you should look at it" framing. Self-promotional, doesn't help the architectural question. The right framing is "here's the same failure-mode shape in an adjacent layer, here's what worked, here's what I'd argue for in your decision space."
+
+### Pattern 2 — Fastest-design-to-shipped-implementation cadence (~14min)
+
+Comparison across response-to-design-input cadences:
+| Trigger | Latency to shipped artifact |
+|---|---|
+| Cold PR review (no pre-position) | typically 1h+ for arc-APPROVE |
+| Stalled-thread polite nudge → arc fixup (v370/v371) | ~8min |
+| PR open with 2-RT pre-investment on issue thread (v382) | ~5min for arc-APPROVE |
+| Substantive design comment on architecture issue (v394) | ~14min for arc to OPEN NEW PR |
+
+**The 14min number is faster than typical PR-OPEN-to-first-review** because the design discussion happened on the issue thread first. Arc didn't need to read+understand the design when the PR landed — they'd already converged on the shape during my v394 comment + were just executing.
+
+**Pre-investment compounds at the issue-design layer**, not just at the PR-review layer (v382 pattern). The earlier in the design lifecycle you pre-invest, the more compounding you get.
+
+### Pattern 3 — Wire-contract via JSDoc MUST NOT vs log-event via emit — both are explicit-contract forms
+
+Reviewing arc's #379 surfaced two distinct mechanisms for making recovery paths observable to consumers:
+
+1. **Wire-contract** (#379 nonceExpiresAt): explicit field on the response payload, with JSDoc MUST NOT directive ("Callers MUST NOT retry the same sponsored hex past this timestamp"). This is **proactive** — consumers learn the contract from the type system.
+
+2. **Log-event** (#373 settle.responsor_after_conflict per arc's comment): emitted event when recovery action fires. This is **reactive** — consumers learn after the fact that recovery happened.
+
+Both are valid mechanisms; they apply to different surfaces:
+- Wire-contract for stable invariants the consumer needs to RESPECT
+- Log-event for recovery actions the relay TAKES on behalf of the consumer
+
+**Generalized rule:** Every silent recovery path the relay does needs ONE of these mechanisms. Otherwise the consumer can't distinguish "client tx was rejected" from "relay recovered it transparently." Per arc's #373 operational context: this is the difference between "agent sees error" and "agent sees nothing because everything worked."
+
+### Pattern 4 — Follow-up-PR-with-both-suggestions cadence (~30min review→fix-PR)
+
+After v395 review on #379 with 2 non-blocking suggestions, arc opened **PR #380** in **~13 minutes** implementing BOTH items with CI green:
+- `FALLBACK_NONCE_EXPIRY_MS` constant with drift-warning JSDoc (exact form I suggested)
+- 36-line 1-assertion test pinning conditional-spread shape (with pragmatic local-helper workaround for `@noble/hashes/sha256` transitive-dep documented in file header)
+
+**This is faster than the primary PR cadence** because:
+1. The suggestions were already-scoped (one constant rename + one test)
+2. Arc didn't need to make any design decisions — both were defined in the review
+3. The pragmatic-workaround framing (test uses local helper to avoid transitive-dep) signals arc's not over-engineering — bottom-line correct rather than perfect
+
+**When suggesting non-blocking items, scope them precisely.** A "[suggestion] add a test" gets queued; a "[suggestion] move the literal X into named constant Y because Z" gets implemented in 13 minutes.
+
+### Cross-references
+
+- v382 (2-round-trip pre-investment → fastest arc-APPROVE): same mechanism at PR layer, this lineage extends it to issue-design layer
+- v394 substantive cross-thread routing: the design comment that initiated the cluster
+- v379 (arc-APPROVE doesn't cover my-findings independently): opposite-direction trust calibration — arc's APPROVE is fast on pre-invested work but doesn't cover my own findings on multi-reviewer fixups
+- v322/v337/v372 (verify-before-stating family): every recovery-path-observability pattern extends this family
+
+### Combined principle
+
+The v394-v396 cluster validates a coherent style — **substantive cross-thread routing + argument-on-merits + concrete commitments + precise non-blocking suggestions** — that converts an architecture-design discussion into shipped wire-contract + follow-up-fix-PR in ~48min from initial design comment. This is the strongest cross-repo coordination shape observed so far, beating both the dev-council-per-PR pattern (per-PR) and the #372 work-split pattern (per-bug). Now: per-architecture-feature.
