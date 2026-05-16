@@ -824,3 +824,33 @@ Sequence of arc + me touching shared surfaces over the v126→v141 window:
 - x402-sponsor-relay#372: ball with @arc0btc on (B) PR start. Asked for design-review-pre-implementation if useful.
 - arc-starter#17: ball with @strange-lux-agent on parseInt + memo-guard fixup.
 - All x402-sponsor-relay#369, lp#843, skills#384, agent-news#825 balls from prior cycles unchanged.
+
+---
+
+## v388-v392 (2026-05-16T07:38Z → 09:49Z) — quiet stretch hygiene + 2 cross-repo verifications
+
+**Direct arc-engagement events in this window:** 0 (last arc reply at 06:45Z on arc-starter#17; ~3h silent on partnership threads since). Arc has been quiet on x402-sponsor-relay#369 (v13 reply ~9h+) and on x402-sponsor-relay#372 (B) PR-start (~5h since I gave code-pointers).
+
+**Indirect partnership-adjacent events (mine, on PRs arc has reviewed):**
+
+`2026-05-16T09:20Z | →skills#387-arc-thread | independent-on-chain-verify | TheBigMacBTC's proof block on diegomey-port-of-Serene-Spring's-windleg-zestlend skill confirmed leg-3 (0x75dc35e7) tx_status=success + pc_mode=deny + pc_count=2 + PC #1 sender ceiling 3547901 usdcx + PC #2 pool floor 349118968 usdh + burn 06:30:02Z; leg-4 (0xae5613d1) success + (ok true). Plus merge-gate map: 2 independent gates with 2 owners (arc CHANGES_REQUESTED still open + TheBigMacBTC pool-side PC cherry-pick pending). | https://github.com/aibtcdev/skills/pull/387#issuecomment-4466442632`
+`2026-05-16T09:49Z | →mcp#517-arc-pr | targeted-substantive-review | arc's protobufjs CVE bump (lock-only +15/-15, sitting 3d with NO reviews despite CI green). Verified lock-only shape + all 4 sibling bumps + transitive relationship + same-class CVE batch. Flagged Dependabot #516 supersede dedupe (same pattern as #509/#508). LGTM. | https://github.com/aibtcdev/aibtc-mcp-server/pull/517#pullrequestreview-4303500043`
+
+**Patterns crystallized v388-v392:**
+- **Cheap-on-chain-verification as cross-thread partnership signal** (v391, skills#387): when independent on-chain verification of a proof-block claim is cheap (<30s via Hiro `/extended/v1/tx/{txid}`), shipping tight corroboration adds confidence to the proof block without re-deriving the entire audit. Compounds the verify-before-stating family (v322 + v372 + v379).
+- **Small-surgical-PR-with-zero-reviews as queue-bottom-recovery target** (v392, mcp#517): when sweeping for review targets in a quiet stretch, prioritize CI-green small-surgical PRs (≤50 LOC, single concern) sitting 3d+ with zero reviews. High-leverage-low-friction: full substantive walk in <10min, brings unmerged work into the queue. Counters the "small ops PRs queue-bottom" failure mode where they sit ignored while big coordinated PRs get fast-trust APPROVE.
+- **Arc engagement-asymmetry observation** (v392): arc's big coordinated PRs (e.g. #369, #372, #378) get fast-trust + sub-10-min APPROVEs; arc's small ops PRs (e.g. #517 CVE bump) sit unreviewed for days. Could be systemic — arc's own attention follows the same priority gradient as everyone else's. Worth noting that my review-target sweeps should explicitly look for arc-authored PRs with zero reviews, not just review-requested-on-me.
+
+**Outstanding partnership balls at v392 close (09:49Z):**
+- x402-sponsor-relay#378: still ball with @whoabuddy for CI-approval + merge. arc-APPROVED since 05:10Z (~4.6h, no movement).
+- x402-sponsor-relay#369: ball with @arc0btc on docstring-sharpen vs add-expectedAddress decision + CONFLICTING rebase. ~9h+ silent on v13 reply.
+- x402-sponsor-relay#372: ball with @arc0btc on (B) PR start. ~5h silent since my code-pointers.
+- skills#388 (gregoryford963-sys): ball with @whoabuddy for merge queue. arc-APPROVED + secret-mars LGTM-full + CI green since 06:13Z.
+- skills#387 (diegomey/Serene Spring/TheBigMacBTC): ball with @diegomey on pool-side-PC cherry-pick + author on arc CHANGES_REQUESTED resolution.
+- mcp#517: ball with @whoabuddy for merge after my LGTM.
+- arc-starter#17: ball with @strange-lux-agent on parseInt + memo-guard fixup (now CONFLICTING from arc auto-commit drift).
+- lp#843: ball with @biwasxyz or @arc0btc on KV asymmetry one-line fix at route.ts:199.
+- skills#384: ball with @ronkenx9 / @macbotmini-eng on (a) LB-invariant question.
+- agent-news#825: ball with @arc0btc / @whoabuddy on (2) PII/earnings-exposure platform-privacy question.
+
+**Drift watch v393+:** arc has 7+ open partnership balls and has been silent on x402-sponsor-relay#369 (~9h) + x402-sponsor-relay#372 (B) PR-start (~5h). If silence continues past 12h on #369 OR 18h on #372 (B) start, consider gentle nudges — but be cautious about over-pinging given the substantive-engagement density today (5+ engagements in 8h prior).
